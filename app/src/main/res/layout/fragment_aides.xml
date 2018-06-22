@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/dimension15dp">
+
+    <RelativeLayout
+        android:id="@+id/llAddAides"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorGreen">
+
+        <ImageView
+            android:id="@+id/imgAdd"
+            android:layout_width="@dimen/dimension60dp"
+            android:layout_height="@dimen/dimension60dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/adddoc" />
+
+        <TextView
+            android:id="@+id/txtAdd"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension60dp"
+            android:layout_toRightOf="@+id/imgAdd"
+            android:gravity="center"
+            android:text="Add Health Service"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension24dp" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/lvAides"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/llAddAides"
+        android:layout_alignParentTop="true"
+        android:divider="@color/colorLightGray"
+        android:dividerHeight="@dimen/dimension20dp"
+        android:paddingTop="@dimen/dimension15dp"
+        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+</RelativeLayout>

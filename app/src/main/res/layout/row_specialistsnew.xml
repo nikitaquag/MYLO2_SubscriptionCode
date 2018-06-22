@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimension10dp"
+        android:background="@drawable/gray_white_border">
+
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="@dimen/dimension45dp"
+            android:layout_height="@dimen/dimension45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:padding="@dimen/dimension5dp"
+            android:src="@drawable/contact" />
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dimension10dp"
+            android:layout_toRightOf="@+id/imgLogo"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimension20dp"
+            android:paddingLeft="@dimen/dimension20dp"
+            android:text="hjghjsd jkhjkns gfs"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension20dp" />
+
+        <ImageView
+            android:id="@+id/imgForword"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/dimension5dp"
+            android:padding="@dimen/dimension5dp"
+            android:src="@drawable/forword" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension2dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorBlue"
+        android:visibility="gone"></View>
+</RelativeLayout>

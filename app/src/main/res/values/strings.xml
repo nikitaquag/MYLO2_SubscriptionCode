@@ -1,3 +1,57 @@
 <resources>
-    <string name="app_name">MindYourLovedOnes</string>
+    <string name="app_name">Mind Your Loved Ones</string>
+    <string name="title_activity_medical_appoint">MedicalAppointActivity</string>
+    <string name="header_title">Mind Your Loved Ones</string>
+    <string name="msg">Mobile Tech for Seniors and their Families<html></html></string>
+    <string name="msgstay">Stay Connected<html></html></string>
+    <string name="numOfYear">Number of Years &amp; When\nStopped (if applicable)</string>
+
+    <string name="LivingMsg"></string>
+    <string name="signup_appname"><![CDATA[ By creating an account, you agree to<br/>Mind Your Loved Ones<sup><small>TM</small></sup> (“MYLO<sup><small>TM</small></sup>”)]]></string>
+
+    <string name="FullAppname"><![CDATA[Mind Your Loved Ones<sup><small>TM</small></sup>]]></string>
+    <string name="ShortAppname"><![CDATA[MYLO<sup><small>TM</small></sup>]]></string>
+    <string name="MergedAppname"><![CDATA[Mind Your Loved Ones<sup><small>TM</small></sup> (MYLO<sup><small>TM</small></sup>)]]></string>
+
+    <string name="signupt1"><![CDATA[ PRIVACY!  This App is Native to Your Phone. This means all information resides on your smartphone and NOT on our server.  We do not transmit or receive data between your phone and our server. ]]></string>
+    <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
+    <string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name and email address.</u>]]></string>
+
+    <string name="connection_info"> <![CDATA[
+Step 1.
+        To <b>add</b>
+        a Profile click the
+        <b>plus</b>
+        box. You will see two options :
+        <b>Create New</b>
+         and
+        <b>Import From Dropbox</b><br><br>
+Step 2.
+ <ul style="list-style-type:square">
+         <li>&nbsp;<b>Create New : </b>
+         You will be brought to the Personal Information Screen. If the person is in your <b>Contacts</b>
+         then click the gray bar on the top right side of your screen to load information.</li>
+          <li>&nbsp;<b>Import From Dropbox : </b>
+         Using this feature you can restore the previous profile from your
+         <b>Dropbox</b>.</li>
+</ul>
+Step 3.  Add as much or as  little information as you want.  <br><br>
+
+Step 4.  When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b> <br><br>
+
+Step 5.  TO <b>SHARE</b> A PROFILE. <b>Long press</b> on the profile box. <br><br>
+
+Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><br>]]>
+
+   </string>
+    <string name="ftu"><u>First Time User Instructions</u></string>
+    <string name="guide"><u>Guideline for add Card</u></string>
+
+    <!-- <string-array name="specialist_arrays">
+        <item>Insurance</item>
+        <item>Doctors</item>
+        <item>Health Aides</item>
+        <item>Finance and Legal</item>
+    </string-array>-->
+
 </resources>

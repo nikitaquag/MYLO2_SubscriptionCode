@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    tools:context="com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:background="@color/colorBlue">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:src="@drawable/backward_arrow" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:text="Business Card"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension22dp" />
+
+        <ImageView
+            android:id="@+id/imgDone"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/check_mark"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgDot"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:padding="@dimen/dimension2dp"
+            android:src="@drawable/upload" />
+
+    </RelativeLayout>
+
+    <com.mindyourlovedones.healthcare.customview.TouchImageView
+        android:id="@+id/imgDoc"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/imd_doc" />
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="@dimen/dimension40dp"
+        android:layout_height="@dimen/dimension40dp"
+        android:layout_below="@+id/imgDoc"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/delete_icon"
+
+        />
+
+</RelativeLayout>

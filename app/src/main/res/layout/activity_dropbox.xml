@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:background="@color/colorSix">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:src="@drawable/backward_arrow" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:text="DropBox"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension22dp" />
+
+        <ImageView
+            android:id="@+id/imgDone"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/check_mark"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgDot"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/info_white" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlDrop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:padding="@dimen/dimension20dp">
+
+        <ImageView
+            android:id="@+id/imgDrop"
+            android:layout_width="@dimen/dimension100dp"
+            android:layout_height="@dimen/dimension100dp"
+            android:layout_margin="@dimen/dimension20dp"
+            android:src="@drawable/dropbox_big" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/dimension20dp"
+            android:layout_toRightOf="@+id/imgDrop"
+            android:gravity="center"
+            android:text="Dropbox"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension40dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtLogin"
+            android:layout_marginTop="@dimen/dimension20dp"
+            android:background="@color/colorBlue"
+            android:padding="@dimen/dimension10dp"
+            android:text="Login with Dropbox"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp" />
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgDrop"
+            android:layout_margin="@dimen/dimension20dp"
+            android:gravity="center"
+            android:text="Log In With Dropbox account to Access Files"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension20dp" />
+
+        <RelativeLayout
+            android:id="@+id/rlView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnLogin"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnFiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="View Files"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnAdd"
+                android:layout_margin="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="Click on Add File for Add File to your documents"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:background="@color/colorSix"
+                android:padding="@dimen/dimension10dp"
+                android:text="Add Files"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlBackup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnLogin"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnRestore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/btnBackup"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Restore"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Backup"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

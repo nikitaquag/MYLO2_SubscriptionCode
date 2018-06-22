@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/files_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rlBackup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/dimension10dp"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/txtMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Using Backup you can store your images, database, files into zip format to the dropbox server."
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension20dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMsg"
+                android:layout_marginTop="@dimen/dimension40dp"
+                android:background="@color/colorBlue"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/dimension10dp"
+                android:text="Backup Your Data"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension25dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/fab_margin"
+            android:background="@color/colorWhite"
+            android:src="@drawable/backup"
+            android:visibility="gone"
+            app:borderWidth="0dp" />
+    </android.support.design.widget.CoordinatorLayout>
+
+</LinearLayout>

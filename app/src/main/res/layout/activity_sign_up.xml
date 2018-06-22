@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/llSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/llSignhead"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/flProfile"
+                android:layout_toRightOf="@+id/flProfile">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:src="@drawable/ic_back" />
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:src="@drawable/ic_launcher" />
+                <!-- <ImageView
+                 android:id="@+id/imgLogo"
+                 android:layout_width="@dimen/dimension110dp"
+                 android:layout_height="@dimen/dimension100dp"
+                 android:layout_marginTop="@dimen/dimension30dp"
+                 android:src="@drawable/ic_launcher"
+                 android:layout_centerHorizontal="true"
+                 />-->
+                <ImageView
+                    android:id="@+id/imgABA"
+                    android:layout_width="@dimen/dimension80dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension25dp"
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:src="@drawable/aba_logo" />
+            </RelativeLayout>
+
+            <FrameLayout
+                android:id="@+id/flProfile"
+                android:layout_width="@dimen/dimension110dp"
+                android:layout_height="@dimen/dimension110dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension40dp"
+                android:visibility="gone">
+
+                <com.mindyourlovedones.healthcare.customview.RoundedImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_height="@dimen/dimension100dp"
+                    android:src="@drawable/ic_profile_defaults" />
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_gravity="top|right"
+                    android:src="@drawable/ic_edit_blue" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtLoginVia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/flProfile"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension5dp"
+                android:padding="@dimen/dimension10dp"
+                android:text="Feeling Lazy? Sign up via"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/llLoginVia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtLoginVia"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imgFbSignup"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension30dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/ic_fb" />
+
+                <View
+                    android:layout_width="@dimen/dimension0.5dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGray"></View>
+
+                <ImageView
+                    android:id="@+id/imgGoogleSignup"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimension30dp"
+                    android:layout_weight="1"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/ic_gplu" />
+            </LinearLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llSignhead"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp"
+                app:hintEnabled="false">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilName"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+
+                >
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:maxLength="30"
+                    android:maxLines="2"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="false"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilAddres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilEmail"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:visibility="gone">
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Address"
+                    android:maxLines="2"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilAddres"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:visibility="gone">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtCountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:drawableRight="@drawable/ic_droupdown_arrow"
+                    android:hint="Country"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <com.mindyourlovedones.healthcare.customview.MySpinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilAddres"
+                android:layout_marginLeft="@dimen/dimension35dp"
+                android:layout_marginRight="@dimen/dimension35dp"
+                android:visibility="gone"
+                app:ms_arrowColor="@color/colorBlue"
+                app:ms_arrowSize="16dp"
+                app:ms_floatingLabelText="Country"
+                app:ms_hint="hint"
+                app:ms_multiline="true"
+                custom:ms_floatingLabelColor="@color/colorBlue"
+                custom:ms_hintColor="@color/colorDarkGray" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/spinner"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:visibility="gone">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number"
+                    android:inputType="phone"
+                    android:maxLength="12"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilBdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilPhone"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtBdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:hint="Birth Date"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp"
+                    android:visibility="gone" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilEmail"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:visibility="gone"
+                app:passwordToggleEnabled="true">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:drawableRight="@drawable/show"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+            <!-- <LinearLayout
+                 android:id="@+id/llPassword"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:layout_below="@+id/tilBdate"
+                 >
+             <android.support.design.widget.TextInputLayout
+                 android:id="@+id/tilPassword"
+                 android:layout_width="@dimen/dimension0dp"
+                 android:layout_height="wrap_content"
+                 android:paddingBottom="@dimen/dimension8dp"
+                 android:paddingLeft="@dimen/dimension30dp"
+                 android:layout_weight="75"
+                 >
+                 &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
+                 <AutoCompleteTextView
+                     android:id="@+id/txtPassword"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:hint="Password"
+                     android:inputType="textPassword"
+                     android:maxLength="10"
+                     android:maxLines="1"
+                     android:singleLine="true"
+                     android:textColor="@color/colorPrimaryDark"
+                     android:textSize="@dimen/dimension20dp"
+                     />
+             </android.support.design.widget.TextInputLayout>
+
+                 <android.support.design.widget.TextInputLayout
+                     android:id="@+id/tilPasswordShow"
+                     android:layout_width="@dimen/dimension0dp"
+                     android:layout_height="wrap_content"
+                     android:paddingBottom="@dimen/dimension8dp"
+                     android:paddingRight="@dimen/dimension30dp"
+                     android:layout_weight="30"
+                     >
+                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
+                     <TextView
+                         android:id="@+id/txtPasswordShow"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="SHOW"
+                         android:gravity="right"
+                         android:maxLength="10"
+                         android:maxLines="1"
+                         android:singleLine="true"
+                         android:textColor="@color/colorPrimaryDark"
+                         android:textSize="@dimen/dimension20dp"
+                         />
+                 </android.support.design.widget.TextInputLayout>
+             </LinearLayout>-->
+            <!-- <TextView
+                 android:id="@+id/txtPolicy"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@+id/tilPassword"
+                 android:layout_marginLeft="@dimen/dimension60dp"
+                 android:layout_marginRight="@dimen/dimension60dp"
+                 android:layout_marginTop="@dimen/dimension30dp"
+                 android:gravity="center"
+                 android:text="@string/PolicyText"
+                 android:textColor="@color/colorGrayPolicy"
+                 android:textSize="@dimen/dimension16dp" />-->
+
+            <TextView
+                android:id="@+id/txtPolicy1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilPassword"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textColor="@color/colorGrayPolicy"
+                android:textSize="@dimen/dimension16dp" />
+
+            <RelativeLayout
+                android:id="@+id/rlok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPolicy1"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/txtPolicy2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy Policy"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/dimension16dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtPolicy3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/txtPolicy2"
+                    android:text=" and "
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtPolicy4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/txtPolicy3"
+                    android:layout_toRightOf="@+id/txtPolicy3"
+                    android:text="End User License Agreement"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/dimension16dp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtPolicy5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlok"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp"
+                android:text="All information"
+                android:textColor="@color/colorGrayPolicy"
+                android:textSize="@dimen/dimension16dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rel61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPolicy5"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/img61"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtPolicy61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img61"
+                    android:text="MYLO only has access to your name and email.  It does NOT have access or store any other information you input into this app.Allowing the App (“MYLO”) to access your photos, media, and files or to  make and mange phone calls provides the USER with functionality and a good mobile experience. OUR COMPANY DOES NOT HAVE ACCESS TO YOUR INFORMATION. WE DO NOT TRANSMIT OR RECEIVE DATA BETWEEN YOUR PHONE AND OUR SERVER."
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel61"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension15dp"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/img62"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtPolicy62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img62"
+                    android:text=""
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel62"
+                android:layout_marginBottom="@dimen/dimension80dp"
+                android:layout_marginTop="@dimen/dimension15dp"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/img63"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtPolicy63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img63"
+                    android:text=""
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtPolicy7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rel63"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension15dp"
+                android:gravity="center_horizontal"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp"
+                android:text="Users can decide if they want to add a Password to the data"
+                android:textColor="@color/colorGrayPolicy"
+                android:textSize="@dimen/dimension16dp"
+                android:visibility="invisible" />
+
+
+            <LinearLayout
+                android:id="@+id/llFooter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPolicy7"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtLogin"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension10dp"
+                    android:text="Have Account? Log In"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtForgotPassword"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension10dp"
+                    android:text="Forgot your password?"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txtSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:layout_marginLeft="@dimen/dimension30dp"
+        android:layout_marginRight="@dimen/dimension30dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/selector_white_gray"
+        android:gravity="center"
+        android:text="Sign Up"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimension24dp" />
+</RelativeLayout>

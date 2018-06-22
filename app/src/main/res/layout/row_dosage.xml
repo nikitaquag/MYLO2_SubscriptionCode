@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    android:orientation="horizontal"
+    android:weightSum="10">
+
+    <RelativeLayout
+        android:layout_width="@dimen/dimension0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="8"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtMedicine"
+            style="@style/EmergencyDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLightBlue"
+            android:drawableLeft="@drawable/dot"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:text="7/08/1235 45:52"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
+
+        <TextView
+            android:id="@+id/txtDose"
+            style="@style/EmergencyDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMedicine"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:background="@color/colorLightBlue"
+            android:text="7/08/1235 45:52"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension18dp"
+
+            />
+
+        <TextView
+            android:id="@+id/txtFrequency"
+            style="@style/EmergencyDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMedicine"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/txtDose"
+            android:background="@color/colorLightBlue"
+            android:text="7/08/1235 45:52"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension18dp"
+
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:background="@color/colorWhite"></View>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgEdit"
+        android:layout_width="@dimen/dimension0dp"
+        android:layout_height="@dimen/dimension25dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:src="@drawable/edit"></ImageView>
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="@dimen/dimension0dp"
+        android:layout_height="@dimen/dimension25dp"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:src="@drawable/delete_icon"></ImageView>
+</LinearLayout>

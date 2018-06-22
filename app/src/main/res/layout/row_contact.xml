@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- <RelativeLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         >-->
+    <RelativeLayout
+        android:id="@+id/rlCon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/header"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dimension5dp">
+
+        <com.mindyourlovedones.healthcare.customview.RoundedImageView
+            android:id="@+id/imgConPhoto"
+            android:layout_width="@dimen/dimension60dp"
+            android:layout_height="@dimen/dimension60dp"
+            android:layout_centerVertical="true"
+            android:background="@color/colorLightBlue"
+            android:src="@drawable/ic_profile_defaults" />
+
+        <TextView
+            android:id="@+id/txtConName"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_toLeftOf="@+id/imgForword"
+            android:layout_toRightOf="@+id/imgConPhoto"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="Suzy Jon"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtConName"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_toRightOf="@id/imgConPhoto"
+            android:drawableLeft="@drawable/mobile"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:gravity="top|left"
+            android:padding="@dimen/dimension2dp"
+            android:text="789564132"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension16dp"></TextView>
+
+        <TextView
+            android:id="@+id/txtWPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPhone"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_toRightOf="@id/imgConPhoto"
+            android:drawableLeft="@drawable/tele"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:gravity="top|left"
+            android:padding="@dimen/dimension2dp"
+            android:text="789564132"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension16dp"></TextView>
+
+        <TextView
+            android:id="@+id/txtHPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtWPhone"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_toRightOf="@id/imgConPhoto"
+            android:drawableLeft="@drawable/ofcphone"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:gravity="top|left"
+            android:padding="@dimen/dimension2dp"
+            android:text="789564132"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension16dp"></TextView>
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtHPhone"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginTop="@dimen/dimension2dp"
+            android:layout_toRightOf="@id/imgConPhoto"
+            android:drawableLeft="@drawable/email"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:gravity="top|left"
+            android:padding="@dimen/dimension2dp"
+            android:text="suzy.jkd@gmail.com"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension16dp"></TextView>
+
+        <TextView
+            android:id="@+id/txtAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtEmail"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginTop="@dimen/dimension2dp"
+            android:layout_toRightOf="@id/imgConPhoto"
+            android:drawableLeft="@drawable/markers"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:gravity="top|left"
+            android:padding="@dimen/dimension2dp"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension16dp"></TextView>
+        <!--  <ImageView
+              android:id="@+id/imgForword"
+              android:layout_width="@dimen/dimension40dp"
+              android:layout_height="@dimen/dimension40dp"
+              android:layout_centerVertical="true"
+              android:padding="@dimen/dimension5dp"
+              android:src="@drawable/ic_untick"
+              android:layout_alignParentRight="true"
+              android:layout_margin="@dimen/dimension10dp"
+              />-->
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/rlCon"
+        android:background="@color/colorGray"></View>
+
+</RelativeLayout><!--
+</RelativeLayout>-->
