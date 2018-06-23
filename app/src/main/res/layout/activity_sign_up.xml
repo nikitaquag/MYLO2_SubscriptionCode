@@ -398,13 +398,89 @@
                 android:gravity="center_horizontal"
                 android:text=""
                 android:textColor="@color/colorGrayPolicy"
+                android:textSize="@dimen/dimension16dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtPolicyBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPolicy1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:gravity="center_horizontal"
+                android:text="By creating an account,you agree to"
+                android:textColor="@color/colorGrayPolicy"
                 android:textSize="@dimen/dimension16dp" />
+
+            <RelativeLayout
+                android:id="@+id/llPolicyBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtPolicyBy"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtAgree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:text="Mind Your Loved Ones" />
+
+                <TextView
+                    android:id="@+id/txtTM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtAgree"
+                    android:gravity="top"
+                    android:text="TM"
+                    android:textSize="@dimen/dimension5dp" />
+
+                <TextView
+                    android:id="@+id/txtMYLO"
+                    android:layout_toRightOf="@+id/txtTM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(&quot;MYLO" />
+
+                <TextView
+                    android:id="@+id/txtTM1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginRight="@dimen/dimension2dp"
+                    android:layout_toRightOf="@+id/txtMYLO"
+                    android:gravity="top"
+                    android:text="TM"
+                    android:textSize="@dimen/dimension5dp" />
+
+                <TextView
+                    android:id="@+id/txtQuote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_toRightOf="@+id/txtTM1"
+                    android:gravity="top"
+                    android:text="&quot;"
+                  />
+                <TextView
+                    android:id="@+id/txtBracket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtQuote"
+                    android:text=")" />
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/rlok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPolicy1"
+                android:layout_below="@+id/llPolicyBy"
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal">
