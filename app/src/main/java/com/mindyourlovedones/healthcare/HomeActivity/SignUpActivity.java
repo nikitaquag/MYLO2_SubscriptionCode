@@ -245,6 +245,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         txtPolicy61 = findViewById(R.id.txtPolicy61);
         txtPolicy61.setText(Html.fromHtml(getString(R.string.signupt1)));
+
         txtPolicy62 = findViewById(R.id.txtPolicy62);
         txtPolicy62.setText(Html.fromHtml(getString(R.string.signupt2)));
        /* txtPolicy63 = findViewById(R.id.txtPolicy63);
