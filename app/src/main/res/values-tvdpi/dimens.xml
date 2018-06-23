@@ -1,4 +1,9 @@
 <resources>
+    <dimen name="splash_title">35sp</dimen>
+    <dimen name="splash_sub">20sp</dimen>
+    <dimen name="splash_logo_ht">100dp</dimen>
+    <dimen name="splash_logo_wd">160dp</dimen>
+
     <dimen name="dimension1dp">0.886666666666667dp</dimen>
     <dimen name="dimension2dp">1.77333333333333dp</dimen>
     <dimen name="dimension3dp">2.66dp</dimen>
