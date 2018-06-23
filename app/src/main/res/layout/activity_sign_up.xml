@@ -443,9 +443,9 @@
 
                 <TextView
                     android:id="@+id/txtMYLO"
-                    android:layout_toRightOf="@+id/txtTM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtTM"
                     android:text="(&quot;MYLO" />
 
                 <TextView
@@ -466,8 +466,8 @@
                     android:layout_gravity="top"
                     android:layout_toRightOf="@+id/txtTM1"
                     android:gravity="top"
-                    android:text="&quot;"
-                  />
+                    android:text="&quot;" />
+
                 <TextView
                     android:id="@+id/txtBracket"
                     android:layout_width="wrap_content"
@@ -617,6 +617,55 @@
                     android:layout_toRightOf="@+id/img63"
                     android:text=""
                     android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtMylo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img63"
+                    android:text="MYLO"
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtTM2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtMylo"
+                    android:text="TM"
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension5dp" />
+
+                <TextView
+                    android:id="@+id/txtInc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtTM2"
+                    android:text=",INC."
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtOnly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/txtInc"
+                    android:layout_toRightOf="@+id/txtInc"
+                    android:text="@string/signupt4"
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtMylo"
+                    android:layout_toRightOf="@+id/img63"
+                    android:text="@string/signupt5"
+                  android:textColor="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
             </RelativeLayout>

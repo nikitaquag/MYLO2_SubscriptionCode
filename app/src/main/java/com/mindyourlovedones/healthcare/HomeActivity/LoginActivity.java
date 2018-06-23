@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -94,9 +95,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initUI() {
 
+/*
         String s = getResources().getString(R.string.FullAppname);
         TextView textlogo = findViewById(R.id.txtLogo);
         textlogo.setText(Html.fromHtml(s));
+*/
 
         rlLogin = findViewById(R.id.rlLogin);
         txtSignIn = findViewById(R.id.txtSignIn);
@@ -127,6 +130,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -269,6 +273,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ContextCompat.checkSelfPermission(getApplicationContext(),
@@ -312,6 +317,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {

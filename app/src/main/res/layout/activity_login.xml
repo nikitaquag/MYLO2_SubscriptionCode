@@ -40,7 +40,7 @@
                 android:id="@+id/txtLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
+                android:text="Mind Your Loved Ones"
                 android:textColor="@color/colorLightBlack"
                 android:textSize="@dimen/dimension30dp"
                 android:textStyle="bold" />
@@ -52,9 +52,9 @@
                 android:layout_toRightOf="@+id/txtLogo"
                 android:text="TM"
                 android:textColor="@color/colorLightBlack"
-                android:textSize="@dimen/dimension15dp"
+                android:textSize="@dimen/dimension10dp"
                 android:textStyle="bold"
-                android:visibility="gone" />
+                android:visibility="visible" />
         </RelativeLayout>
 
         <android.support.design.widget.TextInputLayout

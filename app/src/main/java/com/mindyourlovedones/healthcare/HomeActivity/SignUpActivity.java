@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     RelativeLayout llSignUp;
     TextView txtSignUp, txtLogin, txtForgotPassword, txtPolicy2, txtPolicy4, txtPolicy5;
     ImageView imgBack, imgEdit, imgProfile;
-    TextView txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtBdate, txtPassword, txtGender, txtHomePhone, txtPolicy61, txtPolicy62, txtPolicy63;
+    TextView txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtBdate, txtPassword, txtGender, txtHomePhone,txtname,txtOnly ,txtPolicy61, txtPolicy62, txtPolicy63;
     TextInputLayout tilName;
     String name = "", email = "", mobile = "", country = "", bdate = "", password = "", address = "", phone = "";
     Uri imageUriProfile = null;
@@ -247,9 +247,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         txtPolicy61.setText(Html.fromHtml(getString(R.string.signupt1)));
         txtPolicy62 = findViewById(R.id.txtPolicy62);
         txtPolicy62.setText(Html.fromHtml(getString(R.string.signupt2)));
-        txtPolicy63 = findViewById(R.id.txtPolicy63);
-        txtPolicy63.setText(Html.fromHtml(getString(R.string.signupt3)));
+       /* txtPolicy63 = findViewById(R.id.txtPolicy63);
+        txtPolicy63.setText(Html.fromHtml(getString(R.string.signupt3)));*/
 
+      /*  txtOnly=findViewById(R.id.txtOnly);
+        txtOnly.setText(Html.fromHtml(getString(R.string.signupt4)));
+
+        txtname=findViewById(R.id.txtname);
+        txtname.setText(Html.fromHtml(getString(R.string.signupt5)));
+*/
         tilName = findViewById(R.id.tilName);
         txtAddress = findViewById(R.id.txtAddress);
         txtName = findViewById(R.id.txtName);
@@ -764,6 +770,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ContextCompat.checkSelfPermission(getApplicationContext(),
@@ -808,6 +815,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
