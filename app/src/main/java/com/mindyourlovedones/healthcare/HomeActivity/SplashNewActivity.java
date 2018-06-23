@@ -44,7 +44,7 @@ import java.util.TimerTask;
 import io.fabric.sdk.android.Fabric;
 import ss.com.bannerslider.views.BannerSlider;
 
-public class SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
+public class  SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
     static final String TAG = "TrivialDrive";
     //static final String SKU_INFINITE_GAS = "app_subscription"; // $1
     static final String SKU_INFINITE_GAS = "subscribe_app";   //$3.99
@@ -417,9 +417,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
     private void initUI() {
 
-        String s = getResources().getString(R.string.MergedAppname);
-        TextView textlogo = findViewById(R.id.txtHeaders);
-        textlogo.setText(Html.fromHtml(s));
+//        String s = getResources().getString(R.string.MergedAppname);
+//        TextView textlogo = findViewById(R.id.txtHeaders);
+//        textlogo.setText(Html.fromHtml(s));
 
         textMessage = findViewById(R.id.textMessage);
         txtNew = findViewById(R.id.txtNew);

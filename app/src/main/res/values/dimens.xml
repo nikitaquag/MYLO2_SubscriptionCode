@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="splash_title">35sp</dimen>
+    <dimen name="splash_sub">20sp</dimen>
+    <dimen name="splash_logo_ht">100dp</dimen>
+    <dimen name="splash_logo_wd">160dp</dimen>
+
     <dimen name="dimension0dp">0dp</dimen>
     <dimen name="dimension0.5dp">0.5dp</dimen>
     <dimen name="dimension1dp">1dp</dimen>
