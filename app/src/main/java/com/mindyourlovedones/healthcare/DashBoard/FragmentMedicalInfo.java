@@ -447,34 +447,34 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                     ImageView imgEdit = view.findViewById(R.id.imgEdit);
                     ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                   imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                       @Override
-                       public boolean onTouch(View v, MotionEvent event) {
-                           String value = implantsList.get(position);
-                           Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                           allergyIntent.putExtra("IsAllergy", false);
-                           allergyIntent.putExtra("IsHistory", false);
-                           allergyIntent.putExtra("IsImplant", false);
-                           allergyIntent.putExtra("ADD", "ConditionUpdate");
-                           allergyIntent.putExtra("Title", "Update Medical Condition");
-                           allergyIntent.putExtra("Name", "Add Medical Condition");
-                           allergyIntent.putExtra("ConditionObject", value);
-                           startActivityForResult(allergyIntent, REQUEST_CONDITION);
-                           return true;
-                       }
-                   });
-                   imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                       @Override
-                       public boolean onTouch(View v, MotionEvent event) {
-                           boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), implantsList.get(position));
-                           if (flag == true) {
-                               Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                               setConditionData();
-                               ListCondition.requestFocus();
-                           }
-                           return true;
-                       }
-                   });
+                    imgEdit.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            String value = implantsList.get(position);
+                            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+                            allergyIntent.putExtra("IsAllergy", false);
+                            allergyIntent.putExtra("IsHistory", false);
+                            allergyIntent.putExtra("IsImplant", false);
+                            allergyIntent.putExtra("ADD", "ConditionUpdate");
+                            allergyIntent.putExtra("Title", "Update Medical Condition");
+                            allergyIntent.putExtra("Name", "Add Medical Condition");
+                            allergyIntent.putExtra("ConditionObject", value);
+                            startActivityForResult(allergyIntent, REQUEST_CONDITION);
+                            return true;
+                        }
+                    });
+                    imgDelete.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), implantsList.get(position));
+                            if (flag == true) {
+                                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                                setConditionData();
+                                ListCondition.requestFocus();
+                            }
+                            return true;
+                        }
+                    });
 /*
                     imgEdit.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -685,9 +685,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                         ImageView imgEdit = view.findViewById(R.id.imgEdit);
                         ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnClickListener(new View.OnClickListener() {
+                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Implant a = AllargyLists.get(position);
                                 Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                                 allergyIntent.putExtra("IsAllergy", false);
@@ -698,12 +698,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 allergyIntent.putExtra("Name", "Update Medical Implant");
                                 allergyIntent.putExtra("ImplantObject", a);
                                 startActivityForResult(allergyIntent, REQUEST_IMPLANTS);
+                                return true;
                             }
                         });
 
-                        imgDelete.setOnClickListener(new View.OnClickListener() {
+                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Implant a = AllargyLists.get(position);
                                 boolean flag = MedicalImplantsQuery.deleteRecord(a.getId());
                                 if (flag == true) {
@@ -711,8 +712,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                     setImplantData();
                                     ListImplants.requestFocus();
                                 }
+                                return true;
                             }
                         });
+
                     }
                 });
             }
@@ -790,9 +793,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                         ImageView imgEdit = view.findViewById(R.id.imgEdit);
                         ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnClickListener(new View.OnClickListener() {
+                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 History value = HistoryLists.get(position);
                                 Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                                 allergyIntent.putExtra("IsAllergy", false);
@@ -803,18 +806,20 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 allergyIntent.putExtra("Name", "Add Surgical History");
                                 allergyIntent.putExtra("HistoryObject", value);
                                 startActivityForResult(allergyIntent, REQUEST_HISTORY);
+                                return true;
                             }
                         });
 
-                        imgDelete.setOnClickListener(new View.OnClickListener() {
+                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 boolean flag = HistoryQuery.deleteRecord(HistoryLists.get(position).getId());
                                 if (flag == true) {
                                     Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                                     setHistoryData();
                                     ListHistory.requestFocus();
                                 }
+                                return true;
                             }
                         });
                     }
@@ -836,9 +841,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                     ImageView imgEdit = view.findViewById(R.id.imgEdit);
                     ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                    imgEdit.setOnClickListener(new View.OnClickListener() {
+                    imgEdit.setOnTouchListener(new View.OnTouchListener() {
                         @Override
-                        public void onClick(View v) {
+                        public boolean onTouch(View v, MotionEvent event) {
                             String value = hospitalList.get(position);
                             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                             allergyIntent.putExtra("IsAllergy", false);
@@ -849,18 +854,19 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                             allergyIntent.putExtra("Name", "Add Hospital");
                             allergyIntent.putExtra("HospitalObject", value);
                             startActivityForResult(allergyIntent, REQUEST_HOSPITAL);
+                            return true;
                         }
                     });
-
-                    imgDelete.setOnClickListener(new View.OnClickListener() {
+                    imgDelete.setOnTouchListener(new View.OnTouchListener() {
                         @Override
-                        public void onClick(View v) {
+                        public boolean onTouch(View v, MotionEvent event) {
                             boolean flag = HospitalQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), hospitalList.get(position));
                             if (flag == true) {
                                 Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                                 setHospitalData();
                                 ListHospital.requestFocus();
                             }
+                            return true;
                         }
                     });
                 }
@@ -893,9 +899,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                         ImageView imgEdit = view.findViewById(R.id.imgEdit);
                         ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnClickListener(new View.OnClickListener() {
+
+                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Vaccine a = AllargyLists.get(position);
                                 Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                                 allergyIntent.putExtra("IsAllergy", false);
@@ -906,12 +913,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 allergyIntent.putExtra("Name", "Update Immunizations/Vaccines ");
                                 allergyIntent.putExtra("VaccineObject", a);
                                 startActivityForResult(allergyIntent, REQUEST_VACCINE);
+                                return true;
                             }
                         });
 
-                        imgDelete.setOnClickListener(new View.OnClickListener() {
+                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Vaccine a = AllargyLists.get(position);
                                 boolean flag = VaccineQuery.deleteRecord(a.getId());
                                 if (flag == true) {
@@ -919,8 +927,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                     setVaccineData();
                                     ListVaccine.requestFocus();
                                 }
+                                return true;
                             }
                         });
+
                     }
                 });
             }
@@ -952,9 +962,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                         ImageView imgEdit = view.findViewById(R.id.imgEdit);
                         ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnClickListener(new View.OnClickListener() {
+                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Allergy a = AllargyLists.get(position);
                                 Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                                 allergyIntent.putExtra("IsAllergy", true);
@@ -965,12 +975,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
                                 allergyIntent.putExtra("AllergyObject", a);
                                 startActivityForResult(allergyIntent, REQUEST_ALLERGY);
+                                return true;
                             }
                         });
-
-                        imgDelete.setOnClickListener(new View.OnClickListener() {
+                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
                             @Override
-                            public void onClick(View v) {
+                            public boolean onTouch(View v, MotionEvent event) {
                                 Allergy a = AllargyLists.get(position);
                                 boolean flag = AllergyQuery.deleteRecord(a.getId());
                                 if (flag == true) {
@@ -978,6 +988,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                     setAllergyData();
                                     ListAllergy.requestFocus();
                                 }
+                                return true;
                             }
                         });
                     }
