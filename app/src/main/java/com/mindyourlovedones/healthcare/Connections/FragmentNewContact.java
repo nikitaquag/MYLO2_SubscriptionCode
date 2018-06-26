@@ -160,7 +160,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     String[] HospitalType = {"Hospital", "Rehabilitation Center", "Other"};
 
     String[] proxyType = {"Primary - Health Care Proxy Agent", "Successor - Health Care Proxy Agent"};
-    String[] priorityType = {"Primary - Health Care Proxy Agent", "Primary - Emergency Contact", "Secondary - Health Care Proxy Agent", "Secondary - Emergency Contact"};
+    //  String[] priorityType = {"Primary - Health Care Proxy Agent", "Primary - Emergency Contact", "Secondary - Health Care Proxy Agent", "Secondary - Emergency Contact"};
+    String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent",};
 
     Boolean isEdit;
 
@@ -3596,14 +3597,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
             otherRelation = txtOtherRelation.getText().toString();
             note = txtEmergencyNote.getText().toString().trim();
-
-            if (priority.equals("Primary - Health Care Proxy Agent")) {
+/**/
+            if (priority.equals("Primary - Emergency Contact")) {
                 prior = 0;
-            } else if (priority.equals("Primary - Emergency Contact")) {
+            } else if (priority.equals("Primary - Health Care Proxy Agent")) {
                 prior = 1;
-            } else if (priority.equals("Secondary - Health Care Proxy Agent")) {
-                prior = 2;
             } else if (priority.equals("Secondary - Emergency Contact")) {
+                prior = 2;
+            } else if (priority.equals("Secondary - Health Care Proxy Agent")) {
                 prior = 3;
             } else {
                 prior = 4;
