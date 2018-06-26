@@ -1,5 +1,6 @@
 package com.mindyourlovedones.healthcare.DashBoard;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -938,6 +939,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 if (value.length() != 0) {
+                    hideSoftKeyboard();//nikita
                     switch (from) {
                         case "Allergy":
                             //  String reaction=txtReaction.getText().toString();
@@ -1148,6 +1150,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             break;
                     }
                     break;
+
                 } else {
                     Toast.makeText(context, "Value should not be empty", Toast.LENGTH_SHORT).show();
                 }

@@ -34,6 +34,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.Connections.MedAdapter;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.database.AllergyQuery;
@@ -435,81 +436,39 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
+    ArrayList<String> ConditionList = new ArrayList<String>();//nikita
+
     private void setConditionData() {
-        final ArrayList<String> implantsList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (implantsList.size() != 0) {
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, implantsList);
-            ListCondition.setAdapter(adapter);
+        ConditionList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        if (ConditionList.size() != 0) {
+            //nikita
+            MedAdapter md = new MedAdapter(getActivity(), ConditionList, "condition", FragmentMedicalInfo.this);
+            ListCondition.setAdapter(md);
             ListCondition.setVisibility(View.VISIBLE);
-            ListCondition.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                    ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                    ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                    imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            String value = implantsList.get(position);
-                            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                            allergyIntent.putExtra("IsAllergy", false);
-                            allergyIntent.putExtra("IsHistory", false);
-                            allergyIntent.putExtra("IsImplant", false);
-                            allergyIntent.putExtra("ADD", "ConditionUpdate");
-                            allergyIntent.putExtra("Title", "Update Medical Condition");
-                            allergyIntent.putExtra("Name", "Add Medical Condition");
-                            allergyIntent.putExtra("ConditionObject", value);
-                            startActivityForResult(allergyIntent, REQUEST_CONDITION);
-                            return true;
-                        }
-                    });
-                    imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), implantsList.get(position));
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                setConditionData();
-                                ListCondition.requestFocus();
-                            }
-                            return true;
-                        }
-                    });
-/*
-                    imgEdit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            String value = implantsList.get(position);
-                            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                            allergyIntent.putExtra("IsAllergy", false);
-                            allergyIntent.putExtra("IsHistory", false);
-                            allergyIntent.putExtra("IsImplant", false);
-                            allergyIntent.putExtra("ADD", "ConditionUpdate");
-                            allergyIntent.putExtra("Title", "Update Medical Condition");
-                            allergyIntent.putExtra("Name", "Add Medical Condition");
-                            allergyIntent.putExtra("ConditionObject", value);
-                            startActivityForResult(allergyIntent, REQUEST_CONDITION);
-                        }
-                    });
-*/
-
-/*
-                    imgDelete.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), implantsList.get(position));
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                setConditionData();
-                                ListCondition.requestFocus();
-                            }
-                        }
-                    });
-*/
-                }
-            });
         } else {
             ListCondition.setVisibility(View.GONE);
+        }
+    }
+
+    public void conditionEditDelete(int position, int type) {//nikita
+        if (type == 0) {
+            String value = ConditionList.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", false);
+            allergyIntent.putExtra("IsHistory", false);
+            allergyIntent.putExtra("IsImplant", false);
+            allergyIntent.putExtra("ADD", "ConditionUpdate");
+            allergyIntent.putExtra("Title", "Update Medical Condition");
+            allergyIntent.putExtra("Name", "Add Medical Condition");
+            allergyIntent.putExtra("ConditionObject", value);
+            startActivityForResult(allergyIntent, REQUEST_CONDITION);
+        } else {
+            boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), ConditionList.get(position));
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setConditionData();
+                ListCondition.requestFocus();
+            }
         }
     }
 
@@ -660,13 +619,15 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
+    ArrayList<Implant> ImplantsLists = new ArrayList<Implant>();//nikita
+
     private void setImplantData() {
         final ArrayList allergyList = new ArrayList();
-        final ArrayList<Implant> AllargyLists = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (AllargyLists.size() != 0) {
+        ImplantsLists = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        if (ImplantsLists.size() != 0) {
             ListImplants.setVisibility(View.VISIBLE);
             for (int i = 0; i < AllargyLists.size(); i++) {
-                Implant a = AllargyLists.get(i);
+                Implant a = ImplantsLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
                     allergy = "Implant: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate();
@@ -678,98 +639,44 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
-                ListImplants.setAdapter(adapter);
-                ListImplants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                        ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                        ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Implant a = AllargyLists.get(position);
-                                Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                                allergyIntent.putExtra("IsAllergy", false);
-                                allergyIntent.putExtra("IsHistory", false);
-                                allergyIntent.putExtra("IsImplant", true);
-                                allergyIntent.putExtra("ADD", "ImplantUpdate");
-                                allergyIntent.putExtra("Title", "Update Medical Implant");
-                                allergyIntent.putExtra("Name", "Update Medical Implant");
-                                allergyIntent.putExtra("ImplantObject", a);
-                                startActivityForResult(allergyIntent, REQUEST_IMPLANTS);
-                                return true;
-                            }
-                        });
-
-                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Implant a = AllargyLists.get(position);
-                                boolean flag = MedicalImplantsQuery.deleteRecord(a.getId());
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                    setImplantData();
-                                    ListImplants.requestFocus();
-                                }
-                                return true;
-                            }
-                        });
-
-                    }
-                });
+                //nikita
+                MedAdapter md = new MedAdapter(getActivity(), allergyList, "implants", FragmentMedicalInfo.this);
+                ListImplants.setAdapter(md);
+                ListImplants.setVisibility(View.VISIBLE);
             }
         } else {
             ListImplants.setVisibility(View.GONE);
         }
-       /* final ArrayList<String> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (implantsList.size() != 0) {
-
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, implantsList);
-            ListImplants.setAdapter(adapter);
-            ListImplants.setVisibility(View.VISIBLE);
-            ListImplants.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                    ImageView imgEdit = (ImageView) view.findViewById(R.id.imgEdit);
-                    ImageView imgDelete = (ImageView) view.findViewById(R.id.imgDelete);
-                    imgEdit.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                           String value=implantsList.get(position);
-                            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                            allergyIntent.putExtra("IsAllergy", false);
-                            allergyIntent.putExtra("IsHistory", false);
-                            allergyIntent.putExtra("IsImplant", true);
-                            allergyIntent.putExtra("ADD", "ImplantUpdate");
-                            allergyIntent.putExtra("Title", "Update Medical Implant");
-                            allergyIntent.putExtra("Name", "Add Medical Implant");
-                            allergyIntent.putExtra("ImplantObject", value);
-                            startActivityForResult(allergyIntent, REQUEST_IMPLANTS);
-                        }
-                    });
-
-                    imgDelete.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            boolean flag = MedicalImplantsQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),implantsList.get(position));
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                setImplantData();
-                                ListImplants.requestFocus();
-                            }
-                        }
-                    });
-                }
-            });
-        } else {
-            ListImplants.setVisibility(View.GONE);
-        }*/
     }
+
+    public void implantsEditDelete(int position, int type) {  //nikita
+        if (type == 0) {
+            Implant a = ImplantsLists.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", false);
+            allergyIntent.putExtra("IsHistory", false);
+            allergyIntent.putExtra("IsImplant", true);
+            allergyIntent.putExtra("ADD", "ImplantUpdate");
+            allergyIntent.putExtra("Title", "Update Medical Implant");
+            allergyIntent.putExtra("Name", "Update Medical Implant");
+            allergyIntent.putExtra("ImplantObject", a);
+            startActivityForResult(allergyIntent, REQUEST_IMPLANTS);
+        } else {
+            Implant a = ImplantsLists.get(position);
+            boolean flag = MedicalImplantsQuery.deleteRecord(a.getId());
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setImplantData();
+                ListImplants.requestFocus();
+            }
+        }
+    }
+
+    ArrayList<History> HistoryLists = new ArrayList<History>();//nikita
 
     private void setHistoryData() {
         final ArrayList allergyList = new ArrayList();
-        final ArrayList<History> HistoryLists = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        HistoryLists = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (HistoryLists.size() != 0) {
             ListHistory.setVisibility(View.VISIBLE);
             for (int i = 0; i < HistoryLists.size(); i++) {
@@ -782,107 +689,84 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 }
                 allergyList.add(allergy);
             }
-
-            // final ArrayList<History> historList = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             if (allergyList.size() != 0) {
-                ArrayAdapter<History> adapter = new ArrayAdapter<History>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
-                ListHistory.setAdapter(adapter);
+                //nikita
+                MedAdapter md = new MedAdapter(getActivity(), allergyList, "history", FragmentMedicalInfo.this);
+                ListHistory.setAdapter(md);
                 ListHistory.setVisibility(View.VISIBLE);
-                ListHistory.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                        ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                        ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                History value = HistoryLists.get(position);
-                                Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                                allergyIntent.putExtra("IsAllergy", false);
-                                allergyIntent.putExtra("IsHistory", true);
-                                allergyIntent.putExtra("IsImplant", false);
-                                allergyIntent.putExtra("ADD", "HistoryUpdate");
-                                allergyIntent.putExtra("Title", "Update Surgical History");
-                                allergyIntent.putExtra("Name", "Add Surgical History");
-                                allergyIntent.putExtra("HistoryObject", value);
-                                startActivityForResult(allergyIntent, REQUEST_HISTORY);
-                                return true;
-                            }
-                        });
-
-                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                boolean flag = HistoryQuery.deleteRecord(HistoryLists.get(position).getId());
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                    setHistoryData();
-                                    ListHistory.requestFocus();
-                                }
-                                return true;
-                            }
-                        });
-                    }
-                });
             }
         } else {
             ListHistory.setVisibility(View.GONE);
         }
     }
 
+    public void historyEditDelete(int position, int type) {  //nikita
+        if (type == 0) {
+            History value = HistoryLists.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", false);
+            allergyIntent.putExtra("IsHistory", true);
+            allergyIntent.putExtra("IsImplant", false);
+            allergyIntent.putExtra("ADD", "HistoryUpdate");
+            allergyIntent.putExtra("Title", "Update Surgical History");
+            allergyIntent.putExtra("Name", "Add Surgical History");
+            allergyIntent.putExtra("HistoryObject", value);
+            startActivityForResult(allergyIntent, REQUEST_HISTORY);
+        } else {
+            boolean flag = HistoryQuery.deleteRecord(HistoryLists.get(position).getId());
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setHistoryData();
+                ListHistory.requestFocus();
+            }
+        }
+    }
+
+    ArrayList<String> HospitalList = new ArrayList<String>();//nikita
+
     private void setHospitalData() {
-        final ArrayList<String> hospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (hospitalList.size() != 0) {
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, hospitalList);
-            ListHospital.setAdapter(adapter);
+        HospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        if (HospitalList.size() != 0) {
+            //nikita
+            MedAdapter md = new MedAdapter(getActivity(), HospitalList, "hospital", FragmentMedicalInfo.this);
+            ListHospital.setAdapter(md);
             ListHospital.setVisibility(View.VISIBLE);
-            ListHospital.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                    ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                    ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                    imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            String value = hospitalList.get(position);
-                            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                            allergyIntent.putExtra("IsAllergy", false);
-                            allergyIntent.putExtra("IsHistory", false);
-                            allergyIntent.putExtra("IsImplant", false);
-                            allergyIntent.putExtra("ADD", "HospitalUpdate");
-                            allergyIntent.putExtra("Title", "Update Hospital");
-                            allergyIntent.putExtra("Name", "Add Hospital");
-                            allergyIntent.putExtra("HospitalObject", value);
-                            startActivityForResult(allergyIntent, REQUEST_HOSPITAL);
-                            return true;
-                        }
-                    });
-                    imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-                            boolean flag = HospitalQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), hospitalList.get(position));
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                setHospitalData();
-                                ListHospital.requestFocus();
-                            }
-                            return true;
-                        }
-                    });
-                }
-            });
         } else {
             ListHospital.setVisibility(View.GONE);
         }
     }
 
+    public void hospitalEditDelete(int position, int type) {  //nikita
+        if (type == 0) {
+            String value = HospitalList.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", false);
+            allergyIntent.putExtra("IsHistory", false);
+            allergyIntent.putExtra("IsImplant", false);
+            allergyIntent.putExtra("ADD", "HospitalUpdate");
+            allergyIntent.putExtra("Title", "Update Hospital");
+            allergyIntent.putExtra("Name", "Add Hospital");
+            allergyIntent.putExtra("HospitalObject", value);
+            startActivityForResult(allergyIntent, REQUEST_HOSPITAL);
+        } else {
+            boolean flag = HospitalQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(position));
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setHospitalData();
+                ListHospital.requestFocus();
+            }
+        }
+    }
+
+    ArrayList<Vaccine> VaccineLists = new ArrayList<Vaccine>();//nikita
+
     private void setVaccineData() {
         final ArrayList allergyList = new ArrayList();
-        final ArrayList<Vaccine> AllargyLists = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (AllargyLists.size() != 0) {
+        VaccineLists = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        if (VaccineLists.size() != 0) {
             ListVaccine.setVisibility(View.VISIBLE);
-            for (int i = 0; i < AllargyLists.size(); i++) {
-                Vaccine a = AllargyLists.get(i);
+            for (int i = 0; i < VaccineLists.size(); i++) {
+                Vaccine a = VaccineLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
                     allergy = "Vaccine: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate();
@@ -892,56 +776,44 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
-                ListVaccine.setAdapter(adapter);
-                ListVaccine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                        ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                        ImageView imgDelete = view.findViewById(R.id.imgDelete);
-
-                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Vaccine a = AllargyLists.get(position);
-                                Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                                allergyIntent.putExtra("IsAllergy", false);
-                                allergyIntent.putExtra("IsHistory", false);
-                                allergyIntent.putExtra("IsImplant", true);
-                                allergyIntent.putExtra("ADD", "VaccineUpdate");
-                                allergyIntent.putExtra("Title", "Update Immunizations/Vaccines ");
-                                allergyIntent.putExtra("Name", "Update Immunizations/Vaccines ");
-                                allergyIntent.putExtra("VaccineObject", a);
-                                startActivityForResult(allergyIntent, REQUEST_VACCINE);
-                                return true;
-                            }
-                        });
-
-                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Vaccine a = AllargyLists.get(position);
-                                boolean flag = VaccineQuery.deleteRecord(a.getId());
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                    setVaccineData();
-                                    ListVaccine.requestFocus();
-                                }
-                                return true;
-                            }
-                        });
-
-                    }
-                });
+                //nikita
+                MedAdapter md = new MedAdapter(getActivity(), allergyList, "vaccine", FragmentMedicalInfo.this);
+                ListVaccine.setAdapter(md);
+                ListVaccine.setVisibility(View.VISIBLE);
             }
         } else {
             ListVaccine.setVisibility(View.GONE);
         }
     }
 
+    public void vaccineEditDelete(int position, int type) {  //nikita
+        if (type == 0) {
+            Vaccine a = VaccineLists.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", false);
+            allergyIntent.putExtra("IsHistory", false);
+            allergyIntent.putExtra("IsImplant", true);
+            allergyIntent.putExtra("ADD", "VaccineUpdate");
+            allergyIntent.putExtra("Title", "Update Immunizations/Vaccines ");
+            allergyIntent.putExtra("Name", "Update Immunizations/Vaccines ");
+            allergyIntent.putExtra("VaccineObject", a);
+            startActivityForResult(allergyIntent, REQUEST_VACCINE);
+        } else {
+            Vaccine a = VaccineLists.get(position);
+            boolean flag = VaccineQuery.deleteRecord(a.getId());
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setVaccineData();
+                ListVaccine.requestFocus();
+            }
+        }
+    }
+
+    ArrayList<Allergy> AllargyLists = new ArrayList<Allergy>();//nikita
+
     private void setAllergyData() {
         final ArrayList allergyList = new ArrayList();
-        final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (AllargyLists.size() != 0) {
             ListAllergy.setVisibility(View.VISIBLE);
             for (int i = 0; i < AllargyLists.size(); i++) {
@@ -955,47 +827,36 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
-                ListAllergy.setAdapter(adapter);
-                ListAllergy.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                        ImageView imgEdit = view.findViewById(R.id.imgEdit);
-                        ImageView imgDelete = view.findViewById(R.id.imgDelete);
-                        imgEdit.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Allergy a = AllargyLists.get(position);
-                                Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
-                                allergyIntent.putExtra("IsAllergy", true);
-                                allergyIntent.putExtra("IsHistory", false);
-                                allergyIntent.putExtra("IsImplant", false);
-                                allergyIntent.putExtra("ADD", "AllergyUpdate");
-                                allergyIntent.putExtra("Title", "Update Allergy and Medication Reaction");
-                                allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
-                                allergyIntent.putExtra("AllergyObject", a);
-                                startActivityForResult(allergyIntent, REQUEST_ALLERGY);
-                                return true;
-                            }
-                        });
-                        imgDelete.setOnTouchListener(new View.OnTouchListener() {
-                            @Override
-                            public boolean onTouch(View v, MotionEvent event) {
-                                Allergy a = AllargyLists.get(position);
-                                boolean flag = AllergyQuery.deleteRecord(a.getId());
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                                    setAllergyData();
-                                    ListAllergy.requestFocus();
-                                }
-                                return true;
-                            }
-                        });
-                    }
-                });
+                //nikita
+                MedAdapter md = new MedAdapter(getActivity(), allergyList, "allergy", FragmentMedicalInfo.this);
+                ListAllergy.setAdapter(md);
+                ListAllergy.setVisibility(View.VISIBLE);
             }
         } else {
             ListAllergy.setVisibility(View.GONE);
+        }
+    }
+
+    public void allergyEditDelete(int position, int type) {  //nikita
+        if (type == 0) {
+            Allergy a = AllargyLists.get(position);
+            Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+            allergyIntent.putExtra("IsAllergy", true);
+            allergyIntent.putExtra("IsHistory", false);
+            allergyIntent.putExtra("IsImplant", false);
+            allergyIntent.putExtra("ADD", "AllergyUpdate");
+            allergyIntent.putExtra("Title", "Update Allergy and Medication Reaction");
+            allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
+            allergyIntent.putExtra("AllergyObject", a);
+            startActivityForResult(allergyIntent, REQUEST_ALLERGY);
+        } else {
+            Allergy a = AllargyLists.get(position);
+            boolean flag = AllergyQuery.deleteRecord(a.getId());
+            if (flag == true) {
+                Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                setAllergyData();
+                ListAllergy.requestFocus();
+            }
         }
     }
 
