@@ -20,18 +20,19 @@
     <ImageView
         android:id="@+id/imgEdit"
         android:layout_width="@dimen/dimension0dp"
-        android:layout_height="@dimen/dimension55dp"
+        android:layout_height="@dimen/dimension65dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:padding="@dimen/dimension10dp"
+        android:padding="@dimen/dimension0dp"
+        android:layout_marginRight="@dimen/dimension5dp"
         android:src="@drawable/edit"></ImageView>
 
     <ImageView
         android:id="@+id/imgDelete"
         android:layout_width="@dimen/dimension0dp"
-        android:layout_height="@dimen/dimension55dp"
+        android:layout_height="@dimen/dimension65dp"
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
-        android:padding="@dimen/dimension10dp"
+        android:padding="@dimen/dimension0dp"
         android:src="@drawable/delete_icon"></ImageView>
 </LinearLayout>

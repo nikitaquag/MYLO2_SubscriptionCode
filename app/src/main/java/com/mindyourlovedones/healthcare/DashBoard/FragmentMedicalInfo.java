@@ -11,6 +11,7 @@ import android.os.Environment;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -446,6 +447,35 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                     ImageView imgEdit = view.findViewById(R.id.imgEdit);
                     ImageView imgDelete = view.findViewById(R.id.imgDelete);
+                   imgEdit.setOnTouchListener(new View.OnTouchListener() {
+                       @Override
+                       public boolean onTouch(View v, MotionEvent event) {
+                           String value = implantsList.get(position);
+                           Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
+                           allergyIntent.putExtra("IsAllergy", false);
+                           allergyIntent.putExtra("IsHistory", false);
+                           allergyIntent.putExtra("IsImplant", false);
+                           allergyIntent.putExtra("ADD", "ConditionUpdate");
+                           allergyIntent.putExtra("Title", "Update Medical Condition");
+                           allergyIntent.putExtra("Name", "Add Medical Condition");
+                           allergyIntent.putExtra("ConditionObject", value);
+                           startActivityForResult(allergyIntent, REQUEST_CONDITION);
+                           return true;
+                       }
+                   });
+                   imgDelete.setOnTouchListener(new View.OnTouchListener() {
+                       @Override
+                       public boolean onTouch(View v, MotionEvent event) {
+                           boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), implantsList.get(position));
+                           if (flag == true) {
+                               Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                               setConditionData();
+                               ListCondition.requestFocus();
+                           }
+                           return true;
+                       }
+                   });
+/*
                     imgEdit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -461,7 +491,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                             startActivityForResult(allergyIntent, REQUEST_CONDITION);
                         }
                     });
+*/
 
+/*
                     imgDelete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -473,6 +505,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                             }
                         }
                     });
+*/
                 }
             });
         } else {
