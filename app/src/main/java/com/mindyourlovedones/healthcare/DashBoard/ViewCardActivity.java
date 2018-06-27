@@ -49,6 +49,7 @@ public class ViewCardActivity extends AppCompatActivity {
         initComponent();
         init();
 
+
 // method for adding indicators
         addBottomDots(0);
 
