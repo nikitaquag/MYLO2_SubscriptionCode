@@ -455,11 +455,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 //  profileImage.setImageBitmap(selectedImage);
-                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){
+
+                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){//nikita
                     Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
                 }
+
                 // imageLoader.displayImage(String.valueOf(imageUri),imgfrontCard,displayImageOptions);
                 Matrix matrix = new Matrix();
                 if (selectedImage.getHeight() > selectedImage.getWidth()) {
@@ -488,11 +490,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         } else if (requestCode == RESULT_CAMERA_IMAGE1) {
             frontFlag = true;
             try {
-                if(getOrientation(imageUriFront).equalsIgnoreCase("landscape")){
+
+                if(getOrientation(imageUriFront).equalsIgnoreCase("landscape")){//nikita
                     Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
                 }
+
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUriFront);
                 // String imageurl = getRealPathFromURI(imageUriFront);
                 // Bitmap bitmap = imageOreintationValidator(thumbnail, imageurl);
@@ -561,11 +565,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){
+
+                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){//nikita
                     Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
                 }
+
                 //  profileImage.setImageBitmap(selectedImage);
                 //  imageLoader.displayImage(String.valueOf(imageUri),imgBackCard,displayImageOptions);
                 Matrix matrix = new Matrix();
@@ -586,11 +592,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             backFlag = true;
             try {
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUriBack);
-                if(getOrientation(imageUriBack).equalsIgnoreCase("landscape")){
+
+                if(getOrientation(imageUriBack).equalsIgnoreCase("landscape")){//nikita
                     Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
                 }
+
                 // String imageurl = getRealPathFromURI(imageUriBack);
                 // Bitmap bitmap = imageOreintationValidator(thumbnail, imageurl);
                 // imageLoader.displayImage(String.valueOf(imageUriBack),imgBackCard,displayImageOptions);
