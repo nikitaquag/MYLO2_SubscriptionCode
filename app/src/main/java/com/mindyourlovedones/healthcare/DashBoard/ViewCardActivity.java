@@ -24,8 +24,6 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ViewCardActivity extends AppCompatActivity {
     Context context = this;
@@ -63,17 +61,17 @@ public class ViewCardActivity extends AppCompatActivity {
                 } else {
                     page_position = page_position + 1;
                 }
-                vp_slider.setCurrentItem(page_position, true);
+                vp_slider.setCurrentItem(page_position, false);
             }
         };
 
-        new Timer().schedule(new TimerTask() {
+       /* new Timer().schedule(new TimerTask() {
 
             @Override
             public void run() {
                 handler.post(update);
             }
-        }, 100, 2000);
+        }, 100, 2000);*/
 
     }
 
