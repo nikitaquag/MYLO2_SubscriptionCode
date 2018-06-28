@@ -986,7 +986,7 @@
                         android:visibility="gone"
                         app:ms_arrowColor="@color/colorBlue"
                         app:ms_arrowSize="16dp"
-                        app:ms_floatingLabelText="Relationship"
+                        app:ms_floatingLabelText="Priority"
                         app:ms_hint="hint"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"

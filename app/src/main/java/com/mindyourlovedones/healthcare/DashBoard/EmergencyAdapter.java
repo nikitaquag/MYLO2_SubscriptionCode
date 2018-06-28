@@ -45,7 +45,6 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
     Preferences preferences;
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
-
     FragmentEmergency fr;
 
     public EmergencyAdapter(Context context, ArrayList<Emergency> emergencyList, FragmentEmergency fr) {
@@ -158,19 +157,22 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         {
            txtType.setVisibility(View.VISIBLE);
         }*/
-        String[] priorityType = {"", "", "", ""};
+
+       //nikita
+        String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent",};
         if (emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtState.setVisibility(View.GONE);
         } else {
             viewHolder.txtState.setVisibility(View.VISIBLE);
+
             if (emergencyList.get(position).getIsPrimary() == 0) {
-                viewHolder.txtState.setText("Primary - Health Care Proxy Agent");
+                viewHolder.txtState.setText(priorityType[0]); //nikita
             } else if (emergencyList.get(position).getIsPrimary() == 1) {
-                viewHolder.txtState.setText("Primary - Emergency Contact");
+                viewHolder.txtState.setText(priorityType[1]); //nikita
             } else if (emergencyList.get(position).getIsPrimary() == 2) {
-                viewHolder.txtState.setText("Secondary - Health Care Proxy Agent");
+                viewHolder.txtState.setText(priorityType[2]); //nikita
             } else if (emergencyList.get(position).getIsPrimary() == 3) {
-                viewHolder.txtState.setText("Secondary - Emergency Contact");
+                viewHolder.txtState.setText(priorityType[3]); //nikita
             } else if (emergencyList.get(position).getIsPrimary() == 0) {
                 viewHolder.txtState.setText("");
             }

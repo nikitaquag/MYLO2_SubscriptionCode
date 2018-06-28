@@ -371,18 +371,25 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     try {
                         String mobile = "";
                         mobile = Cphone;
-                        mobile = getMobile(mobile);
-                        txtFinanceMobilePhone.setText(mobile);
+                        if (!mobile.isEmpty()) {//nikita
+                            mobile = getMobile(mobile);
+                            txtFinanceMobilePhone.setText(mobile);
+                        }
 
                         String hphone = "";
                         hphone = CHPhone;
-                        hphone = getMobile(hphone);
-                        txtFinanceOtherPhone.setText(hphone);
+                        if (!hphone.isEmpty()) {//nikita
+                            hphone = getMobile(hphone);
+                            txtFinanceOtherPhone.setText(hphone);
+                        }
 
                         String wphone = "";
                         wphone = CWPhone;
-                        wphone = getMobile(wphone);
-                        txtFinanceOfficePhone.setText(wphone);
+                        if (!wphone.isEmpty()) {//nikita
+                            wphone = getMobile(wphone);
+                            txtFinanceOfficePhone.setText(wphone);
+                        }
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -464,13 +471,28 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent specialistIntents = getActivity().getIntent();
                 if (specialistIntents.getExtras() != null) {
                     Pharmacy specialist = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
-                    txtPharmacyName.setText(specialist.getName());
-                    txtPharmacyAddress.setText(specialist.getAddress());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtPharmacyName.setText(specialist.getName());
+                    } else {
+                        txtPharmacyName.setText(Cname);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtPharmacyPhone.setText(specialist.getPhone());
+                    } else {
+                        txtPharmacyPhone.setText(Cphone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtPharmacyAddress.setText(specialist.getAddress());
+                    } else {
+                        txtPharmacyAddress.setText(CAddress);
+                    }
+
                     txtPharmacyWebsite.setText(specialist.getWebsite());
                     txtPharmacyLocator.setText(specialist.getLocator());
                     txtPharmacyFax.setText(specialist.getFax());
-                    txtPharmacyPhone.setText(specialist.getPhone());
                     txtPharmacyNote.setText(specialist.getNote());
+
                     id = specialist.getId();
                     String photo = specialist.getPhoto();
                     imagepath = specialist.getPhoto();
@@ -569,14 +591,40 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (ProxyIntent.getExtras() != null) {
 
                     Proxy rel = (Proxy) ProxyIntent.getExtras().getSerializable("ProxyObject");
-                    txtName.setText(rel.getName());
-                    txtEmail.setText(rel.getEmail());
-                    txtMobile.setText(rel.getMobile());
-                    txtHomePhone.setText(rel.getPhone());
-                    txtWorkPhone.setText(rel.getWorkPhone());
-                    txtAddress.setText(rel.getAddress());
+                    if (Cname.isEmpty()) {//nikita
+                        txtName.setText(rel.getName());
+                    } else {
+                        txtName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtEmail.setText(rel.getEmail());
+                    } else {
+                        txtEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtMobile.setText(rel.getMobile());
+                    } else {
+                        txtMobile.setText(Cphone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtHomePhone.setText(rel.getPhone());
+                    } else {
+                        txtHomePhone.setText(CHPhone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtWorkPhone.setText(rel.getWorkPhone());
+                    } else {
+                        txtWorkPhone.setText(CWPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtAddress.setText(rel.getAddress());
+                    } else {
+                        txtAddress.setText(CAddress);
+                    }
+
                     txtEmergencyNote.setText(rel.getNote());
                     txtOtherRelation.setText(rel.getOtherRelation());
+
                     id = rel.getId();
                     if (!rel.getRelationType().equals("")) {
                         int index = 0;
@@ -639,12 +687,38 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (ProxyIntents.getExtras() != null) {
 
                     Proxy rel = (Proxy) ProxyIntents.getExtras().getSerializable("ProxyObject");
-                    txtName.setText(rel.getName());
-                    txtEmail.setText(rel.getEmail());
-                    txtMobile.setText(rel.getMobile());
-                    txtHomePhone.setText(rel.getPhone());
-                    txtWorkPhone.setText(rel.getWorkPhone());
-                    txtAddress.setText(rel.getAddress());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtName.setText(rel.getName());
+                    } else {
+                        txtName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtEmail.setText(rel.getEmail());
+                    } else {
+                        txtEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtMobile.setText(rel.getMobile());
+                    } else {
+                        txtMobile.setText(Cphone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtHomePhone.setText(rel.getPhone());
+                    } else {
+                        txtHomePhone.setText(CHPhone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtWorkPhone.setText(rel.getWorkPhone());
+                    } else {
+                        txtWorkPhone.setText(CWPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtAddress.setText(rel.getAddress());
+                    } else {
+                        txtAddress.setText(CAddress);
+                    }
+
                     txtEmergencyNote.setText(rel.getNote());
                     txtOtherRelation.setText(rel.getOtherRelation());
                     id = rel.getId();
@@ -755,12 +829,38 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent EmergencyIntents = getActivity().getIntent();
                 if (EmergencyIntents.getExtras() != null) {
                     Emergency rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
-                    txtName.setText(rel.getName());
-                    txtEmail.setText(rel.getEmail());
-                    txtMobile.setText(rel.getMobile());
-                    txtHomePhone.setText(rel.getPhone());
-                    txtWorkPhone.setText(rel.getWorkPhone());
-                    txtAddress.setText(rel.getAddress());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtName.setText(rel.getName());
+                    } else {
+                        txtName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtEmail.setText(rel.getEmail());
+                    } else {
+                        txtEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtMobile.setText(rel.getMobile());
+                    } else {
+                        txtMobile.setText(Cphone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtHomePhone.setText(rel.getPhone());
+                    } else {
+                        txtHomePhone.setText(CHPhone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtWorkPhone.setText(rel.getWorkPhone());
+                    } else {
+                        txtWorkPhone.setText(CWPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtAddress.setText(rel.getAddress());
+                    } else {
+                        txtAddress.setText(CAddress);
+                    }
+
                     txtEmergencyNote.setText(rel.getNote());
                     txtOtherRelation.setText(rel.getOtherRelation());
                     id = rel.getId();
@@ -916,20 +1016,43 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent specialistIntent = getActivity().getIntent();
                 if (specialistIntent.getExtras() != null) {
                     Specialist specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
-                    txtDoctorName.setText(specialist.getName());
-                    txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtDoctorName.setText(specialist.getName());
+                    } else {
+                        txtDoctorName.setText(Cname);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+                    } else {
+                        txtDoctorOtherPhone.setText(CWPhone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
+                    } else {
+                        txtDoctorHourOfficePhone.setText(CHPhone);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtDoctorOfficePhone.setText(specialist.getOfficePhone());
+                    } else {
+                        txtDoctorOfficePhone.setText(Cphone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtDoctorAddress.setText(specialist.getAddress());
+                    } else {
+                        txtDoctorAddress.setText(CAddress);
+                    }
+
                     txtDoctorLastSeen.setText(specialist.getLastseen());
                     txtDoctorLocator.setText(specialist.getLocator());
-                    txtDoctorAddress.setText(specialist.getAddress());
                     txtDoctorWebsite.setText(specialist.getWebsite());
                     txtDoctorFax.setText(specialist.getFax());
-                    txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
-                    txtDoctorOfficePhone.setText(specialist.getOfficePhone());
                     txtAffiliation.setText(specialist.getHospAffiliation());
                     txtPracticeName.setText(specialist.getPracticeName());
                     txtOtherCategoryDoctor.setText(specialist.getOtherType());
                     txtNetwork.setText(specialist.getNetwork());
                     txtDoctorNote.setText(specialist.getNote());
+
                     id = specialist.getId();
                     isPhysician = specialist.getIsPhysician();
                     if (!specialist.getType().equals("")) {
@@ -983,20 +1106,43 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent specialistIntent1 = getActivity().getIntent();
                 if (specialistIntent1.getExtras() != null) {
                     Specialist specialist = (Specialist) specialistIntent1.getExtras().getSerializable("SpecialistObject");
-                    txtDoctorName.setText(specialist.getName());
-                    txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtDoctorName.setText(specialist.getName());
+                    } else {
+                        txtDoctorName.setText(Cname);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+                    } else {
+                        txtDoctorOtherPhone.setText(CWPhone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
+                    } else {
+                        txtDoctorHourOfficePhone.setText(CHPhone);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtDoctorOfficePhone.setText(specialist.getOfficePhone());
+                    } else {
+                        txtDoctorOfficePhone.setText(Cphone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtDoctorAddress.setText(specialist.getAddress());
+                    } else {
+                        txtDoctorAddress.setText(CAddress);
+                    }
+
                     txtDoctorLastSeen.setText(specialist.getLastseen());
                     txtDoctorLocator.setText(specialist.getLocator());
-                    txtDoctorAddress.setText(specialist.getAddress());
                     txtDoctorWebsite.setText(specialist.getWebsite());
                     txtDoctorFax.setText(specialist.getFax());
-                    txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
-                    txtDoctorOfficePhone.setText(specialist.getOfficePhone());
                     txtOtherCategoryDoctor.setText(specialist.getOtherType());
                     txtAffiliation.setText(specialist.getHospAffiliation());
                     txtPracticeName.setText(specialist.getPracticeName());
                     txtNetwork.setText(specialist.getNetwork());
                     txtDoctorNote.setText(specialist.getNote());
+
                     id = specialist.getId();
                     isPhysician = specialist.getIsPhysician();
                     if (!specialist.getType().equals("")) {
@@ -1208,18 +1354,33 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinnerInsuarance.setSelection(index + 1);
                     }
 
+                    if (Cname.isEmpty()) {//nikita
+                        txtInsuaranceName.setText(insurance.getName());
+                    } else {
+                        txtInsuaranceName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtInsuaranceEmail.setText(insurance.getEmail());
+                    } else {
+                        txtInsuaranceEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtInsuarancePhone.setText(insurance.getPhone());
+                    } else {
+                        txtInsuarancePhone.setText(Cphone);
+                    }
+
                     spinnerInsuarance.setDisabledColor(getActivity().getResources().getColor(R.color.colorBlack));
-                    txtInsuarancePhone.setText(insurance.getPhone());
+
                     txtId.setText(insurance.getMember());
                     txtGroup.setText(insurance.getGroup());
                     txtInsuaranceFax.setText(insurance.getFax());
-                    txtInsuaranceEmail.setText(insurance.getEmail());
                     txtAgent.setText(insurance.getAgent());
                     txtWebsite.setText(insurance.getWebsite());
                     txtInsuaranceNote.setText(insurance.getNote());
-                    txtInsuaranceName.setText(insurance.getName());
                     txtSubscribe.setText(insurance.getSubscriber());
                     txtOtherInsurance.setText(insurance.getOtherInsurance());
+
                     id = insurance.getId();
                     String photo = insurance.getPhoto();
                     imagepath = insurance.getPhoto();
@@ -1334,13 +1495,39 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent aidesIntent = getActivity().getIntent();
                 if (aidesIntent.getExtras() != null) {
                     Aides aides = (Aides) aidesIntent.getSerializableExtra("AideObject");
-                    txtAideCompName.setText(aides.getAidName());
-                    txtAideOfficePhone.setText(aides.getOfficePhone());
-                    txtHourOfficePhone.setText(aides.getHourPhone());
-                    txtOtherPhone.setText(aides.getOtherPhone());
+
+                    if (Cname.isEmpty()) {//nikita
+                        txtAideCompName.setText(aides.getAidName());
+                    } else {
+                        txtAideCompName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtAideEmail.setText(aides.getEmail());
+                    } else {
+                        txtAideEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtAideOfficePhone.setText(aides.getOfficePhone());
+                    } else {
+                        txtAideOfficePhone.setText(Cphone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtHourOfficePhone.setText(aides.getHourPhone());
+                    } else {
+                        txtHourOfficePhone.setText(CHPhone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtOtherPhone.setText(aides.getOtherPhone());
+                    } else {
+                        txtOtherPhone.setText(CWPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtAideAddress.setText(aides.getAddress());
+                    } else {
+                        txtAideAddress.setText(CAddress);
+                    }
+
                     txtAideFax.setText(aides.getFax());
-                    txtAideEmail.setText(aides.getEmail());
-                    txtAideAddress.setText(aides.getAddress());
                     txtAideWebsite.setText(aides.getWebsite());
                     txtAideWebsite.setText(aides.getWebsite());
                     txtAideNote.setText(aides.getNote());
@@ -1460,18 +1647,36 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
 
-                    txtFNameHospital.setText(specialist.getName());
-                    txtHospitalOtherPhone.setText(specialist.getOtherPhone());
+                    if (Cname.isEmpty()) {//nikita
+                        txtFNameHospital.setText(specialist.getName());
+                    } else {
+                        txtFNameHospital.setText(Cname);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtHospitalOfficePhone.setText(specialist.getOfficePhone());
+                    } else {
+                        txtHospitalOfficePhone.setText(Cphone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtHospitalOtherPhone.setText(specialist.getOtherPhone());
+                    } else {
+                        txtHospitalOtherPhone.setText(CHPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtHospitalAddress.setText(specialist.getAddress());
+                    } else {
+                        txtHospitalAddress.setText(CAddress);
+                    }
+
                     txtHospitalLastSeen.setText(specialist.getLastseen());
                     txtHospitalLocator.setText(specialist.getLocator());
-                    txtHospitalAddress.setText(specialist.getAddress());
                     txtHospitalWebsite.setText(specialist.getWebsite());
                     txtHospitalFax.setText(specialist.getFax());
-                    txtHospitalOfficePhone.setText(specialist.getOfficePhone());
                     txtHospitalPracticeName.setText(specialist.getPracticeName());
                     txtHospitalNote.setText(specialist.getNote());
                     txtOtherCategoryHospital.setText(specialist.getOtherCategory());
                     txtHospitalLocation.setText(specialist.getLocation());
+
                     id = specialist.getId();
                     if (!specialist.getCategory().equals("")) {
                         int index = 0;
@@ -1597,20 +1802,45 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent financeIntent = getActivity().getIntent();
                 if (financeIntent.getExtras() != null) {
                     Finance specialist = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");
+                    if (Cname.isEmpty()) {//nikita
+                        txtContactName.setText(specialist.getContactName());
+                    } else {
+                        txtContactName.setText(Cname);
+                    }
+                    if (Cemail.isEmpty()) {//nikita
+                        txtFinanceEmail.setText(specialist.getEmail());
+                    } else {
+                        txtFinanceEmail.setText(Cemail);
+                    }
+                    if (Cphone.isEmpty()) {//nikita
+                        txtFinanceMobilePhone.setText(specialist.getHourPhone());
+                    } else {
+                        txtFinanceMobilePhone.setText(Cphone);
+                    }
+                    if (CHPhone.isEmpty()) {//nikita
+                        txtFinanceOtherPhone.setText(specialist.getOtherPhone());
+                    } else {
+                        txtFinanceOtherPhone.setText(CHPhone);
+                    }
+                    if (CWPhone.isEmpty()) {//nikita
+                        txtFinanceOfficePhone.setText(specialist.getOfficePhone());
+                    } else {
+                        txtFinanceOfficePhone.setText(CWPhone);
+                    }
+                    if (CAddress.isEmpty()) {//nikita
+                        txtFinanceAddress.setText(specialist.getAddress());
+                    } else {
+                        txtFinanceAddress.setText(CAddress);
+                    }
 
-                    txtFName.setText(specialist.getName());
                     txtFinanceLocation.setText(specialist.getLocation());
-                    txtFinanceEmail.setText(specialist.getEmail());
-                    txtContactName.setText(specialist.getContactName());
-                    txtFinanceOtherPhone.setText(specialist.getOtherPhone());
+                    txtFName.setText(specialist.getName());
                     txtLastSeen.setText(specialist.getLastseen());
-                    txtFinanceAddress.setText(specialist.getAddress());
                     txtFinanceWebsite.setText(specialist.getWebsite());
                     txtFinanceFax.setText(specialist.getFax());
-                    txtFinanceMobilePhone.setText(specialist.getHourPhone());
-                    txtFinanceOfficePhone.setText(specialist.getOfficePhone());
                     txtFinancePracticeName.setText(specialist.getPracticeName());
                     txtFinanceNote.setText(specialist.getNote());
+
 //                    txtOtherCategory.setText(specialist.getOtherCategory());
                     if (specialist.getOtherCategory() == null || specialist.getOtherCategory().equals("null") || specialist.getOtherCategory().isEmpty()) {
                         txtOtherCategory.setText(specialist.getCategory());
@@ -1797,18 +2027,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         try {
             String mobile = "";
             mobile = Cphone;
-            mobile = getMobile(mobile);
-            txtDoctorOfficePhone.setText(mobile);
+            if (!mobile.isEmpty()) {//nikita
+                mobile = getMobile(mobile);
+                txtDoctorOfficePhone.setText(mobile);
+            }
 
             String hphone = "";
             hphone = CHPhone;
-            hphone = getMobile(hphone);
-            txtDoctorHourOfficePhone.setText(hphone);
+            if (!hphone.isEmpty()) {//nikita
+                hphone = getMobile(hphone);
+                txtDoctorHourOfficePhone.setText(hphone);
+            }
 
             String wphone = "";
             wphone = CWPhone;
-            wphone = getMobile(wphone);
-            txtDoctorOtherPhone.setText(wphone);
+            if (!wphone.isEmpty()) {//nikita
+                wphone = getMobile(wphone);
+                txtDoctorOtherPhone.setText(wphone);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -1823,18 +2059,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         try {
             String mobile = "";
             mobile = Cphone;
-            mobile = getMobile(mobile);
-            txtMobile.setText(mobile);
+            if (!mobile.isEmpty()) {//nikita
+                mobile = getMobile(mobile);
+                txtMobile.setText(mobile);
+            }
 
             String hphone = "";
             hphone = CHPhone;
-            hphone = getMobile(hphone);
-            txtHomePhone.setText(hphone);
+            if (!hphone.isEmpty()) {//nikita
+                hphone = getMobile(hphone);
+                txtHomePhone.setText(hphone);
+            }
 
             String wphone = "";
             wphone = CWPhone;
-            wphone = getMobile(wphone);
-            txtWorkPhone.setText(wphone);
+            if (!wphone.isEmpty()) {//nikita
+                wphone = getMobile(wphone);
+                txtWorkPhone.setText(wphone);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
