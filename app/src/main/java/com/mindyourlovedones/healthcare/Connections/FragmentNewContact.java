@@ -494,8 +494,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtPharmacyNote.setText(specialist.getNote());
 
                     id = specialist.getId();
-                    String photo = specialist.getPhoto();
-                    imagepath = specialist.getPhoto();
+
+                    String photo;
+                    if(imagepath.isEmpty()) {
+                        photo = specialist.getPhoto();//nikita
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -644,8 +651,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }*/
                     spinnerProxy.setSelection(rel.getIsPrimary() + 1);
 
-                    String photo = rel.getPhoto();
-                    imagepath = rel.getPhoto();
+
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = rel.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -740,8 +754,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }*/
 
                     spinnerProxy.setSelection(rel.getIsPrimary() + 1);
-                    String photo = rel.getPhoto();
-                    imagepath = rel.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = rel.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -892,8 +912,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinnerPriority.setSelection(rel.getIsPrimary() + 1);
                     }
 
-                    String photo = rel.getPhoto();
-                    imagepath = rel.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = rel.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1065,8 +1091,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinner.setSelection(index + 1);
                     }
 
-                    String photo = specialist.getPhoto();
-                    imagepath = specialist.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = specialist.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1155,8 +1187,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinner.setSelection(index + 1);
                     }
 
-                    String photo = specialist.getPhoto();
-                    imagepath = specialist.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = specialist.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1382,8 +1420,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtOtherInsurance.setText(insurance.getOtherInsurance());
 
                     id = insurance.getId();
-                    String photo = insurance.getPhoto();
-                    imagepath = insurance.getPhoto();
+
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = insurance.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1533,8 +1578,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtAideNote.setText(aides.getNote());
                     id = aides.getId();
 
-                    String photo = aides.getPhoto();
-                    imagepath = aides.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = aides.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1688,8 +1739,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinnerHospital.setSelection(index + 1);
                     }
 
-                    String photo = specialist.getPhoto();
-                    imagepath = specialist.getPhoto();
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = specialist.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                      /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
@@ -1858,8 +1915,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         spinnerFinance.setSelection(index + 1);
                     }
-                    imagepath = specialist.getPhoto();
-                    String photo = specialist.getPhoto();
+
+                    String photo;
+                    if(imagepath.isEmpty()) {//nikita
+                        photo = specialist.getPhoto();
+                    }else{
+                        photo= imagepath;
+                    }
+                    imagepath = photo;//nikita
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
                      /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
