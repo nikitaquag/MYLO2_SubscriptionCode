@@ -44,7 +44,7 @@ import java.util.TimerTask;
 import io.fabric.sdk.android.Fabric;
 import ss.com.bannerslider.views.BannerSlider;
 
-public class  SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
+public class SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
     static final String TAG = "TrivialDrive";
     //static final String SKU_INFINITE_GAS = "app_subscription"; // $1
     static final String SKU_INFINITE_GAS = "subscribe_app";   //$3.99
@@ -65,6 +65,7 @@ public class  SplashNewActivity extends AppCompatActivity implements View.OnClic
     Timer timer;
     boolean mSubscribedToInfiniteGas = false;
     IabHelper mHelper;
+    public static boolean fromDash = false;//nikita
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
@@ -229,8 +230,17 @@ public class  SplashNewActivity extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_splashes_);
-
         new AsynData().execute("");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (fromDash) {//nikita
+            fromDash = false;
+            new AsynData().execute("");
+        }
     }
 
     private void loadata() {//nikita

@@ -90,6 +90,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     private void initImageLoader() {
         displayImageOptions = new DisplayImageOptions.Builder() // resource
                 .resetViewBeforeLoading(true) // default
@@ -503,6 +504,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onBackPressed() {
+
+        SplashNewActivity.fromDash = true;
 
         int count = getFragmentManager().getBackStackEntryCount();
 

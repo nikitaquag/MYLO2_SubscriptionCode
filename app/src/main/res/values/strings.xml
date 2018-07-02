@@ -18,8 +18,8 @@
 
     <!----> <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
     <!--<string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name</u>]]></string>-->
-    <string name="signupt4"><u>only has access to your name </u></string>
-    <string name="signupt5"><u>and email address.</u></string>
+    <string name="signupt4"><u></u></string>
+    <string name="signupt5"><u>only has access to your name and email address.</u></string>
 
 
     <string name="connection_info"> <![CDATA[
