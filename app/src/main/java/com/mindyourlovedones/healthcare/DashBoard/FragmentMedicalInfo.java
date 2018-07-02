@@ -11,11 +11,9 @@ import android.os.Environment;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
@@ -626,7 +624,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         ImplantsLists = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (ImplantsLists.size() != 0) {
             ListImplants.setVisibility(View.VISIBLE);
-            for (int i = 0; i < AllargyLists.size(); i++) {
+            for (int i = 0; i < ImplantsLists.size(); i++) {
                 Implant a = ImplantsLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
