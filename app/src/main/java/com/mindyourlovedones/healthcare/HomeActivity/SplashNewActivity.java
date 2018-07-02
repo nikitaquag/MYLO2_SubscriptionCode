@@ -496,10 +496,10 @@ public class  SplashNewActivity extends AppCompatActivity implements View.OnClic
 
                 if (preferences.getREGISTERED()) {
                     startActivity(new Intent(SplashNewActivity.this, BaseActivity.class));
-                    finish();
+//                    finish();
                 } else {
                     startActivity(new Intent(SplashNewActivity.this, LoginActivity.class));
-                    finish();
+//                    finish();
                 }
 
                 break;
@@ -511,10 +511,10 @@ public class  SplashNewActivity extends AppCompatActivity implements View.OnClic
 
                 if (preferences.getREGISTERED()) {
                     startActivity(new Intent(SplashNewActivity.this, BaseActivity.class));
-                    finish();
+//                    finish();
                 } else {
                     startActivity(new Intent(SplashNewActivity.this, LoginActivity.class));
-                    finish();
+//                    finish();
                 }
                 break;
             case R.id.imgForword:
@@ -524,10 +524,10 @@ public class  SplashNewActivity extends AppCompatActivity implements View.OnClic
 
                 if (preferences.getREGISTERED()) {
                     startActivity(new Intent(SplashNewActivity.this, BaseActivity.class));
-                    finish();
+//                    finish();
                 } else {
                     startActivity(new Intent(SplashNewActivity.this, LoginActivity.class));
-                    finish();
+//                    finish();
                 }
                 break;
         }
