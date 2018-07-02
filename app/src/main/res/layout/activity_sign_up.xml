@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/imgLogo"
-                    android:layout_width="@dimen/dimension100dp"
-                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_width="@dimen/dimension120dp"
+                    android:layout_height="@dimen/dimension70dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:layout_marginTop="@dimen/dimension20dp"
@@ -50,8 +50,8 @@
                  />-->
                 <ImageView
                     android:id="@+id/imgABA"
-                    android:layout_width="@dimen/dimension80dp"
-                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension70dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension25dp"
@@ -446,7 +446,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/txtTM"
-                    android:text="(&quot;MYLO" />
+                    android:text="(MYLO" />
 
                 <TextView
                     android:id="@+id/txtTM1"
@@ -466,7 +466,7 @@
                     android:layout_gravity="top"
                     android:layout_toRightOf="@+id/txtTM1"
                     android:gravity="top"
-                    android:text="&quot;" />
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/txtBracket"
@@ -557,7 +557,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/img61"
-                    android:text="MYLO only has access to your name and email.  It does NOT have access or store any other information you input into this app.Allowing the App (“MYLO”) to access your photos, media, and files or to  make and mange phone calls provides the USER with functionality and a good mobile experience. OUR COMPANY DOES NOT HAVE ACCESS TO YOUR INFORMATION. WE DO NOT TRANSMIT OR RECEIVE DATA BETWEEN YOUR PHONE AND OUR SERVER."
+                    android:text="MYLO only has access to your name and email.  It does NOT have access or store any other information you input into this app.Allowing the App (MYLO) to access your photos, media, and files or to  make and mange phone calls provides the USER with functionality and a good mobile experience. OUR COMPANY DOES NOT HAVE ACCESS TO YOUR INFORMATION. WE DO NOT TRANSMIT OR RECEIVE DATA BETWEEN YOUR PHONE AND OUR SERVER."
                     android:textColor="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
@@ -625,7 +625,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/img63"
-                    android:text="MYLO"
+                    android:text="Mind Your Loved Ones"
                     android:textColor="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
