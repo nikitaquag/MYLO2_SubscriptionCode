@@ -49,7 +49,9 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
     FragmentPhysician fr;
     FragmentSpecialist frs;
-    boolean specialist = false;
+    boolean specialist = true;
+    boolean physician = true;
+
 
     public SpecialistAdapter(Context context, ArrayList<Specialist> specialistList) {
         preferences = new Preferences(context);
@@ -149,9 +151,10 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                     if (frs != null) {
                         frs.callUser(specialistList.get(position));
                     }
-                } else {
-                    if (fr != null) {
-                        fr.callUser(specialistList.get(position));
+                    else if (physician){
+                        if (fr != null) {
+                            fr.callUser(specialistList.get(position));
+                        }
                     }
                 }
             }
@@ -163,9 +166,10 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                     if (frs != null) {
                         frs.deleteSpecialist(specialistList.get(position));
                     }
-                } else {
-                    if (fr != null) {
-                        fr.deleteSpecialist(specialistList.get(position));
+                    else if (physician==true){
+                        if (fr != null) {
+                            fr.deleteSpecialist(specialistList.get(position));
+                        }
                     }
                 }
             }
