@@ -52,9 +52,9 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
     ArrayList<Pharmacy> PharmacyList;
     RelativeLayout llAddPharmacy;
     Preferences preferences;
-    RelativeLayout rlGuide,rlMsg;
+    RelativeLayout rlGuide;
     DBHelper dbHelper;
-    TextView txtMsg, txtFTU,txtStep1,txtStep2,txtStep3,txtStep4,txtStep5,txtStep6;
+    TextView txtMsg, txtFTU;
 
     @Nullable
     @Override
@@ -92,8 +92,24 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
     }
 
     private void initUI() {
+        //shradha
+        final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
+        TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
+        TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
+        TextView txt63 = rootview.findViewById(R.id.txtPolicy63);
+        TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
+        TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
+        TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
 
-        rlMsg=rootview.findViewById(R.id.rlMsg);
+        //shradha
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
+        txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
+        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+        txt66.setText(Html.fromHtml("To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card."));
+
+       /* rlMsg=rootview.findViewById(R.id.rlMsg);
         txtStep1=rootview.findViewById(R.id.txtStep1);
         txtStep2=rootview.findViewById(R.id.txtStep2);
         txtStep3=rootview.findViewById(R.id.txtStep3);
@@ -107,7 +123,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
         txtStep4.setText(Html.fromHtml("Step 4.To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
         txtStep5.setText(Html.fromHtml("Step 5.To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
         txtStep6.setText(Html.fromHtml("Step 6.To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card"));
-
+*/
 
         // txtMsg = rootview.findViewById(R.id.txtMsg);
         String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen." +
@@ -127,7 +143,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rlMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);
             }
         });
         imgRight = getActivity().findViewById(R.id.imgRight);
