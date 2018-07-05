@@ -132,12 +132,18 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         txtStep5=rootview.findViewById(R.id.txtStep5);
         txtStep6=rootview.findViewById(R.id.txtStep6);
 
-        txtStep1.setText(Html.fromHtml("Step 1.To <b>add</b> a profile click the <b>plus</b> box.You will see two options : <b>Create New</b> and <b> Import From Dropbox</b>."));
-        txtStep2.setText(Html.fromHtml("Step 2.<b>Create New : </b> You will be brought to the Personal Information Screen.If the person is in your <b>Contacts</b>then click the gray bar on the top right side of your screen to load information. <b>Import From Dropbox : </b>Using this feature you can restore the previous profile from your<b>Dropbox.</br>"));
-        txtStep3.setText(Html.fromHtml("Step 3.Add as much or as little information as you want."));
-        txtStep4.setText(Html.fromHtml("Step 4.When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b>"));
-        txtStep5.setText(Html.fromHtml("Step 5.TO <b>SHARE</b> A PROFILE. <b>Long press</b> on the profile box."));
-        txtStep6.setText(Html.fromHtml("Step 6.TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box."));
+        txtStep1.setText(Html.fromHtml("Step 1. To <b>add</b> a profile click the <b>plus</b> box. You will see two options : <b>Create New</b> and <b> Import From Dropbox</b>."));
+        txtStep2.setText(Html.fromHtml("Step 2.<ul style=\"list-style-type:square\">" +
+                "         <li>&nbsp;<b>Create New : </b>" +
+                "         You will be brought to the Personal Information Screen. If the person is in your <b>Contacts</b>" +
+                "         then click the gray bar on the top right side of your screen to load information.</li>" +
+                "          <li>&nbsp;<b>Import From Dropbox : </b>" +
+                "         Using this feature you can restore the previous profile from your" +
+                "         <b>Dropbox</b>.</li></ul>"));
+        txtStep3.setText(Html.fromHtml("Step 3. Add as much or as little information as you want."));
+        txtStep4.setText(Html.fromHtml("Step 4. When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b>"));
+        txtStep5.setText(Html.fromHtml("Step 5. TO <b>SHARE</b> A PROFILE. <b>Long press</b> on the profile box."));
+        txtStep6.setText(Html.fromHtml("Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box."));
 
 
       /*  String msg1 = "" + getResources().getString(R.string.connection_info);

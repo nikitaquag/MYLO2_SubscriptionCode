@@ -87,9 +87,8 @@
                     android:id="@+id/rlStep1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimension30dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    >
 
                     <ImageView
                         android:id="@+id/imgStep1"
@@ -106,7 +105,7 @@
                         android:layout_toRightOf="@+id/imgStep1"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
 
@@ -115,9 +114,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep1"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    >
 
                     <ImageView
                         android:id="@+id/imgStep2"
@@ -134,7 +132,7 @@
                         android:layout_toRightOf="@+id/imgStep2"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
 
@@ -143,9 +141,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep2"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    >
 
                     <ImageView
                         android:id="@+id/imgStep3"
@@ -162,7 +158,7 @@
                         android:layout_toRightOf="@+id/imgStep3"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
 
@@ -171,9 +167,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep3"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    >
 
                     <ImageView
                         android:id="@+id/imgStep4"
@@ -190,7 +185,7 @@
                         android:layout_toRightOf="@+id/imgStep4"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
 
@@ -199,9 +194,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep4"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                   >
 
                     <ImageView
                         android:id="@+id/imgStep5"
@@ -218,7 +212,7 @@
                         android:layout_toRightOf="@+id/imgStep5"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
 
@@ -227,9 +221,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep5"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingRight="@dimen/dimension15dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                   >
 
                     <ImageView
                         android:id="@+id/imgStep6"
@@ -246,7 +239,7 @@
                         android:layout_toRightOf="@+id/imgStep6"
                         android:text="Step 1. To ad"
                         android:textColor="@color/colorGrayPolicy"
-                        android:textSize="@dimen/dimension16dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
             </RelativeLayout>
