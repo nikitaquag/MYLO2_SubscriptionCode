@@ -53,8 +53,8 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
     RelativeLayout llAddSpecialist;
     Preferences preferences;
     DBHelper dbHelper;
-    RelativeLayout rlGuide,rlMsg;
-    TextView txtMsg, txtFTU,txtStep1,txtStep2,txtStep3,txtStep4,txtStep5,txtStep6;
+    RelativeLayout rlGuide, rlMsg;
+    TextView txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep5, txtStep6;
 
     @Nullable
     @Override
@@ -94,13 +94,13 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
     }
 
     private void initUI() {
-        rlMsg=rootview.findViewById(R.id.rlMsg);
-        txtStep1=rootview.findViewById(R.id.txtStep1);
-        txtStep2=rootview.findViewById(R.id.txtStep2);
-        txtStep3=rootview.findViewById(R.id.txtStep3);
-        txtStep4=rootview.findViewById(R.id.txtStep4);
-        txtStep5=rootview.findViewById(R.id.txtStep5);
-        txtStep6=rootview.findViewById(R.id.txtStep6);
+        rlMsg = rootview.findViewById(R.id.rlMsg);
+        txtStep1 = rootview.findViewById(R.id.txtStep1);
+        txtStep2 = rootview.findViewById(R.id.txtStep2);
+        txtStep3 = rootview.findViewById(R.id.txtStep3);
+        txtStep4 = rootview.findViewById(R.id.txtStep4);
+        txtStep5 = rootview.findViewById(R.id.txtStep5);
+        txtStep6 = rootview.findViewById(R.id.txtStep6);
 
         txtStep1.setText(Html.fromHtml("Step 1.To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
         txtStep2.setText(Html.fromHtml("Step 2.To <b>save</b> information click the green bar at the bottom of the screen."));
@@ -108,7 +108,6 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         txtStep4.setText(Html.fromHtml("Step 4.To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
         txtStep5.setText(Html.fromHtml("Step 5.To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
         txtStep6.setText(Html.fromHtml("Step 6.To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card"));
-
 
 
         txtMsg = rootview.findViewById(R.id.txtMsg);
@@ -124,7 +123,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                 "<br><br>" +
                 "To <b>add a picture</b> click the picture of the <b>pencil</b> and" +
                 "either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card";
-       // txtMsg.setText(Html.fromHtml(msg));
+        // txtMsg.setText(Html.fromHtml(msg));
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
