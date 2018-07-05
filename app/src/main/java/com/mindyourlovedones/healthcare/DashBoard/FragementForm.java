@@ -100,24 +100,43 @@ public class FragementForm extends Fragment implements View.OnClickListener {
 
     private void initUI() {
         txtMsg = rootview.findViewById(R.id.txtMsg);
-        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-                "<br><br>" +
-                "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-                "<br><br>" +
-                "To <b>save</b> information click the <b>check mark</b> on the top top right side of the screen" +
-                "<br><br>" +
-                "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>check mark</b> again." +
-                "<br><br>" +
-                "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
-                "<br><br>" +
-                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
+//                "<br><br>" +
+//                "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
+//                "<br><br>" +
+//                "To <b>save</b> information click the <b>check mark</b> on the top top right side of the screen" +
+//                "<br><br>" +
+//                "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>check mark</b> again." +
+//                "<br><br>" +
+//                "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
+//                "<br><br>" +
+//                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//
+//        txtMsg.setText(Html.fromHtml(msg));
 
-        txtMsg.setText(Html.fromHtml(msg));
+        //nikita
+        final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
+        TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
+        TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
+        TextView txt63 = rootview.findViewById(R.id.txtPolicy63);
+        TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
+        TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
+        TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
+
+        //nikita
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
+        txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
+        txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top top right side of the screen"));
+        txt64.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>check mark</b> again."));
+        txt65.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
+        txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtMsg.setVisibility(View.VISIBLE);
+//                txtMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);

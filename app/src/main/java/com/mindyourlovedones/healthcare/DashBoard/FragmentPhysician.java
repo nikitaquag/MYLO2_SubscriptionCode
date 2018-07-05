@@ -115,6 +115,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
 //                "either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card";
 //        txtMsg.setText(Html.fromHtml(msg));
 
+        //nikita
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -123,6 +124,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
 
+        //nikita
         txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
         txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
         txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
@@ -135,7 +137,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         txtTitle = getActivity().findViewById(R.id.txtTitle);

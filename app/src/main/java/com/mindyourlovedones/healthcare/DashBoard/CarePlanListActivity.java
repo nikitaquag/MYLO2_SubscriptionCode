@@ -114,6 +114,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
       SwipeMenuCreator creator = s.createSingleMenu(context);
       lvNote.setMenuCreator(creator);*/
     private void initUI() {
+        //nikita
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
@@ -131,7 +132,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         scroll = findViewById(R.id.scroll);
@@ -179,6 +180,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msg));
 
+                //nikita
                 txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
                 txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
                 txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
@@ -206,6 +208,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msgs));
 
+                //nikita
                 txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
                 txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
                 txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
@@ -233,6 +236,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msgd));
 
+                //nikita
                 txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
                 txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
                 txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));

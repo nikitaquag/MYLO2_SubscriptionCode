@@ -114,6 +114,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
 //                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
 //        txtMsg.setText(Html.fromHtml(msg));
 
+        //nikita
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -121,6 +122,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
 
+        //nikita
         txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen."));
         txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
         txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil.</b> To save your edits click the <b>green bar</b> at the bottom of the screen."));
@@ -132,7 +134,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         txtTitle = getActivity().findViewById(R.id.txtTitle);
