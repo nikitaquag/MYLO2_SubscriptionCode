@@ -16,12 +16,14 @@
     <string name="signupt1"><![CDATA[ PRIVACY-  This App is Native to Your Phone. This means all information resides on your smartphone and NOT on our server.  We do not transmit or receive data between your phone and our server. ]]></string>
     <string name="signupt0"><![CDATA[ PRIVACY-  MYLO only has access to your name and email.  It does NOT have access or store any other information you input into this app.Allowing the App (“MYLO”) to access your photos, media, and files or to  make and mange phone calls provides the USER with functionality and a good mobile experience. OUR COMPANY DOES NOT HAVE ACCESS TO YOUR INFORMATION. WE DO NOT TRANSMIT OR RECEIVE DATA BETWEEN YOUR PHONE AND OUR SERVER. ]]></string>
 
-    <!----> <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
+    <!---->
+    <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
     <!--<string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name</u>]]></string>-->
     <string name="signupt4"><u></u></string>
     <string name="signupt5"><u>only has access to your name and email address.</u></string>
     <string name="signup6">USERS must remember their user name and email address and should save data once populated. Instructions are included in app. Fax capability is ONLY to be used for medical emergencies to satisfy HIPAA requirements.</string>
 
+    <string name="step1_three">Step 3.  Add as much or as  little information as you want.  <br></br></string>
 
     <string name="connection_info"> <![CDATA[
 Step 1.
@@ -32,16 +34,16 @@ Step 1.
         <b>Create New</b>
          and
         <b>Import From Dropbox</b><br><br>
-Step 2.
- <ul style="list-style-type:square">
+
+Step 2.<ul style="list-style-type:square">
          <li>&nbsp;<b>Create New : </b>
          You will be brought to the Personal Information Screen. If the person is in your <b>Contacts</b>
          then click the gray bar on the top right side of your screen to load information.</li>
           <li>&nbsp;<b>Import From Dropbox : </b>
          Using this feature you can restore the previous profile from your
-         <b>Dropbox</b>.</li>
-</ul>
-Step 3.  Add as much or as  little information as you want.  <br><br>
+         <b>Dropbox</b>.</li></ul>
+
+
 
 Step 4.  When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b> <br><br>
 

@@ -50,7 +50,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     View rootview;
     GridView lvConnection;
     ArrayList<RelativeConnection> connectionList;
-    TextView txtAdd, txtMsg, txtFTU;
+    TextView txtAdd, txtMsg, txtFTU,txtStep1,txtStep2,txtStep3,txtStep4,txtStep5,txtStep6;
     //RelativeLayout llAddConn;
     TextView txtTitle, txtName, txtDrawerName;
     ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile;
@@ -58,7 +58,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     ConnectionAdapter connectionAdapter;
     Preferences preferences;
     // PersonalInfo personalInfo;
-    RelativeLayout leftDrawer;
+    RelativeLayout leftDrawer,rlMsg;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
@@ -123,15 +123,39 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
     private void initUI() {
-        txtMsg = rootview.findViewById(R.id.txtMsg);
-        String msg = "" + getResources().getString(R.string.connection_info);
-        txtMsg.setText(Html.fromHtml(msg));
+        rlMsg=rootview.findViewById(R.id.rlMsg);
+       // txtMsg = rootview.findViewById(R.id.txtMsg);
+        txtStep1=rootview.findViewById(R.id.txtStep1);
+        txtStep2=rootview.findViewById(R.id.txtStep2);
+        txtStep3=rootview.findViewById(R.id.txtStep3);
+        txtStep4=rootview.findViewById(R.id.txtStep4);
+        txtStep5=rootview.findViewById(R.id.txtStep5);
+        txtStep6=rootview.findViewById(R.id.txtStep6);
+
+        txtStep1.setText(Html.fromHtml("Step 1.To <b>add</b> a profile click the <b>plus</b> box.You will see two options : <b>Create New</b> and <b> Import From Dropbox</b>."));
+        txtStep2.setText(Html.fromHtml("Step 2.<b>Create New : </b> You will be brought to the Personal Information Screen.If the person is in your <b>Contacts</b>then click the gray bar on the top right side of your screen to load information. <b>Import From Dropbox : </b>Using this feature you can restore the previous profile from your<b>Dropbox.</br>"));
+        txtStep3.setText(Html.fromHtml("Step 3.Add as much or as little information as you want."));
+        txtStep4.setText(Html.fromHtml("Step 4.When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b>"));
+        txtStep5.setText(Html.fromHtml("Step 5.TO <b>SHARE</b> A PROFILE. <b>Long press</b> on the profile box."));
+        txtStep6.setText(Html.fromHtml("Step 6.TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box."));
+
+
+      /*  String msg1 = "" + getResources().getString(R.string.connection_info);
+        txtStep1.setText(Html.fromHtml(msg1));
+
+        String msg3 = "" + getResources().getString(R.string.step1_three);
+        txtStep3.setText(Html.fromHtml(msg3));*/
+        //txtMsg.setText(Html.fromHtml(msg));
+
+
+
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtMsg.setVisibility(View.VISIBLE);
+                rlMsg.setVisibility(View.VISIBLE);
+               // txtMsg.setVisibility(View.VISIBLE);
             }
         });
         txtTitle = getActivity().findViewById(R.id.txtTitle);
