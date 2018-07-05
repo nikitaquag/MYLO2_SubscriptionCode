@@ -114,6 +114,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
       SwipeMenuCreator creator = s.createSingleMenu(context);
       lvNote.setMenuCreator(creator);*/
     private void initUI() {
+        final RelativeLayout relMsg = findViewById(R.id.relMsg);
+        TextView txt61 = findViewById(R.id.txtPolicy61);
+        TextView txt62 = findViewById(R.id.txtPolicy62);
+        TextView txt63 = findViewById(R.id.txtPolicy63);
+        TextView txt64 = findViewById(R.id.txtPolicy64);
+        TextView txt65 = findViewById(R.id.txtPolicy65);
+        TextView txt66 = findViewById(R.id.txtPolicy66);
+
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
         txtHeader = findViewById(R.id.txtHeader);
@@ -122,7 +130,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtMsg.setVisibility(View.VISIBLE);
+//                txtMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);
             }
         });
         scroll = findViewById(R.id.scroll);
@@ -156,57 +165,81 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txtAdd.setText("Add Advance Directives");
                 imgPicture.setImageResource(R.drawable.v_doc);
                 txtHeader.setText("Add Adv. Directive Docs");
-                String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-                        "<br><br>" +
-                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-                        "<br><br>" +
-                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-                        "<br><br>" +
-                        "To <b>delete</b> the entry <b>swipe right to left </b> the arrow symbol on the right side of the screen." +
-                        "<br><br>" +
-                        "To <b>edit</b> information click the picture of the <b>pencil</b>.To <b>save</b> your edits click the check mark again." +
-                        "<br><br>" +
-                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//                String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
+//                        "<br><br>" +
+//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
+//                        "<br><br>" +
+//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
+//                        "<br><br>" +
+//                        "To <b>delete</b> the entry <b>swipe right to left </b> the arrow symbol on the right side of the screen." +
+//                        "<br><br>" +
+//                        "To <b>edit</b> information click the picture of the <b>pencil</b>.To <b>save</b> your edits click the check mark again." +
+//                        "<br><br>" +
+//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//
+//                txtMsg.setText(Html.fromHtml(msg));
 
-                txtMsg.setText(Html.fromHtml(msg));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry <b>swipe right to left </b> the arrow symbol on the right side of the screen."));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>.To <b>save</b> your edits click the check mark again."));
+                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+
                 break;
             case "Record":
                 txtTitle.setText("Medical Records");
                 txtAdd.setText("Add Medical Records");
                 imgPicture.setImageResource(R.drawable.v_record);
                 txtHeader.setText("Add Medical Records");
-                String msgs = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-                        "<br><br>" +
-                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-                        "<br><br>" +
-                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-                        "<br><br>" +
-                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
-                        "<br><br>" +
-                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
-                        "<br><br>" +
-                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//                String msgs = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
+//                        "<br><br>" +
+//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
+//                        "<br><br>" +
+//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
+//                        "<br><br>" +
+//                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
+//                        "<br><br>" +
+//                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
+//                        "<br><br>" +
+//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//
+//                txtMsg.setText(Html.fromHtml(msgs));
 
-                txtMsg.setText(Html.fromHtml(msgs));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
+                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+
                 break;
             case "Other":
                 txtTitle.setText("Other Documents");
                 txtAdd.setText("Add Other Documents");
                 imgPicture.setImageResource(R.drawable.v_other);
                 txtHeader.setText("Add Other Documents");
-                String msgd = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-                        "<br><br>" +
-                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-                        "<br><br>" +
-                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-                        "<br><br>" +
-                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
-                        "<br><br>" +
-                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
-                        "<br><br>" +
-                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//                String msgd = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
+//                        "<br><br>" +
+//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
+//                        "<br><br>" +
+//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
+//                        "<br><br>" +
+//                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
+//                        "<br><br>" +
+//                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
+//                        "<br><br>" +
+//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//
+//                txtMsg.setText(Html.fromHtml(msgd));
 
-                txtMsg.setText(Html.fromHtml(msgd));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
+                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+
                 break;
             case "Legal":
                 txtTitle.setText("Legal and Financial Documents");

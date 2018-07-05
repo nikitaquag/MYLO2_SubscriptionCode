@@ -103,16 +103,16 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
 
     private void initUI() {
         txtMsg = rootview.findViewById(R.id.txtMsg);
-        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen." +
-                "<br><br>" +
-                "To <b>save</b> information click the green bar at the bottom of the screen." +
-                "<br><br>" +
-                "To <b>edit</b> information click the picture of the <b>pencil.</b> To save your edits click the <b>green bar</b> at the bottom of the screen." +
-                "<br><br>" +
-                "To <b>make an automated telephone call</b> or <b>delete</b> the entry <b>swipe right to left</b> the arrow symbol on the right side." +
-                "<br><br>" +
-                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-        txtMsg.setText(Html.fromHtml(msg));
+//        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen." +
+//                "<br><br>" +
+//                "To <b>save</b> information click the green bar at the bottom of the screen." +
+//                "<br><br>" +
+//                "To <b>edit</b> information click the picture of the <b>pencil.</b> To save your edits click the <b>green bar</b> at the bottom of the screen." +
+//                "<br><br>" +
+//                "To <b>make an automated telephone call</b> or <b>delete</b> the entry <b>swipe right to left</b> the arrow symbol on the right side." +
+//                "<br><br>" +
+//                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//        txtMsg.setText(Html.fromHtml(msg));
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);

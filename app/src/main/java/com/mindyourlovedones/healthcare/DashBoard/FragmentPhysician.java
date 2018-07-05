@@ -101,19 +101,19 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
 
     private void initUI() {
         txtMsg = rootview.findViewById(R.id.txtMsg);
-        String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen" +
-                "<br><br>" +
-                "To <b>save</b> information click the green bar at the bottom of the screen." +
-                "<br><br>" +
-                "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
-                "<br><br>" +
-                "To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol." +
-                "<br><br>" +
-                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen." +
-                "<br><br>" +
-                "To <b>add a picture</b> click the picture of the <b>pencil</b> and" +
-                "either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card";
-        txtMsg.setText(Html.fromHtml(msg));
+//        String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen" +
+//                "<br><br>" +
+//                "To <b>save</b> information click the green bar at the bottom of the screen." +
+//                "<br><br>" +
+//                "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
+//                "<br><br>" +
+//                "To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol." +
+//                "<br><br>" +
+//                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen." +
+//                "<br><br>" +
+//                "To <b>add a picture</b> click the picture of the <b>pencil</b> and" +
+//                "either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card";
+//        txtMsg.setText(Html.fromHtml(msg));
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
