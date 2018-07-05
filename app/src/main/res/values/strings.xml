@@ -21,6 +21,7 @@
     <!--<string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name</u>]]></string>-->
     <string name="signupt4"><u></u></string>
     <string name="signupt5"><u>only has access to your name and email address.</u></string>
+    <string name="signup6">USERS must remember their user name and email address and should save data once populated. Instructions are included in app. Fax capability is ONLY to be used for medical emergencies to satisfy HIPAA requirements.</string>
 
     <string name="step1_three">Step 3.  Add as much or as  little information as you want.  <br></br></string>
 
