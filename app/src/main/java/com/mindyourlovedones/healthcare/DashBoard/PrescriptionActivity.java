@@ -95,17 +95,17 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     private void initUI() {
         scroll = findViewById(R.id.scroll);
         txtMsg = findViewById(R.id.txtMsg);
-        String msg = "To <b>add</b> information click the green bar at the bottom of the screen Add Prescription." +
-                "<br><br>" +
-                "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-                "<br><br>" +
-                "To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes. Save by clicking the <b>check mark</b> again." +
-                "<br><br>" +
-                "To <b>delete</b> left swipe and click the garbage can." +
-                "<br><br>" +
-                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-
-        txtMsg.setText(Html.fromHtml(msg));
+//        String msg = "To <b>add</b> information click the green bar at the bottom of the screen Add Prescription." +
+//                "<br><br>" +
+//                "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
+//                "<br><br>" +
+//                "To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes. Save by clicking the <b>check mark</b> again." +
+//                "<br><br>" +
+//                "To <b>delete</b> left swipe and click the garbage can." +
+//                "<br><br>" +
+//                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
+//
+//        txtMsg.setText(Html.fromHtml(msg));
 
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
