@@ -15,7 +15,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -274,10 +273,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         tabLayout.setupWithViewPager(viewPagerLogin, true);
         layouts = new int[]{
                 R.layout.slide1,
-                R.layout.slide4,
-                R.layout.slide3,
-                R.layout.slide5,
-                R.layout.slide6
+                R.layout.slide5
         };
         myViewPagerAdapter = new MyViewPagerAdapter();
         viewPagerLogin.setAdapter(myViewPagerAdapter);
