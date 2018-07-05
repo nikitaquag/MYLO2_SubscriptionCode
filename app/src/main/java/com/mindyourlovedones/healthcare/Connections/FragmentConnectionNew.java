@@ -50,7 +50,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     View rootview;
     GridView lvConnection;
     ArrayList<RelativeConnection> connectionList;
-    TextView txtAdd, txtMsg, txtFTU;
+    TextView txtAdd, txtMsg, txtFTU,txtStep1,txtStep3;
     //RelativeLayout llAddConn;
     TextView txtTitle, txtName, txtDrawerName;
     ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile;
@@ -123,9 +123,18 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
     private void initUI() {
-        txtMsg = rootview.findViewById(R.id.txtMsg);
-        String msg = "" + getResources().getString(R.string.connection_info);
-        txtMsg.setText(Html.fromHtml(msg));
+       // txtMsg = rootview.findViewById(R.id.txtMsg);
+        txtStep1=rootview.findViewById(R.id.txtStep1);
+        String msg1 = "" + getResources().getString(R.string.connection_info);
+        txtStep1.setText(Html.fromHtml(msg1));
+
+        txtStep3=rootview.findViewById(R.id.txtStep3);
+        String msg3 = "" + getResources().getString(R.string.step1_three);
+        txtStep3.setText(Html.fromHtml(msg3));
+        //txtMsg.setText(Html.fromHtml(msg));
+
+
+
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {

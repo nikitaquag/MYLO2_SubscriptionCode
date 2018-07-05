@@ -75,6 +75,62 @@
                 android:textColor="@color/colorGuide"
                 android:textSize="@dimen/dimension18dp"
                 android:visibility="gone" />
+            <RelativeLayout
+                android:id="@+id/rlStep1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMsg"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/imgStep1"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtStep1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgStep1"
+                    android:text="Step 1. To ad"
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rlStep3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlStep1"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/imgStep3"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtStep3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/imgStep3"
+                    android:text="Step 1. To ad"
+                    android:textColor="@color/colorGrayPolicy"
+                    android:textSize="@dimen/dimension16dp" />
+
+            </RelativeLayout>
+
             <!--   android:text="Create profiles for members of your family or friends.  Add as much or as little information as you want. The goal is to create less stress and allow you to focus on the issue at hand."
                        -->
         </RelativeLayout>
