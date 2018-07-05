@@ -79,18 +79,31 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
 
     private void initUI() {
         txtMsg = findViewById(R.id.txtMsg);
-        String msg = "To add a note click plus box " +
-                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
-                "<br><br>" +
-                "To <b>edit</b> the note  click the picture of the pencil to the right of the screen.To save your edits click the check mark at the top right of the screen. To <b>delete</b> the event note swipe (right to left) and click the garbage can or inside viewing note click the garbage can at the bottom of the screen." +
-                "<br><br>" +
-                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen.";
-        txtMsg.setText(Html.fromHtml(msg));
+//        String msg = "To add a note click plus box " +
+//                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
+//                "<br><br>" +
+//                "To <b>edit</b> the note  click the picture of the pencil to the right of the screen.To save your edits click the check mark at the top right of the screen. To <b>delete</b> the event note swipe (right to left) and click the garbage can or inside viewing note click the garbage can at the bottom of the screen." +
+//                "<br><br>" +
+//                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen.";
+//        txtMsg.setText(Html.fromHtml(msg));
+
+        //nikita
+        final RelativeLayout relMsg = findViewById(R.id.relMsg);
+        TextView txt61 = findViewById(R.id.txtPolicy61);
+        TextView txt62 = findViewById(R.id.txtPolicy62);
+        TextView txt63 = findViewById(R.id.txtPolicy63);
+
+        //nikita
+        txt61.setText(Html.fromHtml("To add a note click plus box at the top right of the screen.  Once completed click Add.  The note is automatically saved."));
+        txt62.setText(Html.fromHtml("To <b>edit</b> the note  click the picture of the pencil to the right of the screen.To save your edits click the check mark at the top right of the screen. To <b>delete</b> the event note swipe (right to left) and click the garbage can or inside viewing note click the garbage can at the bottom of the screen."));
+        txt63.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen."));
+
         txtFTU = findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txtMsg.setVisibility(View.VISIBLE);
+//                txtMsg.setVisibility(View.VISIBLE);
+                relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         rlEvent = findViewById(R.id.rlEvent);
