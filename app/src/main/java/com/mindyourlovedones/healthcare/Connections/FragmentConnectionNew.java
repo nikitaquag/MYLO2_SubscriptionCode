@@ -123,8 +123,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
     private void initUI() {
-        rlMsg=rootview.findViewById(R.id.rlMsg);
+
        // txtMsg = rootview.findViewById(R.id.txtMsg);
+        rlMsg=rootview.findViewById(R.id.rlMsg);
         txtStep1=rootview.findViewById(R.id.txtStep1);
         txtStep2=rootview.findViewById(R.id.txtStep2);
         txtStep3=rootview.findViewById(R.id.txtStep3);
