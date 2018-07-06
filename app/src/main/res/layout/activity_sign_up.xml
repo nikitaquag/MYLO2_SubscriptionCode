@@ -681,6 +681,7 @@
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingRight="@dimen/dimension15dp">
 
+
                 <ImageView
                     android:id="@+id/img64"
                     android:layout_width="@dimen/dimension20dp"
