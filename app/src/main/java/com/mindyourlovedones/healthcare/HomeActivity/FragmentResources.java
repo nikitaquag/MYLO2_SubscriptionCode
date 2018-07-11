@@ -101,7 +101,7 @@ public class FragmentResources extends Fragment {
         l10.setImage(R.drawable.link_six);
 
         Links l11 = new Links();
-        l11.setName("The Commission on Law and Aging, ABA");
+        l11.setName("ABA-American Bar Association, Commission on Law and Aging");
         l11.setUrl("https://www.americanbar.org/groups/law_aging.html");
         l11.setImage(R.drawable.aba_market);
 

@@ -1559,7 +1559,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                 new FaxCustomDialog(context, path).show();
                                 break;
 
-                            case 3://fax
+                            case 3://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
                                 i.putExtra("From", "Personal");
                                 startActivity(i);

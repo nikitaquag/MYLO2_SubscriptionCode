@@ -53,6 +53,7 @@ public class InstructionActivity extends AppCompatActivity {
             From = i.getExtras().getString("From");
         }
         switch (From) {
+
             case "Dropbox":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.VISIBLE);
@@ -174,6 +175,78 @@ public class InstructionActivity extends AppCompatActivity {
                 img65.setVisibility(View.GONE);
 
                 txtHeader.setText("Personal Profile Instructions");
+                break;
+
+          /*  //shradha
+            case "ShareProfileFTU":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+//                String msgs = "To <b>add</b> information type responses.<br>" +
+//                        "To <b>save</b> information click the check mark" +
+//                        " on the <b>top right</b> side of the screen.<br><br>" +
+//                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
+//                        "<br><br>" +
+//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
+//
+//                txtMsg.setText(Html.fromHtml(msgs));
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information type responses."));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the check mark on the <b>top right</b> side of the screen."));
+                txt63.setText(Html.fromHtml("To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen."));
+                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen."));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.GONE);
+                img65.setVisibility(View.GONE);
+
+                txtHeader.setText("Share Profile Instructions");
+                break;*/
+            //shradha
+            case "SharePdf":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+//                String msgs = "To <b>add</b> information type responses.<br>" +
+//                        "To <b>save</b> information click the check mark" +
+//                        " on the <b>top right</b> side of the screen.<br><br>" +
+//                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
+//                        "<br><br>" +
+//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
+//
+//                txtMsg.setText(Html.fromHtml(msgs));
+
+                //shradha
+                txt61.setText(Html.fromHtml("You can<b>add</b> the pdf documents from storage."));
+                txt62.setText(Html.fromHtml("To <b>use</b> pdf from the email attachments, you need to <b>download</b>it from the email then you can<b>add</b> it from storage's download folder."));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.GONE);
+                txt64.setVisibility(View.GONE);
+                txt65.setVisibility(View.GONE);
+
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.GONE);
+                img64.setVisibility(View.GONE);
+                img65.setVisibility(View.GONE);
+
+                txtHeader.setText("Share Pdf Instructions");
                 break;
 
             case "Medical":

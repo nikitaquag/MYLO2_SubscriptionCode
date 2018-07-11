@@ -10,7 +10,71 @@
     <RelativeLayout
         android:id="@+id/rlLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dimension20dp"
+            android:orientation="horizontal"
+            android:weightSum="9">
+
+            <ImageView
+                android:id="@+id/imgLogos"
+                android:layout_width="@dimen/dimension70dp"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:src="@drawable/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="7"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtMYLOs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension1dp"
+                    android:layout_toRightOf="@+id/imgLogo"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="MYLO"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_25ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTMs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:singleLine="true"
+                    android:text="TM"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgABAs"
+                android:layout_width="@dimen/dimension70dp"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_weight="1"
+                android:src="@drawable/aba_logo" />
+
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/imgLogo"
@@ -18,17 +82,19 @@
             android:layout_height="@dimen/dimension100dp"
             android:layout_alignTop="@+id/imgAba"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_launcher"
+            android:visibility="gone" />
 
         <ImageView
-            android:layout_toRightOf="@+id/imgLogo"
-            android:layout_marginRight="@dimen/dimension25dp"
             android:id="@+id/imgAba"
             android:layout_width="120dp"
             android:layout_height="@dimen/dimension100dp"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension25dp"
             android:layout_marginTop="@dimen/dimension30dp"
-            android:src="@drawable/aba_logo" />
+            android:layout_toRightOf="@+id/imgLogo"
+            android:src="@drawable/aba_logo"
+            android:visibility="gone" />
 
         <!--<ImageView
             android:id="@+id/imgLogo"
@@ -39,12 +105,12 @@
             android:layout_marginBottom="@dimen/dimension20dp"
             android:src="@drawable/ic_launcher" />-->
         <RelativeLayout
-            android:layout_marginTop="@dimen/dimension10dp"
             android:id="@+id/relHeadtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgLogo"
+            android:layout_below="@+id/rlHeader"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dimension20dp"
             android:gravity="center">
 
             <TextView
@@ -68,87 +134,96 @@
                 android:visibility="visible" />
         </RelativeLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilName"
+        <LinearLayout
+            android:id="@+id/llLoginText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/relHeadtxt"
+            android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/dimension20dp"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                android:id="@+id/txtName"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Name"
-                android:maxLength="30"
-                android:maxLines="1"
-                android:paddingTop="2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
 
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilName"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                android:id="@+id/txtUserName"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Email"
-                android:maxLines="2"
-                android:paddingTop="2dp"
-                android:singleLine="false"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
+                android:layout_below="@+id/tilName"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Email"
+                    android:maxLines="2"
+                    android:paddingTop="2dp"
+                    android:singleLine="false"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
 
-        </android.support.design.widget.TextInputLayout>
+            </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilUserName"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:visibility="gone">
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                android:id="@+id/txtPassword"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:maxLength="10"
-                android:maxLines="1"
-                android:paddingTop="2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-        </android.support.design.widget.TextInputLayout>
+                android:layout_below="@+id/tilUserName"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:visibility="gone">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:maxLength="10"
+                    android:maxLines="1"
+                    android:paddingTop="2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <TextView
             android:id="@+id/txtSignIn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension60dp"
-            android:layout_below="@+id/tilPassword"
+            android:layout_below="@+id/llLoginText"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension30dp"
             android:layout_marginRight="@dimen/dimension30dp"

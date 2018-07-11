@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Mind Your Loved Ones</string>
+    <string name="app_name">MYLO</string>
     <string name="title_activity_medical_appoint">MedicalAppointActivity</string>
     <string name="header_title">Mind Your Loved Ones</string>
     <string name="msg">Mobile Tech for Seniors and their Families<html></html></string>
