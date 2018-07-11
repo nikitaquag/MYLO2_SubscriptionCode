@@ -1,9 +1,11 @@
 package com.mindyourlovedones.healthcare.HomeActivity;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -17,6 +19,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -29,6 +32,7 @@ import com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedones.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedones.healthcare.DashBoard.FragmentNotification;
 import com.mindyourlovedones.healthcare.IndexMenu.FragmentOverview;
+import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -57,8 +61,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf;
-    TextView txtTitle, txtName, txtDrawerName;
+    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf,imgDoc;
+    TextView txtTitle, txtName, txtDrawerName,txtFname,txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
@@ -70,11 +74,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
+    DBHelper dbHelper;
+    boolean external_flag = false;
+    String originPath = "";
+    String documentPath = "";
+    String name = "";
+
+    String From;
+    Intent i;
+    final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+       // showSharePdfDialog();
         FirebaseCrash.report(new Exception("My first Android non-fatal error"));
         //I'm also creating a log message, which we'll look at in more detail later//
         FirebaseCrash.log("MainActivity started");
@@ -89,6 +105,33 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             callFirstFragment("CONNECTION", fragmentConnection);
         }
     }
+
+/*
+    private void showSharePdfDialog() {
+      final   Dialog dialogSharePdf = new Dialog(context);
+        dialogSharePdf.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogSharePdf.setContentView(R.layout.dialog_share_storage_pdf);
+        TextView txtSelect = dialogSharePdf.findViewById(R.id.txtSelect);
+        TextView txtOk = dialogSharePdf.findViewById(R.id.txtOk);
+        txtSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // dialogSharePdf.dismiss();
+            }
+        });
+
+        dialogSharePdf.show();
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialogSharePdf.dismiss();
+                initComponent();
+
+            }
+        });
+
+    }
+*/
 
 
     private void initImageLoader() {
@@ -109,6 +152,97 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         ImageLoader.getInstance().init(config);
         imageLoader = ImageLoader.getInstance();
     }
+/*
+    private void initComponent() {
+        preferences = new Preferences(context);
+        dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
+        DocumentQuery d = new DocumentQuery(context, dbHelper);
+        if (preferences == null) {
+            preferences = new Preferences(BaseActivity.this);
+        }
+
+        if (preferences.getREGISTERED() && preferences.isLogin()) {
+
+        } else {
+            Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(BaseActivity.this, SplashNewActivity.class));
+            finish();
+        }
+
+        From = preferences.getString(PrefConstants.FROM);
+
+        i = getIntent();
+        Log.v("URI", i.getExtras().toString());
+        final Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
+        if (audoUri != null) {
+            Log.v("URI", audoUri.toString());
+            AlertDialog.Builder builders = new AlertDialog.Builder(context);
+            builders.setTitle("");
+            builders.setCancelable(false);
+            builders.setItems(dialog_add, new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialog, int itemPos) {
+                    switch (itemPos) {
+                        case 0: // email
+                            From = "AD";
+                            addfile(audoUri);
+                            //initUi();
+                            external_flag = true;
+                            break;
+                     */
+/*   case 1: // email
+                            From = "Other";
+                            addfile(audoUri);
+                            initUi();
+                            external_flag = true;
+                            break;
+                        case 2: // Fax
+                            From = "Record";
+                            addfile(audoUri);
+                            initUi();
+                            external_flag = true;
+                            break;*//*
+
+                    }
+                }
+            });
+            builders.create().show();
+        }
+    }
+*/
+
+/*
+    private void addfile(Uri audoUri) {
+        originPath = audoUri.toString();
+
+        File f = new File(audoUri.getPath());
+        originPath = f.getPath();
+        originPath = originPath.replace("/root_path/", "");
+        documentPath = f.getName();
+        name = f.getName();
+        preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
+        txtFname.setText(name);
+        imgDoc.setClickable(false);
+        String text = "You Have selected <b>" + name + "</b> Document";
+        Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+        showDialogWindow(text);
+        txtAdd.setText("Edit File");
+        imgDoc.setImageResource(R.drawable.pdf);
+    }
+*/
+
+    private void showDialogWindow(String text) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setMessage(Html.fromHtml(text));
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
+
 
     private void initComponent() {
         preferences = new Preferences(context);
@@ -139,6 +273,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initUI() {
+        txtFname = findViewById(R.id.txtFName);
+        txtAdd=findViewById(R.id.txtAdd);
         imgDrawer = findViewById(R.id.imgDrawer);
         imgNoti = findViewById(R.id.imgNoti);
         imgProfile = findViewById(R.id.imgProfile);

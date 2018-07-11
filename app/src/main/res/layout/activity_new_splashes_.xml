@@ -31,6 +31,95 @@
                 android:layout_gravity="center"
                 android:src="@drawable/ic_launcher" />
 
+            <LinearLayout
+                android:id="@+id/llHeaders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtHeaderss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimension1dp"
+                    android:gravity="center"
+                    android:text="Mind Your Loved Ones"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_19ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTM"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:layout_gravity="center"
+                    android:gravity="start"
+                    android:text="TM"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txtMylo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimension1dp"
+                    android:gravity="left"
+                    android:text="(MYLO)"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    />
+                <TextView
+                    android:id="@+id/txtTms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TM"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llMylo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+                <TextView
+                    android:id="@+id/txtMylos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimension1dp"
+                    android:gravity="left"
+                    android:text="(MYLO)"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/txtTmss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TM"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+
             <TextView
                 android:id="@+id/txtHeaders"
                 android:layout_width="match_parent"
@@ -42,13 +131,15 @@
                 android:text="Mind Your Loved Ones (MYLO)"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_20ssp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone"
+                android:padding="@dimen/dimension10dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
-                android:layout_marginTop="@dimen/_10ssp"
                 android:gravity="center_horizontal"
                 android:text="Your Digital Library of Critical Medical \n Information &amp; Advance Directives \n- - - For You &amp; Your Loved Ones - - -"
                 android:textColor="@color/colorWhite"

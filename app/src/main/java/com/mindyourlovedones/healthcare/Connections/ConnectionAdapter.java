@@ -183,6 +183,11 @@ else {
                                     context.startActivity(in);
                                     dialog.dismiss();
                                     break;
+                               /* case 2://FTU
+                                    Intent intentFtu = new Intent(context, InstructionActivity.class);
+                                    intentFtu.putExtra("From", "ShareProfileFTU");
+                                    context.startActivity(intentFtu);
+                                    break;*/
                             }
                         }
                     });

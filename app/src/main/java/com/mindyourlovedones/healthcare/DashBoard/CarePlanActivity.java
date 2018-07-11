@@ -48,7 +48,7 @@ import java.util.ArrayList;
 
 public class CarePlanActivity extends AppCompatActivity implements View.OnClickListener {
     final static String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
     Context context = this;
     ListView lvDoc;
     ArrayList<Document> documentList;
@@ -271,6 +271,11 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                                 break;
                             case 2://fax
                                 new FaxCustomDialog(context, path).show();
+                                break;
+                            case 3://FTU
+                                Intent intentShare = new Intent(context, InstructionActivity.class);
+                                intentShare.putExtra("From", "SharePdf");
+                                startActivity(intentShare);
                                 break;
                         }
                     }

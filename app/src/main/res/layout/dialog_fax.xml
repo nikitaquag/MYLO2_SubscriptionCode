@@ -168,7 +168,7 @@
                 android:layout_below="@+id/llSubject"
                 android:gravity="center"
                 android:padding="@dimen/dimension20dp"
-                android:text="Sending via FAX should be used during an Emergency!"
+                android:text="Sending via FAX should ONLY be used for HIPAA purposes and in urgent circumstances."
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension20dp" />
 

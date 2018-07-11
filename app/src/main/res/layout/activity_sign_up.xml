@@ -15,16 +15,86 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <LinearLayout
+                android:id="@+id/rlHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:orientation="horizontal"
+                android:weightSum="10"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_centerVertical="true">
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:src="@drawable/ic_back"
+                    />
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_launcher" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    >
+                <TextView
+                    android:id="@+id/txtMYLOs"
+                    android:layout_toRightOf="@+id/imgLogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension1dp"
+                    android:gravity="center_horizontal"
+                    android:singleLine="true"
+                    android:text="MYLO"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_25ssp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:id="@+id/txtTMs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="TM"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold"
+                    />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgABAs"
+                    android:layout_weight="1"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:src="@drawable/aba_logo"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"/>
+
+
+            </LinearLayout>
+
             <RelativeLayout
                 android:id="@+id/llSignhead"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/flProfile"
-                android:layout_toRightOf="@+id/flProfile">
+                android:layout_toRightOf="@+id/flProfile"
+                android:visibility="gone">
 
                 <ImageView
-                    android:id="@+id/imgBack"
+                    android:id="@+id/imgBacks"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimension20dp"
@@ -32,7 +102,7 @@
                     android:src="@drawable/ic_back" />
 
                 <ImageView
-                    android:id="@+id/imgLogo"
+                    android:id="@+id/imgLogos"
                     android:layout_width="@dimen/dimension160dp"
                     android:layout_height="@dimen/dimension100dp"
                     android:layout_centerHorizontal="true"
@@ -47,7 +117,6 @@
                  android:layout_centerHorizontal="true"
                  />-->
                 <ImageView
-                    android:layout_toRightOf="@+id/imgLogo"
                     android:id="@+id/imgABA"
                     android:layout_width="120dp"
                     android:layout_height="@dimen/dimension100dp"
@@ -129,7 +198,7 @@
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llSignhead"
+                android:layout_below="@+id/rlHeader"
                 android:layout_marginTop="@dimen/dimension20dp"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
@@ -642,7 +711,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/txtTM2"
-                    android:text=",INC. "
+                    android:text=",Inc. "
                     android:textColor="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
@@ -653,10 +722,10 @@
                     android:layout_alignParentTop="true"
                     android:layout_toEndOf="@+id/txtInc"
                     android:layout_toRightOf="@+id/txtInc"
-                    android:text="@string/signupt4"
                     android:linksClickable="true"
-                    android:textColorLink="@color/colorGrayPolicy"
+                    android:text="@string/signupt4"
                     android:textColor="@color/colorGrayPolicy"
+                    android:textColorLink="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
                 <TextView
@@ -666,7 +735,7 @@
                     android:layout_below="@+id/txtMylo"
                     android:layout_toRightOf="@+id/img63"
                     android:text="@string/signupt5"
-                  android:textColor="@color/colorGrayPolicy"
+                    android:textColor="@color/colorGrayPolicy"
                     android:textSize="@dimen/dimension16dp" />
 
             </RelativeLayout>

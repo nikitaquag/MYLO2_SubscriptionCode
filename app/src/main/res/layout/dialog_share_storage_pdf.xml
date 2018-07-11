@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_border"
+   >
+
+    <LinearLayout
+        android:id="@+id/llShare_Pdf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtSelect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Select profile to add your documents"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/txtDelProfile"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Ok"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>
