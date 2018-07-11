@@ -169,7 +169,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         txtPolicy4.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                CopyReadAssetss("eula_draft.pdf");
+                CopyReadAssetss("eula.pdf");
                 return false;
             }
         });
@@ -752,6 +752,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     preferences.putString(PrefConstants.USER_NAME, name);
                     preferences.setREGISTERED(true);
                     preferences.setLogin(true);
+                    if(getIntent().hasExtra("PDF_EXT")) {
+                        signupIntent.putExtra("PDF_EXT", getIntent().getStringExtra("PDF_EXT"));
+                    }
                     startActivity(signupIntent);
                     finish();
                 } else {

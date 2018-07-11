@@ -3,6 +3,7 @@ package com.mindyourlovedones.healthcare.DashBoard;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -31,7 +33,9 @@ import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.DocumentQuery;
+import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedones.healthcare.model.Document;
+import com.mindyourlovedones.healthcare.model.RelativeConnection;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 
@@ -44,6 +48,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class AddDocumentActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,11 +60,11 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
-    MySpinner spinnerDoc, spinnerType;
+    MySpinner spinnerDoc, spinnerType, spinnerPro;
     TextView txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
     Preferences preferences;
-    ArrayAdapter<String> adapter, adapter1;
+    ArrayAdapter<String> adapter, adapter1, adapterPro;
     TextInputLayout tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
     RelativeLayout rlDocType;
     Document document;
@@ -84,14 +89,22 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
 
     boolean external_flag = false;
+    List<RelativeConnection> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_document);
         initComponent();
         initUi();
         initListener();
+    }
+
+    public void getData() {
+        DBHelper dbHelper = new DBHelper(this, "MASTER");
+        MyConnectionsQuery m = new MyConnectionsQuery(this, dbHelper);
+        items = MyConnectionsQuery.fetchAllRecord();
     }
 
     private void initComponent() {
@@ -102,50 +115,28 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             preferences = new Preferences(AddDocumentActivity.this);
         }
 
-        if (preferences.getREGISTERED() && preferences.isLogin()) {
-
-        } else {
-            Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(AddDocumentActivity.this, SplashNewActivity.class));
-            finish();
-        }
+//        if (preferences.getREGISTERED() && preferences.isLogin()) {
+//
+//        } else {
+//            Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
+//            startActivity(new Intent(AddDocumentActivity.this, SplashNewActivity.class));
+//            finish();
+//        }
 
         From = preferences.getString(PrefConstants.FROM);
 
         i = getIntent();
         Log.v("URI", i.getExtras().toString());
-        final Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
-        if (audoUri != null) {
-            Log.v("URI", audoUri.toString());
-            AlertDialog.Builder builders = new AlertDialog.Builder(context);
-            builders.setTitle("");
-            builders.setCancelable(false);
-            builders.setItems(dialog_add, new DialogInterface.OnClickListener() {
+        if(i.hasExtra("PDF_EXT")) {
+            final Uri audoUri = Uri.parse(i.getStringExtra("PDF_EXT"));
+            if (audoUri != null) {
+                Log.v("URI", audoUri.toString());
 
-                public void onClick(DialogInterface dialog, int itemPos) {
-                    switch (itemPos) {
-                        case 0: // email
-                            From = "AD";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                        case 1: // email
-                            From = "Other";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                        case 2: // Fax
-                            From = "Record";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                    }
-                }
-            });
-            builders.create().show();
+                From = i.getStringExtra("FROM");
+                initUi();
+                addfile(audoUri);
+                external_flag = true;
+            }
         }
     }
 

@@ -253,6 +253,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     preferences.putString(PrefConstants.USER_NAME, name);
                     preferences.setREGISTERED(true);
                     preferences.setLogin(true);
+                    if(getIntent().hasExtra("PDF_EXT")) {
+                        signupIntent.putExtra("PDF_EXT", getIntent().getStringExtra("PDF_EXT"));
+                    }
                     startActivity(signupIntent);
                     finish();
                 } else {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,8 +27,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
+import com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedones.healthcare.util.IabHelper;
 import com.mindyourlovedones.healthcare.util.IabResult;
 import com.mindyourlovedones.healthcare.util.Inventory;
@@ -65,6 +68,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     boolean mSubscribedToInfiniteGas = false;
     IabHelper mHelper;
     public static boolean fromDash = false;//nikita
+
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
@@ -265,6 +269,8 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 .debuggable(true)           // Enables Crashlytics debugger
                 .build();
         Fabric.with(fabric);
+
+
     }
 
     private void initViewPager() {
@@ -501,10 +507,13 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 if (preferences.getREGISTERED()) {
-                    startActivity(new Intent(SplashNewActivity.this, BaseActivity.class));
+                    Intent intent1 = new Intent(SplashNewActivity.this, BaseActivity.class);
+                    startActivity(intent1);
+
 //                    finish();
                 } else {
-                    startActivity(new Intent(SplashNewActivity.this, LoginActivity.class));
+                    Intent intent2 = new Intent(SplashNewActivity.this, LoginActivity.class);
+                    startActivity(intent2);
 //                    finish();
                 }
 

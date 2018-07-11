@@ -73,9 +73,8 @@
                 <data android:mimeType="application/pdf" />
 
                 <category android:name="android.intent.category.DEFAULT" />
-                />
-            </intent-filter>
 
+            </intent-filter>
         </activity>
         <activity
             android:name="com.mindyourlovedones.healthcare.DashBoard.OverviewActivity"
@@ -144,14 +143,7 @@
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.SEND" />
 
-                <data android:mimeType="application/pdf" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                />
-            </intent-filter>-->
         </activity>
         <activity
             android:name="com.mindyourlovedones.healthcare.InsuranceHealthCare.ViewActivity"
