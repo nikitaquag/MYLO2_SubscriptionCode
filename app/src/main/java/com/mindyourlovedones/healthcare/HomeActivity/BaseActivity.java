@@ -1,6 +1,7 @@
 package com.mindyourlovedones.healthcare.HomeActivity;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
@@ -22,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,8 +63,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf,imgDoc;
-    TextView txtTitle, txtName, txtDrawerName,txtFname,txtAdd;
+    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc;
+    TextView txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
@@ -85,12 +87,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-       // showSharePdfDialog();
+        // showSharePdfDialog();
         FirebaseCrash.report(new Exception("My first Android non-fatal error"));
         //I'm also creating a log message, which we'll look at in more detail later//
         FirebaseCrash.log("MainActivity started");
@@ -274,7 +275,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initUI() {
         txtFname = findViewById(R.id.txtFName);
-        txtAdd=findViewById(R.id.txtAdd);
+        txtAdd = findViewById(R.id.txtAdd);
         imgDrawer = findViewById(R.id.imgDrawer);
         imgNoti = findViewById(R.id.imgNoti);
         imgProfile = findViewById(R.id.imgProfile);
@@ -470,27 +471,28 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.txtBank:
+                showBankDialog();
+                drawerLayout.closeDrawer(leftDrawer);
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 //  callFragment("MARKET", fragmentMarketPlace);
                 //  }
-
-                Intent intent = new Intent();
+               /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intent);
-                drawerLayout.closeDrawer(leftDrawer);
+                startActivity(intent);*/
                 break;
 
             case R.id.txtSenior:
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 // callFragment("MARKET", fragmentMarketPlace);
                 //  }
-                Intent intents = new Intent();
+               /* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intents);
+                startActivity(intents);*/
+               showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
@@ -520,6 +522,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(BaseActivity.this, LoginActivity.class));
                 break;
         }
+    }
+
+    private void showBankDialog() {
+        final Dialog dialogBank = new Dialog(context);
+        dialogBank.setCancelable(false);
+        dialogBank.setCanceledOnTouchOutside(false);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.setContentView(R.layout.dialog_bank);
+        TextView txtOk = dialogBank.findViewById(R.id.txtOk);
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+        dialogBank.show();
+
     }
 
     @Override
