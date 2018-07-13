@@ -492,6 +492,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtDocTYpe.setEnabled(false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -732,6 +733,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private String copydb(String originPath, String name) {
 
         String sd = preferences.getString(PrefConstants.CONNECTED_PATH);
