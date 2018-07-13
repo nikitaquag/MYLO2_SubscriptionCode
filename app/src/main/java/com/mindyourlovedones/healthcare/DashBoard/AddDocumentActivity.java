@@ -36,6 +36,7 @@ import com.mindyourlovedones.healthcare.database.DocumentQuery;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedones.healthcare.model.Document;
 import com.mindyourlovedones.healthcare.model.RelativeConnection;
+import com.mindyourlovedones.healthcare.utility.FilePath;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 
@@ -463,29 +464,29 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    String getFilePath(Uri uri) {//nikita
-        Cursor cursor = null;
-        try {
-            String[] arr = { MediaStore.Images.Media.DATA };
-            cursor = context.getContentResolver().query(uri,  arr, null, null, null);
-            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-            cursor.moveToFirst();
-            return cursor.getString(column_index);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
+//    String getFilePath(Uri uri) {//nikita
+//        Cursor cursor = null;
+//        try {
+//            String[] arr = { MediaStore.Images.Media.DATA };
+//            cursor = context.getContentResolver().query(uri,  arr, null, null, null);
+//            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//            cursor.moveToFirst();
+//            return cursor.getString(column_index);
+//        } finally {
+//            if (cursor != null) {
+//                cursor.close();
+//            }
+//        }
+//    }
 
     private void addfile(Uri audoUri) {
         originPath = audoUri.toString();
 
-        String path = getFilePath(audoUri);
+        String path = FilePath.getPath(context, audoUri);
         File f;
-        if(path!=null) {
-             f = new File(path);
-        }else{
+        if (path != null) {
+            f = new File(path);
+        } else {
             f = new File(audoUri.getPath());
         }
         originPath = f.getPath();
@@ -1014,7 +1015,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
 
     private void copy(File backupDB, File currentDB) throws IOException {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // Do something for KITKAT and above versions
             try (InputStream in = new FileInputStream(currentDB)) {
                 try (OutputStream out = new FileOutputStream(backupDB)) {
@@ -1026,9 +1027,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                     }
                 }
             }
-        } else{
+        } else {
             // do something for phones running an SDK before KITKAT
-            try{
+            try {
                 InputStream in = new FileInputStream(currentDB);
                 OutputStream out = new FileOutputStream(backupDB);
                 // Transfer bytes from in to out
@@ -1037,7 +1038,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
