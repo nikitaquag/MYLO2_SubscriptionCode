@@ -7,12 +7,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -482,7 +480,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     private void addfile(Uri audoUri) {
         originPath = audoUri.toString();
 
-        String path = FilePath.getPath(context, audoUri);
+        String path = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+            path = FilePath.getPath(context, audoUri);
+        }
         File f;
         if (path != null) {
             f = new File(path);
