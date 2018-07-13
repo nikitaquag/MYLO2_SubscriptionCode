@@ -125,7 +125,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
         i = getIntent();
         Log.v("URI", i.getExtras().toString());
-        if(i.hasExtra("PDF_EXT")) {
+        if (i.hasExtra("PDF_EXT")) {
             final Uri audoUri = Uri.parse(i.getStringExtra("PDF_EXT"));
             if (audoUri != null) {
                 Log.v("URI", audoUri.toString());
@@ -499,25 +499,29 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
             case R.id.imgDoc:
-                if (!documentPath.equals("")) {
-                    Uri uri = null;
-                    if (path.equals("No")) {
+                if (getIntent().hasExtra("PDF_EXT")) {
 
-                        CopyReadAssetss(documentPath);
+                } else {
+                    if (!documentPath.equals("")) {
+                        Uri uri = null;
+                        if (path.equals("No")) {
 
-                    } else {
-                        File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_VIEW);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            uri = FileProvider.getUriForFile(context, "com.mindyourlovedones.healthcare.HomeActivity.fileProvider", targetFile);
+                            CopyReadAssetss(documentPath);
+
                         } else {
-                            uri = Uri.fromFile(targetFile);
+                            File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                uri = FileProvider.getUriForFile(context, "com.mindyourlovedones.healthcare.HomeActivity.fileProvider", targetFile);
+                            } else {
+                                uri = Uri.fromFile(targetFile);
+                            }
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, "application/pdf");
+                            context.startActivity(intent);
                         }
-                        // Uri uris = Uri.parse(documentPath);
-                        intent.setDataAndType(uri, "application/pdf");
-                        context.startActivity(intent);
                     }
                 }
                 break;
