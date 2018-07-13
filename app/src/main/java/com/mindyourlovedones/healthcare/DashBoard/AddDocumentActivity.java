@@ -481,7 +481,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     private void addfile(Uri audoUri) {
         originPath = audoUri.toString();
 
-        File f = new File(getFilePath(audoUri));
+        String path = getFilePath(audoUri);
+        File f;
+        if(path!=null) {
+             f = new File(path);
+        }else{
+            f = new File(audoUri.getPath());
+        }
         originPath = f.getPath();
         originPath = originPath.replace("/root_path/", "");
 
@@ -1006,7 +1012,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 */
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)//Api added for kitkat version shradha
+
     private void copy(File backupDB, File currentDB) throws IOException {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             // Do something for KITKAT and above versions
