@@ -993,16 +993,34 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 */
 
     private void copy(File backupDB, File currentDB) throws IOException {
-        try (InputStream in = new FileInputStream(currentDB)) {
-            try (OutputStream out = new FileOutputStream(backupDB)) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+            // Do something for KITKAT and above versions
+            try (InputStream in = new FileInputStream(currentDB)) {
+                try (OutputStream out = new FileOutputStream(backupDB)) {
+                    // Transfer bytes from in to out
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
+                    }
+                }
+            }
+        } else{
+            // do something for phones running an SDK before KITKAT
+            try{
+                InputStream in = new FileInputStream(currentDB);
+                OutputStream out = new FileOutputStream(backupDB);
                 // Transfer bytes from in to out
                 byte[] buf = new byte[1024];
                 int len;
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
+            }catch (Exception ex){
+                ex.printStackTrace();
             }
         }
+
        /* InputStream in = new FileInputStream(backupDB);
         try {
             OutputStream out = new FileOutputStream(currentDB);
