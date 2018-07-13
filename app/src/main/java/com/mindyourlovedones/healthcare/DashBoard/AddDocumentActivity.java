@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -461,12 +463,28 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    String getFilePath(Uri uri) {//nikita
+        Cursor cursor = null;
+        try {
+            String[] arr = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(uri,  arr, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
     private void addfile(Uri audoUri) {
         originPath = audoUri.toString();
 
-        File f = new File(audoUri.getPath());
+        File f = new File(getFilePath(audoUri));
         originPath = f.getPath();
         originPath = originPath.replace("/root_path/", "");
+
         documentPath = f.getName();
         name = f.getName();
         preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
