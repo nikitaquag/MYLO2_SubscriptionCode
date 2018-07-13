@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -461,12 +463,34 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     }
 
+    String getFilePath(Uri uri) {//nikita
+        Cursor cursor = null;
+        try {
+            String[] arr = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(uri,  arr, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
+
     private void addfile(Uri audoUri) {
         originPath = audoUri.toString();
 
-        File f = new File(audoUri.getPath());
+        String path = getFilePath(audoUri);
+        File f;
+        if(path!=null) {
+             f = new File(path);
+        }else{
+            f = new File(audoUri.getPath());
+        }
         originPath = f.getPath();
         originPath = originPath.replace("/root_path/", "");
+
         documentPath = f.getName();
         name = f.getName();
         preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
@@ -990,7 +1014,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 */
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)//Api added for kitkat version shradha
+
     private void copy(File backupDB, File currentDB) throws IOException {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             // Do something for KITKAT and above versions
