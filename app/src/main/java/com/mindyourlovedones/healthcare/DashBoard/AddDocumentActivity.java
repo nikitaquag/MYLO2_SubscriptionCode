@@ -3,7 +3,6 @@ package com.mindyourlovedones.healthcare.DashBoard;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,13 +11,13 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -28,7 +27,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.HomeActivity.SplashNewActivity;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -525,8 +523,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                             context.startActivity(intent);
                         }
                     }
-
-
                 }
                 break;
 
@@ -992,6 +988,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 */
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)//Api added for kitkat version shradha
     private void copy(File backupDB, File currentDB) throws IOException {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             // Do something for KITKAT and above versions

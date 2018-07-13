@@ -79,6 +79,10 @@ public class FragmentResources extends Fragment {
         l6.setName("American Health Lawyers Association, Loving Conversations");
         l6.setUrl("https://www.healthlawyers.org/Pages/PageNotFoundError.aspx?requestUrl=https://www.healthlawyers.org/hlresources/PI/InfoSeries/Pages/LovingConversations.aspx");
         l6.setImage(R.drawable.aba_market);*/
+        Links l11 = new Links();
+        l11.setName("ABA-American Bar Association, Commission on Law and Aging");
+        l11.setUrl("https://www.americanbar.org/groups/law_aging.html");
+        l11.setImage(R.drawable.aba_market);
 
         Links l7 = new Links();
         l7.setName("American Hospital Association, Put It In Writing");
@@ -100,10 +104,7 @@ public class FragmentResources extends Fragment {
         l10.setUrl("https://www.nhdd.org/public-resources/#where-can-i-get-an-advance-directive");
         l10.setImage(R.drawable.link_six);
 
-        Links l11 = new Links();
-        l11.setName("ABA-American Bar Association, Commission on Law and Aging");
-        l11.setUrl("https://www.americanbar.org/groups/law_aging.html");
-        l11.setImage(R.drawable.aba_market);
+
 
       /*  Links l12=new Links();
         l12.setName("The Commission on Law and Aging, ABA, Consumer’s Tool Kit for Advance Planning");
@@ -113,6 +114,7 @@ public class FragmentResources extends Fragment {
         // UrlList.add(l1);
         // UrlList.add(l2);
         // UrlList.add(l3);
+        UrlList.add(l11);
         UrlList.add(l4);
         UrlList.add(l5);
         //UrlList.add(l6);
@@ -120,7 +122,6 @@ public class FragmentResources extends Fragment {
         UrlList.add(l8);
         UrlList.add(l9);
         UrlList.add(l10);
-        UrlList.add(l11);
         //  UrlList.add(l12);
         //Fol show
         // Datalist=new ArrayList<>();
@@ -134,7 +135,8 @@ public class FragmentResources extends Fragment {
     private void initUI() {
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("RESOURCES");
+        txtTitle.setText("Advance Directives\nInformaton");
+        txtTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
         imgPdf = getActivity().findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgProfile = getActivity().findViewById(R.id.imgProfile);

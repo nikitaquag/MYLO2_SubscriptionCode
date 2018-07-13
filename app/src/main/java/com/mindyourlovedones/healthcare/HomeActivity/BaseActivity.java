@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -100,8 +101,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-
-        //nikita -pdf
+//nikita -pdf
         Intent i = getIntent();
         if (i != null) {
             Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
@@ -145,9 +145,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         } else {
-            //...
-
-            // showSharePdfDialog();
+            //...       // showSharePdfDialog();
             FirebaseCrash.report(new Exception("My first Android non-fatal error"));
             //I'm also creating a log message, which we'll look at in more detail later//
             FirebaseCrash.log("MainActivity started");
@@ -596,27 +594,31 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.txtBank:
+                //shradha
+                showBankDialog();
+                drawerLayout.closeDrawer(leftDrawer);
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 //  callFragment("MARKET", fragmentMarketPlace);
                 //  }
-
-                Intent intent = new Intent();
+               /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intent);
-                drawerLayout.closeDrawer(leftDrawer);
+                startActivity(intent);*/
                 break;
 
             case R.id.txtSenior:
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 // callFragment("MARKET", fragmentMarketPlace);
                 //  }
-                Intent intents = new Intent();
+               /* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intents);
+                startActivity(intents);*/
+
+               //shradha
+                showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
@@ -646,6 +648,53 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(new Intent(BaseActivity.this, LoginActivity.class));
                 break;
         }
+    }
+
+    //Shradha
+    private void showBankDialog() {
+        final Dialog dialogBank = new Dialog(context);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_bank, null);
+        final TextView txtComming = dialogview.findViewById(R.id.txtComming);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+        txtComming.setText("Comming Soon");
+        // txtComming.setTextColor(R.color.colorBlue);
+        dialogBank.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogBank.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogBank.getWindow().setAttributes(lp);
+        dialogBank.show();
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+
+
+       /* final Dialog dialogBank = new Dialog(context);
+        dialogBank.setCancelable(false);
+        dialogBank.setCanceledOnTouchOutside(false);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.setContentView(R.layout.dialog_bank);
+        TextView txtOk = dialogBank.findViewById(R.id.txtOk);
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+        dialogBank.show();*/
+
     }
 
     @Override
