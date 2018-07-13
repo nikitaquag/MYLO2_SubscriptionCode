@@ -22,19 +22,28 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedones.healthcare.Connections.FragmentConnectionNew;
+import com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity;
+import com.mindyourlovedones.healthcare.DashBoard.CustomArrayAdapter;
 import com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedones.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedones.healthcare.DashBoard.FragmentNotification;
 import com.mindyourlovedones.healthcare.IndexMenu.FragmentOverview;
+import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
+import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedones.healthcare.model.RelativeConnection;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -48,6 +57,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.List;
 
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_CALL_PERMISSION = 600;
@@ -91,20 +101,133 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-        // showSharePdfDialog();
-        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
-        //I'm also creating a log message, which we'll look at in more detail later//
-        FirebaseCrash.log("MainActivity started");
-        accessPermission();
-        //Crashlytics.getInstance().crash(); // Force a crash
-        initImageLoader();
-        initComponent();
-        initUI();
-        initListener();
-        fragmentData();
-        if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
-            callFirstFragment("CONNECTION", fragmentConnection);
+//nikita -pdf
+        Intent i = getIntent();
+        if (i != null) {
+            Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
+            if (audoUri != null) {
+                Log.v("URI", audoUri.toString());
+                preferences = new Preferences(context);
+                if (preferences.getREGISTERED() && preferences.isLogin()) {
+                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+                    //I'm also creating a log message, which we'll look at in more detail later//
+                    FirebaseCrash.log("MainActivity started");
+                    accessPermission();
+                    //Crashlytics.getInstance().crash(); // Force a crash
+                    initImageLoader();
+                    initComponent();
+                    initUI();
+                    initListener();
+                    fragmentData();
+                    if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
+                        callFirstFragment("CONNECTION", fragmentConnection);
+                    }
+
+                    extPDF(audoUri + "");
+                } else {
+                    Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(BaseActivity.this, SplashNewActivity.class));
+                    finish();
+                }
+            } else {
+                FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+                //I'm also creating a log message, which we'll look at in more detail later//
+                FirebaseCrash.log("MainActivity started");
+                accessPermission();
+                //Crashlytics.getInstance().crash(); // Force a crash
+                initImageLoader();
+                initComponent();
+                initUI();
+                initListener();
+                fragmentData();
+                if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
+                    callFirstFragment("CONNECTION", fragmentConnection);
+                }
+            }
+        } else {
+            //...       // showSharePdfDialog();
+            FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+            //I'm also creating a log message, which we'll look at in more detail later//
+            FirebaseCrash.log("MainActivity started");
+            accessPermission();
+            //Crashlytics.getInstance().crash(); // Force a crash
+            initImageLoader();
+            initComponent();
+            initUI();
+            initListener();
+            fragmentData();
+            if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
+                callFirstFragment("CONNECTION", fragmentConnection);
+            }
         }
+    }
+
+    List<RelativeConnection> items;//nikita
+
+    public void getData() {//nikita
+        DBHelper dbHelper = new DBHelper(this, "MASTER");
+        MyConnectionsQuery m = new MyConnectionsQuery(this, dbHelper);
+        items = MyConnectionsQuery.fetchAllRecord();
+    }
+
+    private void extPDF(final String URI) {//nikita
+        getData();
+        final Dialog dialogSharePdf = new Dialog(context);
+        dialogSharePdf.setCancelable(false);
+        dialogSharePdf.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogSharePdf.setContentView(R.layout.dialog_share_storage_pdf);
+
+        TextView txtSelect = dialogSharePdf.findViewById(R.id.txtSelect);
+        TextView txtOk = dialogSharePdf.findViewById(R.id.txtOk);
+        final MySpinner spinnerPro = dialogSharePdf.findViewById(R.id.spinnerPro);
+        CustomArrayAdapter adapter = new CustomArrayAdapter(context,
+                android.R.layout.simple_spinner_dropdown_item, items);
+
+        spinnerPro.setAdapter(adapter);
+        spinnerPro.setHint("Profile");
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                preferences.putInt(PrefConstants.CONNECTED_USERID, items.get(spinnerPro.getSelectedItemPosition() - 1).getId());
+                dialogSharePdf.dismiss();
+                AlertDialog.Builder builders = new AlertDialog.Builder(context);
+                builders.setTitle("");
+                builders.setCancelable(false);
+                builders.setItems(dialog_add, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int itemPos) {
+                        switch (itemPos) {
+                            case 0: // email
+                                Intent in = new Intent(BaseActivity.this, AddDocumentActivity.class);
+                                in.putExtra("FROM", "AD");
+                                in.putExtra("PDF_EXT", URI);
+                                startActivity(in);
+                                break;
+                            case 1: // email
+                                Intent in1 = new Intent(BaseActivity.this, AddDocumentActivity.class);
+                                in1.putExtra("FROM", "Other");
+                                in1.putExtra("PDF_EXT", URI);
+                                startActivity(in1);
+                                break;
+                            case 2: // Fax
+                                Intent in2 = new Intent(BaseActivity.this, AddDocumentActivity.class);
+                                in2.putExtra("FROM", "Record");
+                                in2.putExtra("PDF_EXT", URI);
+                                startActivity(in2);
+                                break;
+                        }
+                    }
+                });
+
+                AlertDialog dialog = builders.create();
+                builders.show();
+            }
+        });
+
+        dialogSharePdf.show();
+
     }
 
 /*
@@ -465,12 +588,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.txtEULA:
                 // callFragment("FORM", fragmentResources);
-                CopyReadAssetss("eula_draft.pdf");
+                CopyReadAssetss("eula.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
 
             case R.id.txtBank:
+                //shradha
                 showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
@@ -492,7 +616,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intents);*/
-               showBankDialog();
+
+               //shradha
+                showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
@@ -524,8 +650,38 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    //Shradha
     private void showBankDialog() {
         final Dialog dialogBank = new Dialog(context);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_bank, null);
+        final TextView txtComming = dialogview.findViewById(R.id.txtComming);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+        txtComming.setText("Comming Soon");
+        // txtComming.setTextColor(R.color.colorBlue);
+        dialogBank.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogBank.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogBank.getWindow().setAttributes(lp);
+        dialogBank.show();
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+
+
+       /* final Dialog dialogBank = new Dialog(context);
         dialogBank.setCancelable(false);
         dialogBank.setCanceledOnTouchOutside(false);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -537,7 +693,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 dialogBank.dismiss();
             }
         });
-        dialogBank.show();
+        dialogBank.show();*/
 
     }
 

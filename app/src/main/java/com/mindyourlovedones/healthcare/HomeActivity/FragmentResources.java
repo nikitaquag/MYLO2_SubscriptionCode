@@ -135,7 +135,8 @@ public class FragmentResources extends Fragment {
     private void initUI() {
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("RESOURCES");
+        txtTitle.setText("Advance Directives\nInformaton");
+        txtTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
         imgPdf = getActivity().findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgProfile = getActivity().findViewById(R.id.imgProfile);

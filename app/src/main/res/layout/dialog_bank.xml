@@ -2,8 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginLeft="@dimen/dimension20dp"
-    android:layout_marginRight="@dimen/dimension20dp"
     >
 
     <LinearLayout
@@ -16,7 +14,7 @@
 
 
         <TextView
-            android:id="@+id/txtSelect"
+            android:id="@+id/txtComming"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -39,8 +37,9 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Ok"
-            android:textColor="@color/colorBlack"
+            android:text="OK"
+            android:textColor="@color/colorBlackDark"
+            android:textStyle="normal"
             android:textSize="@dimen/dimension18dp" />
 
 

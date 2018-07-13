@@ -102,7 +102,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/dimension1dp"
                     android:gravity="left"
-                    android:text="(MYLO)"
+                    android:text="MYLO"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_20ssp"
                     android:textStyle="bold"
