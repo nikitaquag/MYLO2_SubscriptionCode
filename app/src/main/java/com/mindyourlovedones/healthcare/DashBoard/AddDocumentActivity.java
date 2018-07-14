@@ -482,8 +482,12 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     private void addfile(Uri audoUri) {
         try {
             originPath = audoUri.toString();
+            String path = null;
 
-            String path = FilePath.getPath(context, audoUri);
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                path = FilePath.getPath(context, audoUri);
+            }
+
             File f;
             if (path != null) {
                 f = new File(path);
