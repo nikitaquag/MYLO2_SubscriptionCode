@@ -480,28 +480,32 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 //    }
 
     private void addfile(Uri audoUri) {
-        originPath = audoUri.toString();
+        try {
+            originPath = audoUri.toString();
 
-        String path = FilePath.getPath(context, audoUri);
-        File f;
-        if (path != null) {
-            f = new File(path);
-        } else {
-            f = new File(audoUri.getPath());
+            String path = FilePath.getPath(context, audoUri);
+            File f;
+            if (path != null) {
+                f = new File(path);
+            } else {
+                f = new File(audoUri.getPath());
+            }
+            originPath = f.getPath();
+            originPath = originPath.replace("/root_path/", "");
+
+            documentPath = f.getName();
+            name = f.getName();
+            preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
+            txtFName.setText(name);
+            imgDoc.setClickable(false);
+            String text = "You Have selected <b>" + name + "</b> Document";
+            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+            showDialogWindow(text);
+            txtAdd.setText("Edit File");
+            imgDoc.setImageResource(R.drawable.pdf);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        originPath = f.getPath();
-        originPath = originPath.replace("/root_path/", "");
-
-        documentPath = f.getName();
-        name = f.getName();
-        preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
-        txtFName.setText(name);
-        imgDoc.setClickable(false);
-        String text = "You Have selected <b>" + name + "</b> Document";
-        Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-        showDialogWindow(text);
-        txtAdd.setText("Edit File");
-        imgDoc.setImageResource(R.drawable.pdf);
     }
 
     private void disableView() {

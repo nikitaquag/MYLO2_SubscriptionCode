@@ -101,65 +101,49 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-//nikita -pdf
-        Intent i = getIntent();
-        if (i != null) {
-            Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
-            if (audoUri != null) {
-                Log.v("URI", audoUri.toString());
-                preferences = new Preferences(context);
-                if (preferences.getREGISTERED() && preferences.isLogin()) {
-                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
-                    //I'm also creating a log message, which we'll look at in more detail later//
-                    FirebaseCrash.log("MainActivity started");
-                    accessPermission();
-                    //Crashlytics.getInstance().crash(); // Force a crash
-                    initImageLoader();
-                    initComponent();
-                    initUI();
-                    initListener();
-                    fragmentData();
-                    if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
-                        callFirstFragment("CONNECTION", fragmentConnection);
+        try {
+            //nikita -pdf
+            Intent i = getIntent();
+            if (i != null) {
+                Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
+                if (audoUri != null) {
+                    Log.v("URI", audoUri.toString());
+                    preferences = new Preferences(context);
+                    if (preferences.getREGISTERED() && preferences.isLogin()) {
+                        loadData();
+                        extPDF(audoUri + "");
+                    } else {
+                        Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(BaseActivity.this, SplashNewActivity.class));
+                        finish();
                     }
-
-                    extPDF(audoUri + "");
                 } else {
-                    Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(BaseActivity.this, SplashNewActivity.class));
-                    finish();
+                    loadData();
                 }
             } else {
-                FirebaseCrash.report(new Exception("My first Android non-fatal error"));
-                //I'm also creating a log message, which we'll look at in more detail later//
-                FirebaseCrash.log("MainActivity started");
-                accessPermission();
-                //Crashlytics.getInstance().crash(); // Force a crash
-                initImageLoader();
-                initComponent();
-                initUI();
-                initListener();
-                fragmentData();
-                if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
-                    callFirstFragment("CONNECTION", fragmentConnection);
-                }
+                loadData();
             }
-        } else {
-            //...       // showSharePdfDialog();
-            FirebaseCrash.report(new Exception("My first Android non-fatal error"));
-            //I'm also creating a log message, which we'll look at in more detail later//
-            FirebaseCrash.log("MainActivity started");
-            accessPermission();
-            //Crashlytics.getInstance().crash(); // Force a crash
-            initImageLoader();
-            initComponent();
-            initUI();
-            initListener();
-            fragmentData();
-            if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
-                callFirstFragment("CONNECTION", fragmentConnection);
-            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
+    }
+
+    private void loadData() {
+
+//                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+//                    //I'm also creating a log message, which we'll look at in more detail later//
+//                    FirebaseCrash.log("MainActivity started");
+        accessPermission();
+        //Crashlytics.getInstance().crash(); // Force a crash
+        initImageLoader();
+        initComponent();
+        initUI();
+        initListener();
+        fragmentData();
+        if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
+            callFirstFragment("CONNECTION", fragmentConnection);
+        }
+
     }
 
     List<RelativeConnection> items;//nikita
@@ -617,7 +601,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intents);*/
 
-               //shradha
+                //shradha
                 showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
