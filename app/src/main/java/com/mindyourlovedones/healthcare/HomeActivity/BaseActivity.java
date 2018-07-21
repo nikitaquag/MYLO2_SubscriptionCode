@@ -32,7 +32,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedones.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedones.healthcare.DashBoard.CustomArrayAdapter;
@@ -481,7 +480,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.rlSupport:
 
-                CopyReadAssetss("mylo_faq.pdf");
+                CopyReadAssetss("FAQ.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
@@ -560,7 +559,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.txtPrivacyPolicy:
                 // callFragment("FORM", fragmentResources);
-                CopyReadAssetss("privacy_policy.pdf");
+                CopyReadAssetss("Privacy Policy.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 

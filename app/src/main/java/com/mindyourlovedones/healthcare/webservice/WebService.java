@@ -136,7 +136,7 @@ public class WebService {
 
             e.printStackTrace();
 
-            Log.e("Upload file to server Exception",
+            Log.e("Upload fileException",
                     "Exception : " + e.getMessage(), e);
         }
         return result;

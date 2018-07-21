@@ -126,6 +126,8 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
+                rlGuide.setVisibility(View.GONE);
+                scroll.setVisibility(View.VISIBLE);
                 relMsg.setVisibility(View.VISIBLE);
             }
         });
@@ -358,7 +360,7 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
         } else {
             rlGuide.setVisibility(View.VISIBLE);
             lvPrescription.setVisibility(View.GONE);
-            scroll.setVisibility(View.VISIBLE);
+            scroll.setVisibility(View.GONE);
         }
         PrescriptionAdapter adapter = new PrescriptionAdapter(context, PrescriptionList);
         lvPrescription.setAdapter(adapter);

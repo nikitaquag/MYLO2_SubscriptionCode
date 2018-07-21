@@ -161,7 +161,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                CopyReadAssetss("privacy_policy.pdf");
+                CopyReadAssetss("Privacy Policy.pdf");
                 return false;
             }
         });
