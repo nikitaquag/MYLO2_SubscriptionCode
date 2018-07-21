@@ -43,7 +43,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
-    TextView txtName, txtAdd;
+    TextView txtName, txtAdd,txtSave;
     TextInputLayout tilName;
     String From;
     Preferences preferences;
@@ -73,6 +73,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         imgDone.setOnClickListener(this);
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
 
     }
 
@@ -85,6 +86,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         txtName = findViewById(R.id.txtName);
         tilName = findViewById(R.id.tilName);
         txtAdd = findViewById(R.id.txtAdd);
+        txtSave=findViewById(R.id.txtSave);
 
 
         txtName.setOnTouchListener(new View.OnTouchListener() {
@@ -103,6 +105,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
         if (Goto.equals("View")) {
             imgDot.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
             imgAdd.setVisibility(View.GONE);
 
@@ -119,13 +122,15 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             imgDoc.setImageResource(document.getImage());
             id = document.getId();
             imgDot.setVisibility(View.GONE);
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+           // imgDone.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
             txtAdd.setText("Edit File");
         } else {
             imgDot.setVisibility(View.GONE);
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+           // imgDone.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
             txtAdd.setText("Select File");
@@ -177,7 +182,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
                 break;
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 if (validate()) {
                     documentPath = copydb(originPath, name);
                     if (Goto.equals("Edit")) {

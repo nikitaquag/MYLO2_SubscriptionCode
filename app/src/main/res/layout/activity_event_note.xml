@@ -37,7 +37,7 @@
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="EVENT NOTES"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension22dp" />
+                android:textSize="@dimen/dimension20dp" />
 
             <ImageView
                 android:id="@+id/imgAdd"

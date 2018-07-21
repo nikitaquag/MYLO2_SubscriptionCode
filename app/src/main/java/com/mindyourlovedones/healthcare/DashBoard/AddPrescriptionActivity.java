@@ -80,7 +80,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     String pre = "NO";
     ToggleButton tbPre;
     TextInputLayout tilTitle;
-    TextView txtName, txtDate, txtPurpose, txtNote, txtRX, txtPre, txtMedicine, txtDose, txtFrequency, txtTitle;
+    TextView txtName, txtDate, txtPurpose, txtNote, txtRX, txtPre, txtMedicine, txtDose, txtFrequency, txtTitle,txtSave;
     EditText etNote;
     MySpinner spinner;
     RadioGroup rgCounter;
@@ -141,6 +141,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgBack.setOnClickListener(this);
         imgAddDosage.setOnClickListener(this);
         imgAddPhoto.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         txtDate.setOnClickListener(this);
 
@@ -183,6 +184,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgDone = findViewById(R.id.imgDone);
         etNote = findViewById(R.id.etNote);
         txtNote = findViewById(R.id.txtNote);
+        txtSave=findViewById(R.id.txtSave);
 
         ListPhoto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -321,7 +323,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 dpd.show();
                 break;*/
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 String doctor = txtName.getText().toString().trim();
                 String purpose = txtPurpose.getText().toString().trim();
                 String note = etNote.getText().toString().trim();

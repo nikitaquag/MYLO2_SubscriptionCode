@@ -36,7 +36,22 @@
                 android:text="Add Prescription"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension22dp" />
+                android:textSize="@dimen/dimension20dp" />
+
+            <TextView
+                android:id="@+id/txtSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:paddingLeft="@dimen/dimension5dp"
+                android:paddingRight="@dimen/dimension5dp"
+                android:text="Save"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension18dp"
+                android:textStyle="bold" />
+
 
             <ImageView
                 android:id="@+id/imgDone"
@@ -45,7 +60,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
-                android:src="@drawable/check_mark" />
+                android:src="@drawable/check_mark"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <!---->

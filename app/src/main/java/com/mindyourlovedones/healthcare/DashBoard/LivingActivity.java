@@ -46,7 +46,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     RelativeLayout rlLiving;
     ImageView imgBack, imgDone, imgRight, imgInfo;
     Preferences preferences;
-    TextView txtTitle, txtName;
+    TextView txtTitle, txtName,txtSave;
     DBHelper dbHelper;
     ImageView imgInfoF, imgInfoI;
     EditText etOtherFunction, etFunctionalNote, etOtherInstrument, etInstrumentalNote;
@@ -65,6 +65,8 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initListener() {
+        txtSave.setOnClickListener(this);
+
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgInfoF.setOnClickListener(this);
@@ -133,10 +135,13 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("ACTIVITIES OF DAILY\nLIVING");
 
+        txtSave=findViewById(R.id.txtSave);
+        txtSave.setVisibility(View.VISIBLE);
+
         imgBack = findViewById(R.id.imgBack);
         imgRight = findViewById(R.id.imgRight);
         imgDone = findViewById(R.id.imgDone);
-        imgDone.setVisibility(View.VISIBLE);
+        //imgDone.setVisibility(View.VISIBLE);
 
         imgInfoF = findViewById(R.id.imgInfoF);
         imgInfoI = findViewById(R.id.imgInfoI);
@@ -437,7 +442,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 });
                 builder.create().show();
                 break;
-            case R.id.imgDone:
+            case R.id.txtSave:
                 functionnote = etFunctionalNote.getText().toString().trim();
                 fouctionOther = etOtherFunction.getText().toString().trim();
                 instaOther = etOtherInstrument.getText().toString().trim();

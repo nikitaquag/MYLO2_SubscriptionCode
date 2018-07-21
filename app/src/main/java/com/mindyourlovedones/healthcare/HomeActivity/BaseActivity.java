@@ -32,7 +32,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedones.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedones.healthcare.DashBoard.CustomArrayAdapter;

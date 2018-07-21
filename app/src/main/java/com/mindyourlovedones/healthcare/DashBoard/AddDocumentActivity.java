@@ -7,13 +7,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -62,7 +59,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
     MySpinner spinnerDoc, spinnerType, spinnerPro;
-    TextView txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
+    TextView txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
     Preferences preferences;
     ArrayAdapter<String> adapter, adapter1, adapterPro;
@@ -148,6 +145,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -159,6 +157,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         spinnerDoc = findViewById(R.id.spinnerDoc);
         rlDocType = findViewById(R.id.rlDocType);
         spinnerType = findViewById(R.id.spinnerType);
+
+        txtSave=findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txtHosp = findViewById(R.id.txtHosp);
         txtLocator = findViewById(R.id.txtLocator);
@@ -318,6 +318,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         }
 
         if (Goto.equals("View")) {
+            txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
             imgDot.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.GONE);
@@ -325,14 +326,16 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDoc.setClickable(true);
             disableView();
         } else if (Goto.equals("Edit")) {
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+            //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
             txtAdd.setText("Edit File");
             imgDoc.setClickable(false);
         } else {
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+            //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
@@ -584,7 +587,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 dpd.show();
                 break;
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 if (validate()) {
 
                     documentPath = copydb(originPath, name);
