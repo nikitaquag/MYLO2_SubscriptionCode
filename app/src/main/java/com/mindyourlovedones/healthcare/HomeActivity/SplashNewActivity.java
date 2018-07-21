@@ -473,7 +473,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             if (preferences.isLogin()) {
                 llBottom.setVisibility(View.VISIBLE);
                 llSplash.setVisibility(View.GONE);
-                txtWelcome.setText("Welcome Back " + preferences.getString(PrefConstants.USER_NAME));
+                txtWelcome.setText("Welcome back, " + preferences.getString(PrefConstants.USER_NAME)+"!");
             } else {
                 llBottom.setVisibility(View.GONE);
                 llSplash.setVisibility(View.VISIBLE);

@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     RelativeLayout header;
     boolean flag = false;
     TextView txtMsg, txtFTU;
+    ScrollView scrollvw;
 
     public static String getFormattedDate(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -94,6 +96,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     }
 
     private void initUI() {
+        scrollvw = findViewById(R.id.scrollvw);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> an Appointment  click  the <b>plus</b> box " +
 //                "at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>Add Appointment</b> on the green bar." +
@@ -125,6 +128,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
                 relMsg.setVisibility(View.VISIBLE);//nikita
+                scrollvw.setVisibility(View.VISIBLE);//nikita
+                rlGuide.setVisibility(View.GONE);//nikita
             }
         });
         header = findViewById(R.id.header);
@@ -319,9 +324,11 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            scrollvw.setVisibility(View.GONE);
         } else {
             rlGuide.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
+            scrollvw.setVisibility(View.GONE);
         }
         AppointAdapter adapter = new AppointAdapter(context, noteList);
         lvNote.setAdapter(adapter);

@@ -480,7 +480,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.rlSupport:
 
-                CopyReadAssetss("mylo_faq.pdf");
+                CopyReadAssetss("FAQ.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
@@ -559,7 +559,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.txtPrivacyPolicy:
                 // callFragment("FORM", fragmentResources);
-                CopyReadAssetss("privacy_policy.pdf");
+                CopyReadAssetss("Privacy Policy.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
