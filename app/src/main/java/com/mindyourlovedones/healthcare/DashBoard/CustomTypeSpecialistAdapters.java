@@ -9,24 +9,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
+import android.widget.TextView;
 
+import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.model.RelativeConnection;
+import com.mindyourlovedones.healthcare.model.TypeSpecialist;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Niki on 23-07-2018.
+ * Created by Niki on 11-07-2018.
  */
 
-public class CustomArrayAdapter extends ArrayAdapter<RelativeConnection> {
+public class CustomTypeSpecialistAdapters  extends ArrayAdapter<TypeSpecialist> {
 
     private final LayoutInflater mInflater;
     private final Context mContext;
-    private final List<RelativeConnection> items;
+    private final ArrayList<TypeSpecialist> items;
     private final int mResource;
 
-    public CustomArrayAdapter(@NonNull Context context, @LayoutRes int resource,
-                                       @NonNull List<RelativeConnection> objects) {
+    public CustomTypeSpecialistAdapters(@NonNull Context context, @LayoutRes int resource,
+                              @NonNull ArrayList<TypeSpecialist> objects) {
         super(context, resource, 0, objects);
 
         mContext = context;
@@ -50,7 +54,12 @@ public class CustomArrayAdapter extends ArrayAdapter<RelativeConnection> {
 
         CheckedTextView offTypeTv = (CheckedTextView) view.findViewById(android.R.id.text1);
 
-        offTypeTv.setText(items.get(position).getName());
+        offTypeTv.setText(items.get(position).getType());
+        if(items.get(position).getDiff()==1){
+            offTypeTv.setTextColor(mContext.getResources().getColor(R.color.colorBlue));
+        }else{
+            offTypeTv.setTextColor(mContext.getResources().getColor(R.color.colorDarkGreen));
+        }
 
         return view;
     }

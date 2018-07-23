@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -25,12 +26,18 @@ import com.mindyourlovedones.healthcare.database.AppointmentQuery;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.DateQuery;
 import com.mindyourlovedones.healthcare.model.Appoint;
+import com.mindyourlovedones.healthcare.model.RelativeConnection;
+import com.mindyourlovedones.healthcare.model.TypeSpecialist;
 import com.mindyourlovedones.healthcare.utility.DialogManager;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Random;
 
 
@@ -53,13 +60,19 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     Appoint p;
 
 
+//    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
+//            "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
+//    };
+    String[] Type1 = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
 
-
-    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
+    };
+    String[] Type2 = {
             "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
     };
 
     String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
+
+    private ArrayList<TypeSpecialist> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,8 +116,28 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         rbYes = findViewById(R.id.rbYes);
         rbNo = findViewById(R.id.rbNo);
 
-        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Type);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Type);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerType.setAdapter(adapter);
+
+        items = new ArrayList<TypeSpecialist>();
+
+        for(int i=0;i<Type1.length;i++){
+            TypeSpecialist ts=new TypeSpecialist();
+            ts.setType(Type1[i]);
+            ts.setDiff(0);
+            items.add(ts);
+        }
+
+        for(int i=0;i<Type2.length;i++){
+            TypeSpecialist ts=new TypeSpecialist();
+            ts.setType(Type2[i]);
+            ts.setDiff(1);
+            items.add(ts);
+        }
+
+        CustomTypeSpecialistAdapters adapter = new CustomTypeSpecialistAdapters(context,
+                android.R.layout.simple_spinner_dropdown_item, items);
         spinnerType.setAdapter(adapter);
         spinnerType.setHint("Type of Test or Specialist");
 
@@ -190,8 +223,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 }
                 if (a.getType() != null) {
                     int index = 0;
-                    for (int j = 0; j < Type.length; j++) {
-                        if (a.getType().equals(Type[j])) {
+                    for (int j = 0; j < items.size(); j++) {
+                        if (a.getType().equals(items.get(j))) {
                             index = j;
                         }
                     }
@@ -241,7 +274,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 String type = "";
                 String frequency = "";
                 if (indexValuex != 0) {
-                    type = Type[indexValuex - 1];
+                    type = items.get(indexValuex - 1).getType();
                 }
 
                 int indexValue = spinnerFrequency.getSelectedItemPosition();
