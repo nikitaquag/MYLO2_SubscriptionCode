@@ -27,7 +27,7 @@
             android:layout_height="@dimen/dimension60dp"
             android:layout_toRightOf="@+id/imgAdd"
             android:gravity="center"
-            android:text="Add Finance, insurance, Legal"
+            android:text="Add Finance &amp; Legal"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension24dp" />

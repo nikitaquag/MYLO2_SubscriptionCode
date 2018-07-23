@@ -1677,8 +1677,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "Finance":
                 visiFinance();
-                txtAdd.setText("Add Finance, Insurance, Legal");
-                txtTitle.setText("Add Finance, Insurance, Legal");
+                txtAdd.setText("Add Finance & Legal");
+                txtTitle.setText("Add Finance & Legal");
                 break;
 
             case "Hospital":

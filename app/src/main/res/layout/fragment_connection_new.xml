@@ -242,6 +242,34 @@
                         android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep6"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgStep7"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep7"
+                        android:text="Step 1. To ad"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+
+                </RelativeLayout>
+
             </RelativeLayout>
 
             <!--   android:text="Create profiles for members of your family or friends.  Add as much or as little information as you want. The goal is to create less stress and allow you to focus on the issue at hand."
