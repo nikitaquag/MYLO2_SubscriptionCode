@@ -224,7 +224,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 if (a.getType() != null) {
                     int index = 0;
                     for (int j = 0; j < items.size(); j++) {
-                        if (a.getType().equals(items.get(j))) {
+                        if (a.getType().equals(items.get(j).getType())) {
                             index = j;
                         }
                     }
