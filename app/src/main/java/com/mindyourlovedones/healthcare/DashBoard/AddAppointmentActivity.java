@@ -57,12 +57,12 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     //    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
 //            "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
 //    };
-    String[] Type3 = {"Annual blood work", "Echocardiogram", "EKG", "MRI", "Prostate Specific Antigen (PSA)", "Sonogram", "",};
+    String[] Type3 = {"", "Type of Test", "Annual blood work", "Echocardiogram", "EKG", "MRI", "Prostate Specific Antigen (PSA)", "Sonogram"};
 
     String[] Type1 = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
 
     };
-    String[] Type2 = {
+    String[] Type2 = {"Specialist",
             "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
     };
 
@@ -121,9 +121,14 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
 
         //shradha
         for (int i = 0; i < Type3.length; i++) {
+
             TypeSpecialist ts = new TypeSpecialist();
             ts.setType(Type3[i]);
-            ts.setDiff(2);
+            if (i == 1) {
+                ts.setDiff(99);
+            } else {
+                ts.setDiff(0);
+            }
             items.add(ts);
         }
 
@@ -134,12 +139,18 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             items.add(ts);
         }
 
+
         for (int i = 0; i < Type2.length; i++) {
 //            spinnerType.setPrompt("Specialist");//shradha
             TypeSpecialist ts = new TypeSpecialist();
-        //    ts.setHint("Specialist"+"\n");
+            //    ts.setHint("Specialist"+"\n");
             ts.setType(Type2[i]);
             ts.setDiff(1);
+            if (i == 0) {
+                ts.setDiff(99);
+            } else {
+                ts.setDiff(1);
+            }
             items.add(ts);
         }
 
@@ -197,10 +208,16 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).toString().equals("Other")) {
-                    tilOtherSpecialist.setVisibility(View.VISIBLE);
-                } else {
-                    tilOtherSpecialist.setVisibility(View.GONE);
+                if (items != null && !items.isEmpty() && position != -1) {
+                    if (items.get(position).getType().toString().equals("Specialist") || items.get(position).getType().toString().equals("Type of Test")) {
+                        spinnerType.setSelection(0);
+                    } else {
+                        if (items.get(position).getType().toString().equals("Other")) {
+                            tilOtherSpecialist.setVisibility(View.VISIBLE);
+                        } else {
+                            tilOtherSpecialist.setVisibility(View.GONE);
+                        }
+                    }
                 }
             }
 
