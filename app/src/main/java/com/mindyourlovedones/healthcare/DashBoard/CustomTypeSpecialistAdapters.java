@@ -9,20 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
-import android.widget.TextView;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.model.RelativeConnection;
 import com.mindyourlovedones.healthcare.model.TypeSpecialist;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Niki on 11-07-2018.
  */
 
-public class CustomTypeSpecialistAdapters  extends ArrayAdapter<TypeSpecialist> {
+public class CustomTypeSpecialistAdapters extends ArrayAdapter<TypeSpecialist> {
 
     private final LayoutInflater mInflater;
     private final Context mContext;
@@ -30,7 +27,7 @@ public class CustomTypeSpecialistAdapters  extends ArrayAdapter<TypeSpecialist> 
     private final int mResource;
 
     public CustomTypeSpecialistAdapters(@NonNull Context context, @LayoutRes int resource,
-                              @NonNull ArrayList<TypeSpecialist> objects) {
+                                        @NonNull ArrayList<TypeSpecialist> objects) {
         super(context, resource, 0, objects);
 
         mContext = context;
@@ -38,27 +35,36 @@ public class CustomTypeSpecialistAdapters  extends ArrayAdapter<TypeSpecialist> 
         mResource = resource;
         items = objects;
     }
-    @Override
+
+     @Override
     public View getDropDownView(int position, @Nullable View convertView,
                                 @NonNull ViewGroup parent) {
         return createItemView(position, convertView, parent);
     }
 
+
+
     @Override
-    public @NonNull View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public @NonNull
+    View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         return createItemView(position, convertView, parent);
     }
 
-    private View createItemView(int position, View convertView, ViewGroup parent){
+    private View createItemView(int position, View convertView, ViewGroup parent) {
         final View view = mInflater.inflate(mResource, parent, false);
 
         CheckedTextView offTypeTv = (CheckedTextView) view.findViewById(android.R.id.text1);
 
         offTypeTv.setText(items.get(position).getType());
-        if(items.get(position).getDiff()==1){
+        if (items.get(position).getDiff() == 1) {
             offTypeTv.setTextColor(mContext.getResources().getColor(R.color.colorBlue));
-        }else{
+        } else {
             offTypeTv.setTextColor(mContext.getResources().getColor(R.color.colorDarkGreen));
+        }
+
+        //shradha
+        if (items.get(position).getDiff() == 2) {
+            offTypeTv.setTextColor(mContext.getResources().getColor(R.color.colorFour));
         }
 
         return view;

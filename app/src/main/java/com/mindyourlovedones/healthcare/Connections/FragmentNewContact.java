@@ -151,7 +151,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Domestic Partner", "Father-in-law", "Friend", "Granddaughter", "Grandfather", "Grandmother", "Grandson", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Roommate", "Significant Other", "Sister", "Son", "Uncle", "Wife", "Other"};
 
     //String[] healthSpeciality = {"Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon  ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon ", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon ", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon ", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon  - General ", "Thoracic & Cardiac Surgeon ", "Urology", "Vascular Medicine", "Other"};
-    String[] healthSpeciality = {"Acupuncture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon", "Critical Care", "Dentist", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgery", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice and Palliative Medicine", "Infectious Disease", "Internal Medicine", "Massage Therapy", "Medical Genetics", "Nephrology", "Obstetrics & Gynecology", "Oncology", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopedic", "Orthopedic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatry Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Pathology", "Sports Medicine", "Surgery - General", "Thoracic & Cardiac Surgery", "Urology", "Vascular Medicine", "Other"};
+    String[] healthSpeciality = {"Acupuncture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic Surgeon", "Critical Care", "Dentist", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgery", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice and Palliative Medicine", "Infectious Disease", "Internal Medicine", "Medical Genetics", "Nephrology", "Obstetrics & Gynecology", "Oncology", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopedic", "Orthopedic Surgeon", "Otolaryngology", "Occupational Therapist", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Psychologist", "Psychotherapist", "Plastic & Reconstructive Surgeon", "Podiatry Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Pathology", "Sports Medicine", "Surgery - General", "Thoracic & Cardiac Surgery", "Urology", "Vascular Medicine", "Other"};
 
     //String[] insuaranceType = {"Dental", "Disability", "Life", "Long Term Care", "Medicaid", "Medical", "Medicare Supplement (Medigap)", "Medicare", "Supplemental", "Vision", "Other"};
     String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision", "Other"};
@@ -496,10 +496,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = specialist.getId();
 
                     String photo;
-                    if(imagepath.isEmpty()) {
+                    if (imagepath.isEmpty()) {
                         photo = specialist.getPhoto();//nikita
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -653,10 +653,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = rel.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -755,10 +755,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     spinnerProxy.setSelection(rel.getIsPrimary() + 1);
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = rel.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -913,10 +913,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = rel.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1092,10 +1092,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = specialist.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1188,10 +1188,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = specialist.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1422,10 +1422,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = insurance.getId();
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = insurance.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1579,10 +1579,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = aides.getId();
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = aides.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1740,10 +1740,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = specialist.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 
@@ -1917,10 +1917,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     String photo;
-                    if(imagepath.isEmpty()) {//nikita
+                    if (imagepath.isEmpty()) {//nikita
                         photo = specialist.getPhoto();
-                    }else{
-                        photo= imagepath;
+                    } else {
+                        photo = imagepath;
                     }
                     imagepath = photo;//nikita
 

@@ -25,4 +25,14 @@ public class TypeSpecialist {
     String Type="";
     int Diff=0;
 
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    String hint="";
+
 }
