@@ -125,7 +125,7 @@ public class FaxCustomDialog extends Dialog implements
         if (number.equalsIgnoreCase("")) {
             editnumber.setError("Field cannot be left blank.");
             return false;
-        } else if (number.length() < 10) {
+        } else if (number.length() < 1) {
             editnumber.setError("Please enter valid Fax number");
             return false;
         } else if (to.equalsIgnoreCase("")) {

@@ -179,4 +179,20 @@ public class DateQuery {
 
         return noteList;
     }
+    /*Shradha delete date record*/
+    public static boolean deleteDateRecord(int preId, String date) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_PREID + "='" + preId + "' AND  " + COL_DATE + "='" + date + "';", null);
+
+        if (c.moveToFirst()) {
+            do {
+                db.execSQL("delete from " + TABLE_NAME + " where " + COL_PREID + "='" + preId + "' AND " + COL_DATE + "='" + date + "';");
+            } while (c.moveToNext());
+        }
+//        boolean flag = DateQuery.deleteDateRecord(preId,date);
+
+        return true;
+    }
+
+
 }

@@ -18,6 +18,7 @@ import com.mindyourlovedones.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout;
 import com.mindyourlovedones.healthcare.model.PrescribeImage;
 import com.mindyourlovedones.healthcare.model.Prescription;
+import com.mindyourlovedones.healthcare.utility.Preferences;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ class PrescriptionAdapter extends RecyclerSwipeAdapter<PrescriptionAdapter.Holde
     Context context;
     ArrayList<Prescription> prescriptionList;
     LayoutInflater lf;
+    Preferences preferences;
 
     public PrescriptionAdapter(Context context, ArrayList prescriptionList) {
         this.context = context;
@@ -141,14 +143,26 @@ class PrescriptionAdapter extends RecyclerSwipeAdapter<PrescriptionAdapter.Holde
         }
 
         holder.txtName.setText(prescriptionList.get(position).getMedicine());
-
-        holder.imgForward.setOnClickListener(new View.OnClickListener() {
+        /*Shradha  edit added for prescription*/
+        holder.txtName.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(context, AddPrescriptionActivity.class);
                 intent.putExtra("PrescriptionObject", prescriptionList.get(position));
                 intent.putExtra("IsEdit", true);
                 context.startActivity(intent);
+            }
+        });
+
+        holder.imgForward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, AddPrescriptionActivity.class);
+             //   preferences.putString(PrefConstants.SOURCE, "PrescriptionViewData");
+                Prescription prescription = prescriptionList.get(position);
+                i.putExtra("PrescriptionObject", prescription);
+                i.putExtra("IsView", true);
+                context.startActivity(i);
             }
         });
         /*holder.txtNote.setText(prescriptionList.get(position).getTxtNote());

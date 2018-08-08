@@ -160,6 +160,7 @@ public class AppointmentQuery {
         return flag;
     }
 
+
    /* public static Boolean updateEvent(int id, String note, String date) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
