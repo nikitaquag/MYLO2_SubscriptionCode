@@ -549,4 +549,33 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         }, year, month, day);
         dpd.show();
     }
+
+    /*Shradha delete date recor*/
+    public void deleteDateNote(final DateClass items) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+//                boolean flag = DateQuery.deleteDateRecord(items.getPreid(), items.getDate());
+                boolean flag = DateQuery.deleteRecords(items.getId());
+                if (flag == true) {
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                    getData();
+                    setNoteData();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
 }
