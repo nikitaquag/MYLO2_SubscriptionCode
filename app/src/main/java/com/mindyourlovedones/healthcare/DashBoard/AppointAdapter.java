@@ -117,15 +117,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View helperview = lf.inflate(R.layout.date_row, null);
 
+                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);//nikita
 
                         holder.llDate.addView(helperview);
                         TextView datetime = helperview.findViewById(R.id.txtDateTime);
 
                         if (i == dates.size()) {
 
-                          /*  final SwipeLayout swipeDate;
-                            swipeDate=helperview.findViewById(R.id.swipeDate);
-                            swipeDate.setBottomSwipeEnabled(false);*/
+                            swipeDate.setSwipeEnabled(false);//nikita
 
                             datetime.setText("Add +");
                             datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
@@ -139,22 +138,17 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                                 }
                             });
                         } else {
+                            swipeDate.setSwipeEnabled(true);//nikita
                             final LinearLayout lltrash;
-
-                            lltrash = helperview.findViewById(R.id.lltrashinner);
-
-//                        lltrash.setTag(i + "");
-
-                            lltrash.setTag(dates.get(i));
+                            lltrash = helperview.findViewById(R.id.lltrashinner);//nikita
+                            lltrash.setTag(dates.get(i));//nikita
 
                             lltrash.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
                                     if (context instanceof MedicalAppointActivity) {
-                                        DateClass dd = (DateClass) lltrash.getTag();
+                                        DateClass dd = (DateClass) lltrash.getTag();//nikita
                                         if (dd != null) {
-//                                        int pos = Integer.getInteger(lltrash.getTag().toString());
-//                                        ((MedicalAppointActivity) context).deleteDateNote(dates.get(pos));
                                             ((MedicalAppointActivity) context).deleteDateNote(dd);
                                         } else {
                                             Toast.makeText(context, "Null DATA", Toast.LENGTH_SHORT).show();
