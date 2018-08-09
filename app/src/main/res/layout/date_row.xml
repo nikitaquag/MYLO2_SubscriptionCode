@@ -42,4 +42,5 @@
         android:background="@color/colorLightGray"
         android:text="08/09/2017  14:00"
         />
+
 </com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout>
