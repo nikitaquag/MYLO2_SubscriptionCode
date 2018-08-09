@@ -117,14 +117,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View helperview = lf.inflate(R.layout.date_row, null);
 
-                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);//nikita
+                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
 
                         holder.llDate.addView(helperview);
                         TextView datetime = helperview.findViewById(R.id.txtDateTime);
 
                         if (i == dates.size()) {
 
-                            swipeDate.setSwipeEnabled(false);//nikita
+                            swipeDate.setSwipeEnabled(false);
 
                             datetime.setText("Add +");
                             datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
