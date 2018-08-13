@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/border_splashbanner"
-    android:padding="@dimen/dimension3dp">
+    android:paddingTop="@dimen/dimension3dp">
 
     <ImageView
         android:layout_width="match_parent"
