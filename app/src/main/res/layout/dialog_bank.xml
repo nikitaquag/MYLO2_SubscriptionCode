@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:id="@+id/llBank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:background="@drawable/dialog_border"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/txtComming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Comming Soon"
+            android:textColor="@color/colorBlue"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimension18dp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/txtDelProfile"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="OK"
+            android:textColor="@color/colorBlackDark"
+            android:textStyle="normal"
+            android:textSize="@dimen/dimension18dp" />
+
+
+    </LinearLayout>
+</RelativeLayout>

@@ -37,9 +37,11 @@ public class FaxCustomDialog extends Dialog implements
     private EditText editto;
     private EditText editfrom;
     private EditText editsubject;
+    private EditText editReply;
     private String to;
     private String from;
     private String subject;
+    private String reply;
     private Context context;
 
     /**
@@ -61,6 +63,7 @@ public class FaxCustomDialog extends Dialog implements
         editto = findViewById(R.id.etTo);
         editfrom = findViewById(R.id.etFrom);
         editsubject = findViewById(R.id.etSubject);
+        editReply = findViewById(R.id.etReply);
 
         int lastIndex = path.lastIndexOf("/");
         //  int prevIndex = path.lastIndexOf("/", lastIndex);
@@ -116,11 +119,13 @@ public class FaxCustomDialog extends Dialog implements
         to = editto.getText().toString();
         from = editfrom.getText().toString();
         subject = editsubject.getText().toString();
+        reply = editReply.getText().toString();
+
 
         if (number.equalsIgnoreCase("")) {
             editnumber.setError("Field cannot be left blank.");
             return false;
-        } else if (number.length() < 10) {
+        } else if (number.length() < 1) {
             editnumber.setError("Please enter valid Fax number");
             return false;
         } else if (to.equalsIgnoreCase("")) {
@@ -131,6 +136,9 @@ public class FaxCustomDialog extends Dialog implements
             return false;
         } else if (subject.equalsIgnoreCase("")) {
             editsubject.setError("Field cannot be left blank.");
+            return false;
+        } else if (reply.equalsIgnoreCase("")) {
+            editReply.setError("Field cannot be left blank.");
             return false;
         }
         return true;

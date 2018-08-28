@@ -26,12 +26,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.HomeActivity.SplashNewActivity;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.DocumentQuery;
+import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedones.healthcare.model.Document;
+import com.mindyourlovedones.healthcare.model.RelativeConnection;
+import com.mindyourlovedones.healthcare.utility.FilePath;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
 
@@ -44,6 +46,7 @@ import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 
 public class AddDocumentActivity extends AppCompatActivity implements View.OnClickListener {
@@ -55,11 +58,11 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
-    MySpinner spinnerDoc, spinnerType;
-    TextView txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
+    MySpinner spinnerDoc, spinnerType, spinnerPro;
+    TextView txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
     Preferences preferences;
-    ArrayAdapter<String> adapter, adapter1;
+    ArrayAdapter<String> adapter, adapter1, adapterPro;
     TextInputLayout tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
     RelativeLayout rlDocType;
     Document document;
@@ -84,14 +87,22 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
 
     boolean external_flag = false;
+    List<RelativeConnection> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_add_document);
         initComponent();
         initUi();
         initListener();
+    }
+
+    public void getData() {
+        DBHelper dbHelper = new DBHelper(this, "MASTER");
+        MyConnectionsQuery m = new MyConnectionsQuery(this, dbHelper);
+        items = MyConnectionsQuery.fetchAllRecord();
     }
 
     private void initComponent() {
@@ -102,50 +113,28 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             preferences = new Preferences(AddDocumentActivity.this);
         }
 
-        if (preferences.getREGISTERED() && preferences.isLogin()) {
-
-        } else {
-            Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(AddDocumentActivity.this, SplashNewActivity.class));
-            finish();
-        }
+//        if (preferences.getREGISTERED() && preferences.isLogin()) {
+//
+//        } else {
+//            Toast.makeText(getApplicationContext(), "You need to login first", Toast.LENGTH_SHORT).show();
+//            startActivity(new Intent(AddDocumentActivity.this, SplashNewActivity.class));
+//            finish();
+//        }
 
         From = preferences.getString(PrefConstants.FROM);
 
         i = getIntent();
         Log.v("URI", i.getExtras().toString());
-        final Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
-        if (audoUri != null) {
-            Log.v("URI", audoUri.toString());
-            AlertDialog.Builder builders = new AlertDialog.Builder(context);
-            builders.setTitle("");
-            builders.setCancelable(false);
-            builders.setItems(dialog_add, new DialogInterface.OnClickListener() {
+        if (i.hasExtra("PDF_EXT")) {
+            final Uri audoUri = Uri.parse(i.getStringExtra("PDF_EXT"));
+            if (audoUri != null) {
+                Log.v("URI", audoUri.toString());
 
-                public void onClick(DialogInterface dialog, int itemPos) {
-                    switch (itemPos) {
-                        case 0: // email
-                            From = "AD";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                        case 1: // email
-                            From = "Other";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                        case 2: // Fax
-                            From = "Record";
-                            addfile(audoUri);
-                            initUi();
-                            external_flag = true;
-                            break;
-                    }
-                }
-            });
-            builders.create().show();
+                From = i.getStringExtra("FROM");
+                initUi();
+                addfile(audoUri);
+                external_flag = true;
+            }
         }
     }
 
@@ -156,6 +145,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -167,6 +157,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         spinnerDoc = findViewById(R.id.spinnerDoc);
         rlDocType = findViewById(R.id.rlDocType);
         spinnerType = findViewById(R.id.spinnerType);
+
+        txtSave=findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txtHosp = findViewById(R.id.txtHosp);
         txtLocator = findViewById(R.id.txtLocator);
@@ -326,6 +318,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         }
 
         if (Goto.equals("View")) {
+            txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
             imgDot.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.GONE);
@@ -333,14 +326,16 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDoc.setClickable(true);
             disableView();
         } else if (Goto.equals("Edit")) {
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+            //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
             txtAdd.setText("Edit File");
             imgDoc.setClickable(false);
         } else {
-            imgDone.setVisibility(View.VISIBLE);
+            txtSave.setVisibility(View.VISIBLE);
+            //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.VISIBLE);
@@ -472,22 +467,52 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void addfile(Uri audoUri) {
-        originPath = audoUri.toString();
+//    String getFilePath(Uri uri) {//nikita
+//        Cursor cursor = null;
+//        try {
+//            String[] arr = { MediaStore.Images.Media.DATA };
+//            cursor = context.getContentResolver().query(uri,  arr, null, null, null);
+//            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+//            cursor.moveToFirst();
+//            return cursor.getString(column_index);
+//        } finally {
+//            if (cursor != null) {
+//                cursor.close();
+//            }
+//        }
+//    }
 
-        File f = new File(audoUri.getPath());
-        originPath = f.getPath();
-        originPath = originPath.replace("/root_path/", "");
-        documentPath = f.getName();
-        name = f.getName();
-        preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
-        txtFName.setText(name);
-        imgDoc.setClickable(false);
-        String text = "You Have selected <b>" + name + "</b> Document";
-        Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-        showDialogWindow(text);
-        txtAdd.setText("Edit File");
-        imgDoc.setImageResource(R.drawable.pdf);
+    private void addfile(Uri audoUri) {
+        try {
+            originPath = audoUri.toString();
+            String path = null;
+
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                path = FilePath.getPath(context, audoUri);
+            }
+
+            File f;
+            if (path != null) {
+                f = new File(path);
+            } else {
+                f = new File(audoUri.getPath());
+            }
+            originPath = f.getPath();
+            originPath = originPath.replace("/root_path/", "");
+
+            documentPath = f.getName();
+            name = f.getName();
+            preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
+            txtFName.setText(name);
+            imgDoc.setClickable(false);
+            String text = "You Have selected <b>" + name + "</b> Document";
+            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+            showDialogWindow(text);
+            txtAdd.setText("Edit File");
+            imgDoc.setImageResource(R.drawable.pdf);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     private void disableView() {
@@ -510,28 +535,30 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
             case R.id.imgDoc:
-                if (!documentPath.equals("")) {
-                    Uri uri = null;
-                    if (path.equals("No")) {
+                if (getIntent().hasExtra("PDF_EXT")) {
 
-                        CopyReadAssetss(documentPath);
+                } else {
+                    if (!documentPath.equals("")) {
+                        Uri uri = null;
+                        if (path.equals("No")) {
 
-                    } else {
-                        File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
-                        Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_VIEW);
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                            uri = FileProvider.getUriForFile(context, "com.mindyourlovedones.healthcare.HomeActivity.fileProvider", targetFile);
+                            CopyReadAssetss(documentPath);
+
                         } else {
-                            uri = Uri.fromFile(targetFile);
+                            File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                uri = FileProvider.getUriForFile(context, "com.mindyourlovedones.healthcare.HomeActivity.fileProvider", targetFile);
+                            } else {
+                                uri = Uri.fromFile(targetFile);
+                            }
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, "application/pdf");
+                            context.startActivity(intent);
                         }
-                        // Uri uris = Uri.parse(documentPath);
-                        intent.setDataAndType(uri, "application/pdf");
-                        context.startActivity(intent);
                     }
-
-
                 }
                 break;
 
@@ -560,7 +587,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 dpd.show();
                 break;
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 if (validate()) {
 
                     documentPath = copydb(originPath, name);
@@ -997,17 +1024,36 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 */
 
+
     private void copy(File backupDB, File currentDB) throws IOException {
-        try (InputStream in = new FileInputStream(currentDB)) {
-            try (OutputStream out = new FileOutputStream(backupDB)) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            // Do something for KITKAT and above versions
+            try (InputStream in = new FileInputStream(currentDB)) {
+                try (OutputStream out = new FileOutputStream(backupDB)) {
+                    // Transfer bytes from in to out
+                    byte[] buf = new byte[1024];
+                    int len;
+                    while ((len = in.read(buf)) > 0) {
+                        out.write(buf, 0, len);
+                    }
+                }
+            }
+        } else {
+            // do something for phones running an SDK before KITKAT
+            try {
+                InputStream in = new FileInputStream(currentDB);
+                OutputStream out = new FileOutputStream(backupDB);
                 // Transfer bytes from in to out
                 byte[] buf = new byte[1024];
                 int len;
                 while ((len = in.read(buf)) > 0) {
                     out.write(buf, 0, len);
                 }
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
+
        /* InputStream in = new FileInputStream(backupDB);
         try {
             OutputStream out = new FileOutputStream(currentDB);

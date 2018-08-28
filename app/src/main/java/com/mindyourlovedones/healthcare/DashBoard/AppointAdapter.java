@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -77,6 +78,19 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
             }
         });
 
+
+/*
+        holder.lltrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (context instanceof MedicalAppointActivity) {
+                    ((MedicalAppointActivity) context).deleteNote(noteList.get(position));
+                }
+            }
+        });
+*/
+
+
         Appoint a = noteList.get(position);
         final ArrayList<DateClass> dates = a.getDateList();
 
@@ -103,10 +117,15 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View helperview = lf.inflate(R.layout.date_row, null);
 
+                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);//nikita
+
                         holder.llDate.addView(helperview);
                         TextView datetime = helperview.findViewById(R.id.txtDateTime);
 
                         if (i == dates.size()) {
+
+                            swipeDate.setSwipeEnabled(false);//nikita
+
                             datetime.setText("Add +");
                             datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
                             datetime.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +138,25 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                                 }
                             });
                         } else {
+                            swipeDate.setSwipeEnabled(true);//nikita
+                            final LinearLayout lltrash;
+                            lltrash = helperview.findViewById(R.id.lltrashinner);//nikita
+                            lltrash.setTag(dates.get(i));//nikita
+
+                            lltrash.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    if (context instanceof MedicalAppointActivity) {
+                                        DateClass dd = (DateClass) lltrash.getTag();//nikita
+                                        if (dd != null) {
+                                            ((MedicalAppointActivity) context).deleteDateNote(dd);
+                                        } else {
+                                            Toast.makeText(context, "Null DATA", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            });
+
                             datetime.setText("Completion Date:  " + dates.get(i).getDate());
                             if (i % 2 == 0) {
                                 datetime.setBackgroundColor(context.getResources().getColor(R.color.colorSkyBlue));
@@ -280,6 +318,9 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
 
         public Holder(View convertView) {
             super(convertView);
+
+//            imgtrash = convertView.findViewById(R.id.imgtrash);
+
             lintrash = convertView.findViewById(R.id.lintrash);
             swipeLayout = convertView.findViewById(R.id.swipe);
             rlMain = convertView.findViewById(R.id.rlMain);

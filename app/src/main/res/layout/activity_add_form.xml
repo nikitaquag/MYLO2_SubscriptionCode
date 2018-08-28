@@ -30,7 +30,7 @@
             android:text="Business Card"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension22dp" />
+            android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgDone"

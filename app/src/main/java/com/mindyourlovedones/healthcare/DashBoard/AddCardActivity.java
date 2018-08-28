@@ -55,7 +55,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     ContentValues values;
     Uri imageUriFront, imageUriBack;
     Context context = this;
-    TextView txtName, txttype, txtTitle, txtCard;
+    TextView txtName, txttype, txtTitle, txtCard,txtSave;
     TextInputLayout tilTitle;
     Bitmap bitmap1, bitmap2;
     String imagePathFront = "", imagePathBack = "";
@@ -108,6 +108,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initListener() {
+        txtSave.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgEdit1.setOnClickListener(this);
@@ -135,6 +136,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         imgfrontCard = findViewById(R.id.imgFrontCard);
         imgBackCard = findViewById(R.id.imgBackCard);
 
+        txtSave=findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txttype = findViewById(R.id.txtType);
         tilTitle = findViewById(R.id.tilTitle);
@@ -233,7 +235,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     startActivityForResult(j, REQUEST_CARD);
                 }
                 break;
-            case R.id.imgDone:
+            case R.id.txtSave:
                 name = txtName.getText().toString();
                 type = txttype.getText().toString();
                 storeImage(PHOTO1, "Front");

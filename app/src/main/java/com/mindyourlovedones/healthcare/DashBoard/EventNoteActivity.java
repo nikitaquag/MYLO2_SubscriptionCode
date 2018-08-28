@@ -19,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     DBHelper dbHelper;
     TextView txtMsg, txtFTU;
     RelativeLayout header, rlEvent;
+    ScrollView scrollvw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initUI() {
+        scrollvw =findViewById(R.id.scrollvw);
+
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To add a note click plus box " +
 //                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
@@ -103,6 +107,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
+                rlGuide.setVisibility(View.GONE);//nikita
+                scrollvw.setVisibility(View.VISIBLE);//nikita
                 relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
@@ -266,9 +272,11 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            scrollvw.setVisibility(View.GONE);
         } else {
             rlGuide.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
+            scrollvw.setVisibility(View.GONE);
         }
         NoteAdapter adapter = new NoteAdapter(context, noteList);
         lvNote.setAdapter(adapter);

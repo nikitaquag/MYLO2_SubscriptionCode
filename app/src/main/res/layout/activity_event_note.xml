@@ -37,7 +37,7 @@
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="EVENT NOTES"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension22dp" />
+                android:textSize="@dimen/dimension20dp" />
 
             <ImageView
                 android:id="@+id/imgAdd"
@@ -70,20 +70,82 @@
             android:scrollbars="none"
             android:visibility="gone"></android.support.v7.widget.RecyclerView>
 
-        <ScrollView
+
+        <RelativeLayout
+            android:id="@+id/rlGuide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/header">
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/dimension20dp">
+
+            <ImageView
+                android:id="@+id/imgPicture"
+                android:layout_width="@dimen/dimension90dp"
+                android:layout_height="@dimen/dimension90dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/v_note"
+
+                />
+
+            <TextView
+                android:id="@+id/txtHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgPicture"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:text="Add an Event Note"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtFTU"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtHeader"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/ftu"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtFTU"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:text="Store information as it happens for easy reference."
+                android:textColor="@color/colorGuide"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:visibility="gone"
+            android:id="@+id/scrollvw"
+            android:layout_below="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
 
             <RelativeLayout
-                android:id="@+id/rlGuide"
+                android:id="@+id/rlGuide2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_alignParentBottom="true"
                 android:padding="@dimen/dimension20dp">
 
                 <ImageView
-                    android:id="@+id/imgPicture"
+                    android:id="@+id/imgPicture2"
                     android:layout_width="@dimen/dimension90dp"
                     android:layout_height="@dimen/dimension90dp"
                     android:layout_centerHorizontal="true"
@@ -92,10 +154,10 @@
                     />
 
                 <TextView
-                    android:id="@+id/txtHeader"
+                    android:id="@+id/txtHeader2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/imgPicture"
+                    android:layout_below="@+id/imgPicture2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:text="Add an Event Note"
@@ -104,10 +166,10 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtFTU"
+                    android:id="@+id/txtFTU2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtHeader"
+                    android:layout_below="@+id/txtHeader2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension10dp"
@@ -118,10 +180,10 @@
                     android:textSize="@dimen/dimension18dp" />
 
                 <TextView
-                    android:id="@+id/txtMsg"
+                    android:id="@+id/txtMsg2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtFTU"
+                    android:layout_below="@+id/txtFTU2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension10dp"
@@ -132,92 +194,94 @@
                     android:textSize="@dimen/dimension18dp"
                     android:visibility="gone" />
 
+
+
+            <RelativeLayout
+                android:layout_below="@+id/txtMsg2"
+                android:id="@+id/relMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
                 <RelativeLayout
-                    android:id="@+id/relMsg"
+                    android:id="@+id/rel61"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtFTU"
-                    android:visibility="gone">
+                    android:layout_marginBottom="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension20dp">
 
-                    <RelativeLayout
-                        android:id="@+id/rel61"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/img61"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy61"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension20dp">
-
-                        <ImageView
-                            android:id="@+id/img61"
-                            android:layout_width="@dimen/dimension20dp"
-                            android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension2dp"
-                            android:src="@drawable/bullet4" />
-
-                        <TextView
-                            android:id="@+id/txtPolicy61"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/img61"
-                            android:text=""
-                            android:textColor="@color/colorGuide"
-                            android:textSize="@dimen/dimension18dp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rel62"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rel61"
-                        android:layout_marginBottom="@dimen/dimension20dp">
-
-                        <ImageView
-                            android:id="@+id/img62"
-                            android:layout_width="@dimen/dimension20dp"
-                            android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension2dp"
-                            android:src="@drawable/bullet4" />
-
-                        <TextView
-                            android:id="@+id/txtPolicy62"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/img62"
-                            android:text=""
-                            android:textColor="@color/colorGuide"
-                            android:textSize="@dimen/dimension18dp" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rel63"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rel62"
-                        android:layout_marginBottom="@dimen/dimension20dp">
-
-                        <ImageView
-                            android:id="@+id/img63"
-                            android:layout_width="@dimen/dimension20dp"
-                            android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension2dp"
-                            android:src="@drawable/bullet4" />
-
-                        <TextView
-                            android:id="@+id/txtPolicy63"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toRightOf="@+id/img63"
-                            android:text=""
-                            android:textColor="@color/colorGuide"
-                            android:textSize="@dimen/dimension18dp" />
-                    </RelativeLayout>
-
+                        android:layout_toRightOf="@+id/img61"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rel62"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel61"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img62"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy62"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img62"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel63"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel62"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img63"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy63"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img63"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+
+                </RelativeLayout>
+            </RelativeLayout>
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>
 
 </RelativeLayout>
+

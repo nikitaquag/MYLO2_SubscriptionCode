@@ -76,7 +76,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     View rootview;
     RelativeLayout rlMedical, rlDrugDesc, rlDrinkDesc, rlTobacoDesc;
     ImageView imgBack, imgDone, imgRight, imgInfo;
-    TextView txtTitle, imgAddFlueShot;
+    TextView txtTitle, imgAddFlueShot, txtSave;
     EditText etPreNote, etAllergyNote, etMouthNote, etVisionNote, etAideNote, etFunctionalNote, etDietNote;
     TextView imgAddPneumonia, imgAddHPV, imgAddRubella, imgAddVaricella, imgAddShingles, imgAddTetanus, imgAddHepatitis, imgAddFlue, imgAddFlueNH, imgAddPneumococcal;
     TextView txtFlueShotDate, txtPneumoniaDate, txtHPVDate, txtRubellaDate, txtVaricellaDate, txtShinglesDate, txtTetanusDate, txtHepatitisDate, txtFlueDate, txtFlueNHDate, txtPneumococcalDate;
@@ -132,6 +132,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     }
 
     private void initListener() {
+        txtSave.setOnClickListener(this);
+
         imgDone.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         imgBack.setOnClickListener(this);
@@ -240,8 +242,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddPneumococcal = rootview.findViewById(R.id.imgAddPneumococcal);
 
         imgBack = getActivity().findViewById(R.id.imgBack);
+        txtSave = getActivity().findViewById(R.id.txtSave);
         imgDone = getActivity().findViewById(R.id.imgDone);
-        imgDone.setVisibility(View.VISIBLE);
+        txtSave.setVisibility(View.VISIBLE);
+        //imgDone.setVisibility(View.VISIBLE);
         imgRight = getActivity().findViewById(R.id.imgRight);
         etPreNote = rootview.findViewById(R.id.etNote);
         etAllergyNote = rootview.findViewById(R.id.etAllergyNote);
@@ -998,7 +1002,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
 
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 ft = etFt.getText().toString().trim();
                 inch = etInch.getText().toString().trim();
                 weight = etWeight.getText().toString().trim();

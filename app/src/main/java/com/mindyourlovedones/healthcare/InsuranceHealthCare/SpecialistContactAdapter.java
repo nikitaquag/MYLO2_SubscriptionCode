@@ -144,7 +144,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                     case "HOME HEALTH SERVICES":
                         fragment = "Home Health Services";
                         break;
-                    case "FINANCE, INSURANCE, LEGAL":
+                    case "FINANCE & LEGAL":
                         fragment = "Finance,Insurance and Legal";
                         break;
 

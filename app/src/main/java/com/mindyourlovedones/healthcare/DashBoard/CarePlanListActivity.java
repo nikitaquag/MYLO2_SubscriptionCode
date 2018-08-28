@@ -64,7 +64,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout llAddDoc;
     Preferences preferences;
     RelativeLayout rlGuide;
-    ImageView imgPicture;
+    ImageView imgPicture,imgPicture2;
     TextView txtHeader, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
@@ -99,7 +99,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         } else {
             lvDoc.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
-            scroll.setVisibility(View.VISIBLE);
+            scroll.setVisibility(View.GONE);
         }
     }
 
@@ -125,6 +125,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
+        imgPicture2 = findViewById(R.id.imgPicture2);
         txtHeader = findViewById(R.id.txtHeader);
         txtMsg = findViewById(R.id.txtMsg);
         txtFTU = findViewById(R.id.txtFTU);
@@ -132,10 +133,12 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
 //                txtMsg.setVisibility(View.VISIBLE);
+                rlGuide.setVisibility(View.GONE);//nikita
+                scroll.setVisibility(View.VISIBLE);//nikita
                 relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
-        scroll = findViewById(R.id.scroll);
+        scroll = findViewById(R.id.scrollvw);
         imgRight = findViewById(R.id.imgRight);
 
         //Changes done by nikita on 20/6/18
@@ -165,6 +168,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txtTitle.setText("Advance Directives");
                 txtAdd.setText("Add Advance Directives");
                 imgPicture.setImageResource(R.drawable.v_doc);
+                imgPicture2.setImageResource(R.drawable.v_doc);
                 txtHeader.setText("Add Adv. Directive Docs");
 //                String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
 //                        "<br><br>" +
@@ -193,6 +197,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txtTitle.setText("Medical Records");
                 txtAdd.setText("Add Medical Records");
                 imgPicture.setImageResource(R.drawable.v_record);
+                imgPicture2.setImageResource(R.drawable.v_record);
                 txtHeader.setText("Add Medical Records");
 //                String msgs = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
 //                        "<br><br>" +
@@ -221,6 +226,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txtTitle.setText("Other Documents");
                 txtAdd.setText("Add Other Documents");
                 imgPicture.setImageResource(R.drawable.v_other);
+                imgPicture2.setImageResource(R.drawable.v_other);
                 txtHeader.setText("Add Other Documents");
 //                String msgd = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
 //                        "<br><br>" +

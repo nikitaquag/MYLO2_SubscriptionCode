@@ -109,7 +109,7 @@ class PdfAdapter extends BaseAdapter {
                         Intent testIntent = new Intent(Intent.ACTION_VIEW);
                         testIntent.setType("application/pdf");
                         List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                        if (list.size() > 0 && imagelist[position].isFile()) {
+//                        if (list.size() > 0 && imagelist[position].isFile()) {// commented
                             ((DocumentSdCardList) context).getData(pdfList[position], String.valueOf(imagelist[position].getPath()));
                          /* File targetFile = new File(String.valueOf(imagelist[(int) position].getPath()));
                           Uri uri=null;
@@ -122,7 +122,7 @@ class PdfAdapter extends BaseAdapter {
                           ((DocumentSdCardList)context).getData(pdfList[position], String.valueOf(uri));*/
                             dialog.dismiss();
 
-                        }
+//                        }// commented
                     /*  File targetFile = new File(String.valueOf(imagelist[(int) position].getAbsoluteFile()));
                       Uri uri=null;
                       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -142,7 +142,7 @@ class PdfAdapter extends BaseAdapter {
                         Intent testIntent = new Intent(Intent.ACTION_VIEW);
                         testIntent.setType("application/pdf");
                         List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
-                        if (list.size() > 0 && imagelist[position].isFile()) {
+//                        if (list.size() > 0 && imagelist[position].isFile()) {// commented
                             Intent intent = new Intent();
                             intent.setAction(Intent.ACTION_VIEW);
                             // Uri uri = Uri.fromFile(imagelist[(int) position].getAbsoluteFile());
@@ -156,7 +156,7 @@ class PdfAdapter extends BaseAdapter {
                             }
                             intent.setDataAndType(uri, "application/pdf");
                             context.startActivity(intent);
-                        }
+//                        }// commented
                         dialog.dismiss();
                     }
                 });

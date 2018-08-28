@@ -25,6 +25,7 @@ import com.mindyourlovedones.healthcare.database.AppointmentQuery;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.DateQuery;
 import com.mindyourlovedones.healthcare.model.Appoint;
+import com.mindyourlovedones.healthcare.model.TypeSpecialist;
 import com.mindyourlovedones.healthcare.utility.DialogManager;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
 import com.mindyourlovedones.healthcare.utility.Preferences;
@@ -53,13 +54,21 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     Appoint p;
 
 
+    //    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
+//            "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
+//    };
+    String[] Type3 = {"", "Type of Test", "Annual blood work", "Echocardiogram", "EKG", "MRI", "Prostate Specific Antigen (PSA)", "Sonogram"};
 
+    String[] Type1 = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
 
-    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
-            "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
+    };
+    String[] Type2 = {"Specialist",
+            "Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Internist", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon - General ", "Thoracic & Cardiac Surgeon", "Urology", "Vascular Medicine", "Other"
     };
 
     String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
+
+    private ArrayList<TypeSpecialist> items;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,10 +112,79 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         rbYes = findViewById(R.id.rbYes);
         rbNo = findViewById(R.id.rbNo);
 
-        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Type);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Type);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinnerType.setAdapter(adapter);
+
+        items = new ArrayList<TypeSpecialist>();
+
+
+        //shradha
+        for (int i = 0; i < Type3.length; i++) {
+
+            TypeSpecialist ts = new TypeSpecialist();
+            ts.setType(Type3[i]);
+            if (i == 1) {
+                ts.setDiff(99);
+            } else {
+                ts.setDiff(0);
+            }
+            items.add(ts);
+        }
+
+        for (int i = 0; i < Type1.length; i++) {
+            TypeSpecialist ts = new TypeSpecialist();
+            ts.setType(Type1[i]);
+            ts.setDiff(0);
+            items.add(ts);
+        }
+
+
+        for (int i = 0; i < Type2.length; i++) {
+//            spinnerType.setPrompt("Specialist");//shradha
+            TypeSpecialist ts = new TypeSpecialist();
+            //    ts.setHint("Specialist"+"\n");
+            ts.setType(Type2[i]);
+            ts.setDiff(1);
+            if (i == 0) {
+                ts.setDiff(99);
+            } else {
+                ts.setDiff(1);
+            }
+            items.add(ts);
+        }
+
+
+        CustomTypeSpecialistAdapters adapter = new CustomTypeSpecialistAdapters(context, android.R.layout.simple_spinner_dropdown_item, items);
         spinnerType.setAdapter(adapter);
         spinnerType.setHint("Type of Test or Specialist");
+
+
+
+/*
+//shradha
+        final ArrayAdapter<TypeSpecialist> cityAdapter = new ArrayAdapter<TypeSpecialist>(getContext(), android.R.layout.simple_spinner_item, typeList) {
+            @Override
+            public View getDropDownView(int position, View convertView, ViewGroup parent) {
+                View v = null;
+
+                // If this is the initial dummy entry, make it hidden
+                if (position == 0) {
+                    TextView tv = new TextView(getContext());
+                    tv.setHeight(0);
+                    tv.setVisibility(View.GONE);
+                    v = tv;
+                } else {
+                    // Pass convertView as null to prevent reuse of special case views
+                    v = super.getDropDownView(position, null, parent);
+                }
+
+                // Hide scroll bar because it appears sometimes unnecessarily, this does not prevent scrolling
+                //parent.setVerticalScrollBarEnabled(false);
+                return v;
+            }
+        };
+*/
 
         ArrayAdapter adapter1 = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Frequency);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -130,10 +208,16 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (parent.getItemAtPosition(position).toString().equals("Other")) {
-                    tilOtherSpecialist.setVisibility(View.VISIBLE);
-                } else {
-                    tilOtherSpecialist.setVisibility(View.GONE);
+                if (items != null && !items.isEmpty() && position != -1) {
+                    if (items.get(position).getType().toString().equals("Specialist") || items.get(position).getType().toString().equals("Type of Test")) {
+                        spinnerType.setSelection(0);
+                    } else {
+                        if (items.get(position).getType().toString().equals("Other")) {
+                            tilOtherSpecialist.setVisibility(View.VISIBLE);
+                        } else {
+                            tilOtherSpecialist.setVisibility(View.GONE);
+                        }
+                    }
                 }
             }
 
@@ -190,8 +274,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 }
                 if (a.getType() != null) {
                     int index = 0;
-                    for (int j = 0; j < Type.length; j++) {
-                        if (a.getType().equals(Type[j])) {
+                    for (int j = 0; j < items.size(); j++) {
+                        if (a.getType().equals(items.get(j).getType())) {
                             index = j;
                         }
                     }
@@ -241,7 +325,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 String type = "";
                 String frequency = "";
                 if (indexValuex != 0) {
-                    type = Type[indexValuex - 1];
+                    type = items.get(indexValuex - 1).getType();
                 }
 
                 int indexValue = spinnerFrequency.getSelectedItemPosition();

@@ -65,6 +65,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     boolean mSubscribedToInfiniteGas = false;
     IabHelper mHelper;
     public static boolean fromDash = false;//nikita
+
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
@@ -265,6 +266,8 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 .debuggable(true)           // Enables Crashlytics debugger
                 .build();
         Fabric.with(fabric);
+
+
     }
 
     private void initViewPager() {
@@ -470,7 +473,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             if (preferences.isLogin()) {
                 llBottom.setVisibility(View.VISIBLE);
                 llSplash.setVisibility(View.GONE);
-                txtWelcome.setText("Welcome Back " + preferences.getString(PrefConstants.USER_NAME));
+                txtWelcome.setText("Welcome back, " + preferences.getString(PrefConstants.USER_NAME)+"!");
             } else {
                 llBottom.setVisibility(View.GONE);
                 llSplash.setVisibility(View.VISIBLE);
@@ -501,10 +504,13 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 if (preferences.getREGISTERED()) {
-                    startActivity(new Intent(SplashNewActivity.this, BaseActivity.class));
+                    Intent intent1 = new Intent(SplashNewActivity.this, BaseActivity.class);
+                    startActivity(intent1);
+
 //                    finish();
                 } else {
-                    startActivity(new Intent(SplashNewActivity.this, LoginActivity.class));
+                    Intent intent2 = new Intent(SplashNewActivity.this, LoginActivity.class);
+                    startActivity(intent2);
 //                    finish();
                 }
 

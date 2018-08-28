@@ -19,7 +19,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
     Context context = this;
     ImageView imgBack, imgEdit, imgDelete;
     EditText etNote;
-    TextView txtDate;
+    TextView txtDate,txtSave;
     int id, userid;
 
     @Override
@@ -50,6 +50,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
         imgBack.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
         imgDelete.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -60,6 +61,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
         imgDelete = findViewById(R.id.imgDelete);
         etNote = findViewById(R.id.etNote);
         txtDate = findViewById(R.id.txtDate);
+        txtSave=findViewById(R.id.txtSave);
     }
 
     @Override
@@ -68,7 +70,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
             case R.id.imgBack:
                 finish();
                 break;
-            case R.id.imgEdit:
+            case R.id.txtSave:
                 String note = etNote.getText().toString();
                 String date = txtDate.getText().toString();
                 Boolean flag = EventNoteQuery.updateEvent(id, note, date);

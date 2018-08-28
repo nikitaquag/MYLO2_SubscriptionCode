@@ -381,7 +381,7 @@
                                 android:layout_marginTop="@dimen/dimension10dp"
                                 android:gravity="center_horizontal"
                                 android:padding="@dimen/dimension5dp"
-                                android:text="INSURANCE INFORMATION AND CARDS"
+                                android:text="INSURANCE INFORMATION &amp; CARDS"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/dimension16dp"
                                 android:textStyle="normal" />

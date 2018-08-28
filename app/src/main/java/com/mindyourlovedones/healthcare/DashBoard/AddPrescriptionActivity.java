@@ -71,6 +71,8 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     Uri imageUriProfile = null;
     ContentValues values = null;
     int userid, uniqID;
+    View view1;
+    TextView txtPhotoHeader;//Shradha
     ImageView imgBack, imgAddDosage, imgAddPhoto, imgDone;
     ListView ListDosage, ListPhoto;
     ArrayList<Dosage> dosageList = new ArrayList<>();
@@ -80,7 +82,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     String pre = "NO";
     ToggleButton tbPre;
     TextInputLayout tilTitle;
-    TextView txtName, txtDate, txtPurpose, txtNote, txtRX, txtPre, txtMedicine, txtDose, txtFrequency, txtTitle;
+    TextView txtName, txtDate, txtPurpose, txtNote, txtRX, txtPre, txtMedicine, txtDose, txtFrequency, txtTitle, txtSave;
     EditText etNote;
     MySpinner spinner;
     RadioGroup rgCounter;
@@ -92,7 +94,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     Preferences preferences;
     DBHelper dbHelper;
     int unique;
-    boolean isEdit;
+    boolean isEdit, isView;//Shradha
     int id, colid, dosageid, imageid;
 
     ImageLoader imageLoader;
@@ -141,6 +143,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgBack.setOnClickListener(this);
         imgAddDosage.setOnClickListener(this);
         imgAddPhoto.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         txtDate.setOnClickListener(this);
 
@@ -158,6 +161,10 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     }
 
     private void initUI() {
+
+        view1=findViewById(R.id.view1);//Shradha
+
+        txtPhotoHeader = findViewById(R.id.txtPhotoHeader);//Shradha
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
         txtDate = findViewById(R.id.txtDate);
@@ -183,6 +190,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgDone = findViewById(R.id.imgDone);
         etNote = findViewById(R.id.etNote);
         txtNote = findViewById(R.id.txtNote);
+        txtSave = findViewById(R.id.txtSave);
 
         ListPhoto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -224,7 +232,42 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
 */
         Intent i = getIntent();
         if (i.getExtras() != null) {
+
             Prescription p = (Prescription) i.getExtras().getSerializable("PrescriptionObject");
+
+            isView = i.getExtras().getBoolean("IsView");//Shradha
+            if (isView == true)//Shradha
+            {
+                disablePrescription();//Shradha
+                txtTitle.setText("PRESCRIPTION TRACKER");//Shradha
+                txtSave.setVisibility(View.GONE);//Shradha
+                id = p.getUnique();//Shradha
+                uniqID = p.getUnique();//Shradha
+                userid = p.getUserid();//Shradha
+                colid = p.getId();//Shradha
+                txtName.setText(p.getDoctor());//Shradha
+                txtDate.setText(p.getDates());//Shradha
+                etNote.setText(p.getNote());//Shradha
+                if (p.getPre().equals("YES")) {//Shradha
+                    tbPre.setChecked(true);//Shradha
+                } else if (p.getPre().equals("NO")) {//Shradha
+                    tbPre.setChecked(false);//Shradha
+                }
+                txtRX.setText(p.getRX());//Shradha
+                txtPurpose.setText(p.getPurpose());//Shradha
+                txtDose.setText(p.getDose());//Shradha
+                txtFrequency.setText(p.getFrequency());//Shradha
+                txtMedicine.setText(p.getMedicine());//Shradha
+                dosageList = p.getDosageList();//Shradha
+                imageList = PrescribeImageQuery.fetchAllImageRecord(p.getUserid(), p.getUnique());//Shradha
+                imageListOld = imageList;//Shradha
+                setDosageData();//Shradha
+                setImageListData();//Shradha
+            }/*else {
+                Toast.makeText(context, "Done changes in Prescription for View", Toast.LENGTH_SHORT).show();
+            }*/
+
+
             isEdit = i.getExtras().getBoolean("IsEdit");
             if (isEdit == true) {
                 txtTitle.setText("Update Prescription");
@@ -252,9 +295,9 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 imageListOld = imageList;
                 setDosageData();
                 setImageListData();
-            } else {
+            } /*else {
                 txtTitle.setText("Add Prescription");
-            }
+            }*/
         }
 
         ListDosage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -287,6 +330,22 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         });
     }
 
+    private void disablePrescription() {//Shradha
+        view1.setVisibility(View.GONE);//Shradha
+        txtPhotoHeader.setVisibility(View.GONE);//Shradha
+        imgAddPhoto.setVisibility(View.GONE);//Shradha
+        txtSave.setEnabled(false);//Shradha
+        txtName.setEnabled(false);//Shradha
+        txtDate.setEnabled(false);//Shradha
+        etNote.setEnabled(false);//Shradha
+        tbPre.setEnabled(false);//Shradha
+        txtRX.setEnabled(false);//Shradha
+        txtPurpose.setEnabled(false);//Shradha
+        txtDose.setEnabled(false);//Shradha
+        txtFrequency.setEnabled(false);//Shradha
+        txtMedicine.setEnabled(false);//Shradha
+    }
+
     private void getDosageData() {
         dosageList = DosageQuery.fetchAllDosageRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), unique);
     }
@@ -294,6 +353,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
             case R.id.imgBack:
                 DialogManager.closeKeyboard(AddPrescriptionActivity.this);
                 finish();
@@ -321,7 +381,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 dpd.show();
                 break;*/
 
-            case R.id.imgDone:
+            case R.id.txtSave:
                 String doctor = txtName.getText().toString().trim();
                 String purpose = txtPurpose.getText().toString().trim();
                 String note = etNote.getText().toString().trim();

@@ -81,7 +81,7 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("AIDS", fragmentAids);
                     break;
                 case "Finance,Insurance and Legal":
-                    txtTitle.setText("FINANCE, INSURANCE, LEGAL");
+                    txtTitle.setText("FINANCE & LEGAL");
                     callFragment("FINANCE", fragmentFinance);
                     break;
             }

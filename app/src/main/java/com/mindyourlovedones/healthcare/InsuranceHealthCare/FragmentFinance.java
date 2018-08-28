@@ -314,7 +314,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                                 break;
                             case 1://Email
                                 File f = new File(path);
-                                preferences.emailAttachement(f, getActivity(), "Finance, Insurance, Legal");
+                                preferences.emailAttachement(f, getActivity(), "Finance & Legal");
                                 break;
                             case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();

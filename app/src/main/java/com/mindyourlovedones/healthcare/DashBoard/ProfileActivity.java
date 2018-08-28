@@ -101,7 +101,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     // byte[] photoCard=null;
     ImageView imgRight, imgInfo;
     RelativeLayout llIndividual;
-    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg;
+    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg,txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
@@ -219,6 +219,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
         imgDone.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
         txtGender.setOnClickListener(this);
         imgAddpet.setOnClickListener(this);
         imgRight.setOnClickListener(this);
@@ -314,7 +315,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgBack = findViewById(R.id.imgBack);
         imgEdit = findViewById(R.id.imgEdit);
         imgDone = findViewById(R.id.imgDone);
-        imgDone.setVisibility(View.VISIBLE);
+        txtSave=findViewById(R.id.txtSave);
+        //imgDone.setVisibility(View.VISIBLE);
         txtRelation = findViewById(R.id.txtRelation);
         tilBdate = findViewById(R.id.tilBdate);
         spinnerRelation = findViewById(R.id.spinnerRelation);
@@ -1323,14 +1325,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.imgAddPet:
                 Intent intent = new Intent(context, AddPetActivity.class);
                 intent.putExtra("FROM", "View");
                 startActivityForResult(intent, REQUEST_PET);
                 break;
 
-            case R.id.imgDone:
+            case R.id.txtSave:
 
                /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();

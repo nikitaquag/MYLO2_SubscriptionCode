@@ -35,10 +35,26 @@
                 android:gravity="center"
                 android:text="Activity"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension21dp"
-
-
+                android:textSize="@dimen/dimension20dp"
                 />
+            <TextView
+                android:id="@+id/txtSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension5dp"
+                android:layout_toLeftOf="@+id/imgRight"
+                android:text="Save"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:textSize="@dimen/dimension18dp"
+                android:paddingLeft="@dimen/dimension3dp"
+                android:paddingRight="@dimen/dimension3dp"
+                android:visibility="gone"
+                />
+
 
             <ImageView
                 android:id="@+id/imgDone"
@@ -46,7 +62,6 @@
                 android:layout_height="@dimen/dimension30dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-
                 android:layout_marginRight="@dimen/dimension5dp"
                 android:layout_toLeftOf="@+id/imgRight"
                 android:src="@drawable/check_mark"
@@ -124,7 +139,7 @@
                     android:layout_below="@+id/txtFunctionalHeader"
                     android:layout_toLeftOf="@+id/imgInfoF"
                     android:layout_toRightOf="@+id/imgFunctional"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text="Needs Help With"
                     android:textSize="@dimen/dimension18dp"
                     android:textStyle="italic" />
@@ -506,7 +521,7 @@
                     android:layout_below="@+id/txtInstrumentalHeader"
                     android:layout_toLeftOf="@+id/imgInfoI"
                     android:layout_toRightOf="@+id/imgInstrumental"
-                    android:gravity="center"
+                    android:gravity="left"
                     android:text="Needs Help With"
                     android:textSize="@dimen/dimension18dp"
                     android:textStyle="italic" />

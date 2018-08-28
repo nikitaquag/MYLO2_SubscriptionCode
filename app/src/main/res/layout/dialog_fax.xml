@@ -1,226 +1,263 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorWhite"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtheader"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimension20dp"
-            android:layout_marginTop="@dimen/dimension20dp"
-            android:gravity="center"
-            android:text="Mind Your Loved Ones"
-            android:textColor="@color/colorBlue"
-            android:textSize="@dimen/dimension26dp"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:id="@+id/llFaxNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtheader"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/txtFaxnumber"
-                android:layout_width="@dimen/dimension0dp"
+                android:id="@+id/txtheader"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:text="Fax no:"
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension19dp" />
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:gravity="center"
+                android:text="Mind Your Loved Ones"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/dimension26dp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etFaxnumber"
-                android:layout_width="@dimen/dimension0dp"
+            <LinearLayout
+                android:id="@+id/llFaxNumber"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:hint="Enter fax number" />
+                android:layout_below="@+id/txtheader"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtFaxnumber"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fax no:"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension19dp" />
 
-        <LinearLayout
-            android:id="@+id/llFaxto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llFaxNumber"
-            android:layout_marginBottom="@dimen/dimension15dp"
-            android:gravity="center">
+                <EditText
+                    android:id="@+id/etFaxnumber"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="Enter fax number"
+                   />
 
-            <TextView
-                android:id="@+id/txtFaxto"
-                android:layout_width="wrap_content"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llFaxto"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llFaxNumber"
-                android:layout_gravity="center"
-                android:maxLines="1"
-                android:text="Fax to U.S. only!(area code &amp; fax number)"
-                android:textColor="@color/colorDarkGray"
-                android:textSize="@dimen/dimension18dp" />
-        </LinearLayout>
+                android:layout_marginBottom="@dimen/dimension15dp"
+                android:gravity="center">
 
-        <LinearLayout
-            android:id="@+id/llTo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llFaxto"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+                <TextView
+                    android:id="@+id/txtFaxto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llFaxNumber"
+                    android:layout_gravity="center"
+                    android:maxLines="1"
+                    android:text="Fax to U.S. only!(area code &amp; fax number)"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension18dp" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtTo"
-                android:layout_width="@dimen/dimension0dp"
+            <LinearLayout
+                android:id="@+id/llTo"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:text="To:"
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension19dp" />
+                android:layout_below="@+id/llFaxto"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-            <EditText
-                android:id="@+id/etTo"
-                android:layout_width="@dimen/dimension0dp"
+                <TextView
+                    android:id="@+id/txtTo"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="To:"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension19dp" />
+
+                <EditText
+                    android:id="@+id/etTo"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llFrom"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2" />
+                android:layout_below="@+id/llTo"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtFrom"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="From:"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension19dp" />
 
-        <LinearLayout
-            android:id="@+id/llFrom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llTo"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+                <EditText
+                    android:id="@+id/etFrom"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
 
-            <TextView
-                android:id="@+id/txtFrom"
-                android:layout_width="@dimen/dimension0dp"
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llReply"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:text="From:"
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension19dp" />
+                android:layout_below="@+id/llFrom"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-            <EditText
-                android:id="@+id/etFrom"
-                android:layout_width="@dimen/dimension0dp"
+                <TextView
+                    android:id="@+id/txtReply"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLength="12"
+                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingLeft="@dimen/dimension0dp"
+                    android:text="Reply Email:"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension19dp" />
+
+                <EditText
+                    android:id="@+id/etReply"
+                    android:layout_width="@dimen/dimension0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSubject"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2" />
+                android:layout_below="@+id/llReply"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:weightSum="2">
 
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/txtSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/dimension10dp"
+                    android:text="Subject:"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension19dp" />
 
-        <LinearLayout
-            android:id="@+id/llSubject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llFrom"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
+                <EditText
+                    android:id="@+id/etSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Enter here"
+                    android:padding="@dimen/dimension10dp" />
 
-            <TextView
-                android:id="@+id/txtSubject"
-                android:layout_width="@dimen/dimension0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:text="Subject:"
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension19dp" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/etSubject"
-                android:layout_width="@dimen/dimension0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/llSending"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llSubject"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtSending"
+            <LinearLayout
+                android:id="@+id/llSending"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llSubject"
-                android:gravity="center"
-                android:padding="@dimen/dimension20dp"
-                android:text="Sending via FAX should ONLY be used for HIPAA purposes and in urgent circumstances."
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension20dp" />
+                android:orientation="vertical">
 
-            <View
+                <TextView
+                    android:id="@+id/txtSending"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llSubject"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension20dp"
+                    android:text="Sending via FAX should ONLY be used for HIPAA purposes and in urgent circumstances."
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:background="@color/colorDarkGray">
+
+                </View>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
-                android:background="@color/colorDarkGray">
-
-            </View>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/llSending"
-            android:layout_marginTop="@dimen/dimension10dp"
-            android:background="@color/colorWhite"
-            android:orientation="horizontal"
-            android:padding="@dimen/dimension10dp">
-
-            <TextView
-                android:id="@+id/btnYes"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_margin="@dimen/dimension5dp"
-                android:layout_weight="1"
-                android:background="@drawable/selector_button"
-                android:gravity="center"
-                android:padding="@dimen/dimension15dp"
-                android:text="OK"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
-                android:textStyle="bold"
+                android:layout_below="@+id/llSending"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimension10dp">
 
-                />
+                <TextView
+                    android:id="@+id/btnYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="@dimen/dimension5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension15dp"
+                    android:text="OK"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold"
 
-            <TextView
-                android:id="@+id/btnNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_margin="@dimen/dimension5dp"
-                android:layout_weight="1"
-                android:background="@drawable/selector_button"
-                android:gravity="center"
-                android:padding="@dimen/dimension15dp"
-                android:text="CANCEL"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                    />
 
+                <TextView
+                    android:id="@+id/btnNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="@dimen/dimension5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension15dp"
+                    android:text="CANCEL"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>
