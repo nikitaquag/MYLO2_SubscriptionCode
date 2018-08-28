@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MYLO_New_bit.iml" filepath="$PROJECT_DIR$/MYLO_New_bit.iml" />
-      <module fileurl="file://D:\MYLO_22_June\mylo-project\MYLO_New_bit.iml" filepath="D:\MYLO_22_June\mylo-project\MYLO_New_bit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://D:\MYLO_New_bit\mylo-project.iml" filepath="D:\MYLO_New_bit\mylo-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mylo-project.iml" filepath="$PROJECT_DIR$/mylo-project.iml" />
     </modules>
   </component>
 </project>
