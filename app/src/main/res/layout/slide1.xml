@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/border_splashbanner"
         android:gravity="center"
-        android:padding="@dimen/dimension3dp">
+        android:paddingTop="@dimen/dimension3dp">
 
         <LinearLayout
             android:id="@+id/llTOp"

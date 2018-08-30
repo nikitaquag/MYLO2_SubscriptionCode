@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mindyourlovedones.healthcare.HomeActivity.BaseActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--MAIN Layout-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorBlue">
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension80dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+                <ImageView
+                    android:id="@+id/imgDrawer"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+                    android:src="@drawable/ic_menus" />
+
+                <ImageView
+                    android:id="@+id/imgPdf"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+                    android:layout_toRightOf="@+id/imgDrawer"
+                    android:src="@drawable/pdf"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/dimension75dp"
+                    android:layout_height="@dimen/dimension75dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="@dimen/dimension2dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_profile_defaults" />
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:text="MyAPP"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension22dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:text="MyAPP"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension22dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgNoti"
+                    android:layout_width="@dimen/dimension120dp"
+                    android:layout_height="@dimen/dimension100dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/aba" />
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="@dimen/dimension85dp"
+                    android:layout_height="@dimen/dimension85dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/ic_launcher"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgLocationFeed"
+                    android:layout_width="@dimen/dimension35dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:layout_toLeftOf="@id/imgNoti"
+                    android:src="@drawable/track"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/header"
+                android:background="@color/colorLightBlue"></RelativeLayout>
+        </RelativeLayout>
+
+        <!--DRAWER-->
+        <RelativeLayout
+            android:id="@+id/leftDrawer"
+            android:layout_width="@dimen/dimension310dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/colorWhite">
+
+            <include layout="@layout/left_drawer"></include>
+            <!--<ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/dimension100dp"
+                android:layout_height="@dimen/dimension100dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_margin="25dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/txtHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HOME"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:layout_below="@+id/imgProfile"
+                android:layout_margin="@dimen/dimension10dp"
+                />
+            <TextView
+                android:id="@+id/txtSetting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SETTINGS"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:layout_below="@+id/txtHome"
+                android:layout_margin="@dimen/dimension10dp"
+                />
+            <TextView
+                android:id="@+id/txtLogout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="LOGOUT"
+                android:textColor="#ffffff"
+                android:textSize="20dp"
+                android:layout_below="@+id/txtSetting"
+                android:layout_margin="@dimen/dimension10dp"
+                />-->
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>

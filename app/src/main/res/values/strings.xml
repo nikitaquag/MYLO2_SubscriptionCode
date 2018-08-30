@@ -6,6 +6,8 @@
     <string name="msgstay">Stay Connected<html></html></string>
     <string name="numOfYear">Number of Years &amp; When\nStopped (if applicable)</string>
 
+    <string name="TradeMark"> \n  Association, used under license.</string>
+
     <string name="LivingMsg"></string>
     <string name="signup_appname"><![CDATA[ By creating an account, you agree to<br/>Mind Your Loved Ones<sup><small>TM</small></sup> (“MYLO<sup><small>TM</small></sup>”)]]></string>
 

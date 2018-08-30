@@ -80,7 +80,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initUI() {
-        scrollvw =findViewById(R.id.scrollvw);
+        scrollvw = findViewById(R.id.scrollvw);
 
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To add a note click plus box " +

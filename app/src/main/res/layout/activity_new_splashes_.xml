@@ -13,12 +13,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="visible"
-        android:weightSum="3">
+        android:weightSum="3.9">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dip"
-            android:layout_weight="1"
+            android:layout_height="@dimen/dimension0dp"
+            android:layout_weight="1.3"
             android:background="@color/colorNavyBlue"
             android:gravity="center"
             android:orientation="vertical"
@@ -26,10 +26,42 @@
 
             <ImageView
                 android:id="@+id/imgmylo"
-                android:layout_width="@dimen/dimension160dp"
-                android:layout_height="@dimen/dimension100dp"
+                android:layout_width="@dimen/dimension85dp"
+                android:layout_height="@dimen/dimension85dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_launcher" />
+
+            <LinearLayout
+                android:id="@+id/llMylo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/txtMylos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:gravity="left"
+                    android:text="MYLO"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtTmss"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:text="TM"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension10dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/llHeaders"
@@ -55,13 +87,14 @@
                     android:id="@+id/txtTM"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:gravity="start"
                     android:text="TM"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension10dp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/txtMylo"
                     android:layout_width="wrap_content"
@@ -73,52 +106,21 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_20ssp"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
+
                 <TextView
                     android:id="@+id/txtTms"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TM"
                     android:layout_gravity="left"
                     android:gravity="left"
+                    android:text="TM"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension10dp"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/llMylo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="visible">
-                <TextView
-                    android:id="@+id/txtMylos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/dimension1dp"
-                    android:gravity="left"
-                    android:text="MYLO"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_20ssp"
-                    android:textStyle="bold"
-                    />
-                <TextView
-                    android:id="@+id/txtTmss"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TM"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension10dp"
-                    android:textStyle="bold"
-                    />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/txtHeaders"
@@ -128,22 +130,34 @@
                 android:layout_marginTop="@dimen/dimension1dp"
                 android:gravity="center_horizontal"
                 android:singleLine="true"
-                android:text="Mind Your Loved Ones (MYLO)"
+                android:text="Advanced Directives and Critical Medical Information"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_20ssp"
+                android:textSize="14dp"
                 android:textStyle="bold"
-                android:visibility="gone"
-                android:padding="@dimen/dimension10dp"
-                />
+                android:visibility="visible" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:gravity="center_horizontal"
-                android:text="Your Digital Library of Critical Medical \n Information &amp; Advance Directives \n- - - For You &amp; Your Loved Ones - - -"
+                android:text="For You and Your Family"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:gravity="center_horizontal"
+                android:text="Securely Stored and Easily Retrieved"
+                android:textColor="@color/colorWhite"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
 
         </LinearLayout>
 
@@ -151,7 +165,7 @@
             android:id="@+id/llBanner"
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
             android:orientation="vertical">
 
             <android.support.v4.view.ViewPager
@@ -177,35 +191,115 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dip"
-            android:layout_weight="1">
+            android:layout_weight="1.3">
 
             <TextView
-                android:id="@+id/txtStayConnected"
+                android:id="@+id/txtBrought"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:gravity="center"
-                android:text="Stay Connected"
-                android:textColor="@color/colorStayColor"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension5dp"
+                android:gravity="center_vertical"
+                android:text="Brought to you by:"
+                android:textColor="#9B9B9B"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/txtStayConnected"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="@dimen/dimension10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Stay Connected"-->
+            <!--android:textColor="@color/colorStayColor"-->
+            <!--android:textSize="18sp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:visibility="gone"/>-->
 
             <ImageView
                 android:id="@+id/imgABA"
-                android:layout_width="@dimen/dimension140dp"
-                android:layout_height="@dimen/dimension70dp"
-                android:layout_above="@+id/rlBottom"
-                android:layout_below="@+id/txtStayConnected"
+                android:layout_width="175dp"
+                android:layout_height="105dp"
+                android:layout_above="@+id/llTradeMark"
+                android:layout_below="@+id/txtBrought"
                 android:layout_centerInParent="true"
-                android:layout_margin="@dimen/dimension20dp"
-                android:src="@drawable/aba_logo" />
+                android:src="@drawable/aba_new" />
+
+            <LinearLayout
+                android:id="@+id/llTradeMark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+               >
+
+                <TextView
+                    android:id="@+id/txtTradeMark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:gravity="center_vertical"
+                    android:text="The ABA"
+                    android:textColor="#9B9B9B"
+                    android:textSize="16dp"
+                    android:textStyle="normal"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgR"
+                    android:layout_width="@dimen/dimension10dp"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/imgABA"
+                    android:layout_toRightOf="@+id/txtTradeMark"
+                    android:src="@drawable/r"
+                    android:tint="#9B9B9B"/>
+
+                <TextView
+                    android:id="@+id/txtTrades"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dimension3dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:gravity="center_vertical"
+                    android:text="trademark is owned by the American"
+                    android:textColor="#9B9B9B"
+                    android:textSize="16dp"
+                    android:textStyle="normal"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+            <TextView
+                android:id="@+id/txtTradess"
+                android:layout_below="@+id/llTradeMark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:gravity="center_horizontal"
+                android:text="Bar Association,used under license."
+                android:textColor="#9B9B9B"
+                android:textSize="16dp"
+                android:textStyle="normal"
+                android:visibility="visible" />
+
 
             <RelativeLayout
                 android:id="@+id/rlBottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
 
                 <RelativeLayout
                     android:id="@+id/llSubscribe"
