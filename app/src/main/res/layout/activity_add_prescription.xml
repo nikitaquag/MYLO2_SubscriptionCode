@@ -48,8 +48,9 @@
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
                 android:text="Save"
+                android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension18dp"
+                android:textSize="@dimen/dimension20dp"
                 android:textStyle="bold" />
 
 

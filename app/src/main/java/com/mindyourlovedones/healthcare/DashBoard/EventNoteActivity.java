@@ -57,7 +57,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     RelativeLayout rlGuide;
     Preferences preferences;
     DBHelper dbHelper;
-    TextView txtMsg, txtFTU;
+    TextView txtMsg, txtFTU,txtAdd;
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
 
@@ -72,7 +72,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initListener() {
-        imgAdd.setOnClickListener(this);
+        txtAdd.setOnClickListener(this);
+        //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         //txtDateTime.setOnClickListener(this);
@@ -116,6 +117,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorFour);
         imgBack = findViewById(R.id.imgBack);
+
+        txtAdd = findViewById(R.id.txtAdd);
         imgAdd = findViewById(R.id.imgAdd);
         imgRight = findViewById(R.id.imgRight);
         //imgEdit= (ImageView) findViewById(R.id.imgEdit);
@@ -299,7 +302,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 hideSoftKeyboard();
                 finish();
                 break;
-            case R.id.imgAdd:
+            case R.id.txtAdd:
                 showInputDialog(context);
                 break;
 

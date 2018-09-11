@@ -48,7 +48,7 @@
                 android:text="Save"
                 android:textColor="@color/colorWhite"
                 android:textStyle="bold"
-                android:textAllCaps="false"
+                android:textAllCaps="true"
                 android:textSize="@dimen/dimension18dp"
                 android:paddingLeft="@dimen/dimension3dp"
                 android:paddingRight="@dimen/dimension3dp"

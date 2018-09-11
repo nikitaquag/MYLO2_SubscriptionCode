@@ -37,7 +37,7 @@ import java.util.Random;
 
 public class AddAppointmentActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    TextView txtName, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd;
+    TextView txtName, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd,txtSave;
     Preferences preferences;
     MySpinner spinnerType, spinnerFrequency;
     DBHelper dbHelper;
@@ -90,10 +90,12 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     private void initListener() {
         imgBack.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
         txtDate.setOnClickListener(this);
     }
 
     private void initUi() {
+        txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         tilName = findViewById(R.id.tilName);
         txtDate = findViewById(R.id.txtDate);
@@ -312,7 +314,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 dpd.show();
                 break;
 
-            case R.id.llAddConn:
+            case R.id.txtSave:
                 hideSoftKeyboard();
                 int unique = generateRandom();
                 String name = txtName.getText().toString().trim();

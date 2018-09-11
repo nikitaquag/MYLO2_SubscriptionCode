@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtName"
+                android:layout_centerHorizontal="true"
                 android:layout_margin="@dimen/dimension10dp"
                 android:background="@drawable/gray_white_border"
                 android:padding="@dimen/dimension5dp">
@@ -58,13 +59,27 @@
                     android:layout_toRightOf="@+id/imgAllergy"
                     android:text="Allergies and Medication Reactions" />
 
+                <TextView
+                    android:id="@+id/txtAddAllergy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imgAddAllergy"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListAllergy"
@@ -361,7 +376,20 @@
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/imgAddCondition"
                     android:layout_toRightOf="@+id/imgPre"
-                    android:text="Pre-existing Medical Conditions" />
+                    android:text="Pre-existing Medical\nConditions" />
+
+                <TextView
+                    android:id="@+id/txtAddCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/imgAddCondition"
@@ -369,7 +397,8 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListCondtion"
@@ -1159,13 +1188,27 @@
                     android:layout_toRightOf="@+id/imgVaccine"
                     android:text="Immunizations/Vaccines" />
 
+                <TextView
+                    android:id="@+id/txtAddVaccine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imgAddVaccine"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListVaccine"
@@ -1802,13 +1845,27 @@
                     android:layout_toRightOf="@+id/imgImplants"
                     android:text="Medical Implants" />
 
+                <TextView
+                    android:id="@+id/txtAddImplants"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imgAddImplants"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListImplants"
@@ -1852,13 +1909,27 @@
                     android:layout_toRightOf="@+id/imgHospital"
                     android:text="Preferred Hospitals" />
 
+                <TextView
+                    android:id="@+id/txtAddHospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imgAddHospital"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListHospital"
@@ -1946,13 +2017,27 @@
                     android:layout_toRightOf="@+id/imgHistory"
                     android:text="Surgical History" />
 
+                <TextView
+                    android:id="@+id/txtAddHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="@color/colorBlueAdd"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:id="@+id/imgAddHistory"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square" />
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
 
                 <com.mindyourlovedones.healthcare.customview.NonScrollListView
                     android:id="@+id/ListHistory"

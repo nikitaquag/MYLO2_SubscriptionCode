@@ -39,11 +39,14 @@
 
     <color name="colorOneBar">#F2F2F2</color>
     <color name="colorTwoBar">#D9D9D9</color>
-<!--#333E50-->
+    <!--#333E50-->
     <color name="colorNavyBlue">#0065D2</color>
     <color name="colorSkysBlue">#0485FA</color>
     <color name="colorStayColor">#333E50</color>
     <color name="colorTabDotsBlueColor">#45A4FC</color>
     <color name="colorTabDotsGrayColor">#7F7F7F</color>
+
+    <color name="colorRed">#C3423B</color>
+    <color name="colorBlueAdd">#0433FF</color>
 
 </resources>

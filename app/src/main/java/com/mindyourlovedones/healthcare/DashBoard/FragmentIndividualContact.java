@@ -95,7 +95,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     ContentValues values;
     Uri imageUriProfile = null, imageUriCard = null;
     // byte[] photoCard=null;
@@ -1536,11 +1536,11 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
                                 preferences.emailAttachement(f, getActivity(), "Personal Profile");
                                 break;
 
-                            case 2://fax
+                          /*  case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;
+                                break;*/
 
-                            case 3://fax
+                            case 2://fax
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
                                 i.putExtra("From", "Personal");
                                 startActivity(i);

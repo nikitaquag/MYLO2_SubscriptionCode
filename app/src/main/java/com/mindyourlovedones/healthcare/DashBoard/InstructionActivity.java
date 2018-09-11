@@ -16,7 +16,7 @@ import com.mindyourlovedones.healthcare.HomeActivity.R;
 public class InstructionActivity extends AppCompatActivity {
     RelativeLayout header;
     ImageView imgBack, imgPicture;
-    TextView txtHeader, txtMsg;
+    TextView txtHeader, txtTitle, txtMsg;
     String From;
     ImageView imgDot;
 
@@ -46,6 +46,7 @@ public class InstructionActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
         txtHeader = findViewById(R.id.txtHeader);
+        txtTitle = findViewById(R.id.txtTitle);
         txtMsg = findViewById(R.id.txtMsg);
         imgDot = findViewById(R.id.imgDot);
         Intent i = getIntent();
@@ -174,7 +175,8 @@ public class InstructionActivity extends AppCompatActivity {
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.GONE);
 
-                txtHeader.setText("Personal Profile Instructions");
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Personal Profile");
                 break;
 
           /*  //shradha
@@ -288,7 +290,8 @@ public class InstructionActivity extends AppCompatActivity {
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
 
-                txtHeader.setText("Medical Profile Instructions");
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Medical Profile");
                 break;
 
             case "Living":

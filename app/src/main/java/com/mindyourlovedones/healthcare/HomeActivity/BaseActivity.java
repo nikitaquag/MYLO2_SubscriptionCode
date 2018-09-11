@@ -72,7 +72,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc;
+    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
     TextView txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance;
     DrawerLayout drawerLayout;
@@ -80,7 +80,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout rlLogOutt;
     Preferences preferences;
     TextView txtPrivacyPolicy, txtEULA;
-    RelativeLayout rlGuide, rlHome, rlSupport, rlContact, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    RelativeLayout rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
 
     ImageLoader imageLoader;
@@ -361,6 +361,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         //   imgNoti.setOnClickListener(this);
         rlLogOutt.setOnClickListener(this);
         imgLocationFeed.setOnClickListener(this);
+        rlProfiles.setOnClickListener(this);
         rlHome.setOnClickListener(this);
         rlSupport.setOnClickListener(this);
         rlResources.setOnClickListener(this);
@@ -388,6 +389,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         imgPdf = findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgLocationFeed = findViewById(R.id.imgLocationFeed);
+
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
 
@@ -404,10 +406,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlLogOutt = findViewById(R.id.rlLogOutt);
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
-
+        imgRight = leftDrawer.findViewById(R.id.imgRight);
        /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
         imgDrawerProfile.setImageBitmap(bmp);*/
         rlGuide = leftDrawer.findViewById(R.id.rlGuide);
+        rlProfiles = leftDrawer.findViewById(R.id.rlProfiles);
         rlHome = leftDrawer.findViewById(R.id.rlHome);
         rlSupport = leftDrawer.findViewById(R.id.rlSupport);
         rlResources = leftDrawer.findViewById(R.id.rlResources);
@@ -455,7 +458,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.imgDrawer:
                 // Intent intn=new Intent(context, ImageActivity.class);
                 // startActivity(intn);
@@ -463,7 +465,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 // copydb(context);
                 break;
 
-            case R.id.rlHome:
+            case R.id.rlProfiles:
                 //if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
                 if (fragmentConnection.isAdded()) {
                     drawerLayout.closeDrawer(leftDrawer);
@@ -476,6 +478,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 //  }
                 drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlHome:
+                Intent intentSplash = new Intent(context, SplashNewActivity.class);
+                startActivity(intentSplash);
                 break;
 
             case R.id.rlSupport:
@@ -633,6 +639,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+
     //Shradha
     private void showBankDialog() {
         final Dialog dialogBank = new Dialog(context);
@@ -662,22 +669,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 dialogBank.dismiss();
             }
         });
-
-
-       /* final Dialog dialogBank = new Dialog(context);
-        dialogBank.setCancelable(false);
-        dialogBank.setCanceledOnTouchOutside(false);
-        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogBank.setContentView(R.layout.dialog_bank);
-        TextView txtOk = dialogBank.findViewById(R.id.txtOk);
-        txtOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialogBank.dismiss();
-            }
-        });
-        dialogBank.show();*/
-
     }
 
     @Override
@@ -748,8 +739,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         while ((read = in.read(buffer)) != -1) {
             out.write(buffer, 0, read);
         }
-
-
     }
 
     private void accessPermission() {
@@ -774,8 +763,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CALL_PERMISSION: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {

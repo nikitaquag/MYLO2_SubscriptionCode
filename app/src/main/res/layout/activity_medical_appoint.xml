@@ -32,16 +32,31 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
 
-        <ImageView
-            android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension30dp"
-            android:layout_height="@dimen/dimension30dp"
+        <TextView
+            android:id="@+id/txtAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension10dp"
             android:layout_toLeftOf="@+id/imgRight"
-            android:src="@drawable/add_white_square"
+            android:gravity="center"
+            android:text="Add"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold" />
 
-            />
+        <!--
+                <ImageView
+                    android:id="@+id/imgAdd"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_toLeftOf="@+id/imgRight"
+                    android:src="@drawable/add_white_square"
+
+                    />
+        -->
 
         <ImageView
             android:id="@+id/imgRight"

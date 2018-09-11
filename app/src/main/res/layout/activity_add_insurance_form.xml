@@ -40,6 +40,7 @@
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
+
             <TextView
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
@@ -47,14 +48,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
-                android:text="Save"
-                android:textSize="@dimen/dimension18dp"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
+                android:background="@drawable/border_save"
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
-                android:background="@drawable/border_save"
-                />
+                android:text="Save"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold" />
 
 
             <ImageView
@@ -65,7 +66,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
                 android:src="@drawable/check_mark"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imgDot"

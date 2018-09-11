@@ -58,7 +58,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     DBHelper dbHelper;
     RelativeLayout header;
     boolean flag = false;
-    TextView txtMsg, txtFTU;
+    TextView txtMsg, txtFTU,txtAdd;
     ScrollView scrollvw;
 
     public static String getFormattedDate(Date date) {
@@ -90,7 +90,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     }
 
     private void initListener() {
-        imgAdd.setOnClickListener(this);
+        txtAdd.setOnClickListener(this);
+        //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
     }
@@ -135,6 +136,9 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorFour);
         imgBack = findViewById(R.id.imgBack);
+
+        txtAdd = findViewById(R.id.txtAdd);
+
         imgAdd = findViewById(R.id.imgAdd);
         imgRight = findViewById(R.id.imgRight);
         //imgEdit= (ImageView) findViewById(R.id.imgEdit);
@@ -353,7 +357,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             case R.id.imgBack:
                 finish();
                 break;
-            case R.id.imgAdd:
+            case R.id.txtAdd:
                 Intent i = new Intent(context, AddAppointmentActivity.class);
                 i.putExtra("FROM", "Add");
                 startActivity(i);

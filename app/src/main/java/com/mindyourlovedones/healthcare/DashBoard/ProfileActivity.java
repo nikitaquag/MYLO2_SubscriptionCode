@@ -93,7 +93,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
     ContentValues values;
@@ -1556,11 +1556,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                 preferences.emailAttachement(f, context, "Personal Profile");
                                 break;
 
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
-                                break;
+                          /*  case 2://fax
+                              //  new FaxCustomDialog(context, path).show();
+                                break;*/
 
-                            case 3://FTU
+                            case 2://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
                                 i.putExtra("From", "Personal");
                                 startActivity(i);

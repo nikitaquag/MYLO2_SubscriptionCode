@@ -1,8 +1,10 @@
 package com.mindyourlovedones.healthcare.Connections;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -12,13 +14,16 @@ import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,10 +57,10 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     View rootview;
     GridView lvConnection;
     ArrayList<RelativeConnection> connectionList;
-    TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep5, txtStep6,txtStep7;
+    TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep5, txtStep6, txtStep7;
     //RelativeLayout llAddConn;
     TextView txtTitle, txtName, txtDrawerName;
-    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile;
+    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile, imgRight;
     DBHelper dbHelper;
     ConnectionAdapter connectionAdapter;
     Preferences preferences;
@@ -122,10 +127,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         //  imgADMTick.setOnClickListener(this);
         //llAddConn.setOnClickListener(this);
         imgLogo.setOnClickListener(this);
+        imgRight.setOnClickListener(this);
+
     }
 
     private void initUI() {
-
+        imgRight = getActivity().findViewById(R.id.imgRight);
+        imgRight.setVisibility(View.VISIBLE);
         // txtMsg = rootview.findViewById(R.id.txtMsg);
         rlMsg = rootview.findViewById(R.id.rlMsg);
         txtStep1 = rootview.findViewById(R.id.txtStep1);
@@ -463,6 +471,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgRight:
+                showInstructionDialog();
+                break;
             case R.id.imgLogo:
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
@@ -472,6 +483,83 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 break;
         }
     }
+
+    @SuppressLint("ResourceAsColor")
+    private void showInstructionDialog() {
+        final Dialog dialogInstruction = new Dialog(getActivity());
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.instruction_dialog, null);
+        final TextView textOption1 = dialogview.findViewById(R.id.txtInstruction);
+        final TextView textOption2 = dialogview.findViewById(R.id.txtCancel);
+
+        textOption1.setText("User Instructions");
+        textOption2.setText("Cancel");
+
+        dialogInstruction.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogInstruction.getWindow().getAttributes());
+        int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0,0,0,10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER_VERTICAL | Gravity.BOTTOM;
+        dialogInstruction.getWindow().setAttributes(lp);
+        dialogInstruction.setCanceledOnTouchOutside(false);
+        dialogInstruction.show();
+
+        textOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+
+
+        textOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+    }
+       /* final Dialog dialogInstruction = new Dialog(getActivity());
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.instruction_dialog, null);
+        final TextView txtInstruction = dialogview.findViewById(R.id.txtInstruction);
+        final TextView txtCancel = dialogview.findViewById(R.id.txtCancel);
+
+        dialogInstruction.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogInstruction.getWindow().getAttributes());
+       // int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.80);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialogInstruction.getWindow().setAttributes(lp);
+
+        dialogInstruction.show();
+
+        txtInstruction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+
+        txtCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+    }*/
+
 
     @Override
     public void onResume() {

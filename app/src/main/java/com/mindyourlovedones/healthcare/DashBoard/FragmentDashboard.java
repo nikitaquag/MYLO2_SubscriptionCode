@@ -51,7 +51,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
     private static final int REQUEST_WRITE_PERMISSION = 200;
     private static final int REQUEST_CALL_PERMISSION = 300;
     FragmentOverview fragmentOverview;
-    ImageView imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile;
+    ImageView imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile,imgRight;
     TextView txtName, txtAddress, txtRelation, txtDrawerName;
     RelativeLayout rlEmergencyContact, rlSpecialist, rlInsuranceCard, rlEmergencyEvent, rlPrescription, rlCarePlan;
     View rootview;
@@ -276,6 +276,8 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.GONE);
         txtTitle.setText("");
+        imgRight=getActivity().findViewById(R.id.imgRight);
+        imgRight.setVisibility(View.GONE);
         imgNoti = getActivity().findViewById(R.id.imgNoti);
         imgPdf = getActivity().findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
