@@ -186,6 +186,442 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         return rootview;
     }
 
+    public void savedata(){
+        try {
+            InputMethodManager inm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
+            inm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            //TODO: handle exception
+        }
+        switch (source) {
+            case "Connection":
+                if (validate("Connection")) {
+                           /* if (email.equals("")) {
+                                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
+                                if (flag == true) {
+
+                                    Toast.makeText(getActivity(), "You have added connection Successfully", Toast.LENGTH_SHORT).show();
+                                    getActivity().finish();
+                                } else {
+                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                                }
+                                //    Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
+                            } else {*/
+                    DBHelper dbHelper = new DBHelper(getActivity(), "MASTER");
+                    MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
+                    Boolean flags = MyConnectionsQuery.fetchEmailRecord(email);
+                    if (flags == true) {
+                        Toast.makeText(getActivity(), "This email address is already registered by another profile, Please add another email address", Toast.LENGTH_SHORT).show();
+                        txtEmail.setError("This email address is already registered by another profile, Please add another email address");
+                    } else {
+                        Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
+                        if (flag == true) {
+                            RelativeConnection connection = MyConnectionsQuery.fetchConnectionRecord(preferences.getInt(PrefConstants.USER_ID), email);
+                            String mail = connection.getEmail();
+                            mail = mail.replace(".", "_");
+                            mail = mail.replace("@", "_");
+                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                            storeProfileImage(ProfileMap, "Profile");
+                            storeProfileImage(CardMap, "Card");
+
+                            File dir = new File(Environment.getExternalStorageDirectory() + "/MYLO/temp");
+                            if (dir.isDirectory()) {
+                                String[] children = dir.list();
+                                for (int i = 0; i < children.length; i++) {
+                                    new File(dir, children[i]).delete();
+                                }
+                            }
+                            Boolean flagr = MyConnectionsQuery.updatePhoto(connection.getId(), imagepath, cardPath);
+
+                            DBHelper dbHelper1 = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
+                            MyConnectionsQuery m1 = new MyConnectionsQuery(getActivity(), dbHelper1);
+                            Boolean flagg = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
+                            if (flagg == true) {
+                                Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
+                                getActivity().finish();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        //   Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
+                    }
+                    //  }
+
+                }
+                break;
+
+            case "Emergency":
+                if (validate("Emergency")) {
+
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();
+*/
+                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "EmergencyUpdate":
+
+                if (validate("Emergency")) {
+
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "Proxy":
+                if (validate("Proxy")) {
+
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added proxy contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+
+            case "ProxyUpdate":
+                if (validate("Proxy")) {
+/*
+                            Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+
+            case "Physician":
+
+                if (validate("Physician")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added physician contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+
+            case "Speciality":
+
+                if (validate("Physician")) {
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added doctor contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "SpecialistData":
+                if (validate("Physician")) {
+
+
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    if (isPhysician == 1) {
+                        Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
+                        if (flag == true) {
+                            Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    } else if (isPhysician == 2) {
+                        Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
+                        if (flag == true) {
+                            Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    }
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "PhysicianData":
+                if (validate("Physician")) {
+
+
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    if (isPhysician == 1) {
+                        Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
+                        if (flag == true) {
+                            Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    } else if (isPhysician == 2) {
+                        Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
+                        if (flag == true) {
+                            Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
+                            getActivity().finish();
+                        } else {
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    }
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "Pharmacy":
+
+                if (validate("Pharmacy")) {
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = PharmacyQuery.insertPharmacyData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, phone, imagepath, fax, note, cardPath, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added pharmacy successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "PharmacyData":
+
+                if (validate("Pharmacy")) {
+                            /*Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = PharmacyQuery.updatePharmacyData(id, name, website, address, phone, imagepath, fax, note, cardPath, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+
+            case "Aides":
+
+                if (validate("Aides")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = AideQuery.insertAidesData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added Health Service successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "AidesData":
+
+                if (validate("Aides")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = AideQuery.updateAideData(id, name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated Health Service successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+
+            case "Hospital":
+
+                if (validate("Hospital")) {
+                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                }
+                break;
+
+            case "HospitalData":
+
+                if (validate("Hospital")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "Finance":
+
+                if (validate("Finance")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = FinanceQuery.insertFinanceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "FinanceData":
+
+                if (validate("Finance")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = FinanceQuery.updateFinanceData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case "Insurance":
+
+                if (validate("Insurance")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            case "InsuranceData":
+
+                if (validate("Insurance")) {
+                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
+                            byte[] photo = baos.toByteArray();*/
+                    Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
+                    if (flag == true) {
+                        Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
+                        getActivity().finish();
+                    } else {
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
+                    }
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                    //  dialogManager = new DialogManager(new FragmentNewContact());
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
+                }
+                break;
+            // InsuranceObject
+        }
+    }
+
     private void initImageLoader() {
 
         //Profile
@@ -3280,439 +3716,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
             case R.id.txtAdd:
                 //Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
-                try {
-                    InputMethodManager inm = (InputMethodManager) getActivity().getSystemService(INPUT_METHOD_SERVICE);
-                    inm.hideSoftInputFromWindow(getActivity().getCurrentFocus().getWindowToken(), 0);
-                } catch (Exception e) {
-                    //TODO: handle exception
-                }
-                switch (source) {
-                    case "Connection":
-                        if (validate("Connection")) {
-                           /* if (email.equals("")) {
-                                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
-                                if (flag == true) {
 
-                                    Toast.makeText(getActivity(), "You have added connection Successfully", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                //    Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
-                            } else {*/
-                            DBHelper dbHelper = new DBHelper(getActivity(), "MASTER");
-                            MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
-                            Boolean flags = MyConnectionsQuery.fetchEmailRecord(email);
-                            if (flags == true) {
-                                Toast.makeText(getActivity(), "This email address is already registered by another profile, Please add another email address", Toast.LENGTH_SHORT).show();
-                                txtEmail.setError("This email address is already registered by another profile, Please add another email address");
-                            } else {
-                                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
-                                if (flag == true) {
-                                    RelativeConnection connection = MyConnectionsQuery.fetchConnectionRecord(preferences.getInt(PrefConstants.USER_ID), email);
-                                    String mail = connection.getEmail();
-                                    mail = mail.replace(".", "_");
-                                    mail = mail.replace("@", "_");
-                                    preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                                    preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                                    storeProfileImage(ProfileMap, "Profile");
-                                    storeProfileImage(CardMap, "Card");
-
-                                    File dir = new File(Environment.getExternalStorageDirectory() + "/MYLO/temp");
-                                    if (dir.isDirectory()) {
-                                        String[] children = dir.list();
-                                        for (int i = 0; i < children.length; i++) {
-                                            new File(dir, children[i]).delete();
-                                        }
-                                    }
-                                    Boolean flagr = MyConnectionsQuery.updatePhoto(connection.getId(), imagepath, cardPath);
-
-                                    DBHelper dbHelper1 = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
-                                    MyConnectionsQuery m1 = new MyConnectionsQuery(getActivity(), dbHelper1);
-                                    Boolean flagg = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
-                                    if (flagg == true) {
-                                        Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
-                                        getActivity().finish();
-                                    }
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                //   Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
-                            }
-                            //  }
-
-                        }
-                        break;
-
-                    case "Emergency":
-                        if (validate("Emergency")) {
-
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();
-*/
-                            Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "EmergencyUpdate":
-
-                        if (validate("Emergency")) {
-
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-
-                            Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "Proxy":
-                        if (validate("Proxy")) {
-
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added proxy contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-
-                    case "ProxyUpdate":
-                        if (validate("Proxy")) {
-/*
-                            Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-
-                    case "Physician":
-
-                        if (validate("Physician")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added physician contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-
-                    case "Speciality":
-
-                        if (validate("Physician")) {
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added doctor contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "SpecialistData":
-                        if (validate("Physician")) {
-
-
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            if (isPhysician == 1) {
-                                Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            } else if (isPhysician == 2) {
-                                Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            }
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "PhysicianData":
-                        if (validate("Physician")) {
-
-
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            if (isPhysician == 1) {
-                                Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            } else if (isPhysician == 2) {
-                                Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
-                                if (flag == true) {
-                                    Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
-                                    getActivity().finish();
-                                } else {
-                                    Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                                }
-                                Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            }
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "Pharmacy":
-
-                        if (validate("Pharmacy")) {
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = PharmacyQuery.insertPharmacyData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, phone, imagepath, fax, note, cardPath, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added pharmacy successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "PharmacyData":
-
-                        if (validate("Pharmacy")) {
-                            /*Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = PharmacyQuery.updatePharmacyData(id, name, website, address, phone, imagepath, fax, note, cardPath, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-
-                    case "Aides":
-
-                        if (validate("Aides")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = AideQuery.insertAidesData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added Health Service successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "AidesData":
-
-                        if (validate("Aides")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = AideQuery.updateAideData(id, name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated Health Service successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-
-                    case "Hospital":
-
-                        if (validate("Hospital")) {
-                          /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-
-                    case "HospitalData":
-
-                        if (validate("Hospital")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-                    case "Finance":
-
-                        if (validate("Finance")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = FinanceQuery.insertFinanceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-                    case "FinanceData":
-
-                        if (validate("Finance")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = FinanceQuery.updateFinanceData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
-                    case "Insurance":
-
-                        if (validate("Insurance")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    case "InsuranceData":
-
-                        if (validate("Insurance")) {
-                           /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
-                            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                            bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-                            byte[] photo = baos.toByteArray();*/
-                            Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
-                            if (flag == true) {
-                                Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
-                                getActivity().finish();
-                            } else {
-                                Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
-                            }
-                            Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
-                            //  dialogManager = new DialogManager(new FragmentNewContact());
-                            //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
-                        }
-                        break;
-                    // InsuranceObject
-                }
                 break;
             case R.id.imgEdit:
                 ShowCameraDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, "Profile");

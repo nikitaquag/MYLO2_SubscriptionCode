@@ -27,7 +27,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_toLeftOf="@+id/imgdg"
+            android:layout_toLeftOf="@+id/txtsave"
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
             android:text="Grab Contact (Manual)"
@@ -53,6 +53,23 @@
             android:layout_marginRight="16dp"
             android:src="@drawable/refresh"
             android:visibility="gone" />
+
+        <TextView
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:id="@+id/txtsave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:text="SAVE"
+            android:visibility="visible" />
     </RelativeLayout>
 
     <LinearLayout
