@@ -73,7 +73,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
     ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
-    TextView txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
+    TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
@@ -356,6 +356,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initListener() {
+        txtDrawer.setOnClickListener(this);
         imgDrawer.setOnClickListener(this);
         imgPdf.setOnClickListener(this);
         //   imgNoti.setOnClickListener(this);
@@ -383,6 +384,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     private void initUI() {
         txtFname = findViewById(R.id.txtFName);
         txtAdd = findViewById(R.id.txtAdd);
+        txtDrawer = findViewById(R.id.txtDrawer);
         imgDrawer = findViewById(R.id.imgDrawer);
         imgNoti = findViewById(R.id.imgNoti);
         imgProfile = findViewById(R.id.imgProfile);
@@ -458,7 +460,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgDrawer:
+            case R.id.txtDrawer:
                 // Intent intn=new Intent(context, ImageActivity.class);
                 // startActivity(intn);
                 drawerLayout.openDrawer(leftDrawer);
@@ -645,7 +647,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater) context
+        LayoutInflater lf = (LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -656,7 +658,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;

@@ -49,7 +49,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
@@ -99,7 +98,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ContentValues values;
     Uri imageUriProfile = null, imageUriCard = null;
     // byte[] photoCard=null;
-    ImageView imgRight, imgInfo;
+    ImageView imgRight, imgInfo,imgR;
     RelativeLayout llIndividual;
     TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg,txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
@@ -233,6 +232,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initUI() {
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
+        imgR = findViewById(R.id.imgR);
+        imgR.setVisibility(View.VISIBLE);
+
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,6 +278,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("PERSONAL PROFILE");
         imgRight = findViewById(R.id.imgRight);
+
         txtTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -23,12 +23,12 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity;
+import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
@@ -514,7 +514,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialogInstruction.dismiss();
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "ConnectionInstuction");
+                startActivity(i);
             }
         });
 
