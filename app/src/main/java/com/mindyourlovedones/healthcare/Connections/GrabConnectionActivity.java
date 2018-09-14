@@ -31,7 +31,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     Preferences preferences;
     FragmentNewContact fragmentNewContact = null;
     FragmentGrabContact fragmentGrabContact = null;
-    TextView txtNew, txtTitle;
+    TextView txtNew, txtTitle, txtsave;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
     String source;
     LinearLayout llGrab;
@@ -193,6 +193,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
     }
 
+
     private void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ContextCompat.checkSelfPermission(getApplicationContext(),
@@ -218,6 +219,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
                 imgRefresh.setVisibility(View.GONE);
+                txtsave.setVisibility(View.VISIBLE);
                 break;
 
             case "CONTACT":
@@ -230,6 +232,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
                 imgRefresh.setVisibility(View.VISIBLE);
+                txtsave.setVisibility(View.INVISIBLE);
                 break;
         }
 
@@ -256,6 +259,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
     private void initListener() {
         txtNew.setOnClickListener(this);
+        txtsave.setOnClickListener(this);
         imgContact.setOnClickListener(this);
         imgFb.setOnClickListener(this);
         imgGoogle.setOnClickListener(this);
@@ -263,6 +267,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     }
 
     private void initUI() {
+        txtsave = findViewById(R.id.txtsave);
         txtTitle = findViewById(R.id.txtTitle);
         llGrab = findViewById(R.id.llGrab);
         txtNew = findViewById(R.id.txtNew);
@@ -279,6 +284,13 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         switch (v.getId()) {
             case R.id.imgBack:
                 finish();
+                break;
+
+            case R.id.txtsave:
+//                if (fragmentManager.findFragmentByTag("NEWCONTACT") == null) {
+                    fragmentNewContact.savedata();
+//                }
+
                 break;
 
             case R.id.txtNew:
@@ -308,6 +320,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
                 imgRefresh.setVisibility(View.GONE);
+                txtsave.setVisibility(View.VISIBLE);
                 break;
             case R.id.imgGoogle:
                /* if (fragmentManager.findFragmentByTag("CONTACT") == null) {
@@ -322,6 +335,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgGoogle.setImageResource(R.drawable.g_gray);
                 imgRefresh.setVisibility(View.GONE);
+                txtsave.setVisibility(View.VISIBLE);
                 break;
         }
     }
