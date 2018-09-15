@@ -88,7 +88,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.ic_profiles)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -207,7 +207,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                     imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
                 }
             } else {
-                imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                imgProfile.setImageResource(R.drawable.ic_profiles);
             }
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
             txtName.setText(name + " - " + relation);
@@ -237,7 +237,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 imgProfile.setImageBitmap(myBitmap);*/
                 imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
             } else {
-                imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                imgProfile.setImageResource(R.drawable.ic_profiles);
             }
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
 
@@ -457,13 +457,12 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 imgDrawerProfile.setImageBitmap(myBitmap);*/
             }
         } else {
-            imgDrawerProfile.setImageResource(R.drawable.ic_profile_defaults);
+            imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CALL_PERMISSION: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {

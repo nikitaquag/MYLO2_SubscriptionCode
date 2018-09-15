@@ -72,7 +72,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
+    ImageView imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
     TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance;
     DrawerLayout drawerLayout;
@@ -80,7 +80,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout rlLogOutt;
     Preferences preferences;
     TextView txtPrivacyPolicy, txtEULA;
-    RelativeLayout rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
 
     ImageLoader imageLoader;
@@ -246,7 +246,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.ic_profiles)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -372,6 +372,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlBackup.setOnClickListener(this);
         rlContact.setOnClickListener(this);
         rlGuide.setOnClickListener(this);
+        rlWebsite.setOnClickListener(this);
         txtBank.setOnClickListener(this);
         txtForm.setOnClickListener(this);
         txtSenior.setOnClickListener(this);
@@ -387,6 +388,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         txtDrawer = findViewById(R.id.txtDrawer);
         imgDrawer = findViewById(R.id.imgDrawer);
         imgNoti = findViewById(R.id.imgNoti);
+        imgR = findViewById(R.id.imgR);
+        imgR.setVisibility(View.VISIBLE);
         imgProfile = findViewById(R.id.imgProfile);
         imgPdf = findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
@@ -412,6 +415,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
        /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
         imgDrawerProfile.setImageBitmap(bmp);*/
         rlGuide = leftDrawer.findViewById(R.id.rlGuide);
+        rlWebsite = leftDrawer.findViewById(R.id.rlWebsite);
         rlProfiles = leftDrawer.findViewById(R.id.rlProfiles);
         rlHome = leftDrawer.findViewById(R.id.rlHome);
         rlSupport = leftDrawer.findViewById(R.id.rlSupport);
@@ -484,6 +488,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.rlHome:
                 Intent intentSplash = new Intent(context, SplashNewActivity.class);
                 startActivity(intentSplash);
+                break;
+
+            case R.id.rlWebsite:
+                Intent intents = new Intent();
+                intents.setAction(Intent.ACTION_VIEW);
+                intents.addCategory(Intent.CATEGORY_BROWSABLE);
+                intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
+                startActivity(intents);
                 break;
 
             case R.id.rlSupport:
@@ -687,7 +699,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 imgDrawerProfile.setImageBitmap(myBitmap);*/
             }
         } else {
-            imgDrawerProfile.setImageResource(R.drawable.ic_profile_defaults);
+            imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
         }
     }
 

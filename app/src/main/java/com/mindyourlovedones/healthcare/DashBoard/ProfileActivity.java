@@ -232,8 +232,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initUI() {
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
-        imgR = findViewById(R.id.imgR);
-        imgR.setVisibility(View.VISIBLE);
+      /*  imgR = findViewById(R.id.imgR);
+        imgR.setVisibility(View.VISIBLE);*/
 
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {

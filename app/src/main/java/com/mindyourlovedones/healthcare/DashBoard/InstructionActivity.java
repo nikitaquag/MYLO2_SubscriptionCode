@@ -141,8 +141,7 @@ public class InstructionActivity extends AppCompatActivity {
 
                 txtHeader.setText("Dropbox");
                 break;
-            case "ConnectionInstuction":
-                break;
+
 
             case "Personal":
                 imgPicture.setVisibility(View.GONE);

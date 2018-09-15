@@ -28,7 +28,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity;
-import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
@@ -60,7 +59,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep5, txtStep6, txtStep7;
     //RelativeLayout llAddConn;
     TextView txtTitle, txtName, txtDrawerName;
-    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile, imgRight;
+    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile, imgRight,imgR;
     DBHelper dbHelper;
     ConnectionAdapter connectionAdapter;
     Preferences preferences;
@@ -90,7 +89,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.profile_darkbluecolor)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -132,6 +131,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
     private void initUI() {
+        imgR = getActivity().findViewById(R.id.imgR);
+        imgR.setVisibility(View.GONE);
         imgRight = getActivity().findViewById(R.id.imgRight);
         imgRight.setVisibility(View.VISIBLE);
         // txtMsg = rootview.findViewById(R.id.txtMsg);
@@ -514,9 +515,10 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), InstructionActivity.class);
-                i.putExtra("From", "ConnectionInstuction");
-                startActivity(i);
+                dialogInstruction.dismiss();
+//                Intent i = new Intent(getActivity(), InstructionActivity.class);
+//                i.putExtra("From", "ConnectionInstuction");
+//                startActivity(i);
             }
         });
 
@@ -579,7 +581,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
             }
         } else {
-            imgDrawerProfile.setImageResource(R.drawable.ic_profile_defaults);
+            imgDrawerProfile.setImageResource(R.drawable.profile_darkbluecolor);
         }
     }
 

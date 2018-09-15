@@ -68,7 +68,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.profile_darkbluecolor)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -142,7 +142,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                     imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile2)), holder.imgConPhoto, displayImageOptions);
                 }
             } else {
-                holder.imgConPhoto.setImageResource(R.drawable.ic_profile_defaults);
+                holder.imgConPhoto.setImageResource(R.drawable.profile_darkbluecolor);
             }
             //  }
             /*byte[] photo = connectionList.get(position).getPhoto();
