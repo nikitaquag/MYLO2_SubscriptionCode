@@ -16,7 +16,7 @@ import com.mindyourlovedones.healthcare.HomeActivity.R;
 public class InstructionActivity extends AppCompatActivity {
     RelativeLayout header;
     ImageView imgBack, imgPicture;
-    TextView txtHeader, txtTitle, txtMsg;
+    TextView txtHeader, txtTitle, txtMsg, txtEmail;
     String From;
     ImageView imgDot;
 
@@ -35,18 +35,25 @@ public class InstructionActivity extends AppCompatActivity {
         TextView txt63 = findViewById(R.id.txtPolicy63);
         TextView txt64 = findViewById(R.id.txtPolicy64);
         TextView txt65 = findViewById(R.id.txtPolicy65);
+        TextView txt66 = findViewById(R.id.txtPolicy66);
+        TextView txt67 = findViewById(R.id.txtPolicy67);
+        TextView txt68 = findViewById(R.id.txtPolicy68);
 
         ImageView img61 = findViewById(R.id.img61);
         ImageView img62 = findViewById(R.id.img62);
         ImageView img63 = findViewById(R.id.img63);
         ImageView img64 = findViewById(R.id.img64);
         ImageView img65 = findViewById(R.id.img65);
+        ImageView img66 = findViewById(R.id.img66);
+        ImageView img67 = findViewById(R.id.img67);
+        ImageView img68 = findViewById(R.id.img68);
 
         header = findViewById(R.id.header);
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
         txtHeader = findViewById(R.id.txtHeader);
         txtTitle = findViewById(R.id.txtTitle);
+        txtEmail = findViewById(R.id.txtEmail);
         txtMsg = findViewById(R.id.txtMsg);
         imgDot = findViewById(R.id.imgDot);
         Intent i = getIntent();
@@ -131,6 +138,9 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.GONE);
                 txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -138,11 +148,51 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.GONE);
                 img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
 
                 txtHeader.setText("Dropbox");
                 break;
 
+            case "ConnectionInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+                //shradha
+                txt61.setText(Html.fromHtml("<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.\n\n"));
+                txt62.setText(Html.fromHtml("<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.\nFirst time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.\n\n"));
+                txt63.setText(Html.fromHtml("<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.\n\n"));
+                txt64.setText(Html.fromHtml("<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.\n\n"));
+                txt65.setText(Html.fromHtml("<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "\n\n <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n"));
+                txt66.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.\n\n"));
+                txt67.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.\n\n"));
+                txt68.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.\n\nThanks & Regards"));
 
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.VISIBLE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.VISIBLE);
+
+               // txtEmail.setText("Email");
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Profile");
+                break;
             case "Personal":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
@@ -157,10 +207,10 @@ public class InstructionActivity extends AppCompatActivity {
 //                txtMsg.setText(Html.fromHtml(msgs));
 
                 //nikita
-                txt61.setText(Html.fromHtml("To <b>add</b> information type responses."));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the check mark on the <b>top right</b> side of the screen."));
-                txt63.setText(Html.fromHtml("To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen."));
-                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen."));
+                txt61.setText(Html.fromHtml("To <b>add</b> information - type responses or use dropdown"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information - click the check mark on the <b>top right</b> side of the screen."));
+                txt63.setText(Html.fromHtml("To <b>edit</b> or <b>delete</b> information - make changes then save your edits by clicking <b>SAVE</b> on the <b>top right</b> of the screen."));
+                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> - click the <b>three dots</b> on the top right side of the screen."));
 
                 //nikita
                 txt61.setVisibility(View.VISIBLE);
@@ -168,6 +218,9 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -175,6 +228,9 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Personal Profile");
@@ -240,6 +296,9 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.GONE);
                 txt64.setVisibility(View.GONE);
                 txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
 
 
                 //shradha
@@ -248,6 +307,10 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.GONE);
                 img64.setVisibility(View.GONE);
                 img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
 
                 txtHeader.setText("Share Pdf Instructions");
                 break;
@@ -271,11 +334,11 @@ public class InstructionActivity extends AppCompatActivity {
 //                txtMsg.setText(Html.fromHtml(msgd));
 
                 //nikita
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>plus box</b> for each section and then click the green bar."));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen."));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>. To save your edits click the green bar at the lower half of the screen."));
-                txt64.setText(Html.fromHtml("To <b>delete</b> information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simply delete the data."));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click <b>add</b> for each section.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>store</b> information click <b>save</b> on top right.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information in a particular section click the picture of the pencil, click <b>save</b> to store your changes.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simple delete the information.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>view or to email a report</b>, click the three dots on the top right side of the screen.\n\n"));
 
                 //nikita
                 txt61.setVisibility(View.VISIBLE);
@@ -283,6 +346,10 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -290,6 +357,10 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Medical Profile");
@@ -319,6 +390,9 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.GONE);
                 txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -326,6 +400,9 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.GONE);
                 img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
 
                 txtHeader.setText("Living Activity Instructions");
                 break;
@@ -356,6 +433,9 @@ public class InstructionActivity extends AppCompatActivity {
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -363,6 +443,9 @@ public class InstructionActivity extends AppCompatActivity {
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
 
                 txtHeader.setText("Insurance Card GuideLines");
                 break;
