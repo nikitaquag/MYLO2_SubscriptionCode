@@ -73,4 +73,19 @@
         android:layout_marginTop="@dimen/dimension15dp"
         android:background="@color/colorLightBlue"
         android:divider="@null"></ListView>
+
+    <TextView
+        android:id="@+id/txtUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension10dp"
+        android:background="@color/colorBlue"
+        android:gravity="center"
+        android:padding="@dimen/dimension15dp"
+        android:text="User Instructions are available within each sub-section.Once opened click three dots."
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimension16dp"
+        android:visibility="visible"></TextView>
+
 </RelativeLayout>

@@ -28,7 +28,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -49,7 +48,7 @@ import java.util.Date;
 
 public class EventNoteActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Note> noteList = new ArrayList<>();
@@ -370,9 +369,14 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Event Note");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
+                            case 2://FTU
+                                Intent i = new Intent(context, InstructionActivity.class);
+                                i.putExtra("From", "EventNotesInstuction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(context, path).show();
+                                break;*/
 
                         }
                     }

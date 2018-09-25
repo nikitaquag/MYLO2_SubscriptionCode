@@ -24,7 +24,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.AppointmentQuery;
@@ -47,7 +46,7 @@ import java.util.Date;
 
 public class MedicalAppointActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Appoint> noteList = new ArrayList<>();
@@ -58,7 +57,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     DBHelper dbHelper;
     RelativeLayout header;
     boolean flag = false;
-    TextView txtMsg, txtFTU,txtAdd;
+    TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
 
     public static String getFormattedDate(Date date) {
@@ -429,9 +428,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Appointment Checklist");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
+                            case 2://FTU
+                                Intent i = new Intent(context, InstructionActivity.class);
+                                i.putExtra("From", "CheckListInstuction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(context, path).show();
+                                break;*/
 
                         }
                     }

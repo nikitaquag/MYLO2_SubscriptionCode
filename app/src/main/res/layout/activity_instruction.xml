@@ -85,6 +85,7 @@
                 android:text="DropBox Instructions"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
+                android:gravity="center"
                 android:textStyle="bold" />
 
             <TextView

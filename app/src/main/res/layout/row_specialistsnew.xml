@@ -45,10 +45,11 @@
             android:src="@drawable/forword" />
     </RelativeLayout>
 
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension2dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorBlue"
+        android:background="#708EDF"
         android:visibility="gone"></View>
 </RelativeLayout>

@@ -35,8 +35,8 @@
                 android:gravity="center"
                 android:text="Activity"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension20dp"
-                />
+                android:textSize="@dimen/dimension20dp" />
+
             <TextView
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
@@ -45,15 +45,14 @@
                 android:layout_marginLeft="@dimen/dimension15dp"
                 android:layout_marginRight="@dimen/dimension5dp"
                 android:layout_toLeftOf="@+id/imgRight"
-                android:text="Save"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
-                android:textAllCaps="true"
-                android:textSize="@dimen/dimension18dp"
                 android:paddingLeft="@dimen/dimension3dp"
                 android:paddingRight="@dimen/dimension3dp"
-                android:visibility="gone"
-                />
+                android:text="Save"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension18dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
 
             <ImageView
@@ -110,24 +109,27 @@
                 android:layout_below="@+id/txtName"
                 android:layout_margin="@dimen/dimension10dp"
                 android:background="@drawable/gray_white_border"
+                android:gravity="center"
                 android:padding="@dimen/dimension5dp">
 
                 <ImageView
                     android:id="@+id/imgFunctional"
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension70dp"
-
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/functional" />
+                    android:src="@drawable/functional"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/txtFunctionalHeader"
                     style="@style/EmergencyCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
                     android:layout_toLeftOf="@+id/imgInfoF"
                     android:layout_toRightOf="@+id/imgFunctional"
+                    android:gravity="center_vertical"
                     android:text="Activities of Daily Living (ADL)"
                     android:textColor="@color/colorBlue" />
 
@@ -137,9 +139,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtFunctionalHeader"
-                    android:layout_toLeftOf="@+id/imgInfoF"
                     android:layout_toRightOf="@+id/imgFunctional"
-                    android:gravity="left"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
                     android:text="Needs Help With"
                     android:textSize="@dimen/dimension18dp"
                     android:textStyle="italic" />
@@ -498,13 +500,14 @@
                     android:id="@+id/imgInstrumental"
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension70dp"
-
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/functional" />
+                    android:src="@drawable/functional"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/txtInstrumentalHeader"
+                    android:layout_alignParentLeft="true"
                     style="@style/EmergencyCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -519,9 +522,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtInstrumentalHeader"
-                    android:layout_toLeftOf="@+id/imgInfoI"
                     android:layout_toRightOf="@+id/imgInstrumental"
-                    android:gravity="left"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
                     android:text="Needs Help With"
                     android:textSize="@dimen/dimension18dp"
                     android:textStyle="italic" />

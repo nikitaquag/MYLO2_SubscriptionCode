@@ -25,7 +25,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.CardQuery;
@@ -53,7 +52,7 @@ import java.util.ArrayList;
 public class FragementInsuarnceCard extends Fragment implements View.OnClickListener {
     public static final int REQUEST_PRES = 100;
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final String dialog_items[] = {"View", "Email", "Fax"};
+    final String dialog_items[] = {"View", "Email", "User Instructions"};
     Preferences preferences;
     View rootview;
     RecyclerView lvCard;
@@ -381,9 +380,14 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Insurance Card");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "CardInstruction");
+                                startActivity(i);
                                 break;
+                            /*case 2://fax
+                                new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
                         }
                     }
 

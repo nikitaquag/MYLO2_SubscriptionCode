@@ -18,6 +18,7 @@
     <color name="colorGray">#A9AAAA</color>
     <color name="colorGrayPolicy">#707070</color>
     <color name="colorLightGray">#F0F0F0</color>
+    <color name="colorLightGrays">#9A9A9A</color>
     <color name="colorLightBlue">#FFFFFF</color>
     <color name="colorSkyBlue">#E6F1F5</color>
     <color name="colorDarkGray">#909193</color>

@@ -23,6 +23,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
+import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -45,7 +46,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentPharmacy extends Fragment implements View.OnClickListener {
-    final String dialog_items[] = {"View", "Email", "Fax"};
+    final String dialog_items[] = {"View", "Email", "User Instructions"};
     ImageView imgRight;
     View rootview;
     RecyclerView lvPharmacy;
@@ -313,9 +314,14 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Pharmacies And Home Medical Equipment");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "PharmacyInstuction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
                         }
                     }
 

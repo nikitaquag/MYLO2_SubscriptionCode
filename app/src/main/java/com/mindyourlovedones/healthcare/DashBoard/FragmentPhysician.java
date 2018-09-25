@@ -24,7 +24,6 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.SpecialistAdapter;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -49,7 +48,7 @@ import java.util.ArrayList;
 
 public class FragmentPhysician extends Fragment implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     ImageView imgRight;
     View rootview;
     RecyclerView lvSpecialist;
@@ -341,8 +340,13 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Primary Physician");
                                 break;
-                            case 2://fax
+                          /*  case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "PhysicianInstuction");
+                                startActivity(i);
                                 break;
                         }
                     }

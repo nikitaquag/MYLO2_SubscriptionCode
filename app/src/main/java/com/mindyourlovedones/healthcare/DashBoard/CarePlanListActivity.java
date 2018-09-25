@@ -29,7 +29,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -53,7 +52,7 @@ import java.util.ArrayList;
 
 public class CarePlanListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Intructions"};
     Context context = this;
     RecyclerView lvDoc;//by nikita on 20/6/18
     ArrayList<Document> documentList;
@@ -590,8 +589,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Advance Directives");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                   /* case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 
@@ -658,8 +662,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Medical Records");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                   /* case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 
@@ -724,8 +733,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Other Documents");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                  /*  case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 

@@ -155,6 +155,509 @@ public class InstructionActivity extends AppCompatActivity {
                 txtHeader.setText("Dropbox");
                 break;
 
+            case "PrescriptionInstruction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n"));
+                txt62.setText(Html.fromHtml("To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Create Precription Tracker");
+                break;
+
+            case "FormInstruction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the bar at the bottom of the screen. Click the add sign to Select the File.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on the file, then click the <b>save</b> on upper right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>, open attachment from your email, and click the forward button on upper right side of the screen.Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK. Enter additional data, then  click <b>Save</b>\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Insurance Form");
+                break;
+            case "CardInstruction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>get started</b> click the bar at the bottom of the screen Add Insurance Card.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>add</b> information add the Provider name and Type of Insurance and click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>take a picture</b> of your insurance card (front and back). Click the <b>add box</b>. It is recommended that you hold your phone horizontal when taking a picture of the card.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Insurance Card");
+                break;
+            case "InsuranceInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the SAVE on the top right side of the screen. If the Person or company is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the <b>picture</b> of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on <b>right side</b> of the screen.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the upper right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click on the <b>picture</b> of the <b>pencil</b> and either take a photo or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Insurance Information");
+                break;
+            case "DirectivesInstruction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Advance Directive");
+                break;
+            case "LivingInstruction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> information simply change the data and then your edits by clicking on the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>view</b> or <b>email</b> the data in each section click on the three dots on the top right side of the screen.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.GONE);
+                txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.GONE);
+                img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Activities of Daily Living");
+                break;
+
+            case "CheckListInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on add button at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed <b>click SAVE</b> on the top right corner of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the picture of the pencil to the right of the screen. To save your edits click the green bar marked Update Appointment. To <b>delete</b> the appointment swipe right to left and click the garbage can.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>add</b> the completed date(s) click Set Completion Date and click Add. \n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, in each section click the three dots on the upper right side of the screen.\n\n "));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Maintain an Appointment Checklist");
+                break;
+            case "EventNotesInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To add a note click on add button at the top right of the screen. Once completed click Add. The note is automatically saved.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> the note click the picture of the pencil to the right of the screen. To save your edits click the <b>SAVE</b> at the top right of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>delete</b> the note click the garbage can at the bottom of the screen or <b>delete</b> the entry , left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n "));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add an Event Note");
+                break;
+            case "PharmacyInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Pharmacies and Home Medical Equipment");
+                break;
+
+            case "FinanceInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Finance, Legal, Other");
+                break;
+            case "HospitalInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load the data.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
+                break;
+            case "DoctorInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Doctors & Other Health Care Professionals");
+                break;
+
+            case "PhysicianInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Primary Physician");
+                break;
+            case "EmergencyInstuction":
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry left <b>swipe right to left</b> the arrow symbol on the right side.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Add Emergency Contacts and Health Care Proxy Agent");
+                break;
             case "ConnectionInstuction":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
@@ -189,7 +692,7 @@ public class InstructionActivity extends AppCompatActivity {
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.VISIBLE);
 
-               // txtEmail.setText("Email");
+                // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Profile");
                 break;
@@ -333,14 +836,14 @@ public class InstructionActivity extends AppCompatActivity {
 //
 //                txtMsg.setText(Html.fromHtml(msgd));
 
-                //nikita
+                //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> information click <b>add</b> for each section.\n\n"));
                 txt62.setText(Html.fromHtml("To <b>store</b> information click <b>save</b> on top right.\n\n"));
                 txt63.setText(Html.fromHtml("To <b>edit</b> information in a particular section click the picture of the pencil, click <b>save</b> to store your changes.\n\n"));
                 txt64.setText(Html.fromHtml("To <b>delete</b> the information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simple delete the information.\n\n"));
                 txt65.setText(Html.fromHtml("To <b>view or to email a report</b>, click the three dots on the top right side of the screen.\n\n"));
 
-                //nikita
+                //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
                 txt63.setVisibility(View.VISIBLE);

@@ -25,7 +25,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.LivingQuery;
 import com.mindyourlovedones.healthcare.model.Living;
@@ -40,7 +39,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class LivingActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     View rootview;
     RelativeLayout rlLiving;
@@ -427,13 +426,13 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Activities of Daily Living");
                                 break;
-                            case 2://fax
+                          /*  case 2://fax
                                 new FaxCustomDialog(context, path).show();
-                                break;
+                                break;*/
 
-                            case 3://fax
+                            case 2://fax
                                 Intent i = new Intent(context, InstructionActivity.class);
-                                i.putExtra("From", "Living");
+                                i.putExtra("From", "LivingInstruction");
                                 startActivity(i);
                                 break;
                         }

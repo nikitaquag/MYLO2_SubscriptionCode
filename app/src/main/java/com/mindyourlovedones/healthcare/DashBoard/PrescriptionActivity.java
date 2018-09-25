@@ -51,7 +51,7 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     public static final int REQUEST_PRES = 100;
     private static final String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
     // final CharSequence[] dialog_items = {"Print", "Fax", "View" };
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvPrescription;
     // ListView lvPrescription;
@@ -243,11 +243,17 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
                                 emailAttachement(f, "Prescription");
 
                                 break;
-                            case 2: // Fax
+
+                            case 2://FTU
+                                Intent i = new Intent(context, InstructionActivity.class);
+                                i.putExtra("From", "PrescriptionInstruction");
+                                startActivity(i);
+                                break;
+                            /*case 2: // Fax
                                 serverAttachement(Environment.getExternalStorageDirectory()
                                         + "/mylopdf/"
                                         + "/Prescription.pdf");
-                                break;
+                                break;*/
 
                         }
 

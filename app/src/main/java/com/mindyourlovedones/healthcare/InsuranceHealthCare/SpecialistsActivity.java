@@ -93,7 +93,7 @@ public class SpecialistsActivity extends AppCompatActivity {
     int[] profile;
     ListView listSpeciallist;
     ImageView imgBack, imgRight;
-    TextView txtTitle;
+    TextView txtTitle,txtUser;
     String from;
     boolean isEmergency, isInsurance;
     RelativeLayout header;
@@ -114,6 +114,7 @@ public class SpecialistsActivity extends AppCompatActivity {
         databases();
         Intent i = getIntent();
         txtTitle = findViewById(R.id.txtTitle);
+        txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
         txtName = findViewById(R.id.txtName);
         txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -122,7 +123,7 @@ public class SpecialistsActivity extends AppCompatActivity {
             from = i.getExtras().getString("FROM");
             if (from.equals("Speciality")) {
                 txtTitle.setText("SPECIALITY CONTACTS");
-
+                txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 header.setBackgroundResource(R.color.colorThree);
                 profile = new int[]{R.drawable.physician, R.drawable.hosp_icon, R.drawable.pharmacies, R.drawable.finances};
@@ -134,6 +135,7 @@ public class SpecialistsActivity extends AppCompatActivity {
                 isInsurance = false;
             } else if (from.equals("Emergency")) {
                 // imgRight.setVisibility(View.GONE);
+                txtUser.setVisibility(View.VISIBLE);
                 txtTitle.setText("PERSONAL & MEDICAL PROFILE & EMERGENCY CONTACTS");
                 header.setBackgroundResource(R.color.colorOne);
                 isEmergency = true;
@@ -146,6 +148,7 @@ public class SpecialistsActivity extends AppCompatActivity {
 */
             } else if (from.equals("Insurance")) {
                 //  imgRight.setVisibility(View.VISIBLE);
+                txtUser.setVisibility(View.GONE);
                 txtTitle.setText("INSURANCE");
                 header.setBackgroundResource(R.color.colorFive);
                 profile = new int[]{R.drawable.finances, R.drawable.insurancess, R.drawable.finances};
@@ -153,6 +156,7 @@ public class SpecialistsActivity extends AppCompatActivity {
                 isEmergency = false;
                 isInsurance = true;
             } else if (from.equals("Event")) {
+                txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 txtTitle.setText("NOTES & APPOINTMENT CHECKLIST");
                 header.setBackgroundResource(R.color.colorFour);

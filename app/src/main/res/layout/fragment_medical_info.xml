@@ -44,11 +44,11 @@
 
                 <ImageView
                     android:id="@+id/imgAllergy"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/allergies" />
+                    android:src="@drawable/can" />
 
                 <TextView
                     android:id="@+id/txtAllergyHeader"
@@ -117,8 +117,8 @@
 
                 <ImageView
                     android:id="@+id/imgHeight"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
@@ -197,8 +197,8 @@
 
                 <ImageView
                     android:id="@+id/imgWeight"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
@@ -250,8 +250,8 @@
 
                 <ImageView
                     android:id="@+id/imgEye"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
@@ -288,8 +288,8 @@
 
                 <ImageView
                     android:id="@+id/imgLang"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
@@ -363,11 +363,11 @@
 
                 <ImageView
                     android:id="@+id/imgPre"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/medical" />
+                    android:src="@drawable/medical_bag" />
 
                 <TextView
                     android:id="@+id/txtPreHeader"
@@ -449,11 +449,11 @@
 
                 <ImageView
                     android:id="@+id/imgEyes"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/eye" />
+                    android:src="@drawable/eyes" />
 
                 <TextView
                     android:id="@+id/txtEyesHeader"
@@ -585,11 +585,11 @@
 
                 <ImageView
                     android:id="@+id/imgTeeth"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/teeth" />
+                    android:src="@drawable/tooth_outline" />
 
                 <TextView
                     android:id="@+id/txtTeethHeader"
@@ -725,11 +725,11 @@
 
                 <ImageView
                     android:id="@+id/imgAides"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/aide" />
+                    android:src="@drawable/hearing" />
 
                 <TextView
                     android:id="@+id/txtAidesHeader"
@@ -832,8 +832,8 @@
 
                 <ImageView
                     android:id="@+id/imgFunctional"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
 
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
@@ -1173,12 +1173,11 @@
 
                 <ImageView
                     android:id="@+id/imgVaccine"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
-
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/vaccine" />
+                    android:src="@drawable/syringe" />
 
                 <TextView
                     android:id="@+id/txtVaccinesHeader"
@@ -1232,8 +1231,8 @@
 
                 <ImageView
                     android:id="@+id/imgVaccines"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
                     android:src="@drawable/vaccine" />
@@ -1782,12 +1781,12 @@
 
                 <ImageView
                     android:id="@+id/imgDiet"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
 
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/allergies" />
+                    android:src="@drawable/can" />
 
                 <TextView
                     android:id="@+id/txtDietHeader"
@@ -1831,11 +1830,11 @@
 
                 <ImageView
                     android:id="@+id/imgImplants"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/implants" />
+                    android:src="@drawable/implant" />
 
                 <TextView
                     android:id="@+id/txtImplantsHeader"
@@ -1895,11 +1894,11 @@
 
                 <ImageView
                     android:id="@+id/imgHospital"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/hospital" />
+                    android:src="@drawable/hospitals" />
 
                 <TextView
                     android:id="@+id/txtHospitalHeader"
@@ -1960,11 +1959,11 @@
 
                 <ImageView
                     android:id="@+id/imgBlood"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/bloodtype" />
+                    android:src="@drawable/drops" />
 
                 <TextView
                     android:id="@+id/txtBloodHeader"
@@ -2003,11 +2002,11 @@
 
                 <ImageView
                     android:id="@+id/imgHistory"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/history" />
+                    android:src="@drawable/historybook" />
 
                 <TextView
                     android:id="@+id/txtHistoryHeader"
@@ -2067,11 +2066,11 @@
 
                 <ImageView
                     android:id="@+id/imgDonor"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/donor" />
+                    android:src="@drawable/lungs" />
 
                 <RelativeLayout
                     android:id="@+id/rlRadio"
@@ -2204,8 +2203,8 @@
 
                 <ImageView
                     android:id="@+id/imgPet"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
                     android:src="@drawable/pet" />
@@ -2249,11 +2248,11 @@
 
                 <ImageView
                     android:id="@+id/imgTobaco"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/tobaco" />
+                    android:src="@drawable/cigarette" />
 
                 <TextView
                     android:id="@+id/txtTobacoHeader"
@@ -2399,11 +2398,11 @@
 
                 <ImageView
                     android:id="@+id/imgDrug"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/drug" />
+                    android:src="@drawable/drugs" />
 
                 <TextView
                     android:id="@+id/txtDrugHeader"
@@ -2548,11 +2547,11 @@
 
                 <ImageView
                     android:id="@+id/imgDrink"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension70dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/drink" />
+                    android:src="@drawable/alcohol" />
 
                 <TextView
                     android:id="@+id/txtDrinkHeader"

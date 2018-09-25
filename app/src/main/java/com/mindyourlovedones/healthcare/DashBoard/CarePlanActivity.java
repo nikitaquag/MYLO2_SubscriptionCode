@@ -1,6 +1,8 @@
 package com.mindyourlovedones.healthcare.DashBoard;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,7 +18,11 @@ import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -27,7 +33,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.DocumentQuery;
 import com.mindyourlovedones.healthcare.model.Document;
@@ -48,7 +53,7 @@ import java.util.ArrayList;
 
 public class CarePlanActivity extends AppCompatActivity implements View.OnClickListener {
     final static String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Intructions"};
     Context context = this;
     ListView lvDoc;
     ArrayList<Document> documentList;
@@ -269,14 +274,17 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Documents");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
+                            case 2://FTU
+                                showInstructionDialog();
                                 break;
-                            case 3://FTU
+                           /* case 2://fax
+                                new FaxCustomDialog(context, path).show();
+                                break;*/
+                           /* case 3://FTU
                                 Intent intentShare = new Intent(context, InstructionActivity.class);
                                 intentShare.putExtra("From", "SharePdf");
                                 startActivity(intentShare);
-                                break;
+                                break;*/
                         }
                     }
 
@@ -332,6 +340,36 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                 break;*/
         }
     }
+
+    @SuppressLint("ResourceAsColor")
+    private void showInstructionDialog() {
+        final Dialog dialogInstruction = new Dialog(context);
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_user_instruction, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+        dialogInstruction.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogInstruction.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogInstruction.getWindow().setAttributes(lp);
+        dialogInstruction.setCanceledOnTouchOutside(false);
+        dialogInstruction.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+    }
+
 
     private void copyFile(String filename) {
         AssetManager assetManager = this.getAssets();

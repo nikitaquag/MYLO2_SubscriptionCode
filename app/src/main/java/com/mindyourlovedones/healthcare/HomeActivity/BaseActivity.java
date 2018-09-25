@@ -80,7 +80,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout rlLogOutt;
     Preferences preferences;
     TextView txtPrivacyPolicy, txtEULA;
-    RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
 
     ImageLoader imageLoader;
@@ -371,6 +371,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlVideos.setOnClickListener(this);
         rlBackup.setOnClickListener(this);
         rlContact.setOnClickListener(this);
+        rlSponsor.setOnClickListener(this);
         rlGuide.setOnClickListener(this);
         rlWebsite.setOnClickListener(this);
         txtBank.setOnClickListener(this);
@@ -428,6 +429,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlResourcesDetail = leftDrawer.findViewById(R.id.rlResourcesDetail);
         rlPrivacyDetail = leftDrawer.findViewById(R.id.rlPrivacyDetail);
         rlContact = leftDrawer.findViewById(R.id.rlContact);
+        rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
         txtPrivacyPolicy = leftDrawer.findViewById(R.id.txtPrivacyPolicy);
         txtEULA = leftDrawer.findViewById(R.id.txtEULA);
     }
@@ -508,7 +510,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setData(Uri.parse("http://www.myhealthcarewishes.com/support.html"));
                 startActivity(intent);*/
                 break;
-
+            case R.id.rlSponsor:
+                Intent intentSponsor = new Intent(context, SponsorActivity.class);
+                startActivity(intentSponsor);
+                break;
             case R.id.rlContact:
                /* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);

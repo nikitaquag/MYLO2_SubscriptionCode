@@ -23,7 +23,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -48,7 +47,7 @@ import java.util.ArrayList;
 
 public class FragementForm extends Fragment implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final String dialog_items[] = {"View", "Email", "Fax"};
+    final String dialog_items[] = {"View", "Email", "User Instructions"};
     View rootview;
     ImageView imgRight;
     RecyclerView lvDoc;
@@ -338,9 +337,14 @@ public class FragementForm extends Fragment implements View.OnClickListener {
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Insurance Form");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "FormInstruction");
+                                startActivity(i);
                                 break;
+                          /*  case 2://fax
+                                new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
                         }
                     }
 
