@@ -575,7 +575,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:padding="@dimen/dimension10dp"
-                android:src="@drawable/contactus" />
+                android:src="@drawable/sponsor" />
 
             <TextView
                 android:id="@+id/txtSponsor"

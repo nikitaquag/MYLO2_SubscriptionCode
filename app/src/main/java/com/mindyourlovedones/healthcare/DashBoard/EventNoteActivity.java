@@ -96,11 +96,13 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
         TextView txt63 = findViewById(R.id.txtPolicy63);
+        TextView txt64 = findViewById(R.id.txtPolicy64);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To add a note click plus box at the top right of the screen.  Once completed click Add.  The note is automatically saved."));
-        txt62.setText(Html.fromHtml("To <b>edit</b> the note  click the picture of the pencil to the right of the screen.To save your edits click the check mark at the top right of the screen. To <b>delete</b> the event note swipe (right to left) and click the garbage can or inside viewing note click the garbage can at the bottom of the screen."));
-        txt63.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("To add a note click on add button at the top right of the screen. Once completed click Add. The note is automatically saved.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>edit</b> the note click the picture of the pencil to the right of the screen. To save your edits click the <b>SAVE</b> at the top right of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>delete</b> the note click the garbage can at the bottom of the screen or <b>delete</b> the entry , left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n "));
 
         txtFTU = findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {

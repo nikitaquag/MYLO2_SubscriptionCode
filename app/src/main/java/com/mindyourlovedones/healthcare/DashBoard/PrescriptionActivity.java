@@ -114,11 +114,12 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
         TextView txt64 = findViewById(R.id.txtPolicy64);
         TextView txt65 = findViewById(R.id.txtPolicy65);
 
-        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen Add Prescription."));
-        txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
-        txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes. Save by clicking the <b>check mark</b> again."));
-        txt64.setText(Html.fromHtml("To <b>delete</b> left swipe and click the garbage can."));
-        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n"));
+        txt62.setText(Html.fromHtml("To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n"));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n"));
 
 
         txtFTU = findViewById(R.id.txtFTU);

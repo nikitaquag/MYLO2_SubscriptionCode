@@ -118,13 +118,13 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To add information click the green bar at the bottom of the screen. If the person or Company is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
-        txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
-        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
-        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
-        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
-        txt66.setText(Html.fromHtml("To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card."));
+        //shradha
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the SAVE on the top right side of the screen. If the Person or company is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the <b>picture</b> of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on <b>right side</b> of the screen.\n\n"));
+        txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the upper right side of the screen.\n\n"));
+        txt66.setText(Html.fromHtml("To <b>add a picture</b> click on the <b>picture</b> of the <b>pencil</b> and either take a photo or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {

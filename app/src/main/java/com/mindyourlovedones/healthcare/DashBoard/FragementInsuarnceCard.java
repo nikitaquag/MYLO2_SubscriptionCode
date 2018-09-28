@@ -161,14 +161,14 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
         TextView txt67 = rootview.findViewById(R.id.txtPolicy67);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To <b>get started</b> click the green bar at the bottom of the screen Add Insurance Card."));
-        txt62.setText(Html.fromHtml("To <b>add</b> information type  the Provider name and the Type of Insurance and click the check mark on the top right side of the screen."));
-        txt63.setText(Html.fromHtml("To <b>take a picture</b> of your insurance card (front and back). Click the <b>plus box</b>. It is recommended that you hold your phone horizontal when taking a picture of the card."));
-        txt64.setText(Html.fromHtml("To <b>save</b> your information click the check mark on the top right side of the screen."));
-        txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>check mark</b> again."));
-        txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the arrow symbol on the right side."));
-        txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("To <b>get started</b> click the bar at the bottom of the screen Add Insurance Card.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>add</b> information add the Provider name and Type of Insurance and click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>take a picture</b> of your insurance card (front and back). Click the <b>add box</b>. It is recommended that you hold your phone horizontal when taking a picture of the card.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
+        txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+        txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {

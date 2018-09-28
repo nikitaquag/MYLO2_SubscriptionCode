@@ -55,7 +55,7 @@
         <activity
             android:name=".LoginActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".SignUpActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
@@ -130,7 +130,7 @@
         <activity
             android:name="com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
-            android:windowSoftInputMode="stateHidden"></activity>
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.mindyourlovedones.healthcare.InsuranceHealthCare.ViewActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
@@ -241,7 +241,8 @@
             android:name="com.mindyourlovedones.healthcare.DashBoard.ChecklistActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".SponsorActivity"></activity>
+        <activity android:name=".SponsorActivity" />
+        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.ShareActivity"></activity>
     </application>
 
 </manifest>

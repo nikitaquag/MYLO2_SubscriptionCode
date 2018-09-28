@@ -113,7 +113,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
 //                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
 //        txtMsg.setText(Html.fromHtml(msg));
 
-        //nikita
+        //shradha
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -121,12 +121,18 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen."));
+        //shradha
+      /*  txt61.setText(Html.fromHtml("To add information click the green bar at the bottom of the screen. If the person is in your Contacts click the gray bar on the top right side of your screen."));
         txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
         txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil.</b> To save your edits click the <b>green bar</b> at the bottom of the screen."));
         txt64.setText(Html.fromHtml("To <b>make an automated telephone call</b> or <b>delete</b> the entry <b>swipe right to left</b> the arrow symbol on the right side."));
         txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+*/
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry left <b>swipe right to left</b> the arrow symbol on the right side.\n\n"));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {

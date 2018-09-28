@@ -7,6 +7,9 @@
     <color name="colorPrimaryDark">#042B4C</color>
     <color name="colorAccent">#286BDA</color>
 
+
+    <color name="colorGrayBackup">#F6F6F9</color>
+
     <color name="colorBlack">#575757</color>
     <color name="colorBlackDark">#000000</color>
     <color name="colorLightBlack">#575757</color>
