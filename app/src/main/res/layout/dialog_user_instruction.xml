@@ -19,7 +19,7 @@
             android:layout_marginBottom="@dimen/dimension20dp"
             android:gravity="center"
             android:padding="@dimen/dimension10dp"
-            android:text="User instructions are available within each sub-section .Once opened click the three dots."
+            android:text="User instructions are available within each sub-section. Once opened click the three dots."
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension18dp"
             android:maxLines="4"/>

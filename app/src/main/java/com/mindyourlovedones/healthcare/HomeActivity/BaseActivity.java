@@ -74,7 +74,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentOverview fragmentOverview = null;
     ImageView imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
     TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
-    TextView txtBank, txtForm, txtSenior, txtAdvance;
+    TextView txtBank, txtForm, txtSenior, txtAdvance, txtPodcast;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
     RelativeLayout rlLogOutt;
@@ -381,6 +381,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlPrivacyDetail.setOnClickListener(this);
         txtPrivacyPolicy.setOnClickListener(this);
         txtEULA.setOnClickListener(this);
+        txtPodcast.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -432,6 +433,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
         txtPrivacyPolicy = leftDrawer.findViewById(R.id.txtPrivacyPolicy);
         txtEULA = leftDrawer.findViewById(R.id.txtEULA);
+        txtPodcast = leftDrawer.findViewById(R.id.txtPodcast);
     }
 
     private void fragmentData() {
@@ -582,6 +584,12 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
+            case R.id.txtPodcast:
+                if (fragmentManager.findFragmentByTag("VIDEOS") == null) {
+                    callFragment("VIDEOS", fragmentVideos);
+                }
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
             case R.id.txtPrivacyPolicy:
                 // callFragment("FORM", fragmentResources);
                 CopyReadAssetss("Privacy Policy.pdf");
@@ -632,10 +640,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
             case R.id.rlVideos:
-                if (fragmentManager.findFragmentByTag("VIDEOS") == null) {
-                    callFragment("VIDEOS", fragmentVideos);
-                }
                 drawerLayout.closeDrawer(leftDrawer);
+                dialogCommingSoon();
                 break;
 
             case R.id.rlBackup:
@@ -657,6 +663,40 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
+    private void dialogCommingSoon() {
+        final Dialog dialogBank = new Dialog(context);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater)context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_bank, null);
+        final TextView txtComming = dialogview.findViewById(R.id.txtComming);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+        txtComming.setText("Comming Soon");
+        // txtComming.setTextColor(R.color.colorBlue);
+        dialogBank.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogBank.getWindow().getAttributes());
+        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogBank.getWindow().setAttributes(lp);
+        dialogBank.show();
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+    }
+
+  /*  private void dialogCommingSoon() {
+
+    }*/
 
 
     //Shradha

@@ -164,7 +164,26 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlResources"
             android:background="@color/colorWhite"
-            android:visibility="gone">
+            android:visibility="visible">
+            <TextView
+                android:id="@+id/txtAdvance"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension50dp"
+                android:layout_marginLeft="@dimen/dimension80dp"
+                android:drawableLeft="@drawable/dot"
+                android:drawablePadding="@dimen/dimension10dp"
+                android:gravity="center_vertical"
+                android:text="Advance Directives Information"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension16dp" />
+            <View
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_below="@+id/txtAdvance"
+                android:layout_marginLeft="@dimen/dimension80dp"
+                android:background="@color/colorLightGrays"></View>
+
 
             <TextView
                 android:id="@+id/txtForm"
@@ -172,6 +191,7 @@
                 android:layout_height="@dimen/dimension50dp"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:drawableLeft="@drawable/dot"
+                android:layout_below="@+id/view3"
                 android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:text="Helpful Forms and Templates"
@@ -185,19 +205,29 @@
                 android:layout_below="@+id/txtForm"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:background="@color/colorLightGrays"></View>
-
             <TextView
-                android:id="@+id/txtAdvance"
+                android:id="@+id/txtPodcast"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
-                android:layout_below="@+id/view1"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:drawableLeft="@drawable/dot"
+                android:layout_below="@+id/view1"
                 android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
-                android:text="Advance Directives Information"
+                android:text="Podcasts and Videos"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension16dp" />
+
+<!--
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_below="@+id/txtPodcast"
+                android:layout_marginLeft="@dimen/dimension80dp"
+                android:background="@color/colorLightGrays"></View>
+-->
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -356,7 +386,7 @@
                 android:layout_height="@dimen/dimension50dp"
                 android:layout_toRightOf="@+id/imgBackup"
                 android:gravity="center_vertical"
-                android:text="BACKUP,restore,share"
+                android:text="BACKUP, restore, share"
                 android:textAllCaps="true"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="@dimen/dimension16dp" />
