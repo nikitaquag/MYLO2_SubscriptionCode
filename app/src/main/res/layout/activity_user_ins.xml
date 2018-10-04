@@ -1,41 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue">
+    tools:context="com.mindyourlovedones.healthcare.DashBoard.UserInsActivity">
 
     <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:background="@color/colorBlue">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:src="@drawable/backward_arrow" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:text="User INSTRUCTIONS"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension22dp" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:text="Email"
+            android:textAllCaps="false"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imgDot"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:padding="@dimen/dimension3dp"
+            android:src="@drawable/upload"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorLightBlue">
-
-        <com.mindyourlovedones.healthcare.customview.NonScrollGridView
-            android:id="@+id/lvConnection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/dimension10dp"
-            android:layout_marginBottom="@dimen/dimension10dp"
-            android:gravity="center_horizontal"
-            android:longClickable="true"
-            android:numColumns="2" />
+        android:layout_below="@+id/header">
 
         <RelativeLayout
-            android:id="@+id/rlGuide"
+            android:id="@+id/rlInstruction"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lvConnection"
-            android:layout_marginTop="@dimen/dimension20dp"
-            android:padding="@dimen/dimension20dp">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imgPicture"
                 android:layout_width="@dimen/dimension90dp"
                 android:layout_height="@dimen/dimension90dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/v_user"
-
-                />
+                android:src="@drawable/v_physi"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtHeader"
@@ -44,34 +83,23 @@
                 android:layout_below="@+id/imgPicture"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension10dp"
-                android:text="Add a Profile"
+                android:text="Add Profile"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
+                android:gravity="center"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtFTU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtHeader"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
-                android:gravity="center_horizontal"
-                android:text="@string/ftu"
-                android:textColor="@color/colorBlue"
-                android:textSize="@dimen/dimension18dp" />
 
             <TextView
                 android:id="@+id/txtMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtFTU"
+                android:layout_below="@+id/txtHeader"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
-                android:text="First Time User Instructions"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:paddingBottom="20dp"
+                android:text="Add the name and number of the physician you would  most likely want to reach in case of an emergency. Don’t forget to take a picture of their card. You may want to email, text or print it."
                 android:textColor="@color/colorGuide"
                 android:textSize="@dimen/dimension18dp"
                 android:visibility="gone" />
@@ -81,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtMsg"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <RelativeLayout
                     android:id="@+id/rlStep1"
@@ -372,9 +400,6 @@
 
             </RelativeLayout>
 
-            <!--   android:text="Create profiles for members of your family or friends.  Add as much or as little information as you want. The goal is to create less stress and allow you to focus on the issue at hand."
-                       -->
         </RelativeLayout>
-    </RelativeLayout>
-</ScrollView>
-
+    </ScrollView>
+</RelativeLayout>

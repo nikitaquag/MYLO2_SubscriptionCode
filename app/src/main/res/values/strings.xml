@@ -57,7 +57,7 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
    </string>
     <string name="ftu"><u>First Time User Instructions</u></string>
     <string name="guide"><u>Guideline for add Card</u></string>
-    <string name="sigindropbox"><u>a. Sign in to dropbox.com</u></string>
+    <string name="sigindropbox">a. <u> Sign in to dropbox.com</u></string>
 
     <string name="person"><b>1.<u>If You are the Person Sharing</u>the Database or a particular Profile with Another Person</b></string>
     <string name="person1"><b>2.<u>If You are the Person Receiving</u> the Database or a particular Profile from Another Person  this is <u>how you</u> upload the Profile into your App.</b></string>

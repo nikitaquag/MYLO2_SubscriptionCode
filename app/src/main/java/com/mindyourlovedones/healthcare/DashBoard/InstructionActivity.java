@@ -1,30 +1,43 @@
 package com.mindyourlovedones.healthcare.DashBoard;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 
-public class InstructionActivity extends AppCompatActivity {
+public class InstructionActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout header;
     ImageView imgBack, imgPicture;
     TextView txtHeader, txtTitle, txtMsg, txtEmail;
     String From;
     ImageView imgDot;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction);
         initUI();
+        initListener();
+    }
+
+    private void initListener() {
+        txtEmail.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -1028,4 +1041,62 @@ public class InstructionActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.txtEmail:
+                showEmailDialog();
+                break;
+
+        }
+    }
+
+    private void showEmailDialog() {
+        final Dialog dialogEmailIns = new Dialog(context);
+        dialogEmailIns.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogEmailIns.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_email_ins, null);
+        final TextView txtYes = dialogview.findViewById(R.id.txtYes);
+        final TextView txtNo = dialogview.findViewById(R.id.txtNo);
+
+        dialogEmailIns.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogEmailIns.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogEmailIns.getWindow().setAttributes(lp);
+        dialogEmailIns.setCanceledOnTouchOutside(false);
+        dialogEmailIns.show();
+
+
+        txtYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Still in progress please wait..!!", Toast.LENGTH_SHORT).show();
+                dialogEmailIns.dismiss();
+            }
+        });
+
+        txtNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogEmailIns.dismiss();
+            }
+        });
+
+
+    }
+
+/*
+    private void showEmailDialog() {
+
+    }
+*/
 }

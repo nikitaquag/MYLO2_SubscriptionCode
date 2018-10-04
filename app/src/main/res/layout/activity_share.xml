@@ -22,6 +22,7 @@
                 android:padding="@dimen/dimension15dp">
 
                 <ImageView
+                    android:id="@+id/imgBack"
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
                     android:layout_centerVertical="true"
@@ -340,7 +341,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/dimension15dp"
                             android:text="@string/sigindropbox"
-                            android:textColor="@color/colorGuide"
+                            android:textColor="@color/colorBlue"
                             android:textSize="@dimen/dimension20dp"
                             android:textStyle="normal" />
 
@@ -480,6 +481,14 @@
                             android:layout_marginLeft="@dimen/dimension15dp"
                             android:text="g. Once done you will see the new profile automatically on your profile screen."
                             android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="h. When you click on the box you will be asked to assign a relationship - click the drop down and relationship label."                   android:textColor="@color/colorGuide"
                             android:textSize="@dimen/dimension20dp"
                             android:textStyle="normal" />
 

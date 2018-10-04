@@ -242,7 +242,8 @@
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".SponsorActivity" />
-        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.ShareActivity"></activity>
+        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.ShareActivity" />
+        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.UserInsActivity"></activity>
     </application>
 
 </manifest>

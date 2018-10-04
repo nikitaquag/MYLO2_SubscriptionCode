@@ -23,6 +23,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="@dimen/dimension30dp"
+                android:tint="@color/colorWhite"
                 android:src="@drawable/ic_profiles" />
 
             <TextView
