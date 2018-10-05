@@ -345,7 +345,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                                 break;*/
                             case 2://FTU
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "PhysicianInstuction");
+                                i.putExtra("From", "PhysicianInstruction");
                                 startActivity(i);
                                 break;
                         }

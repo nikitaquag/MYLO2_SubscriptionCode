@@ -74,7 +74,7 @@
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
             android:text="Option3"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorRed"
             android:textSize="@dimen/dimension20dp"
             android:textStyle="bold"></TextView>
     </RelativeLayout>

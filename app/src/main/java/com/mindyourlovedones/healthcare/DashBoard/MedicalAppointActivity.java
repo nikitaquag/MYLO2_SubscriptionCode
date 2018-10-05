@@ -432,7 +432,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                                 break;
                             case 2://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
-                                i.putExtra("From", "CheckListInstuction");
+                                i.putExtra("From", "CheckListInstruction");
                                 startActivity(i);
                                 break;
                            /* case 2://fax

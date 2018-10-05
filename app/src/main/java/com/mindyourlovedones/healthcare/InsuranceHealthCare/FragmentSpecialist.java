@@ -327,7 +327,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                                 break;
                             case 2://FTU
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "DoctorInstuction");
+                                i.putExtra("From", "DoctorInstruction");
                                 startActivity(i);
                                 break;
                           /*  case 2://fax
