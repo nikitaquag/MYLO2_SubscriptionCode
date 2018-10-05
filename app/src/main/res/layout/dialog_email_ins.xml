@@ -7,16 +7,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-       >
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimension10dp"
             android:gravity="center"
-            android:text="Email ?"
             android:paddingTop="@dimen/dimension5dp"
+            android:text="Email ?"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="bold" />
@@ -33,16 +32,16 @@
 
         <View
             android:layout_width="match_parent"
-            android:background="@color/colorGuide"
             android:layout_height="@dimen/dimension0.5dp"
-            android:layout_marginTop="@dimen/dimension20dp" />
+            android:layout_marginTop="@dimen/dimension20dp"
+            android:background="@color/colorGuide" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimension50dp"
             android:orientation="horizontal"
-            android:weightSum="2"
-            >
+            android:gravity="center"
+            android:weightSum="2">
 
             <TextView
                 android:id="@+id/txtNo"
@@ -56,9 +55,9 @@
                 android:textStyle="bold" />
 
             <View
-                android:layout_gravity="center"
                 android:layout_width="@dimen/dimension0.5dp"
                 android:layout_height="@dimen/dimension45dp"
+                android:layout_gravity="center"
                 android:background="@color/colorGuide" />
 
             <TextView
