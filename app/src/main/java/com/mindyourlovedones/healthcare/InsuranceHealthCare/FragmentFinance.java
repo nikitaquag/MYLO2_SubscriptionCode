@@ -319,7 +319,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                                 break;
                             case 2://FTU
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "FinanceInstuction");
+                                i.putExtra("From", "FinanceInstruction");
                                 startActivity(i);
                                 break;
                            /* case 2://fax

@@ -326,7 +326,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                                 break;
                             case 2://FTU
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "HospitalInstuction");
+                                i.putExtra("From", "HospitalInstruction");
                                 startActivity(i);
                                 break;
                            /* case 2://fax

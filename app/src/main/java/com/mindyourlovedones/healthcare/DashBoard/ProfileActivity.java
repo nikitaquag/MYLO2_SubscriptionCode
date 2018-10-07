@@ -98,9 +98,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ContentValues values;
     Uri imageUriProfile = null, imageUriCard = null;
     // byte[] photoCard=null;
-    ImageView imgRight, imgInfo,imgR;
+    ImageView imgRight, imgInfo, imgR;
     RelativeLayout llIndividual;
-    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg,txtSave;
+    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
@@ -133,8 +133,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //   PersonalInfo personalInfo;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
-    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
-    String[] EyesList = {"Blue", "Brown", "Green", "Hazel"};
+    String[] Relationship = {"Aunt","Brother","Brother-in-law","Client","Cousin","Dad","Daughter","Father-in-law","Friend","GrandDaughter","GrandMother","GrandFather","GrandSon","Husband","Mom","Mother-in-law","Neighbor","Nephew","Niece","Patient","Roommate","Significant Other","Sister","Sister-in-law","Son","Uncle","Wife","Other"};
+    String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
     String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
     ImageLoader imageLoaderProfile, imageLoaderCard;
@@ -318,7 +318,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgBack = findViewById(R.id.imgBack);
         imgEdit = findViewById(R.id.imgEdit);
         imgDone = findViewById(R.id.imgDone);
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
         //imgDone.setVisibility(View.VISIBLE);
         txtRelation = findViewById(R.id.txtRelation);
         tilBdate = findViewById(R.id.tilBdate);
@@ -2015,7 +2015,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         else{*/
             /*int indexValuex = spinnerRelation.getSelectedItemPosition();
             String relation =Relationship[indexValuex-1];*/
-          /* */
+        /* */
         //   }
 
     }
