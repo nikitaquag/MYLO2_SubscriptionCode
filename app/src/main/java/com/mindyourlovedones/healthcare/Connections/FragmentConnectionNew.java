@@ -488,12 +488,12 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 showInstructionDialog();
                 break;
             case R.id.imgLogo:
-                Intent intent = new Intent();
+               /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intent);
-                break;
+               */ break;
         }
     }
 

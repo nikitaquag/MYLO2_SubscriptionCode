@@ -149,7 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimension15dp"
-                        android:text="2. Click on the Menu in the upper left\nnbsp;cornerof the page."
+                        android:text="2. Click on the Menu in the upper left\n cornerof the page."
                         android:textColor="@color/colorGuide"
                         android:textSize="@dimen/dimension20dp"
                         android:textStyle="normal" />
