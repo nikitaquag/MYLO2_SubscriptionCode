@@ -58,7 +58,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     View rootview;
     GridView lvConnection;
     ArrayList<RelativeConnection> connectionList;
-    TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4,txtStep22,txtStep55,txtStep555, txtStep5, txtStep6, txtStep7,txtStep8;
+    TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep22, txtStep55, txtStep555, txtStep5, txtStep6, txtStep7, txtStep8;
     //RelativeLayout llAddConn;
     TextView txtTitle, txtName, txtDrawerName;
     ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
@@ -140,7 +140,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         // txtMsg = rootview.findViewById(R.id.txtMsg);
         rlMsg = rootview.findViewById(R.id.rlMsg);
         txtStep1 = rootview.findViewById(R.id.txtStep1);
+        txtStep1.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+        txtStep1.setGravity(Gravity.START | Gravity.END);
+
         txtStep2 = rootview.findViewById(R.id.txtStep2);
+        txtStep2.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
+        txtStep2.setGravity(Gravity.START | Gravity.END);
+
         txtStep3 = rootview.findViewById(R.id.txtStep3);
         txtStep4 = rootview.findViewById(R.id.txtStep4);
         txtStep5 = rootview.findViewById(R.id.txtStep5);
@@ -482,12 +488,12 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 showInstructionDialog();
                 break;
             case R.id.imgLogo:
-                Intent intent = new Intent();
+               /* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intent);
-                break;
+               */ break;
         }
     }
 
@@ -501,9 +507,11 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         View dialogview = lf.inflate(R.layout.instruction_dialog, null);
         final TextView textOption1 = dialogview.findViewById(R.id.txtInstruction);
         final TextView textOption2 = dialogview.findViewById(R.id.txtCancel);
+        final View viewIns = dialogview.findViewById(R.id.viewIns);
 
         textOption1.setText("User Instructions");
         textOption2.setText("Cancel");
+
 
         dialogInstruction.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -511,18 +519,19 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
         lp.width = width;
         RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        buttonLayoutParams.setMargins(0, 0, 0, 10);
+       // buttonLayoutParams.setMargins(0, 0, 0, 10);
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER_VERTICAL | Gravity.BOTTOM;
         dialogInstruction.getWindow().setAttributes(lp);
         dialogInstruction.setCanceledOnTouchOutside(false);
         dialogInstruction.show();
 
+
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent intentUserIns=new Intent(getActivity(),UserInsActivity.class);
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
                 startActivity(intentUserIns);
                 dialogInstruction.dismiss();
 /*

@@ -31,7 +31,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     Preferences preferences;
     FragmentNewContact fragmentNewContact = null;
     FragmentGrabContact fragmentGrabContact = null;
-    TextView txtNew, txtTitle, txtsave;
+    TextView txtNew, txtTitle, txtsave,txtContact;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
     String source;
     LinearLayout llGrab;
@@ -212,9 +212,12 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             case "NEWCONTACT":
                 txtNew.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 txtNew.setTextColor(getResources().getColor(R.color.colorGray));
-                imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+
+                txtContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+                txtContact.setTextColor(getResources().getColor(R.color.colorLightBlue));
+               /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -225,9 +228,13 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             case "CONTACT":
                 txtNew.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 txtNew.setTextColor(getResources().getColor(R.color.colorLightBlue));
-                imgContact.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+
+                txtContact.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+                txtContact.setTextColor(getResources().getColor(R.color.colorGray));
+
+               /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgContact.setImageResource(R.drawable.ic_person_gray);
-                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -260,7 +267,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     private void initListener() {
         txtNew.setOnClickListener(this);
         txtsave.setOnClickListener(this);
-        imgContact.setOnClickListener(this);
+        txtContact.setOnClickListener(this);
+       // imgContact.setOnClickListener(this);
         imgFb.setOnClickListener(this);
         imgGoogle.setOnClickListener(this);
         imgBack.setOnClickListener(this);
@@ -272,6 +280,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         llGrab = findViewById(R.id.llGrab);
         txtNew = findViewById(R.id.txtNew);
         imgContact = findViewById(R.id.imgContact);
+        txtContact = findViewById(R.id.txtContact);
         imgFb = findViewById(R.id.imgFb);
         imgGoogle = findViewById(R.id.imgGoogle);
         imgBack = findViewById(R.id.imgBack);
@@ -300,7 +309,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
                 break;
 
-            case R.id.imgContact:
+            case R.id.txtContact:
                 if (fragmentManager.findFragmentByTag("CONTACT") == null) {
                     callFragment("CONTACT", fragmentGrabContact);
                 }
@@ -313,9 +322,13 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 }*/
                 txtNew.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 txtNew.setTextColor(getResources().getColor(R.color.colorLightBlue));
-                imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+
+                txtContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+                txtContact.setTextColor(getResources().getColor(R.color.colorLightBlue));
+
+               /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-                imgFb.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgFb.setImageResource(R.drawable.fb_gray);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -328,9 +341,13 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 }*/
                 txtNew.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 txtNew.setTextColor(getResources().getColor(R.color.colorLightBlue));
-                imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+
+                txtContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
+                txtContact.setTextColor(getResources().getColor(R.color.colorLightBlue));
+
+               /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgGoogle.setImageResource(R.drawable.g_gray);
