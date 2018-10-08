@@ -6,8 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/rlHeader"
@@ -23,8 +22,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="@dimen/dimension30dp"
-                android:tint="@color/colorWhite"
-                android:src="@drawable/ic_profiles" />
+                android:src="@drawable/ic_profiles"
+                android:tint="@color/colorWhite" />
 
             <TextView
                 android:id="@+id/txtDrawerName"
@@ -129,6 +128,7 @@
             android:layout_below="@+id/rlProfiles"
             android:background="@color/colorWhite">
 
+
             <ImageView
                 android:id="@+id/imgResources"
                 android:layout_width="@dimen/dimension50dp"
@@ -143,8 +143,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
                 android:layout_toRightOf="@+id/imgResources"
-                android:drawablePadding="@dimen/dimension10dp"
                 android:drawableRight="@drawable/ic_droupdown_arrow"
+                android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/dimension20dp"
                 android:text="RESOURCES"
@@ -165,7 +165,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlResources"
             android:background="@color/colorWhite"
-            android:visibility="visible">
+            android:visibility="gone">
+
             <TextView
                 android:id="@+id/txtAdvance"
                 android:layout_width="match_parent"
@@ -177,6 +178,7 @@
                 android:text="Advance Directives Information"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension16dp" />
+
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
@@ -190,9 +192,9 @@
                 android:id="@+id/txtForm"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
+                android:layout_below="@+id/view3"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:drawableLeft="@drawable/dot"
-                android:layout_below="@+id/view3"
                 android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:text="Helpful Forms and Templates"
@@ -206,28 +208,27 @@
                 android:layout_below="@+id/txtForm"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:background="@color/colorLightGrays"></View>
+
             <TextView
                 android:id="@+id/txtPodcast"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
+                android:layout_below="@+id/view1"
                 android:layout_marginLeft="@dimen/dimension80dp"
                 android:drawableLeft="@drawable/dot"
-                android:layout_below="@+id/view1"
                 android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:text="Podcasts and Videos"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension16dp" />
 
-<!--
             <View
-                android:id="@+id/view2"
+                android:id="@+id/viewResource"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1dp"
                 android:layout_below="@+id/txtPodcast"
-                android:layout_marginLeft="@dimen/dimension80dp"
+                android:layout_marginLeft="@dimen/dimension60dp"
                 android:background="@color/colorLightGrays"></View>
--->
 
         </RelativeLayout>
 
@@ -243,7 +244,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1dp"
                 android:layout_toRightOf="@+id/imgMarketPlace"
-                android:background="@color/colorLightGrays"></View>
+                android:background="@color/colorLightGrays"
+                android:visibility="invisible"></View>
 
             <ImageView
                 android:id="@+id/imgMarketPlace"
@@ -260,8 +262,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
                 android:layout_toRightOf="@+id/imgMarketPlace"
-                android:drawablePadding="@dimen/dimension10dp"
                 android:drawableRight="@drawable/ic_droupdown_arrow"
+                android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/dimension20dp"
                 android:text="MARKETPLACE"
@@ -317,8 +319,15 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension16dp" />
 
-        </RelativeLayout>
+            <View
+                android:id="@+id/viewMarket"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_below="@+id/txtSenior"
+                android:layout_marginLeft="@dimen/dimension60dp"
+                android:background="@color/colorLightGrays"></View>
 
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rlVideos"
@@ -327,18 +336,10 @@
             android:layout_below="@+id/rlMarketDetail"
             android:background="@color/colorWhite">
 
-            <View
-                android:id="@+id/views"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
-                android:layout_toRightOf="@+id/imgVideos"
-                android:background="@color/colorLightGrays"></View>
-
             <ImageView
                 android:id="@+id/imgVideos"
                 android:layout_width="@dimen/dimension50dp"
                 android:layout_height="@dimen/dimension50dp"
-                android:layout_below="@+id/views"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:padding="@dimen/dimension10dp"
@@ -367,9 +368,9 @@
             android:id="@+id/rlBackup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/rlVideos"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:background="@color/colorWhite">
 
             <ImageView
@@ -455,8 +456,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension50dp"
                 android:layout_toRightOf="@+id/imgPrivacy"
-                android:drawablePadding="@dimen/dimension10dp"
                 android:drawableRight="@drawable/ic_droupdown_arrow"
+                android:drawablePadding="@dimen/dimension10dp"
                 android:gravity="center_vertical"
                 android:paddingRight="@dimen/dimension20dp"
                 android:text="PRIVACY POLICY &amp; EULA"
@@ -590,6 +591,7 @@
                 android:layout_toRightOf="@id/imgContact"
                 android:background="@color/colorLightGrays"></View>
         </RelativeLayout>
+
         <RelativeLayout
             android:id="@+id/rlSponsor"
             android:layout_width="match_parent"

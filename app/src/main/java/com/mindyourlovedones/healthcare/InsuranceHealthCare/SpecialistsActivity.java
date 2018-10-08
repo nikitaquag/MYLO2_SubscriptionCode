@@ -93,7 +93,7 @@ public class SpecialistsActivity extends AppCompatActivity {
     int[] profile;
     ListView listSpeciallist;
     ImageView imgBack, imgRight;
-    TextView txtTitle,txtUser;
+    TextView txtTitle, txtUser;
     String from;
     boolean isEmergency, isInsurance;
     RelativeLayout header;
@@ -151,7 +151,7 @@ public class SpecialistsActivity extends AppCompatActivity {
                 txtUser.setVisibility(View.GONE);
                 txtTitle.setText("INSURANCE");
                 header.setBackgroundResource(R.color.colorFive);
-                profile = new int[]{R.drawable.finances, R.drawable.insurancess, R.drawable.finances};
+                profile = new int[]{R.drawable.finances, R.drawable.cardd, R.drawable.finances};
                 specialist = new String[]{"INSURANCE INFORMATION", "INSURANCE CARDS", "INSURANCE FORMS"};
                 isEmergency = false;
                 isInsurance = true;
@@ -428,9 +428,9 @@ public class SpecialistsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int itemPos) {
 
                         switch (itemPos) {
-                        /*    case 0: // email
+                            /*    case 0: // email
 
-                       *//* emailAttachement(item);
+                             *//* emailAttachement(item);
 
                         ShearedValues.activityID = getApplicationContext();*//*
                                 break;
@@ -597,6 +597,7 @@ public class SpecialistsActivity extends AppCompatActivity {
             }
         });
     }
+
     @SuppressLint("ResourceAsColor")
     private void showInstructionDialog() {
         final Dialog dialogInstruction = new Dialog(context);

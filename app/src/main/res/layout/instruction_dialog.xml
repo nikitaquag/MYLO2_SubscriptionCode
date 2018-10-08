@@ -3,16 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/dimension10dp"
-    android:background="@drawable/border_instructions"
-    >
+    android:background="@drawable/border_instructions">
 
     <LinearLayout
+        android:id="@+id/llInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/dimension10dp"
         android:background="@drawable/border_instructions"
-        >
+        android:orientation="vertical"
+        android:padding="@dimen/dimension10dp">
 
         <TextView
             android:id="@+id/txtInstruction"
@@ -41,5 +40,13 @@
             android:textSize="@dimen/dimension22dp"
             android:textStyle="normal" />
 
+
     </LinearLayout>
+    <View
+        android:id="@+id/viewIns"
+        android:layout_below="@+id/llInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension10dp"
+        android:visibility="visible" />
+
 </RelativeLayout>

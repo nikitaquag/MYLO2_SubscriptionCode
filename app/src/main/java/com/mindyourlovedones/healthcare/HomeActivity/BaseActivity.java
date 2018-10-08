@@ -542,12 +542,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.rlResources:
                 if (flagResource == false) {
-                    rlResourcesDetail.setVisibility(View.VISIBLE);
+                    rlResourcesDetail.setVisibility(View.GONE);
                     flagResource = true;
                 } else if (flagResource == true) {
-                    rlResourcesDetail.setVisibility(View.GONE);
+                    rlResourcesDetail.setVisibility(View.VISIBLE);
                     flagResource = false;
                 }
+                break;
 
             case R.id.rlPrivacy:
                 if (flagPrivacy == false) {
@@ -668,7 +669,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater)context
+        LayoutInflater lf = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -679,7 +680,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
@@ -704,7 +705,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater)context
+        LayoutInflater lf = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -715,7 +716,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
