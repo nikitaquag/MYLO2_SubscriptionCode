@@ -83,7 +83,7 @@
         android:background="@color/colorBlue"
         android:gravity="center"
         android:padding="@dimen/dimension15dp"
-        android:text="User Instructions are available within each sub-section.Once opened click three dots."
+        android:text="User Instructions are available within each sub-section. Once opened click three dots."
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension16dp"
         android:visibility="visible"></TextView>

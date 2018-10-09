@@ -11,18 +11,19 @@
         android:id="@+id/rlInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true">
 
         <RelativeLayout
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension70dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:background="@color/colorOne">
+            android:background="@color/colorOne"
+            android:gravity="center">
 
             <ImageView
                 android:id="@+id/imgBack"
@@ -37,16 +38,30 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
-                android:layout_toLeftOf="@+id/imgDone"
+                android:layout_toLeftOf="@+id/txtSave"
                 android:layout_toRightOf="@+id/imgBack"
                 android:gravity="center"
                 android:text="Emergency Info"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp" />
+
+            <TextView
+                android:id="@+id/txtSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="SAVE"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/imgDone"
@@ -110,10 +125,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinner"
-                            android:paddingBottom="@dimen/dimension8dp"
                             android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
                             android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
@@ -138,10 +153,10 @@
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingBottom="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -195,10 +210,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/spinnerReaction"
-                                android:paddingBottom="@dimen/dimension8dp"
                                 android:paddingLeft="@dimen/dimension30dp"
-                                android:paddingRight="@dimen/dimension30dp"
                                 android:paddingTop="@dimen/dimension8dp"
+                                android:paddingRight="@dimen/dimension30dp"
+                                android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                 <AutoCompleteTextView
@@ -222,10 +237,10 @@
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:hint="Reaction"
-                            android:paddingBottom="@dimen/dimension8dp"
                             android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
                             android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
@@ -248,10 +263,10 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment"
-                        android:paddingBottom="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -275,10 +290,10 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Date"
-                        android:paddingBottom="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -303,10 +318,10 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Name of Doctor"
-                        android:paddingBottom="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -331,10 +346,10 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment Location &amp; Other Details"
-                        android:paddingBottom="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -358,9 +373,10 @@
                     android:layout_height="@dimen/dimension60dp"
                     android:layout_below="@+id/rlextra"
                     android:layout_marginLeft="@dimen/dimension15dp"
-                    android:layout_marginRight="@dimen/dimension15dp"
                     android:layout_marginTop="@dimen/dimension15dp"
-                    android:background="@color/colorGreen">
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@color/colorGreen"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/imgAdd"
@@ -387,10 +403,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/llAddConn"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginBottom="@dimen/dimension30dp"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension40dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension30dp"
                     android:background="@drawable/darkgray_white_border"
                     android:padding="@dimen/dimension10dp"
 

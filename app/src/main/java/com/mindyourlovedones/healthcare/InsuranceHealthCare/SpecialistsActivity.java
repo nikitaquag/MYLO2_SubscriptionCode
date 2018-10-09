@@ -129,7 +129,7 @@ public class SpecialistsActivity extends AppCompatActivity {
                 profile = new int[]{R.drawable.physician, R.drawable.hosp_icon, R.drawable.pharmacies, R.drawable.finances};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS", "HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "FINANCE & LEGAL"};
+                specialist = new String[]{"DOCTORS AND OTHER HEALTH CARE PROFESSIONALS", "HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES", "PHARMACIES AND HOME\nMEDICAL EQUIPMENT", "FINANCE, LEGAL, OTHER"};
 
                 isEmergency = false;
                 isInsurance = false;

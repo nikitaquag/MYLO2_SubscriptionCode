@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/llAddHospital"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dimension15dp"
         android:layout_marginTop="@dimen/dimension15dp"
@@ -25,13 +25,14 @@
         <TextView
             android:id="@+id/txtAdd"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/imgAdd"
             android:gravity="center"
-            android:text="Add HOSPITALS &amp;\nREHABILITATION CENTERS"
+            android:text="Add HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES"
             android:textAllCaps="true"
+            android:padding="@dimen/dimension5dp"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:textSize="@dimen/dimension19dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

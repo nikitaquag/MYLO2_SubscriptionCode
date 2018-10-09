@@ -64,12 +64,12 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("INSURANCE", fragmentInsurance);
                     break;
                 case "Doctors":
-                    txtTitle.setText("DOCTORS & OTHER HEALTH\nPROFESSIONALS");
+                    txtTitle.setText("DOCTORS & OTHER HEALTH CARE PROFESSIONALS");
                     callFragment("SPECIALIST", fragmentSpecialist);
                     break;
 
                 case "Hospitals":
-                    txtTitle.setText("HOSPITALS & REHABILITATION CENTERS");
+                    txtTitle.setText("ADD HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES");
                     callFragment("HOSPITAL", fragmentHospital);
                     break;
                 case "Pharmacies":
@@ -81,7 +81,7 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("AIDS", fragmentAids);
                     break;
                 case "Finance,Insurance and Legal":
-                    txtTitle.setText("FINANCE & LEGAL");
+                    txtTitle.setText("FINANCE, LEGAL, OTHER");
                     callFragment("FINANCE", fragmentFinance);
                     break;
             }

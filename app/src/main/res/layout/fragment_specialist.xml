@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/llAddSpecialist"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension60dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dimension15dp"
         android:layout_marginTop="@dimen/dimension15dp"
@@ -28,10 +28,11 @@
             android:layout_height="@dimen/dimension60dp"
             android:layout_toRightOf="@+id/imgAdd"
             android:gravity="center"
-            android:text="Add DOCTORS &amp; OTHER\nHEALTH PROFESSIONALS"
+            android:text="Add DOCTORS &amp; OTHER\nHEALTH CARE PROFESSIONALS"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

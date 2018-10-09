@@ -104,6 +104,7 @@ public class ResourceActivity extends AppCompatActivity {
         // UrlList.add(l1);
         // UrlList.add(l2);
         // UrlList.add(l3);
+        UrlList.add(l11);
         UrlList.add(l4);
         UrlList.add(l5);
         //UrlList.add(l6);
@@ -111,7 +112,6 @@ public class ResourceActivity extends AppCompatActivity {
         UrlList.add(l8);
         UrlList.add(l9);
         UrlList.add(l10);
-        UrlList.add(l11);
         //  UrlList.add(l12);
         //Fol show
         // Datalist=new ArrayList<>();

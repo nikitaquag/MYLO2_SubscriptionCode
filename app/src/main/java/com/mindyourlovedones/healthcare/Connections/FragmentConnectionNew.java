@@ -168,7 +168,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         txtStep555.setText(Html.fromHtml("<b>Option 2</b> : Import from Dropbox. Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen). \n\n"));
         txtStep6.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.\n\n"));
         txtStep7.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.\n\n"));
-        txtStep8.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.\n\nThanks & Regards"));
+        txtStep8.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.\n\n"));
 
 
       /*  String msg1 = "" + getRe

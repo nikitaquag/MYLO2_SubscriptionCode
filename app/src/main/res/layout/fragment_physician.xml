@@ -31,8 +31,9 @@
             android:text="Add Primary Physician"
             android:textAllCaps="true"
             android:gravity="center"
+            android:padding="@dimen/dimension5dp"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

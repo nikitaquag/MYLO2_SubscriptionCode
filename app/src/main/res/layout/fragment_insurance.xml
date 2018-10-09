@@ -31,7 +31,8 @@
             android:text="Add Insurance"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

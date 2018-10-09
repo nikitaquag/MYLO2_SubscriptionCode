@@ -28,10 +28,11 @@
             android:layout_height="@dimen/dimension60dp"
             android:layout_toRightOf="@+id/imgAdd"
             android:gravity="center"
-            android:text="Add Finance &amp; Legal"
+            android:text="Add Finance, Legal, Other"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

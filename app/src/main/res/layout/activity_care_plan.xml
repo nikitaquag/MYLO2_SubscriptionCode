@@ -431,7 +431,8 @@
             android:text="Add Documents"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension26dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
 
     </RelativeLayout>
 </RelativeLayout>
