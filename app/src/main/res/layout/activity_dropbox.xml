@@ -34,7 +34,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:gravity="center_horizontal"
-                android:text="Backup,restore,share data"
+                android:text="Backup, restore, share data"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension22dp" />
@@ -233,23 +233,54 @@
                     android:textSize="@dimen/dimension40dp" />
             </LinearLayout>
 
+
+
             <Button
+                android:visibility="gone"
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtLogin"
                 android:layout_marginTop="@dimen/dimension20dp"
                 android:background="@color/colorBlue"
                 android:padding="@dimen/dimension10dp"
                 android:text="Login with Dropbox"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension20dp" />
+
+
+            <Button
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:id="@+id/btnBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Backup"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="visible" />
+
+
+
+            <Button
+                android:padding="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:layout_below="@+id/btnBackup"
+                android:id="@+id/btnRestore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlue"
+                android:text="Restore"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="visible" />
+
             <Button
                 android:id="@+id/btnShare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/btnLogin"
-                android:layout_marginTop="@dimen/dimension20dp"
+                android:layout_below="@+id/btnRestore"
+                android:layout_marginTop="@dimen/dimension30dp"
                 android:background="@color/colorBlue"
                 android:padding="@dimen/dimension10dp"
                 android:text="Share"
@@ -320,38 +351,12 @@
                 android:id="@+id/rlBackup"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/btnShare"
+                android:layout_above="@+id/llBox"
+                android:layout_alignLeft="@+id/llBox"
+                android:layout_alignStart="@+id/llBox"
                 android:visibility="gone">
 
-                <Button
-                    android:id="@+id/btnRestore"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_above="@+id/btnBackup"
-                    android:layout_marginBottom="@dimen/dimension10dp"
-                    android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginRight="@dimen/dimension20dp"
-                    android:background="@color/colorBlue"
-                    android:padding="@dimen/dimension10dp"
-                    android:text="Restore"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension20dp"
-                    android:visibility="gone" />
 
-                <Button
-                    android:id="@+id/btnBackup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="@dimen/dimension10dp"
-                    android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginRight="@dimen/dimension20dp"
-                    android:background="@color/colorBlue"
-                    android:padding="@dimen/dimension10dp"
-                    android:text="Backup"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension20dp"
-                    android:visibility="gone" />
             </RelativeLayout>
 
         </RelativeLayout>
