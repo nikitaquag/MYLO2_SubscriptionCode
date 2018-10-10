@@ -630,12 +630,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     private void initImageLoader() {
 
+        source = preferences.getString(PrefConstants.SOURCE);
+
+        int data = R.drawable.ic_profile_defaults;
+
+        data = getIcon(source);
+
         //Profile
         displayImageOptionsProfile = new DisplayImageOptions.Builder() // resource
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(data)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -2547,6 +2553,57 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             imgProfile.setImageResource(R.drawable.yellow);
         } else if (source.equals("Connection")) {
             imgProfile.setImageResource(R.drawable.green);
+        }
+    }
+
+
+    private int getIcon(String source) {
+        if (source.equals("Emergency")) {
+            return (R.drawable.green);
+        } else if (source.equals("EmergencyView")) {
+            return(R.drawable.green);
+        } else if (source.equals("EmergencyUpdate")) {
+            return(R.drawable.green);
+        } else if (source.equals("Physician")) {
+            return(R.drawable.green);
+        } else if (source.equals("Speciality")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("Pharmacy")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("Hospital")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("Finance")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("Insurance")) {
+            return(R.drawable.lightblue);
+        } else if (source.equals("FinanceViewData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("FinanceData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("HospitalViewData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("HospitalData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("InsuranceViewData")) {
+            return(R.drawable.lightblue);
+        } else if (source.equals("InsuranceData")) {
+            return(R.drawable.lightblue);
+        } else if (source.equals("PhysicianViewData")) {
+            return(R.drawable.green);
+        } else if (source.equals("SpecialistViewData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("PhysicianData")) {
+            return(R.drawable.green);
+        } else if (source.equals("SpecialistData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("PharmacyDataView")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("PharmacyData")) {
+            return(R.drawable.yellow);
+        } else if (source.equals("Connection")) {
+            return(R.drawable.green);
+        }else{
+            return R.drawable.ic_profile_defaults;
         }
     }
 
