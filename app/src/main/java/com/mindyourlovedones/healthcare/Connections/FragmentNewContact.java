@@ -3924,6 +3924,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         });
     }
 
+    Context context;
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
+
     private boolean validate(String screen) {
       /*  Bitmap bitmaps = ((BitmapDrawable) imgCard.getDrawable()).getBitmap();
         ByteArrayOutputStream baoss = new ByteArrayOutputStream();
@@ -3953,42 +3960,42 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             otherRelation = txtOtherRelation.getText().toString();
             if (name.equals("")) {
                 txtName.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             } else if (relation.equals("")) {
                 spinnerRelation.setError("Please Select Relation");
-                DialogManager.showAlert("Please Select Relation", getActivity());
+                DialogManager.showAlert("Please Select Relation", context);
             } else if (relation.equals("Other") && otherRelation.equals("")) {
                 txtOtherRelation.setError("Please Enter Other Relation");
-                DialogManager.showAlert("Please Enter Other Relation", getActivity());
+                DialogManager.showAlert("Please Enter Other Relation", context);
             } else if (email.equals("")) {
                 txtEmail.setError("Please Enter email");
-                DialogManager.showAlert("Please Enter email", getActivity());
+                DialogManager.showAlert("Please Enter email", context);
             } else if (!email.equals("") && !email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
                 txtEmail.setError("Please enter valid email");
-                DialogManager.showAlert("Please enter valid email", getActivity());
+                DialogManager.showAlert("Please enter valid email", context);
             } /*else if (mobile.equals("")) {
                 txtMobile.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/ else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtMobile.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } /*else if (address.equals("")) {
                 txtAddress.setError("Please Enter Address");
-                showAlert("Please Enter Address", getActivity());
+                showAlert("Please Enter Address", context);
             } else if (relation.equals("")) {
                // txtAddress.setError("Please Enter Address");
-                showAlert("Please select relation", getActivity());
+                showAlert("Please select relation", context);
             }*/ else return true;
         } else if (screen.equals("Speciality")) {
             if (name.equals("")) {
                 txtName.setError("Please Enter Doctor Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             } /*else if (mobile.equals("")) {
                 txtMobile.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/ else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtMobile.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
 
             } else return true;
         } else if (screen.equals("Emergency")) {
@@ -4015,35 +4022,35 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
             if (name.equals("")) {
                 txtName.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             } /*else if (email.equals("")) {
                 txtEmail.setError("Please Enter email");
-                showAlert("Please Enter email", getActivity());
+                showAlert("Please Enter email", context);
             } */ else if (!email.equals("") && !email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
                 txtEmail.setError("Please enter valid email");
-                DialogManager.showAlert("Please enter valid email", getActivity());
+                DialogManager.showAlert("Please enter valid email", context);
             } /*else if (mobile.equals("")) {
                 txtMobile.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/ else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtMobile.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             }
            /* else if (phone.equals("")) {
                 txtHomePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtHomePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }else if (workphone.equals("")) {
                 txtWorkPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (workphone.length() < 10) {
                 txtWorkPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }else if (address.equals("")) {
                 txtAddress.setError("Please Enter Address");
-                showAlert("Please Enter Address", getActivity());
+                showAlert("Please Enter Address", context);
             }*/
             else return true;
         } else if (screen.equals("Proxy")) {
@@ -4062,38 +4069,38 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
             if (name.equals("")) {
                 txtName.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             }/* else if (email.equals("")) {
                 txtEmail.setError("Please Enter email");
-                showAlert("Please Enter email", getActivity());
+                showAlert("Please Enter email", context);
             } else if (!email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
                 txtEmail.setError("Please enter valid email");
-                showAlert("Please enter valid email", getActivity());
+                showAlert("Please enter valid email", context);
             }
             else if (mobile.equals("")) {
                 txtMobile.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/ else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtMobile.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } else return true;
            /* else if (phone.equals("")) {
                 txtHomePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtHomePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (workphone.equals("")) {
                 txtWorkPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }else if (workphone.length() < 10) {
                 txtWorkPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (address.equals("")) {
                 txtAddress.setError("Please Enter Address");
-                showAlert("Please Enter Address", getActivity());
+                showAlert("Please Enter Address", context);
             }*/
         } else if (screen.equals("Physician")) {
             name = txtDoctorName.getText().toString();
@@ -4118,29 +4125,29 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             if (name.equals("")) {
                 txtDoctorName.setError("Please Doctor Enter Name");
-                DialogManager.showAlert("Please Enter Doctor Name", getActivity());
+                DialogManager.showAlert("Please Enter Doctor Name", context);
             }
              /* if (mobile.equals("")) {
                   txtDoctorOfficePhone.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtDoctorOfficePhone.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } else return true;
            /* else if (phone.equals("")) {
                   txtDoctorHourOfficePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                   txtDoctorHourOfficePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (workphone.equals("")) {
                   txtDoctorOtherPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }else if (workphone.length() < 10) {
                   txtDoctorOtherPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }*/
 
         } else if (screen.equals("Pharmacy")) {
@@ -4153,14 +4160,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             note = txtPharmacyNote.getText().toString();
             if (name.equals("")) {
                 txtPharmacyName.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             }
            /* if (phone.equals("")) {
                 txtPharmacyPhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtPharmacyPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }*/
             else return true;
         } else if (screen.equals("Aides")) {
@@ -4175,29 +4182,29 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             address = txtAideAddress.getText().toString();
             if (name.equals("")) {
                 txtAideCompName.setError("Please Enter Name Of Company");
-                DialogManager.showAlert("Please Enter Name Of Company", getActivity());
+                DialogManager.showAlert("Please Enter Name Of Company", context);
             }
          /*   if (mobile.equals("")) {
                 txtAideOfficePhone.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } */
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtAideOfficePhone.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } else return true;
            /* else if (phone.equals("")) {
                 txtHourOfficePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtHourOfficePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (workphone.equals("")) {
                 txtOtherPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }else if (workphone.length() < 10) {
                 txtOtherPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }*/
 
         } else if (screen.equals("Hospital")) {
@@ -4223,30 +4230,30 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             note = txtHospitalNote.getText().toString();
             if (name.equals("")) {
                 txtFNameHospital.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             }
 
          /*   if (mobile.equals("")) {
                 txtFinanceOfficePhone.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } */
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtFinanceOfficePhone.setError("Office number should be 10 digits");
-                DialogManager.showAlert("Office number should be 10 digits", getActivity());
+                DialogManager.showAlert("Office number should be 10 digits", context);
             } else return true;
             /*else if (phone.equals("")) {
                 txtFinanceMobilePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtFinanceMobilePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (workphone.equals("")) {
                 txtFinanceOtherPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }else if (workphone.length() < 10) {
                 txtFinanceOtherPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }*/
 
 
@@ -4279,33 +4286,33 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             note = txtFinanceNote.getText().toString();
             if (name.equals("")) {
                 txtFName.setError("Please Enter Name");
-                DialogManager.showAlert("Please Enter Name", getActivity());
+                DialogManager.showAlert("Please Enter Name", context);
             } else if (!email.equals("") && !email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
                 txtFinanceEmail.setError("Please enter valid email");
-                DialogManager.showAlert("Please enter valid email", getActivity());
+                DialogManager.showAlert("Please enter valid email", context);
             }
 
          /*   if (mobile.equals("")) {
                 txtFinanceOfficePhone.setError("Please Enter Mobile");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } */
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtFinanceOfficePhone.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } else return true;
             /*else if (phone.equals("")) {
                 txtFinanceMobilePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
                 txtFinanceMobilePhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }
             else if (workphone.equals("")) {
                 txtFinanceOtherPhone.setError("Please Enter Work Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }else if (workphone.length() < 10) {
                 txtFinanceOtherPhone.setError("Mobile number should be 10 digits");
-                showAlert("Mobile number should be 10 digits", getActivity());
+                showAlert("Mobile number should be 10 digits", context);
             }*/
 
 
@@ -4328,27 +4335,27 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             otherInsurance = txtOtherInsurance.getText().toString();
             if (name.equals("")) {
                 txtInsuaranceName.setError("Please Enter Name of Insurance Company");
-                DialogManager.showAlert("Please Enter Name of Insurance Company", getActivity());
+                DialogManager.showAlert("Please Enter Name of Insurance Company", context);
 
             } else if (!email.equals("") && !email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
                 txtInsuaranceEmail.setError("Please enter valid email");
-                DialogManager.showAlert("Please enter valid email", getActivity());
+                DialogManager.showAlert("Please enter valid email", context);
             }
             /*else if (phone.equals("")) {
                 txtInsuarancePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             }*/
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtInsuarancePhone.setError("Mobile number should be 10 digits");
-                DialogManager.showAlert("Mobile number should be 10 digits", getActivity());
+                DialogManager.showAlert("Mobile number should be 10 digits", context);
             } else return true;
         }
             /* (phone.equals("")) {
                 txtInsuarancePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", getActivity());
+                showAlert("Please Enter Mobile", context);
             } else if (phone.length() < 10) {
             txtInsuarancePhone.setError("Mobile number should be 10 digits");
-            showAlert("Mobile number should be 10 digits", getActivity());
+            showAlert("Mobile number should be 10 digits", context);
         }*/
 
 
