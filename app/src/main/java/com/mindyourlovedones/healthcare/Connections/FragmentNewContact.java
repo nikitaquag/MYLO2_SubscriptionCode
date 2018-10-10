@@ -718,7 +718,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    changeIcon(source);
+//                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                 }
             } else {
                 storeImage(bitmap, "Profile");
@@ -728,7 +729,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    changeIcon(source);
+//                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                 }
             }
 
