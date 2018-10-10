@@ -162,7 +162,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
 
     private void initUI() {
 
-        view1=findViewById(R.id.view1);//Shradha
+        view1 = findViewById(R.id.view1);//Shradha
 
         txtPhotoHeader = findViewById(R.id.txtPhotoHeader);//Shradha
         txtTitle = findViewById(R.id.txtTitle);
@@ -442,9 +442,11 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 View dialogview = lf.inflate(R.layout.dialog_gender, null);
                 final TextView textOption1 = dialogview.findViewById(R.id.txtOption1);
                 final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
+                final TextView textOption3 = dialogview.findViewById(R.id.txtOption3);
                 TextView textCancel = dialogview.findViewById(R.id.txtCancel);
                 textOption1.setText("Take Picture");
                 textOption2.setText("Gallery");
+                textOption3.setText("Remove Picture");
                 dialog.setContentView(dialogview);
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -481,6 +483,13 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                         startActivityForResult(photoPickerIntent, RESULT_SELECT_PHOTO);
                         dialog.dismiss();
                     }
+                });
+                //shradha
+                textOption3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dialog.dismiss();
+                         }
                 });
                 textCancel.setOnClickListener(new View.OnClickListener() {
                     @Override

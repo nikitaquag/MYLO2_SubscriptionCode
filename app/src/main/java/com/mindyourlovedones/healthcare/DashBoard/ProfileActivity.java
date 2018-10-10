@@ -8,10 +8,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -21,6 +24,7 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -133,7 +137,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //   PersonalInfo personalInfo;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
-    String[] Relationship = {"Aunt","Brother","Brother-in-law","Client","Cousin","Dad","Daughter","Father-in-law","Friend","GrandDaughter","GrandMother","GrandFather","GrandSon","Husband","Mom","Mother-in-law","Neighbor","Nephew","Niece","Patient","Roommate","Significant Other","Sister","Sister-in-law","Son","Uncle","Wife","Other"};
+    String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
     String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
     String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
@@ -300,6 +304,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         ListPet = findViewById(R.id.ListPet);
         imgProfile = findViewById(R.id.imgProfile);
+/*
+        if (imgProfile.equals(R.color.colorOne))
+        {
+            Resources res = context.getResources();
+            final ImageView image = (ImageView) findViewById(R.id.imgProfile);
+            final int newColor = res.getColor(R.color.colorOne);
+            image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        }
+*/
+
         imgCard = findViewById(R.id.imgCard);
         imgEditCard = findViewById(R.id.imgEditCard);
         imgAddpet = findViewById(R.id.imgAddPet);

@@ -301,12 +301,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
             case R.id.imgEdit1:
-                dialogCameraFront();
-                //   showDialogs(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
+                showDialogs(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
 
                 break;
             case R.id.imgEdit2:
-                dialogCameraBack();
+                showDialogs(RESULT_CAMERA_IMAGE2, RESULT_SELECT_PHOTO2, "Back");
+
+//                dialogCameraBack();
 
                 break;
 
@@ -314,7 +315,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    private void dialogCameraFront() {
+    private void dialogCameraFront(final int resultCameraImage, final int resultSelectPhoto, final String from) {
         final Dialog dialogCamera = new Dialog(context);
         dialogCamera.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogCamera.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -341,7 +342,21 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         txtOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogs(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
+                values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "New Picture");
+                values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (from.equals("Front")) {
+                    imageUriFront = getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriFront);
+                } else if (from.equals("Back")) {
+                    imageUriBack = getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriBack);
+                }
+                startActivityForResult(intent, resultCameraImage);
+//                showDialogs(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
                 dialogCamera.dismiss();
             }
         });
@@ -412,7 +427,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                values = new ContentValues();
+                //shradha for back and front capture image from camera and gallery
+                if (from.equals("Front")) {
+                    dialogCameraFront(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
+                } else if (from.equals("Back")) {
+                    dialogCameraFront(RESULT_CAMERA_IMAGE2, RESULT_SELECT_PHOTO2, "Back");
+                }
+
+              /*  values = new ContentValues();
                 values.put(MediaStore.Images.Media.TITLE, "New Picture");
                 values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -426,7 +448,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriBack);
                 }
                 startActivityForResult(intent, resultCameraImage);
-                // dispatchTakePictureIntent(resultCameraImage);
+              */  // dispatchTakePictureIntent(resultCameraImage);
                 dialog.dismiss();
             }
         });

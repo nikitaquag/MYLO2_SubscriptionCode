@@ -5,10 +5,12 @@ import android.app.Fragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.PorterDuff;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -253,6 +255,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Emergency":
+                imgProfile.setImageResource(R.drawable.yellow);
+               /* if (imgProfile.equals(R.color.colorOne)) {
+                    Resources res = getActivity().getResources();
+                    final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
+                    final int newColor = res.getColor(R.color.colorOne);
+                    image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+                }*/
                 if (validate("Emergency")) {
 
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
@@ -273,7 +282,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "EmergencyUpdate":
-
                 if (validate("Emergency")) {
 
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
@@ -334,7 +342,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Physician":
-
                 if (validate("Physician")) {
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -354,7 +361,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Speciality":
-
                 if (validate("Physician")) {
                           /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -513,6 +519,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Hospital":
+                imgProfile.setImageResource(R.drawable.eye);
 
                 if (validate("Hospital")) {
                           /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
@@ -2908,6 +2915,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
     private void initUI() {
+        imgProfile = rootview.findViewById(R.id.imgProfile);
+        if (imgProfile.equals(R.color.colorThree)) {
+            Resources res = getActivity().getResources();
+            final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
+            final int newColor = res.getColor(R.color.colorThree);
+            image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        } else if (imgProfile.equals(R.color.colorFive)) {
+            Resources res = getActivity().getResources();
+            final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
+            final int newColor = res.getColor(R.color.colorFive);
+            image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        }
         rlDoctorCategory = rootview.findViewById(R.id.rlDoctorCategory);
         rlContact = rootview.findViewById(R.id.rlContact);
         rlCard = rootview.findViewById(R.id.rlCard);

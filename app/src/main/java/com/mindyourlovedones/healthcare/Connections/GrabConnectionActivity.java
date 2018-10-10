@@ -6,7 +6,10 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.utility.PrefConstants;
@@ -31,7 +35,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     Preferences preferences;
     FragmentNewContact fragmentNewContact = null;
     FragmentGrabContact fragmentGrabContact = null;
-    TextView txtNew, txtTitle, txtsave,txtContact;
+    TextView txtNew, txtTitle, txtsave, txtContact;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
     String source;
     LinearLayout llGrab;
@@ -42,6 +46,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grab_connection);
+
 
         pd = new ProgressDialog(this);//nikita
         pd.setTitle("Loading UI...");
@@ -63,6 +68,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         initUI();
         initListener();
         fragmentData();
+
         //  if (fragmentManager.findFragmentByTag("INSURANCE") == null) {
         source = preferences.getString(PrefConstants.SOURCE);
         if (source.equals("PhysicianViewData") || source.equals("HospitalViewData") || source.equals("PharmacyDataView") || source.equals("ProxyUpdateView") || source.equals("EmergencyView") || source.equals("SpecialistViewData") || source.equals("FinanceViewData") || source.equals("InsuranceViewData") || source.equals("AidesViewData")) {
@@ -76,10 +82,17 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
         switch (source) {
             case "Connection":
+
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 break;
 
             case "Pharmacy":
+
+                Resources res = context.getResources();
+                final ImageView image = findViewById(R.id.imgProfile);
+                final int newColor = res.getColor(R.color.colorThree);
+                image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -104,6 +117,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Emergency":
+
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 break;
 
@@ -112,6 +126,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "EmergencyView":
+                txtsave.setVisibility(View.INVISIBLE);
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 break;
 
@@ -129,6 +144,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "PhysicianViewData":
+                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorOne);
                 break;
             case "SpecialistData":
@@ -136,6 +152,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "SpecialistViewData":
+                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -148,6 +165,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "InsuranceViewData":
+                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorFive);
                 break;
 
@@ -160,6 +178,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "AidesViewData":
+                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -175,6 +194,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorThree);
                 break;
             case "HospitalViewData":
+                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -217,7 +237,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 txtContact.setTextColor(getResources().getColor(R.color.colorLightBlue));
                /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */
+                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -234,7 +255,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
                /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgContact.setImageResource(R.drawable.ic_person_gray);
-               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */
+                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -268,7 +290,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         txtNew.setOnClickListener(this);
         txtsave.setOnClickListener(this);
         txtContact.setOnClickListener(this);
-       // imgContact.setOnClickListener(this);
+        // imgContact.setOnClickListener(this);
         imgFb.setOnClickListener(this);
         imgGoogle.setOnClickListener(this);
         imgBack.setOnClickListener(this);
@@ -297,7 +319,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
             case R.id.txtsave:
 //                if (fragmentManager.findFragmentByTag("NEWCONTACT") == null) {
-                    fragmentNewContact.savedata();
+                fragmentNewContact.savedata();
 //                }
 
                 break;
@@ -328,7 +350,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
                /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
+               */
+                imgFb.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgFb.setImageResource(R.drawable.fb_gray);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
@@ -347,7 +370,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
                /* imgContact.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgContact.setImageResource(R.drawable.ic_person_white);
-               */ imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
+               */
+                imgFb.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgFb.setImageResource(R.drawable.fb);
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorLightBlue));
                 imgGoogle.setImageResource(R.drawable.g_gray);
