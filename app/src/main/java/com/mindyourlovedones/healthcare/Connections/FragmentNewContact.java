@@ -255,7 +255,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Emergency":
-                imgProfile.setImageResource(R.drawable.yellow);
                /* if (imgProfile.equals(R.color.colorOne)) {
                     Resources res = getActivity().getResources();
                     final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
@@ -519,7 +518,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Hospital":
-                imgProfile.setImageResource(R.drawable.eye);
 
                 if (validate("Hospital")) {
                           /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
@@ -874,6 +872,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         source = preferences.getString(PrefConstants.SOURCE);
         switch (source) {
             case "Connection":
+                changeIcon(source);
                 rlTop.setVisibility(View.GONE);
                 rlCommon.setVisibility(View.VISIBLE);
                 spinnerRelation.setVisibility(View.VISIBLE);
@@ -903,12 +902,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Pharmacy":
+                changeIcon(source);
                 visiPharmacy();
                 txtAdd.setText("Add PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 txtTitle.setText("Add PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 break;
 
             case "PharmacyData":
+                changeIcon(source);
                 visiPharmacy();
                 txtAdd.setText("Update PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 txtTitle.setText("Update PHARMACIES &\nHOME MEDICAL EQUIPMENT");
@@ -979,6 +980,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "PharmacyDataView":
+                changeIcon(source);
                 visiPharmacy();
                 disablePharmacy();
                 txtTitle.setText("Pharmacy");
@@ -1240,6 +1242,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Emergency":
+                changeIcon(source);
                 visiEmergency();
                 spinnerPriority.setVisibility(View.VISIBLE);
                 txtAdd.setText("Add Emergency Contact & Proxy Agent");
@@ -1283,6 +1286,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "EmergencyUpdate":
+                changeIcon(source);
                 visiEmergency();
                 tilName.setHint("First Name, Last Name");
                 tilName.setHintEnabled(true);
@@ -1398,6 +1402,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "EmergencyView":
+                changeIcon(source);
                 visiEmergency();
                 disableEmergency();
                 tilName.setHint("First Name, Last Name");
@@ -1468,18 +1473,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Speciality":
+                changeIcon(source);
                 visiSpecialist();
                 txtAdd.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 txtTitle.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 break;
 
             case "Physician":
+                changeIcon(source);
                 visiSpecialist();
                 txtAdd.setText("Add Primary Physician");
                 txtTitle.setText("Add Primary Physician");
                 break;
 
             case "SpecialistData":
+                changeIcon(source);
                 visiSpecialist();
                 txtAdd.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 txtTitle.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
@@ -1576,6 +1584,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "PhysicianData":
+                changeIcon(source);
                 visiSpecialist();
                 txtAdd.setText("Update Primary Physician");
                 txtTitle.setText("Update Primary Physician");
@@ -1674,6 +1683,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
             case "SpecialistViewData":
+                changeIcon(source);
                 visiSpecialist();
                 disableSpecialist();
                 txtTitle.setText("Doctor");
@@ -1742,6 +1752,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "PhysicianViewData":
+                changeIcon(source);
                 visiSpecialist();
                 disableSpecialist();
                 txtTitle.setText("Primary Physician");
@@ -1812,12 +1823,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
             case "Insurance":
+                changeIcon(source);
                 visiInsurance();
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
                 break;
 
             case "InsuranceData":
+                changeIcon(source);
                 visiInsurance();
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
@@ -1906,6 +1919,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "InsuranceViewData":
+                changeIcon(source);
                 visiInsurance();
                 disableInsurance();
                 tilInsuaranceName.setHintEnabled(true);
@@ -2120,12 +2134,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Finance":
+                changeIcon(source);
                 visiFinance();
                 txtAdd.setText("Add Finance & Legal");
                 txtTitle.setText("Add Finance & Legal");
                 break;
 
             case "Hospital":
+                changeIcon(source);
                 // visiFinance();
                 visiHospital();
                 txtAdd.setText("Add HOSPITALS & REHABILITATION CENTERS");
@@ -2133,6 +2149,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "HospitalData":
+                changeIcon(source);
                 visiHospital();
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
@@ -2223,6 +2240,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "HospitalViewData":
+                changeIcon(source);
                 visiHospital();
                 disableHospital();
 
@@ -2295,6 +2313,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
             case "FinanceData":
+                changeIcon(source);
                 visiFinance();
                 tilFName.setHintEnabled(true);
                 txtFName.setFocusable(true);
@@ -2401,6 +2420,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "FinanceViewData":
+                changeIcon(source);
                 visiFinance();
                 disableFinance();
                 tilFName.setHintEnabled(true);
@@ -2478,6 +2498,54 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         }
 
+    }
+
+    private void changeIcon(String source) {
+        if (source.equals("Emergency")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("EmergencyView")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("EmergencyUpdate")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("Physician")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("Speciality")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("Pharmacy")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("Hospital")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("Finance")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("Insurance")) {
+            imgProfile.setImageResource(R.drawable.lightblue);
+        } else if (source.equals("FinanceViewData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("FinanceData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("HospitalViewData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("HospitalData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("InsuranceViewData")) {
+            imgProfile.setImageResource(R.drawable.lightblue);
+        } else if (source.equals("InsuranceData")) {
+            imgProfile.setImageResource(R.drawable.lightblue);
+        } else if (source.equals("PhysicianViewData")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("SpecialistViewData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("PhysicianData")) {
+            imgProfile.setImageResource(R.drawable.green);
+        } else if (source.equals("SpecialistData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("PharmacyDataView")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("PharmacyData")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        } else if (source.equals("Connection")) {
+            imgProfile.setImageResource(R.drawable.green);
+        }
     }
 
     private void disableHospital() {
@@ -2916,7 +2984,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     private void initUI() {
         imgProfile = rootview.findViewById(R.id.imgProfile);
-        if (imgProfile.equals(R.color.colorThree)) {
+        if (source.equals("Emergency")) {
+            imgProfile.setImageResource(R.drawable.lightblue);
+        } else if (source.equals("Physician")) {
+            imgProfile.setImageResource(R.drawable.yellow);
+        }
+
+      /*  if (imgProfile.equals(R.color.colorThree)) {
             Resources res = getActivity().getResources();
             final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
             final int newColor = res.getColor(R.color.colorThree);
@@ -2926,7 +3000,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
             final int newColor = res.getColor(R.color.colorFive);
             image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
-        }
+        }*/
         rlDoctorCategory = rootview.findViewById(R.id.rlDoctorCategory);
         rlContact = rootview.findViewById(R.id.rlContact);
         rlCard = rootview.findViewById(R.id.rlCard);
