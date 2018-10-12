@@ -16,6 +16,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,10 +39,12 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     FragmentGrabContact fragmentGrabContact = null;
     TextView txtNew, txtTitle, txtsave, txtContact;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
-    String source;
+    String source = "";
     LinearLayout llGrab;
     RelativeLayout header;
     ProgressDialog pd;//nikita
+    boolean i = false;
+    int c = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,25 +78,20 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         if (source.equals("PhysicianViewData") || source.equals("HospitalViewData") || source.equals("PharmacyDataView") || source.equals("ProxyUpdateView") || source.equals("EmergencyView") || source.equals("SpecialistViewData") || source.equals("FinanceViewData") || source.equals("InsuranceViewData") || source.equals("AidesViewData")) {
             llGrab.setVisibility(View.GONE);
             txtTitle.setVisibility(View.GONE);
+            txtsave.setVisibility(View.GONE);
 
         } else {
             llGrab.setVisibility(View.VISIBLE);
             txtTitle.setVisibility(View.VISIBLE);
+            txtsave.setVisibility(View.VISIBLE);
         }
 
         switch (source) {
             case "Connection":
-
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 break;
 
             case "Pharmacy":
-
-                Resources res = context.getResources();
-                final ImageView image = findViewById(R.id.imgProfile);
-                final int newColor = res.getColor(R.color.colorThree);
-                image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
-
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -117,7 +116,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Emergency":
-
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 break;
 
@@ -126,8 +124,8 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "EmergencyView":
-                txtsave.setVisibility(View.INVISIBLE);
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+
                 break;
 
 
@@ -144,7 +142,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "PhysicianViewData":
-                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorOne);
                 break;
             case "SpecialistData":
@@ -152,7 +149,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "SpecialistViewData":
-                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -165,7 +161,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "InsuranceViewData":
-                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorFive);
                 break;
 
@@ -178,7 +173,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "AidesViewData":
-                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -194,7 +188,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorThree);
                 break;
             case "HospitalViewData":
-                txtsave.setVisibility(View.GONE);
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
@@ -208,7 +201,9 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
         }
 
+
         callFragment("NEWCONTACT", fragmentNewContact);
+
         // }
 
     }
@@ -243,7 +238,18 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
                 imgRefresh.setVisibility(View.GONE);
+                //header.setBackgroundColor(getResources().getColor(R.color.colorOne));
                 txtsave.setVisibility(View.VISIBLE);
+
+                //shradha:Code for hide Save when profile is viewed
+                source = preferences.getString(PrefConstants.SOURCE);
+                if (source.equals("PhysicianViewData") || source.equals("HospitalViewData") || source.equals("PharmacyDataView") || source.equals("ProxyUpdateView") || source.equals("EmergencyView") || source.equals("SpecialistViewData") || source.equals("FinanceViewData") || source.equals("InsuranceViewData") || source.equals("AidesViewData")) {
+                    txtsave.setVisibility(View.GONE);
+                    txtTitle.setGravity(Gravity.CENTER);
+                } else {
+                    txtsave.setVisibility(View.VISIBLE);
+                }
+
                 break;
 
             case "CONTACT":
@@ -261,7 +267,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 imgGoogle.setBackgroundColor(getResources().getColor(R.color.colorGray));
                 imgGoogle.setImageResource(R.drawable.g);
                 imgRefresh.setVisibility(View.VISIBLE);
-                txtsave.setVisibility(View.INVISIBLE);
+                txtsave.setVisibility(View.GONE);
                 break;
         }
 
@@ -280,6 +286,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             }
         }, 100);
     }
+
 
     private void fragmentData() {
         fragmentNewContact = new FragmentNewContact();
@@ -382,8 +389,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_READ_CONTACTS: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {

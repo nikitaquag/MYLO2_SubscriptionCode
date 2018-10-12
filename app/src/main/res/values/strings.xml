@@ -59,8 +59,8 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="guide"><u>Guideline for add Card</u></string>
     <string name="sigindropbox">a. <u> Sign in to dropbox.com</u></string>
 
-    <string name="person"><b>1.<u>If You are the Person Sharing</u>the Database or a particular Profile with Another Person</b></string>
-    <string name="person1"><b>2.<u>If You are the Person Receiving</u> the Database or a particular Profile from Another Person  this is <u>how you</u> upload the Profile into your App.</b></string>
+    <string name="person"><b> 1.\t<u>If You are the Person Sharing </u>the\n\t\tDatabase or a particular Profile with\n\t\tAnother Person</b></string>
+    <string name="person1"><b> 2.\t<u>If You are the Person Receiving </u>the\n\t\tDatabase or a particular Profile from\n\t\tAnother Person this is <u>how you</u> upload \n\t\tthe Profile into your App.</b></string>
 
     <string name="backup"><b>Important Note:</b> MYLO uses the functionality of Dropbox to allow its Users to backup, restore, share all Profiles or just one Profile.\n</string>
     <!--<string name="backup1"><b>Important Note:</b> MYLO uses the functionality of Dropbox to allow its Users to backup, restore, share all Profiles or just one Profile.\n</string>-->

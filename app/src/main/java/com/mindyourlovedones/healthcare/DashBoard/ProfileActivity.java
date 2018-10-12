@@ -104,7 +104,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     // byte[] photoCard=null;
     ImageView imgRight, imgInfo, imgR;
     RelativeLayout llIndividual;
-    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
+    TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
@@ -225,6 +225,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtSave.setOnClickListener(this);
         txtGender.setOnClickListener(this);
         imgAddpet.setOnClickListener(this);
+        txtAddPet.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         chkChild.setOnCheckedChangeListener(this);
         chkSibling.setOnCheckedChangeListener(this);
@@ -317,6 +318,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgCard = findViewById(R.id.imgCard);
         imgEditCard = findViewById(R.id.imgEditCard);
         imgAddpet = findViewById(R.id.imgAddPet);
+        txtAddPet = findViewById(R.id.txtAddPet);
         txtSignUp = findViewById(R.id.txtSignUp);
         tilName = findViewById(R.id.tilName);
         tilOtherRelation = findViewById(R.id.tilOtherRelation);
@@ -1342,7 +1344,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgAddPet:
+            case R.id.txtAddPet:
                 Intent intent = new Intent(context, AddPetActivity.class);
                 intent.putExtra("FROM", "View");
                 startActivityForResult(intent, REQUEST_PET);

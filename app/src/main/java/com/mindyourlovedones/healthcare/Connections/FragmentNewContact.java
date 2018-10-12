@@ -255,12 +255,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Emergency":
-               /* if (imgProfile.equals(R.color.colorOne)) {
-                    Resources res = getActivity().getResources();
-                    final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
-                    final int newColor = res.getColor(R.color.colorOne);
-                    image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
-                }*/
                 if (validate("Emergency")) {
 
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();

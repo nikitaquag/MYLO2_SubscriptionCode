@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+>
+<RelativeLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -41,8 +47,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlSponsor"
-        android:orientation="vertical"
-        android:background="@color/colorWhite">
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="@dimen/dimension150dp"
@@ -54,8 +61,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/dimension5dp"
             android:layout_marginTop="@dimen/dimension20dp"
-            android:layout_marginLeft="@dimen/dimension5dp">
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/text1"
@@ -63,19 +72,21 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
                 android:gravity="center"
                 android:text="The ABA"
                 android:textAllCaps="false"
-                android:textColor="#BBBBBB"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/dimension18dp"
                 android:textStyle="normal" />
 
             <ImageView
                 android:layout_width="@dimen/dimension15dp"
                 android:layout_height="@dimen/dimension20dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dimension0dp"
                 android:src="@drawable/r"
-                android:layout_gravity="center"/>
+                android:tint="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -84,9 +95,9 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
                 android:gravity="center"
-                android:text="trademark is owned by American "
+                android:text="trademark is owned by American"
                 android:textAllCaps="false"
-                android:textColor="#BBBBBB"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/dimension18dp"
                 android:textStyle="normal" />
         </LinearLayout>
@@ -96,18 +107,38 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center_vertical"
-            android:text="Bar Association,under license.The American Bar Asscociation is one of the world's largest voluntary professional organizations.\n\nIts mission is to serve equally its members,the profession and the public by defending liberty and delivering justice as the national representative of"
+            android:text="Bar Association,under license.The American Bar Asscociation is one of the world's largest\nvoluntary professional organizations.\n\nIts mission is to serve equally its members,the\nprofession and the public by defending liberty\nand delivering justice as the national represen-"
             android:textAllCaps="false"
-            android:textColor="#BBBBBB"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="normal" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dimension5dp"
             android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:gravity="center_vertical"
+                android:text="\ttative of the legal profession.The ABA"
+                android:textAllCaps="false"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/dimension18dp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="@dimen/dimension15dp"
+                android:layout_height="@dimen/dimension20dp"
+                android:layout_gravity="top"
+                android:src="@drawable/r"
+                android:tint="@android:color/black" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -115,41 +146,27 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
                 android:gravity="center_vertical"
-                android:text="the legal profession.The ABA"
+                android:text=""
                 android:textAllCaps="false"
-                android:textColor="#BBBBBB"
-                android:textSize="@dimen/dimension18dp"
-                android:textStyle="normal" />
-            <ImageView
-                android:layout_width="@dimen/dimension15dp"
-                android:layout_height="@dimen/dimension20dp"
-                android:src="@drawable/r"
-                android:layout_gravity="top"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimension5dp"
-                android:gravity="center_vertical"
-                android:text="Comission"
-                android:textAllCaps="false"
-                android:textColor="#BBBBBB"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/dimension18dp"
                 android:textStyle="normal" />
 
         </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center_vertical"
-            android:text="on Law and Aging is the collaborative and interdisciplinary leader of the Association's work to strengthen and secure the legal rights, dignity, autonomy, quality of life, and quality of care of aging persons. "
+            android:text="Comission on Law and Aging is the collaborative and interdisciplinary leader of the Association's work to strengthen and secure the legal rights, dignity, autonomy, quality of life, and quality of care of aging persons. "
             android:textAllCaps="false"
-            android:textColor="#BBBBBB"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="normal" />
 
     </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>

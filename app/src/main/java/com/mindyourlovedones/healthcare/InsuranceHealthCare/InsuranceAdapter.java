@@ -180,6 +180,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             holder.imgProfile.setImageBitmap(myBitmap);*/
             imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageResource(R.drawable.lightblue);
         }
         /*byte[] photo=insuranceList.get(position).getPhoto();
         Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);

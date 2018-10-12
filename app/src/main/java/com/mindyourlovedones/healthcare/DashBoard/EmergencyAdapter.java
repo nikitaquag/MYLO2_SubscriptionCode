@@ -195,6 +195,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());
         if (imgFile.exists()) {
             imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+            viewHolder.imgProfile.setImageResource(R.drawable.green);
            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
            imgProfile.setImageBitmap(myBitmap);*/
         }
