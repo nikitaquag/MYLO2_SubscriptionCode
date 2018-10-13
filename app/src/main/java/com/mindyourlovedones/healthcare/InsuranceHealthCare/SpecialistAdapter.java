@@ -177,7 +177,16 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhoto());
         if (imgFile.exists()) {
             imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
-            holder.imgProfile.setImageResource(R.drawable.yellow);
+
+            if (specialist) {
+                if (frs != null) {
+                    holder.imgProfile.setImageResource(R.drawable.yellow);
+                } else if (physician == true) {
+                    if (fr != null) {
+                        holder.imgProfile.setImageResource(R.drawable.green);
+                    }
+                }
+            }
         } else {
             holder.imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }
