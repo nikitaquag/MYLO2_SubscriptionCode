@@ -562,13 +562,15 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.rlMarketPlace:
-                if (flagMarket == false) {
+                showBankDialog();
+                drawerLayout.closeDrawer(leftDrawer);
+                /*if (flagMarket == false) {
                     rlMarketDetail.setVisibility(View.VISIBLE);
                     flagMarket = true;
                 } else if (flagMarket == true) {
                     rlMarketDetail.setVisibility(View.GONE);
                     flagMarket = false;
-                }
+                }*/
                 break;
 
             case R.id.txtForm:
@@ -635,7 +637,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intents);*/
 
                 //shradha
-                showBankDialog();
+                // showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 
