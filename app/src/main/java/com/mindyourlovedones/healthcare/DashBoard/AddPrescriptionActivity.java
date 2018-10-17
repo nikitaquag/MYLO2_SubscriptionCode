@@ -491,17 +491,19 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 textOption3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if (!imageList.isEmpty()) {
 
-                        int i = imageList.size() - 1;
-                        PrescribeImage a = imageList.get(i);
-                        boolean flag = PrescribeImageQuery.deleteRecords(a.getUserid(), a.getPreid());
-                        if (flag == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                            imageList.remove(a);
-                            setImageListData();
-                            ListPhoto.requestFocus();
-                        } else {
-                            Toast.makeText(context, "Record not found", Toast.LENGTH_SHORT).show();
+                            int i = imageList.size() - 1;
+                            PrescribeImage a = imageList.get(i);
+                            boolean flag = PrescribeImageQuery.deleteRecords(a.getUserid(), a.getPreid());
+                            if (flag == true) {
+                                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                imageList.remove(a);
+                                setImageListData();
+                                ListPhoto.requestFocus();
+                            } else {
+                                Toast.makeText(context, "Record not found", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         dialog.dismiss();
                     }

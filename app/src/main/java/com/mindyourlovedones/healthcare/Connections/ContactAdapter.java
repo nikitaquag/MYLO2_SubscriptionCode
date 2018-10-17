@@ -137,6 +137,7 @@ public class ContactAdapter extends BaseAdapter implements Filterable {
 
                 FragmentNewContact fragmentNewContact = new FragmentNewContact();
                 Bundle args = new Bundle();
+                args.putBoolean("FromDevice", true);
                 args.putString("Name", contactList.get(position).getName());
                 args.putString("Email", contactList.get(position).getEmail());
                 args.putString("Phone", contactList.get(position).getPhone());

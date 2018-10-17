@@ -103,7 +103,7 @@
                     android:layout_toLeftOf="@+id/imgRight"
                     android:src="@drawable/rr"
                     android:tint="@color/colorWhite"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
 
                 <ImageView
                     android:id="@+id/imgNoti"
