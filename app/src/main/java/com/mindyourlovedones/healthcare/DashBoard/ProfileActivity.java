@@ -23,6 +23,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -52,6 +53,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -146,6 +148,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     boolean checkSave = false;
     boolean isOnActivityResult = false;
     String cardImgPath = "";
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -233,9 +236,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         chkGrandParent.setOnCheckedChangeListener(this);
         chkParent.setOnCheckedChangeListener(this);
         chkSpouse.setOnCheckedChangeListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = findViewById(R.id.floatProfile);
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);*/
@@ -1436,7 +1441,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 break;
-
+           /* case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                startActivity(intentDashboard);
+                break;*/
 
             case R.id.imgBack:
                 hideSoftKeyboard();

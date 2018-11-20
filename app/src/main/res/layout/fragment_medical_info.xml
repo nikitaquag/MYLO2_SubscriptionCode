@@ -8,6 +8,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension20dp"
+            android:backgroundTint="@color/colorFloatRed"
+            android:src="@drawable/floatb" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -64,8 +74,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -383,8 +393,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -1192,8 +1202,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -1849,8 +1859,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -1913,8 +1923,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -2021,8 +2031,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:gravity="center"
                     android:text="Add"
                     android:textColor="@color/colorBlueAdd"
@@ -2326,9 +2336,9 @@
                             android:layout_height="wrap_content"
                             android:hint="Type"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2348,9 +2358,9 @@
                             android:layout_height="wrap_content"
                             android:hint="Amount/Frequency"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2370,9 +2380,9 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/numOfYear"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2474,9 +2484,9 @@
                             android:layout_height="wrap_content"
                             android:hint="Type"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2496,9 +2506,9 @@
                             android:layout_height="wrap_content"
                             android:hint="Amount/Frequency/Other Notes"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2518,9 +2528,9 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/numOfYear"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2623,9 +2633,9 @@
                             android:layout_height="wrap_content"
                             android:hint="Amount/Frequency/Other Notes"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>
@@ -2645,9 +2655,9 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/numOfYear"
                             android:imeOptions="actionNext"
-                            android:paddingBottom="@dimen/dimension10dp"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
                     </android.support.design.widget.TextInputLayout>

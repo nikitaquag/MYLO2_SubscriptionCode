@@ -249,7 +249,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         variableInitialization();
         initUI();
         initListener();
-        initViewPager();
+      //  initViewPager();
         // initBanner();
 
         init();
@@ -270,6 +270,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+/*
     private void initViewPager() {
         viewPagerLogin = findViewById(R.id.viewPagerLogin);
         tabLayout = findViewById(R.id.tabDots);
@@ -297,6 +298,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             }
         }, DELAY_MS, PERIOD_MS);
     }
+*/
 
     /* private void initBanner() {
          List<Banner> banners = new ArrayList<>();
@@ -430,7 +432,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 //        TextView textlogo = findViewById(R.id.txtHeaders);
 //        textlogo.setText(Html.fromHtml(s));
 
-        textMessage = findViewById(R.id.textMessage);
+//        textMessage = findViewById(R.id.textMessage);
         txtNew = findViewById(R.id.txtNew);
         txtRegistered = findViewById(R.id.txtRegistered);
         txtSubscribe = findViewById(R.id.txtSubscribe);
@@ -449,6 +451,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         final String[] array = {getResources().getString(R.string.msgstay), getResources().getString(R.string.msg), "Manage and Share Critical Information on\n" +
                 "your Smartphone or Tablet", "Access to Critical Information and Advance\n" +
                 "Care Directives 24/7", "The Just In Case App"};
+/*
         textMessage.post(new Runnable() {
             int i = 0;
 
@@ -464,6 +467,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 textMessage.postDelayed(this, 5000);
             }
         });
+*/
 
         if (preferences == null) {
             preferences = new Preferences(SplashNewActivity.this);

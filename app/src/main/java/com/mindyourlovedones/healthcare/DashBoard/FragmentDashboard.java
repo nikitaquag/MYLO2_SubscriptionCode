@@ -277,7 +277,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         txtTitle.setVisibility(View.GONE);
         txtTitle.setText("");
         imgRight=getActivity().findViewById(R.id.imgRight);
-        imgRight.setVisibility(View.VISIBLE);
+        imgRight.setVisibility(View.GONE);
         imgR=getActivity().findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);
         imgNoti = getActivity().findViewById(R.id.imgNoti);

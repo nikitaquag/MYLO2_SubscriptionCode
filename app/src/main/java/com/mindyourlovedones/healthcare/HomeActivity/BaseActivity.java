@@ -607,7 +607,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.txtEULA:
                 // callFragment("FORM", fragmentResources);
-                CopyReadAssetss("eula.pdf");
+                CopyReadAssetss("eula_new.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
 

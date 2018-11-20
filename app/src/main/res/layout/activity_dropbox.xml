@@ -30,8 +30,8 @@
                 android:id="@+id/txtTitles"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
                 android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:gravity="center_horizontal"
                 android:text="Backup, restore, share data"
@@ -67,8 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/headers"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:background="@color/colorGrayBackup"
             android:gravity="center"
             android:visibility="visible">
@@ -91,8 +91,8 @@
                 android:layout_height="@dimen/dimension30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:src="@drawable/forword"
                 android:layout_marginRight="@dimen/dimension10dp"
+                android:src="@drawable/forword"
                 android:visibility="visible" />
 
             <ImageView
@@ -101,8 +101,8 @@
                 android:layout_height="@dimen/dimension30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:src="@drawable/drop"
                 android:tint="#2196F3"
                 android:visibility="gone" />
@@ -114,10 +114,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlBackupNew"
-            android:layout_marginBottom="@dimen/dimension10dp"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_marginBottom="@dimen/dimension10dp"
             android:background="@color/colorWhite"
             android:orientation="vertical"
             android:visibility="gone">
@@ -180,8 +180,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimension20dp"
-                android:layout_marginRight="@dimen/dimension20dp"
                 android:layout_marginTop="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
                 android:text="@string/backup"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension18dp"
@@ -234,9 +234,7 @@
             </LinearLayout>
 
 
-
             <Button
-                android:visibility="gone"
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -245,14 +243,15 @@
                 android:padding="@dimen/dimension10dp"
                 android:text="Login with Dropbox"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp" />
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
 
 
             <Button
-                android:layout_marginTop="@dimen/dimension30dp"
                 android:id="@+id/btnBackup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension30dp"
                 android:background="@color/colorBlue"
                 android:padding="@dimen/dimension10dp"
                 android:text="Backup"
@@ -261,15 +260,14 @@
                 android:visibility="visible" />
 
 
-
             <Button
-                android:padding="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension30dp"
-                android:layout_below="@+id/btnBackup"
                 android:id="@+id/btnRestore"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/btnBackup"
+                android:layout_marginTop="@dimen/dimension30dp"
                 android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
                 android:text="Restore"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension20dp"
@@ -298,6 +296,38 @@
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension20dp"
                 android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_below="@+id/btnShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dimension10dp">
+
+                <TextView
+                    android:id="@+id/txtLoginPerson"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:gravity="center"
+                    android:text="You have logged in as"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnShare"
+                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@+id/txtLoginPerson"
+                    android:gravity="center"
+                    android:text="ananya"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+            </LinearLayout>
+
 
             <!--<RelativeLayout-->
             <!--android:id="@+id/rlView"-->
@@ -352,8 +382,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/llBox"
-                android:layout_alignLeft="@+id/llBox"
                 android:layout_alignStart="@+id/llBox"
+                android:layout_alignLeft="@+id/llBox"
                 android:visibility="gone">
 
 

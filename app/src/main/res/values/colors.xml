@@ -56,5 +56,7 @@
 
     <color name="colorRed">#C3423B</color>
     <color name="colorBlueAdd">#0433FF</color>
+    <color name="colorBlueText">#005BCD</color>
+    <color name="colorFloatRed">#FC0000</color>
 
 </resources>
