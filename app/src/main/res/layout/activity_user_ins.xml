@@ -16,9 +16,10 @@
         android:layout_marginRight="@dimen/dimension20dp"
         android:backgroundTint="@color/colorFloatRed"
         android:src="@drawable/ic_box"
-        app:fabSize="normal"
         android:tint="@color/colorWhite"
-        tools:targetApi="lollipop" />
+        app:fabSize="normal"
+        tools:targetApi="lollipop"
+        />
 
     <RelativeLayout
         android:id="@+id/header"

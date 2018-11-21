@@ -3,7 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.mindyourlovedones.healthcare.DashBoard.InstructionActivity">
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        app:fabSize="normal"
+        tools:targetApi="lollipop"/>
 
     <RelativeLayout
         android:id="@+id/header"
