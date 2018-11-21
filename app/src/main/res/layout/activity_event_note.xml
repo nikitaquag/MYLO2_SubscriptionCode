@@ -39,6 +39,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
+<!--
             <ImageView
                 android:id="@+id/imgAdd"
                 android:layout_width="@dimen/dimension30dp"
@@ -47,7 +48,20 @@
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_toLeftOf="@+id/imgRight"
                 android:src="@drawable/add_white_square" />
+-->
 
+            <TextView
+                android:id="@+id/txtAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_toLeftOf="@+id/imgRight"
+                android:textColor="@color/colorWhite"/>
             <ImageView
                 android:id="@+id/imgRight"
                 android:layout_width="@dimen/dimension40dp"
@@ -278,6 +292,32 @@
                         android:textSize="@dimen/dimension18dp" />
 
                 </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rel64"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel63"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img64"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy64"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img64"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+
+                </RelativeLayout>
+
             </RelativeLayout>
             </RelativeLayout>
         </ScrollView>

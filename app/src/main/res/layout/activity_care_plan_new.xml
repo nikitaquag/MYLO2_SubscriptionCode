@@ -382,7 +382,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:text="Don't have Advance Directives?"
+                android:text="Advance Directives"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension20dp"
                 android:textStyle="italic|bold"></TextView>
@@ -407,7 +407,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_toRightOf="@+id/imgOne"
-                    android:text="Click here to learn more about them, why they are important, and how to get them completed."
+                    android:text="Click here to learn more about Advance Directives, why are they are important and how to complete them."
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"></TextView>
             </RelativeLayout>
@@ -416,7 +416,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlOne"
-                android:layout_marginTop="@dimen/dimension10dp">
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/imgTwo"

@@ -56,7 +56,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     Context context = this;
     ImageView imgBack, imgInfo;
     RelativeLayout llAddConn, rlInfo, rlPdf;
-    TextView txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
+    TextView txtSave,txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
     TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction;
     String from, name, title;
     Boolean isAllergy, isHistory, isImplant;
@@ -700,12 +700,14 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         imgInfo.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
     }
 
     private void initUi() {
         imgBack = findViewById(R.id.imgBack);
         imgInfo = findViewById(R.id.imgInfo);
         llAddConn = findViewById(R.id.llAddConn);
+        txtSave = findViewById(R.id.txtSave);
         tilTitle = findViewById(R.id.tilTitle);
         txtName = findViewById(R.id.txtName);
         tilReaction = findViewById(R.id.tilReaction);
@@ -917,7 +919,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }, year, month, day);
                 dpd.show();
                 break;*/
-            case R.id.llAddConn:
+            case R.id.txtSave:
                 String value = "";
                 if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
                     int indexValue = spinner.getSelectedItemPosition();

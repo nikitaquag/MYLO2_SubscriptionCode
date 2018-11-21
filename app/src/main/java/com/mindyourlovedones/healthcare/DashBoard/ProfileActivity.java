@@ -8,10 +8,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -20,7 +23,9 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -48,8 +53,8 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
@@ -93,15 +98,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
     ContentValues values;
     Uri imageUriProfile = null, imageUriCard = null;
     // byte[] photoCard=null;
-    ImageView imgRight, imgInfo;
+    ImageView imgRight, imgInfo, imgR;
     RelativeLayout llIndividual;
-    TextView txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg,txtSave;
+    TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
@@ -134,8 +139,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //   PersonalInfo personalInfo;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
-    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
-    String[] EyesList = {"Blue", "Brown", "Green", "Hazel"};
+    String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
+    String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
     String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
     ImageLoader imageLoaderProfile, imageLoaderCard;
@@ -143,6 +148,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     boolean checkSave = false;
     boolean isOnActivityResult = false;
     String cardImgPath = "";
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -222,6 +228,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtSave.setOnClickListener(this);
         txtGender.setOnClickListener(this);
         imgAddpet.setOnClickListener(this);
+        txtAddPet.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         chkChild.setOnCheckedChangeListener(this);
         chkSibling.setOnCheckedChangeListener(this);
@@ -229,10 +236,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         chkGrandParent.setOnCheckedChangeListener(this);
         chkParent.setOnCheckedChangeListener(this);
         chkSpouse.setOnCheckedChangeListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = findViewById(R.id.floatProfile);
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
+      /*  imgR = findViewById(R.id.imgR);
+        imgR.setVisibility(View.VISIBLE);*/
+
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -276,6 +288,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("PERSONAL PROFILE");
         imgRight = findViewById(R.id.imgRight);
+
         txtTitle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -297,9 +310,20 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         ListPet = findViewById(R.id.ListPet);
         imgProfile = findViewById(R.id.imgProfile);
+/*
+        if (imgProfile.equals(R.color.colorOne))
+        {
+            Resources res = context.getResources();
+            final ImageView image = (ImageView) findViewById(R.id.imgProfile);
+            final int newColor = res.getColor(R.color.colorOne);
+            image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
+        }
+*/
+
         imgCard = findViewById(R.id.imgCard);
         imgEditCard = findViewById(R.id.imgEditCard);
         imgAddpet = findViewById(R.id.imgAddPet);
+        txtAddPet = findViewById(R.id.txtAddPet);
         txtSignUp = findViewById(R.id.txtSignUp);
         tilName = findViewById(R.id.tilName);
         tilOtherRelation = findViewById(R.id.tilOtherRelation);
@@ -315,7 +339,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgBack = findViewById(R.id.imgBack);
         imgEdit = findViewById(R.id.imgEdit);
         imgDone = findViewById(R.id.imgDone);
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
         //imgDone.setVisibility(View.VISIBLE);
         txtRelation = findViewById(R.id.txtRelation);
         tilBdate = findViewById(R.id.tilBdate);
@@ -1325,7 +1349,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imgAddPet:
+            case R.id.txtAddPet:
                 Intent intent = new Intent(context, AddPetActivity.class);
                 intent.putExtra("FROM", "View");
                 startActivityForResult(intent, REQUEST_PET);
@@ -1417,7 +1441,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 break;
-
+           /* case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                startActivity(intentDashboard);
+                break;*/
 
             case R.id.imgBack:
                 hideSoftKeyboard();
@@ -1556,11 +1583,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                                 preferences.emailAttachement(f, context, "Personal Profile");
                                 break;
 
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
-                                break;
+                          /*  case 2://fax
+                              //  new FaxCustomDialog(context, path).show();
+                                break;*/
 
-                            case 3://FTU
+                            case 2://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
                                 i.putExtra("From", "Personal");
                                 startActivity(i);
@@ -2012,7 +2039,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         else{*/
             /*int indexValuex = spinnerRelation.getSelectedItemPosition();
             String relation =Relationship[indexValuex-1];*/
-          /* */
+        /* */
         //   }
 
     }

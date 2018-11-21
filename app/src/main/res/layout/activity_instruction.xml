@@ -31,15 +31,19 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension22dp" />
 
-        <ImageView
-            android:id="@+id/imgDone"
-            android:layout_width="@dimen/dimension30dp"
-            android:layout_height="@dimen/dimension30dp"
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:src="@drawable/check_mark"
-            android:visibility="gone" />
+            android:text="Email"
+            android:textAllCaps="false"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/imgDot"
@@ -81,10 +85,10 @@
                 android:text="DropBox Instructions"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
+                android:gravity="center"
                 android:textStyle="bold" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/txtMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -96,14 +100,15 @@
                 android:paddingBottom="20dp"
                 android:text="Add the name and number of the physician you would  most likely want to reach in case of an emergency. Don’t forget to take a picture of their card. You may want to email, text or print it."
                 android:textColor="@color/colorGuide"
-                android:textSize="@dimen/dimension18dp" />
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone" />
 
             <RelativeLayout
-                android:layout_margin="@dimen/dimension10dp"
                 android:id="@+id/relMsg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtHeader"
+                android:layout_margin="@dimen/dimension10dp"
                 android:visibility="visible">
 
                 <RelativeLayout
@@ -230,6 +235,82 @@
                         android:textColor="@color/colorGuide"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel66"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel65"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img66"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy66"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img66"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel66"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img67"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy67"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img67"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel68"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel67"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img68"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy68"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img68"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
             </RelativeLayout>
 
         </RelativeLayout>

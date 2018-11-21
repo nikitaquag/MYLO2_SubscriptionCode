@@ -178,7 +178,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             holder.imgProfile.setImageBitmap(myBitmap);*/
             imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
-
+            holder.imgProfile.setImageResource(R.drawable.yellow);
         }
 
         /*byte[] photo=FinanceList.get(position).getPhoto();

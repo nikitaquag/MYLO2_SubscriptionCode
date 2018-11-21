@@ -10,7 +10,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
-        android:background="@color/colorBlue">
+        android:background="@color/colorBlue"
+        android:gravity="center">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -22,12 +23,11 @@
 
         <TextView
             android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_toLeftOf="@+id/imgdg"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_toLeftOf="@+id/txtsave"
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
             android:text="Grab Contact (Manual)"
@@ -53,6 +53,23 @@
             android:layout_marginRight="16dp"
             android:src="@drawable/refresh"
             android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtsave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="SAVE"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
     </RelativeLayout>
 
     <LinearLayout
@@ -75,6 +92,18 @@
             android:textColor="@color/colorGray"
             android:textSize="@dimen/dimension20dp" />
 
+        <TextView
+            android:id="@+id/txtContact"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightBlue"
+            android:gravity="center"
+            android:text="Contacts"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/dimension20dp" />
+
         <ImageView
             android:id="@+id/imgContact"
             android:layout_width="@dimen/dimension0dp"
@@ -84,8 +113,7 @@
             android:background="@color/colorGray"
             android:scaleType="center"
             android:src="@drawable/ic_person_white"
-
-            />
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/imgFb"

@@ -24,7 +24,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.AppointmentQuery;
@@ -47,7 +46,7 @@ import java.util.Date;
 
 public class MedicalAppointActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Appoint> noteList = new ArrayList<>();
@@ -58,7 +57,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     DBHelper dbHelper;
     RelativeLayout header;
     boolean flag = false;
-    TextView txtMsg, txtFTU;
+    TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
 
     public static String getFormattedDate(Date date) {
@@ -90,7 +89,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     }
 
     private void initListener() {
-        imgAdd.setOnClickListener(this);
+        txtAdd.setOnClickListener(this);
+        //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
     }
@@ -114,12 +114,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         TextView txt62 = findViewById(R.id.txtPolicy62);
         TextView txt63 = findViewById(R.id.txtPolicy63);
         TextView txt64 = findViewById(R.id.txtPolicy64);
+        TextView txt65 = findViewById(R.id.txtPolicy65);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To <b>add</b> an Appointment  click  the <b>plus</b> box at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>Add Appointment</b> on the green bar."));
-        txt62.setText(Html.fromHtml("To edit the Appointment  click the picture of the pencil to the right of the screen. To save your edits click the green bar marked Update Appointment. To <b>delete</b> the appointment swipe right to left and  click the garbage can."));
-        txt63.setText(Html.fromHtml("To <b>add</b> the completed date(s) click <b>Set Completion Date</b> and click Add."));
-        txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on add button at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed <b>click SAVE</b> on the top right corner of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the picture of the pencil to the right of the screen. To save your edits click the green bar marked Update Appointment. To <b>delete</b> the appointment swipe right to left and click the garbage can.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>add</b> the completed date(s) click Set Completion Date and click Add. \n\n "));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, in each section click the three dots on the upper right side of the screen.\n\n "));
 
 
         txtFTU = findViewById(R.id.txtFTU);
@@ -135,6 +137,9 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorFour);
         imgBack = findViewById(R.id.imgBack);
+
+        txtAdd = findViewById(R.id.txtAdd);
+
         imgAdd = findViewById(R.id.imgAdd);
         imgRight = findViewById(R.id.imgRight);
         //imgEdit= (ImageView) findViewById(R.id.imgEdit);
@@ -353,7 +358,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             case R.id.imgBack:
                 finish();
                 break;
-            case R.id.imgAdd:
+            case R.id.txtAdd:
                 Intent i = new Intent(context, AddAppointmentActivity.class);
                 i.putExtra("FROM", "Add");
                 startActivity(i);
@@ -425,9 +430,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Appointment Checklist");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
+                            case 2://FTU
+                                Intent i = new Intent(context, InstructionActivity.class);
+                                i.putExtra("From", "CheckListInstruction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(context, path).show();
+                                break;*/
 
                         }
                     }

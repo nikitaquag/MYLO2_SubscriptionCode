@@ -29,7 +29,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -53,7 +52,7 @@ import java.util.ArrayList;
 
 public class CarePlanListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Intructions"};
     Context context = this;
     RecyclerView lvDoc;//by nikita on 20/6/18
     ArrayList<Document> documentList;
@@ -64,7 +63,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout llAddDoc;
     Preferences preferences;
     RelativeLayout rlGuide;
-    ImageView imgPicture,imgPicture2;
+    ImageView imgPicture, imgPicture2;
     TextView txtHeader, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
@@ -122,6 +121,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         TextView txt64 = findViewById(R.id.txtPolicy64);
         TextView txt65 = findViewById(R.id.txtPolicy65);
         TextView txt66 = findViewById(R.id.txtPolicy66);
+        TextView txt67 = findViewById(R.id.txtPolicy67);
 
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
@@ -184,13 +184,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msg));
 
-                //nikita
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
-                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
-                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> the entry <b>swipe right to left </b> the arrow symbol on the right side of the screen."));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>.To <b>save</b> your edits click the check mark again."));
-                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Record":
@@ -213,13 +214,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msgs));
 
-                //nikita
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
-                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
-                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
-                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Other":
@@ -242,13 +244,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 //
 //                txtMsg.setText(Html.fromHtml(msgd));
 
-                //nikita
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
-                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
-                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top right side of the screen"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
-                txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Legal":
@@ -590,8 +593,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Advance Directives");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                   /* case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 
@@ -658,8 +666,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Medical Records");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                   /* case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 
@@ -724,8 +737,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         preferences.emailAttachement(f, context, "Other Documents");
                                         break;
                                     case 2://fax
-                                        new FaxCustomDialog(context, path).show();
+                                        Intent i = new Intent(context, InstructionActivity.class);
+                                        i.putExtra("From", "DirectivesInstruction");
+                                        startActivity(i);
                                         break;
+                                  /*  case 2://fax
+                                        new FaxCustomDialog(context, path).show();
+                                        break;*/
                                 }
                             }
 

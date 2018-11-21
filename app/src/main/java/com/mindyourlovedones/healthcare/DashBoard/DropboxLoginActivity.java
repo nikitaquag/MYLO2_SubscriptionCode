@@ -7,16 +7,23 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
+import android.text.Spannable;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,15 +62,20 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
     private static final int REQUESTRESULT = 200;
     static boolean isLogin = false;
     Context context = this;
-    Button btnLogin, btnAdd;
+    Button btnLogin, btnShare, btnAdd;
     Button btnFiles, btnBackup, btnRestore;
-    TextView txtName, txtFile;
-    ImageView imgBack, imgDot;
+    TextView txtHBackUp, txtHRestore, txtHShare, txtHUpload;
+    TextView txtName, txtFile, txtBackup2;
+    ImageView imgBack, imgDot, imgForward, imgDown;
     Preferences preferences;
     String from = "";
     String todo = "";
     String todoWhat = "";
-    RelativeLayout rlBackup, rlView;
+    RelativeLayout rlBackup, rlBackupNew, rlView;
+    LinearLayout llBackup;
+    boolean flagBackup = false;
+
+    int Fun_Type=0;
 
     // For to Delete the directory inside list of files and inner Directory //nikita
     public static boolean deleteDir(File dir) {//nikita
@@ -89,7 +101,10 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         preferences.putString(PrefConstants.RESULT, "");
         preferences.putString(PrefConstants.URI, "");
         accessPermission();
-        imgDot = findViewById(R.id.imgDot);
+
+
+        //   imgDot = findViewById(R.id.imgDot);
+/*
         imgDot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,16 +113,97 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 startActivity(i);
             }
         });
+*/
+        txtHBackUp = findViewById(R.id.txtHBackUp);
+        txtHBackUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CopyReadAssetss("mylo_backup.pdf");
+
+            }
+        });
+        txtHRestore = findViewById(R.id.txtHRestore);
+        txtHRestore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CopyReadAssetss("mylo_restore.pdf");
+
+            }
+        });
+        txtHShare = findViewById(R.id.txtHShare);
+        txtHShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CopyReadAssetss("mylo_share.pdf");
+
+            }
+        });
+        txtHUpload = findViewById(R.id.txtHUpload);
+        txtHUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CopyReadAssetss("mylo_download.pdf");
+
+            }
+        });
+
+        imgDown = findViewById(R.id.imgDown);
+        imgForward = findViewById(R.id.imgForward);
+        rlBackupNew = findViewById(R.id.rlBackupNew);
+        llBackup = findViewById(R.id.llBackup);
+        rlBackupNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                imgForward.setVisibility(View.GONE);
+                imgDown.setVisibility(View.VISIBLE);
+                if (flagBackup == false) {
+                    llBackup.setVisibility(View.VISIBLE);
+                    imgDown.setVisibility(View.VISIBLE);
+                    imgForward.setVisibility(View.GONE);
+                    flagBackup = true;
+                } else if (flagBackup == true) {
+                    llBackup.setVisibility(View.GONE);
+                    imgDown.setVisibility(View.GONE);
+                    imgForward.setVisibility(View.VISIBLE);
+                    flagBackup = false;
+                }
+
+            }
+        });
+
+
         btnLogin = findViewById(R.id.btnLogin);
-        btnAdd = findViewById(R.id.btnAdd);
+        btnShare = findViewById(R.id.btnShare);
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, ShareActivity.class);
+                startActivity(i);
+            }
+        });
         txtName = findViewById(R.id.txtLogin);
-        txtFile = findViewById(R.id.txtfile);
+        //  txtFile = findViewById(R.id.txtfile);
+        txtBackup2 = findViewById(R.id.txtBackup2);
+        txtBackup2.setMovementMethod(LinkMovementMethod.getInstance());
+        Spannable spans = (Spannable)txtBackup2.getText();
+        ClickableSpan clickSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View widget) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.dropbox.com/help/account/create-account"));
+                startActivity(intent);
+            }
+        };
+        spans.setSpan(clickSpan, 32, 36, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
         btnBackup = findViewById(R.id.btnBackup);
         btnRestore = findViewById(R.id.btnRestore);
-        rlView = findViewById(R.id.rlView);
+        // rlView = findViewById(R.id.rlView);
         rlBackup = findViewById(R.id.rlBackup);
-        btnFiles = findViewById(R.id.btnFiles);
-        imgBack = findViewById(R.id.imgBack);
+        // btnFiles = findViewById(R.id.btnFiles);
+        imgBack = findViewById(R.id.imgBacks);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,10 +220,10 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
             if (from.equals("Document")) {
                 rlBackup.setVisibility(View.GONE);
-                rlView.setVisibility(View.VISIBLE);
+                //  rlView.setVisibility(View.VISIBLE);
             } else if (from.equals("Backup")) {
                 rlBackup.setVisibility(View.VISIBLE);
-                rlView.setVisibility(View.GONE);
+                //  rlView.setVisibility(View.GONE);
                /* if (todo.equals("Individual")&&todoWhat.equals("Import"))
                 {
                     btnRestore.setVisibility(View.VISIBLE);
@@ -160,6 +256,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 }
             }
         });
+/*
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +268,9 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 finish();
             }
         });
+*/
 
+/*
         btnFiles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,27 +278,135 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
             }
         });
+*/
 
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.STORE, "Backup");
-                preferences.putString(PrefConstants.TODO, todo);
-                startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+
+                Fun_Type =1;
+
+                SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
+                if (prefs.contains("access-token")) {
+                    preferences.putString(PrefConstants.STORE, "Restore");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                } else {
+                    Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                }
             }
         });
 
         btnRestore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.STORE, "Restore");
-                preferences.putString(PrefConstants.TODO, todo);
-                preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-                startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+
+                Fun_Type = 2;
+
+                SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
+                if (prefs.contains("access-token")) {
+                    preferences.putString(PrefConstants.STORE, "Backup");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                } else {
+                    Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                }
+
+
             }
         });
 
+
+        if (from.equals("Document")) {
+
+            Fun_Type =0;
+
+            SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
+            if (prefs.contains("access-token")) {
+                prefs.edit().remove("access-token").apply();
+                com.dropbox.core.android.AuthActivity.result = null;
+                DropboxClientFactory.revokeClient(new DropboxClientFactory.CallBack() {
+                    @Override
+                    public void onRevoke() {
+                        Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                        // onResume();
+                    }
+                });
+            } else {
+                Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+            }
+
+            //  btnFiles.setVisibility(View.VISIBLE);
+            btnBackup.setVisibility(View.GONE);
+            btnRestore.setVisibility(View.GONE);
+        } else if (from.equals("Backup") || from.equals("Restore")) {
+            btnBackup.setVisibility(View.VISIBLE);
+            //   btnFiles.setVisibility(View.GONE);
+            btnRestore.setVisibility(View.VISIBLE);
+            if (todo.equals("Individual") && todoWhat.equals("Import")) {
+                btnRestore.setVisibility(View.VISIBLE);
+                btnBackup.setVisibility(View.GONE);
+            } else if (todo.equals("Individual") && todoWhat.equals("Share")) {
+                btnRestore.setVisibility(View.GONE);
+                btnBackup.setVisibility(View.VISIBLE);
+            }
+        }
+
     }
+
+    public void CopyReadAssetss(String documentPath) {
+        AssetManager assetManager = getAssets();
+        File outFile = null;
+        InputStream in = null;
+        OutputStream out = null;
+        File file = new File(getFilesDir(), documentPath);
+        try {
+            in = assetManager.open(documentPath);
+            outFile = new File(getExternalFilesDir(null), documentPath);
+            out = new FileOutputStream(outFile);
+
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+            /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;*/
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage());
+        }
+        Uri uri = null;
+        // Uri uri= Uri.parse("file://" + getFilesDir() +"/"+documentPath);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //  intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(context, "com.mindyourlovedones.healthcare.HomeActivity.fileProvider", outFile);
+        } else {
+            uri = Uri.fromFile(outFile);
+        }
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setDataAndType(uri, "application/pdf");
+        context.startActivity(intent);
+
+    }
+
+    private void copyFiles(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
+    }
+
 
     private void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
@@ -225,26 +432,26 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             @Override
             public void onComplete(FullAccount result) {
 
-                String value = "You have Logged in with " + result.getName().getDisplayName();
-                txtName.setText(value);
-                btnLogin.setText("Login With Different User");
-                if (from.equals("Document")) {
-                    btnFiles.setVisibility(View.VISIBLE);
-                    btnBackup.setVisibility(View.GONE);
-                    btnRestore.setVisibility(View.GONE);
-                } else if (from.equals("Backup") || from.equals("Restore")) {
-                    btnBackup.setVisibility(View.VISIBLE);
-                    btnFiles.setVisibility(View.GONE);
-                    btnRestore.setVisibility(View.VISIBLE);
-                    if (todo.equals("Individual") && todoWhat.equals("Import")) {
-                        btnRestore.setVisibility(View.VISIBLE);
-                        btnBackup.setVisibility(View.INVISIBLE);
-                    } else if (todo.equals("Individual") && todoWhat.equals("Share")) {
-                        btnRestore.setVisibility(View.INVISIBLE);
-                        btnBackup.setVisibility(View.VISIBLE);
-                    }
+
+                if(Fun_Type==2){
+                    Fun_Type=4;
+                    preferences.putString(PrefConstants.STORE, "Restore");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                }else if(Fun_Type==1){
+                    Fun_Type=4;
+                    preferences.putString(PrefConstants.STORE, "Backup");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                }else{
+
                 }
 
+
+//                String value = "You have Logged in with " + result.getName().getDisplayName();
+//                txtName.setText(value);
+//                btnLogin.setText("Login With Different User");
 
                 //  Toast.makeText(DropboxLoginActivity.this,,Toast.LENGTH_SHORT).show();
                 /*((TextView) findViewById(R.id.email_text)).setText(result.getEmail());
@@ -263,13 +470,14 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
     protected void onResume() {
         super.onResume();
         if (preferences.getString(PrefConstants.URI).equals("") && preferences.getString(PrefConstants.RESULT).equals("")) {
-            btnAdd.setVisibility(View.GONE);
-            txtFile.setVisibility(View.GONE);
+//            btnAdd.setVisibility(View.GONE);
+            //   txtFile.setVisibility(View.GONE);
+
         } else {
             if (preferences.getString(PrefConstants.STORE).equals("Document")) {
-                btnAdd.setVisibility(View.VISIBLE);
-                txtFile.setVisibility(View.VISIBLE);
-                txtFile.setText("Click on Add File for Add " + preferences.getString(PrefConstants.RESULT) + " File to your documents");
+                //  btnAdd.setVisibility(View.VISIBLE);
+                //  txtFile.setVisibility(View.VISIBLE);
+                //  txtFile.setText("Click on Add File for Add " + preferences.getString(PrefConstants.RESULT) + " File to your documents");
             } else if (preferences.getString(PrefConstants.STORE).equals("Restore")) {
                 final AlertDialog.Builder alert = new AlertDialog.Builder(context);
                 alert.setTitle("Restore?");

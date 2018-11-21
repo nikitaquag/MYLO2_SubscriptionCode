@@ -61,24 +61,25 @@
         android:layout_height="@dimen/dimension60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dimension15dp"
-        android:layout_marginRight="@dimen/dimension15dp"
         android:layout_marginTop="@dimen/dimension15dp"
-        android:background="@color/colorGreen">
+        android:layout_marginRight="@dimen/dimension15dp"
+        android:background="@color/colorPres">
 
         <ImageView
             android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension60dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/adddoc" />
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:src="@drawable/addss" />
 
         <TextView
             android:id="@+id/txtAdd"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension60dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="Add Prescription"
             android:textAllCaps="true"
@@ -90,9 +91,9 @@
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:background="@color/colorSkyBlue"
         android:gravity="center"
         android:text="XYZ XYZ"
@@ -145,8 +146,8 @@
             android:layout_below="@+id/txtHeader"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="@string/ftu"
             android:textColor="@color/colorBlue"
@@ -159,8 +160,8 @@
             android:layout_below="@+id/txtFTU"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="Add medications, dosages,  frequencies, etc. for easy reference. You can also take a picture and keep a digital copy of your prescriptions."
             android:textColor="@color/colorGuide"
@@ -169,12 +170,12 @@
     </RelativeLayout>
 
     <ScrollView
-        android:visibility="gone"
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/llAddPrescription"
-        android:layout_below="@+id/txtName">
+        android:layout_below="@+id/txtName"
+        android:visibility="gone">
 
         <RelativeLayout
             android:id="@+id/rlGuide2"
@@ -210,8 +211,8 @@
                 android:layout_below="@+id/txtHeader2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/ftu"
                 android:textColor="@color/colorBlue"
@@ -224,8 +225,8 @@
                 android:layout_below="@+id/txtFTU2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="Add medications, dosages,  frequencies, etc. for easy reference. You can also take a picture and keep a digital copy of your prescriptions."
                 android:textColor="@color/colorGuide"
@@ -243,15 +244,15 @@
                     android:id="@+id/rel61"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension20dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension20dp">
 
                     <ImageView
                         android:id="@+id/img61"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -275,8 +276,8 @@
                         android:id="@+id/img62"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -300,8 +301,8 @@
                         android:id="@+id/img63"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -325,8 +326,8 @@
                         android:id="@+id/img64"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -350,8 +351,8 @@
                         android:id="@+id/img65"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView

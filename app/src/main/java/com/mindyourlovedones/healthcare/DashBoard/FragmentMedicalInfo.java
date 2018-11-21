@@ -72,7 +72,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     public static final int REQUEST_HOSPITAL = 400;
     private static final int REQUEST_CONDITION = 500;
     private static final int REQUEST_VACCINE = 700;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax", "First Time User Instruction"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     View rootview;
     RelativeLayout rlMedical, rlDrugDesc, rlDrinkDesc, rlTobacoDesc;
     ImageView imgBack, imgDone, imgRight, imgInfo;
@@ -92,6 +92,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     RadioGroup rgDonor, rgDrug, rgDrink, rgTobaco;
     TextView txtName;
     Spinner spinnerEyes, spinnerBlood, spinnerLang;
+    TextView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
     ImageView imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine;
     ListView ListHistory, ListAllergy, ListImplants, ListHospital, ListCondition, ListVaccine;
     String note = "", allergynote = "";
@@ -137,6 +138,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgDone.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+
+        txtAddAllergy.setOnClickListener(this);
+        txtAddVaccine.setOnClickListener(this);
+        txtAddHistory.setOnClickListener(this);
+        txtAddHospital.setOnClickListener(this);
+        txtAddImplants.setOnClickListener(this);
+        txtAddCondition.setOnClickListener(this);
+
         imgAddAllergy.setOnClickListener(this);
         imgAddVaccine.setOnClickListener(this);
         imgAddHistory.setOnClickListener(this);
@@ -212,6 +221,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             }
         });
         rlMedical = rootview.findViewById(R.id.rlMedical);
+
+        txtAddAllergy = rootview.findViewById(R.id.txtAddAllergy);
+        txtAddCondition = rootview.findViewById(R.id.txtAddCondition);
+        txtAddImplants=rootview.findViewById(R.id.txtAddImplants);
+        txtAddHistory=rootview.findViewById(R.id.txtAddHistory);
+        txtAddHospital=rootview.findViewById(R.id.txtAddHospital);
+        txtAddVaccine=rootview.findViewById(R.id.txtAddVaccine);;
+
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("MEDICAL PROFILE");
@@ -984,11 +1001,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Medical Profile");
                                 break;
-                            case 2://fax
+                           /* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;
+                                break;*/
 
-                            case 3://fax
+                            case 2://fax
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
                                 i.putExtra("From", "Medical");
                                 startActivity(i);
@@ -1043,18 +1060,18 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 hideSoftKeyboard();
                 getActivity().finish();
                 break;
-            case R.id.imgAddAllergy:
+            case R.id.txtAddAllergy:
                 Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
                 allergyIntent.putExtra("IsAllergy", true);
                 allergyIntent.putExtra("IsHistory", false);
                 allergyIntent.putExtra("IsImplant", false);
                 allergyIntent.putExtra("ADD", "Allergy");
-                allergyIntent.putExtra("Title", "Add Allergy and Medication Reaction");
+                allergyIntent.putExtra("Title", "Add Allergy");
                 allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
                 startActivityForResult(allergyIntent, REQUEST_ALLERGY);
                 break;
 
-            case R.id.imgAddVaccine:
+            case R.id.txtAddVaccine:
                 Intent vaccineIntent = new Intent(getActivity(), AddInfoActivity.class);
                 vaccineIntent.putExtra("IsAllergy", false);
                 vaccineIntent.putExtra("IsHistory", false);
@@ -1065,7 +1082,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 startActivityForResult(vaccineIntent, REQUEST_VACCINE);
                 break;
 
-            case R.id.imgAddImplants:
+            case R.id.txtAddImplants:
                 Intent implantsIntent = new Intent(getActivity(), AddInfoActivity.class);
                 implantsIntent.putExtra("IsAllergy", false);
                 implantsIntent.putExtra("IsHistory", false);
@@ -1075,7 +1092,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 implantsIntent.putExtra("Name", "Add Medical Implant");
                 startActivityForResult(implantsIntent, REQUEST_IMPLANTS);
                 break;
-            case R.id.imgAddCondition:
+            case R.id.txtAddCondition:
                 Intent implantsIntents = new Intent(getActivity(), AddInfoActivity.class);
                 implantsIntents.putExtra("IsAllergy", false);
                 implantsIntents.putExtra("IsHistory", false);
@@ -1085,7 +1102,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 implantsIntents.putExtra("Name", "Add Pre existing Medical Condtion");
                 startActivityForResult(implantsIntents, REQUEST_CONDITION);
                 break;
-            case R.id.imgAddHospital:
+            case R.id.txtAddHospital:
                 Intent hospIntent = new Intent(getActivity(), AddInfoActivity.class);
                 hospIntent.putExtra("IsAllergy", false);
                 hospIntent.putExtra("IsHistory", false);
@@ -1095,7 +1112,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 hospIntent.putExtra("Name", "Add Hospital Preference(s)");
                 startActivityForResult(hospIntent, REQUEST_HOSPITAL);
                 break;
-            case R.id.imgAddHistory:
+            case R.id.txtAddHistory:
                 Intent historyIntent = new Intent(getActivity(), AddInfoActivity.class);
                 historyIntent.putExtra("IsAllergy", false);
                 historyIntent.putExtra("IsHistory", true);

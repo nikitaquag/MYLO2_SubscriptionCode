@@ -1,5 +1,6 @@
 package com.mindyourlovedones.healthcare.DashBoard;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -55,7 +57,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     ContentValues values;
     Uri imageUriFront, imageUriBack;
     Context context = this;
-    TextView txtName, txttype, txtTitle, txtCard,txtSave;
+    TextView txtName, txttype, txtTitle, txtCard, txtSave;
     TextInputLayout tilTitle;
     Bitmap bitmap1, bitmap2;
     String imagePathFront = "", imagePathBack = "";
@@ -136,7 +138,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         imgfrontCard = findViewById(R.id.imgFrontCard);
         imgBackCard = findViewById(R.id.imgBackCard);
 
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txttype = findViewById(R.id.txtType);
         tilTitle = findViewById(R.id.tilTitle);
@@ -304,11 +306,100 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.imgEdit2:
                 showDialogs(RESULT_CAMERA_IMAGE2, RESULT_SELECT_PHOTO2, "Back");
+
+//                dialogCameraBack();
+
                 break;
 
 
         }
     }
+
+    private void dialogCameraFront(final int resultCameraImage, final int resultSelectPhoto, final String from) {
+        final Dialog dialogCamera = new Dialog(context);
+        dialogCamera.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogCamera.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_camera_ins, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+
+        dialogCamera.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogCamera.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogCamera.getWindow().setAttributes(lp);
+        dialogCamera.setCanceledOnTouchOutside(false);
+        dialogCamera.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "New Picture");
+                values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (from.equals("Front")) {
+                    imageUriFront = getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriFront);
+                } else if (from.equals("Back")) {
+                    imageUriBack = getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriBack);
+                }
+                startActivityForResult(intent, resultCameraImage);
+//                showDialogs(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
+                dialogCamera.dismiss();
+            }
+        });
+    }
+
+    private void dialogCameraBack() {
+        final Dialog dialogCamera = new Dialog(context);
+        dialogCamera.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogCamera.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_camera_ins, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+
+        dialogCamera.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogCamera.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogCamera.getWindow().setAttributes(lp);
+        dialogCamera.setCanceledOnTouchOutside(false);
+        dialogCamera.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogs(RESULT_CAMERA_IMAGE2, RESULT_SELECT_PHOTO2, "Back");
+                dialogCamera.dismiss();
+            }
+        });
+    }
+
+/*
+    private void dialogCameraInstruction() {
+
+    }
+*/
 
     private void showDialogs(final int resultCameraImage, final int resultSelectPhoto, final String from) {
         final Dialog dialog = new Dialog(context);
@@ -336,7 +427,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                values = new ContentValues();
+                //shradha for back and front capture image from camera and gallery
+                if (from.equals("Front")) {
+                    dialogCameraFront(RESULT_CAMERA_IMAGE1, RESULT_SELECT_PHOTO1, "Front");
+                } else if (from.equals("Back")) {
+                    dialogCameraFront(RESULT_CAMERA_IMAGE2, RESULT_SELECT_PHOTO2, "Back");
+                }
+
+              /*  values = new ContentValues();
                 values.put(MediaStore.Images.Media.TITLE, "New Picture");
                 values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -350,7 +448,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriBack);
                 }
                 startActivityForResult(intent, resultCameraImage);
-                // dispatchTakePictureIntent(resultCameraImage);
+              */  // dispatchTakePictureIntent(resultCameraImage);
                 dialog.dismiss();
             }
         });
@@ -426,21 +524,21 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         return image;
     }
 
-    private String getOrientation(Uri uri){
+    private String getOrientation(Uri uri) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         String orientation = "No result";
-        try{
+        try {
             String image = new File(uri.getPath()).getAbsolutePath();
             BitmapFactory.decodeFile(image, options);
             int imageHeight = options.outHeight;
             int imageWidth = options.outWidth;
-            if (imageHeight > imageWidth){
+            if (imageHeight > imageWidth) {
                 orientation = "portrait";
-            }else{
+            } else {
                 orientation = "landscape";
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             //Do nothing
         }
         return orientation;
@@ -458,10 +556,10 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 //  profileImage.setImageBitmap(selectedImage);
 
-                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){//nikita
-                    Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
+                if (getOrientation(imageUri).equalsIgnoreCase("landscape")) {//nikita
+                    Toast.makeText(AddCardActivity.this, "Landscape image", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddCardActivity.this, "Portrait image", Toast.LENGTH_SHORT).show();
                 }
 
                 // imageLoader.displayImage(String.valueOf(imageUri),imgfrontCard,displayImageOptions);
@@ -493,10 +591,10 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             frontFlag = true;
             try {
 
-                if(getOrientation(imageUriFront).equalsIgnoreCase("landscape")){//nikita
-                    Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
+                if (getOrientation(imageUriFront).equalsIgnoreCase("landscape")) {//nikita
+                    Toast.makeText(AddCardActivity.this, "Landscape image", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddCardActivity.this, "Portrait image", Toast.LENGTH_SHORT).show();
                 }
 
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUriFront);
@@ -568,10 +666,10 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
 
-                if(getOrientation(imageUri).equalsIgnoreCase("landscape")){//nikita
-                    Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
+                if (getOrientation(imageUri).equalsIgnoreCase("landscape")) {//nikita
+                    Toast.makeText(AddCardActivity.this, "Landscape image", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddCardActivity.this, "Portrait image", Toast.LENGTH_SHORT).show();
                 }
 
                 //  profileImage.setImageBitmap(selectedImage);
@@ -595,10 +693,10 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             try {
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUriBack);
 
-                if(getOrientation(imageUriBack).equalsIgnoreCase("landscape")){//nikita
-                    Toast.makeText(AddCardActivity.this,"Landscape image",Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(AddCardActivity.this,"Portrait image",Toast.LENGTH_SHORT).show();
+                if (getOrientation(imageUriBack).equalsIgnoreCase("landscape")) {//nikita
+                    Toast.makeText(AddCardActivity.this, "Landscape image", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(AddCardActivity.this, "Portrait image", Toast.LENGTH_SHORT).show();
                 }
 
                 // String imageurl = getRealPathFromURI(imageUriBack);

@@ -81,10 +81,10 @@ public class FragmentForm extends Fragment {
         l4.setUrl("medical_history_form.pdf");
         l4.setImage(R.drawable.pdf);
 
-        Links l5 = new Links();
+        /*Links l5 = new Links();
         l5.setName("Checklist for Organizing Estate Planning Docs");
         l5.setUrl("checklist_for_organizing_estate_planning_docs.pdf");
-        l5.setImage(R.drawable.pdf);
+        l5.setImage(R.drawable.pdf);*/
 
         //shradha add forms
         Links l6 = new Links();
@@ -118,6 +118,11 @@ public class FragmentForm extends Fragment {
         l11.setUrl("mylo_prescription_tracker.pdf");
         l11.setImage(R.drawable.pdf);
 
+        Links l12 = new Links();
+        l12.setName("Mind Your Loved Ones App Wallet Cards");
+        l12.setUrl("mylo_wallet_card.pdf");
+        l12.setImage(R.drawable.pdf);
+
        /* Links l9=new Links();
         l9.setName("Center for Practical Bioethics, Caring Conversations");
         l9.setUrl("http://practicalbioethics.org/programs/caring-conversations.html?jaredirect");
@@ -142,13 +147,13 @@ public class FragmentForm extends Fragment {
         // UrlList.add(l2);
         // UrlList.add(l3);
         UrlList.add(l4);
-        UrlList.add(l5);
         UrlList.add(l6);
         UrlList.add(l7);
         UrlList.add(l8);
         UrlList.add(l9);
         UrlList.add(l10);
         UrlList.add(l11);
+        UrlList.add(l12);
        /* UrlList.add(l8);
         UrlList.add(l9);
         UrlList.add(l10);

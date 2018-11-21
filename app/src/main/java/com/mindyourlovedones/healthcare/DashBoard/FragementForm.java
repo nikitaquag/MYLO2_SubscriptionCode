@@ -23,7 +23,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -48,7 +47,7 @@ import java.util.ArrayList;
 
 public class FragementForm extends Fragment implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final String dialog_items[] = {"View", "Email", "Fax"};
+    final String dialog_items[] = {"View", "Email", "User Instructions"};
     View rootview;
     ImageView imgRight;
     RecyclerView lvDoc;
@@ -122,14 +121,16 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
+        TextView txt67 = rootview.findViewById(R.id.txtPolicy67);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File."));
-        txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox . Choose the location and click Add."));
-        txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>check mark</b> on the top top right side of the screen"));
-        txt64.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>check mark</b> again."));
-        txt65.setText(Html.fromHtml("To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen."));
-        txt66.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the bar at the bottom of the screen. Click the add sign to Select the File.\n\n"));
+        txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.\n\n"));
+        txt63.setText(Html.fromHtml("If Dropbox click on the file, then click the <b>save</b> on upper right side of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>load an email attachment</b>, open attachment from your email, and click the forward button on upper right side of the screen.Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK. Enter additional data, then  click <b>Save</b>\n\n"));
+        txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
+        txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+        txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
@@ -338,9 +339,14 @@ public class FragementForm extends Fragment implements View.OnClickListener {
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Insurance Form");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "FormInstruction");
+                                startActivity(i);
                                 break;
+                          /*  case 2://fax
+                                new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
                         }
                     }
 

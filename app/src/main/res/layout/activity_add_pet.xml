@@ -36,6 +36,21 @@
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension22dp" />
 
+            <TextView
+                android:id="@+id/txtSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:text="Save"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
+
             <ImageView
                 android:id="@+id/imgDone"
                 android:layout_width="@dimen/dimension30dp"
@@ -56,10 +71,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtName"
@@ -67,9 +82,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Name"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -96,10 +111,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtBreed"
@@ -107,9 +122,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Breed / Type of Pet"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -126,10 +141,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtColor"
@@ -137,9 +152,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Color"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -156,10 +171,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtChip"
@@ -167,9 +182,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Microchip number"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -185,10 +200,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
             android:visibility="gone">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
@@ -196,9 +211,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Special Needs"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -215,10 +230,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtVeteran"
@@ -226,9 +241,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Veterinarian name, address, phone"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -245,10 +260,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtCare"
@@ -256,9 +271,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Person(s) who will care for pet (name, address, phone, email) "
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -275,10 +290,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtPetBirthDate"
@@ -286,9 +301,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Birthdate"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -305,10 +320,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
                 android:id="@+id/txtPetNote"
@@ -316,9 +331,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Notes about Pet"
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
 
                 android:textSize="@dimen/dimension20dp" />
@@ -335,10 +350,10 @@
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
             android:gravity="bottom"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
             android:visibility="gone">
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
@@ -346,9 +361,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Person(s) who will care for pet (name, address, phone, email) "
                 android:imeOptions="actionNext"
-                android:paddingBottom="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension15dp"
                 android:paddingTop="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension10dp"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -401,11 +416,12 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension60dp"
             android:layout_below="@+id/tilPetNote"
-            android:layout_marginBottom="@dimen/dimension20dp"
             android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
-            android:background="@color/colorGreen">
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:background="@color/colorGreen"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/imgAdd"

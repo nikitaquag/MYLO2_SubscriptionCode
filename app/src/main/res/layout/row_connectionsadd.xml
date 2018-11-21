@@ -23,7 +23,7 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/dimension8dp"
             android:background="@color/colorLightBlue"
-            android:src="@drawable/add_square" />
+            android:src="@drawable/plus_darkblue" />
 
         <TextView
             android:id="@+id/txtConName"

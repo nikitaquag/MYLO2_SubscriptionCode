@@ -150,8 +150,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 if (specialist) {
                     if (frs != null) {
                         frs.callUser(specialistList.get(position));
-                    }
-                    else if (physician){
+                    } else if (physician) {
                         if (fr != null) {
                             fr.callUser(specialistList.get(position));
                         }
@@ -165,8 +164,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 if (specialist) {
                     if (frs != null) {
                         frs.deleteSpecialist(specialistList.get(position));
-                    }
-                    else if (physician==true){
+                    } else if (physician == true) {
                         if (fr != null) {
                             fr.deleteSpecialist(specialistList.get(position));
                         }
@@ -175,10 +173,20 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             }
         });
 
-
+//Shradha-physician and doctor color change for profile
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhoto());
         if (imgFile.exists()) {
             imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+
+            if (specialist) {
+                if (frs != null) {
+                    holder.imgProfile.setImageResource(R.drawable.yellow);
+                } else if (physician == true) {
+                    if (fr != null) {
+                        holder.imgProfile.setImageResource(R.drawable.green);
+                    }
+                }
+            }
         } else {
             holder.imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }

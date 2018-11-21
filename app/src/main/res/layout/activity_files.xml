@@ -14,6 +14,15 @@
             android:layout_height="match_parent"
             android:visibility="gone" />
 
+        <ImageView
+            android:layout_margin="@dimen/dimension10dp"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_gravity="top|left"
+            android:background="@color/colorBlueText"
+            android:src="@drawable/back"
+            android:tint="@color/colorWhite" />
+
         <RelativeLayout
             android:id="@+id/rlBackup"
             android:layout_width="match_parent"

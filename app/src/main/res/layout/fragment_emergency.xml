@@ -10,16 +10,17 @@
         android:layout_height="@dimen/dimension60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dimension15dp"
-        android:layout_marginRight="@dimen/dimension15dp"
         android:layout_marginTop="@dimen/dimension15dp"
-        android:background="@color/colorGreen">
+        android:layout_marginRight="@dimen/dimension15dp"
+        android:background="@color/colorOne">
 
         <ImageView
             android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension60dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/adddoc" />
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:src="@drawable/addss" />
 
         <TextView
             android:id="@+id/txtAdd"
@@ -30,7 +31,8 @@
             android:text="Add Emergency Contact &amp; Proxy Agent"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <!-- <ListView
@@ -52,12 +54,14 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/llAddConn">
+        android:layout_above="@+id/llAddConn"
+        android:layout_centerInParent="true">
 
         <RelativeLayout
             android:id="@+id/rlGuide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:padding="@dimen/dimension20dp">
 
             <ImageView
@@ -65,6 +69,7 @@
                 android:layout_width="@dimen/dimension90dp"
                 android:layout_height="@dimen/dimension90dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension20dp"
                 android:src="@drawable/v_emergency" />
 
             <TextView
@@ -86,8 +91,8 @@
                 android:layout_below="@+id/txtHeader"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/ftu"
                 android:textColor="@color/colorBlue"
@@ -100,8 +105,8 @@
                 android:layout_below="@+id/txtFTU"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="You can identify as many primary and secondary emergency contacts as you want.\n\n
 If you have a Health Care Proxy add your primary agent and in case they are not available your alternate."
@@ -120,15 +125,15 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                     android:id="@+id/rel61"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension20dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension20dp">
 
                     <ImageView
                         android:id="@+id/img61"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -152,8 +157,8 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                         android:id="@+id/img62"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -177,8 +182,8 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                         android:id="@+id/img63"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -202,8 +207,8 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                         android:id="@+id/img64"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -227,8 +232,8 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                         android:id="@+id/img65"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView

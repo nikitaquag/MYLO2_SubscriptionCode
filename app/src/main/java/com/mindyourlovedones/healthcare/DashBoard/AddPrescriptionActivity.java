@@ -72,7 +72,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     ContentValues values = null;
     int userid, uniqID;
     View view1;
-    TextView txtPhotoHeader;//Shradha
+    TextView txtPhotoHeader, txtAddPhoto;//Shradha
     ImageView imgBack, imgAddDosage, imgAddPhoto, imgDone;
     ListView ListDosage, ListPhoto;
     ArrayList<Dosage> dosageList = new ArrayList<>();
@@ -143,6 +143,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgBack.setOnClickListener(this);
         imgAddDosage.setOnClickListener(this);
         imgAddPhoto.setOnClickListener(this);
+        txtAddPhoto.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         txtDate.setOnClickListener(this);
@@ -162,7 +163,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
 
     private void initUI() {
 
-        view1=findViewById(R.id.view1);//Shradha
+        view1 = findViewById(R.id.view1);//Shradha
 
         txtPhotoHeader = findViewById(R.id.txtPhotoHeader);//Shradha
         txtTitle = findViewById(R.id.txtTitle);
@@ -184,6 +185,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         imgBack = findViewById(R.id.imgBack);
         imgAddDosage = findViewById(R.id.imgAddDosage);
         imgAddPhoto = findViewById(R.id.imgAddPhoto);
+        txtAddPhoto = findViewById(R.id.txtAddPhoto);
         llAddPrescription = findViewById(R.id.llAddPrescription);
         ListDosage = findViewById(R.id.ListDosage);
         ListPhoto = findViewById(R.id.ListPhoto);
@@ -333,7 +335,8 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     private void disablePrescription() {//Shradha
         view1.setVisibility(View.GONE);//Shradha
         txtPhotoHeader.setVisibility(View.GONE);//Shradha
-        imgAddPhoto.setVisibility(View.GONE);//Shradha
+        //imgAddPhoto.setVisibility(View.GONE);//Shradha
+        txtAddPhoto.setVisibility(View.GONE);
         txtSave.setEnabled(false);//Shradha
         txtName.setEnabled(false);//Shradha
         txtDate.setEnabled(false);//Shradha
@@ -433,7 +436,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
             case R.id.imgAddDosage:
                 showInputDialog(context, null, false);
                 break;
-            case R.id.imgAddPhoto:
+            case R.id.txtAddPhoto:
                 final Dialog dialog = new Dialog(context);
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                 dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -442,9 +445,11 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 View dialogview = lf.inflate(R.layout.dialog_gender, null);
                 final TextView textOption1 = dialogview.findViewById(R.id.txtOption1);
                 final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
+                final TextView textOption3 = dialogview.findViewById(R.id.txtOption3);
                 TextView textCancel = dialogview.findViewById(R.id.txtCancel);
                 textOption1.setText("Take Picture");
                 textOption2.setText("Gallery");
+                textOption3.setText("Remove Picture");
                 dialog.setContentView(dialogview);
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -479,6 +484,27 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                         photoPickerIntent.setType("image/*");
                         startActivityForResult(photoPickerIntent, RESULT_SELECT_PHOTO);
+                        dialog.dismiss();
+                    }
+                });
+                //shradha:Code for remove picture.
+                textOption3.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!imageList.isEmpty()) {
+
+                            int i = imageList.size() - 1;
+                            PrescribeImage a = imageList.get(i);
+                            boolean flag = PrescribeImageQuery.deleteRecords(a.getUserid(), a.getPreid());
+                            if (flag == true) {
+                                Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                imageList.remove(a);
+                                setImageListData();
+                                ListPhoto.requestFocus();
+                            } else {
+                                Toast.makeText(context, "Record not found", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         dialog.dismiss();
                     }
                 });

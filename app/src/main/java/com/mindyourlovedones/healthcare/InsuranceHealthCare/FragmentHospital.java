@@ -23,6 +23,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
+import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -45,7 +46,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentHospital extends Fragment implements View.OnClickListener {
-    final String dialog_items[] = {"View", "Email", "Fax"};
+    final String dialog_items[] = {"View", "Email", "User Instructions"};
     ImageView imgRight;
     View rootview;
     RecyclerView lvHospital;
@@ -103,12 +104,12 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
 
         //shradha
-        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
-        txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
-        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
-        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
-        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
-        txt66.setText(Html.fromHtml("To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card."));
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load the data.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+        txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
 
 
         /*rlMsg=rootview.findViewById(R.id.rlMsg);
@@ -323,9 +324,14 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "HospitalInstruction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
                         }
                     }
 

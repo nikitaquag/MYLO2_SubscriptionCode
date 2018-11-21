@@ -20,7 +20,7 @@ import com.mindyourlovedones.healthcare.utility.Preferences;
 public class AddPetActivity extends AppCompatActivity {
     public static final int REQUEST_PET = 400;
     Context context = this;
-    TextView txtTitle, txtAdd;
+    TextView txtTitle, txtAdd,txtSave;
     TextView txtName, txtBreed, txtColor, txtChip, txtVeterian, txtCare, txtPetBirthDate, txtPetNotes;
     String name = "", breed = "", color = "", veterain = "", care = "", chip = "", bdate = "", notes = "";
     ImageView imgBack, imgDone;
@@ -51,6 +51,7 @@ public class AddPetActivity extends AppCompatActivity {
         imgBack = findViewById(R.id.imgBack);
         imgDone = findViewById(R.id.imgDone);
         llAddConn = findViewById(R.id.llAddConn);
+        txtSave = findViewById(R.id.txtSave);
         txtTitle = findViewById(R.id.txtTitle);
         txtAdd = findViewById(R.id.txtAdd);
         txtName = findViewById(R.id.txtName);
@@ -106,7 +107,7 @@ public class AddPetActivity extends AppCompatActivity {
                 finish();
             }
         });
-        llAddConn.setOnClickListener(new View.OnClickListener() {
+        txtSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 name = txtName.getText().toString();

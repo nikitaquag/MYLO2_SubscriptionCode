@@ -72,10 +72,10 @@ public class ChecklistActivity extends AppCompatActivity {
         l4.setUrl("medical_history_form.pdf");
         l4.setImage(R.drawable.pdf);
 
-        Links l5 = new Links();
+       /* Links l5 = new Links();
         l5.setName("Checklist for Organizing Estate Planning Docs");
         l5.setUrl("checklist_for_organizing_estate_planning_docs.pdf");
-        l5.setImage(R.drawable.pdf);
+        l5.setImage(R.drawable.pdf);*/
        /* Links l6=new Links();
         l6.setName("American Health Lawyers Association, Loving Conversations");
         l6.setUrl("https://www.healthlawyers.org/Pages/PageNotFoundError.aspx?requestUrl=https://www.healthlawyers.org/hlresources/PI/InfoSeries/Pages/LovingConversations.aspx");
@@ -115,7 +115,7 @@ public class ChecklistActivity extends AppCompatActivity {
         // UrlList.add(l2);
         // UrlList.add(l3);
         UrlList.add(l4);
-        UrlList.add(l5);
+       // UrlList.add(l5);
         //UrlList.add(l6);
        /* UrlList.add(l7);
         UrlList.add(l8);

@@ -36,7 +36,7 @@
                 android:layout_height="@dimen/dimension55dp"
                 android:layout_centerHorizontal="true"
                 android:scaleType="fitXY"
-                android:src="@drawable/circular_profile"
+                android:src="@drawable/ic_profiles"
                 android:visibility="gone" />
 
             <TextView
@@ -211,7 +211,7 @@
                                 android:layout_centerHorizontal="true"
 
                                 android:scaleType="fitXY"
-                                android:src="@drawable/ic_contacts" />
+                                android:src="@drawable/ic_contactss" />
 
                             <TextView
                                 android:id="@+id/txtEmergencyContact"
@@ -257,8 +257,7 @@
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
-                                android:src="@drawable/careplans"
-
+                                android:src="@drawable/careplanss"
                                 />
 
                             <TextView
@@ -322,8 +321,7 @@
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
                                 android:scaleType="fitXY"
-
-                                android:src="@drawable/speci" />
+                                android:src="@drawable/specii" />
 
                             <TextView
                                 android:id="@+id/txtSpecialist"
@@ -370,8 +368,7 @@
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
                                 android:scaleType="fitXY"
-
-                                android:src="@drawable/cardss" />
+                                android:src="@drawable/cardsss" />
 
                             <TextView
                                 android:id="@+id/txtInsuranceCard"
@@ -426,7 +423,7 @@
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/events" />
+                                android:src="@drawable/eventss" />
 
                             <TextView
                                 android:id="@+id/txtEmergencyEvent"
@@ -473,7 +470,7 @@
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/treat" />
+                                android:src="@drawable/rx_color" />
 
                             <TextView
                                 android:id="@+id/txtPrescription"

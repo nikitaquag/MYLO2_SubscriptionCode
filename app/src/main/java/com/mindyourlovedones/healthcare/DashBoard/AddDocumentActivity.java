@@ -1,8 +1,10 @@
 
 package com.mindyourlovedones.healthcare.DashBoard;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +18,11 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -158,7 +164,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         rlDocType = findViewById(R.id.rlDocType);
         spinnerType = findViewById(R.id.spinnerType);
 
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txtHosp = findViewById(R.id.txtHosp);
         txtLocator = findViewById(R.id.txtLocator);
@@ -619,7 +625,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
             case R.id.imgAdd:
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(AddDocumentActivity.this);
+                DirectiveDialog();
+
+               /* AlertDialog.Builder builder = new AlertDialog.Builder(AddDocumentActivity.this);
 
                 builder.setTitle("");
                 builder.setItems(alert_items, new DialogInterface.OnClickListener() {
@@ -645,7 +653,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
                 builder.create().show();
 
-
+*/
                 break;
 
             case R.id.imgDot:
@@ -767,6 +775,99 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
         }
     }
+
+    private void DirectiveDialog() {
+        final Dialog dialogDirective = new Dialog(context);
+        dialogDirective.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogDirective.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_directives, null);
+        final TextView txtPhoneStorage = dialogview.findViewById(R.id.txtPhoneStorage);
+        final TextView txtDropbox = dialogview.findViewById(R.id.txtDropbox);
+        final TextView txtEmail = dialogview.findViewById(R.id.txtEmail);
+        final TextView txtCancel = dialogview.findViewById(R.id.txtCancel);
+
+        dialogDirective.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogDirective.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER_VERTICAL | Gravity.BOTTOM;
+        dialogDirective.getWindow().setAttributes(lp);
+        dialogDirective.setCanceledOnTouchOutside(false);
+        dialogDirective.show();
+
+        txtPhoneStorage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, DocumentSdCardList.class);
+                startActivityForResult(i, RESULTCODE);
+            }
+        });
+
+
+        txtDropbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DropboxLoginActivity.class);
+                intent.putExtra("FROM", "Document");
+                startActivityForResult(intent, RQUESTCODE);
+            }
+        });
+        txtEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showEmailInsDialog();
+            }
+        });
+        txtCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogDirective.dismiss();
+            }
+        });
+
+
+    }
+    private void showEmailInsDialog() {
+        final Dialog dialogEmail = new Dialog(context);
+        dialogEmail.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogEmail.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_email, null);
+        final TextView txtIns = dialogview.findViewById(R.id.txtIns);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+
+        dialogEmail.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogEmail.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0,0,0,10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogEmail.getWindow().setAttributes(lp);
+        dialogEmail.setCanceledOnTouchOutside(false);
+        dialogEmail.show();
+
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogEmail.dismiss();
+            }
+        });
+    }
+
+
 
     private String copydb(String originPath, String name) {
 

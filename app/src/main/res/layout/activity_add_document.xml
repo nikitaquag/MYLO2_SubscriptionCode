@@ -46,22 +46,23 @@
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension22dp" />
+
             <TextView
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
                 android:layout_marginRight="@dimen/dimension5dp"
-                android:text="Save"
-                android:textSize="@dimen/dimension20dp"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
+                android:gravity="center_vertical"
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                />
+                android:text="Save"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold" />
 
 
             <ImageView

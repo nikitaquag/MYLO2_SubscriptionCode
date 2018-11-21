@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_border"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtCameraIns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Camera Guidelines"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension22dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtCameraInss"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Please Click image in Horizontal/Landscape mode for better result."
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/txtDelProfile"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtOk"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="OK"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

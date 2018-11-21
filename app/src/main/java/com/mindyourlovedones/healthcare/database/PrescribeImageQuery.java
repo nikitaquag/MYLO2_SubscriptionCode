@@ -226,4 +226,17 @@ public class PrescribeImageQuery {
 
         return true;
     }
+
+    public static boolean deleteRecords(int id,int preid) {
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';", null);
+
+        if (c.moveToFirst()) {
+            do {
+                db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
+            } while (c.moveToNext());
+        }
+
+        return true;
+    }
 }

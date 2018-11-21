@@ -28,7 +28,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -49,7 +48,7 @@ import java.util.Date;
 
 public class EventNoteActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Note> noteList = new ArrayList<>();
@@ -57,7 +56,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     RelativeLayout rlGuide;
     Preferences preferences;
     DBHelper dbHelper;
-    TextView txtMsg, txtFTU;
+    TextView txtMsg, txtFTU,txtAdd;
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
 
@@ -72,7 +71,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void initListener() {
-        imgAdd.setOnClickListener(this);
+        txtAdd.setOnClickListener(this);
+        //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         //txtDateTime.setOnClickListener(this);
@@ -96,11 +96,13 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
         TextView txt63 = findViewById(R.id.txtPolicy63);
+        TextView txt64 = findViewById(R.id.txtPolicy64);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To add a note click plus box at the top right of the screen.  Once completed click Add.  The note is automatically saved."));
-        txt62.setText(Html.fromHtml("To <b>edit</b> the note  click the picture of the pencil to the right of the screen.To save your edits click the check mark at the top right of the screen. To <b>delete</b> the event note swipe (right to left) and click the garbage can or inside viewing note click the garbage can at the bottom of the screen."));
-        txt63.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the upper right side of the screen."));
+        //shradha
+        txt61.setText(Html.fromHtml("To add a note click on add button at the top right of the screen. Once completed click Add. The note is automatically saved.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>edit</b> the note click the picture of the pencil to the right of the screen. To save your edits click the <b>SAVE</b> at the top right of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>delete</b> the note click the garbage can at the bottom of the screen or <b>delete</b> the entry , left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n "));
 
         txtFTU = findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +118,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorFour);
         imgBack = findViewById(R.id.imgBack);
+
+        txtAdd = findViewById(R.id.txtAdd);
         imgAdd = findViewById(R.id.imgAdd);
         imgRight = findViewById(R.id.imgRight);
         //imgEdit= (ImageView) findViewById(R.id.imgEdit);
@@ -299,7 +303,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 hideSoftKeyboard();
                 finish();
                 break;
-            case R.id.imgAdd:
+            case R.id.txtAdd:
                 showInputDialog(context);
                 break;
 
@@ -367,9 +371,14 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Event Note");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(context, path).show();
+                            case 2://FTU
+                                Intent i = new Intent(context, InstructionActivity.class);
+                                i.putExtra("From", "EventNotesInstuction");
+                                startActivity(i);
                                 break;
+                           /* case 2://fax
+                                new FaxCustomDialog(context, path).show();
+                                break;*/
 
                         }
                     }

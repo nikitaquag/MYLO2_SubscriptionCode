@@ -1,6 +1,8 @@
 package com.mindyourlovedones.healthcare.InsuranceHealthCare;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,7 +14,11 @@ import android.os.Environment;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -81,13 +87,13 @@ import java.util.ArrayList;
 public class SpecialistsActivity extends AppCompatActivity {
     final static String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
     // final CharSequence[] dialog_items = {"Print", "Fax", "View" };
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     String[] specialist;
     int[] profile;
     ListView listSpeciallist;
     ImageView imgBack, imgRight;
-    TextView txtTitle;
+    TextView txtTitle, txtUser;
     String from;
     boolean isEmergency, isInsurance;
     RelativeLayout header;
@@ -108,6 +114,7 @@ public class SpecialistsActivity extends AppCompatActivity {
         databases();
         Intent i = getIntent();
         txtTitle = findViewById(R.id.txtTitle);
+        txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
         txtName = findViewById(R.id.txtName);
         txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -116,18 +123,19 @@ public class SpecialistsActivity extends AppCompatActivity {
             from = i.getExtras().getString("FROM");
             if (from.equals("Speciality")) {
                 txtTitle.setText("SPECIALITY CONTACTS");
-
+                txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 header.setBackgroundResource(R.color.colorThree);
                 profile = new int[]{R.drawable.physician, R.drawable.hosp_icon, R.drawable.pharmacies, R.drawable.finances};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS", "HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "FINANCE & LEGAL"};
+                specialist = new String[]{"DOCTORS AND OTHER HEALTH CARE PROFESSIONALS", "HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES", "PHARMACIES AND HOME\nMEDICAL EQUIPMENT", "FINANCE, LEGAL, OTHER"};
 
                 isEmergency = false;
                 isInsurance = false;
             } else if (from.equals("Emergency")) {
                 // imgRight.setVisibility(View.GONE);
+                txtUser.setVisibility(View.VISIBLE);
                 txtTitle.setText("PERSONAL & MEDICAL PROFILE & EMERGENCY CONTACTS");
                 header.setBackgroundResource(R.color.colorOne);
                 isEmergency = true;
@@ -140,13 +148,15 @@ public class SpecialistsActivity extends AppCompatActivity {
 */
             } else if (from.equals("Insurance")) {
                 //  imgRight.setVisibility(View.VISIBLE);
+                txtUser.setVisibility(View.GONE);
                 txtTitle.setText("INSURANCE");
                 header.setBackgroundResource(R.color.colorFive);
-                profile = new int[]{R.drawable.finances, R.drawable.insurancess, R.drawable.finances};
+                profile = new int[]{R.drawable.finances, R.drawable.cardd, R.drawable.finances};
                 specialist = new String[]{"INSURANCE INFORMATION", "INSURANCE CARDS", "INSURANCE FORMS"};
                 isEmergency = false;
                 isInsurance = true;
             } else if (from.equals("Event")) {
+                txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 txtTitle.setText("NOTES & APPOINTMENT CHECKLIST");
                 header.setBackgroundResource(R.color.colorFour);
@@ -418,9 +428,9 @@ public class SpecialistsActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int itemPos) {
 
                         switch (itemPos) {
-                        /*    case 0: // email
+                            /*    case 0: // email
 
-                       *//* emailAttachement(item);
+                             *//* emailAttachement(item);
 
                         ShearedValues.activityID = getApplicationContext();*//*
                                 break;
@@ -534,33 +544,42 @@ public class SpecialistsActivity extends AppCompatActivity {
 
                             case 2://Fax
                                 if (from.equals("Speciality")) {
-                                    serverAttachement(Environment.getExternalStorageDirectory()
+                                    showInstructionDialog();
+                                    //Commented by shradha for user instructions
+                                  /*  serverAttachement(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/"
-                                            + "/Specialty.pdf");
+                                            + "/Specialty.pdf");*/
+
                                   /*  File f =new File(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/" 
                                             + "/Specialty.pdf");
                                     emailAttachement(f);*/
                                 } else if (from.equals("Emergency")) {
-                                    serverAttachement(Environment.getExternalStorageDirectory()
+                                    showInstructionDialog();
+                                   /* serverAttachement(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/"
-                                            + "/Profile.pdf");
+                                            + "/Profile.pdf");*/
+
                                   /*  File f =new File(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/" 
                                             + "/Profile.pdf");
                                     emailAttachement(f);*/
                                 } else if (from.equals("Insurance")) {
-                                    serverAttachement(Environment.getExternalStorageDirectory()
+                                    showInstructionDialog();
+                                   /* serverAttachement(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/"
-                                            + "/Insurance.pdf");
+                                            + "/Insurance.pdf");*/
+
                                     /*File f =new File(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/" 
                                             + "/Insurance.pdf");*/
                                     // emailAttachement(f);
                                 } else if (from.equals("Event")) {
-                                    serverAttachement(Environment.getExternalStorageDirectory()
+                                    showInstructionDialog();
+                                   /* serverAttachement(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/"
-                                            + "/Event.pdf");
+                                            + "/Event.pdf");*/
+
                                   /*  File f =new File(Environment.getExternalStorageDirectory()
                                             + "/mylopdf/" 
                                             + "/Event.pdf");
@@ -578,6 +597,51 @@ public class SpecialistsActivity extends AppCompatActivity {
             }
         });
     }
+
+    @SuppressLint("ResourceAsColor")
+    private void showInstructionDialog() {
+        final Dialog dialogInstruction = new Dialog(context);
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_user_instruction, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+
+        dialogInstruction.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogInstruction.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogInstruction.getWindow().setAttributes(lp);
+        dialogInstruction.setCanceledOnTouchOutside(false);
+        dialogInstruction.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+    }
+
+/*
+    private void showInstructionDialog() {
+        final Dialog dialogInstruction=new Dialog(context);
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.setContentView(R.layout.dialog_user_instruction);
+        TextView txtOk=dialogInstruction.findViewById(R.id.txtOk);
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
+        dialogInstruction.show();
+    }
+*/
 
     private void serverAttachement(String path) {
         System.out.println("Path of the file    " + path);

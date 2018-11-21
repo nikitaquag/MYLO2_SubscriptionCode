@@ -21,7 +21,24 @@
                 android:layout_height="@dimen/dimension80dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true">
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txtDrawer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:drawableBottom="@drawable/ic_menus"
+                    android:gravity="center"
+                    android:text="menu"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14dp"
+                    android:textStyle="normal" />
 
                 <ImageView
                     android:id="@+id/imgDrawer"
@@ -29,7 +46,9 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension15dp"
-                    android:src="@drawable/ic_menus" />
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:padding="@dimen/dimension3dp"
+                    android:visibility="gone"/>
 
                 <ImageView
                     android:id="@+id/imgPdf"
@@ -43,13 +62,13 @@
 
                 <ImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="@dimen/dimension75dp"
-                    android:layout_height="@dimen/dimension75dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_centerInParent="true"
                     android:layout_marginBottom="@dimen/dimension2dp"
                     android:layout_marginTop="@dimen/dimension2dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_profile_defaults" />
+                    android:src="@drawable/ic_profiles" />
 
                 <TextView
                     android:id="@+id/txtName"
@@ -74,14 +93,36 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/imgR"
+                    android:layout_width="@dimen/dimension10dp"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension30dp"
+                    android:layout_toLeftOf="@+id/imgRight"
+                    android:src="@drawable/rr"
+                    android:tint="@color/colorWhite"
+                    android:visibility="visible"/>
+
+                <ImageView
                     android:id="@+id/imgNoti"
-                    android:layout_width="@dimen/dimension120dp"
-                    android:layout_height="@dimen/dimension100dp"
+                    android:layout_width="@dimen/dimension80dp"
+                    android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:padding="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    android:layout_toLeftOf="@+id/imgRight"
                     android:src="@drawable/aba" />
+
+                <ImageView
+                    android:id="@+id/imgRight"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/menudot"
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgLogo"

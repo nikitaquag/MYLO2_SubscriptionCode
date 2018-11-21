@@ -47,10 +47,10 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
             String fragment = i.getExtras().getString("FRAGMENT");
             switch (fragment) {
                 case "Individual":
-                    //  callFragment("INDIVIDUAL", fragmentIndividualContact);
-                    // imgRight.setVisibility(View.VISIBLE);
-                    // Intent intent=new Intent(context,ProfileActivity.class);
-                    //  startActivity(intent);
+                     /* callFragment("INDIVIDUAL", fragmentIndividualContact);
+                     imgRight.setVisibility(View.VISIBLE);
+                     Intent intent=new Intent(context,ProfileActivity.class);
+                      startActivity(intent);*/
                     break;
                 case "Information":
                     callFragment("INFORMATION", fragmentMedicalInfo);

@@ -10,16 +10,17 @@
         android:layout_height="@dimen/dimension60dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/dimension15dp"
-        android:layout_marginRight="@dimen/dimension15dp"
         android:layout_marginTop="@dimen/dimension15dp"
-        android:background="@color/colorGreen">
+        android:layout_marginRight="@dimen/dimension15dp"
+        android:background="@color/colorFive">
 
         <ImageView
             android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension60dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/adddoc" />
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:src="@drawable/addss" />
 
         <TextView
             android:id="@+id/txtAdd"
@@ -30,7 +31,8 @@
             android:text="Add Insurance Card"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension24dp" />
+            android:padding="@dimen/dimension5dp"
+            android:textSize="@dimen/dimension20dp" />
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -100,8 +102,8 @@
                 android:layout_below="@+id/txtHeader"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/ftu"
                 android:textColor="@color/colorBlue"
@@ -114,8 +116,8 @@
                 android:layout_below="@+id/txtFTU"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="Take pictures of insurance cards and eliminate the need to rummage through your wallet or your loved one’s wallet."
                 android:textColor="@color/colorGuide"
@@ -133,15 +135,15 @@
                     android:id="@+id/rel61"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension20dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension20dp">
 
                     <ImageView
                         android:id="@+id/img61"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -165,8 +167,8 @@
                         android:id="@+id/img62"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -190,8 +192,8 @@
                         android:id="@+id/img63"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -215,8 +217,8 @@
                         android:id="@+id/img64"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -240,8 +242,8 @@
                         android:id="@+id/img65"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -265,8 +267,8 @@
                         android:id="@+id/img66"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -290,8 +292,8 @@
                         android:id="@+id/img67"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView

@@ -25,7 +25,6 @@ import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.ConnectionAdapter;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -48,7 +47,7 @@ import java.util.ArrayList;
 
 public class FragmentEmergency extends Fragment implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "Fax"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     ImageView imgRight;
     View rootview;
     RecyclerView lvEmergency;//Changes done by nikita on 18/6/18
@@ -114,7 +113,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
 //                "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
 //        txtMsg.setText(Html.fromHtml(msg));
 
-        //nikita
+        //shradha
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -122,12 +121,18 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
 
-        //nikita
-        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen."));
+        //shradha
+      /*  txt61.setText(Html.fromHtml("To add information click the green bar at the bottom of the screen. If the person is in your Contacts click the gray bar on the top right side of your screen."));
         txt62.setText(Html.fromHtml("To <b>save</b> information click the green bar at the bottom of the screen."));
         txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil.</b> To save your edits click the <b>green bar</b> at the bottom of the screen."));
         txt64.setText(Html.fromHtml("To <b>make an automated telephone call</b> or <b>delete</b> the entry <b>swipe right to left</b> the arrow symbol on the right side."));
         txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
+*/
+        txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
+        txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+        txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry left <b>swipe right to left</b> the arrow symbol on the right side.\n\n"));
+        txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
@@ -427,10 +432,15 @@ emergencyList=new ArrayList<>();
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Emergency Contact");
                                 break;
-                            case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
-                                break;
+                           /* case 2://Fax
 
+                               // new FaxCustomDialog(getActivity(), path).show();
+                                break;*/
+                            case 2://FTU
+                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                                i.putExtra("From", "EmergencyInstuction");
+                                startActivity(i);
+                                break;
                         }
                     }
 
@@ -439,7 +449,10 @@ emergencyList=new ArrayList<>();
                 break;
 
         }
+
+
     }
+
 
    /* private void emailAttachement(File f) {
         Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
