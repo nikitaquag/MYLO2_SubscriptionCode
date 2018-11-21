@@ -5,6 +5,18 @@
     android:layout_height="match_parent"
     tools:context="com.mindyourlovedones.healthcare.DashBoard.EventNoteActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/floatb"
+        tools:targetApi="lollipop" />
+
     <RelativeLayout
         android:id="@+id/rlEvent"
         android:layout_width="match_parent"
@@ -14,8 +26,8 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension70dp"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@color/colorBlue">
 
@@ -39,29 +51,30 @@
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
-<!--
-            <ImageView
-                android:id="@+id/imgAdd"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimension10dp"
-                android:layout_toLeftOf="@+id/imgRight"
-                android:src="@drawable/add_white_square" />
--->
+            <!--
+                        <ImageView
+                            android:id="@+id/imgAdd"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:layout_toLeftOf="@+id/imgRight"
+                            android:src="@drawable/add_white_square" />
+            -->
 
             <TextView
                 android:id="@+id/txtAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add"
-                android:textSize="@dimen/dimension20dp"
-                android:textStyle="bold"
-                android:gravity="center"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_toLeftOf="@+id/imgRight"
-                android:textColor="@color/colorWhite"/>
+                android:gravity="center"
+                android:text="Add"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/imgRight"
                 android:layout_width="@dimen/dimension40dp"
@@ -120,8 +133,8 @@
                 android:layout_below="@+id/txtHeader"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/ftu"
                 android:textColor="@color/colorBlue"
@@ -134,8 +147,8 @@
                 android:layout_below="@+id/txtFTU"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="Store information as it happens for easy reference."
                 android:textColor="@color/colorGuide"
@@ -144,12 +157,11 @@
         </RelativeLayout>
 
         <ScrollView
-            android:visibility="gone"
             android:id="@+id/scrollvw"
-            android:layout_below="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:layout_below="@+id/header"
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/rlGuide2"
@@ -186,8 +198,8 @@
                     android:layout_below="@+id/txtHeader2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:gravity="center_horizontal"
                     android:text="@string/ftu"
                     android:textColor="@color/colorBlue"
@@ -200,8 +212,8 @@
                     android:layout_below="@+id/txtFTU2"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:gravity="center_horizontal"
                     android:text="Store information as it happens for easy reference."
                     android:textColor="@color/colorGuide"
@@ -209,116 +221,116 @@
                     android:visibility="gone" />
 
 
-
-            <RelativeLayout
-                android:layout_below="@+id/txtMsg2"
-                android:id="@+id/relMsg"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="visible">
-
                 <RelativeLayout
-                    android:id="@+id/rel61"
+                    android:id="@+id/relMsg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension20dp">
+                    android:layout_below="@+id/txtMsg2"
+                    android:visibility="visible">
 
-                    <ImageView
-                        android:id="@+id/img61"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:src="@drawable/bullet4" />
-
-                    <TextView
-                        android:id="@+id/txtPolicy61"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel61"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img61"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel62"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel61"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img61"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img62"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy61"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img61"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy62"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel62"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img62"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel61"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel63"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel62"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img62"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img63"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy62"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img62"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy63"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel63"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img63"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
+                        android:layout_below="@+id/rel62"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                </RelativeLayout>
-                <RelativeLayout
-                    android:id="@+id/rel64"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel63"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img63"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img64"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy63"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img63"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
 
-                    <TextView
-                        android:id="@+id/txtPolicy64"
-                        android:layout_width="wrap_content"
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rel64"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img64"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
+                        android:layout_below="@+id/rel63"
+                        android:layout_marginBottom="@dimen/dimension20dp">
+
+                        <ImageView
+                            android:id="@+id/img64"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
+
+                        <TextView
+                            android:id="@+id/txtPolicy64"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img64"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+
+                    </RelativeLayout>
 
                 </RelativeLayout>
-
-            </RelativeLayout>
             </RelativeLayout>
         </ScrollView>
     </RelativeLayout>

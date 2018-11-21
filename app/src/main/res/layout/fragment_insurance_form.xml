@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorLightBlue"
-
     android:paddingBottom="@dimen/dimension10dp">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llAddDoc"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/floatb"
+        tools:targetApi="lollipop" />
 
     <TextView
         android:id="@+id/txtdocuments"
@@ -301,10 +313,10 @@
             android:layout_height="@dimen/dimension60dp"
             android:layout_toRightOf="@+id/imgAdd"
             android:gravity="center"
+            android:padding="@dimen/dimension5dp"
             android:text="Add Insurance Form"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
-            android:padding="@dimen/dimension5dp"
             android:textSize="@dimen/dimension20dp" />
 
     </RelativeLayout>

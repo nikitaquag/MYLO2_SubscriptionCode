@@ -7,6 +7,17 @@
     android:paddingBottom="@dimen/dimension15dp"
     tools:context="com.mindyourlovedones.healthcare.DashBoard.PrescriptionActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llAddPrescription"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/floatb"
+        tools:targetApi="lollipop" />
+
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
