@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,6 +29,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -67,6 +69,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     TextView txtHeader, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +109,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         llAddDoc.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     /*  lvNote.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
@@ -114,6 +118,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
       lvNote.setMenuCreator(creator);*/
     private void initUI() {
         //nikita
+        floatProfile = findViewById(R.id.floatProfile);
+
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
@@ -508,6 +514,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                startActivity(intentDashboard);
+                break;
 
             case R.id.imgBack:
                 finish();

@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.LivingQuery;
@@ -45,13 +47,14 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     RelativeLayout rlLiving;
     ImageView imgBack, imgDone, imgRight, imgInfo;
     Preferences preferences;
-    TextView txtTitle, txtName,txtSave;
+    TextView txtTitle, txtName, txtSave;
     DBHelper dbHelper;
     ImageView imgInfoF, imgInfoI;
     EditText etOtherFunction, etFunctionalNote, etOtherInstrument, etInstrumentalNote;
     ToggleButton tbAlert, tbComputer, tbRemote, tbFinances, tbPreparing, tbShopping, tbUsing, tbBathing, tbContinence, tbDressing, tbfeed, tbToileting, tbTranfering, tbTransport, tbPets, tbDriving, tbKeeping, tbMedication;
     String alert = "NO", computer = "NO", remote = "NO", eating = "NO", finance = "NO", prepare = "NO", shop = "NO", use = "NO", bath = "NO", continence = "NO", dress = "NO", feed = "NO", toileting = "NO", transfer = "NO", transport = "NO", pets = "NO", drive = "NO", keep = "NO", medication = "NO";
     String functionnote = "", fouctionOther = "", instaOther = "", instaNote = "";
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +68,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initListener() {
         txtSave.setOnClickListener(this);
-
+        floatProfile.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgInfoF.setOnClickListener(this);
@@ -94,6 +97,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initUI() {
+        floatProfile = findViewById(R.id.floatProfile);
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +138,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("ACTIVITIES OF DAILY\nLIVING");
 
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
         txtSave.setVisibility(View.VISIBLE);
 
         imgBack = findViewById(R.id.imgBack);
@@ -349,6 +353,12 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgInfoF:
                 String msg = "<b>Bathing.</b> <i>The ability to clean oneself and perform grooming activities like shaving and brushing teeth.</i>  <br><br>" +
                         "<b>Dressing.</b> <i> The ability to get dressed by oneself without struggling with buttons and zippers.</i><br><br>" +

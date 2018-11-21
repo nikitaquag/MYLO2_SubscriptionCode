@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -56,9 +58,10 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     RelativeLayout rlGuide;
     Preferences preferences;
     DBHelper dbHelper;
-    TextView txtMsg, txtFTU,txtAdd;
+    TextView txtMsg, txtFTU, txtAdd;
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,13 +78,14 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
         //txtDateTime.setOnClickListener(this);
 
     }
 
     private void initUI() {
         scrollvw = findViewById(R.id.scrollvw);
-
+        floatProfile = findViewById(R.id.floatProfile);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To add a note click plus box " +
 //                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
@@ -299,6 +303,12 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgBack:
                 hideSoftKeyboard();
                 finish();
