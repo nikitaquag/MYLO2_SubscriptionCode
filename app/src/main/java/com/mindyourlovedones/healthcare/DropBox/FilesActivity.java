@@ -21,6 +21,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -96,6 +97,14 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
         setContentView(R.layout.activity_files);
         rlBackup = findViewById(R.id.rlBackup);
         RecyclerView recyclerView = findViewById(R.id.files_list);
+
+        ImageView imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         String from = preferences.getString(PrefConstants.STORE);
         if (from.equals("Document") || from.equals("Restore")) {

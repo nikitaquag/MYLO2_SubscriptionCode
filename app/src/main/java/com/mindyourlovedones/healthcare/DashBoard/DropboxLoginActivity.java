@@ -2,6 +2,7 @@ package com.mindyourlovedones.healthcare.DashBoard;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,11 +30,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dropbox.core.android.Auth;
+import com.dropbox.core.v2.files.ListFolderResult;
+import com.dropbox.core.v2.files.Metadata;
 import com.dropbox.core.v2.users.FullAccount;
 import com.mindyourlovedones.healthcare.DropBox.DropboxActivity;
 import com.mindyourlovedones.healthcare.DropBox.DropboxClientFactory;
-import com.mindyourlovedones.healthcare.DropBox.FilesActivity;
 import com.mindyourlovedones.healthcare.DropBox.GetCurrentAccountTask;
+import com.mindyourlovedones.healthcare.DropBox.ListFolderTask;
 import com.mindyourlovedones.healthcare.DropBox.UnZipTask;
 import com.mindyourlovedones.healthcare.DropBox.ZipListner;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
@@ -181,7 +184,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 startActivity(i);
             }
         });
-        txtName = findViewById(R.id.txtLogin);
+        txtName = findViewById(R.id.txtLoginPerson);
         //  txtFile = findViewById(R.id.txtfile);
         txtBackup2 = findViewById(R.id.txtBackup2);
         txtBackup2.setMovementMethod(LinkMovementMethod.getInstance());
@@ -291,7 +294,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     preferences.putString(PrefConstants.STORE, "Restore");
                     preferences.putString(PrefConstants.TODO, todo);
                     preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                    loadDropboxData();
                 } else {
                     Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
                 }
@@ -308,7 +312,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 if (prefs.contains("access-token")) {
                     preferences.putString(PrefConstants.STORE, "Backup");
                     preferences.putString(PrefConstants.TODO, todo);
-                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                    loadDropboxData();
                 } else {
                     Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
                 }
@@ -438,25 +443,27 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     preferences.putString(PrefConstants.STORE, "Restore");
                     preferences.putString(PrefConstants.TODO, todo);
                     preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                 }else if(Fun_Type==1){
                     Fun_Type=4;
                     preferences.putString(PrefConstants.STORE, "Backup");
                     preferences.putString(PrefConstants.TODO, todo);
-                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                 }else{
 
                 }
 
 
-//                String value = "You have Logged in with " + result.getName().getDisplayName();
-//                txtName.setText(value);
+                String value = "You have Logged in as " + result.getName().getDisplayName() + " in dropbox.";
+                txtName.setText(value);
 //                btnLogin.setText("Login With Different User");
 
                 //  Toast.makeText(DropboxLoginActivity.this,,Toast.LENGTH_SHORT).show();
                 /*((TextView) findViewById(R.id.email_text)).setText(result.getEmail());
                 ((TextView) findViewById(R.id.name_text)).setText(result.getName().getDisplayName());
                 ((TextView) findViewById(R.id.type_text)).setText(result.getAccountType().name());*/
+
+                loadDropboxData();
             }
 
             @Override
@@ -464,6 +471,82 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 Log.e(getClass().getName(), "Failed to get account details.", e);
             }
         }).execute();
+    }
+
+    private void loadDropboxData() {
+
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(false);
+        dialog.setMessage("Please wait...");
+        dialog.show();
+
+        new ListFolderTask(DropboxClientFactory.getClient(), new ListFolderTask.Callback() {
+            @Override
+            public void onDataLoaded(ListFolderResult result) {
+                dialog.dismiss();
+                ArrayList<Metadata> resultList = new ArrayList<Metadata>();
+                for (int i = 0; i < result.getEntries().size(); i++) {
+                    if (preferences.getString(PrefConstants.STORE).equals("Document")) {
+                        if (result.getEntries().get(i).getName().endsWith(".pdf")) {
+                            // if (result.getEntries().get(i).getName().endsWith(".pdf")||result.getEntries().get(i).getName().endsWith(".db")) {
+                            resultList.add(result.getEntries().get(i));
+                        }
+                    } else if (preferences.getString(PrefConstants.STORE).equals("Restore")) {
+                        if (result.getEntries().get(i).getName().endsWith(".zip")) {
+                            if (preferences.getString(PrefConstants.TODOWHAT).equals("Import")) {
+                                if (result.getEntries().get(i).getName().equals("MYLO.zip")) {
+
+                                } else {
+                                    resultList.add(result.getEntries().get(i));
+                                }
+                            } else {
+                                if (result.getEntries().get(i).getName().equals("MYLO.zip")) {
+                                    resultList.add(result.getEntries().get(i));
+                                }
+                            }
+                            // if (result.getEntries().get(i).getName().endsWith(".pdf")||result.getEntries().get(i).getName().endsWith(".db")) {
+
+                        }
+                    }
+                }
+
+                if (resultList.size() != 0) {
+                } else {
+                    if (preferences.getString(PrefConstants.STORE).equals("Document")) {
+                        DialogNodata("There is no PDF files in your Dropbox account.");
+                    } else if (preferences.getString(PrefConstants.STORE).equals("Restore")) {
+                        if (preferences.getString(PrefConstants.TODOWHAT).equals("Import")) {
+                            DialogNodata("There is no Zip files in your Dropbox account.");
+                        } else {
+                            DialogNodata("There is no MYLO.zip file in your Dropbox account.");
+                        }
+                    }
+//                    Toast.makeText(DropboxLoginActivity.this, "No Document or Backup File available in your dropbox", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onError(Exception e) {
+                dialog.dismiss();
+
+            }
+        }).execute("");
+    }
+
+
+    private void DialogNodata(String msg) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Alert");
+        alert.setMessage(msg);
+        alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        alert.show();
     }
 
     @Override
