@@ -100,6 +100,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+
         try {
             //nikita -pdf
             Intent i = getIntent();
@@ -127,6 +129,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void callFragmentData(Fragment fragment) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragmentContainer, fragment);
+        ft.commit();
+    }
+
     private void loadData() {
 
 //                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
@@ -138,11 +147,33 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         initComponent();
         initUI();
         initListener();
+
+
         fragmentData();
         if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
             callFirstFragment("CONNECTION", fragmentConnection);
         }
 
+/*
+         Shradha-For replacing fragments on clicking float button
+*/
+        final Intent intent = getIntent();
+        if (intent != null) {
+            int p = intent.getExtras().getInt("c");
+            if (p == 1) {
+                callFragmentData(new FragmentDashboard());
+            } /*else if (p == 2) {
+                callFragmentData(new FragmentDashboard());
+            } else if (p == 3) {
+                callFragmentData(new FragmentDashboard());
+            } else if (p == 4) {
+                callFragmentData(new FragmentDashboard());
+            } else if (p == 5) {
+                callFragmentData(new FragmentDashboard());
+            }*/
+        } else {
+            Toast.makeText(context, "Fragments not loaded..", Toast.LENGTH_SHORT).show();
+        }
     }
 
     List<RelativeConnection> items;//nikita

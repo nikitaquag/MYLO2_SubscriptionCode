@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -24,6 +25,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -56,6 +58,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -91,10 +94,13 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     private void initListener() {
         llAddHospital.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
         //shradha
+        floatProfile = rootview.findViewById(R.id.floatProfile);
+
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -142,7 +148,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 "<br><br>" +
                 "To <b>add a picture</b> click the picture of the <b>pencil</b> and" +
                 "either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card";
-       // txtMsg.setText(Html.fromHtml(msg));
+        // txtMsg.setText(Html.fromHtml(msg));
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -251,7 +257,11 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                startActivity(intentDashboard);
+                break;
             case R.id.llAddHospital:
                 preferences.putString(PrefConstants.SOURCE, "Hospital");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);

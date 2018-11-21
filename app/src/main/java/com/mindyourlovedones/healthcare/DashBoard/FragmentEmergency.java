@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -24,6 +25,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.ConnectionAdapter;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -62,6 +64,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
     EmergencyAdapter emergencyAdapter;
     RelativeLayout rlGuide;
     String finalText = "";
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -98,9 +101,11 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         //  imgADMTick.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen." +
 //                "<br><br>" +
@@ -356,7 +361,11 @@ emergencyList=new ArrayList<>();
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                startActivity(intentDashboard);
+                break;
             case R.id.llAddConn:
                 preferences.putString(PrefConstants.SOURCE, "Emergency");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
