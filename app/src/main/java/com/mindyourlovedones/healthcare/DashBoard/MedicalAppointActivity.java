@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,6 +24,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -59,6 +61,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     boolean flag = false;
     TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
+    FloatingActionButton floatProfile;
 
     public static String getFormattedDate(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -93,9 +96,11 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         //imgAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = findViewById(R.id.floatProfile);
         scrollvw = findViewById(R.id.scrollvw);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> an Appointment  click  the <b>plus</b> box " +
@@ -355,6 +360,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgBack:
                 finish();
                 break;

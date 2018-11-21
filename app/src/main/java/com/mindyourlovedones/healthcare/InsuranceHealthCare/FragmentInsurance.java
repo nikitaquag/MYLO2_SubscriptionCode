@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -24,6 +25,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -56,6 +58,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -91,9 +94,11 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         //  imgADMTick.setOnClickListener(this);
         llAddInsurance.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To add information click the green bar at the bottom of the screen. If the person or Company is in your <b>Contacts</b> click the gray bar on the top right side of your screen." +
 //                "<br><br>" +
@@ -259,7 +264,13 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
             case R.id.llAddInsurance:
                 preferences.putString(PrefConstants.SOURCE, "Insurance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);

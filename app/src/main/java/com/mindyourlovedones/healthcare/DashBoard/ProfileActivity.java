@@ -1441,10 +1441,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 break;
-           /* case R.id.floatProfile:
+            case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
-                break;*/
+                break;
 
             case R.id.imgBack:
                 hideSoftKeyboard();

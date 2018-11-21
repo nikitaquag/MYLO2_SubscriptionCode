@@ -3,8 +3,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.mindyourlovedones.healthcare.DashBoard.EventNoteActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension20dp"
+        app:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        app:fabSize="normal"
+        tools:targetApi="lollipop" />
 
     <RelativeLayout
         android:id="@+id/header"
@@ -118,8 +131,8 @@
             android:layout_below="@+id/txtHeader"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="@string/ftu"
             android:textColor="@color/colorBlue"
@@ -132,8 +145,8 @@
             android:layout_below="@+id/txtFTU"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="Add standing medical appointments and keep track of the dates completed.
 Monitor year over year changes."
@@ -185,8 +198,8 @@ Monitor year over year changes."
                 android:layout_below="@+id/txtHeader2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="@string/ftu"
                 android:textColor="@color/colorBlue"
@@ -199,8 +212,8 @@ Monitor year over year changes."
                 android:layout_below="@+id/txtFTU2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:text="Add standing medical appointments and keep track of the dates completed.
 Monitor year over year changes."
@@ -219,15 +232,15 @@ Monitor year over year changes."
                     android:id="@+id/rel61"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension20dp">
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension20dp">
 
                     <ImageView
                         android:id="@+id/img61"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -251,8 +264,8 @@ Monitor year over year changes."
                         android:id="@+id/img62"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -276,8 +289,8 @@ Monitor year over year changes."
                         android:id="@+id/img63"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -301,8 +314,8 @@ Monitor year over year changes."
                         android:id="@+id/img64"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView
@@ -314,6 +327,7 @@ Monitor year over year changes."
                         android:textColor="@color/colorGuide"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
+
                 <RelativeLayout
                     android:id="@+id/rel65"
                     android:layout_width="match_parent"
@@ -325,8 +339,8 @@ Monitor year over year changes."
                         android:id="@+id/img65"
                         android:layout_width="@dimen/dimension20dp"
                         android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:src="@drawable/bullet4" />
 
                     <TextView

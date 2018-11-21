@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.IdRes;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.MedAdapter;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.database.AllergyQuery;
@@ -108,6 +110,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     String[] BloodList = {"", "A - negative", "A - positive", "AB - negative", "AB - positive", "B - negative", "B - positive", "O - negative", "O - positive", "I don't know"};
     Preferences preferences;
     DBHelper dbHelper;
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -133,6 +136,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     }
 
     private void initListener() {
+        floatProfile.setOnClickListener(this);
         txtSave.setOnClickListener(this);
 
         imgDone.setOnClickListener(this);
@@ -181,7 +185,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     }
 
     private void initUI() {
-
+        floatProfile=rootview.findViewById(R.id.floatProfile);
         imgInfo = rootview.findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1056,6 +1060,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 }
 
                 break;
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgBack:
                 hideSoftKeyboard();
                 getActivity().finish();

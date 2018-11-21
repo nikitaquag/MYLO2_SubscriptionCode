@@ -4,15 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/floatProfile"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:backgroundTint="@color/colorFloatRed"
-        android:src="@drawable/floatb"
+        app:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        app:fabSize="normal"
+        tools:targetApi="lollipop"
         android:layout_margin="@dimen/dimension10dp"/>
 
     <RelativeLayout

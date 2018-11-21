@@ -1,9 +1,7 @@
 package com.mindyourlovedones.healthcare.Connections;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -11,10 +9,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -164,34 +164,36 @@ else {
             @Override
             public void onClick(View v) {
                 if (position == connectionList.size()) {
-                    AlertDialog.Builder builders = new AlertDialog.Builder(context);
-                    builders.setTitle("");
-                    builders.setItems(import_new, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int itemPos) {
-                            switch (itemPos) {
-                                case 0: // new
-                                    preferences.putString(PrefConstants.SOURCE, "Connection");
-                                    Intent i = new Intent(context, GrabConnectionActivity.class);
-                                    context.startActivity(i);
-                                    dialog.dismiss();
-                                    break;
-                                case 1: // import
-                                    Intent in = new Intent(context, DropboxLoginActivity.class);
-                                    in.putExtra("FROM", "Backup");
-                                    in.putExtra("ToDo", "Individual");
-                                    in.putExtra("ToDoWhat", "Import");
-                                    context.startActivity(in);
-                                    dialog.dismiss();
-                                    break;
-                               /* case 2://FTU
-                                    Intent intentFtu = new Intent(context, InstructionActivity.class);
-                                    intentFtu.putExtra("From", "ShareProfileFTU");
-                                    context.startActivity(intentFtu);
-                                    break;*/
-                            }
-                        }
-                    });
-                    builders.create().show();
+
+                    ShowOptionDialog();
+//                    AlertDialog.Builder builders = new AlertDialog.Builder(context);
+//                    builders.setTitle("");
+//                    builders.setItems(import_new, new DialogInterface.OnClickListener() {
+//                        public void onClick(DialogInterface dialog, int itemPos) {
+//                            switch (itemPos) {
+//                                case 0: // new
+//                                    preferences.putString(PrefConstants.SOURCE, "Connection");
+//                                    Intent i = new Intent(context, GrabConnectionActivity.class);
+//                                    context.startActivity(i);
+//                                    dialog.dismiss();
+//                                    break;
+//                                case 1: // import
+//                                    Intent in = new Intent(context, DropboxLoginActivity.class);
+//                                    in.putExtra("FROM", "Backup");
+//                                    in.putExtra("ToDo", "Individual");
+//                                    in.putExtra("ToDoWhat", "Import");
+//                                    context.startActivity(in);
+//                                    dialog.dismiss();
+//                                    break;
+//                               /* case 2://FTU
+//                                    Intent intentFtu = new Intent(context, InstructionActivity.class);
+//                                    intentFtu.putExtra("From", "ShareProfileFTU");
+//                                    context.startActivity(intentFtu);
+//                                    break;*/
+//                            }
+//                        }
+//                    });
+//                    builders.create().show();
 
                 } else {
                     if (connectionList.get(position).getRelationType().equals("")) {
@@ -221,6 +223,67 @@ else {
         });
 
         return convertView;
+    }
+
+    private void ShowOptionDialog() {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_add_contacts, null);
+
+        final TextView textOption1 = dialogview.findViewById(R.id.txtOption1);
+        final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
+        TextView textCancel = dialogview.findViewById(R.id.txtCancel);
+
+        textOption1.setText("Create New");
+        textOption2.setText("Import From Dropbox");
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        textOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "Connection");
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                context.startActivity(i);
+                dialog.dismiss();
+            }
+        });
+
+        textOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(context, DropboxLoginActivity.class);
+                in.putExtra("FROM", "Backup");
+                in.putExtra("ToDo", "Individual");
+                in.putExtra("ToDoWhat", "Import");
+                context.startActivity(in);
+                dialog.dismiss();
+            }
+
+
+        });
+
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+
     }
 
     private void showInputDialog(final Context context, final int id, final String mail) {

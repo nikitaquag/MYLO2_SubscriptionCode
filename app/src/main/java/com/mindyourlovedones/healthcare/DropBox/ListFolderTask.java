@@ -9,7 +9,7 @@ import com.dropbox.core.v2.files.ListFolderResult;
 /**
  * Async task to list items in a folder
  */
-class ListFolderTask extends AsyncTask<String, Void, ListFolderResult> {
+public class ListFolderTask extends AsyncTask<String, Void, ListFolderResult> {
 
     private final DbxClientV2 mDbxClient;
     private final Callback mCallback;

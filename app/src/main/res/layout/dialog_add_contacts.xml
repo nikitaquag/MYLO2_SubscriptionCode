@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimension10dp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:freezesText="true"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/rlOption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtmsg"
+        android:background="@drawable/dialog_border"
+        android:orientation="vertical"
+        >
+        <!-- <TextView
+             android:id="@+id/txtAction"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:gravity="center"
+             android:padding="15dp"
+             android:text="Title"
+             android:textColor="@color/colorBlue"
+             android:textStyle="bold"
+             android:textSize="20dp"
+             ></TextView>
+         <View
+             android:id="@+id/view1"
+             android:layout_width="match_parent"
+             android:layout_height="1dp"
+             android:background="@color/colorGray"
+             android:layout_below="@+id/txtAction"
+             />-->
+        <TextView
+            android:id="@+id/txtOption1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Option1"
+            android:textColor="#0F7DEF"
+            android:textSize="@dimen/dimension18dp"
+           
+            >
+
+        </TextView>
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:background="@color/colorLightGray"
+            />
+        <TextView
+            android:id="@+id/txtOption2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Option2"
+            android:textColor="#0F7DEF"
+            android:textSize="@dimen/dimension18dp"
+            >
+
+        </TextView>
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:background="@color/colorLightGray"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:id="@+id/txtOption3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Option3"
+            android:textColor="#0F7DEF"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal"
+            android:visibility="gone">
+
+        </TextView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtCancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlOption"
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:background="@drawable/dialog_border"
+        android:gravity="center"
+        android:padding="@dimen/dimension15dp"
+        android:text="Cancel"
+        android:textColor="#0F7DEF"
+        android:textSize="@dimen/dimension20dp"
+        android:textStyle="bold"
+        >
+
+    </TextView>
+
+
+</RelativeLayout>
