@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<RelativeLayout
+    android:gravity="center"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorLightBlue"
-    android:paddingBottom="@dimen/dimension10dp">
+    >
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/llAddDoc"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dimension20dp"
-        app:backgroundTint="@color/colorFloatRed"
-        android:src="@drawable/ic_box"
-        android:tint="@color/colorWhite"
-        app:fabSize="normal"
-        tools:targetApi="lollipop" />
 
     <TextView
         android:id="@+id/txtdocuments"
@@ -36,7 +33,6 @@
         android:id="@+id/lvDoc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/llAddDoc"
         android:layout_below="@+id/txtdocuments"
         android:background="@color/colorLightBlue"
         android:divider="@color/colorLightGray"
@@ -46,7 +42,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/llAddDoc">
+        android:layout_centerInParent="true">
 
         <RelativeLayout
             android:id="@+id/rlGuide"
@@ -293,34 +289,57 @@
         </RelativeLayout>
     </ScrollView>
 
+
+</RelativeLayout>
     <RelativeLayout
-        android:id="@+id/llAddDoc"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/dimension15dp"
-        android:background="@color/colorFive">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimension15dp">
 
-        <ImageView
-            android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension5dp"
-            android:src="@drawable/addss" />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llAddDoc"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension20dp"
+            app:backgroundTint="@color/colorFloatRed"
+            android:src="@drawable/ic_box"
+            android:tint="@color/colorWhite"
+            app:fabSize="normal"
+            tools:targetApi="lollipop" />
 
-        <TextView
-            android:id="@+id/txtAdd"
+
+
+        <RelativeLayout
+            android:id="@+id/llAddDoc"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension60dp"
-            android:layout_toRightOf="@+id/imgAdd"
-            android:gravity="center"
-            android:padding="@dimen/dimension5dp"
-            android:text="Add Insurance Form"
-            android:textAllCaps="true"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension20dp" />
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension15dp"
+            android:background="@color/colorFive">
 
+            <ImageView
+                android:id="@+id/imgAdd"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:src="@drawable/addss" />
+
+            <TextView
+                android:id="@+id/txtAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_toRightOf="@+id/imgAdd"
+                android:gravity="center"
+                android:padding="@dimen/dimension5dp"
+                android:text="Add Insurance Form"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/dimension20dp" />
+
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</FrameLayout>
 
