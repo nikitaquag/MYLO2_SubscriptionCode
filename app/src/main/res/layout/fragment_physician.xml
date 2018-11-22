@@ -1,59 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingBottom="@dimen/dimension15dp">
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/llAddSpecialist"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="@dimen/dimension20dp"
-        app:backgroundTint="@color/colorFloatRed"
-        android:src="@drawable/ic_box"
-        android:tint="@color/colorWhite"
-        app:fabSize="normal"
-        tools:targetApi="lollipop" />
-    <RelativeLayout
-        android:id="@+id/llAddSpecialist"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension60dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="@dimen/dimension15dp"
-        android:layout_marginRight="@dimen/dimension15dp"
-        android:layout_marginTop="@dimen/dimension15dp"
-        android:background="@color/colorOne">
-
-        <ImageView
-            android:id="@+id/imgAdd"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/addss"
-            android:layout_marginLeft="@dimen/dimension5dp"/>
-
-        <TextView
-            android:id="@+id/txtAdd"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension60dp"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imgAdd"
-            android:text="Add Primary Physician"
-            android:textAllCaps="true"
-            android:gravity="center"
-            android:padding="@dimen/dimension5dp"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension20dp" />
-    </RelativeLayout>
+    android:gravity="center"
+    android:layout_gravity="center"
+   >
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lvSpecialist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/llAddSpecialist"
         android:layout_alignParentTop="true"
         android:divider="@color/colorLightGray"
         android:dividerHeight="@dimen/dimension20dp"
@@ -62,7 +24,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/llAddSpecialist">
+        android:layout_centerInParent="true">
 
         <RelativeLayout
             android:id="@+id/rlGuide"
@@ -280,3 +242,54 @@
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dimension15dp">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llAddSpecialist"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension20dp"
+            app:backgroundTint="@color/colorFloatRed"
+            android:src="@drawable/ic_box"
+            android:tint="@color/colorWhite"
+            app:fabSize="normal"
+            tools:targetApi="lollipop" />
+        <RelativeLayout
+            android:id="@+id/llAddSpecialist"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:layout_marginTop="@dimen/dimension15dp"
+            android:background="@color/colorOne">
+
+            <ImageView
+                android:id="@+id/imgAdd"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/addss"
+                android:layout_marginLeft="@dimen/dimension5dp"/>
+
+            <TextView
+                android:id="@+id/txtAdd"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/imgAdd"
+                android:text="Add Primary Physician"
+                android:textAllCaps="true"
+                android:gravity="center"
+                android:padding="@dimen/dimension5dp"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/dimension20dp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</FrameLayout>
