@@ -259,8 +259,8 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         switch (v.getId()) {
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intentDashboard.putExtra("c", 1);//Profile Data
                 startActivity(intentDashboard);
                 break;

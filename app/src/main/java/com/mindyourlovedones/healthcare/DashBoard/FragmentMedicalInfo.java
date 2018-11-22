@@ -36,7 +36,6 @@ import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedones.healthcare.Connections.MedAdapter;
 import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
-import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.database.AllergyQuery;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.HistoryQuery;
@@ -1063,8 +1062,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
 

@@ -248,8 +248,8 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
             case R.id.llAddPharmacy:
