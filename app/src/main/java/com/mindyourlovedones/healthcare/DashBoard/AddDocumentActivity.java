@@ -806,6 +806,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 Intent i = new Intent(context, DocumentSdCardList.class);
                 startActivityForResult(i, RESULTCODE);
+                dialogDirective.dismiss();
             }
         });
 
@@ -816,12 +817,14 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 Intent intent = new Intent(context, DropboxLoginActivity.class);
                 intent.putExtra("FROM", "Document");
                 startActivityForResult(intent, RQUESTCODE);
+                dialogDirective.dismiss();
             }
         });
         txtEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showEmailInsDialog();
+                dialogDirective.dismiss();
             }
         });
         txtCancel.setOnClickListener(new View.OnClickListener() {
@@ -1085,9 +1088,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             showDialogWindow(text);
             txtAdd.setText("Edit File");
             imgDoc.setImageResource(R.drawable.pdf);
-        } else if (requestCode == RQUESTCODE && data != null) {
-            name = data.getExtras().getString("Name");
-            originPath = data.getExtras().getString("URI");
+        } else if (requestCode == RQUESTCODE ){//&& data != null) {
+
+            name = preferences.getString(PrefConstants.RESULT);//data.getExtras().getString("Name");
+            originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
             txtFName.setText(name);
             imgDoc.setClickable(false);
             String text = "You Have selected <b>" + name + "</b> Document";

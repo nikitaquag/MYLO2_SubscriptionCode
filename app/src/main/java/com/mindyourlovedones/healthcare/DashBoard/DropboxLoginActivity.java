@@ -288,16 +288,18 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             @Override
             public void onClick(View v) {
 
-                Fun_Type =1;
+
 
                 SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
                 if (prefs.contains("access-token")) {
-                    preferences.putString(PrefConstants.STORE, "Restore");
+                    Fun_Type =4;
+                    preferences.putString(PrefConstants.STORE, "Backup");
                     preferences.putString(PrefConstants.TODO, todo);
                     preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                    loadDropboxData();
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+//                    loadDropboxData();
                 } else {
+                    Fun_Type =1;
                     Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
                 }
             }
@@ -311,8 +313,9 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
                 SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
                 if (prefs.contains("access-token")) {
-                    preferences.putString(PrefConstants.STORE, "Backup");
+                    preferences.putString(PrefConstants.STORE, "Restore");
                     preferences.putString(PrefConstants.TODO, todo);
+                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
 //                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                     loadDropboxData();
                 } else {
@@ -446,19 +449,23 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             @Override
             public void onComplete(FullAccount result) {
 
-
-                if(Fun_Type==2){
-                    Fun_Type=4;
-                    preferences.putString(PrefConstants.STORE, "Restore");
-                    preferences.putString(PrefConstants.TODO, todo);
-                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                }else if(Fun_Type==1){
+                 if(Fun_Type==1){
                     Fun_Type=4;
                     preferences.putString(PrefConstants.STORE, "Backup");
                     preferences.putString(PrefConstants.TODO, todo);
-//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                 }else{
+                     if(Fun_Type==2){
+                         Fun_Type=4;
+                         preferences.putString(PrefConstants.STORE, "Restore");
+                         preferences.putString(PrefConstants.TODO, todo);
+                         preferences.putString(PrefConstants.TODOWHAT, todoWhat);
+//                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                         loadDropboxData();
+                     }else{
+                         Fun_Type=4;
+                     }
+
 
                 }
 
@@ -472,7 +479,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 ((TextView) findViewById(R.id.name_text)).setText(result.getName().getDisplayName());
                 ((TextView) findViewById(R.id.type_text)).setText(result.getAccountType().name());*/
 
-                loadDropboxData();
+
             }
 
             @Override
@@ -521,6 +528,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 }
 
                 if (resultList.size() != 0) {
+                    Fun_Type=4;
                     startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                 } else {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
@@ -568,6 +576,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
         } else {
             if (preferences.getString(PrefConstants.STORE).equals("Document")) {
+                finish();
                 //  btnAdd.setVisibility(View.VISIBLE);
                 //  txtFile.setVisibility(View.VISIBLE);
                 //  txtFile.setText("Click on Add File for Add " + preferences.getString(PrefConstants.RESULT) + " File to your documents");
