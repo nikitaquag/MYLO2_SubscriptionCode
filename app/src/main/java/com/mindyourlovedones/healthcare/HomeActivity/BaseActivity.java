@@ -167,6 +167,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             if (p == 1) {
                 callFragmentData(new FragmentDashboard());
                 p = 1;
+            }else if(p==3){
+                callFragmentData(new FragmentConnectionNew());
+                p = 1;
             }
         }/* else {
             Toast.makeText(context, "Fragments not loaded..", Toast.LENGTH_SHORT).show();
