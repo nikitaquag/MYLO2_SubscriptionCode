@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -82,6 +83,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     TextView txtPrivacyPolicy, txtEULA;
     RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
+    int p = 0;
 
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
@@ -150,6 +152,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
         fragmentData();
+
+
         if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
             callFirstFragment("CONNECTION", fragmentConnection);
         }
@@ -157,24 +161,25 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 /*
          Shradha-For replacing fragments on clicking float button
 */
-        final Intent intent = getIntent();
+        Intent intent = getIntent();
         if (intent != null) {
-            int p = intent.getExtras().getInt("c");
+            p = intent.getExtras().getInt("c");
             if (p == 1) {
                 callFragmentData(new FragmentDashboard());
-            } /*else if (p == 2) {
-                callFragmentData(new FragmentDashboard());
-            } else if (p == 3) {
-                callFragmentData(new FragmentDashboard());
-            } else if (p == 4) {
-                callFragmentData(new FragmentDashboard());
-            } else if (p == 5) {
-                callFragmentData(new FragmentDashboard());
-            }*/
-        } else {
+                p = 1;
+            }
+        }/* else {
             Toast.makeText(context, "Fragments not loaded..", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
+
+    @Override
+
+        public void onBackPressed () {
+        if(p==1)
+        finish();
+    }
+
 
     List<RelativeConnection> items;//nikita
 
@@ -702,7 +707,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater) context
+        LayoutInflater lf = (LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -713,7 +718,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
@@ -738,7 +743,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater) context
+        LayoutInflater lf = (LayoutInflater)context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -749,7 +754,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
@@ -877,7 +882,22 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    int c2=0;
+    /*Add code for back button: Rahul*/
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK)
+        {
+            callFirstFragment("CONNECTION", fragmentConnection);
+
+            //Back buttons was pressed, do whatever logic you want
+        }
+
+        return false;
+    }
+
+ //   int c2 = 0;
+/*
     @Override
     public void onBackPressed() {
 
@@ -910,4 +930,5 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+*/
 }
