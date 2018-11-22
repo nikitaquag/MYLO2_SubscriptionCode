@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +27,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
@@ -64,6 +66,7 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     boolean isEdit;
     TextView txtName, txtMsg, txtFTU;
     ScrollView scroll;
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +93,11 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     private void initListener() {
         llAddPrescription.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = findViewById(R.id.floatProfile);
         scroll = findViewById(R.id.scroll);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen Add Prescription." +
@@ -208,9 +213,9 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
                     public void onClick(DialogInterface dialog, int itemPos) {
 
                         switch (itemPos) {
-                        /*    case 0: // email
+                            /*    case 0: // email
 
-                       *//* emailAttachement(item);
+                             *//* emailAttachement(item);
 
                         ShearedValues.activityID = getApplicationContext();*//*
                                 break;
@@ -376,6 +381,14 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgBack:
                 finish();
                 break;

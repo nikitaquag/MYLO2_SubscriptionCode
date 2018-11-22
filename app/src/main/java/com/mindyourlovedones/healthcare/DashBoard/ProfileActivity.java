@@ -8,13 +8,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -25,7 +22,6 @@ import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -1441,10 +1437,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
 
                 break;
-           /* case R.id.floatProfile:
+            case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
-                break;*/
+                break;
 
             case R.id.imgBack:
                 hideSoftKeyboard();

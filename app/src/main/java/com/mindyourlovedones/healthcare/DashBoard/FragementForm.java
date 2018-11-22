@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -22,6 +23,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -60,6 +62,7 @@ public class FragementForm extends Fragment implements View.OnClickListener {
     Preferences preferences;
     DBHelper dbHelper;
     RelativeLayout rlGuide;
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -95,9 +98,11 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         //  imgADMTick.setOnClickListener(this);
         llAddDoc.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
 //                "<br><br>" +
@@ -265,6 +270,13 @@ public class FragementForm extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
 
             case R.id.llAddDoc:
                 //preferences.putString(PrefConstants.SOURCE, "InsuranceForm");

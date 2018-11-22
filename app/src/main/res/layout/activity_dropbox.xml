@@ -297,36 +297,20 @@
                 android:textSize="@dimen/dimension20dp"
                 android:visibility="gone" />
 
-            <LinearLayout
-                android:layout_below="@+id/btnShare"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/dimension10dp">
 
                 <TextView
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_below="@+id/btnShare"
                     android:id="@+id/txtLoginPerson"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:gravity="center"
-                    android:text="You have logged in as"
+                    android:text=""
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/btnShare"
-                    android:layout_centerHorizontal="true"
-                    android:layout_toRightOf="@+id/txtLoginPerson"
-                    android:gravity="center"
-                    android:text="ananya"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp" />
-            </LinearLayout>
 
 
             <!--<RelativeLayout-->

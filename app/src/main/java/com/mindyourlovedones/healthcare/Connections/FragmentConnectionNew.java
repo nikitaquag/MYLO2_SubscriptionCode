@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -28,7 +29,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity;
-import com.mindyourlovedones.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedones.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.database.DBHelper;
@@ -222,76 +222,81 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 if (position != 0) {
                     if (position != connectionList.size()) {
 
-                        //Shradha Custom dialog for delete and share and share ftu
-                        final Dialog dialogShare = new Dialog(getActivity());
-                        dialogShare.setCancelable(false);
-                        dialogShare.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                        dialogShare.setContentView(R.layout.dialog_share);
-                        TextView txtDelProfile = dialogShare.findViewById(R.id.txtDelProfile);
-                        TextView txtShareProfile = dialogShare.findViewById(R.id.txtShareProfile);
-                        final TextView txtMsgInfo = dialogShare.findViewById(R.id.txtMsgInfo);
-                        ImageView imgInfo = dialogShare.findViewById(R.id.imgInfo);
-                        final boolean flagInfo = true;
+                        ShowOptionDialog("delete",position);
 
-                        txtDelProfile.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                                alert.setTitle("Delete");
-                                alert.setMessage("Do you want to Delete " + connectionList.get(position).getName() + "'s profile?");
-                                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        String mail = connectionList.get(position).getEmail();
-                                        mail = mail.replace(".", "_");
-                                        mail = mail.replace("@", "_");
-                                        preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                                        preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                                        deleteConnection(connectionList.get(position).getId());
-                                        dialog.dismiss();
-                                    }
-                                });
-                                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
+//                        //Shradha Custom dialog for delete and share and share ftu
+//                        final Dialog dialogShare = new Dialog(getActivity());
+//                        dialogShare.setCancelable(false);
+//                        dialogShare.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                        dialogShare.setContentView(R.layout.dialog_share);
+//                        TextView txtDelProfile = dialogShare.findViewById(R.id.txtDelProfile);
+//                        TextView txtShareProfile = dialogShare.findViewById(R.id.txtShareProfile);
+//                        final TextView txtMsgInfo = dialogShare.findViewById(R.id.txtMsgInfo);
+//                        ImageView imgInfo = dialogShare.findViewById(R.id.imgInfo);
+//                        final boolean flagInfo = true;
+//
+//                        txtDelProfile.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+//                                alert.setTitle("Delete");
+//                                alert.setMessage("Do you want to Delete " + connectionList.get(position).getName() + "'s profile?");
+//                                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//                                        String mail = connectionList.get(position).getEmail();
+//                                        mail = mail.replace(".", "_");
+//                                        mail = mail.replace("@", "_");
+//                                        preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+//                                        preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+//                                        deleteConnection(connectionList.get(position).getId());
+//                                        dialog.dismiss();
+//                                    }
+//                                });
+//                                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                                    @Override
+//                                    public void onClick(DialogInterface dialog, int which) {
+//
+//                                        dialog.dismiss();
+//                                    }
+//                                });
+//                                alert.show();
+//                                dialogShare.dismiss();
+//                            }
+//                        });
+//
+//                        dialogShare.show();
+//
+//                        txtShareProfile.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+//                                i.putExtra("FROM", "Backup");
+//                                i.putExtra("ToDo", "Individual");
+//                                i.putExtra("ToDoWhat", "Share");
+//                                String mail = connectionList.get(position).getEmail();
+//                                mail = mail.replace(".", "_");
+//                                mail = mail.replace("@", "_");
+//                                preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+//                                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+//                                startActivity(i);
+//                                dialogShare.dismiss();
+//                            }
+//                        });
+//
+//                        imgInfo.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View v) {
+//                                if (flagInfo) {
+//                                    txtMsgInfo.setVisibility(View.VISIBLE);
+//                                } else {
+//                                    txtMsgInfo.setVisibility(View.GONE);
+//                                }
+//                            }
+//                        });
 
-                                        dialog.dismiss();
-                                    }
-                                });
-                                alert.show();
-                                dialogShare.dismiss();
-                            }
-                        });
 
-                        dialogShare.show();
 
-                        txtShareProfile.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
-                                i.putExtra("FROM", "Backup");
-                                i.putExtra("ToDo", "Individual");
-                                i.putExtra("ToDoWhat", "Share");
-                                String mail = connectionList.get(position).getEmail();
-                                mail = mail.replace(".", "_");
-                                mail = mail.replace("@", "_");
-                                preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                                startActivity(i);
-                                dialogShare.dismiss();
-                            }
-                        });
-
-                        imgInfo.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if (flagInfo) {
-                                    txtMsgInfo.setVisibility(View.VISIBLE);
-                                } else {
-                                    txtMsgInfo.setVisibility(View.GONE);
-                                }
-                            }
-                        });
                        /* AlertDialog.Builder builders = new AlertDialog.Builder(getActivity());
                         builders.setTitle("");
                         builders.setItems(delete_backup, new DialogInterface.OnClickListener() {
@@ -344,41 +349,45 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                         builders.create().show();
                     }*/
                 } else {
-                    final Dialog dialogShare = new Dialog(getActivity());
-                    dialogShare.setCanceledOnTouchOutside(false);
-                    dialogShare.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                    dialogShare.setContentView(R.layout.dialog_self_share);
-                    TextView txtShareProfile = dialogShare.findViewById(R.id.txtShareProfile);
-                    ImageView imgInfo = dialogShare.findViewById(R.id.imgInfo);
-                    final TextView txtMsgInfo = dialogShare.findViewById(R.id.txtMsgInfo);
-                    final boolean flagInfo = true;
-                    txtShareProfile.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
-                            i.putExtra("FROM", "Backup");
-                            i.putExtra("ToDo", "Individual");
-                            i.putExtra("ToDoWhat", "Share");
-                            String mail = connectionList.get(position).getEmail();
-                            mail = mail.replace(".", "_");
-                            mail = mail.replace("@", "_");
-                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                            startActivity(i);
-                            dialogShare.dismiss();
-                        }
-                    });
-                    dialogShare.show();
-                    imgInfo.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (flagInfo) {
-                                txtMsgInfo.setVisibility(View.VISIBLE);
-                            } else {
-                                txtMsgInfo.setVisibility(View.GONE);
-                            }
-                        }
-                    });
+                    ShowOptionDialog("share",position);
+
+//                    final Dialog dialogShare = new Dialog(getActivity());
+//                    dialogShare.setCanceledOnTouchOutside(false);
+//                    dialogShare.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//                    dialogShare.setContentView(R.layout.dialog_self_share);
+//                    TextView txtShareProfile = dialogShare.findViewById(R.id.txtShareProfile);
+//                    ImageView imgInfo = dialogShare.findViewById(R.id.imgInfo);
+//                    final TextView txtMsgInfo = dialogShare.findViewById(R.id.txtMsgInfo);
+//                    final boolean flagInfo = true;
+//                    txtShareProfile.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+//                            i.putExtra("FROM", "Backup");
+//                            i.putExtra("ToDo", "Individual");
+//                            i.putExtra("ToDoWhat", "Share");
+//                            String mail = connectionList.get(position).getEmail();
+//                            mail = mail.replace(".", "_");
+//                            mail = mail.replace("@", "_");
+//                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+//                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+//                            startActivity(i);
+//                            dialogShare.dismiss();
+//                        }
+//                    });
+//                    dialogShare.show();
+//                    imgInfo.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//                            if (flagInfo) {
+//                                txtMsgInfo.setVisibility(View.VISIBLE);
+//                            } else {
+//                                txtMsgInfo.setVisibility(View.GONE);
+//                            }
+//                        }
+//                    });
+
+
                    /* AlertDialog.Builder builders = new AlertDialog.Builder(getActivity());
                     builders.setTitle("");
                     builders.setItems(backup_profile,
@@ -454,6 +463,115 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
 
 
 */
+    }
+
+
+    private void ShowOptionDialog(final String Type,final int position) {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_add_contacts, null);
+
+        final TextView textOption1 = dialogview.findViewById(R.id.txtOption1);
+        final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
+        TextView textCancel = dialogview.findViewById(R.id.txtCancel);
+
+        if (Type.equalsIgnoreCase("delete")) {
+            textOption1.setText("Delete");
+            textOption2.setText("Backup/Share Profile");
+        } else {
+            textOption2.setVisibility(View.GONE);
+            textOption1.setText("Backup/Share Profile");
+        }
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        textOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Type.equalsIgnoreCase("delete")) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                    alert.setTitle("Delete");
+                    alert.setMessage("Do you want to Delete " + connectionList.get(position).getName() + "'s profile?");
+                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String mail = connectionList.get(position).getEmail();
+                            mail = mail.replace(".", "_");
+                            mail = mail.replace("@", "_");
+                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                            deleteConnection(connectionList.get(position).getId());
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.show();
+                } else {
+                    Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+                    i.putExtra("FROM", "Backup");
+                    i.putExtra("ToDo", "Individual");
+                    i.putExtra("ToDoWhat", "Share");
+                    String mail = connectionList.get(position).getEmail();
+                    mail = mail.replace(".", "_");
+                    mail = mail.replace("@", "_");
+                    preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                    preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                    startActivity(i);
+                }
+                dialog.dismiss();
+            }
+        });
+
+        textOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (Type.equalsIgnoreCase("delete")) {
+                    Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+                    i.putExtra("FROM", "Backup");
+                    i.putExtra("ToDo", "Individual");
+                    i.putExtra("ToDoWhat", "Share");
+                    String mail = connectionList.get(position).getEmail();
+                    mail = mail.replace(".", "_");
+                    mail = mail.replace("@", "_");
+                    preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                    preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                    startActivity(i);
+                }  else {
+
+                }
+                dialog.dismiss();
+            }
+
+
+        });
+
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+
     }
 
     private void getProfile() {

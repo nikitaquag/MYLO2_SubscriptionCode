@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -24,6 +25,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedones.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -64,6 +66,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
+    FloatingActionButton floatProfile;
 
     @Nullable
     @Override
@@ -130,10 +133,11 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     private void initListener() {
         llAddCard.setOnClickListener(this);
         imgRight.setOnClickListener(this);
-
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>get started</b> click the green bar at the bottom of the screen Add Insurance Card." +
 //                "<br><br>" +
@@ -308,6 +312,14 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
+                break;
+
             case R.id.llAddCard:
                 // preferences.putString(PrefConstants.SOURCE,"Card");
                 Intent i = new Intent(getActivity(), AddCardActivity.class);

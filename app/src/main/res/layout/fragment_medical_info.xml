@@ -2681,7 +2681,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/dimension20dp"
-            android:backgroundTint="@color/colorFloatRed"
+            app:backgroundTint="@color/colorFloatRed"
             android:src="@drawable/ic_box"
             android:tint="@color/colorWhite"
             app:fabSize="normal"

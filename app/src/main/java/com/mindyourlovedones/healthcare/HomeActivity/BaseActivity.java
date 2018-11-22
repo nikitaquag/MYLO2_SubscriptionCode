@@ -100,6 +100,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+
         try {
             //nikita -pdf
             Intent i = getIntent();
@@ -127,6 +129,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void callFragmentData(Fragment fragment) {
+        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragmentContainer, fragment);
+        ft.commit();
+    }
+
     private void loadData() {
 
 //                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
@@ -138,11 +147,27 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         initComponent();
         initUI();
         initListener();
+
+
         fragmentData();
-        if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
+
+
+        if (fragmentManager.findFragmentByTag("CONNECTION") == null ) {
             callFirstFragment("CONNECTION", fragmentConnection);
         }
 
+/*
+         Shradha-For replacing fragments on clicking float button
+*/
+        Intent intent = getIntent();
+        if (intent != null) {
+            int p = intent.getExtras().getInt("c");
+            if (p == 1) {
+                callFragmentData(new FragmentDashboard());
+            }
+        }/* else {
+            Toast.makeText(context, "Fragments not loaded..", Toast.LENGTH_SHORT).show();
+        }*/
     }
 
     List<RelativeConnection> items;//nikita
@@ -846,24 +871,39 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    int c2=0;
+/*
     @Override
     public void onBackPressed() {
 
-        SplashNewActivity.fromDash = true;
-
-        int count = getFragmentManager().getBackStackEntryCount();
-
-        if (count == 0) {
-            super.onBackPressed();
-            //additional code
-
-        } else {
-            if (getFragmentManager().findFragmentByTag("CONNECTION").isResumed()) {
+        if(getIntent().hasExtra("c")) {
+            if(c2==0) {
+                if (getIntent().getExtras().getInt("c") == 1) {
+                    c2 = 1;
+                    callFragmentData(new FragmentConnectionNew());
+                }
+            }else{
+                Intent intent=new Intent(context,SplashNewActivity.class);
+                startActivity(intent);
                 finish();
+            }
+        }else {
+            SplashNewActivity.fromDash = true;
+
+            int count = getFragmentManager().getBackStackEntryCount();
+
+            if (count == 0) {
+                super.onBackPressed();
+                //additional code
+
             } else {
-                getFragmentManager().popBackStack();
+                if (getFragmentManager().findFragmentByTag("CONNECTION").isResumed()) {
+                    finish();
+                } else {
+                    getFragmentManager().popBackStack();
+                }
             }
         }
-
     }
+*/
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
@@ -18,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.utility.UIEmails;
 
@@ -30,7 +32,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
     Context context = this;
     String UI = "";
     UIEmails ui = new UIEmails();
-
+    FloatingActionButton floatProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +44,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
     private void initListener() {
         txtEmail.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUI() {
-        //nikita
+        //shradha
+        floatProfile = findViewById(R.id.floatProfile);
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
@@ -1095,6 +1099,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
         switch (view.getId()) {
             case R.id.txtEmail:
                 showEmailDialog();
+                break;
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
                 break;
 
         }
