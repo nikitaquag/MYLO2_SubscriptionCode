@@ -919,6 +919,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 copydbWholeBU(context);
             }
             Toast.makeText(context, "Unzipped and restored files Successfully", Toast.LENGTH_SHORT).show();
+         //   Intent i=new Intent(context, FragmentConnectionNew.class); //Rahul Patil
+         //   startActivity(i);                                           //Rahul Patil
             finish();
         } else {
             Toast.makeText(context, "Restoring Failed, Please try again", Toast.LENGTH_SHORT).show();

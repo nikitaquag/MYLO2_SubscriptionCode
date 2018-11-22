@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -479,7 +478,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         TextView textCancel = dialogview.findViewById(R.id.txtCancel);
 
         if (Type.equalsIgnoreCase("delete")) {
-            textOption1.setText("Delete");
+            textOption1.setText("Delete Profile");
             textOption2.setText("Backup/Share Profile");
         } else {
             textOption2.setVisibility(View.GONE);
