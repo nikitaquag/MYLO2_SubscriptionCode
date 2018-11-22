@@ -2,8 +2,10 @@ package com.mindyourlovedones.healthcare.DashBoard;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,8 +15,8 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.utility.UIEmails;
 
@@ -22,6 +24,7 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
     ImageView imgBack;
     TextView txtEmail, txtStep1, txtStep2, txtStep22, txtStep3, txtStep4, txtStep5, txtStep55, txtStep555, txtStep6, txtStep7, txtStep8;
     Context context = this;
+    FloatingActionButton floatProfile;
 
     String UI="";
 
@@ -36,9 +39,11 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
     private void initListener() {
         imgBack.setOnClickListener(this);
         txtEmail.setOnClickListener(this);
+        floatProfile.setOnClickListener(this);
     }
 
     private void initUi() {
+        floatProfile = findViewById(R.id.floatProfile);
         imgBack = findViewById(R.id.imgBack);
         txtEmail = findViewById(R.id.txtEmail);
         txtStep1 = findViewById(R.id.txtStep1);
@@ -81,6 +86,13 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.txtEmail:
                 showEmailDialog();
+                break;
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);//Profile Data
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentDashboard);
                 break;
         }
     }
