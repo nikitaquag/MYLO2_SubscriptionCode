@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:backgroundTint="@color/colorFloatRed"
+        app:backgroundTint="@color/colorFloatRed"
+
         android:src="@drawable/ic_box"
         android:tint="@color/colorWhite"
         app:fabSize="normal"
