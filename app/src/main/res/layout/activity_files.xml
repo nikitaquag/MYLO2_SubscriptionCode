@@ -1,20 +1,23 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<android.support.design.widget.CoordinatorLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_below="@+id/imgBack"
             android:id="@+id/files_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone" />
 
         <ImageView
+            android:layout_alignParentTop="true"
             android:id="@+id/imgBack"
             android:layout_margin="@dimen/dimension10dp"
             android:layout_width="@dimen/dimension40dp"
@@ -25,6 +28,7 @@
             android:tint="@color/colorWhite" />
 
         <RelativeLayout
+            android:layout_centerInParent="true"
             android:id="@+id/rlBackup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -66,6 +70,6 @@
             android:src="@drawable/backup"
             android:visibility="gone"
             app:borderWidth="0dp" />
-    </android.support.design.widget.CoordinatorLayout>
+    <!--</android.support.design.widget.CoordinatorLayout>-->
 
-</LinearLayout>
+</RelativeLayout>
