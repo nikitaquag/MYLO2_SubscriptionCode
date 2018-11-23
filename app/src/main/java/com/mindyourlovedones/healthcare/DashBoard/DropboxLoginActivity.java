@@ -40,6 +40,7 @@ import com.mindyourlovedones.healthcare.DropBox.GetCurrentAccountTask;
 import com.mindyourlovedones.healthcare.DropBox.ListFolderTask;
 import com.mindyourlovedones.healthcare.DropBox.UnZipTask;
 import com.mindyourlovedones.healthcare.DropBox.ZipListner;
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.database.DBHelper;
 import com.mindyourlovedones.healthcare.database.MyConnectionsQuery;
@@ -309,16 +310,18 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             @Override
             public void onClick(View v) {
 
-                Fun_Type = 2;
+
 
                 SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
                 if (prefs.contains("access-token")) {
+                    Fun_Type = 4;
                     preferences.putString(PrefConstants.STORE, "Restore");
                     preferences.putString(PrefConstants.TODO, todo);
                     preferences.putString(PrefConstants.TODOWHAT, todoWhat);
 //                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                     loadDropboxData();
                 } else {
+                    Fun_Type = 2;
                     Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
                 }
 
@@ -921,6 +924,12 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             Toast.makeText(context, "Unzipped and restored files Successfully", Toast.LENGTH_SHORT).show();
          //   Intent i=new Intent(context, FragmentConnectionNew.class); //Rahul Patil
          //   startActivity(i);                                           //Rahul Patil
+
+            Intent intentDashboard = new Intent(context, BaseActivity.class);
+            intentDashboard.putExtra("c", 3);//Profile Data
+            //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intentDashboard);
             finish();
         } else {
             Toast.makeText(context, "Restoring Failed, Please try again", Toast.LENGTH_SHORT).show();
