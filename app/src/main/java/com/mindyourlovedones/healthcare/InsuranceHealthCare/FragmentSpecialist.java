@@ -111,6 +111,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
 
+
         //shradha
         txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
         txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));

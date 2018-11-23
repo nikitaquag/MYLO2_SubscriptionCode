@@ -15,14 +15,16 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lvCard"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_toEndOf="@+id/txtView"
         android:layout_toRightOf="@+id/txtView"
         android:divider="@color/colorLightGray"
         android:dividerHeight="@dimen/dimension20dp"
         android:paddingTop="@dimen/dimension15dp"
-        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+        android:scrollbars="none">
+
+    </android.support.v7.widget.RecyclerView>
     <!-- <TextView
          android:id="@+id/txtView"
          android:layout_width="match_parent"
