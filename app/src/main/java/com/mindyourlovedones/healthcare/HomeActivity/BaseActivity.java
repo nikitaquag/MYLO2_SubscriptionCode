@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -96,12 +97,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     String From;
     Intent i;
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
-
+    ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
+       /* pd = new ProgressDialog(this);//nikita
+        pd.setTitle("Loading UI...");
+        pd.show();
+        new Handler().postDelayed(new Runnable() {//nikita
+            @Override
+            public void run() {
+                //Here you can send the extras.
+                new AsynData().execute("");
+            }
+        }, 100);*/
 
 
         try {
@@ -167,7 +179,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             if (p == 1) {
                 callFragmentData(new FragmentDashboard());
                 p = 1;
-            }else if(p==3){
+            } else if (p == 3) {
                 callFragmentData(new FragmentConnectionNew());
                 p = 1;
             }
@@ -176,12 +188,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }*/
     }
 
+/*
     @Override
 
-        public void onBackPressed () {
-        if(p==1)
-        finish();
+    public void onBackPressed() {
+        if (p == 1)
+            finish();
     }
+*/
 
 
     List<RelativeConnection> items;//nikita
@@ -887,10 +901,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     /*Add code for back button: Rahul*/
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if (keyCode == KeyEvent.KEYCODE_BACK)
-        {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             callFirstFragment("CONNECTION", fragmentConnection);
 
             //Back buttons was pressed, do whatever logic you want
@@ -899,7 +911,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
- //   int c2 = 0;
+    //   int c2 = 0;
 /*
     @Override
     public void onBackPressed() {
@@ -934,4 +946,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 */
+
+/*
+    public class AsynData extends AsyncTask {//nikita
+
+        @Override
+        protected Object doInBackground(Object[] objects) {
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Object o) {
+            loadData();
+            super.onPostExecute(o);
+        }
+    }
+*/
+
+
+
 }

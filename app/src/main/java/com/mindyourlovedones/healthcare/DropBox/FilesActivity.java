@@ -51,10 +51,12 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
     private static final String TAG = FilesActivity.class.getName();
     private static final int PICKFILE_REQUEST_CODE = 1;
     Preferences preferences;
-    RelativeLayout rlBackup;
+    RelativeLayout rlBackup,rlHeader;
     private String mPath;
     private FilesAdapter mFilesAdapter;
     private FileMetadata mSelectedFile;
+    ImageView imgBack;
+
 
     public static Intent getIntent(Context context, String path) {
         Intent filesIntent = new Intent(context, FilesActivity.class);
@@ -96,6 +98,8 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
 
         setContentView(R.layout.activity_files);
         rlBackup = findViewById(R.id.rlBackup);
+        rlHeader=findViewById(R.id.rlHeader);
+        imgBack=findViewById(R.id.imgBack);
         RecyclerView recyclerView = findViewById(R.id.files_list);
 
         ImageView imgBack = findViewById(R.id.imgBack);
@@ -110,9 +114,15 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
         if (from.equals("Document") || from.equals("Restore")) {
             rlBackup.setVisibility(View.GONE);
             recyclerView.setVisibility(View.VISIBLE);
+            rlHeader.setVisibility(View.VISIBLE);
+            imgBack.setVisibility(View.GONE);
+
+
         } else if (from.equals("Backup")) {
             rlBackup.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+            imgBack.setVisibility(View.VISIBLE);
+            rlHeader.setVisibility(View.GONE);
         }
         rlBackup.setOnClickListener(new View.OnClickListener() {
             @Override

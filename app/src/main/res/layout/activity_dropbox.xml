@@ -285,6 +285,9 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension20dp" />
 
+
+
+
             <TextView
                 android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"
@@ -298,18 +301,32 @@
                 android:visibility="gone" />
 
 
-                <TextView
-                    android:layout_margin="@dimen/dimension10dp"
-                    android:layout_below="@+id/btnShare"
-                    android:id="@+id/txtLoginPerson"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp" />
+            <TextView
+                android:id="@+id/txtLoginPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnShare"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtLoginDropbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtLoginPerson"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="Login from Dropbox"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/dimension18dp" />
 
 
 
@@ -366,8 +383,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/llBox"
-                android:layout_alignStart="@+id/llBox"
                 android:layout_alignLeft="@+id/llBox"
+                android:layout_alignStart="@+id/llBox"
                 android:visibility="gone">
 
 

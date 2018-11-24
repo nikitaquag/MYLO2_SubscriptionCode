@@ -102,6 +102,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     // byte[] photoCard=null;
     ImageView imgRight, imgInfo, imgR;
     RelativeLayout llIndividual;
+  //  Button floatingBtn;
     TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
@@ -169,13 +170,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
                 .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
-                .displayer(new RoundedBitmapDisplayer(150)) // default //for square SimpleBitmapDisplayer()
+                .displayer(new RoundedBitmapDisplayer(120)) // default //for square SimpleBitmapDisplayer()
                 .handler(new Handler()) // default
                 .build();
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(displayImageOptionsProfile)
                 .build();
         ImageLoader.getInstance().init(config);
         imageLoaderProfile = ImageLoader.getInstance();
+
 
         //Card
         displayImageOptionsCard = new DisplayImageOptions.Builder() // resource
@@ -1440,10 +1442,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-               // intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+             //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 startActivity(intentDashboard);
 
 
