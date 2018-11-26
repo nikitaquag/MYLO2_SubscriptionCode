@@ -104,7 +104,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-       /* pd = new ProgressDialog(this);//nikita
+     /*   pd = new ProgressDialog(this);//nikita
         pd.setTitle("Loading UI...");
         pd.show();
         new Handler().postDelayed(new Runnable() {//nikita
@@ -113,10 +113,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 //Here you can send the extras.
                 new AsynData().execute("");
             }
-        }, 100);*/
-
-
+        }, 100);
+*/
         try {
+
             //nikita -pdf
             Intent i = getIntent();
             if (i != null) {
@@ -148,6 +148,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.fragmentContainer, fragment);
         ft.commit();
+
+
     }
 
     private void loadData() {
@@ -170,9 +172,27 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             callFirstFragment("CONNECTION", fragmentConnection);
         }
 
+
 /*
-         Shradha-For replacing fragments on clicking float button
+        try {
+            Intent intent = getIntent();
+            if (intent != null) {
+                p = intent.getExtras().getInt("c");
+                if (p == 1) {
+                    callFragmentData(new FragmentDashboard());
+                    p = 1;
+                } else if (p == 3) {
+                    callFragmentData(new FragmentConnectionNew());
+                    p = 1;
+                }
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 */
+
+
         Intent intent = getIntent();
         if (intent != null) {
             p = intent.getExtras().getInt("c");
@@ -183,19 +203,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 callFragmentData(new FragmentConnectionNew());
                 p = 1;
             }
-        }/* else {
-            Toast.makeText(context, "Fragments not loaded..", Toast.LENGTH_SHORT).show();
-        }*/
+        }
+
     }
 
-/*
-    @Override
 
-    public void onBackPressed() {
-        if (p == 1)
-            finish();
-    }
-*/
 
 
     List<RelativeConnection> items;//nikita
@@ -500,6 +512,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         fragmentMarketPlace = new FragmentMarketPlace();
         fragmentVideos = new FragmentVideos();
         fragmentBackup = new FragmentBackup();
+/*
+        new Handler().postDelayed(new Runnable() {//nikita
+            @Override
+            public void run() {
+                //Here you can send the extras.
+                pd.dismiss();
+            }
+        }, 100);
+*/
+
     }
 
     public void callFragment(String fragName, Fragment fragment) {
@@ -952,6 +974,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         protected Object doInBackground(Object[] objects) {
+
+
             return null;
         }
 

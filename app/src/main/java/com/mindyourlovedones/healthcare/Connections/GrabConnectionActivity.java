@@ -406,6 +406,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
         @Override
         protected Object doInBackground(Object[] objects) {
+
             return null;
         }
 

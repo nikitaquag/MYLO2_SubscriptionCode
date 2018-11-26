@@ -53,7 +53,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
     Preferences preferences;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
-    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
+    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Brother-in-law", "Client" , "Friend","Father-in-law", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law","Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
 
     public ConnectionAdapter(Context context, ArrayList<RelativeConnection> connectionList) {
         preferences = new Preferences(context);
