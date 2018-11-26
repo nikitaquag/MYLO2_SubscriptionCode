@@ -561,8 +561,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 } else {
                     Toast.makeText(AddCardActivity.this, "Portrait image", Toast.LENGTH_SHORT).show();
                 }
-
-                // imageLoader.displayImage(String.valueOf(imageUri),imgfrontCard,displayImageOptions);
+                /*shradha uncommented imageLoader line code*/
+                imageLoader.displayImage(String.valueOf(imageUri), imgfrontCard, displayImageOptions);
                 Matrix matrix = new Matrix();
                 if (selectedImage.getHeight() > selectedImage.getWidth()) {
                     matrix.postRotate(90);
@@ -673,7 +673,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 //  profileImage.setImageBitmap(selectedImage);
-                //  imageLoader.displayImage(String.valueOf(imageUri),imgBackCard,displayImageOptions);
+                /*Code added for setting back card image */
+                imageLoader.displayImage(String.valueOf(imageUri), imgBackCard, displayImageOptions);
                 Matrix matrix = new Matrix();
                 if (selectedImage.getHeight() > selectedImage.getWidth()) {
                     matrix.postRotate(90);
@@ -684,7 +685,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 Bitmap rotatedBitmap = Bitmap.createBitmap(selectedImage, 0, 0, selectedImage.getWidth(), selectedImage.getHeight(), matrix, true);
                 imgBackCard.setImageBitmap(rotatedBitmap);
                 PHOTO2 = rotatedBitmap;
-                // storeImage(rotatedBitmap,"Back");
+                /*shradha*/
+                 storeImage(rotatedBitmap,"Back");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
