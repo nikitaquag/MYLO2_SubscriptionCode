@@ -77,6 +77,12 @@ public class PrescribeImageQuery {
     }
 
     public static Boolean insertImageData(int userid, ArrayList<PrescribeImage> imageList, int id) {
+
+
+
+//        push check
+        
+
         boolean flag = false;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
