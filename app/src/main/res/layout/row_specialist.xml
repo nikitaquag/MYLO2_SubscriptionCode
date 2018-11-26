@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linswipe"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/lincall"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#C9C9CE"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/ic_call" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lintrash"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FF5534"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--
+
+            <FrameLayout
+                android:id="@+id/delete_layout"
+                android:layout_width="@dimen/dimension150dp"
+                android:layout_height="wrap_content"
+                android:background="#ffcc0000"
+                >
+              <TextView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+                  android:text="DELETE"
+                  android:textSize="@dimen/dimension24dp"
+                  android:gravity="center"
+                  android:textColor="@color/colorWhite"
+                  android:background="#fa694E"
+                  />
+                &lt;!&ndash;<ImageView
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension70dp"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                     android:src="@drawable/delete_icon"
+                    />&ndash;&gt;
+            </FrameLayout>
+        -->
+
+        <RelativeLayout
+            android:id="@+id/rlEmergency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/dimension2dp">
+
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/dimension60dp"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimension10dp"
+                android:src="@drawable/ic_profile_defaults" />
+
+            <RelativeLayout
+                android:id="@+id/rlMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toLeftOf="@+id/imgForword"
+                android:layout_toRightOf="@+id/imgProfile"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_edit_blue"
+                    android:ellipsize="end"
+                    android:gravity="start|center_vertical"
+                    android:paddingLeft="@dimen/dimension10dp"
+                    android:text="Cfklj kj ouio vdfgbdfbfgnfgnfghdfgvgdfbdfgdfgdfgxfbdfgdfbdfvdfvd"
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="@dimen/dimension20dp"
+                    android:drawableRight="@drawable/ic_edit_blue" />
+
+                <TextView
+                    android:id="@+id/txtType"
+                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/dimension10dp"
+                    android:text=""
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/dimension17dp" />
+
+                <TextView
+                    android:id="@+id/txtState"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:layout_toRightOf="@+id/txtType"
+                    android:ellipsize="end"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/dimension10dp"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/dimension17dp" />
+
+                <TextView
+                    android:id="@+id/txtOfficePhone"
+                    android:layout_width="@dimen/dimension140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtType"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:layout_marginLeft="@dimen/dimension6dp"
+                    android:layout_toRightOf="@+id/txtTelePhone"
+                    android:drawableLeft="@drawable/ofcphone"
+                    android:drawablePadding="@dimen/dimension5dp"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="8789-879-782"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtType"
+                    android:layout_marginLeft="@dimen/dimension6dp"
+                    android:drawableLeft="@drawable/markers"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="#203,10 Downing Street, los Angeles, California."
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtType"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:drawableLeft="@drawable/mobile"
+                    android:drawablePadding="@dimen/dimension5dp"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="8789-879-78"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtTelePhone"
+                    android:layout_width="@dimen/dimension140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtType"
+                    android:layout_toRightOf="@+id/txtPhone"
+                    android:drawableLeft="@drawable/ofcphone"
+                    android:drawablePadding="@dimen/dimension5dp"
+                    android:ellipsize="end"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:singleLine="true"
+                    android:text="8789-879-787"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="@dimen/dimension25dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtName"
+                    android:ellipsize="end"
+                    android:gravity="start|center_vertical"
+                    android:src="@drawable/ic_edit_blue"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/imgForword"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imgNext"
+                android:paddingRight="@dimen/dimension5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/busi_card" />
+
+            <ImageView
+                android:id="@+id/imgNext"
+                android:layout_width="@dimen/dimension60dp"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension5dp"
+                android:focusableInTouchMode="false"
+                android:padding="@dimen/dimension10dp"
+                android:src="@drawable/forword_arrow" />
+
+            <!--<View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorDarkGray"
+                ></View>-->
+        </RelativeLayout>
+    </RelativeLayout>
+</com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout>

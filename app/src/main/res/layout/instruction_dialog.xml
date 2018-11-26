@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimension10dp"
+    android:background="@drawable/border_instructions">
+
+    <LinearLayout
+        android:id="@+id/llInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_instructions"
+        android:orientation="vertical"
+        android:padding="@dimen/dimension10dp">
+
+        <TextView
+            android:id="@+id/txtInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension10dp"
+            android:text="User Instructions"
+            android:textColor="@color/colorSkysBlue"
+            android:textSize="@dimen/dimension22dp"
+            android:textStyle="normal" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Cancel"
+            android:paddingTop="@dimen/dimension5dp"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/dimension22dp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+    <View
+        android:id="@+id/viewIns"
+        android:layout_below="@+id/llInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension10dp"
+        android:visibility="visible" />
+
+</RelativeLayout>

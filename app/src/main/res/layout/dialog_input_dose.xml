@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/gray_white_border"
+            android:padding="@dimen/dimension5dp">
+
+            <ImageView
+                android:id="@+id/imgPet"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:padding="@dimen/dimension6dp"
+                android:src="@drawable/add_event" />
+
+            <TextView
+                android:id="@+id/txtAdd"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_toRightOf="@+id/imgPet"
+                android:text="Add Medicine"
+                android:textSize="@dimen/dimension20dp" />
+
+            <TextView
+                android:id="@+id/txtMedicine"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtAdd"
+                android:layout_margin="@dimen/dimension15dp"
+                android:text="Name of Medication or Supplement"
+                android:textSize="@dimen/dimension20dp" />
+
+            <EditText
+                android:id="@+id/etMedicine"
+                style="@style/EmergencyDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMedicine"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:background="@drawable/darkgray_white_border"
+                android:gravity="top"
+                android:imeOptions="actionNext"
+                android:padding="@dimen/dimension10dp"
+                android:singleLine="true" />
+
+            <requestFocus />
+
+            <TextView
+                android:id="@+id/txtRX"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_below="@+id/etMedicine"
+                android:layout_margin="@dimen/dimension15dp"
+                android:text="RX#"
+                android:textSize="@dimen/dimension20dp"
+
+                />
+
+            <EditText
+                android:id="@+id/etRX"
+                style="@style/EmergencyDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtRX"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:background="@drawable/darkgray_white_border"
+                android:gravity="top"
+                android:imeOptions="actionNext"
+                android:padding="@dimen/dimension10dp"
+                android:singleLine="true" />
+
+            <requestFocus />
+
+            <EditText
+                android:id="@+id/etDose"
+                style="@style/EmergencyDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDose"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:background="@drawable/darkgray_white_border"
+                android:gravity="top"
+                android:imeOptions="actionNext"
+                android:padding="@dimen/dimension10dp"
+                android:singleLine="true" />
+
+            <requestFocus />
+
+            <TextView
+                android:id="@+id/txtFrequency"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_below="@+id/etDose"
+                android:layout_margin="@dimen/dimension15dp"
+                android:text="Frequency"
+                android:textSize="@dimen/dimension20dp" />
+
+            <EditText
+                android:id="@+id/etFrequency"
+                style="@style/EmergencyDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtFrequency"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:background="@drawable/darkgray_white_border"
+                android:gravity="top"
+                android:imeOptions="actionNext"
+                android:padding="@dimen/dimension10dp"
+                android:singleLine="true" />
+
+            <requestFocus />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/etFrequency"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:padding="@dimen/dimension10dp">
+
+                <TextView
+                    android:id="@+id/btnYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="@dimen/dimension5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension10dp"
+                    android:text="Add"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold"
+
+                    />
+
+                <TextView
+                    android:id="@+id/btnNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_margin="@dimen/dimension5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/selector_button"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension10dp"
+                    android:text="Cancel"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtDose"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignLeft="@+id/etDose"
+                android:layout_alignStart="@+id/etDose"
+                android:layout_below="@+id/etRX"
+                android:layout_marginTop="15dp"
+                android:text="Dosage"
+                android:textSize="@dimen/dimension20dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:padding="@dimen/dimension15dp">
+
+    <LinearLayout
+        android:id="@+id/llShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_border"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtDelProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimension15dp"
+            android:text="Delete Profile"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/txtDelProfile"
+            android:background="@color/colorLightGray" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llShareInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llShare"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+        <TextView
+            android:id="@+id/txtShareProfile"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:gravity="center_vertical"
+            android:padding="@dimen/dimension15dp"
+            android:text="Share Profile"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
+
+        <ImageView
+            android:id="@+id/imgInfo"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_weight="1"
+            android:src="@drawable/info" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtMsgInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llShareInfo"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:text="You can upload the profile on your dropbox account."
+        android:textColor="@color/colorSkysBlue"
+        android:visibility="gone" />
+</RelativeLayout>

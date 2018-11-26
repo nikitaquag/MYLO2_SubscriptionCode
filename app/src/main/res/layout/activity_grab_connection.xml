@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    tools:context="com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity">
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:background="@color/colorBlue"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:src="@drawable/backward_arrow" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_toLeftOf="@+id/txtsave"
+            android:layout_toRightOf="@+id/imgBack"
+            android:gravity="center"
+            android:text="Grab Contact (Manual)"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension21dp" />
+
+        <ImageView
+            android:id="@+id/imgdg"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp" />
+
+        <ImageView
+            android:id="@+id/imgRefresh"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/refresh"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txtsave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="SAVE"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llGrab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension50dp"
+        android:layout_below="@+id/header"
+        android:background="@color/colorLightBlue"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtNew"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightBlue"
+            android:gravity="center"
+            android:text="NEW"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/dimension20dp" />
+
+        <TextView
+            android:id="@+id/txtContact"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorLightBlue"
+            android:gravity="center"
+            android:text="Contacts"
+            android:textColor="@color/colorGray"
+            android:textSize="@dimen/dimension20dp" />
+
+        <ImageView
+            android:id="@+id/imgContact"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorGray"
+            android:scaleType="center"
+            android:src="@drawable/ic_person_white"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgFb"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorGray"
+            android:scaleType="center"
+            android:src="@drawable/fb"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgGoogle"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension1dp"
+            android:layout_weight="1"
+            android:background="@color/colorGray"
+            android:scaleType="center"
+            android:src="@drawable/g"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/llGrab">
+
+    </RelativeLayout>
+</RelativeLayout>

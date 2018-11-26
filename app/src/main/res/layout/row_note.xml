@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linswipe"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/lintrash"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FF5534"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorLightBlue"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rlTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/gray_white_border"
+            android:padding="@dimen/dimension5dp">
+
+            <TextView
+                android:id="@+id/txtNote"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtDateTime"
+                android:layout_toLeftOf="@+id/imgForword"
+                android:layout_toRightOf="@+id/imgDocType"
+                android:text="ADM"
+
+
+                />
+
+            <TextView
+                android:id="@+id/txtDateTime"
+                style="@style/EmergencyDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/imgForword"
+                android:layout_toRightOf="@id/imgDocType"
+                android:text="08/09/2017  14:00" />
+
+            <ImageView
+                android:id="@+id/imgForword"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimension5dp"
+                android:padding="@dimen/dimension5dp"
+                android:src="@drawable/ic_edit_blue" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout>

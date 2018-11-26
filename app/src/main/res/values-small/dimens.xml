@@ -1,0 +1,54 @@
+<resources>
+    <dimen name="splash_title">18sp</dimen>
+    <dimen name="splash_sub">10sp</dimen>
+    <dimen name="splash_logo_ht">50dp</dimen>
+    <dimen name="splash_logo_wd">80dp</dimen>
+
+    <dimen name="dimension1dp">0.5dp</dimen>
+    <dimen name="dimension2dp">1dp</dimen>
+    <dimen name="dimension3dp">1.5dp</dimen>
+    <dimen name="dimension5dp">2.5dp</dimen>
+    <dimen name="dimension6dp">3dp</dimen>
+    <dimen name="dimension7dp">3.5dp</dimen>
+    <dimen name="dimension8dp">4dp</dimen>
+    <dimen name="dimension10dp">5dp</dimen>
+    <dimen name="dimension15dp">7.5dp</dimen>
+    <dimen name="dimension16dp">8dp</dimen>
+    <dimen name="dimension17dp">8.5dp</dimen>
+    <dimen name="dimension18dp">9dp</dimen>
+    <dimen name="dimension19dp">9.5dp</dimen>
+    <dimen name="dimension20dp">10dp</dimen>
+    <dimen name="dimension21dp">10.5dp</dimen>
+    <dimen name="dimension22dp">11dp</dimen>
+    <dimen name="dimension24dp">12dp</dimen>
+    <dimen name="dimension25dp">12.5dp</dimen>
+    <dimen name="dimension26dp">13dp</dimen>
+    <dimen name="dimension30dp">15dp</dimen>
+    <dimen name="dimension35dp">17.5dp</dimen>
+    <dimen name="dimension36dp">18dp</dimen>
+    <dimen name="dimension40dp">20dp</dimen>
+    <dimen name="dimension45dp">22.5dp</dimen>
+    <dimen name="dimension50dp">25dp</dimen>
+    <dimen name="dimension55dp">27.5dp</dimen>
+    <dimen name="dimension60dp">30dp</dimen>
+    <dimen name="dimension65dp">32.5dp</dimen>
+    <dimen name="dimension70dp">35dp</dimen>
+    <dimen name="dimension75dp">37.5dp</dimen>
+    <dimen name="dimension80dp">40dp</dimen>
+    <dimen name="dimension85dp">42.5dp</dimen>
+    <dimen name="dimension90dp">45dp</dimen>
+    <dimen name="dimension100dp">50dp</dimen>
+    <dimen name="dimension110dp">55dp</dimen>
+    <dimen name="dimension120dp">60dp</dimen>
+    <dimen name="dimension140dp">70dp</dimen>
+    <dimen name="dimension150dp">75dp</dimen>
+    <dimen name="dimension155dp">77.5dp</dimen>
+    <dimen name="dimension160dp">80dp</dimen>
+    <dimen name="dimension165dp">82.5dp</dimen>
+    <dimen name="dimension200dp">100dp</dimen>
+    <dimen name="dimension210dp">105dp</dimen>
+    <dimen name="dimension250dp">125dp</dimen>
+    <dimen name="dimension300dp">150dp</dimen>
+    <dimen name="dimension310dp">155dp</dimen>
+
+</resources>

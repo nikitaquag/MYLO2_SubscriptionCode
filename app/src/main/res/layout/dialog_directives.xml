@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/llDirectives"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_border"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txtPhoneStorage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Phone Storage"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/txtDelProfile"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtDropbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Dropbox"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Email"
+            android:textColor="@color/colorBlue"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+        <View
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:background="@color/colorLightGray" />
+
+        <TextView
+            android:id="@+id/txtCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/dimension15dp"
+            android:text="Cancel"
+            android:textColor="@color/colorRed"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+</RelativeLayout>

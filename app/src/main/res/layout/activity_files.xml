@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<android.support.design.widget.CoordinatorLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/files_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rlHeader"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:visibility="gone" />
+
+
+
+        <RelativeLayout
+            android:id="@+id/rlHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/colorBlue">
+
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+
+                <ImageView
+                    android:id="@+id/imgDropbox"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/dropboxnew"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                   android:layout_gravity="center_vertical"
+                    android:gravity="left|center_vertical"
+                    android:text="Dropbox"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension30dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_alignParentLeft="true"
+                android:id="@+id/imgBack2"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="top|left"
+                android:layout_margin="@dimen/dimension10dp"
+                android:src="@drawable/back"
+                android:tint="@color/colorWhite"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="top|left"
+            android:layout_margin="@dimen/dimension10dp"
+            android:background="@color/colorBlueText"
+            android:src="@drawable/back"
+            android:tint="@color/colorWhite"
+            android:visibility="visible" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/rlBackup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/dimension10dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txtMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Using Backup you can store your images, database, files into zip format to the dropbox server."
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtMsg"
+            android:layout_marginTop="@dimen/dimension40dp"
+            android:background="@color/colorBlue"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimension10dp"
+            android:text="Backup Your Data"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension25dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/fab_margin"
+        android:background="@color/colorWhite"
+        android:src="@drawable/backup"
+        android:visibility="gone"
+        borderWidth="0dp" />
+    <!--</android.support.design.widget.CoordinatorLayout>-->
+
+</RelativeLayout>

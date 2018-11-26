@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <RelativeLayout
+            android:id="@+id/headers"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension70dp"
+            android:background="@color/colorSix"
+            android:gravity="center_vertical"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/imgBacks"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension50dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/backward_arrow" />
+
+            <TextView
+                android:id="@+id/txtTitles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:gravity="center_horizontal"
+                android:text="Backup, restore, share data"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/dimension22dp" />
+
+            <ImageView
+                android:id="@+id/imgDones"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/check_mark"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imgDots"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/info_white"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlBackupNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/headers"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:background="@color/colorGrayBackup"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:padding="@dimen/dimension20dp"
+                android:text="How to Backup, Restore &amp; Share"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:id="@+id/imgForward"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:src="@drawable/forword"
+                android:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/imgDown"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:src="@drawable/drop"
+                android:tint="#2196F3"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llBackup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlBackupNew"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_marginBottom="@dimen/dimension10dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtHBackUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimension10dp"
+                android:background="@color/colorGrayBackup"
+                android:padding="@dimen/dimension10dp"
+                android:text="How to Backup the entire Database or one Profile"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtHRestore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimension10dp"
+                android:background="@color/colorGrayBackup"
+                android:padding="@dimen/dimension10dp"
+                android:text="How to Restore the entire Database or one Profile"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtHShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimension10dp"
+                android:background="@color/colorGrayBackup"
+                android:padding="@dimen/dimension10dp"
+                android:text="How to Share the entire Database or one Profile with another MYLO User"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtHUpload"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dimension10dp"
+                android:background="@color/colorGrayBackup"
+                android:padding="@dimen/dimension10dp"
+                android:text="How to Upload the entire Database or one Profile that was Shared from another MYLO User"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlNewChanges"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llBackup"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/txtBackup1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:text="@string/backup"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txtBackup2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtBackup1"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:text="If you don't use Dropbox. Click here for instructions about how to get a free Dropbox account."
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rlDrop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlNewChanges"
+            android:padding="@dimen/dimension20dp"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:id="@+id/llBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imgDrop"
+                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_height="@dimen/dimension100dp"
+                    android:layout_margin="@dimen/dimension20dp"
+                    android:src="@drawable/dropbox_big" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_margin="@dimen/dimension20dp"
+                    android:layout_toRightOf="@+id/imgDrop"
+                    android:gravity="center"
+                    android:text="Dropbox"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension40dp" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Login with Dropbox"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+
+            <Button
+                android:id="@+id/btnBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Backup"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="visible" />
+
+
+            <Button
+                android:id="@+id/btnRestore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnBackup"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Restore"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnRestore"
+                android:layout_marginTop="@dimen/dimension30dp"
+                android:background="@color/colorBlue"
+                android:padding="@dimen/dimension10dp"
+                android:text="Share"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp" />
+
+
+
+
+            <TextView
+                android:id="@+id/txtLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llBox"
+                android:layout_margin="@dimen/dimension20dp"
+                android:gravity="center"
+                android:text="Log In With Dropbox account to Access Files"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension20dp"
+                android:visibility="gone" />
+
+
+            <TextView
+                android:id="@+id/txtLoginPerson"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btnShare"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp" />
+
+            <TextView
+                android:id="@+id/txtLoginDropbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtLoginPerson"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="Login from Dropbox"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/dimension18dp" />
+
+
+
+            <!--<RelativeLayout-->
+            <!--android:id="@+id/rlView"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_below="@+id/btnShare"-->
+            <!--android:visibility="gone">-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnFiles"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="@dimen/dimension20dp"-->
+            <!--android:background="@color/colorBlue"-->
+            <!--android:padding="@dimen/dimension10dp"-->
+            <!--android:text="View Files"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="@dimen/dimension20dp"-->
+            <!--android:visibility="gone" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/txtfile"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/btnAdd"-->
+            <!--android:layout_margin="@dimen/dimension10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="Click on Add File for Add File to your documents"-->
+            <!--android:textColor="@color/colorBlackDark"-->
+            <!--android:textSize="@dimen/dimension20dp"-->
+            <!--android:visibility="gone" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/btnAdd"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_marginBottom="@dimen/dimension10dp"-->
+            <!--android:layout_marginLeft="@dimen/dimension20dp"-->
+            <!--android:layout_marginRight="@dimen/dimension20dp"-->
+            <!--android:background="@color/colorSix"-->
+            <!--android:padding="@dimen/dimension10dp"-->
+            <!--android:text="Add Files"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="@dimen/dimension20dp"-->
+            <!--android:visibility="gone" />-->
+
+            <!--</RelativeLayout>-->
+
+            <RelativeLayout
+                android:id="@+id/rlBackup"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/llBox"
+                android:layout_alignLeft="@+id/llBox"
+                android:layout_alignStart="@+id/llBox"
+                android:visibility="gone">
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+</ScrollView>

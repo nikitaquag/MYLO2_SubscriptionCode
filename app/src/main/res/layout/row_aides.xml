@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linswipe"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/lincall"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#C9C9CE"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/ic_call" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lintrash"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FF5534"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingTop="@dimen/dimension2dp">
+
+            <com.mindyourlovedones.healthcare.customview.RoundedImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="@dimen/dimension60dp"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimension10dp"
+                android:src="@drawable/ic_user_one" />
+
+            <RelativeLayout
+                android:id="@+id/rlMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_toLeftOf="@+id/imgForword"
+                android:layout_toRightOf="@+id/imgProfile">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:gravity="left"
+                    android:text="Cfklj kj ouio "
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <TextView
+                    android:id="@+id/txtType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtName"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:gravity="center"
+                    android:text="Primary Proxy"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="@dimen/dimension17dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtType"
+                    android:drawableLeft="@drawable/markers"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="#203,10 Downing Street, los Angeles, California."
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtAddress"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:drawableLeft="@drawable/phone"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:gravity="top|left"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="8789-879-78"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <ImageView
+                    android:id="@+id/imgEdit"
+                    android:layout_width="@dimen/dimension25dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtName"
+                    android:src="@drawable/ic_edit_blue" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/imgForword"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/imgNext"
+                android:paddingRight="@dimen/dimension5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/busi_card" />
+
+            <ImageView
+                android:id="@+id/imgNext"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension5dp"
+                android:src="@drawable/forword_arrow" />
+
+
+            <!-- <View
+                 android:id="@+id/view1"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/dimension1dp"
+              android:layout_alignParentBottom="true"
+                 android:background="@color/colorDarkGray"
+                 ></View>-->
+        </RelativeLayout>
+    </RelativeLayout>
+</com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rlBackup"
+            android:layout_width="@dimen/dimension150dp"
+            android:layout_height="@dimen/dimension150dp"
+            android:layout_margin="@dimen/dimension10dp"
+            android:layout_weight="1"
+            android:background="@drawable/cir">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Backup"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension25dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlRestore"
+            android:layout_width="@dimen/dimension150dp"
+            android:layout_height="@dimen/dimension150dp"
+            android:layout_margin="@dimen/dimension10dp"
+            android:layout_weight="1"
+            android:background="@drawable/cir">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Restore"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension25dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimension10dp"
+    android:layout_marginBottom="@dimen/dimension10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:drawableLeft="@drawable/dot"
+        android:drawablePadding="@dimen/dimension10dp"
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:padding="@dimen/dimension10dp"
+        android:layout_toLeftOf="@+id/imgEdit"
+        android:text="klklaskdlsaczx kssafsacssczxcss"
+        android:textColor="@color/colorDarkGray"
+        android:textSize="@dimen/dimension18dp" />
+
+    <ImageView
+        android:id="@+id/imgEdit"
+        android:layout_width="@dimen/dimension25dp"
+        android:layout_height="@dimen/dimension25dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:layout_toLeftOf="@+id/imgDelete"
+        android:padding="@dimen/dimension0dp"
+        android:src="@drawable/edit"></ImageView>
+
+    <ImageView
+        android:id="@+id/imgDelete"
+        android:layout_width="@dimen/dimension25dp"
+        android:layout_height="@dimen/dimension25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:padding="@dimen/dimension0dp"
+        android:src="@drawable/delete_icon"></ImageView>
+</RelativeLayout>

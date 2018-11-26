@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mindyourlovedones.healthcare.DashBoard.UserInsActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
+        app:backgroundTint="@color/colorFloatRed"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        app:fabSize="normal"
+        tools:targetApi="lollipop"
+        />
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:background="@color/colorBlue">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:src="@drawable/backward_arrow" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:text="User INSTRUCTIONS"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension22dp" />
+
+        <TextView
+            android:id="@+id/txtEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:text="Email"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imgDot"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:padding="@dimen/dimension3dp"
+            android:src="@drawable/upload"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header">
+
+        <RelativeLayout
+            android:id="@+id/rlInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgPicture"
+                android:layout_width="@dimen/dimension90dp"
+                android:layout_height="@dimen/dimension90dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/v_physi"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/txtHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgPicture"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="Add Profile"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension24dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtHeader"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:paddingBottom="20dp"
+                android:text="Add the name and number of the physician you would  most likely want to reach in case of an emergency. Don’t forget to take a picture of their card. You may want to email, text or print it."
+                android:textColor="@color/colorGuide"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:id="@+id/rlMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtMsg"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/rlStep1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep1"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep1"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep1"
+                    android:layout_marginTop="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep2"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep2"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep22"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep2">
+
+                    <ImageView
+                        android:id="@+id/imgStep22"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/txtStep22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep22"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlStep3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep22">
+
+                    <ImageView
+                        android:id="@+id/imgStep3"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep3"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep3"
+                    android:layout_marginTop="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep4"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep4"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep4"
+                    android:layout_marginTop="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep5"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep5"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep55"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep5"
+                    android:layout_marginTop="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep55"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/txtStep55"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep55"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep555"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep55"
+                    android:layout_marginTop="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imgStep555"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/txtStep555"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep555"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rlStep6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep555"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imgStep6"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep6"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep6"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imgStep7"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtStep7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep7"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlStep8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep7"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imgStep8"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4"
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/txtStep8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep8"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

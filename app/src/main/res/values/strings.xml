@@ -1,0 +1,76 @@
+<resources>
+    <string name="app_name">MYLO</string>
+    <string name="title_activity_medical_appoint">MedicalAppointActivity</string>
+    <string name="header_title">Mind Your Loved Ones</string>
+    <string name="msg">Mobile Tech for Seniors and their Families<html></html></string>
+    <string name="msgstay">Stay Connected<html></html></string>
+    <string name="numOfYear">Number of Years &amp; When\nStopped (if applicable)</string>
+
+    <string name="TradeMark"> \n  Association, used under license.</string>
+
+    <string name="LivingMsg"></string>
+    <string name="signup_appname"><![CDATA[ By creating an account, you agree to<br/>Mind Your Loved Ones<sup><small>TM</small></sup> (“MYLO<sup><small>TM</small></sup>”)]]></string>
+
+    <string name="FullAppname"><![CDATA[Mind Your Loved Ones<sup><small>TM</small></sup>]]></string>
+    <string name="ShortAppname"><![CDATA[MYLO<sup><small>TM</small></sup>]]></string>
+    <string name="MergedAppname"><![CDATA[Mind Your Loved Ones<sup><small>TM</small></sup> (MYLO<sup><small>TM</small></sup>)]]></string>
+
+    <string name="signupt1"><![CDATA[ PRIVACY-  This App is Native to Your Phone. This means all information resides on your smartphone and NOT on our server.  We do not transmit or receive data between your phone and our server. ]]></string>
+    <string name="signupt0"><![CDATA[ PRIVACY-  MYLO only has access to your name and email.  It does NOT have access or store any other information you input into this app.Allowing the App (“MYLO”) to access your photos, media, and files or to  make and mange phone calls provides the USER with functionality and a good mobile experience. OUR COMPANY DOES NOT HAVE ACCESS TO YOUR INFORMATION. WE DO NOT TRANSMIT OR RECEIVE DATA BETWEEN YOUR PHONE AND OUR SERVER. ]]></string>
+
+    <!---->
+    <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
+    <!--<string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name</u>]]></string>-->
+    <string name="signupt4"><u></u></string>
+    <string name="signupt5"><u>only has access to</u></string>
+    <string name="signupt55"><u>your name and email address.</u></string>
+    <string name="signup6">USERS must remember their user name and email address and should save data once populated. Instructions are included in app. Fax capability is ONLY to be used for medical emergencies to satisfy HIPAA requirements.</string>
+
+    <string name="step1_three">Step 3.  Add as much or as  little information as you want.  <br></br></string>
+
+    <string name="connection_info"> <![CDATA[
+Step 1.
+        To <b>add</b>
+        a Profile click the
+        <b>plus</b>
+        box. You will see two options :
+        <b>Create New</b>
+         and
+        <b>Import From Dropbox</b><br><br>
+
+Step 2.<ul style="list-style-type:square">
+         <li>&nbsp;<b>Create New : </b>
+         You will be brought to the Personal Information Screen. If the person is in your <b>Contacts</b>
+         then click the gray bar on the top right side of your screen to load information.</li>
+          <li>&nbsp;<b>Import From Dropbox : </b>
+         Using this feature you can restore the previous profile from your
+         <b>Dropbox</b>.</li></ul>
+
+
+
+Step 4.  When completed click on the green bar at the bottom of the screen that says <b>Add Profile</b> <br><br>
+
+Step 5.  TO <b>SHARE</b> A PROFILE. <b>Long press</b> on the profile box. <br><br>
+
+Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><br>]]>
+
+   </string>
+    <string name="ftu"><u>First Time User Instructions</u></string>
+    <string name="guide"><u>Guideline for add Card</u></string>
+    <string name="sigindropbox">a. <u> Sign in to dropbox.com</u></string>
+
+    <string name="person"><b> 1.\t<u>If You are the Person Sharing </u>the\n\t\tDatabase or a particular Profile with\n\t\tAnother Person</b></string>
+    <string name="person1"><b> 2.\t<u>If You are the Person Receiving </u>the\n\t\tDatabase or a particular Profile from\n\t\tAnother Person this is <u>how you</u> upload \n\t\tthe Profile into your App.</b></string>
+
+    <string name="backup"><b>Important Note:</b> MYLO uses the functionality of Dropbox to allow its Users to backup, restore, share all Profiles or just one Profile.\n</string>
+    <!--<string name="backup1"><b>Important Note:</b> MYLO uses the functionality of Dropbox to allow its Users to backup, restore, share all Profiles or just one Profile.\n</string>-->
+
+    <!-- <string-array name="specialist_arrays">
+        <item>Insurance</item>
+        <item>Doctors</item>
+        <item>Health Aides</item>
+        <item>Finance and Legal</item>
+    </string-array>-->
+    <string name="access">24/7 Access to Critical Medical Information &amp; Advance Care Directives</string>
+
+</resources>

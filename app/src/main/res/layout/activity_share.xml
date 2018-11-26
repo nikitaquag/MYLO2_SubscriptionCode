@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.mindyourlovedones.healthcare.DashBoard.ShareActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="#3282E1"
+                android:padding="@dimen/dimension15dp">
+
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/backward_arrow" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="User Instructions"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension22dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerInParent="true"
+                    android:text="Email"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgPicture"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:gravity="center"
+                android:text="DropBox Instructions"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension24dp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:id="@+id/rel61"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimension15dp"
+                android:layout_marginTop="@dimen/dimension20dp">
+
+                <ImageView
+                    android:id="@+id/img61"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4" />
+
+                <TextView
+                    android:id="@+id/txtPolicy61"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img61"
+                    android:text="Guidelines to Share"
+                    android:textColor="@color/colorGuide"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimension35dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:text="You can share all the Profiles or share an individual Profile in the following manner:"
+                android:textSize="@dimen/dimension18dp" />
+
+            <RelativeLayout
+                android:id="@+id/rel62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimension5dp"
+                android:layout_marginLeft="@dimen/dimension35dp"
+                android:layout_marginTop="@dimen/dimension20dp">
+
+                <ImageView
+                    android:id="@+id/img62"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtPolicy62"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img62"
+                    android:text="A. Guidelines to Share entire Database:"
+                    android:textColor="@color/colorGuide"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtPolicy62"
+                    android:layout_toRightOf="@+id/img62"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="1. Go to Profile Screen."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="2. Click on the Menu in the upper left\n\t\tcorner of the page."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="3. Select the Backup, Restore, Share\n\t\tfrom the list."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="4. Login with Dropbox. (If you are not\n\t\tlogged in)"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="5. Click on the Backup."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="6. Click on Backup Your Data."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="7. Wait for several minutes it will take a\n\t\ttime."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginLeft="@dimen/dimension35dp"
+                android:layout_marginTop="@dimen/dimension20dp">
+
+                <ImageView
+                    android:id="@+id/img63"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension20dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:src="@drawable/bullet4"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtPolicy63"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/img63"
+                    android:text="B. Guidelines to Share One Profile:"
+                    android:textColor="@color/colorGuide"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtPolicy63"
+                    android:layout_toRightOf="@+id/img63"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="1. Go to Profile Screen."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="2. Long press the Profile name of which\n\t\tyou have to Share"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="3. You will get a two options Delete\n\t\tProfile and Share Profile."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="4. Click on the Share Profile."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="5. Login with Dropbox (If you are not\n\t\tlogged in)"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="6. Click on Backup."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="7. Click on Backup Your Data."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:text="8. Wait for several minutes it will take\n\t\tsome time."
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:layout_toRightOf="@+id/img63"
+                        android:text="C. Guidelines to Share Profile and entire\n\t\tDatabase from Dropbox:"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img63"
+                     android:layout_marginBottom="@dimen/dimension10dp"
+                        android:text="@string/person"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPolicy62"
+                        android:layout_toRightOf="@+id/img62"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="@string/sigindropbox"
+                            android:textColor="@color/colorBlue"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="b. Hover your cursor over the file (it\n\t\twill be a zip file) you'd like to share\n\t\tand click Share when it appears\n\t\t(upper right corner)."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="6. Click on Backup Your Data."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="C. Enter the names or email addresses\n\t\tof the people who need access to\n\t\tyour files."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="d. If you want to share a folder, choose\n\t\tCan view from the dropdown list."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="e. Add a message about the files and\n\t\tclick Share."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img63"
+                        android:text="@string/person1"
+                        android:layout_marginBottom="@dimen/dimension10dp"
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtPolicy62"
+                        android:layout_toRightOf="@+id/img62"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="a. You will receive email from dropbox."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="b. Go to email and click view file and\n\t\tclick three dots on top right."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="c. On the bottom of the screen click\n\t\tSave to my Dropbox then click save\n\t\tagain."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="d. When its saved you will see a big\n\t\tcheck mark."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="e. Now go back to MYLO and click Add\n\t\tProfile and then Import from Dropbox,\n\t\tthen click Restore."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="f. Click on the profile you want to\n\t\tupload. You will see a message\n\t\tRestore do you want to unzip….  SAY\n\t\tYES"
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="g. Once done you will see the new\n\t\tprofile automatically on your profile\n\t\tscreen."
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:text="h. When you click on the box you will be\n\t\tasked to assign a relationship - click\n\t\tthe drop down and relationship label."                   android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>
