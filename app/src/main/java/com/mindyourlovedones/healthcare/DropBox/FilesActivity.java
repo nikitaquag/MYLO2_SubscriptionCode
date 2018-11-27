@@ -444,7 +444,7 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setCancelable(false);
-        dialog.setMessage("Backping Data can take several minuts");
+        dialog.setMessage("Backing Data can take several minutes");
         dialog.show();
 
         new UploadFileTask(this, DropboxClientFactory.getClient(), new UploadFileTask.Callback() {

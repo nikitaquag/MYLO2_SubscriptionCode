@@ -13,6 +13,7 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -104,7 +105,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-     /*   pd = new ProgressDialog(this);//nikita
+        pd = new ProgressDialog(this);//nikita
         pd.setTitle("Loading UI...");
         pd.show();
         new Handler().postDelayed(new Runnable() {//nikita
@@ -114,7 +115,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 new AsynData().execute("");
             }
         }, 100);
-*/
+
         try {
 
             //nikita -pdf
@@ -149,6 +150,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         ft.replace(R.id.fragmentContainer, fragment);
         ft.commit();
 
+      /*  new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Here you can send the extras.
+                pd.dismiss();
+            }
+        }, 100);*/
+
 
     }
 
@@ -171,30 +180,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
             callFirstFragment("CONNECTION", fragmentConnection);
         }
-
-
-/*
-        try {
-            Intent intent = getIntent();
-            if (intent != null) {
-                p = intent.getExtras().getInt("c");
-                if (p == 1) {
-                    callFragmentData(new FragmentDashboard());
-                    p = 1;
-                } else if (p == 3) {
-                    callFragmentData(new FragmentConnectionNew());
-                    p = 1;
-                }
-            }
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-*/
-
-
+        /*shradha*/
         Intent intent = getIntent();
-        if (intent != null) {
+        if (intent.getExtras() != null) {
             p = intent.getExtras().getInt("c");
             if (p == 1) {
                 callFragmentData(new FragmentDashboard());
@@ -204,10 +192,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 p = 1;
             }
         }
-
     }
-
-
 
 
     List<RelativeConnection> items;//nikita
@@ -512,15 +497,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         fragmentMarketPlace = new FragmentMarketPlace();
         fragmentVideos = new FragmentVideos();
         fragmentBackup = new FragmentBackup();
-/*
-        new Handler().postDelayed(new Runnable() {//nikita
-            @Override
-            public void run() {
-                //Here you can send the extras.
-                pd.dismiss();
-            }
-        }, 100);
-*/
+
 
     }
 
@@ -537,6 +514,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName);
         fragmentTransaction.commit();
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Here you can send the extras.
+                pd.dismiss();
+            }
+        }, 100);
     }
 
 
@@ -746,7 +731,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater)context
+        LayoutInflater lf = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -757,7 +742,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
@@ -782,7 +767,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final Dialog dialogBank = new Dialog(context);
         dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater)context
+        LayoutInflater lf = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_bank, null);
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
@@ -793,7 +778,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialogBank.getWindow().getAttributes());
-        int width = (int)(context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
         lp.width = width;
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
@@ -969,13 +954,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 */
 
-/*
-    public class AsynData extends AsyncTask {//nikita
+    public class AsynData extends AsyncTask {//shradha
 
         @Override
         protected Object doInBackground(Object[] objects) {
-
-
             return null;
         }
 
@@ -985,8 +967,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             super.onPostExecute(o);
         }
     }
-*/
-
-
-
 }
+
+

@@ -86,6 +86,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
 /*shradha changes*/
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     public static final int REQUEST_PET = 400;
@@ -102,7 +103,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     // byte[] photoCard=null;
     ImageView imgRight, imgInfo, imgR;
     RelativeLayout llIndividual;
-  //  Button floatingBtn;
+    //  Button floatingBtn;
     TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
@@ -1442,8 +1443,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-             //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intentDashboard.putExtra("DASHBOARD", 1);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 

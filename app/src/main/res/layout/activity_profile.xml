@@ -192,7 +192,7 @@
                                         android:layout_width="@dimen/dimension100dp"
                                         android:layout_height="@dimen/dimension100dp"
                                         android:adjustViewBounds="true"
-                                        android:scaleType="centerCrop"
+                                        android:scaleType="fitCenter"
                                         android:src="@drawable/ic_profile_defaults" />
 
                                     <ImageView

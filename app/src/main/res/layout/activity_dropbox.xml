@@ -286,8 +286,6 @@
                 android:textSize="@dimen/dimension20dp" />
 
 
-
-
             <TextView
                 android:id="@+id/txtLogin"
                 android:layout_width="wrap_content"
@@ -319,15 +317,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/txtLoginPerson"
-                android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/dimension20dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginBottom="@dimen/dimension20dp"
                 android:gravity="center"
                 android:text="Login from Dropbox"
                 android:textColor="@color/colorBlue"
-                android:textSize="@dimen/dimension18dp" />
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone"/>
 
+            <TextView
+                android:id="@+id/txtLogoutDropbox"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/txtLoginDropbox"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:gravity="center"
+                android:text="Logout from Dropbox"
+                android:textColor="@color/colorBlue"
+                android:textSize="@dimen/dimension18dp" />
 
 
             <!--<RelativeLayout-->
@@ -383,8 +394,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@+id/llBox"
-                android:layout_alignLeft="@+id/llBox"
                 android:layout_alignStart="@+id/llBox"
+                android:layout_alignLeft="@+id/llBox"
                 android:visibility="gone">
 
 
