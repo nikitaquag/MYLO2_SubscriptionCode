@@ -340,6 +340,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             public void onClick(View v) {
                 Intent i = new Intent(context, DocumentSdCardList.class);
                 startActivityForResult(i, RESULTCODE);
+                dialogDirective.dismiss();
             }
         });
 
@@ -350,12 +351,14 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 Intent intent = new Intent(context, DropboxLoginActivity.class);
                 intent.putExtra("FROM", "Document");
                 startActivityForResult(intent, RQUESTCODE);
+                dialogDirective.dismiss();
             }
         });
         txtEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showEmailInsDialog();
+                dialogDirective.dismiss();
             }
         });
         txtCancel.setOnClickListener(new View.OnClickListener() {

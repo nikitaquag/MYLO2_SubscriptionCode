@@ -1078,7 +1078,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyIntent.putExtra("IsImplant", false);
                 allergyIntent.putExtra("ADD", "Allergy");
                 allergyIntent.putExtra("Title", "Add Allergy");
-                allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
+                allergyIntent.putExtra("Name", "Add Allergy (food, medication, tape, latex)");
                 startActivityForResult(allergyIntent, REQUEST_ALLERGY);
                 break;
 

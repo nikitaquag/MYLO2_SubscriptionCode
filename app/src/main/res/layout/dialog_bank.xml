@@ -19,8 +19,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Comming Soon"
-            android:textColor="@color/colorBlue"
+            android:text="Comming Soon!"
+            android:textColor="@color/colorBlackDark"
             android:textStyle="bold"
             android:textSize="@dimen/dimension18dp" />
 
@@ -38,8 +38,8 @@
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
             android:text="OK"
-            android:textColor="@color/colorBlackDark"
-            android:textStyle="normal"
+            android:textColor="@color/colorBlue"
+            android:textStyle="bold"
             android:textSize="@dimen/dimension18dp" />
 
 

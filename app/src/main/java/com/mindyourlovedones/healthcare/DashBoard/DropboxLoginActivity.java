@@ -345,6 +345,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 if (DropboxClientFactory.getClient() == null) {
                     prefs.edit().remove("access-token").apply();
                     com.dropbox.core.android.AuthActivity.result = null;
+                  //  loadDropboxData();
                     DropboxClientFactory.revokeClient(new DropboxClientFactory.CallBack() {
                         @Override
                         public void onRevoke() {

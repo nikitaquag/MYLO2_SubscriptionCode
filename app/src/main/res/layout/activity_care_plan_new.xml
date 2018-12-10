@@ -305,8 +305,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorSix">
 
@@ -354,9 +354,9 @@
         android:id="@+id/txtUserName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:background="@color/colorSkyBlue"
         android:gravity="center"
         android:text="XYZ XYZ"
@@ -371,11 +371,11 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/dimension10dp"
             android:background="@drawable/darkgray_white_border"
-            android:padding="@dimen/dimension10dp">]
+            android:padding="@dimen/dimension5dp">
 
             <TextView
                 android:id="@+id/txtHeader"
@@ -409,7 +409,7 @@
                     android:layout_toRightOf="@+id/imgOne"
                     android:text="Click here to learn more about Advance Directives, why are they are important and how to complete them."
                     android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp"></TextView>
+                    android:textSize="@dimen/dimension16dp"></TextView>
             </RelativeLayout>
 
             <RelativeLayout

@@ -53,7 +53,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
     Preferences preferences;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
-    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Brother-in-law", "Client" , "Friend","Father-in-law", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law","Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
+    String[] Relationship = {"Aunt", "Brother", "Cousin", "Dad", "Daughter", "Brother-in-law", "Client", "Friend", "Father-in-law", "GrandDaughter", "GrandFather", "GrandMother", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Sister", "Son", "Uncle", "Wife", "Other"};
 
     public ConnectionAdapter(Context context, ArrayList<RelativeConnection> connectionList) {
         preferences = new Preferences(context);
@@ -114,6 +114,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
             holder.txtConRelation = convertView.findViewById(R.id.txtConRelation);
             //   holder.txtAddress= (TextView) convertView.findViewById(R.id.txtAddress);
             holder.imgConPhoto = convertView.findViewById(R.id.imgConPhoto);
+            holder.imgConPhoto1 = convertView.findViewById(R.id.imgConPhoto1);
             //   holder.imgForword= (ImageView) convertView.findViewById(R.id.imgForword);
 
             convertView.setTag(holder);
@@ -131,15 +132,21 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
             if (!connectionList.get(position).getPhoto().equals("")) {
                 File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connectionList.get(position).getPhoto());
                 if (imgFile.exists()) {
+                    holder.imgConPhoto.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
                     //   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                     // holder.imgConPhoto.setImageBitmap(myBitmap);
-                    imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgConPhoto, displayImageOptions);
+//                    imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgConPhoto, displayImageOptions);
                 } else {
                     String mail = connectionList.get(position).getEmail();
                     mail = mail.replace(".", "_");
                     mail = mail.replace("@", "_");
                     File imgFile2 = new File(Environment.getExternalStorageDirectory() + "/MYLO/" + mail, connectionList.get(position).getPhoto());
-                    imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile2)), holder.imgConPhoto, displayImageOptions);
+                    holder.imgConPhoto.setVisibility(View.GONE);
+                    holder.imgConPhoto1.setVisibility(View.VISIBLE);
+                    holder.imgConPhoto1.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile2))));
+
+                    // imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile2)), holder.imgConPhoto, displayImageOptions);
                 }
             } else {
                 holder.imgConPhoto.setImageResource(R.drawable.profile_darkbluecolor);
@@ -365,7 +372,7 @@ else {
 
     public class ViewHolder {
         TextView txtConName, txtConRelation, txtAddress;
-        ImageView imgConPhoto, imgForword;
+        ImageView imgConPhoto, imgConPhoto1, imgForword;
     }
 
    /* @Override

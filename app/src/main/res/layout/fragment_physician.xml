@@ -237,6 +237,32 @@
                         android:textColor="@color/colorGuide"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel67"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel66"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img67"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:src="@drawable/bullet4" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy67"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img67"
+                        android:text=""
+                        android:textColor="@color/colorGuide"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
             </RelativeLayout>
 
         </RelativeLayout>

@@ -175,26 +175,19 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         //holder.imgProfile.setImageResource(FinanceList.get(position).getImage());
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhoto());
         if (imgFile.exists()) {
-           /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.imgProfile.setImageBitmap(myBitmap);*/
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+        } else {
             holder.imgProfile.setImageResource(R.drawable.yellow);
+
         }
 
-        /*byte[] photo=FinanceList.get(position).getPhoto();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        holder.imgProfile.setImageBitmap(bmp);
-*/
         if (!FinanceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForward.setImageBitmap(myBitmap);*/
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForward, displayImageOptionsCard);
             }
-           /* byte[] photoCard = FinanceList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForward.setImageBitmap(bmpCard);*/
             holder.imgForward.setVisibility(View.VISIBLE);
         } else {
             holder.imgForward.setVisibility(View.GONE);

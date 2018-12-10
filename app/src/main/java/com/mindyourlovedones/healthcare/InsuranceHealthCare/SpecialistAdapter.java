@@ -176,15 +176,27 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 //Shradha-physician and doctor color change for profile
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhoto());
         if (imgFile.exists()) {
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-            if (specialist) {
+            if (specialist||physician) {  // Rahul
                 if (frs != null) {
                     holder.imgProfile.setImageResource(R.drawable.yellow);
-                } else if (physician == true) {
+                }
+                else
+                    holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                if (physician) {
                     if (fr != null) {
-                        holder.imgProfile.setImageResource(R.drawable.green);
+                        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //  holder.imgProfile.setImageResource(R.drawable.green);
                     }
+                    else
+                        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                    // holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
                 }
             }
         } else {
@@ -221,35 +233,18 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
         holder.txtAddress.setText(specialistList.get(position).getAddress());
         //  holder.imgProfile.setImageResource(specialistList.get(position).getImage());
 
-
-
-
-       /* byte[] photo=specialistList.get(position).getPhoto();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        holder.imgProfile.setImageBitmap(bmp);*/
-
+//  Card code for Speciality Adapter
         if (!specialistList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForward.setImageBitmap(myBitmap);*/
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
+               // holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
             }
-          /*  byte[] photoCard = hospitalList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForward.setImageBitmap(bmpCard);*/
             holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
         }
-          /*  byte[] photoCard = specialistList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForword.setImageBitmap(bmpCard);*/
-          /*  holder.imgForword.setVisibility(View.VISIBLE);
-        }
-        else{
-            holder.imgForword.setVisibility(View.GONE);
-        }*/
 
         holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override

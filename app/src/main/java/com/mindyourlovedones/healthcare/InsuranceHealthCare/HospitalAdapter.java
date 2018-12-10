@@ -174,7 +174,10 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
         //holder.imgProfile.setImageResource(FinanceList.get(position).getImage());
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), hospitalList.get(position).getPhoto());
         if (imgFile.exists()) {
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+           // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+          //  holder.imgProfile.setImageResource(R.drawable.yellow);
+        }else {
             holder.imgProfile.setImageResource(R.drawable.yellow);
         }
 

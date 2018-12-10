@@ -836,6 +836,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
 
     }
+
     private void showEmailInsDialog() {
         final Dialog dialogEmail = new Dialog(context);
         dialogEmail.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -853,13 +854,12 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
         lp.width = width;
         RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        buttonLayoutParams.setMargins(0,0,0,10);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER;
         dialogEmail.getWindow().setAttributes(lp);
         dialogEmail.setCanceledOnTouchOutside(false);
         dialogEmail.show();
-
 
 
         txtOk.setOnClickListener(new View.OnClickListener() {
@@ -869,7 +869,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             }
         });
     }
-
 
 
     private String copydb(String originPath, String name) {
@@ -1088,7 +1087,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             showDialogWindow(text);
             txtAdd.setText("Edit File");
             imgDoc.setImageResource(R.drawable.pdf);
-        } else if (requestCode == RQUESTCODE ){//&& data != null) {
+        } else if (requestCode == RQUESTCODE) {//&& data != null) {
 
             name = preferences.getString(PrefConstants.RESULT);//data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");

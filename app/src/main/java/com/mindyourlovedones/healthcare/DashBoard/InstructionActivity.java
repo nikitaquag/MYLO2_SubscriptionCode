@@ -38,6 +38,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction);
+
+
         initUI();
         initListener();
     }
@@ -86,39 +88,6 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             case "Dropbox":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.VISIBLE);
-//                String msg = "This is a method for personal cloud storage. It is commonly referred to as a method to backup one's files online. In addition to store the files, one can also share them with colleagues and friends, all using Dropbox. To store, retrieve and manage your files, one can use a Dropbox application." +
-//                        "<br><br>" +
-//                        "You need to login with your dropbox account. If you don't  have dropbox account, You need to have one. " +
-//                        "<br><br>" +
-//                        "<b>Guidelines:</b>" +
-//                        "<br><br>" +
-//                        "<b>1) Login: </b>" +
-//                        "<br>" +
-//                        "Click on <b>\"Login With DropBox\" </b>button, It will redirect you to dropbox site. Now you can login with your personal dropbox account." +
-//                        "<br>" +
-//                        "After logging in, To allow the access to the files and folders from your dropbox, Click the <b>'Allow'</b>  Button.So now you can Access your files." +
-//                        "<br><br>" +
-//                        "<b>2) Backup: </b>" +
-//                        "<br>" +
-//                        "If you have logged in to dropbox from application, It will show you Backup Options." +
-//                        "<br>" +
-//                        "On clicking  <b>'BACKUP'</b> button, you need to Click on <b>'Backup your Data'</b> button to store your profile." +
-//                        "<br><br>" +
-//                        "<b>3) Restore: </b>" +
-//                        "<br>" +
-//                        "If you have logged in to dropbox from application, It will show you Restore Options. It will help to restore profiles." +
-//                        "<br>" +
-//                        "On clicking  <b>'RESTORE'</b>  button, you will get list of zip files for download. On clicking any of the zip file, It will be downloaded and you will get a popup message  to unzip and restore file." +
-//                        "<br><br>" +
-//                        "<b>4) Get Files: </b>" +
-//                        "<br>" +
-//                        "If you have logged in to dropbox from application, It will show you View Files Options. It will help you to get the documents in Advance Directive section  from dropbox storage." +
-//                        "<br>" +
-//                        "On clicking <b>'VIEW FILES'</b> button, you will get list of documents files for download. On clicking any of the document  file, It will be downloaded ." +
-//                        "<br>" +
-//                        "Now you can add this document  to your application by clicking on <b>'ADD FILES'</b> button.";
-//
-//                txtMsg.setText(Html.fromHtml(msg));
 
                 //nikita
                 String msgg = "<b>Guidelines:</b>" +
@@ -211,7 +180,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img68.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Create Precription Tracker");
+                txtHeader.setText("Create Prescription Tracker");
                 break;
 
             case "FormInstruction":
@@ -331,7 +300,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Insurance Information");
                 break;
-            case "DirectivesInstruction":
+
+            case "AdvanceInstruction":
+
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -343,7 +314,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
 
@@ -369,7 +340,91 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img68.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Advance Directive");
+                txtHeader.setText("Advance Directives");
+                break;
+            case "OtherInstruction":
+
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+
+                UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
+
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Other Documents");
+
+                break;
+
+            case "MedicalInfoInstruction":
+
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
+                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
+                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+
+                UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.VISIBLE);
+                txt68.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.VISIBLE);
+                img68.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Medical Information");
+
                 break;
             case "LivingInstruction":
                 imgPicture.setVisibility(View.GONE);
@@ -1103,8 +1158,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
 
@@ -1152,8 +1207,6 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("FormInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
-                } else if (From.equals("DirectivesInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("DoctorInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("HospitalInstruction")) {
@@ -1169,6 +1222,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 } else if (From.equals("PhysicianInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("EmergencyInstuction")) {
+                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                } else if (From.equals("OtherInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                } else if (From.equals("MedicalInfoInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                } else if (From.equals("AdvanceInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else {
                     Toast.makeText(context, "Some thing went wrong Dude...!!", Toast.LENGTH_SHORT).show();

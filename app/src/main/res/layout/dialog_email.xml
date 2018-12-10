@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:id="@+id/llEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_border"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
 
         <TextView
@@ -17,10 +17,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="To uplaod an email attachment, open the attachment from your email and click the forward button on the upper right side of the screen. Scroll through the App until you find MYLO.Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click Ok. Enter additional data, and then click Save."
+            android:text="To upload an email attachment, open the attachment from your email and click the forward button on the upper right side of the screen. Scroll through the App until you find MYLO.Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click Ok. Enter additional data, and then click Save."
             android:textColor="@color/colorBlackDark"
-            android:textStyle="normal"
-            android:textSize="@dimen/dimension18dp" />
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
 
         <View
             android:id="@+id/view1"
@@ -37,8 +37,8 @@
             android:padding="@dimen/dimension15dp"
             android:text="OK"
             android:textColor="@color/colorBlue"
-            android:textStyle="bold"
-            android:textSize="@dimen/dimension18dp" />
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="bold" />
 
 
     </LinearLayout>

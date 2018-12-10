@@ -54,7 +54,7 @@ import java.util.ArrayList;
 
 public class CarePlanListActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int VERTICAL_ITEM_SPACE = 48;
-    final CharSequence[] dialog_items = {"View", "Email", "User Intructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvDoc;//by nikita on 20/6/18
     ArrayList<Document> documentList;
@@ -66,7 +66,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     Preferences preferences;
     RelativeLayout rlGuide;
     ImageView imgPicture, imgPicture2;
-    TextView txtHeader, txtMsg, txtFTU;
+    TextView txtHeader, txtHeader2, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
     FloatingActionButton floatProfile;
@@ -133,11 +133,24 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         imgPicture = findViewById(R.id.imgPicture);
         imgPicture2 = findViewById(R.id.imgPicture2);
         txtHeader = findViewById(R.id.txtHeader);
+        txtHeader2 = findViewById(R.id.txtHeader2);
+
         txtMsg = findViewById(R.id.txtMsg);
         txtFTU = findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /*Shradha*/
+              /*  From = preferences.getString(PrefConstants.FROM);
+                if (txtFTU.equals(From.equals("AD"))*//*From.equals("AD")*//*) {
+                    txtHeader.setText("Add Advance Directives");
+                } else if (txtFTU.equals(From.equals("Record"))) {
+                    txtHeader.setText("Add Medical Records");
+                } else if (txtFTU.equals(From.equals("Other"))*//*From.equals("Other")*//*) {
+                    txtHeader.setText("Add Other Documents");
+                } else {
+                    Toast.makeText(context, "I'm not going in this..!!", Toast.LENGTH_SHORT).show();
+                }*/
 //                txtMsg.setVisibility(View.VISIBLE);
                 rlGuide.setVisibility(View.GONE);//nikita
                 scroll.setVisibility(View.VISIBLE);//nikita
@@ -167,28 +180,16 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         txtTitle = findViewById(R.id.txtTitle);
         txtAdd = findViewById(R.id.txtAdd);
         txtTitle.setAllCaps(true);
-
         From = preferences.getString(PrefConstants.FROM);
         switch (From) {
             case "AD":
                 txtTitle.setText("Advance Directives");
                 txtAdd.setText("Add Advance Directives");
+                txtHeader.setText("Add Adv. Directive Docs");
+                txtHeader2.setText("Add Adv. Directive Docs");
+
                 imgPicture.setImageResource(R.drawable.v_doc);
                 imgPicture2.setImageResource(R.drawable.v_doc);
-                txtHeader.setText("Add Adv. Directive Docs");
-//                String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-//                        "<br><br>" +
-//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-//                        "<br><br>" +
-//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-//                        "<br><br>" +
-//                        "To <b>delete</b> the entry <b>swipe right to left </b> the arrow symbol on the right side of the screen." +
-//                        "<br><br>" +
-//                        "To <b>edit</b> information click the picture of the <b>pencil</b>.To <b>save</b> your edits click the check mark again." +
-//                        "<br><br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msg));
 
                 //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
@@ -197,28 +198,17 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Record":
                 txtTitle.setText("Medical Records");
                 txtAdd.setText("Add Medical Records");
+                txtHeader.setText("Add Medical Records");
+                txtHeader2.setText("Add Medical Records");
+
                 imgPicture.setImageResource(R.drawable.v_record);
                 imgPicture2.setImageResource(R.drawable.v_record);
-                txtHeader.setText("Add Medical Records");
-//                String msgs = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-//                        "<br><br>" +
-//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-//                        "<br><br>" +
-//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-//                        "<br><br>" +
-//                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
-//                        "<br><br>" +
-//                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
-//                        "<br><br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgs));
 
                 //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
@@ -227,28 +217,17 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Other":
                 txtTitle.setText("Other Documents");
                 txtAdd.setText("Add Other Documents");
+                txtHeader.setText("Add Other Documents");
+                txtHeader2.setText("Add Other Documents");
+
                 imgPicture.setImageResource(R.drawable.v_other);
                 imgPicture2.setImageResource(R.drawable.v_other);
-                txtHeader.setText("Add Other Documents");
-//                String msgd = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
-//                        "<br><br>" +
-//                        "The file is either sitting on your phone or in your Dropbox . Choose the location and click Add." +
-//                        "<br><br>" +
-//                        "To <b>save</b> information click the <b>check mark</b> on the top right side of the screen" +
-//                        "<br><br>" +
-//                        "To <b>delete</b> delete the entry <b>swipe right to left</b> the arrow symbol on the right side of the screen." +
-//                        "<br><br>" +
-//                        "To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen." +
-//                        "<br><br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgd));
 
                 //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
@@ -257,7 +236,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
 
                 break;
             case "Legal":
@@ -307,209 +286,6 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         documentListOld = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), From);
     }
 
-    private void getDocuments() {
-      /*  documentListOld=new ArrayList<>();
-         switch (From) {
-            case "AD":
-                Document P1d = new Document();
-                P1d.setName("HealthCare Proxy");
-                P1d.setType("Health Care Proxy");
-                P1d.setDate("10-Nov-2017");
-                P1d.setLocation("Locker");
-                P1d.setImage(pdf);
-                P1d.setHolder("Husband");
-                P1d.setDocument("healthcare_proxy_nys.pdf");
-
-                Document P2d = new Document();
-                P2d.setName("Living Will");
-                P2d.setImage(pdf);
-                P2d.setType("Living Will");
-                P2d.setDate("10-Nov-2017");
-                P2d.setLocation("Locker");
-                P2d.setImage(pdf);
-                P2d.setHolder("Husband");
-                P2d.setDocument("HCD_forms.pdf");
-
-                Document P3d = new Document();
-                P3d.setName("HIPAA Form");
-                P3d.setImage(pdf);
-                P3d.setType("HIPAA Form");
-                P3d.setDate("10-Nov-2017");
-                P3d.setLocation("Locker");
-                P3d.setImage(pdf);
-                P3d.setHolder("Husband");
-                P3d.setDocument("hipaa.pdf");
-
-                Document P4d = new Document();
-                P4d.setName("DNR");
-                P4d.setImage(pdf);
-                P4d.setType("Non-Hospital DNR");
-                P4d.setDate("10-Nov-2017");
-                P4d.setLocation("Locker");
-                P4d.setImage(pdf);
-                P4d.setHolder("Husband");
-                P4d.setDocument("dnr.pdf");
-
-               // documentListOld.add(P1d);
-              //  documentListOld.add(P2d);
-               // documentListOld.add(P3d);
-               // documentListOld.add(P4d);
-                break;
-            case "Other":
-                //   txtTitle.setText("Other");
-                Document P1=new Document();
-                P1.setName("Aging Care - Care Plan Guide");
-                P1.setImage(pdf);
-                P1.setType("Aging Care - Care Plan Guide");
-                P1.setDate("10/10/2017");
-                P1.setLocation("Locker");
-                P1.setImage(pdf);
-                P1.setHolder("Husband");
-                P1.setDocument("AgingCare_CarePlanGuide.pdf");
-
-                Document P4i=new Document();
-                P4i.setName("Medical Claim Form");
-                P4i.setImage(pdf);
-                P4i.setType("Medical Claim Form");
-                P4i.setDate("10/10/2017");
-                P4i.setLocation("Locker");
-                P4i.setImage(pdf);
-                P4i.setHolder("Husband");
-                P4i.setDocument("medical_claim_form.pdf");
-
-                Document P5i=new Document();
-                P5i.setName("Dental Claim Form");
-                P5i.setImage(pdf);
-                P5i.setType("Dental Claim Form");
-                P5i.setDate("10/10/2017");
-                P5i.setLocation("Locker");
-                P5i.setImage(pdf);
-                P5i.setHolder("Husband");
-                P5i.setDocument("dental_claim_form.pdf");
-
-                Document P3=new Document();
-                P3.setName("Clinical Flow Sheet");
-                P3.setImage(pdf);
-                P3.setType("Clinical Flow Sheet");
-                P3.setDate("10/10/2017");
-                P3.setLocation("Locker");
-                P3.setImage(pdf);
-                P3.setHolder("Husband");
-                P3.setDocument("dm_chf.pdf");
-
-              //  documentListOld.add(P4i);
-               // documentListOld.add(P5i);
-              //  documentListOld.add(P1);
-               // documentListOld.add(P3);
-                break;
-        }
-        documentListOld= DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),From);*/
-        // documentListOld.addAll(documentList);
-       /* switch (From)
-        {
-            case "AD":
-                Document P1d=new Document();
-                P1d.setName("HealthCare Proxy");
-                P1d.setDate("10/10/2017");
-                P1d.setType("Health Care Proxy");
-                P1d.setImage(R.drawable.pdf);
-                P1d.setDesc("This is Helath care proxy Document");
-                P1d.setDocument("healthcare_proxy_nys.pdf");
-
-                Document P2d=new Document();
-                P2d.setName("Living Will");
-                P2d.setImage(R.drawable.pdf);
-                P2d.setDesc("This is Living will form");
-                P2d.setDocument("HCD_forms.pdf");
-
-                Document P3d=new Document();
-                P3d.setName("HIPAA Form");
-                P3d.setImage(R.drawable.pdf);
-                P3d.setDesc("This is Hippa form");
-                P3d.setDocument("ABA Consumer Tool Kit.pdf");
-
-                Document P4d=new Document();
-                P4d.setName("DNR");
-                P4d.setImage(R.drawable.pdf);
-                P4d.setDesc("This is dnr form");
-                P4d.setDocument("dnr.pdf");
-
-                documentList.add(P1d);
-                documentList.add(P2d);
-                documentList.add(P3d);
-                documentList.add(P4d);
-                break;
-            case "Other":
-             //   txtTitle.setText("Other");
-                break;
-            case "Legal":
-             //   txtTitle.setText("Legal and Financial Documents");
-                break;
-            case "Home":
-                Document P1=new Document();
-                P1.setName("Aging Care - Care Plan Guide");
-                P1.setImage(R.drawable.pdf);
-                P1.setDesc("This is Helath care proxy Document");
-                P1.setDocument("AgingCare_CarePlanGuide.pdf");
-
-                documentList.add(P1);
-                break;
-            case "Insurance":
-                Document P4i=new Document();
-                P4i.setName("Medical Claim Form");
-                P4i.setImage(R.drawable.pdf);
-                P4i.setDesc("This is Hippa form");
-                P4i.setDocument("medical_claim_form.pdf");
-
-                Document P5i=new Document();
-                P5i.setName("Dental Claim Form");
-                P5i.setImage(R.drawable.pdf);
-                P5i.setDesc("This is Hippa form");
-                P5i.setDocument("dental_claim_form.pdf");
-
-                documentList.add(P4i);
-                documentList.add(P5i);
-                break;
-            case "Medical":
-                Document P=new Document();
-                P.setName("Screen geri");
-                P.setImage(R.drawable.pdf);
-                P.setDesc("This is Helath care proxy Document");
-                P.setDocument("screen_geri.pdf");
-
-                Document P2=new Document();
-                P2.setName("Summery Form");
-                P2.setImage(R.drawable.word);
-                P2.setDesc("This is Living will form");
-                P2.setDocument("summary_form.pdf");
-
-                Document P3=new Document();
-                P3.setName("Clinical Flow Sheet");
-                P3.setImage(R.drawable.pdf);
-                P3.setDesc("This is Hippa form");
-                P3.setDocument("dm_chf.pdf");
-
-                Document P4=new Document();
-                P4.setName("MOLST pdf");
-                P4.setImage(R.drawable.pdf);
-                P4.setDesc("This is Hippa form");
-                P4.setDocument("WebPage.pdf");
-
-                Document P5=new Document();
-                P5.setName("POLST pdf");
-                P5.setImage(R.drawable.pdf);
-                P5.setDesc("This is Hippa form");
-                P5.setDocument("POLST & Advance Directives.pdf");
-
-                documentList.add(P);
-                documentList.add(P2);
-                documentList.add(P3);
-                documentList.add(P4);
-                documentList.add(P5);
-                break;
-        }*/
-
-    }
 
     @Override
     public void onClick(View v) {
@@ -517,8 +293,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
 
@@ -564,18 +340,6 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                             e.printStackTrace();
                         }
                         Header.addEmptyLine(1);
-                       /* Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                        Paragraph p = new Paragraph(" ");
-                        LineSeparator line = new LineSeparator();
-                        line.setOffset(-4);
-                        line.setLineColor(BaseColor.LIGHT_GRAY);
-                        p.add(line);
-                        try {
-                            Header.document.add(p);
-                        } catch (DocumentException e) {
-                            e.printStackTrace();
-                        }
-                        Header.addEmptyLine(1);*/
 
                         ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
                         new DocumentPdf(AdList);
@@ -607,7 +371,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         break;
                                     case 2://fax
                                         Intent i = new Intent(context, InstructionActivity.class);
-                                        i.putExtra("From", "DirectivesInstruction");
+                                        i.putExtra("From", "AdvanceInstruction");
                                         startActivity(i);
                                         break;
                                    /* case 2://fax
@@ -680,12 +444,10 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         break;
                                     case 2://fax
                                         Intent i = new Intent(context, InstructionActivity.class);
-                                        i.putExtra("From", "DirectivesInstruction");
+                                        i.putExtra("From", "MedicalInfoInstruction");
                                         startActivity(i);
                                         break;
-                                   /* case 2://fax
-                                        new FaxCustomDialog(context, path).show();
-                                        break;*/
+
                                 }
                             }
 
@@ -751,12 +513,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         break;
                                     case 2://fax
                                         Intent i = new Intent(context, InstructionActivity.class);
-                                        i.putExtra("From", "DirectivesInstruction");
+                                        i.putExtra("From", "OtherInstruction");
+                                        startActivity(i);
                                         startActivity(i);
                                         break;
-                                  /*  case 2://fax
-                                        new FaxCustomDialog(context, path).show();
-                                        break;*/
+
                                 }
                             }
 

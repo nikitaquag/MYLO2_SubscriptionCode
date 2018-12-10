@@ -154,10 +154,12 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
         holder.txtPhone.setText(pharmacyList.get(position).getPhone());
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhoto());
         if (imgFile.exists()) {
-            /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.imgProfile.setImageBitmap(myBitmap);*/
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            //  imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+        } else {
             holder.imgProfile.setImageResource(R.drawable.yellow);
+
         }
        /* byte[] photo=pharmacyList.get(position).getPhoto();
         Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);

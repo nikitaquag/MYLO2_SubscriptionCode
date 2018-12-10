@@ -28,7 +28,7 @@ public class FragmentResources extends Fragment {
     ArrayList<Links> UrlList;
     ListView list;
     TextView txtTitle, txtName;
-    ImageView imgNoti, imgProfile, imgLogo, imgPdf;
+    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgR, imgRight;
 
 
     @Nullable
@@ -96,7 +96,7 @@ public class FragmentResources extends Fragment {
 
         Links l9 = new Links();
         l9.setName("Center for Practical Bioethics, Caring Conversations");
-        l9.setUrl("http://practicalbioethics.org/programs/caring-conversations.html?jaredirect");
+        l9.setUrl("https://www.practicalbioethics.org/resources/caring-conversations.html");
         l9.setImage(R.drawable.link_five);
 
         Links l10 = new Links();
@@ -147,6 +147,10 @@ public class FragmentResources extends Fragment {
         imgNoti.setVisibility(View.GONE);
         imgLogo = getActivity().findViewById(R.id.imgLogo);
         imgLogo.setVisibility(View.GONE);
+        imgRight = getActivity().findViewById(R.id.imgRight);
+        imgRight.setVisibility(View.GONE);
+        imgR = getActivity().findViewById(R.id.imgR);
+        imgR.setVisibility(View.GONE);
 
 
         list = rootview.findViewById(R.id.list);

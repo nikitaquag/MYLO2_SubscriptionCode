@@ -15,6 +15,7 @@ import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -22,6 +23,7 @@ import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -168,9 +170,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 .cacheOnDisk(true) // default
                 .showImageOnLoading(R.drawable.ic_profile_defaults)
                 .considerExifParams(false) // default
-//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
+//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default//shradha
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
-                .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
+                .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)//shradha
                 .displayer(new RoundedBitmapDisplayer(120)) // default //for square SimpleBitmapDisplayer()
                 .handler(new Handler()) // default
                 .build();
@@ -667,8 +669,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             // spinner.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
-            txtWorkPhone.setVisibility(View.GONE);
-            tilWorkPhone.setVisibility(View.GONE);
+            txtWorkPhone.setVisibility(View.VISIBLE);//shradha
+            tilWorkPhone.setVisibility(View.VISIBLE);
             txtHomePhone.setVisibility(View.VISIBLE);
         } else {
             tilBdate.setVisibility(View.GONE);
@@ -786,11 +788,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             if (!imagepath.equals("")) {
                 File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), imagepath);
                 if (imgFile.exists()) {
-                    imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                    //Shradha
+                    imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                 } else {
                     Toast.makeText(context, "File Not Found", Toast.LENGTH_SHORT).show();
                 }
             } else {
+//                Toast.makeText(context, "You have done wrong", Toast.LENGTH_SHORT).show();
+
                 imgProfile.setImageResource(R.drawable.ic_profile_defaults);
             }
               /*  byte[] photo=personalInfo.getPhoto();
@@ -802,7 +808,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (imgFile1.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                     imgCard.setImageBitmap(myBitmap);*/
-                    imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+
+                    imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                    // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                 }
                    /* byte[] photoCard = personalInfo.getPhotoCard();
                 Bitmap bmps = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);*/
@@ -2094,6 +2103,42 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         return false;
     }
 
+
+/*
+    private void takePicture() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Ensure that there's a camera activity to handle the intent
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            // Create the File where the photo should go
+            File photoFile = null;
+         */
+/*   try {
+              //  photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }*//*
+
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                            FileProvider.getUriForFile(context, "com.example.quagnitia.zapfin.Activity.Provider", photoFile));
+                    // Do something for lollipop and above versions
+                } else {
+                    takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                            Uri.fromFile(photoFile));
+                    // do something for phones running an SDK before lollipop
+                }
+
+                startActivityForResult(takePictureIntent, RESULT_CAMERA_IMAGE);
+            }
+        }
+    }
+*/
+
+
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ImageView profileImage = findViewById(R.id.imgProfile);
@@ -2109,15 +2154,52 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
                 // profileImage.setImageBitmap(selectedImage);
-                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
+//                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
                 // storeImage(selectedImage,"Profile");
-                ProfileMap = selectedImage;
+
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgProfile.setImageBitmap(scaled);
+//                ProfileMap = selectedImage;
+                ProfileMap = scaled;
+                storeImage(ProfileMap, "Profile");
+
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
+        }
+
+
+        /* Camera Code */
+
+        if (requestCode == RESULT_CAMERA_IMAGE) {
+            try {
+                Bitmap thumbnail = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), imageUriProfile);
+                String imageurl = getRealPathFromURI(imageUriProfile);
+                Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
+
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgProfile.setImageBitmap(scaled);
+
+
+                // imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
+                // profileImage.setImageBitmap(bitmap);
+                storeImage(scaled, "Profile");
+//                ProfileMap = selectedImage;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        /* Bundle extras = data.getExtras();
+         Bitmap imageBitmap = (Bitmap) extras.get("data");
+         imgProfile.setImageBitmap(imageBitmap);
+
+         storeImage(imageBitmap,"Profile");*/
 
         }
-        if (requestCode == RESULT_CAMERA_IMAGE) {
+       /* if (requestCode == RESULT_CAMERA_IMAGE) {
+
             try {
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(
                         getContentResolver(), imageUriProfile);
@@ -2130,44 +2212,95 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        /* Bundle extras = data.getExtras();
+         Bundle extras = data.getExtras();
          Bitmap imageBitmap = (Bitmap) extras.get("data");
          imgProfile.setImageBitmap(imageBitmap);
 
-         storeImage(imageBitmap,"Profile");*/
+         storeImage(imageBitmap,"Profile");
 
-        }
+        }*/
+
+        String fileName = "";
+
+
         if (requestCode == RESULT_SELECT_PHOTO_CARD && data != null) {
+
+
             try {
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                imageLoaderCard.displayImage(String.valueOf(imageUri), imgCard, displayImageOptionsCard);
-                // profileCard.setImageBitmap(selectedImage);
+                // profileImage.setImageBitmap(selectedImage);
+//                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
+                // storeImage(selectedImage,"Profile");
+
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgCard.setImageBitmap(scaled);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
-                isOnActivityResult = true;
-                cardImgPath = String.valueOf(imageUri);
-                //   storeImage(selectedImage,"Card");
-                CardMap = selectedImage;
+                CardMap = scaled;
+                storeImage(scaled, "Card");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
 
+
+
+
+          /*  int targetW = imgCard.getWidth();
+            int targetH = imgCard.getHeight();
+
+            // Get the dimensions of the bitmap
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(fileName, bmOptions);
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            // Determine how much to scale down the image
+            int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
+
+            // Decode the image file into a Bitmap sized to fill the View
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+            bmOptions.inPurgeable = true;
+            rlCard.setVisibility(View.VISIBLE);
+            imgCard.setVisibility(View.VISIBLE);
+            Bitmap bmp = BitmapFactory.decodeFile(fileName, bmOptions);
+            imgCard.setImageBitmap(bmp);
+
+
+            final Uri imageUri = data.getData();
+            // final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+            // final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+
+
+            // int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+            //  Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+
+            //imgCard.setImageBitmap(scaled);
+             // profileCard.setImageBitmap(bmp);
+//                ProfileMap = selectedImage;
+
+            CardMap = bmp;
+            storeImage(bmp, "Card");
+
+            // imageLoaderCard.displayImage(String.valueOf(imageUri), imgCard, displayImageOptionsCard);
+            // profileCard.setImageBitmap(selectedImage);
+            //   rlCard.setVisibility(View.VISIBLE);
+
+            txtCard.setVisibility(View.GONE);
+            isOnActivityResult = true;
+            cardImgPath = String.valueOf(imageUri);
+            //   storeImage(selectedImage,"Card");
+//                CardMap = selectedImage;*/
+
         }
+
         if (requestCode == RESULT_CAMERA_IMAGE_CARD) {
-       /*  Bundle extras = data.getExtras();
-         Bitmap imageBitmap = (Bitmap) extras.get("data");
-         imgCard.setImageBitmap(imageBitmap);
-        // String imageurl = getRealPathFromURI(imageUriCard);
-         //
-         rlCard.setVisibility(View.VISIBLE);
-         imgCard.setVisibility(View.VISIBLE);
-         txtCard.setVisibility(View.GONE);
-         FileOutputStream outStream = null;
-         storeImage(imageBitmap,"Card");
-*/
+
             try {
 
                 Bitmap thumbnail = MediaStore.Images.Media.getBitmap(
@@ -2175,8 +2308,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
                 String imageurl = getRealPathFromURI(imageUriCard);
                 Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
-                imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
-                //  profileCard.setImageBitmap(bitmap);
+                //  imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
+                profileCard.setImageBitmap(selectedImage);
                 //
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
@@ -2189,7 +2322,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
         if (requestCode == REQUEST_CARD && data != null) {
             if (data.getExtras().getString("Card").equals("Delete")) {
@@ -2201,6 +2333,54 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             //photoCard=null;
         }
     }
+
+
+/*
+    public void loadImageFromFile() {
+
+        ImageView view = (ImageView) this.findViewById(R.id.imgProfile);
+        view.setVisibility(View.VISIBLE);
+
+
+        int targetW = view.getWidth();
+        int targetH = view.getHeight();
+
+        // Get the dimensions of the bitmap
+        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+        bmOptions.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(fileName, bmOptions);
+        int photoW = bmOptions.outWidth;
+        int photoH = bmOptions.outHeight;
+
+        // Determine how much to scale down the image
+        int scaleFactor = Math.min(photoW / targetW, photoH / targetH);
+
+        // Decode the image file into a Bitmap sized to fill the View
+        bmOptions.inJustDecodeBounds = false;
+        bmOptions.inSampleSize = scaleFactor;
+        bmOptions.inPurgeable = true;
+
+        final Uri imageUri = data.getData();
+        final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+        final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+        // profileImage.setImageBitmap(selectedImage);
+//                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
+        // storeImage(selectedImage,"Profile");
+
+        int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+        Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+        imgProfile.setImageBitmap(scaled);
+
+
+        Bitmap bmp = BitmapFactory.decodeFile(fileName, bmOptions);
+        view.setImageBitmap(bmp);
+        imgProfile.setImageBitmap(bmp);
+
+     //   imgProfile = bmp;
+
+
+    }
+*/
 
     private void setPetData() {
         final ArrayList allergyList = new ArrayList();
@@ -2388,7 +2568,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 byte[] byteArray = stream.toByteArray();
                 outStream.write(byteArray);
                 outStream.close();
-
             }
 
         } catch (FileNotFoundException e) {

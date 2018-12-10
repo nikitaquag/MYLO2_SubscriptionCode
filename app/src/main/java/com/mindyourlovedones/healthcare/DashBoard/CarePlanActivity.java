@@ -53,7 +53,7 @@ import java.util.ArrayList;
 
 public class CarePlanActivity extends AppCompatActivity implements View.OnClickListener {
     final static String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
-    final CharSequence[] dialog_items = {"View", "Email", "User Intructions"};
+    final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     ListView lvDoc;
     ArrayList<Document> documentList;
@@ -320,17 +320,20 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
             case R.id.rlAD:
                 Intent i4 = new Intent(context, CarePlanListActivity.class);
                 preferences.putString(PrefConstants.FROM, "AD");
+
                 startActivity(i4);
                 break;
             case R.id.rlMedicalRecord:
                 Intent intent = new Intent(context, CarePlanListActivity.class);
                 preferences.putString(PrefConstants.FROM, "Record");
+//                intent.putExtra("Ins", "MedicalIns");
                 startActivity(intent);
                 break;
 
             case R.id.rlLegal:
                 Intent i5 = new Intent(context, CarePlanListActivity.class);
                 preferences.putString(PrefConstants.FROM, "Legal");
+//                i5.putExtra("Ins", "LegalIns");
                 startActivity(i5);
                 break;
 

@@ -88,7 +88,6 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             lvSpecialist.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
         }
-
     }
 
     private void initListener() {
@@ -99,7 +98,6 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
     }
 
     private void initUI() {
-
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
 
@@ -110,6 +108,8 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
+        TextView txt67 = rootview.findViewById(R.id.txtPolicy67);
+        ImageView img67 = rootview.findViewById(R.id.img67);
 
 
         //shradha
@@ -119,21 +119,9 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n "));
         txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
         txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+        txt67.setText(Html.fromHtml("\n"));
+        img67.setVisibility(View.GONE);
 
-        /* txtStep1 = rootview.findViewById(R.id.txtStep1);
-        txtStep2 = rootview.findViewById(R.id.txtStep2);
-        txtStep3 = rootview.findViewById(R.id.txtStep3);
-        txtStep4 = rootview.findViewById(R.id.txtStep4);
-        txtStep5 = rootview.findViewById(R.id.txtStep5);
-        txtStep6 = rootview.findViewById(R.id.txtStep6);
-
-        txtStep1.setText(Html.fromHtml("Step 1.To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen."));
-        txtStep2.setText(Html.fromHtml("Step 2.To <b>save</b> information click the green bar at the bottom of the screen."));
-        txtStep3.setText(Html.fromHtml("Step 3.To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>green bar</b> at the bottom of the screen."));
-        txtStep4.setText(Html.fromHtml("Step 4.To <b>make an automated phone call</b> or <b>delete</b> the entry <b>swipe right to left</b> arrow symbol."));
-        txtStep5.setText(Html.fromHtml("Step 5.To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen."));
-        txtStep6.setText(Html.fromHtml("Step 6.To <b>add a picture</b> click the picture of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again.Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card"));
-*/
 
         txtMsg = rootview.findViewById(R.id.txtMsg);
         String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen" +
@@ -263,8 +251,8 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-               // intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                // intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
             case R.id.llAddSpecialist:

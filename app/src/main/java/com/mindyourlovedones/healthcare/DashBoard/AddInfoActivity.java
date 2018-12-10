@@ -8,6 +8,7 @@ import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -23,6 +24,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedones.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedones.healthcare.HomeActivity.R;
 import com.mindyourlovedones.healthcare.customview.MySpinner;
 import com.mindyourlovedones.healthcare.database.AllergyQuery;
@@ -56,7 +58,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     Context context = this;
     ImageView imgBack, imgInfo;
     RelativeLayout llAddConn, rlInfo, rlPdf;
-    TextView txtSave,txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
+    TextView txtSave, txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
     TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction;
     String from, name, title;
     Boolean isAllergy, isHistory, isImplant;
@@ -69,11 +71,13 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     TextView txtHeader, txtInfo;
     RelativeLayout rlName, rlReactionSpinner;
     MySpinner spinner, spinnerReaction;
+    FloatingActionButton floatProfile;
+
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
-    String[] implantList = {"Aneurysm Stent or Aneurysm Clip","Artifical Limbs","Artificial Heart Value","Body Art/Tatoos","Coronary Stents(Drug Coated/Bare Methal/Unknown)","Metal Crowns, Fillings, Implants","Gastric Band","Body Piercing","Implanted Cardio Defibrilator (ICD)","Implanted Devices/Pumps/Stimulator","Joint Replacements (specify)","Lens Implants","Metal Implants","Middle Ear Prosthesis","None","Pacemaker","Penile Implant","Pins/Rods/Screws","Prosthetic Eye","Renal or other Stents","Tracheotomy", "Other"};
+    String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
     String[] reactionList = {"Anaphylaxis", "Difficulty Breathing", "Hives", "Nausea", "Rash", "Vomiting", "Other"};
-    String[] surgeryList = {"Appendix","Breast Biopsy","Mastectomy","Cataract","Colon","Gallbladder","Heart - Angio/Stent","Heart - Bypass","Heart - Valve","Hernia","Hip Replacement","Hysterectomy","Knee Surgery/Replacement","Lasik Surgery","Metal Implants","Middle Ear Prosthesis","Mohs – Basal Cell","Mohs – Squamous Cell","None","Spine Surgery","Thyroid Surgery","Tonsils","Vascular Surgery","Wisdom Teeth","Other"};
+    String[] surgeryList = {"Appendix", "Breast Biopsy", "Mastectomy", "Cataract", "Colon", "Gallbladder", "Heart - Angio/Stent", "Heart - Bypass", "Heart - Valve", "Hernia", "Hip Replacement", "Hysterectomy", "Knee Surgery/Replacement", "Lasik Surgery", "Metal Implants", "Middle Ear Prosthesis", "Mohs – Basal Cell", "Mohs – Squamous Cell", "None", "Spine Surgery", "Thyroid Surgery", "Tonsils", "Vascular Surgery", "Wisdom Teeth", "Other"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -545,7 +549,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             if (isImplant == true || isHistory == true) {
                 tilDate.setVisibility(View.VISIBLE);
                 if (isImplant == true) {
-                    tilDate.setHint("Note (Approximate Date, Location, Details)");
+                    tilDate.setHint("Note (Date, Location, Details)");
                 } else {
                     tilDate.setHint("Date");
                 }
@@ -695,6 +699,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initListener() {
+        floatProfile.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgInfo.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
@@ -703,6 +708,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initUi() {
+        floatProfile = findViewById(R.id.floatProfile);
         imgBack = findViewById(R.id.imgBack);
         imgInfo = findViewById(R.id.imgInfo);
         llAddConn = findViewById(R.id.llAddConn);
@@ -753,6 +759,12 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatProfile:
+                Intent intentDashboard = new Intent(context, BaseActivity.class);
+                intentDashboard.putExtra("c", 1);
+                startActivity(intentDashboard);
+                break;
+
             case R.id.imgBack:
                 hideSoftKeyboard();
                 finish();

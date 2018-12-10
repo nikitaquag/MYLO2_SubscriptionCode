@@ -127,6 +127,8 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         TextView txt65 = rootview.findViewById(R.id.txtPolicy65);
         TextView txt66 = rootview.findViewById(R.id.txtPolicy66);
         TextView txt67 = rootview.findViewById(R.id.txtPolicy67);
+        TextView txt68 = rootview.findViewById(R.id.txtPolicy68);
+        ImageView img68 = rootview.findViewById(R.id.img68);
 
         //shradha
         txt61.setText(Html.fromHtml("To <b>add</b> information click the bar at the bottom of the screen. Click the add sign to Select the File.\n\n"));
@@ -136,6 +138,8 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
         txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
         txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
+        txt68.setText(Html.fromHtml("\n"));
+        img68.setVisibility(View.GONE);
 
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
@@ -273,8 +277,8 @@ public class FragementForm extends Fragment implements View.OnClickListener {
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-            //    intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //    intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
 

@@ -164,24 +164,17 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
         } else {
             holder.txtPhone.setVisibility(View.VISIBLE);
         }
-       /* if(insuranceList.get(position).getType().equals(""))
-        {
-            holder.txtType.setVisibility(View.GONE);
-        }else
-        {
-            holder.tx
-            tType.setVisibility(View.VISIBLE);
-        }*/
         holder.txtPhone.setText(insuranceList.get(position).getPhone());
         //  holder.imgProfile.setImageResource(insuranceList.get(position).getImage());
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhoto());
         if (imgFile.exists()) {
-           /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.imgProfile.setImageBitmap(myBitmap);*/
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            //  imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+        } else {
             holder.imgProfile.setImageResource(R.drawable.lightblue);
         }
+
         /*byte[] photo=insuranceList.get(position).getPhoto();
         Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
         holder.imgProfile.setImageBitmap(bmp);*/

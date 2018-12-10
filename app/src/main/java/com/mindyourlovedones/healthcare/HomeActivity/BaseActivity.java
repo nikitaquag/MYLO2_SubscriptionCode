@@ -150,14 +150,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         ft.replace(R.id.fragmentContainer, fragment);
         ft.commit();
 
-      /*  new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {//nikita
             @Override
             public void run() {
                 //Here you can send the extras.
                 pd.dismiss();
             }
-        }, 100);*/
-
+        }, 1000);
 
     }
 
@@ -181,7 +180,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             callFirstFragment("CONNECTION", fragmentConnection);
         }
         /*shradha*/
-        Intent intent = getIntent();
+        try {
+            Intent intent = getIntent();
+            if (intent != null) {
+                p = intent.getExtras().getInt("c");
+                if (p == 1) {
+                    callFragmentData(new FragmentDashboard());
+                    p = 1;
+                } else if (p == 3) {
+                    callFragmentData(new FragmentConnectionNew());
+                    p = 1;
+                }
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        /*Intent intent = getIntent();
         if (intent.getExtras() != null) {
             p = intent.getExtras().getInt("c");
             if (p == 1) {
@@ -191,7 +206,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 callFragmentData(new FragmentConnectionNew());
                 p = 1;
             }
-        }
+        }*/
     }
 
 
@@ -292,6 +307,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
     private void initImageLoader() {
+
         displayImageOptions = new DisplayImageOptions.Builder() // resource
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
@@ -441,7 +457,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         imgDrawer = findViewById(R.id.imgDrawer);
         imgNoti = findViewById(R.id.imgNoti);
         imgR = findViewById(R.id.imgR);
-        imgR.setVisibility(View.VISIBLE);
+        imgR.setVisibility(View.GONE);
         imgProfile = findViewById(R.id.imgProfile);
         imgPdf = findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
@@ -463,6 +479,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlLogOutt = findViewById(R.id.rlLogOutt);
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
+        imgDrawerProfile.setVisibility(View.VISIBLE);
         imgRight = leftDrawer.findViewById(R.id.imgRight);
        /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
         imgDrawerProfile.setImageBitmap(bmp);*/
@@ -497,31 +514,30 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         fragmentMarketPlace = new FragmentMarketPlace();
         fragmentVideos = new FragmentVideos();
         fragmentBackup = new FragmentBackup();
-
-
     }
 
     public void callFragment(String fragName, Fragment fragment) {
         fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragName.equals("DASHBOARD") || fragName.equals("ADVANCE"))
+        if (fragName.equals("DASHBOARD") )
             fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName).addToBackStack("CONNECTION");
         else
             fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName);
         fragmentTransaction.commit();
     }
+    /*|| fragName.equals("ADVANCE")*/
 
     public void callFirstFragment(String fragName, Fragment fragment) {
         fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName);
         fragmentTransaction.commit();
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() {//shradha
             @Override
             public void run() {
                 //Here you can send the extras.
                 pd.dismiss();
             }
-        }, 100);
+        }, 1000);
     }
 
 
@@ -737,7 +753,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
-        txtComming.setText("Comming Soon");
+       // txtComming.setText("Comming Soon");
         // txtComming.setTextColor(R.color.colorBlue);
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -773,7 +789,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
-        txtComming.setText("Comming Soon");
+       // txtComming.setText("Comming Soon");
         // txtComming.setTextColor(R.color.colorBlue);
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -802,6 +818,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         if (!image.equals("")) {
             File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
             if (imgFile.exists()) {
+//                imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                 imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
                /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                 imgDrawerProfile.setImageBitmap(myBitmap);*/

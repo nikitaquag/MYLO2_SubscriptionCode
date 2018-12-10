@@ -221,7 +221,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 if (position != 0) {
                     if (position != connectionList.size()) {
 
-                        ShowOptionDialog("delete",position);
+                        ShowOptionDialog("delete", position);
 
 //                        //Shradha Custom dialog for delete and share and share ftu
 //                        final Dialog dialogShare = new Dialog(getActivity());
@@ -348,7 +348,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                         builders.create().show();
                     }*/
                 } else {
-                    ShowOptionDialog("share",position);
+                    ShowOptionDialog("share", position);
 
 //                    final Dialog dialogShare = new Dialog(getActivity());
 //                    dialogShare.setCanceledOnTouchOutside(false);
@@ -465,7 +465,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
 
-    private void ShowOptionDialog(final String Type,final int position) {
+    private void ShowOptionDialog(final String Type, final int position) {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -552,7 +552,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                     preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
                     preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
                     startActivity(i);
-                }  else {
+                } else {
 
                 }
                 dialog.dismiss();
@@ -610,7 +610,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intent);
-               */ break;
+               */
+                break;
         }
     }
 
@@ -636,7 +637,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
         lp.width = width;
         RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-       // buttonLayoutParams.setMargins(0, 0, 0, 10);
+        // buttonLayoutParams.setMargins(0, 0, 0, 10);
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
         lp.gravity = Gravity.CENTER_VERTICAL | Gravity.BOTTOM;
         dialogInstruction.getWindow().setAttributes(lp);

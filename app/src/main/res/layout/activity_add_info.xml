@@ -7,6 +7,19 @@
     android:layout_height="match_parent"
     tools:context="com.mindyourlovedones.healthcare.DashBoard.AddInfoActivity">
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        app:backgroundTint="@color/colorFloatRed"
+        app:fabSize="normal"
+        tools:targetApi="lollipop" />
+
     <RelativeLayout
         android:id="@+id/rlInfo"
         android:layout_width="match_parent"

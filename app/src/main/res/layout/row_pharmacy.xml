@@ -57,14 +57,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="@dimen/dimension60dp"
                 android:layout_height="@dimen/dimension60dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
-                android:scaleType="fitXY"
                 android:src="@drawable/ic_profile_defaults" />
 
             <RelativeLayout

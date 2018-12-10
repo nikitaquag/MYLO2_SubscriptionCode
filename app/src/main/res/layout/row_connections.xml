@@ -20,7 +20,7 @@
 
         >
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgConPhoto"
             android:layout_width="@dimen/dimension65dp"
             android:layout_height="@dimen/dimension65dp"

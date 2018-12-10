@@ -3,21 +3,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
+
     <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
         android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        app:backgroundTint="@color/colorFloatRed"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension10dp"
         android:src="@drawable/ic_box"
         android:tint="@color/colorWhite"
+        app:backgroundTint="@color/colorFloatRed"
         app:fabSize="normal"
-        tools:targetApi="lollipop"
-        android:layout_margin="@dimen/dimension10dp"/>
+        tools:targetApi="lollipop" />
 
     <RelativeLayout
         android:id="@+id/header"
@@ -153,7 +154,31 @@
                         android:src="@drawable/check_mark"
                         />
                 </RelativeLayout>-->
-<!--
+                <!--
+                                <FrameLayout
+                                    android:id="@+id/flProfile"
+                                    android:layout_width="@dimen/dimension110dp"
+                                    android:layout_height="@dimen/dimension110dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="17dp">
+
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/imgProfile"
+                                        android:layout_width="@dimen/dimension100dp"
+                                        android:layout_height="@dimen/dimension100dp"
+                                        android:src="@drawable/ic_profile_defaults" />
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/imgEdit"
+                                        android:layout_width="@dimen/dimension35dp"
+                                        android:layout_height="@dimen/dimension35dp"
+                                        android:layout_gravity="top|right"
+                                        android:src="@drawable/ic_edit_blue" />
+
+                                </FrameLayout>
+                -->
                 <FrameLayout
                     android:id="@+id/flProfile"
                     android:layout_width="@dimen/dimension110dp"
@@ -177,9 +202,8 @@
                         android:src="@drawable/ic_edit_blue" />
 
                 </FrameLayout>
--->
-
-
+                <!--Code commented for prev image loader-->
+                <!--
                                 <FrameLayout
                                     android:id="@+id/flProfile"
                                     android:layout_width="@dimen/dimension110dp"
@@ -202,6 +226,7 @@
                                         android:layout_gravity="top|right"
                                         android:src="@drawable/ic_edit_blue" />
                                 </FrameLayout>
+                -->
 
                 <RelativeLayout
                     android:id="@+id/llCard"
@@ -235,15 +260,14 @@
 
                         <ImageView
                             android:id="@+id/imgCard"
-                            android:layout_width="@dimen/dimension80dp"
+                            android:layout_width="@dimen/dimension200dp"
                             android:layout_height="@dimen/dimension50dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginRight="@dimen/dimension20dp"
                             android:adjustViewBounds="true"
                             android:background="@android:color/transparent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/busi_card"
-                            android:visibility="gone" />
+                            android:src="@drawable/busi_card" />
 
                         <ImageView
                             android:id="@+id/imgEditCard"
@@ -446,7 +470,7 @@
                     android:paddingLeft="@dimen/dimension30dp"
                     android:paddingRight="@dimen/dimension30dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="visible">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtWorkPhone"
@@ -1097,7 +1121,7 @@
                         android:id="@+id/txtReligion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Religion-Notes"
+                        android:hint="Religion - Notes"
                         android:imeOptions="actionNext"
                         android:maxLines="3"
                         android:paddingLeft="@dimen/dimension15dp"

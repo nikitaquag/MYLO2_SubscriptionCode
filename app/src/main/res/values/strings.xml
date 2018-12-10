@@ -22,7 +22,12 @@
     <string name="signupt2"><![CDATA[ This App will ask you for permission to access your photos, media and files or to make phone calls.  This is simply to provide the User with functionality for a good mobile experience.  We do not have access to this information.]]></string>
     <!--<string name="signupt3"><![CDATA[ MYLO<sup><small>TM</small></sup>, INC. <u>only has access to your name</u>]]></string>-->
     <string name="signupt4"><u></u></string>
+    <string name="aba">The ABA® trademark is owned by the American Bar Association, used under license.
+
+The American Bar Association is one of the world’s largest voluntary professional organizations.Its mission is to serve equally its members, the profession and the public by defending liberty and delivering justice as the national representative of the legal profession. The ABA® Commission on Law and Aging is the collaborative and interdisciplinary leader of the Association’s work to strengthen and secure the legal rights, dignity, autonomy, quality of life, and quality of care of aging persons.</string>
+
     <string name="signupt5"><u>only has access to</u></string>
+    <string name="clickcard">Click the card to see a <b>full view</b>. Enlarge the card by stretching the picture with your fingers.\n\n To <b>email</b> the card click the image and then click the share icon on the top right side of the screen.</string>
     <string name="signupt55"><u>your name and email address.</u></string>
     <string name="signup6">USERS must remember their user name and email address and should save data once populated. Instructions are included in app. Fax capability is ONLY to be used for medical emergencies to satisfy HIPAA requirements.</string>
 

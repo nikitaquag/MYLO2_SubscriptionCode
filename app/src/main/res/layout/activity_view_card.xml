@@ -147,7 +147,7 @@
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:paddingBottom="20dp"
-                    android:text="By clicking the above card, You can see card in full view. \nTo email your card image click on share icon at top right corner of the screen"
+                    android:text="@string/clickcard"
                     android:textColor="@color/colorGuide"
                     android:textSize="@dimen/dimension18dp" />
             </RelativeLayout>

@@ -97,7 +97,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Uri imageUriProfile, imageUriCard;
     // byte[] photoCard = null;
     String card = "";
-    static  String Cname = "";
+    static String Cname = "";
     static String Cemail = "";
     static String Cphone = "";
     static String CAddress = "";
@@ -151,13 +151,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     String imagepath = "", cardPath = "";
 
-    String[] Relationship = {"Aunt","Brother","Brother-in-law","Client","Cousin","Dad","Daughter","Father-in-law","Friend","GrandDaughter","GrandMother","GrandFather","GrandSon","Husband","Mom","Mother-in-law","Neighbor","Nephew","Niece","Patient","Roommate","Significant Other","Sister","Sister-in-law","Son","Uncle","Wife","Other"};
+    String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
 
     //String[] healthSpeciality = {"Acupunture", "Allergy & Immunology", "Anesthesiology", "Audiology", "Cardiology", "Chiropractor", "Cosmetic and Laser Surgeon  ", "Critical Care Medicine ", "Dentist ", "Dermatology", "Diabetes & Metabolism", "Emergency Medicine", "Endocrinology", "Endodontics", "Endovascular Medicine", "Family Medicine", "Foot and Ankle Surgeon ", "Gastroenterology", "Geriatric Medicine", "Gynecology", "Hospice & Palliative Medicine	", "Infectious Disease", "Internal Medicine", "Massage Therapy", "Medical Genetics", "Nephrology", "Neurology", "Obstetrics & Gynecology", "Oncology ", "Ophthalmology", "Optometrist", "Orthodontics", "Orthopadeic ", "Orthopadeic Surgeon ", "Otolaryngology", "Pain Medicine", "Pathology", "Pediatrics", "Periodontics", "Physical Therapist", "Plastic & Reconstructive Surgeon ", "Podiatrist ", "Psychiatry", "Pulmonology", "Radiology", "Rheumatology", "Speech Therapist", "Sports Medicine", "Surgeon  - General ", "Thoracic & Cardiac Surgeon ", "Urology", "Vascular Medicine", "Other"};
-    String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon",   "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General","Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
+    String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
 
     //String[] insuaranceType = {"Dental", "Disability", "Life", "Long Term Care", "Medicaid", "Medical", "Medicare Supplement (Medigap)", "Medicare", "Supplemental", "Vision", "Other"};
-    String[] insuaranceType = {"Apartment", "Auto","Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision",  "Other"};
+    String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision", "Other"};
 
     String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
 
@@ -191,7 +191,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         return rootview;
     }
 
-    
 
     public void savedata() {
         try {
@@ -720,7 +719,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (!imagepath.equals("")) {
                     File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/temp/", imagepath);
                     if (imgFile.exists()) {
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        //Shradha
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
                     changeIcon(source);
@@ -731,7 +732,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (!imagepath.equals("")) {
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), imagepath);
                     if (imgFile.exists()) {
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        //Shradha
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
                     changeIcon(source);
@@ -959,7 +962,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                   /*  Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -971,7 +976,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //   imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1010,7 +1017,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1022,7 +1031,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                          /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+//                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1117,7 +1128,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1130,7 +1143,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //   imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                         /*Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1219,7 +1234,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1232,7 +1249,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1276,7 +1294,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+                            //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1379,7 +1398,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1392,7 +1413,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1450,7 +1473,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1463,7 +1488,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1560,12 +1587,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
-                      /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                        imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
-                    }
-                    /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-                    imgProfile.setImageBitmap(bmp);*/
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                    } else
+                        imgProfile.setImageResource(R.drawable.green);
 
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
@@ -1573,12 +1599,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         String photoCard = specialist.getPhotoCard();
                         File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photoCard);
                         if (imgFile1.exists()) {
-                          /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                            imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
-                       /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-                        imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
                         txtCard.setVisibility(View.GONE);
@@ -1659,7 +1683,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1672,7 +1698,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1730,7 +1758,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);
@@ -1743,7 +1773,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1799,7 +1831,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                         /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                   /*  Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1812,7 +1846,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                         /*Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -1895,12 +1931,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
-                       /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                        imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
-                  /*  Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-                    imgProfile.setImageBitmap(bmp);*/
 
                     //Change Class Name
                     cardPath = insurance.getPhotoCard();
@@ -1908,12 +1942,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         String photoCard = insurance.getPhotoCard();
                         File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photoCard);
                         if (imgFile1.exists()) {
-                          /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                            imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
-                     /*   Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-                        imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
                         txtCard.setVisibility(View.GONE);
@@ -1964,7 +1996,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -1977,7 +2011,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                           /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                         /*Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2055,7 +2091,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -2068,7 +2106,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                             /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2110,7 +2150,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                   /*  Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -2124,7 +2166,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                       /*  Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2219,7 +2263,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                      /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -2232,7 +2278,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2290,7 +2338,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -2303,7 +2353,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                             /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2398,7 +2450,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                      /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);
@@ -2411,7 +2465,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                             /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -2474,7 +2530,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                      /*   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
-                        imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);
@@ -2487,7 +2545,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (imgFile1.exists()) {
                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
                             imgCard.setImageBitmap(myBitmap);*/
-                            imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+
+                            // imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
                         }
                        /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                         imgCard.setImageBitmap(bmpCard);*/
@@ -3961,7 +4021,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 if (profile.equals("Profile")) {
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    imgProfile.setImageResource(R.drawable.green);
                     imagepath = "";
                     ProfileMap = null;
                 } else if (profile.equals("Card")) {
@@ -4518,9 +4578,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgProfile.setImageBitmap(scaled);
+//                ProfileMap = selectedImage;
+                ProfileMap = scaled;
+                storeImage(ProfileMap, "Profile");
                 //  profileImage.setImageBitmap(selectedImage);
-                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
-                ProfileMap = selectedImage;
+//                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
                 //   storeImage(selectedImage,"Profile");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -4533,10 +4598,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         getActivity().getContentResolver(), imageUriProfile);
                 String imageurl = getRealPathFromURI(imageUriProfile);
                 Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
-                imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgProfile.setImageBitmap(scaled);
+
+                storeImage(scaled, "Profile");
+            /*    imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
                 ProfileMap = selectedImage;
                 // profileImage.setImageBitmap(bitmap);
-                //  storeImage(selectedImage,"Profile");
+                //  storeImage(selectedImage,"Profile");*/
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -4544,17 +4614,33 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         } else if (requestCode == RESULT_SELECT_PHOTO_CARD && null != data) {
             try {
                 final Uri imageUri = data.getData();
-                // cardPath = data.getStringExtra("imagepath");
                 final InputStream imageStream = getActivity().getContentResolver().openInputStream(imageUri);
                 final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
-                imageLoaderCard.displayImage(String.valueOf(imageUri), imgCard, displayImageOptionsCard);
-                // profileCard.setImageBitmap(selectedImage);
+
+                int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgCard.setImageBitmap(scaled);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
-                CardMap = selectedImage;
-                isOnActivityResult = true;
-                cardImgPath = String.valueOf(imageUri);
+                CardMap = scaled;
+                storeImage(scaled, "Card");
+
+              /*  int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
+                Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
+                imgCard.setImageBitmap(scaled);
+                rlCard.setVisibility(View.VISIBLE);
+                imgCard.setVisibility(View.VISIBLE);
+                txtCard.setVisibility(View.GONE);
+                CardMap = scaled;
+                storeImage(scaled, "Card");
+//                imageLoaderCard.displayImage(String.valueOf(imageUri), imgCard, displayImageOptionsCard);
+                // profileCard.setImageBitmap(selectedImage);
+                rlCard.setVisibility(View.VISIBLE);
+                imgCard.setVisibility(View.VISIBLE);
+                txtCard.setVisibility(View.GONE);*/
+//                isOnActivityResult = true;
+//                cardImgPath = String.valueOf(imageUri);
                 // storeImage(selectedImage,"Card");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -4567,9 +4653,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 String imageurl = getRealPathFromURI(imageUriCard);
                 Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
-                imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
-                //  profileCard.setImageBitmap(bitmap);
-                //
+                profileCard.setImageBitmap(selectedImage);
+                //  imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
+
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);

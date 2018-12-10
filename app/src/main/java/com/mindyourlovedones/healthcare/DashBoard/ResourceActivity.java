@@ -83,7 +83,7 @@ public class ResourceActivity extends AppCompatActivity {
 
         Links l9 = new Links();
         l9.setName("Center for Practical Bioethics, Caring Conversations");
-        l9.setUrl("http://practicalbioethics.org/programs/caring-conversations.html?jaredirect");
+        l9.setUrl("https://www.practicalbioethics.org/resources/caring-conversations.html");
         l9.setImage(R.drawable.link_five);
 
         Links l10 = new Links();

@@ -158,7 +158,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
            txtType.setVisibility(View.VISIBLE);
         }*/
 
-       //nikita
+        //nikita
         String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent",};
         if (emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtState.setVisibility(View.GONE);
@@ -189,27 +189,27 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         viewHolder.txtTelePhone.setText(emergencyList.get(position).getPhone());
 
 
-      /*  byte[] photo=emergencyList.get(position).getPhoto();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-       imgProfile.setImageBitmap(bmp);*/
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());
         if (imgFile.exists()) {
-            imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+            viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+
+        } else {
             viewHolder.imgProfile.setImageResource(R.drawable.green);
-           /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-           imgProfile.setImageBitmap(myBitmap);*/
+
         }
 
         if (!emergencyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
-                /*Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-               imgForword.setImageBitmap(myBitmap);*/
+                //viewHolder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
+            } else {
+                viewHolder.imgForword.setImageResource(R.drawable.busi_card);
+
             }
-           /* byte[] photoCard = emergencyList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-           imgForword.setImageBitmap(bmpCard);*/
+
             viewHolder.imgForword.setVisibility(View.VISIBLE);
         } else {
             viewHolder.imgForword.setVisibility(View.GONE);
@@ -239,7 +239,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "EmergencyView");
                 Intent i = new Intent(context, GrabConnectionActivity.class);
-                i.putExtra("EmergencyView","");
+                i.putExtra("EmergencyView", "");
                 i.putExtra("EmergencyObject", emergencyList.get(position));
                 context.startActivity(i);
             }

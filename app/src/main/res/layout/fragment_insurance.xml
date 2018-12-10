@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:gravity="center"
-        android:layout_gravity="center"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
 
 
         <android.support.v7.widget.RecyclerView
@@ -64,8 +63,8 @@
                     android:layout_below="@+id/txtHeader"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:gravity="center_horizontal"
                     android:text="@string/ftu"
                     android:textColor="@color/colorBlue"
@@ -78,8 +77,8 @@
                     android:layout_below="@+id/txtFTU"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:gravity="center_horizontal"
                     android:text="Use this section to keep a record of your insurance information.\n
 Don’t just add Medical or Dental – think about Long Term Care, Disability, Auto, Umbrella, Home, or Pet Insurance."
@@ -98,15 +97,15 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                         android:id="@+id/rel61"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension20dp">
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
                         <ImageView
                             android:id="@+id/img61"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -130,8 +129,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:id="@+id/img62"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -155,8 +154,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:id="@+id/img63"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -180,8 +179,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:id="@+id/img64"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -205,8 +204,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:id="@+id/img65"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -230,8 +229,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:id="@+id/img66"
                             android:layout_width="@dimen/dimension20dp"
                             android:layout_height="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:src="@drawable/bullet4" />
 
                         <TextView
@@ -243,11 +242,37 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
                             android:textColor="@color/colorGuide"
                             android:textSize="@dimen/dimension18dp" />
                     </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/rel67"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rel66"
+                        android:layout_marginBottom="@dimen/dimension20dp">
+
+                        <ImageView
+                            android:id="@+id/img67"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
+
+                        <TextView
+                            android:id="@+id/txtPolicy67"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img67"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
+
                 </RelativeLayout>
 
             </RelativeLayout>
         </ScrollView>
-</RelativeLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -273,8 +298,8 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
             android:layout_height="@dimen/dimension60dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
+            android:layout_marginRight="@dimen/dimension15dp"
             android:background="@color/colorFive">
 
             <ImageView
