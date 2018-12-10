@@ -157,7 +157,7 @@ public class DocumentPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -321,7 +321,7 @@ public class DocumentPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);//shradha pdf color change
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -496,7 +496,7 @@ public class DocumentPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);

@@ -155,7 +155,7 @@ public class EventPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -245,7 +245,8 @@ public class EventPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -435,7 +436,7 @@ public class EventPdf {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -692,7 +693,7 @@ public class EventPdf {
                 Paragraph p1 = new Paragraph(" ");
                 DottedLineSeparator line1 = new DottedLineSeparator();
                 line1.setOffset(-4);
-                line1.setLineColor(BaseColor.LIGHT_GRAY);
+                line1.setLineColor(BaseColor.BLACK);
                 p1.add(line1);
                 Header.document.add(p1);
                 Header.addEmptyLine(1);

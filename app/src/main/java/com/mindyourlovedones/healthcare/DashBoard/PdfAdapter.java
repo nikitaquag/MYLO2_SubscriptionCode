@@ -185,19 +185,19 @@ class PdfAdapter extends BaseAdapter {
         });
 */
 
-      convertView.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              PackageManager packageManager = context.getPackageManager();
-              Intent testIntent = new Intent(Intent.ACTION_VIEW);
-              testIntent.setType("application/pdf");
-              List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PackageManager packageManager = context.getPackageManager();
+                Intent testIntent = new Intent(Intent.ACTION_VIEW);
+                testIntent.setType("application/pdf");
+                List list = packageManager.queryIntentActivities(testIntent, PackageManager.MATCH_DEFAULT_ONLY);
 //                        if (list.size() > 0 && imagelist[position].isFile()) {// commented
-              ((DocumentSdCardList) context).getData(pdfList[position], String.valueOf(imagelist[position].getPath()));
-              // dialog.dismiss();
-              ((DocumentSdCardList) context).finish();
-          }
-      });
+                ((DocumentSdCardList) context).getData(pdfList[position], String.valueOf(imagelist[position].getPath()));
+                // dialog.dismiss();
+                ((DocumentSdCardList) context).finish();
+            }
+        });
         return convertView;
     }
 

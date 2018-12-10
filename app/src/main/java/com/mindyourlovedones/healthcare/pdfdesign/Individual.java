@@ -247,7 +247,7 @@ public class Individual {
             Paragraph p1 = new Paragraph(" ");
             DottedLineSeparator line1 = new DottedLineSeparator();
             line1.setOffset(-4);
-            line1.setLineColor(BaseColor.LIGHT_GRAY);
+            line1.setLineColor(BaseColor.BLACK);
             p1.add(line1);
             Header.document.add(p1);
             Header.addEmptyLine(1);
@@ -389,7 +389,7 @@ public class Individual {
             Paragraph p2 = new Paragraph(" ");
             DottedLineSeparator line2 = new DottedLineSeparator();
             line2.setOffset(-4);
-            line2.setLineColor(BaseColor.LIGHT_GRAY);
+            line2.setLineColor(BaseColor.BLACK);
             p2.add(line2);
             Header.document.add(p2);
             Header.addEmptyLine(1);
@@ -445,7 +445,7 @@ public class Individual {
             Paragraph p3 = new Paragraph(" ");
             DottedLineSeparator line3 = new DottedLineSeparator();
             line3.setOffset(-4);
-            line3.setLineColor(BaseColor.LIGHT_GRAY);
+            line3.setLineColor(BaseColor.BLACK);
             p3.add(line3);
             Header.document.add(p3);
             Header.addEmptyLine(1);
@@ -496,7 +496,7 @@ public class Individual {
             Paragraph pp = new Paragraph(" ");
             DottedLineSeparator linep = new DottedLineSeparator();
             linep.setOffset(-4);
-            linep.setLineColor(BaseColor.LIGHT_GRAY);
+            linep.setLineColor(BaseColor.BLACK);
             pp.add(linep);
             Header.document.add(pp);
             Header.addEmptyLine(1);
@@ -535,12 +535,12 @@ public class Individual {
             Paragraph pm = new Paragraph(" ");
             DottedLineSeparator linem = new DottedLineSeparator();
             linem.setOffset(-4);
-            linem.setLineColor(BaseColor.LIGHT_GRAY);
+            linem.setLineColor(BaseColor.BLACK);
             pm.add(linem);
             Header.document.add(pm);
             Header.addEmptyLine(1);
 
-           /**/
+            /**/
 
 
             PdfPTable table4;
@@ -578,7 +578,7 @@ public class Individual {
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
-            line4.setLineColor(BaseColor.LIGHT_GRAY);
+            line4.setLineColor(BaseColor.BLACK);
             p4.add(line4);
             Header.document.add(p4);
             Header.addEmptyLine(1);
@@ -782,7 +782,7 @@ public class Individual {
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
+            line.setLineColor(BaseColor.BLACK);
             p.add(line);
             Header.document.add(p);
             Header.addEmptyLine(1);
@@ -1303,7 +1303,7 @@ public class Individual {
 
             messageInfo3.add("Organ Donor :");
             messageInfo3.add(organDonor);*//*
-          *//*  if (connection.get == null) {
+         *//*  if (connection.get == null) {
                 oPhone = "";
             }
             Header.addTable("Medical Conditions :");
@@ -1495,7 +1495,7 @@ public class Individual {
             Paragraph p1 = new Paragraph(" ");
             DottedLineSeparator line1 = new DottedLineSeparator();
             line1.setOffset(-4);
-            line1.setLineColor(BaseColor.LIGHT_GRAY);
+            line1.setLineColor(BaseColor.BLACK);
             p1.add(line1);
             Header.document.add(p1);
             Header.addEmptyLine(1);
@@ -1625,7 +1625,7 @@ public class Individual {
             Paragraph p2 = new Paragraph(" ");
             DottedLineSeparator line2 = new DottedLineSeparator();
             line2.setOffset(-4);
-            line2.setLineColor(BaseColor.LIGHT_GRAY);
+            line2.setLineColor(BaseColor.BLACK);
             p2.add(line2);
             Header.document.add(p2);
             Header.addEmptyLine(1);
@@ -1690,7 +1690,7 @@ public class Individual {
             Paragraph pp = new Paragraph(" ");
             DottedLineSeparator linep = new DottedLineSeparator();
             linep.setOffset(-4);
-            linep.setLineColor(BaseColor.LIGHT_GRAY);
+            linep.setLineColor(BaseColor.BLACK);
             pp.add(linep);
             Header.document.add(pp);
             Header.addEmptyLine(1);
@@ -1733,7 +1733,7 @@ public class Individual {
             Paragraph p3 = new Paragraph(" ");
             DottedLineSeparator line3 = new DottedLineSeparator();
             line3.setOffset(-4);
-            line3.setLineColor(BaseColor.LIGHT_GRAY);
+            line3.setLineColor(BaseColor.BLACK);
             p3.add(line3);
             Header.document.add(p3);
             Header.addEmptyLine(1);
@@ -1773,7 +1773,7 @@ public class Individual {
             Paragraph pm = new Paragraph(" ");
             DottedLineSeparator linem = new DottedLineSeparator();
             linem.setOffset(-4);
-            linem.setLineColor(BaseColor.LIGHT_GRAY);
+            linem.setLineColor(BaseColor.BLACK);
             pm.add(linem);
             Header.document.add(pm);
             Header.addEmptyLine(1);
@@ -1814,7 +1814,7 @@ public class Individual {
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
-            line4.setLineColor(BaseColor.LIGHT_GRAY);
+            line4.setLineColor(BaseColor.BLACK);
             p4.add(line4);
             Header.document.add(p4);
             Header.addEmptyLine(1);
@@ -2018,7 +2018,7 @@ public class Individual {
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
+            line.setLineColor(BaseColor.BLACK);
             p.add(line);
             Header.document.add(p);
             Header.addEmptyLine(1);
@@ -2231,7 +2231,7 @@ public class Individual {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -2239,12 +2239,6 @@ public class Individual {
 //        Header.table.setWidthPercentage(100f);
 
             Header.document.add(table1);
-          /*  Paragraph p = new Paragraph(" ");
-            DottedLineSeparator line = new DottedLineSeparator();
-            line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
-            p.add(line);
-            Header.document.add(p);*/
             Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -2498,7 +2492,7 @@ public class Individual {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -2506,12 +2500,6 @@ public class Individual {
 
 
             Header.document.add(table1);
-          /*  Paragraph p = new Paragraph(" ");
-            DottedLineSeparator line = new DottedLineSeparator();
-            line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
-            p.add(line);
-            Header.document.add(p);*/
             Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -2678,7 +2666,7 @@ public class Individual {
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
+            line.setLineColor(BaseColor.BLACK);
             p.add(line);
             Header.document.add(p);
             Header.addEmptyLine(1);
@@ -2856,7 +2844,7 @@ public class Individual {
             Paragraph p6 = new Paragraph(" ");
             DottedLineSeparator line6 = new DottedLineSeparator();
             line6.setOffset(-4);
-            line6.setLineColor(BaseColor.LIGHT_GRAY);
+            line6.setLineColor(BaseColor.BLACK);
             p6.add(line6);
             Header.document.add(p6);
             Header.addEmptyLine(1);
@@ -2943,7 +2931,7 @@ public class Individual {
             Paragraph p1 = new Paragraph(" ");
             DottedLineSeparator line1 = new DottedLineSeparator();
             line1.setOffset(-4);
-            line1.setLineColor(BaseColor.LIGHT_GRAY);
+            line1.setLineColor(BaseColor.BLACK);
             p1.add(line1);
             Header.document.add(p1);
             Header.addEmptyLine(1);
@@ -3052,7 +3040,7 @@ public class Individual {
             Paragraph p7 = new Paragraph(" ");
             DottedLineSeparator line7 = new DottedLineSeparator();
             line7.setOffset(-4);
-            line7.setLineColor(BaseColor.LIGHT_GRAY);
+            line7.setLineColor(BaseColor.BLACK);
             p7.add(line7);
             Header.document.add(p7);
             Header.addEmptyLine(1);
@@ -3167,7 +3155,7 @@ public class Individual {
             Paragraph p10 = new Paragraph(" ");
             DottedLineSeparator line10 = new DottedLineSeparator();
             line10.setOffset(-4);
-            line10.setLineColor(BaseColor.LIGHT_GRAY);
+            line10.setLineColor(BaseColor.BLACK);
             p10.add(line10);
             Header.document.add(p10);
             Header.addEmptyLine(1);
@@ -3247,7 +3235,7 @@ public class Individual {
             Paragraph p9 = new Paragraph(" ");
             DottedLineSeparator line9 = new DottedLineSeparator();
             line9.setOffset(-4);
-            line9.setLineColor(BaseColor.LIGHT_GRAY);
+            line9.setLineColor(BaseColor.BLACK);
             p9.add(line9);
             Header.document.add(p9);
             Header.addEmptyLine(1);
@@ -3382,7 +3370,7 @@ public class Individual {
             Paragraph p5 = new Paragraph(" ");
             DottedLineSeparator line5 = new DottedLineSeparator();
             line5.setOffset(-4);
-            line5.setLineColor(BaseColor.LIGHT_GRAY);
+            line5.setLineColor(BaseColor.BLACK);
             p5.add(line5);
             Header.document.add(p5);
             Header.addEmptyLine(1);
@@ -3471,7 +3459,7 @@ public class Individual {
             Paragraph p3 = new Paragraph(" ");
             DottedLineSeparator line3 = new DottedLineSeparator();
             line3.setOffset(-4);
-            line3.setLineColor(BaseColor.LIGHT_GRAY);
+            line3.setLineColor(BaseColor.BLACK);
             p3.add(line3);
             Header.document.add(p3);
             Header.addEmptyLine(1);
@@ -3556,7 +3544,7 @@ public class Individual {
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
-            line4.setLineColor(BaseColor.LIGHT_GRAY);
+            line4.setLineColor(BaseColor.BLACK);
             p4.add(line4);
             Header.document.add(p4);
             Header.addEmptyLine(1);
@@ -3677,7 +3665,7 @@ public class Individual {
             Paragraph p8 = new Paragraph(" ");
             DottedLineSeparator line8 = new DottedLineSeparator();
             line8.setOffset(-4);
-            line8.setLineColor(BaseColor.LIGHT_GRAY);
+            line8.setLineColor(BaseColor.BLACK);
             p8.add(line8);
             Header.document.add(p8);
             Header.addEmptyLine(1);
@@ -3764,7 +3752,7 @@ public class Individual {
             Paragraph p2 = new Paragraph(" ");
             DottedLineSeparator line2 = new DottedLineSeparator();
             line2.setOffset(-4);
-            line2.setLineColor(BaseColor.LIGHT_GRAY);
+            line2.setLineColor(BaseColor.BLACK);
             p2.add(line2);
             Header.document.add(p2);
             Header.addEmptyLine(1);
@@ -3836,7 +3824,7 @@ public class Individual {
             Paragraph p16 = new Paragraph(" ");
             DottedLineSeparator line16 = new DottedLineSeparator();
             line16.setOffset(-4);
-            line16.setLineColor(BaseColor.LIGHT_GRAY);
+            line16.setLineColor(BaseColor.BLACK);
             p16.add(line16);
             Header.document.add(p16);
             Header.addEmptyLine(1);
@@ -3904,7 +3892,7 @@ public class Individual {
             Paragraph p17 = new Paragraph(" ");
             DottedLineSeparator line17 = new DottedLineSeparator();
             line17.setOffset(-4);
-            line17.setLineColor(BaseColor.LIGHT_GRAY);
+            line17.setLineColor(BaseColor.BLACK);
             p17.add(line17);
             Header.document.add(p17);
             Header.addEmptyLine(1);
@@ -3980,7 +3968,7 @@ public class Individual {
             Paragraph p18 = new Paragraph(" ");
             DottedLineSeparator line18 = new DottedLineSeparator();
             line18.setOffset(-4);
-            line18.setLineColor(BaseColor.LIGHT_GRAY);
+            line18.setLineColor(BaseColor.BLACK);
             p18.add(line18);
             Header.document.add(p18);
             Header.addEmptyLine(1);
@@ -4175,7 +4163,7 @@ public class Individual {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -4390,19 +4378,13 @@ public class Individual {
                 Paragraph p1 = new Paragraph(" ");
                 DottedLineSeparator line1 = new DottedLineSeparator();
                 line1.setOffset(-4);
-                line1.setLineColor(BaseColor.LIGHT_GRAY);
+                line1.setLineColor(BaseColor.BLACK);
                 p1.add(line1);
                 Header.document.add(p1);
                 Header.addEmptyLine(1);
 
             }
             Header.document.add(table);
-           /* Paragraph p = new Paragraph(" ");
-            DottedLineSeparator line = new DottedLineSeparator();
-            line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
-            p.add(line);
-            Header.document.add(p);*/
             Header.addEmptyLine(1);
 
         } catch (Exception e) {

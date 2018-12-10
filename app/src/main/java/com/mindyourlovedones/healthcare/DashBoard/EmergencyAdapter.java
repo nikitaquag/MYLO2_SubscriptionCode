@@ -3,6 +3,8 @@ package com.mindyourlovedones.healthcare.DashBoard;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
@@ -71,7 +73,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.green)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -191,20 +193,18 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());
         if (imgFile.exists()) {
-            viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
-
+          //  viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+              imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         } else {
             viewHolder.imgProfile.setImageResource(R.drawable.green);
-
         }
 
         if (!emergencyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-                //viewHolder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                viewHolder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-                  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
+                //imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
             } else {
                 viewHolder.imgForword.setImageResource(R.drawable.busi_card);
 

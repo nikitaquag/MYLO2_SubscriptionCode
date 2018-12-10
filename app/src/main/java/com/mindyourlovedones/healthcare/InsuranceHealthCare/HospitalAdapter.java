@@ -70,7 +70,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.yellow)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default

@@ -12,6 +12,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -1394,15 +1396,36 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     imagepath = photo;//nikita
 
+
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     if (imgFile.exists()) {
-                       /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                        imgProfile.setImageBitmap(myBitmap);*/
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        //  imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
+                    } else {
+                        imgProfile.setImageResource(R.drawable.green);
+                    }
+                  /*  imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                    final Bitmap bmap = ((BitmapDrawable)imgProfile.getDrawable()).getBitmap();
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.green);
+                    final Bitmap myLogo = ((BitmapDrawable) myDrawable).getBitmap();
+
+                    if (imgFile.exists() ) {
+                        if ( bmap.sameAs(myLogo)) {
+                            imgProfile.setImageResource(R.drawable.green);
+                        }else {
+                            imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                        }
+                       // imgProfile.setImageBitmap(myBitmap);
+                      //  imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                         //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                    }*//* else if ( bmap.sameAs(myLogo)) {
+                        imgProfile.setImageResource(R.drawable.green);
                     }
-                   /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
+*//*
+                     *//* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
 
                     //Change Class Name
@@ -1934,6 +1957,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                         //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
+                    } else {
+                        imgProfile.setImageResource(R.drawable.lightblue);
                     }
 
                     //Change Class Name

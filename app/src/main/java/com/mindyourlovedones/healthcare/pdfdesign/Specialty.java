@@ -272,7 +272,7 @@ public class Specialty {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -516,7 +516,7 @@ public class Specialty {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
@@ -665,7 +665,7 @@ public class Specialty {
                 Paragraph ps = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 ps.add(line);
                 Header.document.add(ps);
                 Header.addEmptyLine(1);
@@ -830,7 +830,7 @@ public class Specialty {
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
+            line.setLineColor(BaseColor.BLACK);
             p.add(line);
             Header.document.add(p);
             Header.addEmptyLine(1);
@@ -1067,7 +1067,7 @@ public class Specialty {
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
+                line.setLineColor(BaseColor.BLACK);
                 p.add(line);
                 Header.document.add(p);
                 Header.addEmptyLine(1);
