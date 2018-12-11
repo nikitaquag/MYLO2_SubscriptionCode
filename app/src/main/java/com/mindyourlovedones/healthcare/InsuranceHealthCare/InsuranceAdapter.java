@@ -168,16 +168,15 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
         //  holder.imgProfile.setImageResource(insuranceList.get(position).getImage());
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhoto());
-        if (imgFile.exists()) {
-            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-            //  imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
-        } else {
-            holder.imgProfile.setImageResource(R.drawable.lightblue);
-        }
+        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-        /*byte[] photo=insuranceList.get(position).getPhoto();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        holder.imgProfile.setImageBitmap(bmp);*/
+        if (imgFile.exists() ) {
+            if (holder.imgProfile.getDrawable() == null)
+                holder.imgProfile.setImageResource(R.drawable.lightblue);
+            else
+                holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+        }
 
 
         if (!insuranceList.get(position).getPhotoCard().equals("")) {

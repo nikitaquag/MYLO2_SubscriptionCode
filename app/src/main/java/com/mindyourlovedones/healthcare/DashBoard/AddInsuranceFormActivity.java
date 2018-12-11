@@ -516,9 +516,13 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             imgDoc.setImageResource(R.drawable.pdf);
             txtAdd.setText("Edit File");
             ShowWindowDialog(text);
-        } else if (requestCode == RQUESTCODE && data != null) {
-            name = data.getExtras().getString("Name");
-            originPath = data.getExtras().getString("URI");
+        }
+        else if (requestCode == RQUESTCODE ) {
+             name = preferences.getString(PrefConstants.RESULT);
+           // name = data.getExtras().getString("Name");
+            originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
+
+           // originPath = data.getExtras().getString("URI");
             txtName.setText(name);
             String text = "You Have selected <b>" + name + "</b> Document";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();

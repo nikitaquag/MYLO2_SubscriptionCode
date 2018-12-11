@@ -66,6 +66,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         initImageLoader();
     }
 
+
     private void initImageLoader() {
 
         //Profile
@@ -192,11 +193,14 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
 
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());
-        if (imgFile.exists()) {
-          //  viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-              imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
-        } else {
-            viewHolder.imgProfile.setImageResource(R.drawable.green);
+        viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+        if (imgFile.exists() ) {
+            if (viewHolder.imgProfile.getDrawable() == null)
+                viewHolder.imgProfile.setImageResource(R.drawable.green);
+             else
+            viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+           // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
 
         if (!emergencyList.get(position).getPhotoCard().equals("")) {

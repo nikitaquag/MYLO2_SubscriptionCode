@@ -192,8 +192,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     p = 1;
                 }
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         /*Intent intent = getIntent();
@@ -518,11 +517,20 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     public void callFragment(String fragName, Fragment fragment) {
         fragmentTransaction = fragmentManager.beginTransaction();
-        if (fragName.equals("DASHBOARD") )
+        if (fragName.equals("DASHBOARD"))
             fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName).addToBackStack("CONNECTION");
         else
             fragmentTransaction.replace(R.id.fragmentContainer, fragment, fragName);
         fragmentTransaction.commit();
+
+        new Handler().postDelayed(new Runnable() {//shradha
+            @Override
+            public void run() {
+                //Here you can send the extras.
+                pd.dismiss();
+            }
+        }, 1000);
+
     }
     /*|| fragName.equals("ADVANCE")*/
 
@@ -753,7 +761,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
-       // txtComming.setText("Comming Soon");
+        // txtComming.setText("Comming Soon");
         // txtComming.setTextColor(R.color.colorBlue);
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -789,7 +797,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         final TextView txtComming = dialogview.findViewById(R.id.txtComming);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
-       // txtComming.setText("Comming Soon");
+        // txtComming.setText("Comming Soon");
         // txtComming.setTextColor(R.color.colorBlue);
         dialogBank.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();

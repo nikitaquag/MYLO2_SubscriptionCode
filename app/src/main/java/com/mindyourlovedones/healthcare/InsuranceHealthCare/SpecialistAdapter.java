@@ -175,10 +175,46 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 
 //Shradha-physician and doctor color change for profile
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhoto());
+        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+/*
+        if (imgFile.exists() ) {
+            if (viewHolder.imgProfile.getDrawable() == null)
+                viewHolder.imgProfile.setImageResource(R.drawable.green);
+            else
+                viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+        }
+*/
+
         if (imgFile.exists()) {
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
             holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
+            if (specialist) {
+                if (frs != null) {
+                    if (holder.imgProfile.getDrawable() == null) {
+                        holder.imgProfile.setImageResource(R.drawable.yellow);
+                    } else {
+                        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    }
+                }
+            }
+            if (physician) {
+                if (fr != null) {
+                    if (holder.imgProfile.getDrawable() == null) {
+                        holder.imgProfile.setImageResource(R.drawable.green);
+                    } else {
+                        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    }
+
+                }
+
+            }
+
+
+
+/*
             if (specialist||physician) {  // Rahul
                 if (frs != null) {
                     holder.imgProfile.setImageResource(R.drawable.yellow);
@@ -199,6 +235,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 
                 }
             }
+*/
         } else {
             holder.imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }
@@ -237,9 +274,9 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
         if (!specialistList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               // holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                // holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
+                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
             }
             holder.imgForword.setVisibility(View.VISIBLE);
         } else {

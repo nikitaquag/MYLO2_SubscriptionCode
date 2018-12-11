@@ -153,30 +153,21 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
         holder.txtName.setText(pharmacyList.get(position).getName());
         holder.txtPhone.setText(pharmacyList.get(position).getPhone());
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhoto());
+        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
         if (imgFile.exists()) {
-            //  imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
-            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
-        } else {
-            holder.imgProfile.setImageResource(R.drawable.yellow);
-
+            if (holder.imgProfile.getDrawable() == null)
+                holder.imgProfile.setImageResource(R.drawable.yellow);
+            else
+                holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
-       /* byte[] photo=pharmacyList.get(position).getPhoto();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        holder.imgProfile.setImageBitmap(bmp);*/
-        // holder.txtAddress.setText(pharmacyList.get(position).getAddress());
-        // holder.imgProfile.setImageResource(pharmacyList.get(position).getImage());
 
         if (!pharmacyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForword.setImageBitmap(myBitmap);*/
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
             }
-           /* byte[] photoCard = pharmacyList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForword.setImageBitmap(bmpCard);*/
             holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
