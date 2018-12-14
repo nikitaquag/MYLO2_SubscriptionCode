@@ -203,8 +203,14 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             //byte[]array =personalInfo.getPhoto();
             if (!connection.getPhoto().equals("")) {
                 File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connection.getPhoto());
-                if (imgFile.exists()) {
-                    imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
+                imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                if (imgFile.exists() ) {
+                    if (imgProfile.getDrawable() == null)
+                        imgProfile.setImageResource(R.drawable.ic_profiles);
+                    else
+                      imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                    // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                 }
             } else {
                 imgProfile.setImageResource(R.drawable.ic_profiles);
@@ -232,10 +238,19 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             String relation =Relationship[index+1];*/
             // byte[]array =connection.getPhoto();
             File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), connection.getPhoto());
+            imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             if (imgFile.exists()) {
+                if (imgProfile.getDrawable() == null)
+                    imgProfile.setImageResource(R.drawable.ic_profiles);
+                else
+                    imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+
               /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                 imgProfile.setImageBitmap(myBitmap);*/
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
+               // imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                // imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
             } else {
                 imgProfile.setImageResource(R.drawable.ic_profiles);
             }
@@ -454,9 +469,16 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         if (!image.equals("")) {
             File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
             if (imgFile.exists()) {
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                imgDrawerProfile.setImageBitmap(myBitmap);*/
+                imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                if (imgFile.exists()) {
+                    if (imgDrawerProfile.getDrawable() == null)
+                        imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
+                    else
+                        imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                    //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
+
+                }
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);

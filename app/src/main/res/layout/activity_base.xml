@@ -76,7 +76,7 @@
                     android:src="@drawable/pdf"
                     android:visibility="gone" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
                     android:layout_width="55dp"
                     android:layout_height="55dp"

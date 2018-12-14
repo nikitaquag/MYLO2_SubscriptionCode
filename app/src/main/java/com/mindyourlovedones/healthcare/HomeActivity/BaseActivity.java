@@ -87,8 +87,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
     int p = 0;
 
-    ImageLoader imageLoader;
-    DisplayImageOptions displayImageOptions;
+    ImageLoader imageLoader,imageLoaderProfile;
+    DisplayImageOptions displayImageOptions,displayDrawerImageOptions;
     DBHelper dbHelper;
     boolean external_flag = false;
     String originPath = "";
@@ -823,13 +823,18 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
         //byte[] photo = Base64.decode(image, Base64.DEFAULT);
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
+
         if (!image.equals("")) {
             File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
+            imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             if (imgFile.exists()) {
-//                imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                imgDrawerProfile.setImageBitmap(myBitmap);*/
+                if (imgDrawerProfile.getDrawable() == null)
+                    imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
+                else
+                  imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+              //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
+
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);

@@ -682,8 +682,15 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
         if (!image.equals("")) {
             File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
+            imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             if (imgFile.exists()) {
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
+                if (imgDrawerProfile.getDrawable() == null)
+                    imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
+                else
+                    imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+
+                //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
+
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.profile_darkbluecolor);
