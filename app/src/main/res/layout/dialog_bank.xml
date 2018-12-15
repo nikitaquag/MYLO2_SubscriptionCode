@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Comming Soon!"
+            android:text="Coming Soon!"
             android:textColor="@color/colorBlackDark"
             android:textStyle="bold"
             android:textSize="@dimen/dimension18dp" />

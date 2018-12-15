@@ -55,6 +55,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
+        TextView txt622 = findViewById(R.id.txtPolicy622);
         TextView txt63 = findViewById(R.id.txtPolicy63);
         TextView txt64 = findViewById(R.id.txtPolicy64);
         TextView txt65 = findViewById(R.id.txtPolicy65);
@@ -64,12 +65,15 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
         ImageView img61 = findViewById(R.id.img61);
         ImageView img62 = findViewById(R.id.img62);
+        ImageView img622 = findViewById(R.id.img622);
         ImageView img63 = findViewById(R.id.img63);
         ImageView img64 = findViewById(R.id.img64);
         ImageView img65 = findViewById(R.id.img65);
         ImageView img66 = findViewById(R.id.img66);
         ImageView img67 = findViewById(R.id.img67);
         ImageView img68 = findViewById(R.id.img68);
+
+        RelativeLayout rel622=findViewById(R.id.rel622);
 
         header = findViewById(R.id.header);
         imgBack = findViewById(R.id.imgBack);
@@ -126,16 +130,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
                 txt63.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
                 txt64.setVisibility(View.GONE);
                 txt65.setVisibility(View.GONE);
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
                 img62.setVisibility(View.VISIBLE);
                 img63.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
                 img64.setVisibility(View.GONE);
                 img65.setVisibility(View.GONE);
                 img66.setVisibility(View.GONE);
@@ -165,9 +172,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -175,9 +184,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Create Prescription Tracker");
@@ -208,6 +219,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -218,6 +231,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Insurance Form");
@@ -247,6 +261,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -257,6 +273,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Insurance Card");
@@ -284,8 +301,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -294,6 +313,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
 
@@ -327,7 +347,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -337,6 +359,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
@@ -369,6 +392,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -379,6 +404,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Other Documents");
@@ -411,6 +437,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -421,6 +449,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Medical Information");
@@ -448,6 +477,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -458,6 +489,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Activities of Daily Living");
@@ -487,6 +519,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -497,6 +531,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Maintain an Appointment Checklist");
@@ -523,6 +558,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -533,6 +570,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add an Event Note");
@@ -562,6 +600,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -572,6 +612,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Pharmacies and Home Medical Equipment");
@@ -602,6 +643,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -612,6 +655,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Finance, Legal, Other");
@@ -641,6 +685,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -651,6 +697,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
@@ -680,6 +727,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -690,6 +739,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Doctors & Other Health Care Professionals");
@@ -720,6 +770,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -730,6 +782,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Primary Physician");
@@ -758,6 +811,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
@@ -768,6 +823,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Emergency Contacts and Health Care Proxy Agent");
@@ -779,7 +835,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 //shradha
                 txt61.setText(Html.fromHtml("<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.\n\n"));
                 txt62.setText(Html.fromHtml("<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.\nFirst time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.\n\n"));
-                txt63.setText(Html.fromHtml("<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.\n\n"));
+                txt622.setText(Html.fromHtml("\n\n"));
+                txt63.setText(Html.fromHtml("\n\n<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.\n\n"));
                 txt64.setText(Html.fromHtml("<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.\n\n"));
                 txt65.setText(Html.fromHtml("<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "\n\n <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n"));
                 txt66.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.\n\n"));
@@ -789,22 +846,27 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.VISIBLE);
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
 
                 //shradha
                 img61.setVisibility(View.VISIBLE);
                 img62.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.VISIBLE);
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
@@ -837,10 +899,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt62.setVisibility(View.VISIBLE);
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
                 txt65.setVisibility(View.GONE);
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -851,60 +916,18 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Personal Profile");
                 break;
 
-          /*  //shradha
-            case "ShareProfileFTU":
-                imgPicture.setVisibility(View.GONE);
-                imgDot.setVisibility(View.GONE);
-                imgPicture.setImageResource(R.drawable.v_user);
-//                String msgs = "To <b>add</b> information type responses.<br>" +
-//                        "To <b>save</b> information click the check mark" +
-//                        " on the <b>top right</b> side of the screen.<br><br>" +
-//                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
-//                        "<br><br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgs));
 
-                //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information type responses."));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the check mark on the <b>top right</b> side of the screen."));
-                txt63.setText(Html.fromHtml("To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen."));
-                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen."));
-
-                //shradha
-                txt61.setVisibility(View.VISIBLE);
-                txt62.setVisibility(View.VISIBLE);
-                txt63.setVisibility(View.VISIBLE);
-                txt64.setVisibility(View.VISIBLE);
-                txt65.setVisibility(View.GONE);
-
-                //shradha
-                img61.setVisibility(View.VISIBLE);
-                img62.setVisibility(View.VISIBLE);
-                img63.setVisibility(View.VISIBLE);
-                img64.setVisibility(View.GONE);
-                img65.setVisibility(View.GONE);
-
-                txtHeader.setText("Share Profile Instructions");
-                break;*/
             //shradha
             case "SharePdf":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
-//                String msgs = "To <b>add</b> information type responses.<br>" +
-//                        "To <b>save</b> information click the check mark" +
-//                        " on the <b>top right</b> side of the screen.<br><br>" +
-//                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
-//                        "<br><br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgs));
 
                 //shradha
                 txt61.setText(Html.fromHtml("You can<b>add</b> the pdf documents from storage."));
@@ -919,6 +942,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
 
                 //shradha
@@ -930,6 +955,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
 
                 txtHeader.setText("Share Pdf Instructions");
@@ -972,6 +998,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
 
                 //nikita
@@ -983,6 +1011,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
 
                 txtTitle.setText("User Instructions");
@@ -1016,6 +1045,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -1026,6 +1057,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtHeader.setText("Living Activity Instructions");
                 break;
@@ -1059,6 +1091,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
 
                 //nikita
                 img61.setVisibility(View.VISIBLE);
@@ -1069,6 +1103,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtHeader.setText("Insurance Card GuideLines");
                 break;

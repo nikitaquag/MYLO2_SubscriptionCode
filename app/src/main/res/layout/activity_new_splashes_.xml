@@ -57,10 +57,10 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:gravity="center"
-                android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
@@ -70,11 +70,11 @@
                     android:src="@drawable/ic_launcher" />
 
                 <LinearLayout
-                    android:gravity="center"
-                    android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/dimension10dp"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
@@ -138,13 +138,35 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_marginTop="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:id="@+id/imgAbaa"
                 android:layout_width="@dimen/dimension150dp"
                 android:layout_height="@dimen/dimension80dp"
                 android:layout_below="@+id/txtSponsor"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/aba_logo_blue" />
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_marginTop="@dimen/dimension15dp">
+
+
+                <ImageView
+                    android:id="@+id/imgR"
+                    android:layout_width="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension15dp"
+                  android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/rr"
+                    android:layout_marginLeft="@dimen/dimension50dp"
+                    android:tint="@color/colorBlue"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:visibility="visible" />
+
+            </FrameLayout>
         </RelativeLayout>
 
         <!--

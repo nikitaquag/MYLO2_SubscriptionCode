@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -97,6 +98,25 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
 
         holder.imgDocType.setImageResource(R.drawable.pdf);//documentList.get(position).getImage()
 
+        holder.rlFix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, AddDocumentActivity.class);
+                i.putExtra("GoTo", "View");
+                i.putExtra("Path", "Yes");
+               /* if (position>3)
+                {
+
+                }
+                else
+                {
+                    i.putExtra("Path","No");
+                }*/
+                i.putExtra("DocumentObject", documentList.get(position));
+                context.startActivity(i);
+            }
+        });
+
         holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +173,7 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
         ImageView imgDocType, imgForword, imgEdit;
         SwipeLayout swipeLayout;
         LinearLayout lintrash;
+        RelativeLayout rlFix;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -164,6 +185,8 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             imgDocType = convertView.findViewById(R.id.imgDocType);
             imgForword = convertView.findViewById(R.id.imgNext);
             imgEdit = convertView.findViewById(R.id.imgEdit);
+            rlFix = convertView.findViewById(R.id.rlFix);
+
         }
     }
 }

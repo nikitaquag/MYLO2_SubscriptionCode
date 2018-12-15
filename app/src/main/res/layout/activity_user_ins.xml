@@ -208,12 +208,40 @@
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rlStep222"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep22"
+                   >
+
+                    <ImageView
+                        android:id="@+id/imgStep222"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/bullet4"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/txtStep222"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep222"
+                        android:gravity="start"
+                        android:text="Step 1. To ad"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorGrayPolicy"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
 
                 <RelativeLayout
                     android:id="@+id/rlStep3"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rlStep22">
+                    android:layout_below="@+id/rlStep222">
 
                     <ImageView
                         android:id="@+id/imgStep3"
