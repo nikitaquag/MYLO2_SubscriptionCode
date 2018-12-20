@@ -118,10 +118,11 @@
                     android:layout_toLeftOf="@+id/imgRight"
                     android:src="@drawable/rr"
                     android:tint="@color/colorWhite"
-                    android:visibility="visible" />
+                    android:visibility="invisible" />
 
                 <ImageView
                     android:id="@+id/imgNoti"
+                    android:visibility="invisible"
                     android:layout_width="@dimen/dimension80dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
@@ -131,6 +132,7 @@
                     android:src="@drawable/aba" />
 
                 <ImageView
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:id="@+id/imgRight"
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension50dp"

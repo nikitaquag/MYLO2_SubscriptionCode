@@ -203,7 +203,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         imgNoti.setVisibility(View.GONE);
         imgLogo = getActivity().findViewById(R.id.imgLogo);
         rlGuide = rootview.findViewById(R.id.rlGuide);
-        imgLogo.setVisibility(View.VISIBLE);
+        imgLogo.setVisibility(View.INVISIBLE);
         String deviceName = android.os.Build.MODEL;
         String deviceMan = android.os.Build.MANUFACTURER;
         //   Toast.makeText(getActivity(), deviceMan + " " + deviceName, Toast.LENGTH_LONG).show();
