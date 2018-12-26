@@ -6,9 +6,15 @@ import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mindyourlovedones.healthcare.HomeActivity.R;
@@ -42,12 +48,14 @@ public class FaxCustomDialog extends Dialog implements
     private String from;
     private String subject;
     private String reply;
+    RelativeLayout rlMain;
+    ScrollView scroll;
     private Context context;
 
     /**
      * @param context
      */
-    public FaxCustomDialog(Context context, String path) {
+    public FaxCustomDialog(final Context context, String path) {
         super(context);
         this.context = context;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -55,8 +63,21 @@ public class FaxCustomDialog extends Dialog implements
                 new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
         setContentView(R.layout.dialog_fax);
+
+        /*WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        getWindow().setAttributes(lp);*/
+
         preferences = new Preferences(context);
         this.path = path;
+        scroll = findViewById(R.id.scroll);
+        scroll.setOnClickListener(this);
+        rlMain = findViewById(R.id.rlMain);
+        rlMain.setOnClickListener(this);
         btn_ok = findViewById(R.id.btnYes);
         btn_cancel = findViewById(R.id.btnNo);
         editnumber = findViewById(R.id.etFaxnumber);
@@ -84,6 +105,13 @@ public class FaxCustomDialog extends Dialog implements
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.scroll:
+                keyboardKeyboard();
+                break;
+            case R.id.rlMain:
+                keyboardKeyboard();
+                break;
+
             case R.id.btnYes:
 
                 if (validation()) {
@@ -110,6 +138,12 @@ public class FaxCustomDialog extends Dialog implements
                 break;
 
         }
+
+    }
+
+    private void keyboardKeyboard() {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editnumber.getWindowToken(), 0);
 
     }
 

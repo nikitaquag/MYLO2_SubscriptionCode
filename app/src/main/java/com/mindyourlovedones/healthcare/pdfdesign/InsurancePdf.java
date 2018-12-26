@@ -31,7 +31,7 @@ public class InsurancePdf {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addEmptyLine(1);
+         //   Header.addEmptyLine(1);
             Header.addChank("Insurance Information");
             messageInsurance.add("Insurance Information");
             Header.addEmptyLine(1);
@@ -222,7 +222,7 @@ public class InsurancePdf {
 
 
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -236,7 +236,7 @@ public class InsurancePdf {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addEmptyLine(1);
+         //   Header.addEmptyLine(1);
             Header.addChank("Insurance Card");
             messageCard.add("Insurance Card");
             Header.addEmptyLine(1);
@@ -351,7 +351,7 @@ public class InsurancePdf {
 
 
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -365,7 +365,7 @@ public class InsurancePdf {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
             Header.addChank("Insurance Form");
             messageForm.add("Insurance Form");
             Header.addEmptyLine(1);
@@ -444,7 +444,7 @@ public class InsurancePdf {
 
 
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

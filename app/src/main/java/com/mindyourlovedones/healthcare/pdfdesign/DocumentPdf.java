@@ -23,7 +23,7 @@ public class DocumentPdf {
 
     public DocumentPdf(ArrayList<Document> adList) {
         try {
-            Header.addEmptyLine(1);
+            //Header.addEmptyLine(1);
             Header.addChank("Advance Directives");
             messageAdvance.add("Advance Directives");
             Header.addEmptyLine(1);
@@ -163,7 +163,7 @@ public class DocumentPdf {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -173,7 +173,7 @@ public class DocumentPdf {
 
     public DocumentPdf(ArrayList<Document> otherList, int y) {
         try {
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
             Header.addChank("Other Documents");
             messageOther.add("Other Documents");
             Header.addEmptyLine(1);
@@ -327,7 +327,7 @@ public class DocumentPdf {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -337,7 +337,7 @@ public class DocumentPdf {
 
     public DocumentPdf(ArrayList<Document> recordList, String record) {
         try {
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
             Header.addChank("Medical Records");
             messageRecord.add("Medical Records");
             Header.addEmptyLine(1);
@@ -502,7 +502,7 @@ public class DocumentPdf {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

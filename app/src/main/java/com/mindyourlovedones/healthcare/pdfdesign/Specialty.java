@@ -35,7 +35,7 @@ public class Specialty {
             table1 = new PdfPTable(2);
             PdfPCell cell1;
             table1.setWidthPercentage(100);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
 
             Header.addChank("Doctors");
             messageDoctor.add("Doctors");
@@ -280,7 +280,7 @@ public class Specialty {
 
 
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -294,7 +294,7 @@ public class Specialty {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
             Header.addChank("Hospitals And Other Health Professionals");
             messageHospital.add("Hospitals And Other Health Professionals");
             Header.addEmptyLine(1);
@@ -524,7 +524,7 @@ public class Specialty {
 
             Header.document.add(table1);
 
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -538,7 +538,7 @@ public class Specialty {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addEmptyLine(1);
+            //Header.addEmptyLine(1);
             Header.addChank("Pharmacies And Home Medical Equipment");
             messagePharmacy.add("Pharmacies And Home Medical Equipment");
             Header.addEmptyLine(1);
@@ -671,7 +671,7 @@ public class Specialty {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -833,7 +833,7 @@ public class Specialty {
             line.setLineColor(BaseColor.BLACK);
             p.add(line);
             Header.document.add(p);
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1074,7 +1074,7 @@ public class Specialty {
             }
 
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

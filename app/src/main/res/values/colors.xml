@@ -58,5 +58,6 @@
     <color name="colorBlueAdd">#0433FF</color>
     <color name="colorBlueText">#005BCD</color>
     <color name="colorFloatRed">#FC0000</color>
+    <color name="colorFaxGray">#959799</color>
 
 </resources>

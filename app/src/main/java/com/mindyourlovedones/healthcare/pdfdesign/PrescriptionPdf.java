@@ -23,7 +23,7 @@ public class PrescriptionPdf {
 
     public PrescriptionPdf(ArrayList<Prescription> prescriptionList) {
         try {
-            Header.addEmptyLine(1);
+         //   Header.addEmptyLine(1);
             Header.addChank("Prescription Tracker");
             messagePrescription.add("Prescription Tracker");
             Header.addEmptyLine(1);

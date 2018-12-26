@@ -29,7 +29,7 @@ public class EventPdf {
 
     public EventPdf(ArrayList<Appoint> appointList) {
         try {
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
             Header.addChank("Appointment Checklist");
             messageAppoint.add("Appointment Checklist");
             Header.addEmptyLine(1);
@@ -161,7 +161,7 @@ public class EventPdf {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -171,7 +171,7 @@ public class EventPdf {
 
     public EventPdf(ArrayList<Note> noteList, int i) {
         try {
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
             Header.addChank("Notes");
             messageEvent.add("Notes");
             Header.addEmptyLine(1);
@@ -252,7 +252,7 @@ public class EventPdf {
                 Header.addEmptyLine(1);
             }
             Header.document.add(table1);
-            Header.addEmptyLine(1);
+          //  Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -262,7 +262,7 @@ public class EventPdf {
 
     public EventPdf(int k, ArrayList<Living> livingList, int i) {
         try {
-            Header.addEmptyLine(1);
+            //Header.addEmptyLine(1);
             Header.addChank("Activities Of Daily Living");
             messageLiving.add("Activities Of Daily Living");
             Header.addEmptyLine(1);
@@ -706,7 +706,7 @@ public class EventPdf {
             line.setLineColor(BaseColor.LIGHT_GRAY);
             p.add(line);
             Header.document.add(p);*/
-            Header.addEmptyLine(1);
+           // Header.addEmptyLine(1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
