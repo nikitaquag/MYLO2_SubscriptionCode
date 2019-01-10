@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mindyourlovedones.healthcare.HomeActivity">
+    package="com.mindyourlovedone.healthcare.HomeActivity">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -17,7 +17,6 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS_CONTACTS" />
 
     <uses-permission android:name="com.android.vending.BILLING" />
-
     <!--pull check-->
 
     <application
@@ -80,26 +79,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.OverviewActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.OverviewActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.InsuranceActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.InsuranceActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.CarePlanActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.CarePlanActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.EmergencyActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.EmergencyActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.Connections.GrabConnectionActivity"
+            android:name="com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.LocationActivity" />
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.LocationActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -107,7 +106,7 @@
 
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.mindyourlovedones.healthcare.HomeActivity.fileProvider"
+            android:authorities="com.mindyourlovedone.healthcare.HomeActivity.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -131,126 +130,126 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ZoomActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ZoomActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.InsuranceHealthCare.ViewActivity"
+            android:name="com.mindyourlovedone.healthcare.InsuranceHealthCare.ViewActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.InsuranceHealthCare.SpecialistsActivity"
+            android:name="com.mindyourlovedone.healthcare.InsuranceHealthCare.SpecialistsActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.EmergencyInfoActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.EmergencyInfoActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddInfoActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddInfoActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.EventNoteActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.EventNoteActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ViewEventActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ViewEventActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.PrescriptionActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.InsuranceInfoActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.InsuranceInfoActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.InsuranceCardActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.InsuranceCardActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddPrescriptionActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ViewImageActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ViewImageActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddCardActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddCardActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ViewCardActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ViewCardActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.CarePlanListActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.CarePlanListActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.MedicalAppointActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:label="@string/title_activity_medical_appoint"
             android:theme="@style/MyMaterialTheme"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddAppointmentActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddAppointmentActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.DocumentSdCardList"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.DocumentSdCardList"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddFormActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddFormActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddPetActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddPetActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.AddInsuranceFormActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.AddInsuranceFormActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.DropboxLoginActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DropBox.FilesActivity"
+            android:name="com.mindyourlovedone.healthcare.DropBox.FilesActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.LivingActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.LivingActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.InstructionActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.InstructionActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ProfileActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ProfileActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ResourceActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ResourceActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name="com.mindyourlovedones.healthcare.DashBoard.ChecklistActivity"
+            android:name="com.mindyourlovedone.healthcare.DashBoard.ChecklistActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".SponsorActivity" />
-        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.ShareActivity" />
-        <activity android:name="com.mindyourlovedones.healthcare.DashBoard.UserInsActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.ShareActivity" />
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.UserInsActivity"></activity>
     </application>
 
 </manifest>

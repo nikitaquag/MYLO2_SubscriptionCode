@@ -32,7 +32,7 @@
             android:layout_below="@+id/txtDelProfile"
             android:background="@color/colorLightGray" />
 
-        <com.mindyourlovedones.healthcare.customview.MySpinner
+        <com.mindyourlovedone.healthcare.customview.MySpinner
             android:layout_margin="@dimen/dimension10dp"
             android:id="@+id/spinnerPro"
             android:layout_width="match_parent"

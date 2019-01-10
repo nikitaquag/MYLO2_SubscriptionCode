@@ -1,4 +1,4 @@
-package com.mindyourlovedones.healthcare;
+package com.mindyourlovedone.healthcare;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.mindyourlovedones.healthcare", appContext.getPackageName());
+        assertEquals("com.mindyourlovedone.healthcare", appContext.getPackageName());
     }
 }

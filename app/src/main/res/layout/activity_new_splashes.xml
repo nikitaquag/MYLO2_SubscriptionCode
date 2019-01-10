@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue"
     android:fitsSystemWindows="true"
-    tools:context="com.mindyourlovedones.healthcare.HomeActivity.SplashActivity">
+    tools:context="com.mindyourlovedone.healthcare.HomeActivity.SplashActivity">
 
     <RelativeLayout
         android:id="@+id/rlHeader"

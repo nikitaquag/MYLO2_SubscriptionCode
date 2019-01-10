@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mindyourlovedones.healthcare.DashBoard.AddInfoActivity">
+    tools:context="com.mindyourlovedone.healthcare.DashBoard.AddInfoActivity">
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatProfile"
@@ -118,7 +118,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.mindyourlovedones.healthcare.customview.MySpinner
+                        <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -202,7 +202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <com.mindyourlovedones.healthcare.customview.MySpinner
+                            <com.mindyourlovedone.healthcare.customview.MySpinner
                                 android:id="@+id/spinnerReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

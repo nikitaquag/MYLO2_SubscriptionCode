@@ -1,0 +1,41 @@
+package com.mindyourlovedone.healthcare.customview;
+
+import android.content.Context;
+import android.graphics.Typeface;
+import android.util.AttributeSet;
+import android.widget.TextView;
+
+/**
+ * Created by shadaf on 12/1/2016.
+ */
+
+public class TextViewRomanS extends TextView {
+
+    static Typeface tf;
+
+    public TextViewRomanS(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init();
+    }
+
+    public TextViewRomanS(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public TextViewRomanS(Context context) {
+        super(context);
+        init();
+    }
+
+    public void init() {
+        if (tf == null) {
+            tf = Typeface.createFromAsset(getContext().getAssets(), "RomanS.ttf");
+        }
+
+        setTypeface(tf);
+
+    }
+
+
+}

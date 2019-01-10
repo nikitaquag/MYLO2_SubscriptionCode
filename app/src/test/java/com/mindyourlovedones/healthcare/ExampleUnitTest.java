@@ -1,4 +1,4 @@
-package com.mindyourlovedones.healthcare;
+package com.mindyourlovedone.healthcare;
 
 import org.junit.Test;
 

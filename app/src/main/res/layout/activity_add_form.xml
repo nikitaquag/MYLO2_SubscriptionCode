@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue"
-    tools:context="com.mindyourlovedones.healthcare.DashBoard.AddDocumentActivity">
+    tools:context="com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity">
 
     <RelativeLayout
         android:id="@+id/header"
@@ -54,7 +54,7 @@
 
     </RelativeLayout>
 
-    <com.mindyourlovedones.healthcare.customview.TouchImageView
+    <com.mindyourlovedone.healthcare.customview.TouchImageView
         android:id="@+id/imgDoc"
         android:layout_width="match_parent"
         android:layout_height="400dp"

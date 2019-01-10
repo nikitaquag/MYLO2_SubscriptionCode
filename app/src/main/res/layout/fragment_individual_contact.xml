@@ -355,7 +355,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tilName">
 
-                <com.mindyourlovedones.healthcare.customview.MySpinner
+                <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerRelation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -462,7 +462,7 @@
                  </android.support.design.widget.TextInputLayout>-->
             </RelativeLayout>
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -596,7 +596,7 @@
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinnerEyes"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension85dp"
@@ -846,7 +846,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view4">
 
-                <com.mindyourlovedones.healthcare.customview.MySpinner
+                <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerLanguage"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension85dp"
@@ -939,7 +939,7 @@
                 android:layout_marginTop="@dimen/dimension15dp"
                 android:background="@color/colorLightGray"></View>
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinnerMarital"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension85dp"
@@ -1172,7 +1172,7 @@
                     android:layout_margin="@dimen/dimension5dp"
                     android:background="@color/colorLightGray"></View>
 
-                <com.mindyourlovedones.healthcare.customview.NonScrollListView
+                <com.mindyourlovedone.healthcare.customview.NonScrollListView
                     android:id="@+id/ListPet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

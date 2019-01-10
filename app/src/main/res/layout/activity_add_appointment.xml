@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mindyourlovedones.healthcare.DashBoard.AddInfoActivity">
+    tools:context="com.mindyourlovedone.healthcare.DashBoard.AddInfoActivity">
 
     <RelativeLayout xmlns:custom="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.mindyourlovedones.healthcare.DashBoard.AddInfoActivity">
+        tools:context="com.mindyourlovedone.healthcare.DashBoard.AddInfoActivity">
 
         <RelativeLayout
             android:id="@+id/header"
@@ -69,7 +69,7 @@
             android:layout_below="@+id/header"
             android:layout_marginTop="35dp">
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinnerType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tilName">
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinnerFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

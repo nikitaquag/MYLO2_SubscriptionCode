@@ -136,7 +136,7 @@
                 android:layout_marginTop="@dimen/dimension40dp"
                 android:visibility="gone">
 
-                <com.mindyourlovedones.healthcare.customview.RoundedImageView
+                <com.mindyourlovedone.healthcare.customview.RoundedImageView
                     android:id="@+id/imgProfile"
                     android:layout_width="@dimen/dimension100dp"
                     android:layout_height="@dimen/dimension100dp"
@@ -295,7 +295,7 @@
                     android:textSize="@dimen/dimension20dp" />
             </android.support.design.widget.TextInputLayout>
 
-            <com.mindyourlovedones.healthcare.customview.MySpinner
+            <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

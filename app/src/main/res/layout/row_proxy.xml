@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -63,7 +63,7 @@
             android:gravity="center_vertical"
             android:paddingTop="@dimen/dimension2dp">
 
-            <com.mindyourlovedones.healthcare.customview.RoundedImageView
+            <com.mindyourlovedone.healthcare.customview.RoundedImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="@dimen/dimension60dp"
                 android:layout_height="@dimen/dimension60dp"
@@ -202,4 +202,4 @@
         </RelativeLayout>
 
     </RelativeLayou>
-</com.mindyourlovedones.healthcare.SwipeCode.SwipeLayout>
+</com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

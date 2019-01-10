@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorWhite"
-        tools:context="com.mindyourlovedones.healthcare.HomeActivity.SponsorActivity">
+        tools:context="com.mindyourlovedone.healthcare.HomeActivity.SponsorActivity">
 
         <RelativeLayout
             android:id="@+id/rlSponsor"

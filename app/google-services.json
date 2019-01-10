@@ -1,16 +1,16 @@
 {
   "project_info": {
     "project_number": "525843603466",
-    "firebase_url": "https://mindyourlovedones-b2386.firebaseio.com",
-    "project_id": "mindyourlovedones-b2386",
-    "storage_bucket": "mindyourlovedones-b2386.appspot.com"
+    "firebase_url": "https://mindyourlovedone-b2386.firebaseio.com",
+    "project_id": "mindyourlovedone-b2386",
+    "storage_bucket": "mindyourlovedone-b2386.appspot.com"
   },
   "client": [
     {
       "client_info": {
         "mobilesdk_app_id": "1:525843603466:android:c79b7dd015541dd3",
         "android_client_info": {
-          "package_name": "com.mindyourlovedones.healthcare.HomeActivity"
+          "package_name": "com.mindyourlovedone.healthcare.HomeActivity"
         }
       },
       "oauth_client": [

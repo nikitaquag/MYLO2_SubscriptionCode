@@ -30,7 +30,7 @@
             android:background="@color/colorBlue"
             android:gravity="center">
 
-            <com.mindyourlovedones.healthcare.customview.RoundedImageView
+            <com.mindyourlovedone.healthcare.customview.RoundedImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="@dimen/dimension55dp"
                 android:layout_height="@dimen/dimension55dp"
@@ -502,7 +502,7 @@
             android:background="@color/colorBlack"
             android:visibility="gone">
 
-            <com.mindyourlovedones.healthcare.customview.TextViewRomanS
+            <com.mindyourlovedone.healthcare.customview.TextViewRomanS
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

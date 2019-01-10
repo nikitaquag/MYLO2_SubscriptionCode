@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mindyourlovedones.healthcare.DashBoard.ViewEventActivity">
+    tools:context="com.mindyourlovedone.healthcare.DashBoard.ViewEventActivity">
 
     <RelativeLayout
         android:id="@+id/header"
