@@ -21,13 +21,13 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="180dp">
+                android:layout_height="wrap_content">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="fitXY"
-                    android:src="@drawable/banner3_" />
+                    android:src="@drawable/banner_three" />
 
                 <ImageView
                     android:layout_width="@dimen/dimension150dp"

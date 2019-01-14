@@ -9,7 +9,6 @@ import android.content.pm.Signature;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
@@ -20,8 +19,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -38,7 +35,6 @@ import com.mindyourlovedone.healthcare.utility.Preferences;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Timer;
-import java.util.TimerTask;
 
 import io.fabric.sdk.android.Fabric;
 import ss.com.bannerslider.views.BannerSlider;
@@ -171,7 +167,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             if (mHelper == null) return;
 
             if (result.isFailure()) {
-                complain(result.getMessage());
+                if (!result.getMessage().contains("canceled")) {
+                    complain(result.getMessage());
+                }
                 setWaitScreen(false);
 
                 //Shradha
