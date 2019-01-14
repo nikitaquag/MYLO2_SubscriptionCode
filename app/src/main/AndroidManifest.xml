@@ -25,7 +25,7 @@
         android:icon="@mipmap/mylo_new_cropped_logo"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/mylo_new_cropped_logo"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
 
