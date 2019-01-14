@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -23,6 +24,9 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.text.Layout;
+import android.text.SpannableString;
+import android.text.style.AlignmentSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -82,7 +86,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout leftDrawer, container, footer, header;
     RelativeLayout rlLogOutt;
     Preferences preferences;
-    TextView txtPrivacyPolicy, txtEULA;
+    TextView txtPrivacyPolicy, txtEULA,txtversion;
     RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
     int p = 0;
@@ -464,7 +468,17 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
+        txtversion= findViewById(R.id.txtversion);
 
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(getPackageName(), 0);
+            String version = pInfo.versionName;
+            SpannableString s = new SpannableString("Version - " + version);
+            s.setSpan(new AlignmentSpan.Standard(Layout.Alignment.ALIGN_CENTER), 0, s.length(), 0);
+            txtversion.setText(s);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         txtBank = findViewById(R.id.txtBank);
         txtForm = findViewById(R.id.txtForm);

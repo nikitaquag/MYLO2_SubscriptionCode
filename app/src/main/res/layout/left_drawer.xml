@@ -674,6 +674,29 @@
 
 
             <RelativeLayout
+                android:id="@+id/rlversion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlWebsite"
+                android:background="@color/colorWhite">
+
+
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/txtversion"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:gravity="center"
+                    android:text="Version - "
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorDarkBlue"
+                    android:textSize="@dimen/dimension16dp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:id="@+id/rlDataInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
