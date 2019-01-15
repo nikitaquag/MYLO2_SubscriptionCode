@@ -35,7 +35,7 @@ public class WebService {
     private final String EDIT_PROFILE_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/editProfile";
     private final String UNSSUBSCRIBE_ME_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/unRegister";
 
-    public static String uploadFile(String sourceFileUri, String number, String to, String from, String subject, Context context) {
+    public static String uploadFile(String sourceFileUri, String number, String to, String from, String subject, String replayEmail, Context context) {
         String fileName = sourceFileUri;
         String result = "";
         HttpURLConnection conn = null;
@@ -67,6 +67,9 @@ public class WebService {
             conn.setRequestProperty("fromName", from);
             conn.setRequestProperty("subject", subject);
             conn.setRequestProperty("toName", to);
+
+            //Shradha
+            conn.setRequestProperty("replyemail", replayEmail);
 
             conn.setRequestProperty("faxnumber", number);
 

@@ -199,7 +199,8 @@ public class FaxCustomDialog extends Dialog implements
         @Override
         protected String doInBackground(String... params) {
 
-            return WebService.uploadFile(path, "001" + number, to, from, subject,
+            //Shradha
+            return WebService.uploadFile(path, "001" + number, to, from, subject,reply,
                     context);
         }
 
