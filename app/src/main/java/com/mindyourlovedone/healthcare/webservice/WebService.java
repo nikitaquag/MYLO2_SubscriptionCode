@@ -64,9 +64,9 @@ public class WebService {
             conn.setRequestProperty("ENCTYPE", "multipart/form-data");
             conn.setRequestProperty("Content-Type",
                     "multipart/form-data;boundary=" + boundary);
-            conn.setRequestProperty("fromName", from);
+            conn.setRequestProperty("fromname", from);
             conn.setRequestProperty("subject", subject);
-            conn.setRequestProperty("toName", to);
+            conn.setRequestProperty("toname", to);
 
             //Shradha
             conn.setRequestProperty("replyemail", replayEmail);

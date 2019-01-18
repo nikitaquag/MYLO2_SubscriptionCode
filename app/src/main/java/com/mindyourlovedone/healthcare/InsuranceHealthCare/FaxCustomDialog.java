@@ -148,13 +148,11 @@ public class FaxCustomDialog extends Dialog implements
     }
 
     private boolean validation() {
-
         number = editnumber.getText().toString();
         to = editto.getText().toString();
         from = editfrom.getText().toString();
         subject = editsubject.getText().toString();
         reply = editReply.getText().toString();
-
 
         if (number.equalsIgnoreCase("")) {
             editnumber.setError("Field cannot be left blank.");
@@ -176,13 +174,9 @@ public class FaxCustomDialog extends Dialog implements
             return false;
         }
         return true;
-
     }
 
-    public class ServiceAsyncTask extends AsyncTask<String, Void, String>
-
-    {
-
+    public class ServiceAsyncTask extends AsyncTask<String, Void, String> {
         private ProgressDialog dialog;
 
         @Override
@@ -198,9 +192,8 @@ public class FaxCustomDialog extends Dialog implements
 
         @Override
         protected String doInBackground(String... params) {
-
             //Shradha
-            return WebService.uploadFile(path, "001" + number, to, from, subject,reply,
+            return WebService.uploadFile(path, "001" + number, to, from, subject, reply,
                     context);
         }
 
@@ -239,9 +232,6 @@ public class FaxCustomDialog extends Dialog implements
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
-
     }
-
 }
