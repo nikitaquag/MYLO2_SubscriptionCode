@@ -1,5 +1,6 @@
 package com.mindyourlovedone.healthcare.HomeActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -20,7 +21,10 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
     ImageView imgDrawer;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container;
+    RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    Context context = this;
     int p = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,7 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initListener() {
         imgDrawer.setOnClickListener(this);
+
     }
 
     private void initUi() {
@@ -71,6 +76,7 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.imgDrawer:
                 drawerLayout.openDrawer(leftDrawer);
                 break;
+
         }
     }
 }

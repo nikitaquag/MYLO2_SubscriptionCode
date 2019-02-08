@@ -48,14 +48,15 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     final CharSequence[] alert_items = {"Phone Storage", "Dropbox"};
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
     Context context = this;
-    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
-    TextView txtName, txtAdd, txtSave;
+    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgEdit;
+    TextView txtName, txtAdd, txtSave, txtAttach;
     TextInputLayout tilName;
     String From;
     Preferences preferences;
     Form document;
     DBHelper dbHelper;
     String name = "";
+    RelativeLayout rlDoc,rlDocument;
 
     String documentPath = "";
     String originPath = "";
@@ -80,10 +81,14 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
         txtSave.setOnClickListener(this);
+        rlDoc.setOnClickListener(this);
+        rlDocument.setOnClickListener(this);
+        imgEdit.setOnClickListener(this);
 
     }
 
     private void initUi() {
+        txtAttach = findViewById(R.id.txtAttach);
         imgDot = findViewById(R.id.imgDot);
         imgDone = findViewById(R.id.imgDone);
         imgBack = findViewById(R.id.imgBack);
@@ -93,13 +98,16 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         tilName = findViewById(R.id.tilName);
         txtAdd = findViewById(R.id.txtAdd);
         txtSave = findViewById(R.id.txtSave);
+        rlDoc = findViewById(R.id.rlDoc);
+        rlDocument = findViewById(R.id.rlDocument);
+        imgEdit = findViewById(R.id.imgEdit);
 
-
+        txtName.setClickable(false);
         txtName.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                tilName.setHintEnabled(true);
-                txtName.setFocusable(true);
+                tilName.setHintEnabled(false);
+                txtName.setFocusable(false);
                 return false;
             }
         });
@@ -118,27 +126,39 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             document = (Form) i.getExtras().getSerializable("FormObject");
             txtName.setText(document.getName());
             documentPath = document.getDocument();
-            imgDoc.setImageResource(document.getImage());
+            imgEdit.setVisibility(View.VISIBLE);
+            // imgDoc.setImageResource(document.getImage());
+            rlDoc.setBackgroundResource(document.getImage());
+            imgDoc.setVisibility(View.GONE);
+            txtAttach.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
 
         } else if (Goto.endsWith("Edit")) {
             document = (Form) i.getExtras().getSerializable("FormObject");
             txtName.setText(document.getName());
             documentPath = document.getDocument();
-            imgDoc.setImageResource(document.getImage());
+            // imgDoc.setImageResource(document.getImage());
+            rlDoc.setBackgroundResource(document.getImage());
+            imgEdit.setVisibility(View.VISIBLE);
+            imgDoc.setVisibility(View.GONE);
+            txtAttach.setVisibility(View.GONE);
             id = document.getId();
             imgDot.setVisibility(View.GONE);
             txtSave.setVisibility(View.VISIBLE);
             // imgDone.setVisibility(View.VISIBLE);
-            imgAdd.setVisibility(View.VISIBLE);
-            txtAdd.setVisibility(View.VISIBLE);
-            txtAdd.setText("Edit File");
+            imgAdd.setVisibility(View.GONE);
+            txtAdd.setVisibility(View.GONE);
+            //txtAdd.setText("Edit File");
         } else {
             imgDot.setVisibility(View.GONE);
             txtSave.setVisibility(View.VISIBLE);
+            imgDoc.setVisibility(View.VISIBLE);
+            imgEdit.setVisibility(View.GONE);
+            //  rlDoc.setBackgroundResource(R.drawable.pdf);
+            txtAttach.setVisibility(View.VISIBLE);
             // imgDone.setVisibility(View.VISIBLE);
-            imgAdd.setVisibility(View.VISIBLE);
-            txtAdd.setVisibility(View.VISIBLE);
+            imgAdd.setVisibility(View.GONE);
+            txtAdd.setVisibility(View.GONE);
             txtAdd.setText("Select File");
         }
 
@@ -218,6 +238,13 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                     }
                 }
                 break;
+            case R.id.imgEdit:
+                formDialog();
+                break;
+            case R.id.rlDoc:
+                formDialog();
+                break;
+
 
             case R.id.imgAdd:
                 formDialog();
@@ -513,20 +540,25 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             String text = "You Have selected <b>" + name + "</b> Document";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
             imgDoc.setClickable(false);
-            imgDoc.setImageResource(R.drawable.pdf);
+            // imgDoc.setImageResource(R.drawable.pdf);
+            rlDoc.setBackgroundResource(R.drawable.pdf);
+            imgDoc.setVisibility(View.GONE);
+            txtAttach.setVisibility(View.GONE);
             txtAdd.setText("Edit File");
             ShowWindowDialog(text);
-        }
-        else if (requestCode == RQUESTCODE ) {
-             name = preferences.getString(PrefConstants.RESULT);
-           // name = data.getExtras().getString("Name");
+        } else if (requestCode == RQUESTCODE) {
+            name = preferences.getString(PrefConstants.RESULT);
+            // name = data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
 
-           // originPath = data.getExtras().getString("URI");
+            // originPath = data.getExtras().getString("URI");
             txtName.setText(name);
             String text = "You Have selected <b>" + name + "</b> Document";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            imgDoc.setImageResource(R.drawable.pdf);
+            // imgDoc.setImageResource(R.drawable.pdf);
+            rlDoc.setBackgroundResource(R.drawable.pdf);
+            imgDoc.setVisibility(View.GONE);
+            txtAttach.setVisibility(View.GONE);
             imgDoc.setClickable(false);
             txtAdd.setText("Edit File");
             ShowWindowDialog(text);

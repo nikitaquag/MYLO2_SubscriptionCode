@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -21,7 +22,7 @@ import com.mindyourlovedone.healthcare.model.Form;
 import java.util.ArrayList;
 
 /**
- * Created by varsha on 8/23/2017. Changes done by nikita on 20/6/18
+ * Created by varsha on 8/23/2017. Changes done by nikita on 20/6/18. Changes done by shradha on 1/2/19
  */
 
 public class DocumentsAdapter extends RecyclerSwipeAdapter<DocumentsAdapter.ViewHolder> {
@@ -85,53 +86,64 @@ public class DocumentsAdapter extends RecyclerSwipeAdapter<DocumentsAdapter.View
         });
 
         holder.txtDocHeader.setText(documentList.get(position).getName());
-        holder.imgDocType.setImageResource(documentList.get(position).getImage());
+        holder.imgDocType.setImageResource(R.drawable.pdf_dir/*documentList.get(position).getImage()*/);
         holder.txtDocTime.setVisibility(View.GONE);
-        holder.imgForword.setOnClickListener(new View.OnClickListener() {
+     /*   holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddInsuranceFormActivity.class);
                 i.putExtra("GoTo", "View");
-                /*if (position>3)
+                *//*if (position>3)
                 {
                     i.putExtra("Path","Yes");
                 }
                 else
                 {
                     i.putExtra("Path","No");
-                }*/
+                }*//*
                 i.putExtra("FormObject", documentList.get(position));
                 context.startActivity(i);
             }
-        });
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        });*/
+        holder.rlFix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddInsuranceFormActivity.class);
                 i.putExtra("GoTo", "Edit");
                 i.putExtra("Path", "Yes");
-               /* if (position>3)
+
+                i.putExtra("FormObject", documentList.get(position));
+                context.startActivity(i);
+            }
+        });
+        holder.imgForword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, AddInsuranceFormActivity.class);
+                i.putExtra("GoTo", "Edit");
+                i.putExtra("Path", "Yes");
+                i.putExtra("FormObject", documentList.get(position));
+                context.startActivity(i);
+            }
+        });
+       /* holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, AddInsuranceFormActivity.class);
+                i.putExtra("GoTo", "Edit");
+                i.putExtra("Path", "Yes");
+               *//* if (position>3)
                 {
 
                 }
                 else
                 {
                     i.putExtra("Path","No");
-                }*/
+                }*//*
                 i.putExtra("FormObject", documentList.get(position));
                 context.startActivity(i);
             }
-        });
-
-     /*convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-
-    }
-      });*/
-
-
+        });*/
     }
 
 
@@ -140,6 +152,7 @@ public class DocumentsAdapter extends RecyclerSwipeAdapter<DocumentsAdapter.View
         ImageView imgDocType, imgForword, imgEdit;
         SwipeLayout swipeLayout;
         LinearLayout lintrash;
+        RelativeLayout rlFix;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -151,6 +164,7 @@ public class DocumentsAdapter extends RecyclerSwipeAdapter<DocumentsAdapter.View
             imgDocType = convertView.findViewById(R.id.imgDocType);
             imgForword = convertView.findViewById(R.id.imgNext);
             imgEdit = convertView.findViewById(R.id.imgEdit);
+            rlFix = convertView.findViewById(R.id.rlFix);
         }
     }
 }

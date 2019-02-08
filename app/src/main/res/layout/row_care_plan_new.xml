@@ -40,8 +40,8 @@
             android:id="@+id/rlFix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:gravity="center_vertical"
             android:paddingTop="@dimen/dimension2dp"
@@ -106,8 +106,7 @@
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:src="@drawable/ic_edit_blue"
-
-                    />
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <ImageView
@@ -118,8 +117,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:focusableInTouchMode="false"
-                android:padding="@dimen/dimension10dp"
-                android:src="@drawable/forword_arrow"
+                android:padding="@dimen/dimension20dp"
+                android:src="@drawable/right"
 
                 />
         </RelativeLayout>
