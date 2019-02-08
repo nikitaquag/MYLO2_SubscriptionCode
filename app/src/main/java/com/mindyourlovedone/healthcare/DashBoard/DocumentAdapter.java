@@ -22,7 +22,8 @@ import com.mindyourlovedone.healthcare.model.Document;
 import java.util.ArrayList;
 
 /**
- * Created by varsha on 8/23/2017. Changes done by nikita on 20/6/18
+ * Created by varsha on 8/23/2017. Changes done by nikita on 20/6/18.
+ * Changes done by shradha on 1/2/19
  */
 
 public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHolder> {
@@ -96,7 +97,7 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             holder.txtDocDate.setText(documentList.get(position).getDate());
         }
 
-        holder.imgDocType.setImageResource(R.drawable.pdf);//documentList.get(position).getImage()
+        holder.imgDocType.setImageResource(R.drawable.pdf_dir);//documentList.get(position).getImage()
 
         holder.rlFix.setOnClickListener(new View.OnClickListener() {
             @Override

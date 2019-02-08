@@ -80,5 +80,34 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
         <item>Finance and Legal</item>
     </string-array>-->
     <string name="access">24/7 Access to Critical Medical Information &amp; Advance Care Directives</string>
+    <!--String added for version 2 MYLO-->
 
+    <string name="newHere">I"'"M NEW HERE</string>
+    <string name="mRegistered">I"'"M REGISTERED</string>
+    <string name="Agree">I agree to the Mind Your Loved Ones</string>
+    <string name="PrivacyPolicy"><b><u>Privacy Policy</u></b></string>
+    <string name="UserAgreement"><b><u>User License Agreement</u></b></string>
+    <string name="And">&amp;</string>
+    <string name="Next">Next</string>
+    <string name="Signup">Sign up</string>
+    <string name="ImpAgreement">Important Agreements</string>
+    <string name="AgreementText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"'"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="Check1">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="Home">Home</string>
+    <string name="Profiles">All Profiles</string>
+    <string name="Resources">Resources</string>
+    <string name="Marketplace">Marketplace</string>
+    <string name="Videos">How To Videos</string>
+    <string name="Sponsor">Sponsor</string>
+    <string name="Settings">Settings</string>
+    <string name="ContactUs">Contact Us</string>
+    <string name="Logout">Logout</string>
+    <string name="Your">Your Loved Ones</string>
+    <string name="FTUEmergency"><i>First time user instructions</i></string>
+    <string name="FTUEmergencyInstruc">Instructions</string>
+    <string name="AddNew">Add New</string>
+    <string name="AddContacts">Add From Contacts</string>
+    <string name="EmailReports">Email Reports</string>
+    <string name="ViewReports">View Reports</string>
+    <string name="ClickDirective"><u><b>Learn more</b></u> about Advance Directives,\nWhy they are important and how to compleet them.</string>
 </resources>

@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".BaseNewActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <!--MAIN Layout-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorNewHereBlue">
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimension5dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:id="@+id/imgDrawer"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:gravity="center"
+                    android:src="@drawable/ic_menus"
+                    android:tint="@color/colorWhite"
+                    android:visibility="visible" />
+
+
+                <!--
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:id="@+id/imgProfile"
+                                    android:layout_width="55dp"
+                                    android:layout_height="55dp"
+                                    android:layout_centerInParent="true"
+                                    android:layout_marginTop="@dimen/dimension2dp"
+                                    android:layout_marginBottom="@dimen/dimension2dp"
+                                    android:src="@drawable/ic_profiles" />
+                -->
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:text="Profiles"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension22dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:text="MyAPP"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension22dp"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgR"
+                    android:layout_width="@dimen/dimension10dp"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension30dp"
+                    android:layout_toLeftOf="@+id/imgRight"
+                    android:src="@drawable/rr"
+                    android:tint="@color/colorWhite"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imgNoti"
+                    android:layout_width="@dimen/dimension80dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    android:layout_toLeftOf="@+id/imgRight"
+                    android:src="@drawable/aba"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imgHelp"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:src="@drawable/information"
+                    android:tint="@color/colorWhite"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/imgLogo"
+                    android:layout_width="@dimen/dimension85dp"
+                    android:layout_height="@dimen/dimension85dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/ic_launcher"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imgLocationFeed"
+                    android:layout_width="@dimen/dimension35dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:layout_toLeftOf="@id/imgNoti"
+                    android:src="@drawable/track"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:src="@drawable/check_mark"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragmentContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/header"
+                android:background="@color/colorLightBlue"></RelativeLayout>
+        </RelativeLayout>
+
+        <!--DRAWER-->
+        <RelativeLayout
+            android:id="@+id/leftDrawer"
+            android:layout_width="@dimen/dimension310dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/colorWhite">
+
+            <include layout="@layout/left_drawer_new"></include>
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>

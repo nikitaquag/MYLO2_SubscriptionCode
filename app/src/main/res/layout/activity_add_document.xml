@@ -19,7 +19,7 @@
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension70dp"
-            android:background="@color/colorSix"
+            android:background="@color/colorDirectiveRed"
             android:orientation="horizontal">
 
             <ImageView
@@ -32,6 +32,17 @@
                 android:layout_weight="5"
                 android:src="@drawable/backward_arrow" />
 
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension35dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="@dimen/dimension0dp"
@@ -43,7 +54,7 @@
                 android:layout_weight="80"
                 android:gravity="center|center_vertical"
                 android:text="Documents"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension22dp" />
 
@@ -74,19 +85,19 @@
                 android:layout_toLeftOf="@+id/imgDot"
                 android:layout_weight="5"
                 android:src="@drawable/check_mark"
-                android:visibility="gone"
-
-                />
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imgDot"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension40dp"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension30dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="5"
-                android:src="@drawable/menudot" />
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/information"
+                android:tint="@color/colorWhite"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -141,8 +152,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/rlDocument"
             android:layout_marginLeft="@dimen/dimension35dp"
-            android:layout_marginRight="@dimen/dimension35dp"
-            android:layout_marginTop="@dimen/dimension10dp">
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension35dp">
 
             <com.mindyourlovedone.healthcare.customview.MySpinner
                 android:id="@+id/spinnerType"
@@ -160,10 +171,10 @@
                 android:id="@+id/tilOther"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/spinnerType"
                 android:layout_alignParentStart="true"
 
-                android:layout_below="@+id/spinnerType"
+                android:layout_alignParentLeft="true"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
                 android:visibility="gone">
@@ -210,15 +221,15 @@
                     android:id="@+id/tilOtherDocType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
                     android:layout_below="@+id/spinnerDoc"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
-                    android:paddingBottom="@dimen/dimension8dp"
                     android:paddingLeft="@dimen/dimension30dp"
+                    android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension30dp"
-                    android:paddingTop="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtOtherDocType"
@@ -237,14 +248,14 @@
                 android:id="@+id/tilDocType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingBottom="@dimen/dimension8dp"
                 android:paddingLeft="@dimen/dimension30dp"
-                android:paddingRight="@dimen/dimension30dp"
                 android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingBottom="@dimen/dimension8dp"
                 android:visibility="gone">
 
                 <AutoCompleteTextView
@@ -264,15 +275,15 @@
             android:id="@+id/tilPName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/rlSpinner"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -295,15 +306,15 @@
             android:id="@+id/tilFName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilPName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -328,15 +339,15 @@
             android:id="@+id/tilDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilFName"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -364,15 +375,15 @@
             android:id="@+id/tilHosp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilLocation"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -397,15 +408,15 @@
             android:id="@+id/tilLocator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilHosp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -430,15 +441,15 @@
             android:id="@+id/tilName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilDate"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
@@ -464,10 +475,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tilName"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
 
             >
 
@@ -492,13 +503,13 @@
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilHolderName"
-            android:paddingBottom="@dimen/dimension8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
 
             android:visibility="gone">
 
@@ -529,10 +540,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tilHolderName"
 
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
 
             >
 
@@ -558,9 +569,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tilLocation"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
             android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
             android:visibility="gone">
 
             <AutoCompleteTextView

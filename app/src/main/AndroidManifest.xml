@@ -11,14 +11,11 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.WRITE_CONTACTS_CONTACTS" />
-
     <uses-permission android:name="com.android.vending.BILLING" />
-    <!--pull check-->
 
+    <!-- pull check -->
     <application
         android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
@@ -28,8 +25,6 @@
         android:roundIcon="@mipmap/mylo_new_cropped_logo"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-
-
         <activity
             android:name=".SplashActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
@@ -249,7 +244,14 @@
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".SponsorActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.DashBoard.ShareActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.UserInsActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.UserInsActivity" />
+        <activity android:name=".ImpAgreementActivity" />
+        <activity android:name=".BaseNewActivity" />
+        <activity
+            android:name="com.mindyourlovedone.healthcare.Activity.TransparentActivity"
+          android:theme="@style/Theme.Transparent">
+
+        </activity>
     </application>
 
 </manifest>

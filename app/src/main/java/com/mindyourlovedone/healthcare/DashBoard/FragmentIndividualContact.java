@@ -274,7 +274,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
         txtCard = rootview.findViewById(R.id.txtCard);
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("PERSONAL PROFILE");
+        txtTitle.setText("Personal Profile");
         imgRight = getActivity().findViewById(R.id.imgRight);
         txtTitle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -299,7 +299,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
         imgCard = rootview.findViewById(R.id.imgCard);
         imgEditCard = rootview.findViewById(R.id.imgEditCard);
         imgAddpet = rootview.findViewById(R.id.imgAddPet);
-        txtSignUp = rootview.findViewById(R.id.txtSignUp);
+       // txtSignUp = rootview.findViewById(R.id.txtSignUp);
         tilName = rootview.findViewById(R.id.tilName);
         tilOtherRelation = rootview.findViewById(R.id.tilOtherRelation);
         tilOtherRelation.setHint("Other Relation");

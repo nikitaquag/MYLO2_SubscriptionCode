@@ -60,4 +60,32 @@
     <color name="colorFloatRed">#FC0000</color>
     <color name="colorFaxGray">#959799</color>
 
+
+    <!--Colors for Mylo Version2 codes-->
+    <color name="colorNewHereBlue">#2AABE1</color>
+    <color name="colorSideBlue">#3DA1CD</color>
+    <color name="colorRegisteredGreen">#A6D17B</color>
+    <color name="colorSponsorBlue">#0277C2</color>
+    <color name="colorLogoutGray">#E3E3E3</color>
+    <color name="colorLogoutTextGray">#919191</color>
+    <color name="colorSelfBlue">#269DCF</color>
+    <color name="colorOnesGray">#F0F0F0</color>
+    <color name="colorBlueTrans">#2CACE1</color>
+    <color name="colorTransparent">#4D000000</color>
+    <color name="colorTransparent1">#33000000</color>
+    <color name="colorSpecialityYellow">#EBB732</color>
+    <color name="colorSpecialitySub">#D4A224</color>
+    <color name="colorDirectiveRed">#EC4D4D</color>
+    <color name="colorDirectiveSubRed">#D64040</color>
+    <color name="colorInsuaranceSkyBlue">#5BAFB6</color>
+    <color name="colorInsuaranceSub">#46949A</color>
+    <color name="colorEventPink">#D06397</color>
+    <color name="colorEventSubPink">#B54E7F</color>
+    <color name="colorPrescriptionGray">#ADAEB3</color>
+    <color name="colorPrescriptionSub">#949498</color>
+    <color name="colorEmerSubGreen">#8AB163</color>
+    <color name="colorEmerMainGreen">#A6D17B</color>
+    <color name="colorDirectiveBlue">#7DC8E7</color>
+    <color name="colorFTUGray">#B8B8B8</color>
+
 </resources>

@@ -1,9 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rlView"
+    android:background="@android:color/transparent"
     tools:context="com.mindyourlovedone.healthcare.Activity.TransparentActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/close"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorBlueTrans"
+        app:fabSize="normal" />
+
+    <RelativeLayout
+        android:id="@+id/rlFloatContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlFloatNew"
+        android:layout_marginBottom="@dimen/dimension5dp"
+        android:gravity="center_vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/book"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+
+        <TextView
+            android:id="@+id/txtContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/floatContact"
+            android:text="Add From Contacts"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimension20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlFloatNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/floatCancel"
+        android:gravity="center_vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/man"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+
+        <TextView
+            android:id="@+id/txtNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toLeftOf="@+id/floatNew"
+            android:text="Add New"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

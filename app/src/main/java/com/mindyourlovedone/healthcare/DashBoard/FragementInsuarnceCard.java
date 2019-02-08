@@ -66,7 +66,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable
     @Override
@@ -134,10 +134,15 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         llAddCard.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUI() {
         floatProfile = rootview.findViewById(R.id.floatProfile);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
+        floatAdd = rootview.findViewById(R.id.floatAdd);
+
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>get started</b> click the green bar at the bottom of the screen Add Insurance Card." +
 //                "<br><br>" +
@@ -182,8 +187,11 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "CardInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);//nikita
+                //relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         llAddCard = rootview.findViewById(R.id.llAddCard);
@@ -324,11 +332,17 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
                 startActivity(intentDashboard);
                 break;
 
-            case R.id.llAddCard:
+            case R.id.floatAdd:
                 // preferences.putString(PrefConstants.SOURCE,"Card");
                 Intent i = new Intent(getActivity(), AddCardActivity.class);
                 startActivityForResult(i, REQUEST_PRES);
                 break;
+/*
+            case R.id.llAddCard:
+                // preferences.putString(PrefConstants.SOURCE,"Card");
+                Intent i = new Intent(getActivity(), AddCardActivity.class);
+                startActivityForResult(i, REQUEST_PRES);
+                break;*/
 
             case R.id.imgRight:
                 final String RESULT = Environment.getExternalStorageDirectory()

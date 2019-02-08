@@ -73,7 +73,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
         ImageView img67 = findViewById(R.id.img67);
         ImageView img68 = findViewById(R.id.img68);
 
-        RelativeLayout rel622=findViewById(R.id.rel622);
+        RelativeLayout rel622 = findViewById(R.id.rel622);
 
         header = findViewById(R.id.header);
         imgBack = findViewById(R.id.imgBack);
@@ -153,6 +153,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "PrescriptionInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -195,6 +196,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "FormInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -237,6 +239,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtHeader.setText("Insurance Form");
                 break;
             case "CardInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -278,7 +281,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Insurance Card");
                 break;
+
             case "InsuranceInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -322,7 +327,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "AdvanceInstruction":
-
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -365,8 +370,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Advance Directives");
                 break;
-            case "OtherInstruction":
 
+            case "OtherInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -412,7 +418,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "MedicalInfoInstruction":
-
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -496,6 +502,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "CheckListInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -536,7 +543,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Maintain an Appointment Checklist");
                 break;
-            case "EventNotesInstuction":
+            case "EventNotesInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -576,6 +584,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtHeader.setText("Add an Event Note");
                 break;
             case "PharmacyInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -589,7 +598,6 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
 
                 UI = Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
-
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -619,6 +627,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "FinanceInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -661,6 +670,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtHeader.setText("Add Finance, Legal, Other");
                 break;
             case "HospitalInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -702,7 +712,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
                 break;
+
             case "DoctorInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -746,6 +758,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "PhysicianInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -787,7 +800,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("User Instructions");
                 txtHeader.setText("Add Primary Physician");
                 break;
-            case "EmergencyInstuction":
+            case "EmergencyInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -1230,7 +1244,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 if (From.equals("PrescriptionInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
-                } else if (From.equals("EventNotesInstuction")) {
+                } else if (From.equals("EventNotesInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("CheckListInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
@@ -1256,7 +1270,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("PhysicianInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
-                } else if (From.equals("EmergencyInstuction")) {
+                } else if (From.equals("EmergencyInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("OtherInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);

@@ -1,6 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rlSelf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgSelf"
+            android:layout_width="@dimen/dimension80dp"
+            android:layout_height="@dimen/dimension80dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:padding="@dimen/dimension5dp"
+            android:src="@drawable/doct" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_toLeftOf="@+id/imgSelfFolder"
+            android:layout_toRightOf="@+id/imgSelf"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtSelfName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prashant M"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/txtSelf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Self"
+                android:textColor="@color/colorLogoutTextGray"
+                android:textSize="@dimen/dimension18dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imgSelfFolder"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/pro_folder" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension1dp"
+        android:layout_below="@+id/rlSelf"
+        android:background="@color/colorLogoutTextGray" />
+
+</RelativeLayout>

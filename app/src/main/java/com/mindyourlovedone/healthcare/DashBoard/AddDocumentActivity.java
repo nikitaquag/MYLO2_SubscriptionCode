@@ -31,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -63,7 +64,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
     Context context = this;
-    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd;
+    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgHome;
     MySpinner spinnerDoc, spinnerType, spinnerPro;
     TextView txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
@@ -152,9 +153,11 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgDoc.setOnClickListener(this);
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
     }
 
     private void initUi() {
+        imgHome = findViewById(R.id.imgHome);
         imgDot = findViewById(R.id.imgDot);
         imgDone = findViewById(R.id.imgDone);
         imgBack = findViewById(R.id.imgBack);
@@ -537,9 +540,18 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
+
             case R.id.imgBack:
                 finish();
                 break;
+
             case R.id.imgDoc:
                 if (getIntent().hasExtra("PDF_EXT")) {
 

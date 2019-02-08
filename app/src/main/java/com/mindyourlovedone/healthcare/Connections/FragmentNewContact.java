@@ -970,6 +970,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.yellow);
+
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
                     if (!specialist.getPhotoCard().equals("")) {
@@ -1430,6 +1432,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         }
+
                     } else
                         imgProfile.setImageResource(R.drawable.green);
 
@@ -1629,6 +1632,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.yellow);
+
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
@@ -1732,6 +1737,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.green);
+
                     /*
                     if (imgFile.exists()) {
                        */
@@ -1994,6 +2001,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.lightblue);
+
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
@@ -2029,7 +2038,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 disableInsurance();
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
-                txtTitle.setText("INSURANCE INFORMATION");
+                txtTitle.setText("Insurance Information");
                 txtTitle.setVisibility(View.VISIBLE);
                 Intent insuranceIntent2 = getActivity().getIntent();
                 if (insuranceIntent2.getExtras() != null) {
@@ -2334,6 +2343,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.yellow);
+
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
 
@@ -2525,6 +2536,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
+                    imgProfile.setImageResource(R.drawable.yellow);
+
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
                     if (!specialist.getPhotoCard().equals("")) {

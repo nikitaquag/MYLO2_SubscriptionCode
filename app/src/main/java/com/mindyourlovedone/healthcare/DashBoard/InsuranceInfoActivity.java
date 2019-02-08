@@ -3,6 +3,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentInsurance;
 
@@ -21,9 +23,10 @@ public class InsuranceInfoActivity extends AppCompatActivity implements View.OnC
     FragmentInsurance fragmentInsurance = null;
     FragementInsuarnceCard fragementInsuarnceCard = null;
     FragementForm fragementform = null;
-    ImageView imgBack;
+    ImageView imgBack, imgHome;
     TextView txtTitle;
     RelativeLayout header;
+    Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +44,15 @@ public class InsuranceInfoActivity extends AppCompatActivity implements View.OnC
             String fragment = i.getExtras().getString("FRAGMENT");
             switch (fragment) {
                 case "Insurance Info":
-                    txtTitle.setText("INSURANCE INFORMATION");
+                    txtTitle.setText("Insurance Information");
                     callFragment("INFO", fragmentInsurance);
                     break;
                 case "INSURANCE CARD":
-                    txtTitle.setText("INSURANCE CARDS");
+                    txtTitle.setText("Insurance Cards");
                     callFragment("CARD", fragementInsuarnceCard);
                     break;
                 case "Insurance Form":
-                    txtTitle.setText("INSURANCE FORMS");
+                    txtTitle.setText("Insurance Forms");
                     callFragment("FORM", fragementform);
                     break;
             }
@@ -71,6 +74,7 @@ public class InsuranceInfoActivity extends AppCompatActivity implements View.OnC
 
     private void initListener() {
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -79,14 +83,22 @@ public class InsuranceInfoActivity extends AppCompatActivity implements View.OnC
         txtTitle = findViewById(R.id.txtTitle);
         txtTitle.setText("INSURANCE");
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
     }
-
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgBack:
                 finish();
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
                 break;
         }
     }

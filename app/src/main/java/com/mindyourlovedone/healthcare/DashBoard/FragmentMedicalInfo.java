@@ -234,7 +234,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("MEDICAL PROFILE");
+        txtTitle.setText("Medical Profile");
 
         txtFlueShotDate = rootview.findViewById(R.id.txtFlueShotDate);
         txtPneumoniaDate = rootview.findViewById(R.id.txtPneumoniaDate);

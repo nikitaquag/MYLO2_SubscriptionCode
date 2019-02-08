@@ -1,9 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
     tools:context=".ImpAgreementActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rlHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorNewHereBlue"
+        android:gravity="center"
+        android:padding="@dimen/dimension10dp">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/back"
+            android:tint="@color/colorWhite" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/imgBack"
+            android:gravity="center"
+            android:text="@string/ImpAgreement"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension18dp" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtSignup"
+        android:layout_below="@+id/rlHeader">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:gravity="center"
+                android:text="@string/AgreementText"
+                android:textAlignment="viewStart"
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension18dp"
+                tools:ignore="RtlCompat" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension20dp"
+                android:padding="@dimen/dimension10dp">
+
+                <CheckBox
+                    android:id="@+id/chk1"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentLeft="true"
+                    android:button="@drawable/circle_privacy"
+                    android:checked="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/chk1"
+                    android:gravity="center"
+                    android:text="@string/Check1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    tools:ignore="RtlCompat" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:padding="@dimen/dimension10dp">
+
+                <CheckBox
+                    android:id="@+id/chk2"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentLeft="true"
+                    android:button="@drawable/circle_privacy"
+                    android:checked="true" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/chk2"
+                    android:gravity="center"
+                    android:text="@string/Check1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    tools:ignore="RtlCompat" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:padding="@dimen/dimension10dp">
+
+                <CheckBox
+                    android:id="@+id/chk3"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentLeft="true"
+                    android:button="@drawable/circle_privacy"
+                    android:checked="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/chk3"
+                    android:gravity="center"
+                    android:text="@string/Check1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    tools:ignore="RtlCompat" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:padding="@dimen/dimension10dp">
+
+                <CheckBox
+                    android:id="@+id/chk4"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_alignParentLeft="true"
+                    android:button="@drawable/circle_privacy"
+                    android:checked="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/chk4"
+                    android:gravity="center"
+                    android:text="@string/Check1"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    tools:ignore="RtlCompat" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/txtSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension15dp"
+        android:background="@drawable/border_next"
+        android:gravity="center"
+        android:paddingLeft="@dimen/dimension40dp"
+        android:paddingTop="@dimen/dimension10dp"
+        android:paddingRight="@dimen/dimension40dp"
+        android:paddingBottom="@dimen/dimension10dp"
+        android:text="@string/Signup"
+        android:textAlignment="viewStart"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimension18dp"
+        tools:ignore="RtlCompat" />
+
+
+</RelativeLayout>

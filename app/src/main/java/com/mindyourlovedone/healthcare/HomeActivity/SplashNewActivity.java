@@ -40,7 +40,10 @@ import io.fabric.sdk.android.Fabric;
 import ss.com.bannerslider.views.BannerSlider;
 
 public class SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
-    static final String TAG = "TrivialDrive";
+    TextView txtNew;
+    Context context = this;
+    //shradha-comment for new changes
+   /* static final String TAG = "TrivialDrive";
     //static final String SKU_INFINITE_GAS = "app_subscription"; // $1
     static final String SKU_INFINITE_GAS = "subscribe_app";   //$4.99
     static final int RC_REQUEST = 10001;
@@ -91,7 +94,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             if (mSubscribedToInfiniteGas == true) {
 
                 //   Log.d(TAG,  ""+infiniteGasPurchase.getPurchaseTime());
-             /*   long purchasetime=infiniteGasPurchase.getPurchaseTime();
+             *//*   long purchasetime=infiniteGasPurchase.getPurchaseTime();
                 String time= String.valueOf(purchasetime);
                 switch (time)
                 {
@@ -121,7 +124,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                         //1 day
                         break;
                 }
-*/
+*//*
                 llSubscribe.setVisibility(View.GONE);
                 if (preferences == null) {
                     preferences = new Preferences(SplashNewActivity.this);
@@ -173,7 +176,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 setWaitScreen(false);
 
                 //Shradha
-               /*
+               *//*
                 llSubscribe.setVisibility(View.GONE);
                 if (preferences == null) {
                     preferences = new Preferences(SplashNewActivity.this);
@@ -185,7 +188,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 } else {
                     llSplash.setVisibility(View.VISIBLE);
                     llBottom.setVisibility(View.GONE);
-                }*/
+                }*//*
 
                 return;
             }
@@ -224,16 +227,39 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     private int[] layouts;
     //    ProgressDialog pd;
     private MyViewPagerAdapter myViewPagerAdapter;
-    private TabLayout tabLayout;
+    private TabLayout tabLayout;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_splashes_);
-        new AsynData().execute("");
+        initUi();
+        initListener();
+        //shradha-comment for new changes
+        //  new AsynData().execute("");
+    }
+
+    private void initListener() {
+        txtNew.setOnClickListener(this);
+    }
+
+    private void initUi() {
+        txtNew = findViewById(R.id.txtNew);
     }
 
     @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.txtNew:
+                Intent intent = new Intent(context, SignUpActivity.class);
+                startActivity(intent);
+                break;
+        }
+    }
+
+
+//shradha-comment for new changes
+ /*   @Override
     protected void onResume() {
         super.onResume();
 
@@ -254,13 +280,13 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
         init();
         inApp();
-       /* img1.setOnClickListener(new View.OnClickListener() {
+       *//* img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               inApp();
             }
         });
-*/
+*//*
         final Fabric fabric = new Fabric.Builder(this)
                 .kits(new Crashlytics())
                 .debuggable(true)           // Enables Crashlytics debugger
@@ -270,7 +296,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-/*
+*//*
     private void initViewPager() {
         viewPagerLogin = findViewById(R.id.viewPagerLogin);
         tabLayout = findViewById(R.id.tabDots);
@@ -298,9 +324,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             }
         }, DELAY_MS, PERIOD_MS);
     }
-*/
+*//*
 
-    /* private void initBanner() {
+     *//* private void initBanner() {
          List<Banner> banners = new ArrayList<>();
  //        banners.add(new RemoteBanner("Put banner image url here ..."));
          banners.add(new DrawableBanner((R.drawable.mye_img)).setScaleType(ImageView.ScaleType.FIT_XY));
@@ -311,7 +337,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
          banners.add(new DrawableBanner((R.drawable.officeman)).setScaleType(ImageView.ScaleType.FIT_XY));
          bannerSlider.setBanners(banners);
      }
- */
+ *//*
     private void inApp() {
         String base64EncodedPublicKey ="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq3i1ShkUzBAWxerhJne2R7KYwWVXyERXLxz7Co0kW9wS45C55XnM/kFHNZ0hI62Oz8HWbTO+RisBMQ5If21sHu5DgXLHa+LNYj+2ZPQWlh46jo/jhMgo+V9YJ7EeOLedH70fFRlhy9OT2ZmOWscxN5YJDp22RXvilale2WcoKVOriS+I9fNbeREDcKM4CsB0isJyDEVIagaRaa0Za8MleOVeYUdma5q3ENZDJ8g9W2Dy0h6fioCZ9OIgBCY63qr0jVxHUwD8Jebp91czKWRSRi433suBmSkoE6qkhwtDEdckeG+cx6xErHcoPSrwhaLlvqCC1KngYduRZy5j1jCAywIDAQAB"; //"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt/vQGFXEB+fQ7s5JbO/teKHjmvkZgqSeLSXmicYu4jDC5mBqfZ1/wBES/lhPGEfJAmjmSSQ1Z35XIcoTL74KVASTrUComknH4XiGaiXCjeCe9cFwYCXlWT+B3Y+dkRajRTi9G/iIgUZP6NTyblmKd5KcUn64CQIqgIZ8pD/4GsIR5abUFTEH9XXQEKzFjcdaBKB4uK1m2JLZ+w+FTFeNydzqSYdRL5lY4IHr8RHZwA3BReNMpzPt1Zp7URSkAGjXvbpOkURupUP+hB4VBYQYPfHfx3K4m32XKWl8zP0qwHS2kIIAjAEekzN+l+bDAU9fXdkDKuHIeXA0HLC6i9jRkQIDAQAB";
 
@@ -451,7 +477,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         final String[] array = {getResources().getString(R.string.msgstay), getResources().getString(R.string.msg), "Manage and Share Critical Information on\n" +
                 "your Smartphone or Tablet", "Access to Critical Information and Advance\n" +
                 "Care Directives 24/7", "The Just In Case App"};
-/*
+*//*
         textMessage.post(new Runnable() {
             int i = 0;
 
@@ -467,7 +493,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 textMessage.postDelayed(this, 5000);
             }
         });
-*/
+*//*
 
         if (preferences == null) {
             preferences = new Preferences(SplashNewActivity.this);
@@ -489,9 +515,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        /*    case R.id.txtSubscribes:
+        *//*    case R.id.txtSubscribes:
                 onInfiniteGasButtonClicked();
-                break;*/
+                break;*//*
             case R.id.rlBottom:
                 onInfiniteGasButtonClicked();
                 break;
@@ -579,9 +605,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             return;
         }
 
-        /* TODO: for security, generate your payload here for verification. See the comments on
-         *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
-         *        an empty string, but on a production app you should carefully generate this. */
+        *//* TODO: for security, generate your payload here for verification. See the comments on
+     *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
+     *        an empty string, but on a production app you should carefully generate this. *//*
         String payload = "";
 
         setWaitScreen(true);
@@ -607,9 +633,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    /**
+    *//**
      * Verifies the developer payload of a purchase.
-     */
+     *//*
     boolean verifyDeveloperPayload(Purchase p) {
         String payload = p.getDeveloperPayload();
         return true;
@@ -631,7 +657,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     // updates UI to reflect model
     public void updateUi() {
         // "Get infinite gas" button is only visible if the user is not subscribed yet
-     /*   findViewById(R.id.infinite_gas_button).setVisibility(mSubscribedToInfiniteGas ?
+     *//*   findViewById(R.id.infinite_gas_button).setVisibility(mSubscribedToInfiniteGas ?
                 View.GONE : View.VISIBLE);
 
         // update gas gauge to reflect tank status
@@ -641,13 +667,13 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         else {
             //  int index = mTank >= TANK_RES_IDS.length ? TANK_RES_IDS.length - 1 : mTank;
             //  ((ImageView)findViewById(R.id.gas_gauge)).setImageResource(TANK_RES_IDS[index]);
-        }*/
+        }*//*
     }
 
     // Enables or disable   s the "please wait" screen.
     void setWaitScreen(boolean set) {
-       /* findViewById(R.id.screen_main).setVisibility(set ? View.GONE : View.VISIBLE);
-        findViewById(R.id.screen_wait).setVisibility(set ? View.VISIBLE : View.GONE);*/
+       *//* findViewById(R.id.screen_main).setVisibility(set ? View.GONE : View.VISIBLE);
+        findViewById(R.id.screen_wait).setVisibility(set ? View.VISIBLE : View.GONE);*//*
     }
 
     void complain(String message) {
@@ -709,6 +735,6 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             View view = (View) object;
             container.removeView(view);
         }
-    }
+    }*/
 
 }

@@ -10,9 +10,10 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:tag="Bottom3"
-        android:weightSum="2">
+        android:weightSum="1">
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/lincall"
             android:layout_width="0dip"
             android:layout_height="match_parent"
@@ -111,15 +112,15 @@
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableEnd="@drawable/ic_edit_blue"
                     android:ellipsize="end"
                     android:gravity="start|center_vertical"
                     android:paddingLeft="@dimen/dimension10dp"
                     android:text="Cfklj kj ouio vdfgbdfbfgnfgnfghdfgvgdfbdfgdfgdfgxfbdfgdfbdfvdfvd"
                     android:textColor="@color/colorDarkBlue"
                     android:textSize="@dimen/dimension20dp"
-                    android:drawableRight="@drawable/ic_edit_blue" />
+                  />
 
+                <!--  android:drawableRight="@drawable/ic_edit_blue" -->
                 <TextView
                     android:id="@+id/txtType"
                     android:layout_width="@dimen/dimension100dp"
@@ -240,8 +241,9 @@
                 android:layout_marginRight="@dimen/dimension5dp"
                 android:focusableInTouchMode="false"
                 android:padding="@dimen/dimension10dp"
-                android:src="@drawable/forword_arrow" />
-
+                android:src="@drawable/call_emer"
+               />
+<!--            android:src="@drawable/forword_arrow"-->
             <!--<View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"

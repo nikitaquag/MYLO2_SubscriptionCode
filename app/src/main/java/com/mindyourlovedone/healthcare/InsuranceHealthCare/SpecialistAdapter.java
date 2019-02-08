@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -144,7 +145,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
+        holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (specialist) {
@@ -207,9 +208,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                     } else {
                         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                     }
-
                 }
-
             }
 
 
@@ -236,8 +235,31 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 }
             }
 */
-        } else {
-            holder.imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+        }
+        //shradha- new change for distinguishing images for doctor and physician if image does not exists
+        else {
+            if (physician) {
+                if (fr != null) {
+                    if (holder.imgProfile.getDrawable() == null) {
+                        holder.imgProfile.setImageResource(R.drawable.green);
+                    } else {
+                        Toast.makeText(context, "Not Physician", Toast.LENGTH_SHORT).show();
+
+                        // holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    }
+                }
+            }
+            if (specialist) {
+                if (frs != null) {
+                    if (holder.imgProfile.getDrawable() == null) {
+                        holder.imgProfile.setImageResource(R.drawable.yellow);
+                    } else {
+                        Toast.makeText(context, "Not Doctor", Toast.LENGTH_SHORT).show();
+                        //  holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    }
+                }
+            }
+          //  holder.imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }
 
 
@@ -291,8 +313,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 context.startActivity(i);
             }
         });
-
-        holder.txtName.setOnClickListener(new View.OnClickListener() {
+        holder.rlDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
@@ -312,8 +333,28 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 context.startActivity(i);
             }
         });
+      /*  holder.txtName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                Specialist insurance = specialistList.get(position);
+                if (insurance.getIsPhysician() == 1) {
+                    preferences.putString(PrefConstants.SOURCE, "PhysicianData");
+                } else if (insurance.getIsPhysician() == 2) {
+                    preferences.putString(PrefConstants.SOURCE, "SpecialistData");
+                }
+               *//* i.putExtra("Name", insurance.getName());
+                i.putExtra("Type", insurance.getType());
+                i.putExtra("Address", insurance.getAddress());
+                i.putExtra("Phone", insurance.getOfficePhone());
+                i.putExtra("Photo", insurance.getImage());*//*
+                i.putExtra("SpecialistObject", insurance);
+                i.putExtra("IsPhysician", insurance.getIsPhysician());
+                context.startActivity(i);
+            }
+        });*/
 
-        holder.imgNext.setOnClickListener(new View.OnClickListener() {
+       /* holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
@@ -327,7 +368,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 i.putExtra("IsPhysician", insurance.getIsPhysician());
                 context.startActivity(i);
             }
-        });
+        });*/
     }
 
     @Override
@@ -338,7 +379,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtName, txtAddress, txtPhone, txtType, txtTelePhone, txtOfficePhone;
         ImageView imgProfile, imgForword, imgEdit, imgNext;
-        RelativeLayout rlMain;
+        RelativeLayout rlMain, rlDoctor;
         SwipeLayout swipeLayout;
         LinearLayout lincall, lintrash;
 
@@ -348,6 +389,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             lintrash = convertView.findViewById(R.id.lintrash);
             swipeLayout = convertView.findViewById(R.id.swipe);
             txtName = convertView.findViewById(R.id.txtName);
+            rlDoctor = convertView.findViewById(R.id.rlDoctor);
             txtAddress = convertView.findViewById(R.id.txtAddress);
             txtPhone = convertView.findViewById(R.id.txtPhone);
             txtOfficePhone = convertView.findViewById(R.id.txtOfficePhone);

@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -32,6 +33,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DocumentQuery;
@@ -57,13 +59,14 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     Context context = this;
     ListView lvDoc;
     ArrayList<Document> documentList;
-    ImageView imgBack, imgRight;
+    ImageView imgBack, imgRight,imgHomes;
     RelativeLayout llAddDoc;
     Preferences preferences;
     DBHelper dbHelper;
 
     RelativeLayout rlAD, rlHome, rlMedical, rlInsurance, rlOther, rlLegal, rlMedicalRecord;
     TextView txtOne, txtTwo, txtUserName;
+    FloatingActionButton floatOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +93,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initListener() {
+        floatOptions.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         rlAD.setOnClickListener(this);
         rlMedicalRecord.setOnClickListener(this);
@@ -99,15 +103,19 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         rlInsurance.setOnClickListener(this);
         rlOther.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        imgHomes.setOnClickListener(this);
 
         //llAddDoc.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatOptions = findViewById(R.id.floatOptions);
         txtUserName = findViewById(R.id.txtUserName);
+        txtUserName.setBackgroundColor(getResources().getColor(R.color.colorDirectiveSubRed));
         txtUserName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
         imgBack = findViewById(R.id.imgBack);
         imgRight = findViewById(R.id.imgRight);
+        imgHomes = findViewById(R.id.imgHomes);
         rlAD = findViewById(R.id.rlAD);
         rlMedicalRecord = findViewById(R.id.rlMedicalRecord);
         rlLegal = findViewById(R.id.rlLegal);
@@ -196,11 +204,21 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatOptions:
+                showFloatDialog();
+                break;
 
             case R.id.imgBack:
                 finish();
                 break;
 
+            case R.id.imgHomes:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
 
             case R.id.imgRight:
                 final String RESULT = Environment.getExternalStorageDirectory()
@@ -292,7 +310,6 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                 builder.create().show();
                 break;
 
-
             case R.id.rlOther:
                 Intent i = new Intent(context, CarePlanListActivity.class);
                 preferences.putString(PrefConstants.FROM, "Other");
@@ -343,6 +360,65 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                 break;*/
         }
     }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+
+    }
+
 
     @SuppressLint("ResourceAsColor")
     private void showInstructionDialog() {

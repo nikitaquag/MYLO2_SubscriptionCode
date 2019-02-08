@@ -1,321 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-<RelativeLayout
-    android:gravity="center"
-    android:layout_gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorLightBlue"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-
-    <TextView
-        android:id="@+id/txtdocuments"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension60dp"
-        android:layout_below="@+id/header"
-        android:background="@color/colorSkyBlue"
-        android:gravity="center"
-        android:text="Advance care plan documents"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/dimension26dp"
-        android:visibility="gone" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/lvDoc"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/txtdocuments"
+        android:layout_gravity="center"
         android:background="@color/colorLightBlue"
-        android:divider="@color/colorLightGray"
-        android:dividerHeight="@dimen/dimension20dp"
-        android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+        android:gravity="center">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/txtdocuments"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension60dp"
+            android:layout_below="@+id/header"
+            android:background="@color/colorSkyBlue"
+            android:gravity="center"
+            android:text="Advance care plan documents"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension26dp"
+            android:visibility="gone" />
 
-        <RelativeLayout
-            android:id="@+id/rlGuide"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lvDoc"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/txtdocuments"
+            android:background="@color/colorLightBlue"
+            android:divider="@color/colorLightGray"
+            android:dividerHeight="@dimen/dimension20dp"
+            android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:padding="@dimen/dimension20dp">
-
-            <ImageView
-                android:id="@+id/imgPicture"
-                android:layout_width="@dimen/dimension90dp"
-                android:layout_height="@dimen/dimension90dp"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/v_form"
-
-                />
-
-            <TextView
-                android:id="@+id/txtHeader"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imgPicture"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:gravity="center_horizontal"
-                android:text="Add Insurance Claim Forms"
-                android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension24dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txtFTU"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtHeader"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
-                android:gravity="center_horizontal"
-                android:text="@string/ftu"
-                android:textColor="@color/colorBlue"
-                android:textSize="@dimen/dimension18dp" />
-
-            <TextView
-                android:id="@+id/txtMsg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtFTU"
-                android:layout_centerHorizontal="true"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
-                android:gravity="center_horizontal"
-                android:text="Add insurance claim forms so you’ll always have a digital copy on your phone."
-                android:textColor="@color/colorGuide"
-                android:textSize="@dimen/dimension18dp"
-                android:visibility="gone" />
+            android:layout_centerInParent="true">
 
             <RelativeLayout
-                android:id="@+id/relMsg"
+                android:id="@+id/rlGuide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtFTU"
-                android:visibility="gone">
+                android:layout_centerInParent="true"
+                android:padding="@dimen/dimension20dp">
+
+                <ImageView
+                    android:id="@+id/imgPicture"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension90dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/insu_three"
+
+                    />
+
+                <TextView
+                    android:id="@+id/txtHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/imgPicture"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:gravity="center_horizontal"
+                    android:text="@string/FTUEmergency"
+                    android:textColor="@color/colorFTUGray"
+                    android:textSize="@dimen/dimension24dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtFTU"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtHeader"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:background="@drawable/border_emer_instruc"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/dimension35dp"
+                    android:paddingTop="@dimen/dimension10dp"
+                    android:paddingRight="@dimen/dimension35dp"
+                    android:paddingBottom="@dimen/dimension10dp"
+                    android:text="@string/FTUEmergencyInstruc"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension18dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtMsg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtFTU"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:gravity="center_horizontal"
+                    android:text="Add insurance claim forms so you’ll always have a digital copy on your phone."
+                    android:textColor="@color/colorGuide"
+                    android:textSize="@dimen/dimension18dp"
+                    android:visibility="gone" />
 
                 <RelativeLayout
-                    android:id="@+id/rel61"
+                    android:id="@+id/relMsg"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/dimension20dp"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                    android:layout_below="@+id/txtFTU"
+                    android:visibility="gone">
 
-                    <ImageView
-                        android:id="@+id/img61"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
-
-                    <TextView
-                        android:id="@+id/txtPolicy61"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel61"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img61"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel62"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel61"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img61"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img62"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy61"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img61"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy62"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel62"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img62"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel61"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel63"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel62"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img62"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img63"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy62"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img62"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy63"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel63"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img63"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel62"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel64"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel63"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img63"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img64"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy63"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img63"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy64"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel64"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img64"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel63"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel65"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel64"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img64"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img65"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy64"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img64"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy65"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel65"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img65"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel64"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel66"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel65"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img65"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img66"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy65"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img65"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy66"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel66"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img66"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel65"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel67"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel66"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img66"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img67"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy66"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img66"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy67"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel67"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img67"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
-                </RelativeLayout>
+                        android:layout_below="@+id/rel66"
+                        android:layout_marginBottom="@dimen/dimension20dp">
 
-                <RelativeLayout
-                    android:id="@+id/rel68"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/rel67"
-                    android:layout_marginBottom="@dimen/dimension20dp">
+                        <ImageView
+                            android:id="@+id/img67"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
 
-                    <ImageView
-                        android:id="@+id/img68"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        <TextView
+                            android:id="@+id/txtPolicy67"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img67"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtPolicy68"
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:id="@+id/rel68"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/img68"
-                        android:text=""
-                        android:textColor="@color/colorGuide"
-                        android:textSize="@dimen/dimension18dp" />
+                        android:layout_below="@+id/rel67"
+                        android:layout_marginBottom="@dimen/dimension20dp">
+
+                        <ImageView
+                            android:id="@+id/img68"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension2dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:src="@drawable/bullet4" />
+
+                        <TextView
+                            android:id="@+id/txtPolicy68"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toRightOf="@+id/img68"
+                            android:text=""
+                            android:textColor="@color/colorGuide"
+                            android:textSize="@dimen/dimension18dp" />
+                    </RelativeLayout>
+
                 </RelativeLayout>
 
             </RelativeLayout>
+        </ScrollView>
 
-        </RelativeLayout>
-    </ScrollView>
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/ic_add"
+            android:tint="@android:color/white"
+            android:visibility="visible"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/ic_more"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+    </RelativeLayout>
 
-</RelativeLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -328,12 +358,12 @@
             android:layout_above="@+id/llAddDoc"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension20dp"
-            app:backgroundTint="@color/colorFloatRed"
             android:src="@drawable/ic_box"
             android:tint="@color/colorWhite"
+            android:visibility="gone"
+            app:backgroundTint="@color/colorFloatRed"
             app:fabSize="normal"
             tools:targetApi="lollipop" />
-
 
 
         <RelativeLayout
@@ -342,7 +372,8 @@
             android:layout_height="@dimen/dimension60dp"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/dimension15dp"
-            android:background="@color/colorFive">
+            android:background="@color/colorFive"
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/imgAdd"

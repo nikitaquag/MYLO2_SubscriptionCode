@@ -133,14 +133,17 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(context, InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "CheckListInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);//nikita
-                scrollvw.setVisibility(View.VISIBLE);//nikita
+              //  relMsg.setVisibility(View.VISIBLE);//nikita
+               // scrollvw.setVisibility(View.VISIBLE);//nikita
                 rlGuide.setVisibility(View.GONE);//nikita
             }
         });
         header = findViewById(R.id.header);
-        header.setBackgroundResource(R.color.colorFour);
+        header.setBackgroundResource(R.color.colorEventPink);
         imgBack = findViewById(R.id.imgBack);
 
         txtAdd = findViewById(R.id.txtAdd);

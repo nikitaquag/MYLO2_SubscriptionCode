@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorOnesGray"
     android:orientation="vertical">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/ic_more"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorRegisteredGreen"
+        app:fabSize="normal" />
 
     <RelativeLayout
         android:id="@+id/rlAD"
@@ -10,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtUserName"
         android:layout_margin="@dimen/dimension10dp"
-        android:background="@color/colorTwoBar">
+        android:background="@drawable/gray_white_border">
 
         <ImageView
             android:id="@+id/imgAD"
@@ -19,7 +33,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/docus" />
+            android:src="@drawable/dir_one" />
 
         <TextView
             android:id="@+id/txtName"
@@ -32,19 +46,20 @@
             android:padding="@dimen/dimension15dp"
             android:paddingLeft="@dimen/dimension20dp"
             android:text="Advance Directives"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgForword"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/dimension5dp"
+            android:layout_margin="@dimen/dimension10dp"
+            android:background="@drawable/border_sub_forward"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/forword" />
+            android:src="@drawable/next" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -223,7 +238,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rlMedical"
         android:layout_margin="@dimen/dimension10dp"
-        android:background="@color/colorOneBar">
+        android:background="@drawable/gray_white_border">
 
         <ImageView
             android:id="@+id/imgOther"
@@ -232,7 +247,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/docus" />
+            android:src="@drawable/dir_two" />
 
         <TextView
             android:id="@+id/txtOther"
@@ -245,18 +260,19 @@
             android:padding="@dimen/dimension15dp"
             android:paddingLeft="@dimen/dimension20dp"
             android:text="Other Documents"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/dimension5dp"
+            android:layout_margin="@dimen/dimension10dp"
+            android:background="@drawable/border_sub_forward"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/forword" />
+            android:src="@drawable/next" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -265,7 +281,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/rlOther"
         android:layout_margin="@dimen/dimension10dp"
-        android:background="@color/colorTwoBar">
+        android:background="@drawable/gray_white_border">
 
         <ImageView
             android:id="@+id/imgRecord"
@@ -274,7 +290,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/docus" />
+            android:src="@drawable/dir_three" />
 
         <TextView
             android:id="@+id/txtRecord"
@@ -287,18 +303,19 @@
             android:padding="@dimen/dimension15dp"
             android:paddingLeft="@dimen/dimension20dp"
             android:text="Medical Records"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/dimension5dp"
+            android:layout_margin="@dimen/dimension10dp"
+            android:background="@drawable/border_sub_forward"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/forword" />
+            android:src="@drawable/next" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -308,7 +325,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/colorSix">
+        android:background="@color/colorDirectiveRed">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -318,6 +335,16 @@
             android:layout_marginLeft="@dimen/dimension15dp"
             android:src="@drawable/backward_arrow" />
 
+        <ImageView
+            android:id="@+id/imgHomes"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
+
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
@@ -325,10 +352,12 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
-            android:text="Documents"
-            android:textAllCaps="true"
+            android:layout_toRightOf="@+id/imgHomes"
+            android:gravity="center"
+            android:text="Advance Directives\n&amp; Documents"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension22dp" />
+            android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgDone"
@@ -342,12 +371,13 @@
 
         <ImageView
             android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:src="@drawable/menudot" />
+            android:src="@drawable/information"
+            android:tint="@color/colorWhite" />
     </RelativeLayout>
 
     <TextView
@@ -366,7 +396,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlMedicalRecord">
+        android:layout_below="@+id/rlMedicalRecord"
+        android:background="@color/colorOnesGray">
+
+        <TextView
+            android:id="@+id/txtClick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension30dp"
+            android:gravity="center"
+            android:text="@string/ClickDirective"
+            android:textColor="@color/colorDirectiveBlue"
+            android:textSize="@dimen/dimension17dp"
+            android:textStyle="italic"></TextView>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -375,7 +419,8 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="@dimen/dimension10dp"
             android:background="@drawable/darkgray_white_border"
-            android:padding="@dimen/dimension5dp">
+            android:padding="@dimen/dimension5dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtHeader"

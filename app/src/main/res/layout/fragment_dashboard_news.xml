@@ -4,204 +4,53 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true">
-
-        <ImageView
-            android:layout_width="@dimen/dimension30dp"
-            android:layout_height="@dimen/dimension30dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:layout_marginTop="@dimen/dimension20dp"
-            android:src="@drawable/synch"
-            android:visibility="gone" />
+        android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/rlProfile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="@color/colorBlue"
-            android:gravity="center">
-
-            <com.mindyourlovedone.healthcare.customview.RoundedImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="@dimen/dimension55dp"
-                android:layout_height="@dimen/dimension55dp"
-                android:layout_centerHorizontal="true"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_profiles"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imgProfile"
-                android:padding="@dimen/dimension2dp"
-                android:text="Martha Matheson"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp" />
-
-            <TextView
-                android:id="@+id/txtRelation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dimension5dp"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_toRightOf="@+id/txtName"
-                android:gravity="center"
-                android:padding="@dimen/dimension5dp"
-                android:text="SELF"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension16dp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/txtAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtRelation"
-                android:layout_marginLeft="@dimen/dimension5dp"
-                android:layout_toRightOf="@+id/imgProfile"
-                android:drawableLeft="@drawable/markers"
-                android:drawablePadding="@dimen/dimension10dp"
-                android:gravity="top|left"
-                android:padding="@dimen/dimension5dp"
-                android:text="#203,10 Downing Street, los Angeles, California."
-                android:textColor="@color/colorDarkGray"
-                android:textSize="@dimen/dimension16dp"
-                android:visibility="gone" />
-
-        </RelativeLayout>
-
-
-        <!-- <RelativeLayout
-             android:id="@+id/rlProfile"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:background="@color/colorBlue"
-             android:layout_alignParentTop="true"
-             android:layout_alignParentLeft="true"
-             android:layout_alignParentStart="true"
-             android:gravity="center_horizontal"
-             >
-             <ImageView
-                 android:id="@+id/imgProfile"
-                 android:layout_width="@dimen/dimension75dp"
-                 android:layout_height="@dimen/dimension90dp"
-                 android:src="@drawable/circular_profile"
-                 android:layout_centerVertical="true"
-                 android:padding="@dimen/dimension5dp"
-                 />
- <RelativeLayout
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_centerVertical="true"
-     android:layout_toRightOf="@+id/imgProfile"
-     android:layout_marginLeft="@dimen/dimension30dp"
-     >
-     <TextView
-         android:id="@+id/txtName"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:padding="@dimen/dimension5dp"
-         android:text="Martha Matheson"
-         android:textColor="@color/colorWhite"
-         android:textSize="@dimen/dimension18dp"
-         />
-     <TextView
-         android:id="@+id/txtRelation"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text= "SELF"
-         android:textColor="@color/colorWhite"
-         android:textSize="@dimen/dimension16dp"
-         android:layout_centerVertical="true"
-         android:layout_below="@+id/txtName"
-         android:textStyle="italic"
-         />
- </RelativeLayout>
-
-             <TextView
-                 android:id="@+id/txtAddress"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:padding="@dimen/dimension5dp"
-                 android:text="#203,10 Downing Street, los Angeles, California."
-                 android:textColor="@color/colorDarkGray"
-                 android:textSize="@dimen/dimension16dp"
-                 android:layout_toRightOf="@+id/imgProfile"
-                 android:layout_marginLeft="@dimen/dimension5dp"
-                 android:drawableLeft="@drawable/markers"
-                 android:gravity="top|left"
-                 android:drawablePadding="@dimen/dimension10dp"
-                 android:visibility="gone"
-                 />
-                  </RelativeLayout>
- -->
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension90dp"
-            android:layout_below="@+id/rlProfile"
-            android:background="@color/colorBlue"></RelativeLayout>
-        <!--RoW One-->
-        <ScrollView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/llbottom"
-            android:layout_below="@+id/rlProfile"
-            android:layout_marginTop="@dimen/dimension10dp">
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
+            >
+
+            <LinearLayout
+                android:id="@+id/llRow1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_above="@+id/llbottom"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
 
                 >
-
-                <LinearLayout
-                    android:id="@+id/llRow1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal"
+                <!--OVERVIEW-->
+                <RelativeLayout
+                    android:id="@+id/rlEmergencyContact"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlborderone"
+                    android:elevation="@dimen/dimension10dp"
 
                     >
-                    <!--OVERVIEW-->
+
                     <RelativeLayout
-                        android:id="@+id/rlEmergencyContact"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlborderone"
-                        android:elevation="@dimen/dimension10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
 
-                        >
-
-                        <ImageView
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true">
+                        <FrameLayout
+                            android:id="@+id/flEC"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgECLogo"
@@ -209,308 +58,395 @@
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_alignParentTop="true"
                                 android:layout_centerHorizontal="true"
-
+                                android:layout_gravity="center"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/ic_contactss" />
+                                android:src="@drawable/personal" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtEmergencyContact"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgECLogo"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="PERSONAL &amp; MEDICAL PROFILE &amp; EMERGENCY CONTACTS "
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
-                    </RelativeLayout>
 
-                    <!--CARE PLAN-->
-                    <RelativeLayout
-                        android:id="@+id/rlCarePlan"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlbordertwo"
-                        android:elevation="@dimen/dimension10dp"
-
-                        >
+                        <TextView
+                            android:id="@+id/txtEmergencyContact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_below="@+id/flEC"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Personal &amp; Medical Profile &amp; Emergency Contacts"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal" />
 
                         <ImageView
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
+                            android:id="@+id/imgECForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtEmergencyContact"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
 
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true">
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:id="@+id/rlCarePlan"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlbordertwo"
+                    android:elevation="@dimen/dimension10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flDirective"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgCPLogo"
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
-                                android:src="@drawable/careplanss"
-                                />
+                                android:layout_gravity="center"
+                                android:src="@drawable/advance" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtCarePlan"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgCPLogo"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="ADVANCE DIRECTIVES &amp; OTHER DOCUMENTS"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal"
 
-                                />
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/txtCarePlan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_below="@+id/flDirective"
+                            android:gravity="center"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Advance Directives &amp; Documents"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal"
 
-                <!--Row Two-->
-
-                <LinearLayout
-                    android:id="@+id/llRow2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/llRow1"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-                    <!--EMrgency-->
-                    <RelativeLayout
-                        android:id="@+id/rlSpecialist"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlborderthree"
-                        android:elevation="@dimen/dimension10dp">
+                            />
 
                         <ImageView
-                            android:id="@+id/imageView"
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
+                            android:id="@+id/imgCPForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtCarePlan"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
 
-                        <RelativeLayout
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
 
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_toEndOf="@+id/imageView"
-                            android:layout_toRightOf="@+id/imageView">
+            <!--Row Two-->
+
+            <LinearLayout
+                android:id="@+id/llRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llRow1"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+                <!--EMrgency-->
+                <RelativeLayout
+                    android:id="@+id/rlSpecialist"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlborderthree"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/imageView"
+                        android:layout_toRightOf="@+id/imageView">
+
+                        <FrameLayout
+                            android:id="@+id/flSpeciality"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgSpecialistLogo"
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/specii" />
+                                android:src="@drawable/speciality" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtSpecialist"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgSpecialistLogo"
 
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="SPECIALTY CONTACTS"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-
-                    <!--CARE PLAN-->
-                    <RelativeLayout
-                        android:id="@+id/rlInsuranceCard"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlbordersix"
-                        android:elevation="@dimen/dimension10dp">
+                        <TextView
+                            android:id="@+id/txtSpecialist"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension60dp"
+                            android:layout_below="@+id/flSpeciality"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Specialty\nContacts"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal" />
 
                         <ImageView
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
+                            android:id="@+id/imgSPForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtSpecialist"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
 
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true">
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:id="@+id/rlInsuranceCard"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlbordersix"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flInsurance"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgInsuranceCardLogo"
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension5dp"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/cardsss" />
+                                android:src="@drawable/insurance" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtInsuranceCard"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgInsuranceCardLogo"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="INSURANCE INFORMATION &amp; CARDS"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/llRow3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/llRow2"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal">
-                    <!--EMrgency-->
-                    <RelativeLayout
-                        android:id="@+id/rlEmergencyEvent"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlborderfour"
-                        android:elevation="@dimen/dimension10dp">
+                        <TextView
+                            android:id="@+id/txtInsuranceCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_below="@+id/flInsurance"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Insurance\nInformation"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal" />
 
                         <ImageView
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
+                            android:id="@+id/imgICForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtInsuranceCard"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
 
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true">
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llRow2"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+                <!--EMrgency-->
+                <RelativeLayout
+                    android:id="@+id/rlEmergencyEvent"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlborderfour"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flEvent"
+                            android:layout_width="62dp"
+                            android:layout_height="62dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgEventLogo"
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/eventss" />
+                                android:src="@drawable/notes" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtEmergencyEvent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgEventLogo"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="NOTES &amp; APPOINTMENT CHECKLIST"
-                                android:textColor="@color/colorWhite"
 
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
-                    </RelativeLayout>
-
-                    <!--CARE PLAN-->
-                    <RelativeLayout
-                        android:id="@+id/rlPrescription"
-                        android:layout_width="@dimen/dimension165dp"
-                        android:layout_height="@dimen/dimension165dp"
-                        android:layout_margin="@dimen/dimension10dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/rlborderfive"
-                        android:elevation="@dimen/dimension10dp">
+                        <TextView
+                            android:id="@+id/txtEmergencyEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_below="@+id/flEvent"
+                            android:gravity="center_horizontal"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Note &amp; Appointment Checklist"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal" />
 
                         <ImageView
-                            android:layout_width="@dimen/dimension40dp"
-                            android:layout_height="@dimen/dimension40dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
-                            android:src="@drawable/ic_check"
-                            android:visibility="gone" />
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:id="@+id/imgEVForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtEmergencyEvent"
                             android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true">
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:id="@+id/rlPrescription"
+                    android:layout_width="@dimen/dimension165dp"
+                    android:layout_height="175dp"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rlborderfive"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+
+                        <FrameLayout
+                            android:id="@+id/flPrescription"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
 
                             <ImageView
                                 android:id="@+id/imgPrescriptionLogo"
                                 android:layout_width="@dimen/dimension50dp"
                                 android:layout_height="@dimen/dimension50dp"
                                 android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension5dp"
                                 android:scaleType="fitXY"
-                                android:src="@drawable/rx_color" />
+                                android:src="@drawable/presc" />
+                        </FrameLayout>
 
-                            <TextView
-                                android:id="@+id/txtPrescription"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension90dp"
-                                android:layout_below="@+id/imgPrescriptionLogo"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/dimension10dp"
-                                android:gravity="center_horizontal"
-                                android:padding="@dimen/dimension5dp"
-                                android:text="PRESCRIPTION TRACKER"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/txtPrescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_below="@+id/flPrescription"
+                            android:layout_centerHorizontal="true"
+                            android:gravity="center"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Prescription\nTracker"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension16dp"
+                            android:textStyle="normal" />
+
+                        <ImageView
+                            android:id="@+id/imgPresForward"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_below="@+id/txtPrescription"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward"
+                            android:src="@drawable/next" />
+
                     </RelativeLayout>
-                </LinearLayout>
-            </RelativeLayout>
-        </ScrollView>
-
-
-        <LinearLayout
-            android:id="@+id/llbottom"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@color/colorBlack"
-            android:visibility="gone">
-
-            <com.mindyourlovedone.healthcare.customview.TextViewRomanS
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/dimension10dp"
-                android:text="Courtesy of Barbara Keller from MYLO."
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension19dp"
-                android:textStyle="normal" />
-        </LinearLayout>
-    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

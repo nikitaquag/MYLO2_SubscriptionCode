@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -58,7 +62,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable
     @Override
@@ -95,10 +99,15 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         llAddInsurance.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
+
     }
 
     private void initUI() {
         floatProfile = rootview.findViewById(R.id.floatProfile);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
+        floatAdd = rootview.findViewById(R.id.floatAdd);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 
         //nikita
@@ -112,7 +121,6 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         TextView txt67 = rootview.findViewById(R.id.txtPolicy67);
 
         ImageView img67 = rootview.findViewById(R.id.img67);
-
 
         //shradha
         txt61.setText(Html.fromHtml("To <b>add</b> information click the SAVE on the top right side of the screen. If the Person or company is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
@@ -128,8 +136,11 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "InsuranceInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);//nikita
+                // relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         imgRight = getActivity().findViewById(R.id.imgRight);
@@ -264,11 +275,14 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                 // intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
-            case R.id.llAddInsurance:
+            case R.id.floatAdd:
+                showFloatDialog();
+                break;
+           /* case R.id.llAddInsurance:
                 preferences.putString(PrefConstants.SOURCE, "Insurance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
-                break;
+                break;*/
             case R.id.imgRight:
                 final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
@@ -349,6 +363,65 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                 builder.create().show();
                 break;
         }
+    }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        //floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        // floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.AddNew));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.AddContacts));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "Insurance");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                startActivity(i);
+                dialog.dismiss();
+            }
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "Insurance");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                startActivity(i);
+                dialog.dismiss();
+            }
+        });
     }
 
     @Override

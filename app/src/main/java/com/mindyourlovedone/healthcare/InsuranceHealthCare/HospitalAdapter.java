@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -127,7 +128,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
+        holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -175,13 +176,14 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), hospitalList.get(position).getPhoto());
         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-        if (imgFile.exists() ) {
+        if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
                 holder.imgProfile.setImageResource(R.drawable.yellow);
             else
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
+        holder.imgProfile.setImageResource(R.drawable.yellow); //new change for default image display
 
        /* if (imgFile.exists()) {
            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
@@ -215,9 +217,18 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
                 context.startActivity(i);
             }
         });
+        holder.rlHospital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "HospitalData");
+                Hospital hospital = hospitalList.get(position);
+                i.putExtra("HospitalObject", hospital);
+                context.startActivity(i);
+            }
+        });
 
-
-        holder.txtName.setOnClickListener(new View.OnClickListener() {
+       /* holder.txtName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
@@ -237,7 +248,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
                 i.putExtra("HospitalObject", hospital);
                 context.startActivity(i);
             }
-        });
+        });*/
 
     }
 
@@ -250,6 +261,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
         TextView txtName, txtAddress, txtPhone, txtType, txtCategory;
         ImageView imgProfile, imgForward, imgEdit;
         ImageView imgNext;
+        RelativeLayout rlHospital;
 
         SwipeLayout swipeLayout;
         LinearLayout lincall, lintrash;
@@ -270,6 +282,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
             imgForward = convertView.findViewById(R.id.imgForword);
             imgEdit = convertView.findViewById(R.id.imgEdit);
             imgNext = convertView.findViewById(R.id.imgNext);
+            rlHospital = convertView.findViewById(R.id.rlHospital);
         }
     }
 

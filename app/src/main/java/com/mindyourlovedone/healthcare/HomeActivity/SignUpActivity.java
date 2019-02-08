@@ -74,7 +74,11 @@ import java.io.OutputStream;
 import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int REQUEST_CALL_PERMISSION = 100;
+    TextInputLayout tilName;
+    TextView txtName, txtNext;
+    ImageView imgBack;
+    Context context = this;
+  /*  private static final int REQUEST_CALL_PERMISSION = 100;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
     Context context = this;
@@ -96,18 +100,55 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     Preferences preferences;
     DBHelper dbHelper;
 
-    int userid = 1;
+    int userid = 1;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         initUI();
+        initListener();
+      /*
         initComponent();
         initListener();
-        initImageLoader();
+        initImageLoader();*/
     }
 
+    private void initListener() {
+        imgBack.setOnClickListener(this);
+        txtNext.setOnClickListener(this);
+    }
+
+    private void initUI() {
+        tilName = findViewById(R.id.tilName);
+        txtName = findViewById(R.id.txtName);
+        txtNext = findViewById(R.id.txtNext);
+        imgBack = findViewById(R.id.imgBack);
+
+
+        txtName.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tilName.setHintEnabled(true);
+                txtName.setFocusable(true);
+                return false;
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.imgBack:
+                finish();
+                break;
+            case R.id.txtNext:
+                Intent intentNext = new Intent(context, ImpAgreementActivity.class);
+                startActivity(intentNext);
+                break;
+        }
+    }
+/*
     private void initComponent() {
         try {
             File f = new File(Environment.getExternalStorageDirectory(), "/MYLO/MASTER/");
@@ -186,20 +227,21 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             outFile = new File(getExternalFilesDir(null), documentPath);
             out = new FileOutputStream(outFile);
 
-            copyFiles(in, out);
-            in.close();
-            in = null;
-            out.flush();
-            out.close();
-            out = null;
-            /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
 
             copyFiles(in, out);
             in.close();
             in = null;
             out.flush();
             out.close();
-            out = null;*/
+            out = null;
+            *//*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;*//*
         } catch (Exception e) {
             Log.e("tag", e.getMessage());
         }
@@ -248,15 +290,15 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         txtPolicy62 = findViewById(R.id.txtPolicy62);
         txtPolicy62.setText(Html.fromHtml(getString(R.string.signupt2)));
-       /* txtPolicy63 = findViewById(R.id.txtPolicy63);
-        txtPolicy63.setText(Html.fromHtml(getString(R.string.signupt3)));*/
+       *//* txtPolicy63 = findViewById(R.id.txtPolicy63);
+        txtPolicy63.setText(Html.fromHtml(getString(R.string.signupt3)));*//*
 
-      /*  txtOnly=findViewById(R.id.txtOnly);
+     *//*  txtOnly=findViewById(R.id.txtOnly);
         txtOnly.setText(Html.fromHtml(getString(R.string.signupt4)));
 
         txtname=findViewById(R.id.txtname);
         txtname.setText(Html.fromHtml(getString(R.string.signupt5)));
-*/
+*//*
         tilName = findViewById(R.id.tilName);
         txtAddress = findViewById(R.id.txtAddress);
         txtName = findViewById(R.id.txtName);
@@ -282,8 +324,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         txtPolicy5.setText(Html.fromHtml(texts + texts2));
         String data = txtPolicy5.getText().toString();
 
-       /* txtPolicy5.setMovementMethod(LinkMovementMethod.getInstance());
-        txtPolicy5.setText(addClickablePart(data), TextView.BufferType.SPANNABLE);*/
+       *//* txtPolicy5.setMovementMethod(LinkMovementMethod.getInstance());
+        txtPolicy5.setText(addClickablePart(data), TextView.BufferType.SPANNABLE);*//*
 
         spinner = findViewById(R.id.spinner);
         ArrayAdapter adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, countryList);
@@ -334,9 +376,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         int idx1 = 0;
         int idx2 = 14;
-       /* while (idx1 != -1) {
+       *//* while (idx1 != -1) {
             idx2 = str.indexOf("]", idx1) + 1;
-*/
+*//*
         final String clickString = str.substring(idx1, idx2);
         ssb.setSpan(new ClickableSpan() {
 
@@ -363,14 +405,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                     accessPermission();
                 }
 
-                   /* Boolean flags = PersonalInfoQuery.searchEmailAvailability(email);
+                   *//* Boolean flags = PersonalInfoQuery.searchEmailAvailability(email);
                     if (flags == true) {
                         Toast.makeText(context, "This email is already registered", Toast.LENGTH_SHORT).show();
                     } else {
                         Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                         ByteArrayOutputStream baos = new ByteArrayOutputStream();
                         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-                        byte[] photo = baos.toByteArray();*//**//*
+                        byte[] photo = baos.toByteArray();*//**//**//**//*
                       Log.v("Path",imagepath);
                         Boolean flag = PersonalInfoQuery.insertPersonalInfoData(name, email, address, country, mobile, bdate, password, imagepath,"","","");
                         if (flag == true) {
@@ -393,7 +435,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                             finish();
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                        }*/
+                        }*//*
 
                 // }
 
@@ -407,11 +449,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
             case R.id.txtForgotPassword:
                 // if (validate()) {
-                    /*CreateUserAsynk asynkTask = new CreateUserAsynk(name, email, password);
-                    asynkTask.execute();*/
-/*
+                    *//*CreateUserAsynk asynkTask = new CreateUserAsynk(name, email, password);
+                    asynkTask.execute();*//*
+     *//*
                     UpdateUserAsynk asynkTask = new UpdateUserAsynk(name, email, password);
-                    asynkTask.execute();*/
+                    asynkTask.execute();*//*
 
 
                 //GetUserAsynk asynkTask = new GetUserAsynk();
@@ -506,18 +548,18 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 break;
 
 
-           /* case R.id.imgGoogleSignup:
+           *//* case R.id.imgGoogleSignup:
 
-                break;*/
+                break;*//*
         }
     }
 
 
     private void saveToConnection(int id) {
-       /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
+       *//* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 50, baos);
-        byte[] photo = baos.toByteArray();*/
+        byte[] photo = baos.toByteArray();*//*
         Boolean flag = MyConnectionsQuery.insertMyConnectionsData(id, name, email, address, mobile, " ", "", "Self", imagepath, " ", 1, 2, "", "");
         if (flag == true) {
             Toast.makeText(context, "You have added connection Successfully", Toast.LENGTH_SHORT).show();
@@ -540,9 +582,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-               /* Uri photoURI = FileProvider.getUriForFile(this,
+               *//* Uri photoURI = FileProvider.getUriForFile(this,
                         "com.infidigi.fotobuddies.fileprovider",
-                        photoFile);*/
+                        photoFile);*//*
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoFile.getAbsolutePath());
                 startActivityForResult(takePictureIntent, RESULT_CAMERA_IMAGE);
             }
@@ -554,9 +596,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String imageFileName = "JPEG_PROFILE";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                imageFileName,  *//* prefix *//*
+                ".jpg",         *//* suffix *//*
+                storageDir      *//* directory *//*
         );
 
         // Save a file: path for use with ACTION_VIEW intents
@@ -583,7 +625,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             txtEmail.setError("Please enter valid email");
             DialogManager.showAlert("Please enter valid email", context);
         }
-      /*  else if (address.equals("")) {
+      *//*  else if (address.equals("")) {
             txtAddress.setError("Please Enter Address");
             showAlert("Please Enter Address", context);
         }
@@ -599,13 +641,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         } else if (bdate.equals("")) {
             txtBdate.setError("Please Enter Birth date");
             showAlert("Please Enter Birth date", context);
-        }*/ /*else if (password.equals("")) {
+        }*//* *//*else if (password.equals("")) {
             txtPassword.setError("Please Enter Password");
             showAlert("Please Enter Password", context);
         } else if (password.length() < 6) {
             txtPassword.setError("Password should be minimum 6 characters");
             showAlert("Password should be minimum 6 characters", context);
-        } */
+        } *//*
         else {
             return true;
         }
@@ -638,7 +680,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 e.printStackTrace();
             }
             // ImageView profileImage = (ImageView) findViewById(R.id.imgProfile);
-           /* Bundle extras = data.getExtras();
+           *//* Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
             imgProfile.setImageBitmap(imageBitmap);
 
@@ -669,7 +711,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             } finally {
 
             }
-*/
+*//*
         }
 
     }
@@ -729,12 +771,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 PersonalInfoQuery pi = new PersonalInfoQuery(context, dbHelper);
                 Boolean flagPersonalinfo = PersonalInfoQuery.insertPersonalInfoData(name, email, "", "", "", "", "", "", "", "", "");
                 if (flag == true) {
-                   /* File file = new File(Environment.getExternalStorageDirectory(),
+                   *//* File file = new File(Environment.getExternalStorageDirectory(),
                             "/MYLO/");
                     String path = file.getAbsolutePath();
                     if (!file.exists()) {
                         file.mkdirs();
-                    }*/
+                    }*//*
                     RelativeConnection connection = MyConnectionsQuery.fetchOneRecord("Self");
                     String mail = connection.getEmail();
                     mail = mail.replace(".", "_");
@@ -926,6 +968,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             super.onPostExecute(result);
         }
 
-    }
+    }*/
 
 }

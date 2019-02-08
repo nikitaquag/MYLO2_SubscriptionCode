@@ -16,6 +16,7 @@ import com.mindyourlovedone.healthcare.DashBoard.InsuranceActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InsuranceInfoActivity;
 import com.mindyourlovedone.healthcare.DashBoard.LivingActivity;
 import com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity;
+import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
@@ -61,12 +62,12 @@ public class SpecialistContactAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = lf.inflate(R.layout.row_specialistsnew, parent, false);
         }
-        RelativeLayout rlmain3 = convertView.findViewById(R.id.rlMain);
+       /* RelativeLayout rlmain3 = convertView.findViewById(R.id.rlMain);
         if (position % 2 == 0) {
             rlmain3.setBackgroundColor(context.getResources().getColor(R.color.colorTwoBar));
         } else {
             rlmain3.setBackgroundColor(context.getResources().getColor(R.color.colorOneBar));
-        }
+        }*/
         /*switch(from)
         {
 
@@ -126,63 +127,84 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Insurance";
                         break;
 
-                    case "PHARMACIES AND HOME\nMEDICAL EQUIPMENT":
+                    case "Pharmacies & Home\nMedical Equipment":
                         fragment = "Pharmacies";
                         break;
 
-                    case "HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES":
+                    case "Hospitals, Rehabilitation Centers, & Home Health Care Agencies":
                         fragment = "Hospitals";
                         break;
 
-                    case "ACTIVITIES OF DAILY LIVING":
+                    case "Activities of Daily Living":
                         fragment = "Functional";
                         break;
 
-                    case "DOCTORS AND OTHER HEALTH CARE PROFESSIONALS":
+                    case "Doctors And Other Health Care Professionals":
                         fragment = "Doctors";
                         break;
+
                     case "HOME HEALTH SERVICES":
                         fragment = "Home Health Services";
                         break;
-                    case "FINANCE, LEGAL, OTHER":
+
+                    case "Finance, Legal, Other":
                         fragment = "Finance,Insurance and Legal";
                         break;
 
-                    case "PERSONAL PROFILE":
+                    case "Personal Profile":
                         fragment = "Individual";
                         break;
-                    case "MEDICAL PROFILE":
+
+                    case "Medical Profile":
                         fragment = "Information";
                         break;
-                    case "EMERGENCY CONTACTS AND HEALTH CARE PROXY AGENT":
+
+                    case "Emergency Contacts & Health Care Proxy Agent":
                         fragment = "Emergency";
                         break;
-                    case "PRIMARY PHYSICIAN":
+
+                    case "Primary Physician":
                         fragment = "Physician";
                         break;
+
                     case "HEALTH CARE PROXY AGENT":
                         fragment = "Proxy";
                         break;
 
-                    case "INSURANCE INFORMATION":
+                    case "Insurance Information":
                         fragment = "Insurance Info";
                         break;
-                    case "INSURANCE FORMS":
+
+                    case "Insurance Forms":
                         fragment = "Insurance Form";
                         break;
 
-                    case "INSURANCE CARDS":
+                    case "Insurance Cards":
                         fragment = "INSURANCE CARD";
                         break;
 
-                    case "EVENT NOTES":
+                    case "Event Notes":
                         fragment = "Event Notes";
                         break;
 
-                    case "APPOINTMENT CHECKLIST":
+                    case "Appointment Checklist":
                         fragment = "Appointment Tracker";
                         break;
+
+                    case "Prescription Information":
+                        fragment = "Prescription Information";
+                        break;
+
+                    case "Prescription Upload":
+                        fragment = "Prescription Upload";
+                        break;
+
                 }
+               /* if (fragment.equals("Prescription Information") || fragment.equals("Prescription Upload")) {
+                    Intent i = new Intent(context, PrescriptionActivity.class);
+                    i.putExtra("FRAGMENT", fragment);
+                    context.startActivity(i);
+                }*/
                 if (isEmergency == false && isInsurance == false) {
                     if (fragment.equals("Event Notes") || fragment.equals("Appointment Tracker") || fragment.equals("Functional")) {
                         if (fragment.equals("Event Notes")) {
@@ -198,7 +220,6 @@ public class SpecialistContactAdapter extends BaseAdapter {
                             i.putExtra("FRAGMENT", fragment);
                             context.startActivity(i);
                         }
-
                     } else {
                         Intent i = new Intent(context, InsuranceActivity.class);
                         i.putExtra("FRAGMENT", fragment);

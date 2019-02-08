@@ -30,6 +30,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -62,14 +63,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     ImageView imgBack, imgRight;
     TextView txtTitle, txtAdd;
     String From;
-    RelativeLayout llAddDoc;
+    RelativeLayout llAddDoc, header;
     Preferences preferences;
     RelativeLayout rlGuide;
-    ImageView imgPicture, imgPicture2;
+    ImageView imgPicture, imgPicture2,imgHome;
     TextView txtHeader, txtHeader2, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatOptions,floatAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +111,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         imgRight.setOnClickListener(this);
         llAddDoc.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
     }
 
     /*  lvNote.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
@@ -117,8 +120,12 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
       SwipeMenuCreator creator = s.createSingleMenu(context);
       lvNote.setMenuCreator(creator);*/
     private void initUI() {
+
+        header = findViewById(R.id.header);
         //nikita
         floatProfile = findViewById(R.id.floatProfile);
+        floatAdd = findViewById(R.id.floatAdd);
+        imgHome = findViewById(R.id.imgHome);
 
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
@@ -177,19 +184,33 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         rlGuide = findViewById(R.id.rlGuide);
 
         llAddDoc = findViewById(R.id.llAddDoc);
+        llAddDoc = findViewById(R.id.llAddDoc);
         txtTitle = findViewById(R.id.txtTitle);
         txtAdd = findViewById(R.id.txtAdd);
-        txtTitle.setAllCaps(true);
+        txtTitle.setAllCaps(false);
         From = preferences.getString(PrefConstants.FROM);
         switch (From) {
             case "AD":
+                imgPicture.setImageResource(R.drawable.dir_one);
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Advance Directives");
+                txtAdd.setText("Add Advance Directives");
+                txtFTU.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        imgPicture.setImageResource(R.drawable.dir_one);
+                        Intent intentEmerInstruc = new Intent(context, InstructionActivity.class);
+                        intentEmerInstruc.putExtra("From", "AdvanceInstruction");
+                        startActivity(intentEmerInstruc);
+                    }
+                });
+             /*   txtTitle.setText("Advance Directives");
                 txtAdd.setText("Add Advance Directives");
                 txtHeader.setText("Add Adv. Directive Docs");
                 txtHeader2.setText("Add Adv. Directive Docs");
 
-                imgPicture.setImageResource(R.drawable.v_doc);
-                imgPicture2.setImageResource(R.drawable.v_doc);
+                imgPicture.setImageResource(R.drawable.dir_one);
+                imgPicture2.setImageResource(R.drawable.dir_one);
 
                 //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
@@ -199,10 +220,24 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
                 txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
-
+              */
                 break;
             case "Record":
+                imgPicture.setImageResource(R.drawable.dir_three);
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Medical Records");
+                txtAdd.setText("Add Medical Records");
+                txtFTU.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        imgPicture.setImageResource(R.drawable.dir_three);
+                        Intent intentEmerInstruc = new Intent(context, InstructionActivity.class);
+                        intentEmerInstruc.putExtra("From", "MedicalInfoInstruction");
+                        startActivity(intentEmerInstruc);
+                    }
+                });
+
+              /*  txtTitle.setText("Medical Records");
                 txtAdd.setText("Add Medical Records");
                 txtHeader.setText("Add Medical Records");
                 txtHeader2.setText("Add Medical Records");
@@ -218,10 +253,23 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
                 txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
-
+*/
                 break;
             case "Other":
+                imgPicture.setImageResource(R.drawable.dir_two);
+                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Other Documents");
+                txtAdd.setText("Add Other Documents");
+                txtFTU.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        imgPicture.setImageResource(R.drawable.dir_two);
+                        Intent intentEmerInstruc = new Intent(context, InstructionActivity.class);
+                        intentEmerInstruc.putExtra("From", "OtherInstruction");
+                        startActivity(intentEmerInstruc);
+                    }
+                });
+              /*  txtTitle.setText("Other Documents");
                 txtAdd.setText("Add Other Documents");
                 txtHeader.setText("Add Other Documents");
                 txtHeader2.setText("Add Other Documents");
@@ -237,7 +285,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
                 txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
-
+*/
                 break;
             case "Legal":
                 txtTitle.setText("Legal and Financial Documents");
@@ -290,6 +338,18 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
+            case R.id.floatAdd:
+                Intent i = new Intent(context, AddDocumentActivity.class);
+                i.putExtra("GoTo", "Add");
+                startActivity(i);
+                break;
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
@@ -302,11 +362,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 finish();
                 break;
 
-            case R.id.llAddDoc:
+           /* case R.id.llAddDoc:
                 Intent i = new Intent(context, AddDocumentActivity.class);
                 i.putExtra("GoTo", "Add");
                 startActivity(i);
-                break;
+                break;*/
 
             case R.id.imgRight:
                 switch (From) {

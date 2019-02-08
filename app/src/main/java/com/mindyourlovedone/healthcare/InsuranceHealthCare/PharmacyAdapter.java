@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -127,7 +128,7 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
+        holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -162,6 +163,7 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
+        holder.imgProfile.setImageResource(R.drawable.yellow);
 
         if (!pharmacyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhotoCard());
@@ -183,17 +185,28 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
             }
         });
 
-        holder.txtName.setOnClickListener(new View.OnClickListener() {
+        holder.rlPharmacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
                 preferences.putString(PrefConstants.SOURCE, "PharmacyData");
                 Pharmacy insurance = pharmacyList.get(position);
-               /* i.putExtra("Name", insurance.getName());
+
+                i.putExtra("PharmacyObject", insurance);
+                context.startActivity(i);
+            }
+        });
+       /* holder.txtName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "PharmacyData");
+                Pharmacy insurance = pharmacyList.get(position);
+               *//* i.putExtra("Name", insurance.getName());
                 i.putExtra("Type", insurance.getType());
                 i.putExtra("Address", insurance.getAddress());
                 i.putExtra("Phone", insurance.getOfficePhone());
-                i.putExtra("Photo", insurance.getImage());*/
+                i.putExtra("Photo", insurance.getImage());*//*
                 i.putExtra("PharmacyObject", insurance);
                 context.startActivity(i);
             }
@@ -207,7 +220,7 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
                 i.putExtra("PharmacyObject", insurance);
                 context.startActivity(i);
             }
-        });
+        });*/
 
     }
 
@@ -223,6 +236,7 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
         ImageView imgNext;
         SwipeLayout swipeLayout;
         LinearLayout lincall, lintrash;
+        RelativeLayout rlPharmacy;
         // SwipeRevealLayout swipeLayout;
 
         public ViewHolder(View convertView) {
@@ -238,6 +252,7 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
             imgProfile = convertView.findViewById(R.id.imgProfile);
             imgEdit = convertView.findViewById(R.id.imgEdit);
             imgNext = convertView.findViewById(R.id.imgNext);
+            rlPharmacy = convertView.findViewById(R.id.rlPharmacy);
         }
     }
 }

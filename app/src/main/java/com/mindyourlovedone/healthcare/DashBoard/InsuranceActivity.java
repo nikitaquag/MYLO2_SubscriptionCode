@@ -3,6 +3,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +13,14 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentAids;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentFinance;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentHospital;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentInsurance;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPharmacy;
+import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPrescriptionInfo;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentSpecialist;
 
 public class InsuranceActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,11 +32,14 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
     FragmentPharmacy fragmentPharmacy = null;
     FragmentFinance fragmentFinance = null;
     FragmentHospital fragmentHospital = null;
+    FragmentPrescriptionInfo fragmentPrescriptionInfo = null;
+    FragmentPrescriptionUpload fragmentPrescriptionUpload = null;
     RelativeLayout rlGuide;
     TextView txtTitle;
     Spinner spinner;
+    Context context = this;
 
-    ImageView imgBack;
+    ImageView imgBack, imgHome;
     RelativeLayout header;
 
     //  String[] specialist = { "Insurance", "DOCTORS", "HOME HEALTH SERVICES", "FINANCE, INSURANCE & LEGAL" };
@@ -64,26 +70,44 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("INSURANCE", fragmentInsurance);
                     break;
                 case "Doctors":
-                    txtTitle.setText("DOCTORS & OTHER HEALTH CARE PROFESSIONALS");
+                    header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                    txtTitle.setText("Doctors & Other Health\nCare Professionals");
                     callFragment("SPECIALIST", fragmentSpecialist);
                     break;
 
                 case "Hospitals":
-                    txtTitle.setText("ADD HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES");
+                    header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                    txtTitle.setText("Hospitals, Rehab, Home Care");
                     callFragment("HOSPITAL", fragmentHospital);
                     break;
                 case "Pharmacies":
-                    txtTitle.setText("PHARMACIES & HOME\nMEDICAL EQUIPMENT");
+                    header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                    txtTitle.setText("Pharmacies & Home\nMedical Equipment");
                     callFragment("PHARMACY", fragmentPharmacy);
                     break;
                 case "Home Health Services":
+                    header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                     txtTitle.setText("HOME HEALTH SERVICES");
                     callFragment("AIDS", fragmentAids);
                     break;
                 case "Finance,Insurance and Legal":
-                    txtTitle.setText("FINANCE, LEGAL, OTHER");
+                    header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                    txtTitle.setText("Finance, Legal, Other");
                     callFragment("FINANCE", fragmentFinance);
                     break;
+
+                case "Prescription Information":
+                    header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+                    txtTitle.setText("Prescription Information");
+                    callFragment("Prescription Information", fragmentPrescriptionInfo);
+                    break;
+
+                case "Prescription Upload":
+                    header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+                    txtTitle.setText("Prescription Upload");
+                    callFragment("Prescription Upload", fragmentPrescriptionUpload);
+                    break;
+
             }
         }
     }
@@ -102,10 +126,12 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
         fragmentFinance = new FragmentFinance();
         fragmentPharmacy = new FragmentPharmacy();
         fragmentHospital = new FragmentHospital();
+        fragmentPrescriptionInfo = new FragmentPrescriptionInfo();
+        fragmentPrescriptionUpload = new FragmentPrescriptionUpload();
     }
 
     private void initListener() {
-
+        imgHome.setOnClickListener(this);
         imgBack.setOnClickListener(this);
     }
 
@@ -113,6 +139,7 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorThree);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
         txtTitle = findViewById(R.id.txtTitle);
         // spinner=(Spinner) findViewById(R.id.spinner);
 
@@ -161,6 +188,14 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.imgBack:
                 finish();
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
                 break;
         }
     }

@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.EventNoteActivity">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llAddConn"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:src="@drawable/ic_add"
+        android:tint="@android:color/white"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorRegisteredGreen"
+        app:fabSize="normal" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/llAddConn"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="@dimen/dimension20dp"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:src="@drawable/ic_more"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorRegisteredGreen"
+        app:fabSize="normal" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatProfile"
@@ -12,11 +41,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dimension20dp"
         android:layout_marginRight="@dimen/dimension20dp"
-        app:backgroundTint="@color/colorFloatRed"
+        android:layout_marginBottom="@dimen/dimension20dp"
         android:src="@drawable/ic_box"
         android:tint="@color/colorWhite"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorFloatRed"
         app:fabSize="normal"
         tools:targetApi="lollipop" />
 
@@ -50,7 +80,7 @@
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
-                android:text="EVENT NOTES"
+                android:text="Event Notes"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -103,10 +133,10 @@
 
         <RelativeLayout
             android:id="@+id/rlGuide"
-            android:gravity="center"
-            android:layout_centerInParent="true"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:padding="@dimen/dimension20dp">
 
             <ImageView
@@ -114,7 +144,7 @@
                 android:layout_width="@dimen/dimension90dp"
                 android:layout_height="@dimen/dimension90dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/v_note"
+                android:src="@drawable/eve"
 
                 />
 
@@ -123,10 +153,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imgPicture"
-                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
                 android:layout_marginTop="@dimen/dimension10dp"
-                android:text="Add an Event Note"
-                android:textColor="@color/colorBlackDark"
+                android:gravity="center_horizontal"
+                android:text="@string/FTUEmergency"
+                android:textColor="@color/colorFTUGray"
                 android:textSize="@dimen/dimension24dp"
                 android:textStyle="bold" />
 
@@ -139,10 +170,17 @@
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
+                android:background="@drawable/border_emer_instruc"
                 android:gravity="center_horizontal"
-                android:text="@string/ftu"
-                android:textColor="@color/colorBlue"
-                android:textSize="@dimen/dimension18dp" />
+                android:paddingLeft="@dimen/dimension35dp"
+                android:paddingTop="@dimen/dimension10dp"
+                android:paddingRight="@dimen/dimension35dp"
+                android:paddingBottom="@dimen/dimension10dp"
+                android:text="@string/FTUEmergencyInstruc"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="visible" />
 
             <TextView
                 android:id="@+id/txtMsg"

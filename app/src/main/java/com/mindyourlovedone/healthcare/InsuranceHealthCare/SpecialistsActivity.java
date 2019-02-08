@@ -3,6 +3,7 @@ package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,6 +12,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -28,6 +33,11 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
+import com.mindyourlovedone.healthcare.Fragment.Fragment_Conn_New;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.AideQuery;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
@@ -84,7 +94,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 
 
-public class SpecialistsActivity extends AppCompatActivity {
+public class SpecialistsActivity extends AppCompatActivity implements View.OnClickListener {
     final static String TARGET_BASE_PATH = "/sdcard/MYLO/images/";
     // final CharSequence[] dialog_items = {"Print", "Fax", "View" };
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
@@ -92,7 +102,7 @@ public class SpecialistsActivity extends AppCompatActivity {
     String[] specialist;
     int[] profile;
     ListView listSpeciallist;
-    ImageView imgBack, imgRight;
+    ImageView imgBack, imgRight, imgHome;
     TextView txtTitle, txtUser;
     String from;
     boolean isEmergency, isInsurance;
@@ -100,6 +110,8 @@ public class SpecialistsActivity extends AppCompatActivity {
     TextView txtName;
     Preferences preferences;
     DBHelper dbHelper;
+    FloatingActionButton floatOptions, floatAdd;
+    public static final int REQUEST_PRES = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +125,7 @@ public class SpecialistsActivity extends AppCompatActivity {
     private void initComponent() {
         databases();
         Intent i = getIntent();
+        floatAdd = findViewById(R.id.floatAdd);
         txtTitle = findViewById(R.id.txtTitle);
         txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
@@ -122,46 +135,66 @@ public class SpecialistsActivity extends AppCompatActivity {
         if (i.getExtras() != null) {
             from = i.getExtras().getString("FROM");
             if (from.equals("Speciality")) {
+                floatAdd.setVisibility(View.GONE);
                 txtTitle.setText("SPECIALITY CONTACTS");
+                txtName.setBackgroundColor(getResources().getColor(R.color.colorSpecialitySub));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
-                header.setBackgroundResource(R.color.colorThree);
-                profile = new int[]{R.drawable.physician, R.drawable.hosp_icon, R.drawable.pharmacies, R.drawable.finances};
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
+                profile = new int[]{R.drawable.sp_one, R.drawable.sp_two, R.drawable.sp_three, R.drawable.sp_four};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"DOCTORS AND OTHER HEALTH CARE PROFESSIONALS", "HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES", "PHARMACIES AND HOME\nMEDICAL EQUIPMENT", "FINANCE, LEGAL, OTHER"};
+                specialist = new String[]{"Doctors And Other Health Care Professionals", "Hospitals, Rehabilitation Centers, & Home Health Care Agencies", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
 
                 isEmergency = false;
                 isInsurance = false;
             } else if (from.equals("Emergency")) {
+                floatAdd.setVisibility(View.GONE);
                 // imgRight.setVisibility(View.GONE);
-                txtUser.setVisibility(View.VISIBLE);
-                txtTitle.setText("PERSONAL & MEDICAL PROFILE & EMERGENCY CONTACTS");
-                header.setBackgroundResource(R.color.colorOne);
+                txtName.setBackgroundColor(getResources().getColor(R.color.colorEmerSubGreen));
+                txtUser.setVisibility(View.GONE);
+                txtTitle.setText("Personal & Medical Profile & Emergency Contacts");
+                header.setBackgroundResource(R.color.colorEmerMainGreen);
                 isEmergency = true;
                 isInsurance = false;
-                profile = new int[]{R.drawable.contacts, R.drawable.medicalinfos, R.drawable.emer_contacts, R.drawable.physician};
-                specialist = new String[]{"PERSONAL PROFILE", "MEDICAL PROFILE", "EMERGENCY CONTACTS AND HEALTH CARE PROXY AGENT", "PRIMARY PHYSICIAN"};
+                profile = new int[]{R.drawable.emergency_one, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
+                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agent", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
                 specialist= new String[] { "PERSONAL PROFILE", "MEDICAL PROFILE", "EMERGENCY CONTACTS AND \nHEALTH CARE PROXY AGENT", "PRIMARY PHYSICIAN", "HEALTH CARE PROXY AGENT" };
 */
             } else if (from.equals("Insurance")) {
+                floatAdd.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 txtUser.setVisibility(View.GONE);
-                txtTitle.setText("INSURANCE");
+                txtTitle.setText("Insurance Information");
+                txtName.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSub));
                 header.setBackgroundResource(R.color.colorFive);
-                profile = new int[]{R.drawable.finances, R.drawable.cardd, R.drawable.finances};
-                specialist = new String[]{"INSURANCE INFORMATION", "INSURANCE CARDS", "INSURANCE FORMS"};
+                profile = new int[]{R.drawable.insu_one, R.drawable.insu_two, R.drawable.insu_three};
+                specialist = new String[]{"Insurance Information", "Insurance Cards", "Insurance Forms"};
                 isEmergency = false;
                 isInsurance = true;
             } else if (from.equals("Event")) {
+                floatAdd.setVisibility(View.GONE);
+                txtName.setBackgroundColor(getResources().getColor(R.color.colorEventSubPink));
+                txtUser.setVisibility(View.GONE);
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
-                txtTitle.setText("NOTES & APPOINTMENT CHECKLIST");
-                header.setBackgroundResource(R.color.colorFour);
-                profile = new int[]{R.drawable.finances, R.drawable.insurancess, R.drawable.medicalinfos};
-                specialist = new String[]{"EVENT NOTES", "APPOINTMENT CHECKLIST", "ACTIVITIES OF DAILY LIVING"};
+                txtTitle.setText("Notes & Appointment Checklist");
+                header.setBackgroundResource(R.color.colorEventPink);
+                profile = new int[]{R.drawable.eve, R.drawable.eve_one, R.drawable.eve_three, R.drawable.eve_four};
+                specialist = new String[]{"Event Notes", "Appointment Checklist", "Activities of Daily Living", "Vital Signs"};
+                isEmergency = false;
+                isInsurance = false;
+            } else if (from.equals("Prescription")) {
+                floatAdd.setVisibility(View.VISIBLE);
+                txtName.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+                txtUser.setVisibility(View.GONE);
+                //  imgRight.setVisibility(View.VISIBLE);
+                txtTitle.setText("Prescription Tracker");
+                header.setBackgroundResource(R.color.colorPrescriptionSub);
+                profile = new int[]{R.drawable.pres_one, R.drawable.pres_two};
+                specialist = new String[]{"Prescription Information", "Prescription Upload"};
                 isEmergency = false;
                 isInsurance = false;
             }
@@ -196,6 +229,9 @@ public class SpecialistsActivity extends AppCompatActivity {
     }
 
     private void initListener() {
+        imgHome.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
 
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -490,7 +526,7 @@ public class SpecialistsActivity extends AppCompatActivity {
                                     System.out.println("\n" + result + "\n");
                  /* new PDFDocumentProcess(Environment.getExternalStorageDirectory()
                             + "/mylopdf/" 
-                            + "/Profile.pdf", getActivity(),
+                            + "/Profile.pdf", context,
                             new MessageString().getProfileProfile(connection));*/
                                     //  }
                                 } else if (from.equals("Insurance")) {
@@ -687,7 +723,9 @@ public class SpecialistsActivity extends AppCompatActivity {
     }
 
     private void initUi() {
-        //header= (RelativeLayout) findViewById(R.id.header);
+        imgHome = findViewById(R.id.imgHome);
+        floatOptions = findViewById(R.id.floatOptions);
+        floatAdd = findViewById(R.id.floatAdd);
         imgBack = findViewById(R.id.imgBack);
         imgRight = findViewById(R.id.imgRight);
         txtName = findViewById(R.id.txtName);
@@ -734,5 +772,100 @@ public class SpecialistsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.floatOptions:
+                showFloatDialog();
+                break;
+
+            case R.id.floatAdd:
+                Intent i = new Intent(context, AddPrescriptionActivity.class);
+                i.putExtra("IsEdit", false);
+                startActivityForResult(i, REQUEST_PRES);
+             /*   Intent intentPrescription = new Intent(context, PrescriptionActivity.class);
+                startActivity(intentPrescription);*/
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseNewActivity.class);
+                intentHome.putExtra("Home", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+             break;
+        }
+    }
+
+    private void callFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragmentContainer, fragment);
+        ft.commit();
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_PRES && data != null) {
+        }
+    }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+
     }
 }

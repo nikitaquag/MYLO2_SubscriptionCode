@@ -179,6 +179,10 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorThree);
                 break;
 
+            case "PrescriptionInfo":
+                header.setBackgroundResource(R.color.colorPrescriptionGray);
+                break;
+
             case "HospitalData":
                 header.setBackgroundResource(R.color.colorThree);
                 break;

@@ -10,10 +10,11 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:tag="Bottom3"
-        android:weightSum="2">
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/lincall"
+            android:visibility="gone"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -50,6 +51,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/rlFinance"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -84,7 +86,6 @@
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/ic_edit_blue"
                     android:ellipsize="end"
                     android:gravity="start|center_vertical"
                     android:paddingLeft="@dimen/dimension10dp"
@@ -178,7 +179,7 @@
                 android:layout_marginRight="@dimen/dimension5dp"
                 android:focusableInTouchMode="false"
                 android:padding="@dimen/dimension10dp"
-                android:src="@drawable/forword_arrow" />
+                android:src="@drawable/call_emer" />
 
 
             <!-- <View

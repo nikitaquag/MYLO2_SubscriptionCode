@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -121,7 +122,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
+        holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -176,13 +177,14 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhoto());
         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-        if (imgFile.exists() ) {
+        if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
                 holder.imgProfile.setImageResource(R.drawable.yellow);
             else
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
+        holder.imgProfile.setImageResource(R.drawable.yellow);
 
         if (!FinanceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());
@@ -204,8 +206,17 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
             }
         });
 
-
-        holder.txtName.setOnClickListener(new View.OnClickListener() {
+        holder.rlFinance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "FinanceData");
+                Finance finance = FinanceList.get(position);
+                i.putExtra("FinanceObject", finance);
+                context.startActivity(i);
+            }
+        });
+      /*  holder.txtName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
@@ -226,7 +237,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
                 i.putExtra("FinanceObject", finance);
                 context.startActivity(i);
             }
-        });
+        });*/
     }
 
     @Override
@@ -244,6 +255,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         ImageView imgProfile, imgForward, imgEdit;
         ImageView imgNext;
         SwipeLayout swipeLayout;
+        RelativeLayout rlFinance;
         LinearLayout lincall, lintrash;
         // SwipeRevealLayout swipeLayout;
 
@@ -261,6 +273,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
             imgForward = convertView.findViewById(R.id.imgForword);
             imgEdit = convertView.findViewById(R.id.imgEdit);
             imgNext = convertView.findViewById(R.id.imgNext);
+            rlFinance = convertView.findViewById(R.id.rlFinance);
         }
     }
 }

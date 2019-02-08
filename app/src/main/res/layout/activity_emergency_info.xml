@@ -10,8 +10,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorOne">
 
@@ -23,6 +23,16 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:src="@drawable/backward_arrow" />
 
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
+
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
@@ -32,12 +42,13 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center"
             android:text="Emergency Info"
-            android:textAllCaps="true"
+            android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp"
 
 
             />
+
         <TextView
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
@@ -46,15 +57,14 @@
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginRight="@dimen/dimension5dp"
             android:layout_toLeftOf="@+id/imgRight"
-            android:text="Save"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:textSize="@dimen/dimension18dp"
             android:paddingLeft="@dimen/dimension3dp"
             android:paddingRight="@dimen/dimension3dp"
-            android:visibility="gone"
-            />
+            android:text="Save"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/imgDone"
@@ -68,13 +78,24 @@
             android:visibility="gone" />
 
         <ImageView
+            android:id="@+id/imgHelp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/information"
+            android:tint="@color/colorWhite" />
+
+        <ImageView
+
             android:id="@+id/imgRight"
             android:layout_width="@dimen/dimension40dp"
             android:layout_height="@dimen/dimension60dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/menudot"
-            android:visibility="visible" />
+            android:visibility="gone" />
     </RelativeLayout>
     <!-- <Spinner
          android:id="@+id/spinner"
@@ -91,6 +112,6 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/header"></RelativeLayout>
+        android:layout_below="@+id/header"
+        android:layout_alignParentBottom="true"></RelativeLayout>
 </RelativeLayout>

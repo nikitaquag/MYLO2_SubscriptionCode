@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -130,7 +131,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
+        holder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -170,7 +171,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhoto());
         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-        if (imgFile.exists() ) {
+        if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
                 holder.imgProfile.setImageResource(R.drawable.lightblue);
             else
@@ -178,6 +179,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
 
+        holder.imgProfile.setImageResource(R.drawable.lightblue);
 
         if (!insuranceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhotoCard());
@@ -205,7 +207,17 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
         });
 
 
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        holder.rlInsurance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "InsuranceData");
+                Insurance insurance = insuranceList.get(position);
+                i.putExtra("InsuranceObject", insurance);
+                context.startActivity(i);
+            }
+        });
+      /*  holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, GrabConnectionActivity.class);
@@ -224,7 +236,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
                 i.putExtra("InsuranceObject", insurance);
                 context.startActivity(i);
             }
-        });
+        });*/
 
     }
 
@@ -240,6 +252,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
         ImageView imgNext;
         SwipeLayout swipeLayout;
         LinearLayout lincall, lintrash;
+        RelativeLayout rlInsurance;
         // SwipeRevealLayout swipeLayout;
 
         public ViewHolder(View convertView) {
@@ -256,6 +269,7 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
             // holder.swipeLayout= (SwipeRevealLayout) convertView.findViewById(R.id.swipe_layout);
             imgEdit = convertView.findViewById(R.id.imgEdit);
             imgNext = convertView.findViewById(R.id.imgNext);
+            rlInsurance = convertView.findViewById(R.id.rlInsurance);
         }
     }
 }

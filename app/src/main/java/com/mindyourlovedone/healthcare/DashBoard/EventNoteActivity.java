@@ -112,15 +112,18 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(context, InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "EventNotesInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
                 rlGuide.setVisibility(View.GONE);//nikita
-                scrollvw.setVisibility(View.VISIBLE);//nikita
-                relMsg.setVisibility(View.VISIBLE);//nikita
+              //  scrollvw.setVisibility(View.VISIBLE);//nikita
+              //  relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         rlEvent = findViewById(R.id.rlEvent);
         header = findViewById(R.id.header);
-        header.setBackgroundResource(R.color.colorFour);
+        header.setBackgroundResource(R.color.colorEventPink);
         imgBack = findViewById(R.id.imgBack);
 
         txtAdd = findViewById(R.id.txtAdd);
@@ -385,7 +388,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                                 break;
                             case 2://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
-                                i.putExtra("From", "EventNotesInstuction");
+                                i.putExtra("From", "EventNotesInstruction");
                                 startActivity(i);
                                 break;
                            /* case 2://fax

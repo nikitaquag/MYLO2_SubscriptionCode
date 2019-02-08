@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -62,7 +66,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     DBHelper dbHelper;
     SpecialistAdapter specialistAdapter;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatOptions, floatAdd;
 
     @Nullable
     @Override
@@ -100,9 +104,13 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         llAddSpecialist.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
     }
 
     private void initUI() {
+        floatAdd = rootview.findViewById(R.id.floatAdd);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
         floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen" +
@@ -144,16 +152,20 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "PhysicianInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);//nikita
+              //  relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         txtTitle = getActivity().findViewById(R.id.txtTitle);
-        txtTitle.setText("PRIMARY PHYSICIAN");
+        txtTitle.setText("Primary Physician");
         rlGuide = rootview.findViewById(R.id.rlGuide);
         imgRight = getActivity().findViewById(R.id.imgRight);
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         llAddSpecialist = rootview.findViewById(R.id.llAddSpecialist);
+        llAddSpecialist.setVisibility(View.GONE);
         lvSpecialist = rootview.findViewById(R.id.lvSpecialist);
 
         // Layout Managers:
@@ -261,6 +273,12 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatAdd:
+                showFloatDialog();
+               /* preferences.putString(PrefConstants.SOURCE, "Emergency");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                startActivity(i);*/
+                break;
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -268,14 +286,14 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 intentDashboard.putExtra("c", 1);//Profile Data
                 startActivity(intentDashboard);
                 break;
-            case R.id.llAddSpecialist:
+          /*  case R.id.llAddSpecialist:
                 // hideSoftKeyboard();
                 preferences.putString(PrefConstants.SOURCE, "Physician");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
                 // DialogManager dialogManager=new DialogManager(new FragmentSpecialist());
                 // dialogManager.showCommonDialog("Add?","Do you want to add new specialist?",getActivity(),"ADD_SPECIALIST",null);
-                break;
+                break;*/
             case R.id.imgRight:
 
 
@@ -370,6 +388,65 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 builder.create().show();
                 break;
         }
+    }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        //floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        // floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.AddNew));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.AddContacts));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "Physician");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                startActivity(i);
+                dialog.dismiss();
+            }
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "Physician");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                startActivity(i);
+                dialog.dismiss();
+            }
+        });
     }
 
     public void postCommonDialog() {

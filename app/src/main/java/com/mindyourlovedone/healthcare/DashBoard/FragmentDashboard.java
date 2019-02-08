@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.Manifest;
 import android.app.Dialog;
+
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -13,6 +14,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -368,8 +370,11 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 break;
 
             case R.id.rlPrescription:
-                Intent intentPrescription = new Intent(getActivity(), PrescriptionActivity.class);
+                Intent intentPrescription = new Intent(getActivity(), SpecialistsActivity.class);
+                intentPrescription.putExtra("FROM", "Prescription");
                 startActivity(intentPrescription);
+               /* Intent intentPrescription = new Intent(getActivity(), PrescriptionActivity.class);
+                startActivity(intentPrescription);*/
                 break;
 
             case R.id.rlCarePlan:

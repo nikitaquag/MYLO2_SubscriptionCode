@@ -125,7 +125,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        viewHolder.lincall.setOnClickListener(new View.OnClickListener() {
+        viewHolder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -195,13 +195,15 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());
         viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-        if (imgFile.exists() ) {
+        if (imgFile.exists()) {
             if (viewHolder.imgProfile.getDrawable() == null)
                 viewHolder.imgProfile.setImageResource(R.drawable.green);
-             else
-            viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-           // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+            else
+                viewHolder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
+
+        viewHolder.imgProfile.setImageResource(R.drawable.green); //new change for default image display
 
         if (!emergencyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhotoCard());
@@ -211,7 +213,6 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
                 //imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
             } else {
                 viewHolder.imgForword.setImageResource(R.drawable.busi_card);
-
             }
 
             viewHolder.imgForword.setVisibility(View.VISIBLE);
@@ -228,7 +229,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
                 context.startActivity(i);
             }
         });
-        viewHolder.txtName.setOnClickListener(new View.OnClickListener() {
+        viewHolder.rlEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "EmergencyUpdate");
@@ -238,7 +239,17 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             }
         });
 
-        viewHolder.imgNext.setOnClickListener(new View.OnClickListener() {
+       /* viewHolder.txtName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE, "EmergencyUpdate");
+                Intent i = new Intent(context, GrabConnectionActivity.class);
+                i.putExtra("EmergencyObject", emergencyList.get(position));
+                context.startActivity(i);
+            }
+        });*/
+
+       /* viewHolder.imgNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "EmergencyView");
@@ -247,7 +258,8 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
                 i.putExtra("EmergencyObject", emergencyList.get(position));
                 context.startActivity(i);
             }
-        });
+        });*/
+
 
         viewHolder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -273,7 +285,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView txtName, txtAddress, txtPhone, txtType, txtTelePhone, txtOfficePhone, txtState;
         ImageView imgProfile, imgEdit, imgForword, imgNext;
-        RelativeLayout rlMain;
+        RelativeLayout rlMain, rlEmergency;
         SwipeLayout swipeLayout;
         LinearLayout lincall, lintrash;
         // SwipeRevealLayout swipeLayout;
@@ -294,6 +306,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             imgForword = convertView.findViewById(R.id.imgForword);
             rlMain = convertView.findViewById(R.id.rlMain);
             imgNext = convertView.findViewById(R.id.imgNext);
+            rlEmergency = convertView.findViewById(R.id.rlEmergency);
         }
     }
 

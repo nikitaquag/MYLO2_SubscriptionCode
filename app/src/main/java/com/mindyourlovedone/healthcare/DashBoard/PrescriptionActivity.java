@@ -30,6 +30,7 @@ import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
+import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPrescriptionInfo;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.DBHelper;
@@ -67,6 +68,7 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
     TextView txtName, txtMsg, txtFTU;
     ScrollView scroll;
     FloatingActionButton floatProfile;
+    FragmentPrescriptionInfo fragmentPrescriptionInfo = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

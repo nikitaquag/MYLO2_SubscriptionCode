@@ -62,7 +62,7 @@ public class FragementForm extends Fragment implements View.OnClickListener {
     Preferences preferences;
     DBHelper dbHelper;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable
     @Override
@@ -99,10 +99,16 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         llAddDoc.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
+
     }
 
     private void initUI() {
         floatProfile = rootview.findViewById(R.id.floatProfile);
+        floatAdd = rootview.findViewById(R.id.floatAdd);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
+
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +
 //                "<br><br>" +
@@ -145,8 +151,11 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
+                intentEmerInstruc.putExtra("From", "FormInstruction");
+                startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-                relMsg.setVisibility(View.VISIBLE);//nikita
+                //relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
@@ -281,13 +290,18 @@ public class FragementForm extends Fragment implements View.OnClickListener {
                 //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
-
-            case R.id.llAddDoc:
+            case R.id.floatAdd:
                 //preferences.putString(PrefConstants.SOURCE, "InsuranceForm");
                 Intent i = new Intent(getActivity(), AddInsuranceFormActivity.class);
                 i.putExtra("GoTo", "Add");
                 startActivity(i);
                 break;
+          /*  case R.id.llAddDoc:
+                //preferences.putString(PrefConstants.SOURCE, "InsuranceForm");
+                Intent i = new Intent(getActivity(), AddInsuranceFormActivity.class);
+                i.putExtra("GoTo", "Add");
+                startActivity(i);
+                break;*/
 
             case R.id.imgRight:
                 final String RESULT = Environment.getExternalStorageDirectory()

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@color/colorOnesGray"
     tools:context="com.mindyourlovedone.healthcare.InsuranceHealthCare.SpecialistsActivity">
 
     <RelativeLayout
@@ -17,8 +18,18 @@
             android:layout_width="@dimen/dimension40dp"
             android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginLeft="@dimen/dimension5dp"
             android:src="@drawable/backward_arrow" />
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
 
         <TextView
             android:id="@+id/txtTitle"
@@ -27,20 +38,21 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_toLeftOf="@+id/imgRight"
-            android:layout_toRightOf="@+id/imgBack"
-            android:gravity="center"
+            android:layout_toRightOf="@+id/imgHome"
+            android:gravity="center_horizontal"
             android:text="Specialist Contacts"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:src="@drawable/menudot" />
+            android:src="@drawable/information"
+            android:tint="@color/colorWhite" />
         <!--  <ImageView
               android:id="@+id/imgDone"
               android:layout_width="@dimen/dimension30dp"
@@ -56,9 +68,9 @@
         android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension45dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:background="@color/colorSkyBlue"
         android:gravity="center"
         android:text="XYZ XYZ"
@@ -73,6 +85,30 @@
         android:layout_marginTop="@dimen/dimension15dp"
         android:background="@color/colorLightBlue"
         android:divider="@null"></ListView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+       android:layout_above="@+id/floatOptions"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/ic_add"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorRegisteredGreen"
+        app:fabSize="normal"
+        android:visibility="gone"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatOptions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension20dp"
+        android:src="@drawable/ic_more"
+        android:tint="@android:color/white"
+        app:backgroundTint="@color/colorRegisteredGreen"
+        app:fabSize="normal" />
 
     <TextView
         android:id="@+id/txtUser"
@@ -86,6 +122,6 @@
         android:text="User Instructions are available within each sub-section. Once opened click three dots."
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension16dp"
-        android:visibility="visible"></TextView>
+        android:visibility="gone"></TextView>
 
 </RelativeLayout>

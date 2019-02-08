@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:tag="Bottom3"
-        android:weightSum="2">
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/lincall"
@@ -18,7 +18,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#C9C9CE"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/call"
@@ -56,10 +57,11 @@
 
 
         <RelativeLayout
+            android:id="@+id/rlDoctor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:gravity="center_vertical"
             android:paddingTop="@dimen/dimension2dp">
@@ -87,7 +89,6 @@
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/ic_edit_blue"
                     android:ellipsize="end"
                     android:gravity="start|center_vertical"
                     android:paddingLeft="@dimen/dimension10dp"
@@ -114,8 +115,8 @@
                     android:layout_width="@dimen/dimension140dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtType"
-                    android:layout_marginBottom="@dimen/dimension5dp"
                     android:layout_marginLeft="@dimen/dimension6dp"
+                    android:layout_marginBottom="@dimen/dimension5dp"
                     android:layout_toRightOf="@+id/txtTelePhone"
                     android:drawableLeft="@drawable/ofcphone"
                     android:drawablePadding="@dimen/dimension5dp"
@@ -134,9 +135,9 @@
                     android:drawableLeft="@drawable/markers"
                     android:drawablePadding="@dimen/dimension10dp"
                     android:gravity="top|left"
-                    android:paddingBottom="@dimen/dimension5dp"
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension5dp"
+                    android:paddingBottom="@dimen/dimension5dp"
                     android:text="#203,10 Downing Street, los Angeles, California."
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension16dp" />
@@ -200,7 +201,7 @@
                 android:layout_marginRight="@dimen/dimension5dp"
                 android:focusableInTouchMode="false"
                 android:padding="@dimen/dimension10dp"
-                android:src="@drawable/forword_arrow" />
+                android:src="@drawable/call_emer" />
 
 
             <!--  <View

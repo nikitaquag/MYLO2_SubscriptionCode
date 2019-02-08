@@ -287,7 +287,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtCard = findViewById(R.id.txtCard);
         txtTitle = findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("PERSONAL PROFILE");
+        txtTitle.setText("Personal Profile");
         imgRight = findViewById(R.id.imgRight);
 
         txtTitle.setOnClickListener(new View.OnClickListener() {
@@ -325,7 +325,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgEditCard = findViewById(R.id.imgEditCard);
         imgAddpet = findViewById(R.id.imgAddPet);
         txtAddPet = findViewById(R.id.txtAddPet);
-        txtSignUp = findViewById(R.id.txtSignUp);
+       // txtSignUp = findViewById(R.id.txtSignUp);
         tilName = findViewById(R.id.tilName);
         tilOtherRelation = findViewById(R.id.tilOtherRelation);
         tilOtherRelation.setHint("Other Relation");

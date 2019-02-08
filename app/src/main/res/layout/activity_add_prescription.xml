@@ -26,6 +26,16 @@
                 android:layout_marginLeft="@dimen/dimension15dp"
                 android:src="@drawable/backward_arrow" />
 
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension35dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
@@ -33,8 +43,8 @@
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
-                android:text="Add Prescription"
-                android:textAllCaps="true"
+                android:text="Add/Edit Prescription"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -191,7 +201,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_below="@+id/rlPre"
+            android:layout_below="@+id/viewPres1"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:paddingLeft="@dimen/dimension30dp"
@@ -216,12 +226,18 @@
             <requestFocus />
 
         </android.support.design.widget.TextInputLayout>
+        <View
+            android:id="@+id/viewPres2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:layout_below="@+id/tilTitle"
+            android:background="@color/colorOnesGray" />
 
         <RelativeLayout
             android:id="@+id/rlPre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tilRX"
+            android:layout_below="@+id/viewPres2"
             android:layout_toRightOf="@+id/imgAides"
             android:paddingLeft="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
@@ -282,12 +298,18 @@
                 android:textOff=""
                 android:textOn="" />
         </RelativeLayout>
+        <View
+            android:id="@+id/viewPres3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:layout_below="@+id/rlPre"
+            android:background="@color/colorOnesGray" />
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tilTitle"
+            android:layout_below="@+id/tilPurpose"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:descendantFocusability="beforeDescendants"
@@ -313,11 +335,18 @@
 
         </android.support.design.widget.TextInputLayout>
 
+        <View
+            android:id="@+id/viewPres1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:layout_below="@+id/tilDate"
+            android:background="@color/colorOnesGray" />
+
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilPurpose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tilDate"
+            android:layout_below="@+id/tilRX"
             android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:paddingLeft="@dimen/dimension30dp"
@@ -438,7 +467,7 @@
             android:id="@+id/rlNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner"
+            android:layout_below="@+id/viewPres3"
             android:layout_marginLeft="@dimen/dimension25dp"
             android:layout_marginRight="@dimen/dimension25dp"
             android:background="@color/colorLightBlue"
@@ -517,6 +546,7 @@
                 android:text="Add Photo of Prescription"
                 android:textColor="@color/colorDarkGray"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/txtAddPhoto"
                 android:layout_width="wrap_content"
@@ -546,6 +576,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1dp"
                 android:layout_below="@+id/txtPhotoHeader"
+                android:visibility="gone"
                 android:background="@color/colorDarkGray"></View>
 
             <com.mindyourlovedone.healthcare.customview.NonScrollListView
