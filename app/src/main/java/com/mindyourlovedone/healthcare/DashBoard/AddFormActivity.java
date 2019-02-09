@@ -15,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -41,6 +42,7 @@ public class AddFormActivity extends AppCompatActivity {
     TextView txtTitle;
     ImageLoader imageLoaderCard;
     DisplayImageOptions displayImageOptionsCard;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

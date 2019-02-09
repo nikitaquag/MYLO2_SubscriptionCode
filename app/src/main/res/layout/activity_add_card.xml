@@ -37,6 +37,7 @@
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
+
             <TextView
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
@@ -44,15 +45,14 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
-                android:text="Save"
-                android:textAllCaps="true"
-                android:textSize="@dimen/dimension20dp"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold"
+                android:background="@drawable/border_save"
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
-                android:background="@drawable/border_save"
-                />
+                android:text="Save"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension20dp"
+                android:textStyle="bold" />
 
 
             <ImageView
@@ -63,23 +63,23 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
                 android:src="@drawable/check_mark"
-                android:visibility="gone"/>
+                android:visibility="gone" />
         </RelativeLayout>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/header"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginTop="33dp"
             android:descendantFocusability="beforeDescendants"
             android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
             android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
             android:textAllCaps="true">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -105,13 +105,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:layout_below="@+id/tilTitle"
-            android:paddingBottom="@dimen/dimension8dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:paddingLeft="@dimen/dimension30dp"
+            android:paddingTop="@dimen/dimension8dp"
             android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
+            android:paddingBottom="@dimen/dimension8dp">
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
@@ -135,9 +135,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tilType"
-            android:paddingBottom="@dimen/dimension8dp"
             android:paddingLeft="@dimen/dimension30dp"
             android:paddingRight="@dimen/dimension30dp"
+            android:paddingBottom="@dimen/dimension8dp"
             android:visibility="gone">
 
             <AutoCompleteTextView
@@ -165,7 +165,7 @@
             android:layout_marginTop="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="@string/guide"
-            android:textColor="@color/colorDarkGray"
+            android:textColor="@color/colorNewHereBlue"
             android:textSize="@dimen/dimension20dp"
             android:textStyle="bold" />
 
@@ -175,8 +175,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtCard"
             android:layout_marginLeft="@dimen/dimension30dp"
-            android:layout_marginRight="@dimen/dimension30dp"
             android:layout_marginTop="@dimen/dimension15dp"
+            android:layout_marginRight="@dimen/dimension30dp"
             android:padding="@dimen/dimension5dp">
 
             <TextView
@@ -184,70 +184,194 @@
                 style="@style/EmergencyCategory"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension40dp"
+                android:layout_marginBottom="@dimen/dimension20dp"
                 android:background="@color/colorLightBlue"
                 android:imeOptions="actionNext"
                 android:paddingLeft="@dimen/dimension10dp"
-                android:text="Add Front Photo"
+                android:text="Card Picture"
                 android:textColor="@color/colorDarkGray" />
 
             <requestFocus />
 
             <FrameLayout
-                android:id="@+id/flFront"
-                android:layout_width="250dp"
+                android:id="@+id/flFrontMain"
+                android:layout_width="260dp"
                 android:layout_height="@dimen/dimension165dp"
                 android:layout_below="@+id/txtFront"
                 android:layout_centerHorizontal="true">
 
-                <ImageView
-                    android:id="@+id/imgFrontCard"
-                    android:layout_width="240dp"
-                    android:layout_height="@dimen/dimension155dp"
-                    android:layout_gravity="bottom"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ins_card" />
+                <FrameLayout
+                    android:id="@+id/flFront"
+                    android:layout_width="250dp"
+                    android:layout_height="@dimen/dimension165dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/insu_border">
+
+                    <ImageView
+                        android:id="@+id/imgFrontCard"
+                        android:layout_width="240dp"
+                        android:layout_height="@dimen/dimension160dp"
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY" />
+
+                    <LinearLayout
+                        android:id="@+id/llFrontCam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imgFrontCard1"
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:src="@drawable/cam_front"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txtFrontText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="profile photo"
+                            android:textAllCaps="true" />
+
+                    </LinearLayout>
+
+
+                </FrameLayout>
 
                 <ImageView
                     android:id="@+id/imgEdit1"
                     android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension30dp"
                     android:layout_gravity="top|right"
-                    android:src="@drawable/addblue" />
+                    android:src="@drawable/pencil_photo" />
+
             </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtFrontNew"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_below="@+id/flFrontMain"
+                android:background="@color/colorLightBlue"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/dimension10dp"
+                android:text="Front"
+                android:textAllCaps="true"
+                android:textColor="@color/colorDarkGray" />
+
+            <View
+                android:id="@+id/viewFront"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_below="@+id/txtFrontNew"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:background="@color/colorOnesGray" />
 
             <TextView
                 android:id="@+id/txtBack"
                 style="@style/EmergencyCategory"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension40dp"
-                android:layout_below="@+id/flFront"
+                android:layout_below="@+id/viewFront"
                 android:background="@color/colorLightBlue"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:text="Add Back Photo"
-                android:textColor="@color/colorDarkGray" />
+                android:textColor="@color/colorDarkGray"
+                android:visibility="gone" />
 
             <FrameLayout
-                android:layout_width="250dp"
+                android:id="@+id/flBackMain"
+                android:layout_width="260dp"
                 android:layout_height="@dimen/dimension165dp"
                 android:layout_below="@+id/txtBack"
                 android:layout_centerHorizontal="true">
 
+                <FrameLayout
+                    android:id="@+id/flBack"
+                    android:layout_width="250dp"
+                    android:layout_height="@dimen/dimension165dp"
+                    android:layout_below="@+id/txtBack"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/insu_border">
+                    <!-- <ImageView
+                         android:id="@+id/imgFrontCard"
+                         android:layout_width="250dp"
+                         android:layout_height="@dimen/dimension165dp"
+                         android:layout_gravity="bottom"
+                         android:scaleType="fitXY" />-->
+                    <ImageView
+                        android:id="@+id/imgBackCard"
+                        android:layout_width="250dp"
+                        android:layout_height="@dimen/dimension165dp"
+                        android:layout_gravity="bottom"
+                        android:scaleType="fitXY" />
 
-                <ImageView
-                    android:id="@+id/imgBackCard"
-                    android:layout_width="240dp"
-                    android:layout_height="@dimen/dimension150dp"
-                    android:layout_gravity="bottom"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ins_card" />
+                    <LinearLayout
+                        android:id="@+id/llBackCam"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imgBackCard1"
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/cam_front"
+                            android:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/txtBackText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="profile photo"
+                            android:textAllCaps="true" />
+                    </LinearLayout>
+
+
+                </FrameLayout>
 
                 <ImageView
                     android:id="@+id/imgEdit2"
                     android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension30dp"
                     android:layout_gravity="top|right"
-                    android:src="@drawable/addblue" />
+                    android:src="@drawable/pencil_photo" />
             </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtBackNew"
+                style="@style/EmergencyCategory"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_below="@+id/flBackMain"
+                android:background="@color/colorLightBlue"
+                android:gravity="center"
+                android:imeOptions="actionNext"
+                android:paddingLeft="@dimen/dimension10dp"
+                android:text="back"
+                android:textAllCaps="true"
+                android:textColor="@color/colorDarkGray" />
+
+            <View
+                android:id="@+id/viewBack"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension1dp"
+                android:layout_below="@+id/txtBackNew"
+                android:layout_marginBottom="@dimen/dimension20dp"
+                android:background="@color/colorOnesGray" />
 
         </RelativeLayout>
     </RelativeLayout>

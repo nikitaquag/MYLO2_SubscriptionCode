@@ -48,7 +48,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Created by welcome on 9/22/2017.
+ * Created by shradha on 9/2/2019.
  */
 
 public class FragementInsuarnceCard extends Fragment implements View.OnClickListener {
@@ -202,14 +202,6 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     }
 
     private void setCardData() {
-       /* if (CardList.size()!=0)
-        {
-            lvCard.setVisibility(View.VISIBLE);
-            txtView.setVisibility(View.GONE);
-        }else{
-            txtView.setVisibility(View.VISIBLE);
-            lvCard.setVisibility(View.GONE);
-        }*/
         if (CardList.size() != 0) {
             rlGuide.setVisibility(View.GONE);
             lvCard.setVisibility(View.VISIBLE);

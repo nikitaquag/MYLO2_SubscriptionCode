@@ -1077,6 +1077,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "Card":
+                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);

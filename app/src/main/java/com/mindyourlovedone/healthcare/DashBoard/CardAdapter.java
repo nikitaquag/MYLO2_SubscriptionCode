@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -123,31 +124,16 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
         holder.imgCard.setImageBitmap(bmp);*/
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgFront());
         if (imgFile.exists()) {
-           /* BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-            Bitmap bitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),bmOptions);
-            Matrix matrix = new Matrix();
-            if (bitmap.getHeight()>bitmap.getWidth()) {
-                matrix.postRotate(90);
-            }
-            else
-            {
-                matrix.postRotate(0);
-            }
-            //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
-            Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap .getWidth(), bitmap .getHeight(), matrix, true);
-            holder.imgCard.setImageBitmap(rotatedBitmap);*/
+
             imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgCard, displayImageOptions);
-           /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.imgProfile.setImageBitmap(myBitmap);*/
+
         } else {
             holder.imgCard.setImageResource(R.drawable.ins_card);
         }
-        // imageLoader.displayImage(String.valueOf(cardList.get(position).getImgFront()),holder.imgCard,displayImageOptions);
-        //   holder.imgCard.setImageResource(cardList.get(position).getImgFront());
         holder.txtProvider.setText(cardList.get(position).getName());
         holder.txtType.setText(cardList.get(position).getType());
 
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        holder.rlCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddCardActivity.class);
@@ -156,7 +142,15 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
                 context.startActivity(i);
             }
         });
-
+        /*holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, AddCardActivity.class);
+                i.putExtra("CardObject", cardList.get(position));
+                i.putExtra("IsEdit", true);
+                context.startActivity(i);
+            }
+        });*/
         holder.imgFront.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -195,14 +189,14 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
             }
         });
 
-        holder.imgForward.setOnClickListener(new View.OnClickListener() {
+       /* holder.imgForward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, ViewCardActivity.class);
                 i.putExtra("Card", cardList.get(position));
                 context.startActivity(i);
             }
-        });
+        });*/
 
 //        return convertView;
     }
@@ -212,6 +206,7 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
         TextView txtProvider, txtType;
         SwipeLayout swipeLayout;
         LinearLayout lintrash;
+        RelativeLayout rlCard;
 
         public Holder(View convertView) {
             super(convertView);
@@ -224,6 +219,7 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
             txtProvider = convertView.findViewById(R.id.txtProviderValue);
             txtType = convertView.findViewById(R.id.txtTypeValue);
             imgEdit = convertView.findViewById(R.id.imgEdit);
+            rlCard = convertView.findViewById(R.id.rlCard);
         }
     }
 

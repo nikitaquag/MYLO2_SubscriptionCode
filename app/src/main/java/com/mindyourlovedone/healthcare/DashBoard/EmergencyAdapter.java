@@ -203,7 +203,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
 
-        viewHolder.imgProfile.setImageResource(R.drawable.green); //new change for default image display
+      //  viewHolder.imgProfile.setImageResource(R.drawable.green); //new change for default image display
 
         if (!emergencyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhotoCard());

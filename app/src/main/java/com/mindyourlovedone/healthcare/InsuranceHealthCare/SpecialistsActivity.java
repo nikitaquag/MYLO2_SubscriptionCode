@@ -89,6 +89,7 @@ import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -795,7 +796,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentHome);
-             break;
+                break;
         }
     }
 
@@ -852,6 +853,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //  CopyReadAssetss("insu_pdf.pdf");
                 dialog.dismiss();
             }
 
@@ -862,10 +864,58 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 dialog.dismiss();
             }
-
-
         });
+    }
 
+    public void CopyReadAssetss(String documentPath) {
+        AssetManager assetManager = getAssets();
+        File outFile = null;
+        InputStream in = null;
+        OutputStream out = null;
+        File file = new File(getFilesDir(), documentPath);
+        try {
+            in = assetManager.open(documentPath);
+            outFile = new File(getExternalFilesDir(null), documentPath);
+            out = new FileOutputStream(outFile);
 
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+            /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;*/
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage());
+        }
+        Uri uri = null;
+        // Uri uri= Uri.parse("file://" + getFilesDir() +"/"+documentPath);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //  intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", outFile);
+        } else {
+            uri = Uri.fromFile(outFile);
+        }
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setDataAndType(uri, "application/pdf");
+        context.startActivity(intent);
+
+    }
+
+    private void copyFiles(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
     }
 }

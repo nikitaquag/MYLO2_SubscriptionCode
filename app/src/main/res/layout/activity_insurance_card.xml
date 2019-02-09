@@ -14,10 +14,10 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lvCard"
-            android:layout_marginBottom="@dimen/dimension75dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentTop="true"
+            android:layout_marginBottom="@dimen/dimension75dp"
             android:layout_toEndOf="@+id/txtView"
             android:layout_toRightOf="@+id/txtView"
             android:divider="@color/colorLightGray"
@@ -73,7 +73,7 @@
                     android:text="@string/FTUEmergency"
                     android:textColor="@color/colorFTUGray"
                     android:textSize="@dimen/dimension24dp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtFTU"
@@ -317,10 +317,7 @@
                             android:textColor="@color/colorGuide"
                             android:textSize="@dimen/dimension18dp" />
                     </RelativeLayout>
-
                 </RelativeLayout>
-
-
             </RelativeLayout>
         </ScrollView>
 
@@ -366,10 +363,10 @@
             android:layout_marginRight="@dimen/dimension20dp"
             android:src="@drawable/ic_box"
             android:tint="@color/colorWhite"
+            android:visibility="gone"
             app:backgroundTint="@color/colorFloatRed"
             app:fabSize="normal"
-            tools:targetApi="lollipop"
-            android:visibility="gone"/>
+            tools:targetApi="lollipop" />
 
         <RelativeLayout
             android:id="@+id/llAddCard"
@@ -378,9 +375,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
-            android:visibility="invisible"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:background="@color/colorFive">
+            android:background="@color/colorFive"
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/imgAdd"

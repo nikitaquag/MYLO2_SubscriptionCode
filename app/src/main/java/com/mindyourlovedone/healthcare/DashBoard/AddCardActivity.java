@@ -23,7 +23,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -65,12 +67,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     String imagepath = "";//
     String name, type;
     Boolean isEdit = false;
+    FrameLayout flFront, flBack;
     int id;
 
     Preferences preferences;
     DBHelper dbHelper;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
+    LinearLayout llFrontCam, llBackCam;
     boolean frontFlag, backFlag;
 
 
@@ -121,6 +125,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initUI() {
         txtCard = findViewById(R.id.txtCard);
+        llFrontCam = findViewById(R.id.llFrontCam);
+        llBackCam = findViewById(R.id.llBackCam);
 
         txtCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +142,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         imgEdit1 = findViewById(R.id.imgEdit1);
         imgEdit2 = findViewById(R.id.imgEdit2);
         imgfrontCard = findViewById(R.id.imgFrontCard);
+        flFront = findViewById(R.id.flFront);
+        flBack = findViewById(R.id.flBack);
         imgBackCard = findViewById(R.id.imgBackCard);
 
         txtSave = findViewById(R.id.txtSave);
@@ -165,6 +173,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             id = card.getId();
             String photo = card.getImgFront();
             imagePathFront = photo;
+            llFrontCam.setVisibility(View.GONE);
+
            /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
            imgfrontCard.setImageBitmap(bmp);*/
             File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
@@ -190,6 +200,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             }
             String photo1 = card.getImgBack();
             imagePathBack = photo1;
+            llBackCam.setVisibility(View.GONE);
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo1);
             if (imgFile1.exists()) {
 //                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
@@ -219,8 +230,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
-            case R.id.imgFrontCard:
+            case R.id.flFront:
                 if (frontFlag == true) {
                     Intent i = new Intent(context, AddFormActivity.class);
                     i.putExtra("Image", imagePathFront);
@@ -229,7 +239,15 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
 
-            case R.id.imgBackCard:
+           /* case R.id.imgFrontCard:
+                if (frontFlag == true) {
+                    Intent i = new Intent(context, AddFormActivity.class);
+                    i.putExtra("Image", imagePathFront);
+                    i.putExtra("FROM", "Insurance");
+                    startActivityForResult(i, REQUEST_CARD);
+                }
+                break;*/
+            case R.id.flBack:
                 if (backFlag == true) {
                     Intent j = new Intent(context, AddFormActivity.class);
                     j.putExtra("Image", imagePathBack);
@@ -237,6 +255,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     startActivityForResult(j, REQUEST_CARD);
                 }
                 break;
+           /* case R.id.imgBackCard:
+                if (backFlag == true) {
+                    Intent j = new Intent(context, AddFormActivity.class);
+                    j.putExtra("Image", imagePathBack);
+                    j.putExtra("FROM", "Insurance");
+                    startActivityForResult(j, REQUEST_CARD);
+                }
+                break;*/
             case R.id.txtSave:
                 name = txtName.getText().toString();
                 type = txttype.getText().toString();
@@ -471,12 +497,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
                 if (from.equals("Front")) {
+                    // flFront.setBackgroundResource(R.drawable.ins_card);
                     imgfrontCard.setImageResource(R.drawable.ins_card);
                     imagePathFront = "";
                     frontFlag = false;
                     PHOTO1 = null;
                 } else if (from.equals("Back")) {
                     imagePathBack = "";
+                    //flBack.setBackgroundResource(R.drawable.ins_card);
                     imgBackCard.setImageResource(R.drawable.ins_card);
                     backFlag = false;
                     PHOTO2 = null;
@@ -572,6 +600,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
                 Bitmap rotatedBitmap = Bitmap.createBitmap(selectedImage, 0, 0, selectedImage.getWidth(), selectedImage.getHeight(), matrix, true);
                 imgfrontCard.setImageBitmap(rotatedBitmap);
+                llFrontCam.setVisibility(View.GONE);
                 PHOTO1 = rotatedBitmap;
                 // storeImage(rotatedBitmap,"Front");
             } catch (FileNotFoundException e) {
@@ -610,6 +639,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
                 Bitmap rotatedBitmap = Bitmap.createBitmap(thumbnail, 0, 0, thumbnail.getWidth(), thumbnail.getHeight(), matrix, true);
                 imgfrontCard.setImageBitmap(rotatedBitmap);
+                llFrontCam.setVisibility(View.GONE);
                 PHOTO1 = rotatedBitmap;
                 // storeImage(rotatedBitmap,"Front");
             } catch (Exception e) {
@@ -684,6 +714,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
                 Bitmap rotatedBitmap = Bitmap.createBitmap(selectedImage, 0, 0, selectedImage.getWidth(), selectedImage.getHeight(), matrix, true);
                 imgBackCard.setImageBitmap(rotatedBitmap);
+                llBackCam.setVisibility(View.GONE);
                 PHOTO2 = rotatedBitmap;
                 /*shradha*/
                 storeImage(rotatedBitmap, "Back");
@@ -713,6 +744,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
                 Bitmap rotatedBitmap = Bitmap.createBitmap(thumbnail, 0, 0, thumbnail.getWidth(), thumbnail.getHeight(), matrix, true);
                 imgBackCard.setImageBitmap(rotatedBitmap);
+                llBackCam.setVisibility(View.GONE);
                 // profileImage.setImageBitmap(bitmap);
                 //storeImage(rotatedBitmap,"Back");
                 PHOTO2 = rotatedBitmap;
