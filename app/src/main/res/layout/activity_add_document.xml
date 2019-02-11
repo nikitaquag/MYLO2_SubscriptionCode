@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@color/colorOnesGray"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity">
 
     <RelativeLayout
@@ -28,8 +27,7 @@
                 android:layout_height="@dimen/dimension40dp"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center_vertical"
-                android:layout_marginLeft="@dimen/dimension15dp"
-                android:layout_weight="5"
+                android:layout_marginLeft="@dimen/dimension0dp"
                 android:src="@drawable/backward_arrow" />
 
             <ImageView
@@ -105,16 +103,38 @@
         <RelativeLayout
             android:id="@+id/rlDocument"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimension120dp"
             android:layout_below="@+id/header"
             android:layout_marginTop="@dimen/dimension20dp"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imgDoc"
-                android:layout_width="@dimen/dimension100dp"
-                android:layout_height="@dimen/dimension100dp"
-                android:src="@drawable/imd_doc" />
+            <FrameLayout
+                android:id="@+id/flProfile"
+                android:layout_width="@dimen/dimension110dp"
+                android:layout_height="@dimen/dimension110dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="17dp">
+
+                <ImageView
+                    android:id="@+id/imgDoc"
+                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_height="@dimen/dimension100dp"
+                    android:src="@drawable/imd_doc" />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgAdd"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="top|right"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+                    android:layout_toRightOf="@+id/imgDoc"
+                    android:src="@drawable/pencil_photo" />
+
+            </FrameLayout>
+
 
             <!-- <TextView
                  android:id="@+id/txtName"
@@ -124,14 +144,6 @@
                  android:padding="@dimen/dimension10dp"
                  android:textColor="@color/colorBlue" />-->
 
-            <ImageView
-                android:id="@+id/imgAdd"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimension15dp"
-                android:layout_toRightOf="@+id/imgDoc"
-                android:src="@drawable/addplus" />
 
             <TextView
                 android:id="@+id/txtAdd"
@@ -139,18 +151,25 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_toRightOf="@id/imgAdd"
                 android:text="Select File"
                 android:textColor="@color/colorBlue"
-                android:textSize="@dimen/dimension18dp" />
+                android:textSize="@dimen/dimension18dp"
+                android:visibility="gone" />
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:layout_below="@+id/rlDocument"
+            android:background="@color/colorOnesGray" />
 
         <RelativeLayout
             android:id="@+id/rlType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rlDocument"
+            android:layout_below="@+id/view1"
             android:layout_marginLeft="@dimen/dimension35dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension35dp">
@@ -586,5 +605,32 @@
 
             <requestFocus />
         </android.support.design.widget.TextInputLayout>
+
+        <RelativeLayout
+            android:visibility="visible"
+            android:id="@+id/rlDelete"
+            android:background="@color/colorOnesGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+           >
+
+            <TextView
+                android:id="@+id/txtDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border_dir_delete"
+                android:drawableLeft="@drawable/ic_delete"
+                android:gravity="center"
+                android:drawablePadding="@dimen/dimension5dp"
+                android:textColor="@color/colorWhite"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension10dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingBottom="@dimen/dimension10dp"
+                android:text="Delete" />
+
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

@@ -79,9 +79,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/home" />
+                    android:src="@drawable/drawer_home" />
 
                 <TextView
                     android:id="@+id/txtHome"
@@ -113,9 +113,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/all_profile" />
+                    android:src="@drawable/drawer_profile" />
 
                 <TextView
                     android:id="@+id/txtProfiles"
@@ -148,9 +148,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/resources" />
+                    android:src="@drawable/drawer_res" />
 
                 <TextView
                     android:id="@+id/txtResources"
@@ -195,9 +195,9 @@
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_below="@+id/viewsd"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/marketplace" />
+                    android:src="@drawable/drawer_market" />
 
                 <TextView
                     android:id="@+id/txtMarketPlace"
@@ -233,9 +233,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/videos" />
+                    android:src="@drawable/drawer_videos" />
 
                 <TextView
                     android:id="@+id/txtVideos"
@@ -270,9 +270,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/sponsor" />
+                    android:src="@drawable/drawer_sponsor" />
 
                 <TextView
                     android:id="@+id/txtSponsor"
@@ -305,9 +305,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/website" />
+                    android:src="@drawable/drawer_setting" />
 
                 <TextView
                     android:id="@+id/txtSettings"
@@ -340,9 +340,9 @@
                     android:layout_width="@dimen/dimension50dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
-                    android:src="@drawable/website" />
+                    android:src="@drawable/drawer_contact" />
 
                 <TextView
                     android:id="@+id/txtContactUs"
@@ -377,7 +377,7 @@
                     android:layout_height="@dimen/dimension25dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
-                    android:src="@drawable/logout"
+                    android:src="@drawable/drawer_logout"
                     android:tint="@color/colorLogoutTextGray" />
 
                 <TextView

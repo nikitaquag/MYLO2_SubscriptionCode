@@ -51,6 +51,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -66,12 +67,12 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgHome;
     MySpinner spinnerDoc, spinnerType, spinnerPro;
-    TextView txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
+    TextView txtDelete, txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
     Preferences preferences;
     ArrayAdapter<String> adapter, adapter1, adapterPro;
     TextInputLayout tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
-    RelativeLayout rlDocType;
+    RelativeLayout rlDocType, rlDelete;
     Document document;
     DBHelper dbHelper;
     String name = "";
@@ -95,6 +96,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     boolean external_flag = false;
     List<RelativeConnection> items;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,9 +156,14 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         imgHome.setOnClickListener(this);
+        txtDelete.setOnClickListener(this);
+
     }
 
     private void initUi() {
+
+        txtDelete = findViewById(R.id.txtDelete);
+
         imgHome = findViewById(R.id.imgHome);
         imgDot = findViewById(R.id.imgDot);
         imgDone = findViewById(R.id.imgDone);
@@ -165,6 +172,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgAdd = findViewById(R.id.imgAdd);
         spinnerDoc = findViewById(R.id.spinnerDoc);
         rlDocType = findViewById(R.id.rlDocType);
+        rlDelete = findViewById(R.id.rlDelete);
         spinnerType = findViewById(R.id.spinnerType);
 
         txtSave = findViewById(R.id.txtSave);
@@ -329,26 +337,29 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         if (Goto.equals("View")) {
             txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
-            imgDot.setVisibility(View.VISIBLE);
-            imgAdd.setVisibility(View.GONE);
+            imgDot.setVisibility(View.GONE);
+            imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.GONE);
             imgDoc.setClickable(true);
+            rlDelete.setVisibility(View.VISIBLE);
             disableView();
         } else if (Goto.equals("Edit")) {
             txtSave.setVisibility(View.VISIBLE);
             //imgDone.setVisibility(View.VISIBLE);
-            imgDot.setVisibility(View.VISIBLE);
+            imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
-            txtAdd.setVisibility(View.VISIBLE);
-            txtAdd.setText("Edit File");
+            rlDelete.setVisibility(View.VISIBLE);
+            // txtAdd.setVisibility(View.VISIBLE);
+            // txtAdd.setText("Edit File");
             imgDoc.setClickable(false);
         } else {
             txtSave.setVisibility(View.VISIBLE);
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
-            txtAdd.setVisibility(View.VISIBLE);
-            txtAdd.setText("Select File");
+            rlDelete.setVisibility(View.GONE);
+            // txtAdd.setVisibility(View.VISIBLE);
+            // txtAdd.setText("Select File");
             imgDoc.setClickable(false);
         }
 
@@ -604,7 +615,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 }, year, month, day);
                 dpd.show();
                 break;
-
+            //Shradha
+            case R.id.txtDelete:
+                deleteDocument(document);
+                break;
             case R.id.txtSave:
                 if (validate()) {
 
@@ -786,6 +800,43 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 break;
 
         }
+    }
+
+    //Shradha
+    private void deleteDocument(final Document item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = DocumentQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+
+                    //Shradha
+                    if (context instanceof CarePlanListActivity) {
+                        ((CarePlanListActivity) context).getData();
+                        ((CarePlanListActivity) context).setDocuments();
+                    } /*else {
+                        Toast.makeText(context, "Something is wrong dude..!!", Toast.LENGTH_SHORT).show();
+                    }*/
+                }
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
     }
 
     private void DirectiveDialog() {
@@ -1097,7 +1148,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             String text = "You Have selected <b>" + name + "</b> Document";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
             showDialogWindow(text);
-            txtAdd.setText("Edit File");
+            //  txtAdd.setText("Edit File");
             imgDoc.setImageResource(R.drawable.pdf);
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
 
@@ -1108,7 +1159,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             String text = "You Have selected <b>" + name + "</b> Document";
             Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
             showDialogWindow(text);
-            txtAdd.setText("Edit File");
+            //  txtAdd.setText("Edit File");
             imgDoc.setImageResource(R.drawable.pdf);
         }
 

@@ -32,7 +32,7 @@
             android:layout_width="@dimen/dimension40dp"
             android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginLeft="@dimen/dimension0dp"
             android:src="@drawable/backward_arrow" />
 
         <TextView

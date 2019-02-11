@@ -171,7 +171,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("Insurance Information");
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSub));
                 header.setBackgroundResource(R.color.colorFive);
-                profile = new int[]{R.drawable.insu_one, R.drawable.insu_two, R.drawable.insu_three};
+                profile = new int[]{R.drawable.insu_three, R.drawable.insu_two, R.drawable.insu_one};
                 specialist = new String[]{"Insurance Information", "Insurance Cards", "Insurance Forms"};
                 isEmergency = false;
                 isInsurance = true;

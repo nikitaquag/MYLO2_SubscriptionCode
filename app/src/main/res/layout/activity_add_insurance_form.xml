@@ -89,7 +89,6 @@
             android:background="@color/colorWhite"
             android:gravity="center">
 
-
             <RelativeLayout
                 android:id="@+id/rlDoc"
                 android:layout_width="130dp"

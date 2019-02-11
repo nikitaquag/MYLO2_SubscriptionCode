@@ -36,7 +36,7 @@
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:gravity="center"
-                    android:src="@drawable/ic_menus"
+                    android:src="@drawable/left_drawer"
                     android:tint="@color/colorWhite"
                     android:visibility="visible" />
 

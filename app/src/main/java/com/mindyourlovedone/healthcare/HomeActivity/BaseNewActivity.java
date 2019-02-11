@@ -32,7 +32,6 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
         callFragment(new Fragment_Conn_New());
         initUi();
         initListener();
-
         try {
             Intent intent = getIntent();
             if (intent != null) {
@@ -40,13 +39,13 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
                 if (p == 1) {
                     callFragment(new FragmentDashboardNew());
                     p = 1;
+                } else if (p == 2) {
+                    callFragment(new FragmentResourcesNew());
                 }
-
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 
@@ -59,7 +58,10 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initListener() {
         imgDrawer.setOnClickListener(this);
-
+        rlHome.setOnClickListener(this);
+        rlProfiles.setOnClickListener(this);
+        rlResources.setOnClickListener(this);
+        rlSponsor.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -67,7 +69,10 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
         drawerLayout = findViewById(R.id.drawerLayout);
         leftDrawer = findViewById(R.id.leftDrawer);
         container = findViewById(R.id.fragmentContainer);
-
+        rlHome = findViewById(R.id.rlHome);
+        rlProfiles = findViewById(R.id.rlProfiles);
+        rlResources = findViewById(R.id.rlResources);
+        rlSponsor = findViewById(R.id.rlSponsor);
     }
 
     @Override
@@ -76,7 +81,23 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.imgDrawer:
                 drawerLayout.openDrawer(leftDrawer);
                 break;
-
+            case R.id.rlHome:
+                Intent intentHome = new Intent(context, SplashNewActivity.class);
+                startActivity(intentHome);
+                break;
+            case R.id.rlProfiles:
+                Intent intentProfile = new Intent(context, BaseNewActivity.class);
+                startActivity(intentProfile);
+                break;
+            case R.id.rlResources:
+                Intent intentResources = new Intent(context, BaseNewActivity.class);
+                intentResources.putExtra("Home", 2);
+                startActivity(intentResources);
+                break;
+            case R.id.rlSponsor:
+                Intent intentSponsor = new Intent(context, SponsorActivity.class);
+                startActivity(intentSponsor);
+                break;
         }
     }
 }

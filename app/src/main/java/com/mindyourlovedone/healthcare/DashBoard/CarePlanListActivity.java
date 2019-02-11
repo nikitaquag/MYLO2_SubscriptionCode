@@ -91,7 +91,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         DocumentQuery d = new DocumentQuery(context, dbHelper);
     }
 
-    private void setDocuments() {
+    public void setDocuments() {
         if (documentListOld.size() != 0) {
             lvDoc.setVisibility(View.VISIBLE);
             DocumentAdapter documentAdapter = new DocumentAdapter(context, documentListOld);
@@ -330,7 +330,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 
     }
 
-    private void getData() {
+    public void getData() {
         documentListOld = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), From);
     }
 

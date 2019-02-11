@@ -103,69 +103,39 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddDocumentActivity.class);
-                i.putExtra("GoTo", "View");
+                i.putExtra("GoTo", "Edit");
                 i.putExtra("Path", "Yes");
-               /* if (position>3)
-                {
-
-                }
-                else
-                {
-                    i.putExtra("Path","No");
-                }*/
                 i.putExtra("DocumentObject", documentList.get(position));
                 context.startActivity(i);
+               /* Intent i = new Intent(context, AddDocumentActivity.class);
+                i.putExtra("GoTo", "View");
+                i.putExtra("Path", "Yes");
+                i.putExtra("DocumentObject", documentList.get(position));
+                context.startActivity(i);*/
             }
         });
 
-        holder.imgForword.setOnClickListener(new View.OnClickListener() {
+      /*  holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddDocumentActivity.class);
                 i.putExtra("GoTo", "View");
                 i.putExtra("Path", "Yes");
-               /* if (position>3)
-                {
-
-                }
-                else
-                {
-                    i.putExtra("Path","No");
-                }*/
                 i.putExtra("DocumentObject", documentList.get(position));
                 context.startActivity(i);
             }
-        });
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        });*/
+       /* holder.imgEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddDocumentActivity.class);
                 i.putExtra("GoTo", "Edit");
                 i.putExtra("Path", "Yes");
-               /* if (position>3)
-                {
 
-                }
-                else
-                {
-                    i.putExtra("Path","No");
-                }*/
                 i.putExtra("DocumentObject", documentList.get(position));
                 context.startActivity(i);
             }
-        });
-
-
-     /*convertView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-
-
-    }
-      });*/
-//        return convertView;
-
-
+        });*/
     }
 
 
