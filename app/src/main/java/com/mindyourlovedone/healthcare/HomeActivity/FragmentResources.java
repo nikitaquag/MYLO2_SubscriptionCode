@@ -28,7 +28,7 @@ public class FragmentResources extends Fragment {
     ArrayList<Links> UrlList;
     ListView list;
     TextView txtTitle, txtName;
-    ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgR, imgRight;
+    ImageView imgDrawer, imgHelp;
 
 
     @Nullable
@@ -133,25 +133,23 @@ public class FragmentResources extends Fragment {
     }
 
     private void initUI() {
-        txtTitle = getActivity().findViewById(R.id.txtTitle);
-        txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("Advance Directives\nInformaton");
-        txtTitle.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        imgPdf = getActivity().findViewById(R.id.imgPdf);
-        imgPdf.setVisibility(View.GONE);
-        imgProfile = getActivity().findViewById(R.id.imgProfile);
-        txtName = getActivity().findViewById(R.id.txtName);
-        txtName.setVisibility(View.GONE);
-        imgProfile.setVisibility(View.GONE);
-        imgNoti = getActivity().findViewById(R.id.imgNoti);
-        imgNoti.setVisibility(View.GONE);
-        imgLogo = getActivity().findViewById(R.id.imgLogo);
-        imgLogo.setVisibility(View.GONE);
-        imgRight = getActivity().findViewById(R.id.imgRight);
-        imgRight.setVisibility(View.GONE);
-        imgR = getActivity().findViewById(R.id.imgR);
-        imgR.setVisibility(View.GONE);
+        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp.setVisibility(View.GONE);
 
+        imgDrawer = getActivity().findViewById(R.id.imgDrawer);
+        imgDrawer.setImageResource(R.drawable.back_new);
+
+        imgDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().finish();
+            }
+        });
+
+        txtName = getActivity().findViewById(R.id.txtName);
+        txtName.setVisibility(View.VISIBLE);
+        txtName.setText("Advance Directives Informaton");
+        txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);
 
         list = rootview.findViewById(R.id.list);
 

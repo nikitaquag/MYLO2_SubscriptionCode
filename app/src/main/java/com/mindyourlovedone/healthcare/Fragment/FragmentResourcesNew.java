@@ -1,16 +1,20 @@
 package com.mindyourlovedone.healthcare.Fragment;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.ResourceAdapter;
 import com.mindyourlovedone.healthcare.model.ResourcesNew;
@@ -66,6 +70,27 @@ public class FragmentResourcesNew extends Fragment {
         lvResources = rootView.findViewById(R.id.lvResources);
         imgHelp = getActivity().findViewById(R.id.imgHelp);
         imgHelp.setVisibility(View.GONE);
+
+        //Shradha
+        lvResources.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent intentContactUs = new Intent(getActivity(), BaseNewActivity.class);
+                        intentContactUs.putExtra("Home", 5);
+                        getActivity().startActivity(intentContactUs);
+                        break;
+                    case 1:
+                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
     }
+
 }
 

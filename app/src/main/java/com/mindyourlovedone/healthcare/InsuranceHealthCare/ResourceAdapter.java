@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +10,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.AppointAdapter;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.ResourcesNew;
 
 import java.util.ArrayList;
 
+/*Created by shradha 12/02/2019*/
 public class ResourceAdapter extends BaseAdapter {
     ArrayList<ResourcesNew> resourcesNewList;
     ListView lvResources;
@@ -54,9 +58,17 @@ public class ResourceAdapter extends BaseAdapter {
             holder.imgForword = convertView.findViewById(R.id.imgForword);
 
             convertView.setTag(holder);
-        } else {
-            holder = (Holders) convertView.getTag();
         }
+        /*if (convertView.equals(position == 0)) {
+            Intent intentContactUs = new Intent(context, BaseNewActivity.class);
+            intentContactUs.putExtra("Home", 5);
+            context.startActivity(intentContactUs);
+        } else {
+            Toast.makeText(context, "Wrong dude..!!", Toast.LENGTH_SHORT).show();
+        }*/
+        /*else {
+            holder = (Holders) convertView.getTag();
+        }*/
         ResourcesNew rn = resourcesNewList.get(position);
         holder.txtName.setText(rn.getName());
         holder.imgResources.setImageResource(rn.getResImage());

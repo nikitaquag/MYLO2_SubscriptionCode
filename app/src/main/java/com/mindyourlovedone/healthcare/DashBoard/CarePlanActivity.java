@@ -59,13 +59,13 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     Context context = this;
     ListView lvDoc;
     ArrayList<Document> documentList;
-    ImageView imgBack, imgRight,imgHomes;
+    ImageView imgBack, imgRight, imgHomes;
     RelativeLayout llAddDoc;
     Preferences preferences;
     DBHelper dbHelper;
 
     RelativeLayout rlAD, rlHome, rlMedical, rlInsurance, rlOther, rlLegal, rlMedicalRecord;
-    TextView txtOne, txtTwo, txtUserName;
+    TextView txtOne, txtTwo, txtUserName, txtClick;
     FloatingActionButton floatOptions;
 
     @Override
@@ -104,12 +104,14 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         rlOther.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         imgHomes.setOnClickListener(this);
+        txtClick.setOnClickListener(this);
 
         //llAddDoc.setOnClickListener(this);
     }
 
     private void initUI() {
         floatOptions = findViewById(R.id.floatOptions);
+        txtClick = findViewById(R.id.txtClick);
         txtUserName = findViewById(R.id.txtUserName);
         txtUserName.setBackgroundColor(getResources().getColor(R.color.colorDirectiveSubRed));
         txtUserName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -204,6 +206,11 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.txtClick:
+                Intent intentContactUs = new Intent(context, BaseNewActivity.class);
+                intentContactUs.putExtra("Home", 5);
+                startActivity(intentContactUs);
+                break;
             case R.id.floatOptions:
                 showFloatDialog();
                 break;

@@ -28,8 +28,8 @@
 
                 <ImageView
                     android:id="@+id/imgDrawer"
-                    android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
