@@ -1,4 +1,4 @@
-package com.mindyourlovedone.healthcare.HomeActivity;
+package com.mindyourlovedone.healthcare.Fragment;
 
 import android.app.Fragment;
 import android.content.res.Resources;
@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.ResourceAdapter;
 import com.mindyourlovedone.healthcare.model.ResourcesNew;
 

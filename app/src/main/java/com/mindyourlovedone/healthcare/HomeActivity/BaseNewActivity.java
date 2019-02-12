@@ -12,16 +12,17 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
-import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
+import com.mindyourlovedone.healthcare.Fragment.FragmentContactUs;
 import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
+import com.mindyourlovedone.healthcare.Fragment.FragmentResourcesNew;
+import com.mindyourlovedone.healthcare.Fragment.FragmentSetting;
 import com.mindyourlovedone.healthcare.Fragment.Fragment_Conn_New;
 
 public class BaseNewActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imgDrawer;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container;
-    RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     Context context = this;
     int p = 0;
 
@@ -41,6 +42,10 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
                     p = 1;
                 } else if (p == 2) {
                     callFragment(new FragmentResourcesNew());
+                } else if (p == 3) {
+                    callFragment(new FragmentSetting());
+                } else if (p == 4) {
+                    callFragment(new FragmentContactUs());
                 }
             }
         } catch (Exception e) {
@@ -62,6 +67,9 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
         rlProfiles.setOnClickListener(this);
         rlResources.setOnClickListener(this);
         rlSponsor.setOnClickListener(this);
+        rlSettings.setOnClickListener(this);
+        rlContactUs.setOnClickListener(this);
+
     }
 
     private void initUi() {
@@ -73,6 +81,9 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
         rlProfiles = findViewById(R.id.rlProfiles);
         rlResources = findViewById(R.id.rlResources);
         rlSponsor = findViewById(R.id.rlSponsor);
+        rlSettings = findViewById(R.id.rlSettings);
+        rlContactUs = findViewById(R.id.rlContactUs);
+
     }
 
     @Override
@@ -97,6 +108,16 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.rlSponsor:
                 Intent intentSponsor = new Intent(context, SponsorActivity.class);
                 startActivity(intentSponsor);
+                break;
+            case R.id.rlSettings:
+                Intent intentSettings = new Intent(context, BaseNewActivity.class);
+                intentSettings.putExtra("Home", 3);
+                startActivity(intentSettings);
+                break;
+            case R.id.rlContactUs:
+                Intent intentContactUs = new Intent(context, BaseNewActivity.class);
+                intentContactUs.putExtra("Home", 4);
+                startActivity(intentContactUs);
                 break;
         }
     }
