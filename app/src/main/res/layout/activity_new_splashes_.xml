@@ -53,12 +53,13 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_new_here"
                 android:gravity="center"
-                android:padding="@dimen/dimension10dp"
+                android:padding="@dimen/dimension11dp"
                 android:text="@string/newHere"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension16dp" />
+                android:textSize="@dimen/dimension17dp" />
 
             <TextView
+                android:id="@+id/itxtRegistered"
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimension10dp"
@@ -66,10 +67,10 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_registered"
                 android:gravity="center"
-                android:padding="@dimen/dimension10dp"
+                android:padding="@dimen/dimension11dp"
                 android:text="@string/mRegistered"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension16dp" />
+                android:textSize="@dimen/dimension17dp" />
         </LinearLayout>
 
         <RelativeLayout
@@ -87,7 +88,7 @@
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:text="Sponsored by:"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension19dp"
+                android:textSize="@dimen/dimension12dp"
                 android:textStyle="normal" />
 
             <FrameLayout
