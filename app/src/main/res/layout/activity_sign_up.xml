@@ -1,207 +1,220 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue">
 
-    <!--
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-    -->
-
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/flTop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="4.5">
+        android:layout_height="wrap_content">
 
-        <FrameLayout
+        <ImageView
+            android:id="@+id/imgBack"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension0dp"
-            android:layout_weight="1.5">
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/new_splash" />
 
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/new_splash" />
-        </FrameLayout>
+    </FrameLayout>
 
-        <LinearLayout
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/flTop"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true"
+        android:paddingLeft="@dimen/dimension18dp"
+        android:paddingTop="@dimen/dimension8dp"
+        android:paddingRight="@dimen/dimension18dp"
+        android:paddingBottom="@dimen/dimension8dp"
+        app:hintEnabled="false"
+        app:hintTextAppearance="@style/TextLabel">
+        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+        <AutoCompleteTextView
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension0dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dimension15dp"
+            android:paddingTop="@dimen/dimension5dp"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimension20dp"
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rlHeader"
-                android:layout_marginTop="@dimen/dimension20dp"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension20dp"
-                android:paddingBottom="@dimen/dimension8dp"
-                app:hintEnabled="false">
+            />
+    </android.support.design.widget.TextInputLayout>
 
-                <AutoCompleteTextView
-                    android:id="@+id/txtName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Name"
-                    android:maxLength="30"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingTop="@dimen/dimension2dp"
-                    android:singleLine="true"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension20dp" />
-            </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilName"
+        android:layout_marginTop="@dimen/dimension5dp"
+        android:paddingLeft="@dimen/dimension18dp"
+        android:paddingRight="@dimen/dimension18dp"
+        app:hintTextAppearance="@style/TextLabel">
+        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+        <AutoCompleteTextView
+            android:id="@+id/txtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:maxLength="30"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dimension15dp"
+            android:paddingTop="@dimen/dimension5dp"
+            android:singleLine="true"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimension20dp"
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tilName"
-                android:paddingLeft="@dimen/dimension20dp"
-                android:paddingRight="@dimen/dimension20dp"
+            />
+    </android.support.design.widget.TextInputLayout>
 
-                >
+    <RelativeLayout
+        android:id="@+id/rlcheck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilEmail"
+        android:layout_marginTop="@dimen/dimension20dp">
 
-                <AutoCompleteTextView
-                    android:id="@+id/txtEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Email"
-                    android:maxLength="30"
-                    android:maxLines="2"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingTop="@dimen/dimension2dp"
-                    android:singleLine="false"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension20dp" />
-            </android.support.design.widget.TextInputLayout>
+        <CheckBox
+            android:id="@+id/rbCheck"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:button="@drawable/radiocheck"
+            android:checked="true" />
+        <!-- -->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:gravity="center"
-                android:weightSum="10">
-
-                <CheckBox
-                    android:layout_width="@dimen/dimension0dp"
-                    android:layout_height="@dimen/dimension30dp"
-                    android:layout_marginLeft="@dimen/dimension25dp"
-                    android:layout_weight="1"
-                    android:button="@drawable/circle_privacy"
-                    android:checked="true"
-                    android:padding="@dimen/dimension5dp" />
-
-                <LinearLayout
-                    android:layout_width="@dimen/dimension0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="9"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/Agree"
-                        android:textSize="@dimen/dimension18dp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/PrivacyPolicy"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/dimension5dp"
-                            android:layout_marginRight="@dimen/dimension5dp"
-                            android:text="@string/And"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/UserAgreement"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/txtNext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:background="@drawable/border_next"
-                android:paddingLeft="@dimen/dimension50dp"
-                android:paddingTop="@dimen/dimension10dp"
-                android:paddingRight="@dimen/dimension50dp"
-                android:paddingBottom="@dimen/dimension10dp"
-                android:text="@string/Next"
-                android:textAllCaps="true"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+        <TextView
+            android:id="@+id/txtPolicy1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_toRightOf="@+id/rbCheck"
+            android:text="@string/Agree"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension18dp" />
 
         <RelativeLayout
-            android:id="@+id/rlSponsor"
+            android:id="@+id/rlok"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension0dp"
-            android:layout_weight="1"
-            android:background="@color/colorSponsorBlue"
-            android:gravity="bottom">
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtPolicy1"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_toRightOf="@+id/rbCheck">
 
             <TextView
-                android:id="@+id/txtSponsor"
+                android:id="@+id/txtPolicy2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:text="Sponsored by:"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension19dp"
-                android:textStyle="normal" />
+                android:text="@string/PrivacyPolicy"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension17dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="@dimen/dimension2dp"/>
 
-            <FrameLayout
+            <TextView
+                android:id="@+id/txtPolicy3"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true">
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@+id/txtPolicy2"
+                android:text="@string/And"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension17dp"
+                android:layout_marginLeft="@dimen/dimension2dp"/>
 
-                <ImageView
-                    android:id="@+id/imgAbaa"
-                    android:layout_width="@dimen/dimension150dp"
-                    android:layout_height="match_parent"
-                    android:layout_centerHorizontal="true"
-                    android:src="@drawable/r_new" />
-            </FrameLayout>
+            <TextView
+                android:id="@+id/txtPolicy4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/txtPolicy3"
+                android:text="@string/UserAgreement"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension17dp"
+                android:textStyle="bold" />
+
 
         </RelativeLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
+    <TextView
+        android:id="@+id/itxtRegistered"
+        android:layout_width="@dimen/dimension0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:layout_marginRight="@dimen/dimension20dp"
+        android:layout_weight="1"
+        android:background="@drawable/border_registered"
+        android:gravity="center"
+        android:padding="@dimen/dimension11dp"
+        android:text="@string/mRegistered"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/dimension17dp" />
+    <TextView
+        android:id="@+id/txtNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlcheck"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dimension25dp"
+        android:layout_marginBottom="@dimen/dimension25dp"
+        android:background="@drawable/border_registered"
+        android:paddingLeft="@dimen/dimension60dp"
+        android:paddingTop="@dimen/dimension11dp"
+        android:paddingRight="@dimen/dimension60dp"
+        android:paddingBottom="@dimen/dimension11dp"
+        android:text="@string/Next"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimension17dp"/>
+
+
+    <RelativeLayout
+        android:id="@+id/rlSponsor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtNext"
+        android:background="@color/colorSponsorBlue"
+       android:layout_alignParentBottom="true">
+
+        <TextView
+            android:id="@+id/txtSponsor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:text="Sponsored by:"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension12dp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/imgAbaa"
+            android:layout_width="@dimen/dimension200dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/r_new"
+            android:padding="@dimen/dimension5dp"/>
+
+    </RelativeLayout>
+
     <!--
             <RelativeLayout
                 android:id="@+id/llSignUp"
@@ -1047,3 +1060,4 @@
             android:textSize="@dimen/dimension24dp" />
     -->
 </RelativeLayout>
+</ScrollView>
