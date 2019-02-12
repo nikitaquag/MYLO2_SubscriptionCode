@@ -87,14 +87,17 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
         if (documentList.get(position).getPerson().equals("")) {
             holder.txtDocTime.setVisibility(View.GONE);
         } else {
-            holder.txtDocTime.setVisibility(View.VISIBLE);
-            holder.txtDocTime.setText(documentList.get(position).getPerson());
+            holder.txtDocTime.setText("Date Signed:"/*+documentList.get(position).getDate()*/);
+            holder.txtDocTime.setVisibility(View.GONE);
+           // holder.txtDocTime.setText(documentList.get(position).getPerson());
         }
+
         if (documentList.get(position).getDate().equals("")) {
             holder.txtDocDate.setVisibility(View.GONE);
         } else {
             holder.txtDocDate.setVisibility(View.VISIBLE);
-            holder.txtDocDate.setText(documentList.get(position).getDate());
+            holder.txtDocTime.setVisibility(View.GONE);
+            holder.txtDocDate.setText("Date Signed: "+documentList.get(position).getDate());
         }
 
         holder.imgDocType.setImageResource(R.drawable.pdf_dir);//documentList.get(position).getImage()
@@ -107,11 +110,7 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
                 i.putExtra("Path", "Yes");
                 i.putExtra("DocumentObject", documentList.get(position));
                 context.startActivity(i);
-               /* Intent i = new Intent(context, AddDocumentActivity.class);
-                i.putExtra("GoTo", "View");
-                i.putExtra("Path", "Yes");
-                i.putExtra("DocumentObject", documentList.get(position));
-                context.startActivity(i);*/
+
             }
         });
 

@@ -26,6 +26,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -71,7 +72,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     String From;
     Preferences preferences;
     ArrayAdapter<String> adapter, adapter1, adapterPro;
-    TextInputLayout tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
+    TextInputLayout tilLocator,tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
     RelativeLayout rlDocType, rlDelete;
     Document document;
     DBHelper dbHelper;
@@ -96,6 +97,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     boolean external_flag = false;
     List<RelativeConnection> items;
+    FrameLayout flDelete;
 
 
     @Override
@@ -173,12 +175,15 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         spinnerDoc = findViewById(R.id.spinnerDoc);
         rlDocType = findViewById(R.id.rlDocType);
         rlDelete = findViewById(R.id.rlDelete);
+        flDelete = findViewById(R.id.flDelete);
         spinnerType = findViewById(R.id.spinnerType);
 
         txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txtHosp = findViewById(R.id.txtHosp);
+        tilHosp = findViewById(R.id.tilHosp);
         txtLocator = findViewById(R.id.txtLocator);
+        tilLocator = findViewById(R.id.tilLocator);
         txtLocation = findViewById(R.id.txtLocation);
         txtHolderName = findViewById(R.id.txtHolderName);
         txtDist = findViewById(R.id.txtDist);
@@ -264,7 +269,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 }
             });
             tilDocType.setVisibility(View.GONE);
+            tilHosp.setVisibility(View.GONE);
             txtHosp.setVisibility(View.GONE);
+            tilLocator.setVisibility(View.GONE);
             txtLocator.setVisibility(View.GONE);
             txtName.setVisibility(View.GONE);
             tilName.setVisibility(View.GONE);
@@ -276,7 +283,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         } else if (From.equals("Other")) {
             spinnerDoc.setVisibility(View.GONE);
             tilDocType.setVisibility(View.VISIBLE);
+            tilHosp.setVisibility(View.GONE);
             txtHosp.setVisibility(View.GONE);
+            tilLocator.setVisibility(View.GONE);
             txtLocator.setVisibility(View.GONE);
             txtName.setVisibility(View.GONE);
             tilName.setVisibility(View.GONE);
@@ -290,7 +299,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             tilDocType.setVisibility(View.VISIBLE);
             /*txtHolderName.setVisibility(View.GONE);
             txtLocation.setVisibility(View.GONE);*/
+            tilHosp.setVisibility(View.VISIBLE);
             txtHosp.setVisibility(View.VISIBLE);
+            tilLocator.setVisibility(View.VISIBLE);
             txtLocator.setVisibility(View.VISIBLE);
             txtName.setVisibility(View.GONE);
             tilName.setVisibility(View.GONE);
@@ -342,6 +353,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtAdd.setVisibility(View.GONE);
             imgDoc.setClickable(true);
             rlDelete.setVisibility(View.VISIBLE);
+            flDelete.setVisibility(View.VISIBLE);
             disableView();
         } else if (Goto.equals("Edit")) {
             txtSave.setVisibility(View.VISIBLE);
@@ -349,6 +361,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
             rlDelete.setVisibility(View.VISIBLE);
+            flDelete.setVisibility(View.VISIBLE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Edit File");
             imgDoc.setClickable(false);
@@ -358,6 +371,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
             rlDelete.setVisibility(View.GONE);
+            flDelete.setVisibility(View.GONE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Select File");
             imgDoc.setClickable(false);
@@ -386,7 +400,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                     }
                 });
                 tilDocType.setVisibility(View.GONE);
+                tilHosp.setVisibility(View.GONE);
                 txtHosp.setVisibility(View.GONE);
+                tilLocator.setVisibility(View.GONE);
                 txtLocator.setVisibility(View.GONE);
                 txtName.setVisibility(View.GONE);
                 tilName.setVisibility(View.GONE);
@@ -396,6 +412,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 spinnerDoc.setVisibility(View.GONE);
                 tilDocType.setVisibility(View.VISIBLE);
                 txtHosp.setVisibility(View.GONE);
+                tilHosp.setVisibility(View.GONE);
+                tilLocator.setVisibility(View.GONE);
                 txtLocator.setVisibility(View.GONE);
                 txtName.setVisibility(View.GONE);
                 tilName.setVisibility(View.GONE);
@@ -408,7 +426,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                /* txtHolderName.setVisibility(View.GONE);
                 txtLocation.setVisibility(View.GONE);*/
                 txtHosp.setVisibility(View.VISIBLE);
+                tilHosp.setVisibility(View.VISIBLE);
                 txtLocator.setVisibility(View.VISIBLE);
+                tilLocator.setVisibility(View.VISIBLE);
                 txtName.setVisibility(View.GONE);
                 tilName.setVisibility(View.GONE);
                 // txtPName.setHint("Name on Document");
@@ -1124,12 +1144,16 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         date = txtDate.getText().toString();
         photo = R.drawable.pdf;
         if (name.equals("")) {
-            txtFName.setError("Please Select File");
+            //  txtFName.setError("Please Select File");
             Toast.makeText(context, "Please Select File", Toast.LENGTH_SHORT).show();
         } else if (docType.equals("")) {
             txtDocTYpe.setError("Please enter type of document");
             Toast.makeText(context, "Please enter type of document", Toast.LENGTH_SHORT).show();
-        } else {
+        }
+        else if (date.equals("")) {
+            txtDate.setError("Please select date");
+            Toast.makeText(context, "Please select date", Toast.LENGTH_SHORT).show();
+        }else {
             return true;
         }
 
