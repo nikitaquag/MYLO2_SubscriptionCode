@@ -12,35 +12,6 @@
         android:background="@color/colorWhite"
         tools:context="com.mindyourlovedone.healthcare.HomeActivity.SponsorActivity">
 
-        <RelativeLayout
-            android:id="@+id/rlSponsor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#3282E1"
-            android:gravity="center_vertical"
-            android:padding="@dimen/dimension15dp">
-
-            <ImageView
-                android:id="@+id/imgBack"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
-                android:layout_alignParentLeft="true"
-                android:src="@drawable/backward_arrow"
-                android:tint="@color/colorWhite" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:text="Sponsor"
-                android:textAllCaps="true"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
-                android:textStyle="normal" />
-
-        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/llLogo"

@@ -20,11 +20,11 @@
                 android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/dimension5dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimension5dp">
 
                 <ImageView
                     android:id="@+id/imgDrawer"
@@ -41,27 +41,51 @@
                     android:visibility="visible" />
 
 
-                <!--
-                                <de.hdodenhof.circleimageview.CircleImageView
-                                    android:id="@+id/imgProfile"
-                                    android:layout_width="55dp"
-                                    android:layout_height="55dp"
-                                    android:layout_centerInParent="true"
-                                    android:layout_marginTop="@dimen/dimension2dp"
-                                    android:layout_marginBottom="@dimen/dimension2dp"
-                                    android:src="@drawable/ic_profiles" />
-                -->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    android:layout_marginBottom="@dimen/dimension2dp"
+                    android:layout_toRightOf="@+id/imgDrawer"
+                    android:src="@drawable/ic_profiles"
+                    android:visibility="gone" />
 
-                <TextView
-                    android:id="@+id/txtName"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-                    android:text="Profiles"
-                    android:textColor="#FFFFFF"
-                    android:textSize="@dimen/dimension22dp"
-                    android:visibility="visible" />
+                    android:layout_toRightOf="@+id/imgProfile"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dimension5dp">
+
+
+                    <TextView
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:text="Profiles"
+                        android:singleLine="true"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/dimension18dp"
+                        android:textStyle="bold"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/txtSelf"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Self"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/dimension16dp"
+                        android:visibility="gone" />
+
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/txtTitle"

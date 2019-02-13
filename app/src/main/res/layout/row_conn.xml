@@ -53,8 +53,8 @@
 
         <ImageView
             android:id="@+id/imgSelfFolder"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension35dp"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/dimension10dp"

@@ -1,6 +1,7 @@
 package com.mindyourlovedone.healthcare.Fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 
 
@@ -31,8 +32,11 @@ import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
+import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -42,7 +46,8 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
     ListView lvSelf;
     FloatingActionButton floatAdd;
     LinearLayout llSelf;
-    ImageView imgSelfFolder;
+    ImageView imgSelfFolder, imgHelp, imgProfile;
+    TextView txtSelf, txtName;
 
     @Nullable
     @Override
@@ -96,9 +101,20 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
         floatAdd.setOnClickListener(this);
         llSelf.setOnClickListener(this);
         imgSelfFolder.setOnClickListener(this);
+        imgHelp.setOnClickListener(this);
     }
 
     private void initUi() {
+        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp.setVisibility(View.VISIBLE);
+        imgProfile = getActivity().findViewById(R.id.imgProfile);
+        imgProfile.setVisibility(View.GONE);
+        txtSelf = getActivity().findViewById(R.id.txtSelf);
+        txtSelf.setVisibility(View.GONE);
+        txtName = getActivity().findViewById(R.id.txtName);
+        txtName.setVisibility(View.VISIBLE);
+        txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);
+
         lvSelf = rootView.findViewById(R.id.lvSelf);
         floatAdd = rootView.findViewById(R.id.floatAdd);
         llSelf = rootView.findViewById(R.id.llSelf);
@@ -108,6 +124,9 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgHelp:
+                showInstructionDialog();
+                break;
             case R.id.floatAdd:
                 showContactDialog();
                 break;
@@ -120,6 +139,54 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
                 break;
 
         }
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void showInstructionDialog() {
+        final Dialog dialogInstruction = new Dialog(getActivity());
+        dialogInstruction.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogInstruction.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.instruction_dialog, null);
+        final TextView textOption1 = dialogview.findViewById(R.id.txtInstruction);
+        final TextView textOption2 = dialogview.findViewById(R.id.txtCancel);
+        final View viewIns = dialogview.findViewById(R.id.viewIns);
+
+        textOption1.setText("User Instructions");
+        textOption2.setText("Cancel");
+
+
+        dialogInstruction.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogInstruction.getWindow().getAttributes());
+        int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        // buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER_VERTICAL | Gravity.BOTTOM;
+        dialogInstruction.getWindow().setAttributes(lp);
+        dialogInstruction.setCanceledOnTouchOutside(false);
+        dialogInstruction.show();
+
+
+        textOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                startActivity(intentUserIns);
+                dialogInstruction.dismiss();
+            }
+        });
+
+
+        textOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogInstruction.dismiss();
+            }
+        });
     }
 
     private void callFragment(Fragment fragment) {

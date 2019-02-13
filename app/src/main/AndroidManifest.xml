@@ -249,9 +249,8 @@
         <activity android:name=".BaseNewActivity" />
         <activity
             android:name="com.mindyourlovedone.healthcare.Activity.TransparentActivity"
-          android:theme="@style/Theme.Transparent">
-
-        </activity>
+            android:theme="@style/Theme.Transparent"></activity>
+        <activity android:name=".RelationshipActivity"></activity>
     </application>
 
 </manifest>
