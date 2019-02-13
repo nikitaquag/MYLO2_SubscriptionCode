@@ -12,7 +12,9 @@ import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.DashBoard.CarePlanActivity;
 import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
@@ -25,6 +27,8 @@ public class FragmentDashboardNew extends Fragment implements View.OnClickListen
     private static final int REQUEST_CALL_PERMISSION = 300;
     View rootView;
     RelativeLayout rlEmergencyContact, rlSpecialist, rlInsuranceCard, rlEmergencyEvent, rlPrescription, rlCarePlan;
+    ImageView imgHelp, imgProfile;
+    TextView txtSelf;
 
     @Nullable
     @Override
@@ -58,8 +62,6 @@ public class FragmentDashboardNew extends Fragment implements View.OnClickListen
     }
 
 
-
-
     private void initListener() {
         rlCarePlan.setOnClickListener(this);
         rlEmergencyContact.setOnClickListener(this);
@@ -71,6 +73,13 @@ public class FragmentDashboardNew extends Fragment implements View.OnClickListen
     }
 
     private void initUi() {
+        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp.setVisibility(View.GONE);
+        imgProfile = getActivity().findViewById(R.id.imgProfile);
+        imgProfile.setVisibility(View.VISIBLE);
+        txtSelf = getActivity().findViewById(R.id.txtSelf);
+        txtSelf.setVisibility(View.VISIBLE);
+
         rlCarePlan = rootView.findViewById(R.id.rlCarePlan);
         rlEmergencyContact = rootView.findViewById(R.id.rlEmergencyContact);
         rlSpecialist = rootView.findViewById(R.id.rlSpecialist);

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MYLOnew.iml" filepath="$PROJECT_DIR$/MYLOnew.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mylo-androidS-master.iml" filepath="$PROJECT_DIR$/mylo-androidS-master.iml" />
     </modules>
   </component>
 </project>

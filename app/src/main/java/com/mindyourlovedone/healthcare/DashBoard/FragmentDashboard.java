@@ -45,7 +45,7 @@ import java.io.File;
 import static com.mindyourlovedone.healthcare.HomeActivity.R.id.rlEmergency;
 
 /**
- * Created by varsha on 8/23/2017.
+ * Created by varsha on 8/23/2017. Created by shradha on 25/01/2019.
  */
 
 public class FragmentDashboard extends Fragment implements View.OnClickListener, View.OnLongClickListener {
@@ -53,7 +53,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
     private static final int REQUEST_WRITE_PERMISSION = 200;
     private static final int REQUEST_CALL_PERMISSION = 300;
     FragmentOverview fragmentOverview;
-    ImageView imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile,imgRight,imgR;
+    ImageView imgHelp,imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
     TextView txtName, txtAddress, txtRelation, txtDrawerName;
     RelativeLayout rlEmergencyContact, rlSpecialist, rlInsuranceCard, rlEmergencyEvent, rlPrescription, rlCarePlan;
     View rootview;
@@ -206,11 +206,11 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             if (!connection.getPhoto().equals("")) {
                 File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connection.getPhoto());
                 imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-                if (imgFile.exists() ) {
+                if (imgFile.exists()) {
                     if (imgProfile.getDrawable() == null)
                         imgProfile.setImageResource(R.drawable.ic_profiles);
                     else
-                      imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                     // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                 }
@@ -250,7 +250,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
 
               /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                 imgProfile.setImageBitmap(myBitmap);*/
-               // imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                // imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                 // imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptions);
             } else {
@@ -290,12 +290,13 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
     }
 
     private void initUI() {
+
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.GONE);
         txtTitle.setText("");
-        imgRight=getActivity().findViewById(R.id.imgRight);
+        imgRight = getActivity().findViewById(R.id.imgRight);
         imgRight.setVisibility(View.GONE);
-        imgR=getActivity().findViewById(R.id.imgR);
+        imgR = getActivity().findViewById(R.id.imgR);
         imgR.setVisibility(View.INVISIBLE);
         imgNoti = getActivity().findViewById(R.id.imgNoti);
         imgPdf = getActivity().findViewById(R.id.imgPdf);

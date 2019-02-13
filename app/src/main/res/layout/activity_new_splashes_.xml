@@ -16,10 +16,8 @@
             android:id="@+id/imgSplash"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/splash"
             android:scaleType="fitXY"
-            />
-
+            android:src="@drawable/splash" />
 
         <LinearLayout
             android:id="@+id/llSplash"
@@ -91,7 +89,6 @@
                 android:src="@drawable/r_new" />
 
         </RelativeLayout>
-
 
         <!--
             <LinearLayout

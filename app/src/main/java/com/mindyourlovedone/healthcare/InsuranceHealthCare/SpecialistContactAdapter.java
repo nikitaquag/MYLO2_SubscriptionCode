@@ -19,6 +19,7 @@ import com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity;
 import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.HomeActivity.RelationshipActivity;
 
 /**
  * Created by welcome on 9/13/2017.
@@ -227,15 +228,16 @@ public class SpecialistContactAdapter extends BaseAdapter {
                     }
                 } else if (isEmergency == true && isInsurance == false) {
                     if (fragment.equals("Individual")) {
-                        Intent i = new Intent(context, ProfileActivity.class);
-                        i.putExtra("FRAGMENT", fragment);
+                        Intent i = new Intent(context, RelationshipActivity.class);
                         context.startActivity(i);
+                       /* Intent i = new Intent(context, ProfileActivity.class);
+                        i.putExtra("FRAGMENT", fragment);
+                        context.startActivity(i);*/
                     } else {
                         Intent i = new Intent(context, EmergencyInfoActivity.class);
                         i.putExtra("FRAGMENT", fragment);
                         context.startActivity(i);
                     }
-
                 } else if (isEmergency == false && isInsurance == true) {
                     Intent i = new Intent(context, InsuranceInfoActivity.class);
                     i.putExtra("FRAGMENT", fragment);

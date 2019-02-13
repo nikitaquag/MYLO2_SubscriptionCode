@@ -54,8 +54,8 @@
 
         <ImageView
             android:id="@+id/imgSelfFolder"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension35dp"
             android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
             android:layout_marginRight="@dimen/dimension15dp"
@@ -73,11 +73,11 @@
         android:layout_below="@+id/rlSelf"
         android:background="@color/colorOnesGray"
         android:paddingLeft="@dimen/dimension15dp"
-        android:paddingTop="@dimen/dimension5dp"
-        android:paddingBottom="@dimen/dimension5dp"
+        android:paddingTop="@dimen/dimension7dp"
+        android:paddingBottom="@dimen/dimension7dp"
         android:text="@string/Your"
         android:textColor="@color/colorLogoutTextGray"
-        android:textSize="@dimen/dimension18dp"
+        android:textSize="14dp"
         android:textStyle="normal" />
 
     <ListView

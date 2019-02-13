@@ -18,8 +18,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-           >
+            android:layout_alignParentBottom="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -35,11 +34,11 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
-                    android:padding="@dimen/dimension5dp"
                     android:text="Martha Matheson"
-                    android:textAllCaps="true"
+                    android:textAllCaps="false"
+
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension20dp"
+                    android:textSize="@dimen/dimension16dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -49,11 +48,11 @@
                     android:layout_below="@+id/txtDrawerName"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
-                    android:padding="@dimen/dimension5dp"
                     android:text="Self"
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension20dp" />
+                    android:textSize="14dp" />
             </LinearLayout>
         </FrameLayout>
     </RelativeLayout>
@@ -62,6 +61,7 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/flLogout"
         android:layout_below="@+id/rlHeader">
 
         <RelativeLayout
@@ -76,8 +76,8 @@
 
                 <ImageView
                     android:id="@+id/imgHome"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -110,8 +110,8 @@
 
                 <ImageView
                     android:id="@+id/imgProfiles"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -145,8 +145,8 @@
 
                 <ImageView
                     android:id="@+id/imgResources"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -191,8 +191,8 @@
 
                 <ImageView
                     android:id="@+id/imgMarketPlace"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_below="@+id/viewsd"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
@@ -230,8 +230,8 @@
 
                 <ImageView
                     android:id="@+id/imgVideos"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -267,8 +267,8 @@
 
                 <ImageView
                     android:id="@+id/imgSponsor"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -302,8 +302,8 @@
 
                 <ImageView
                     android:id="@+id/imgSettings"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -337,8 +337,8 @@
 
                 <ImageView
                     android:id="@+id/imgContactUs"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:padding="@dimen/dimension10dp"
@@ -362,40 +362,45 @@
                     android:background="@color/colorLightGrays"
                     android:visibility="gone"></View>
             </RelativeLayout>
-
-            <RelativeLayout
-                android:id="@+id/rlLogout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/rlContactUs"
-                android:background="@color/colorLogoutGray"
-                android:gravity="center">
-
-                <ImageView
-                    android:id="@+id/imgLogout"
-                    android:layout_width="@dimen/dimension25dp"
-                    android:layout_height="@dimen/dimension25dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:src="@drawable/drawer_logout"
-                    android:tint="@color/colorLogoutTextGray" />
-
-                <TextView
-                    android:id="@+id/txtLogout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/dimension50dp"
-                    android:layout_centerInParent="true"
-                    android:layout_centerHorizontal="true"
-                    android:layout_toRightOf="@+id/imgLogout"
-                    android:gravity="center"
-                    android:text="@string/Logout"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorLogoutTextGray"
-                    android:textSize="@dimen/dimension16dp"
-                    android:textStyle="bold" />
-            </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
 
+    <FrameLayout
+        android:id="@+id/flLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/scroll"
+            android:background="@color/colorLogoutGray"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgLogout"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:src="@drawable/drawer_logout"
+                android:tint="@color/colorLogoutTextGray" />
+
+            <TextView
+                android:id="@+id/txtLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimension50dp"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_toRightOf="@+id/imgLogout"
+                android:gravity="center"
+                android:text="@string/Logout"
+                android:textAllCaps="true"
+                android:textColor="@color/colorLogoutTextGray"
+                android:textSize="@dimen/dimension16dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </FrameLayout>
 
 </RelativeLayout>

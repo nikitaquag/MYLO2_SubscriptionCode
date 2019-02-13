@@ -22,10 +22,11 @@ import com.mindyourlovedone.healthcare.Fragment.FragmentContactUs;
 import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
 import com.mindyourlovedone.healthcare.Fragment.FragmentResourcesNew;
 import com.mindyourlovedone.healthcare.Fragment.FragmentSetting;
+import com.mindyourlovedone.healthcare.Fragment.FragmentSponsor;
 import com.mindyourlovedone.healthcare.Fragment.Fragment_Conn_New;
 
 public class BaseNewActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView imgDrawer;
+    ImageView imgDrawer, imgHelp;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container;
     RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
@@ -54,6 +55,8 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
                     callFragment(new FragmentContactUs());
                 } else if (p == 5) {
                     callFragment(new FragmentResources());
+                } else if (p == 6) {
+                    callFragment(new FragmentSponsor());
                 }
             }
         } catch (Exception e) {
@@ -70,6 +73,7 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initListener() {
+        imgHelp.setOnClickListener(this);
         imgDrawer.setOnClickListener(this);
         rlHome.setOnClickListener(this);
         rlProfiles.setOnClickListener(this);
@@ -82,6 +86,7 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initUi() {
+        imgHelp = findViewById(R.id.imgHelp);
         imgDrawer = findViewById(R.id.imgDrawer);
         drawerLayout = findViewById(R.id.drawerLayout);
         leftDrawer = findViewById(R.id.leftDrawer);
@@ -125,7 +130,8 @@ public class BaseNewActivity extends AppCompatActivity implements View.OnClickLi
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
             case R.id.rlSponsor:
-                Intent intentSponsor = new Intent(context, SponsorActivity.class);
+                Intent intentSponsor = new Intent(context, BaseNewActivity.class);
+                intentSponsor.putExtra("Home", 6);
                 intentSponsor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentSponsor.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentSponsor);
