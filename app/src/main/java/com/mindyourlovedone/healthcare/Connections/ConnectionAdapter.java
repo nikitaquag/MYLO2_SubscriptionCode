@@ -142,7 +142,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                 imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)),holder.imgConPhoto,displayImageOptions);
             }
             else{
-                holder.imgConPhoto.setImageResource(R.drawable.ic_profile_defaults);
+                holder.imgConPhoto.setImageResource(R.drawable.lightblue);
             }
             //  }
             /*byte[] photo = connectionList.get(position).getPhoto();

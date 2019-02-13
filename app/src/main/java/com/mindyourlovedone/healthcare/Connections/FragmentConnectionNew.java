@@ -49,6 +49,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by varsha on 8/26/2017.
@@ -136,7 +137,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         //llAddConn.setOnClickListener(this);
         imgLogo.setOnClickListener(this);
         imgRight.setOnClickListener(this);
-
+        floatAdd.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -613,7 +614,16 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     public void getData() {
         DBHelper dbHelper = new DBHelper(getActivity(), "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
-        connectionList = MyConnectionsQuery.fetchAllRecord();
+        ArrayList<RelativeConnection> myconnectionList = MyConnectionsQuery.fetchAllRecord();
+        connectionList=new ArrayList<>();
+        for (int i=0;i<myconnectionList.size();i++)
+        {
+            if (!myconnectionList.get(i).getRelationType().equalsIgnoreCase("self"))
+            {
+                connectionList.add(myconnectionList.get(i));
+            }
+
+        }
     }
 
     @Override
@@ -630,9 +640,121 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 startActivity(intent);
                */
                 break;
+            case R.id.floatAdd:
+                showContactDialog();
+                break;
         }
     }
 
+    private void showContactDialog() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_add_contacts, null);
+
+        final TextView textOption1 = dialogview.findViewById(R.id.txtOption1);
+        final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
+        TextView textCancel = dialogview.findViewById(R.id.txtCancel);
+
+        textOption1.setText("Create New");
+        textOption2.setText("Import From Dropbox");
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.BOTTOM;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        textOption1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFloatDialog();
+               /* Intent intent = new Intent(getActivity(), TransparentActivity.class);
+                startActivity(intent);*/
+                dialog.dismiss();
+            }
+        });
+
+        textOption2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+        });
+
+        textCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+    }
+    private void showFloatDialog() {
+
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (getActivity().getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE,"Connection");
+                Intent i=new Intent(getActivity(),GrabConnectionActivity.class);
+                getActivity().startActivity(i);
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                preferences.putString(PrefConstants.SOURCE,"Connection");
+                Intent i=new Intent(getActivity(),GrabConnectionActivity.class);
+                getActivity().startActivity(i);
+                dialog.dismiss();
+            }
+
+
+        });
+
+
+    }
     @SuppressLint("ResourceAsColor")
     private void showInstructionDialog() {
         final Dialog dialogInstruction = new Dialog(getActivity());
@@ -705,16 +827,16 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             if (imgFile.exists()) {
                 if (imgDrawerProfile.getDrawable() == null) {
                     imgDrawerProfile.setImageResource(R.drawable.lightblue);
-                    }
+                }
                 else {
                     imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-                    }
+                }
                 if (imgSelf.getDrawable() == null) {
                     imgSelf.setImageResource(R.drawable.lightblue);
                 }
                 else {
                     imgSelf.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-                 }
+                }
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.lightblue);
