@@ -32,7 +32,9 @@
             android:gravity="center"
             android:text="@string/ImpAgreement"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/dimension18dp" />
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="bold"
+            />
     </RelativeLayout>
 
     <ScrollView
@@ -57,7 +59,8 @@
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension18dp"
-                tools:ignore="RtlCompat" />
+                tools:ignore="RtlCompat"
+                android:lineSpacingExtra="2dp"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -181,18 +184,20 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="@dimen/dimension10dp"
-        android:layout_marginBottom="@dimen/dimension15dp"
-        android:background="@drawable/border_next"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:layout_marginTop="@dimen/dimension20dp"
+        android:background="@drawable/border_registered"
         android:gravity="center"
-        android:paddingLeft="@dimen/dimension40dp"
+        android:paddingLeft="@dimen/dimension50dp"
         android:paddingTop="@dimen/dimension10dp"
-        android:paddingRight="@dimen/dimension40dp"
+        android:paddingRight="@dimen/dimension50dp"
         android:paddingBottom="@dimen/dimension10dp"
         android:text="@string/Signup"
         android:textAlignment="viewStart"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension18dp"
+        android:textStyle="bold"
         tools:ignore="RtlCompat" />
 
 
