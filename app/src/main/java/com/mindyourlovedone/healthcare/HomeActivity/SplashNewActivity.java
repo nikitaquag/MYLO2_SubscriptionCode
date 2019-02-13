@@ -40,8 +40,10 @@ import io.fabric.sdk.android.Fabric;
 import ss.com.bannerslider.views.BannerSlider;
 
 public class SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
-    TextView txtNew;
+    TextView txtNew,txtRegistered;
     Context context = this;
+    Preferences preferences;
+    public static boolean fromDash = false;
     //shradha-comment for new changes
    /* static final String TAG = "TrivialDrive";
     //static final String SKU_INFINITE_GAS = "app_subscription"; // $1
@@ -52,7 +54,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     final long PERIOD_MS = 3000; // time in milliseconds between successive task executions.
     Context context = this;
     TextView txtNew, txtRegistered, textMessage, txtWelcome, txtSubscribe, txtSubscribes;
-    Preferences preferences;
+
     ImageView img1, img2, img3, img4, imgForword;
     RelativeLayout llBottom, llSubscribe;
     LinearLayout llSplash;
@@ -63,7 +65,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     Timer timer;
     boolean mSubscribedToInfiniteGas = false;
     IabHelper mHelper;
-    public static boolean fromDash = false;//nikita
+   //nikita
 
     // Listener that's called when we finish querying the items and subscriptions we own
     IabHelper.QueryInventoryFinishedListener mGotInventoryListener = new IabHelper.QueryInventoryFinishedListener() {
@@ -241,10 +243,12 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
     private void initListener() {
         txtNew.setOnClickListener(this);
+        txtRegistered.setOnClickListener(this);
     }
 
     private void initUi() {
         txtNew = findViewById(R.id.txtNew);
+        txtRegistered = findViewById(R.id.txtRegistered);
     }
 
     @Override
@@ -253,6 +257,24 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             case R.id.txtNew:
                 Intent intent = new Intent(context, SignUpActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.txtRegistered:
+                if (preferences == null) {
+                    preferences = new Preferences(SplashNewActivity.this);
+                }
+
+                if (preferences.getREGISTERED()) {
+                    Intent intent1 = new Intent(SplashNewActivity.this, BaseActivity.class);
+                    startActivity(intent1);
+
+//                    finish();
+                } else {
+                   // Intent intent2 = new Intent(SplashNewActivity.this, LoginActivity.class);
+                   // startActivity(intent2);
+//                    finish();
+                }
+
                 break;
         }
     }

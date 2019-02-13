@@ -49,12 +49,12 @@
                     android:layout_marginTop="@dimen/dimension5dp"
                     android:drawableBottom="@drawable/ic_menus"
                     android:gravity="center"
-                    android:text="menu"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="14dp"
                     android:textStyle="normal"
-                    android:visibility="visible" />
+                    android:visibility="visible"
+                    />
 
                 <ImageView
                     android:id="@+id/imgDrawer"
@@ -122,22 +122,22 @@
 
                 <ImageView
                     android:id="@+id/imgNoti"
-                    android:visibility="invisible"
                     android:layout_width="@dimen/dimension80dp"
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension20dp"
                     android:layout_toLeftOf="@+id/imgRight"
-                    android:src="@drawable/aba" />
+                    android:src="@drawable/aba"
+                    android:visibility="invisible" />
 
                 <ImageView
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:id="@+id/imgRight"
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension50dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:src="@drawable/menudot"
                     android:visibility="visible" />
 

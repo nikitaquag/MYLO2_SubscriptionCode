@@ -48,7 +48,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/itxtRegistered"
+                android:id="@+id/txtRegistered"
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dimension10dp"

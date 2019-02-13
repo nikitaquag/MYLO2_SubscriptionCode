@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.Connections;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -84,7 +86,8 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
 
     @Override
     public int getCount() {
-        return connectionList.size() + 1;
+        //return connectionList.size() + 1;
+        return connectionList.size();
     }
 
     @Override
@@ -99,15 +102,132 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
+        if (convertView==null)
+        {
 
-        if (convertView == null) {
+            if (position!=connectionList.size()) {
+                convertView = lf.inflate(R.layout.row_connections, parent, false);
+            }
+            else if(position==connectionList.size()){
+                convertView = lf.inflate(R.layout.row_connectionsadd, parent, false);
+             /*   holder.txtConName = (TextView) convertView.findViewById(R.id.txtConName);
+                holder.imgConPhoto = (ImageView) convertView.findViewById(R.id.imgConPhoto);*/
+            }
+            holder = new ViewHolder();
+            holder.txtConName = (TextView) convertView.findViewById(R.id.txtConName);
+            holder.txtConRelation = (TextView) convertView.findViewById(R.id.txtConRelation);
+            //   holder.txtAddress= (TextView) convertView.findViewById(R.id.txtAddress);
+            holder.imgConPhoto = (ImageView) convertView.findViewById(R.id.imgConPhoto);
+            //   holder.imgForword= (ImageView) convertView.findViewById(R.id.imgForword);
+
+            convertView.setTag(holder);
+        }
+        else{
+            holder= (ViewHolder) convertView.getTag();
+        }
+        if (position!=connectionList.size()) {
+            holder.txtConName.setText(connectionList.get(position).getName());
+            if (connectionList.get(position).getRelationType().equals("Other"))
+            {
+                holder.txtConRelation.setText(connectionList.get(position).getOtherRelation());
+            }else {
+                holder.txtConRelation.setText(connectionList.get(position).getRelationType());
+            }
+
+            if (!connectionList.get(position).getPhoto().equals("")) {
+                File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/Master/",connectionList.get(position).getPhoto());
+                //  if (imgFile.exists()) {
+                //   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                // holder.imgConPhoto.setImageBitmap(myBitmap);
+                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)),holder.imgConPhoto,displayImageOptions);
+            }
+            else{
+                holder.imgConPhoto.setImageResource(R.drawable.ic_profile_defaults);
+            }
+            //  }
+            /*byte[] photo = connectionList.get(position).getPhoto();
+            Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);*/
+            //holder.imgConPhoto.setImageBitmap(bmp);
+        }
+/*
+if (connectionList.get(position).getAddress().equals(""))
+{
+    holder.txtAddress.setText("#203,10 Downing Street, los Angeles, California.");
+}
+else {
+    holder.txtAddress.setText(connectionList.get(position).getAddress());
+}
+*/
+
+
+
+
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (position==connectionList.size())
+                {
+                    AlertDialog.Builder builders = new AlertDialog.Builder(context);
+                    builders.setTitle("");
+                    builders.setItems(import_new, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int itemPos) {
+                            switch (itemPos) {
+                                case 0: // import
+                                    Intent in=new Intent(context, DropboxLoginActivity.class);
+                                    in.putExtra("FROM","Backup");
+                                    in.putExtra("ToDo","Individual");
+                                    in.putExtra("ToDoWhat","Import");
+                                    context.startActivity(in);
+                                    dialog.dismiss();
+                                    break;
+                                case 1: // new
+                                    preferences.putString(PrefConstants.SOURCE,"Connection");
+                                    Intent i=new Intent(context,GrabConnectionActivity.class);
+                                    context.startActivity(i);
+                                    dialog.dismiss();
+                                    break;
+                            }
+                        }
+                    });
+                    builders.create().show();
+
+                }
+                else {
+                    if (connectionList.get(position).getRelationType().equals("")) {
+                        showInputDialog(context,connectionList.get(position).getId(),connectionList.get(position).getEmail());
+                    } else {
+                        FragmentDashboard ldf = new FragmentDashboard();
+                        Bundle args = new Bundle();
+                        args.putString("Name", connectionList.get(position).getName());
+                        args.putString("Address", connectionList.get(position).getAddress());
+                        args.putString("Relation", connectionList.get(position).getRelationType());
+                        //String saveThis = Base64.encodeToString(connectionList.get(position).getPhoto(), Base64.DEFAULT);
+                        preferences.putString(PrefConstants.USER_IMAGE, connectionList.get(position).getPhoto());
+                        preferences.putString(PrefConstants.CONNECTED_NAME, connectionList.get(position).getName());
+                        preferences.putString(PrefConstants.CONNECTED_USEREMAIL, connectionList.get(position).getEmail());
+                        preferences.putInt(PrefConstants.CONNECTED_USERID, connectionList.get(position).getId());
+                        String mail = connectionList.get(position).getEmail();
+                        mail = mail.replace(".", "_");
+                        mail = mail.replace("@", "_");
+                        preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                        preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                        ldf.setArguments(args);
+
+                        ((BaseActivity) context).callFragment("DASHBOARD", ldf);
+                    }
+                }
+            }
+        });
+
+        return convertView;
+     /*   if (convertView == null) {
 
             if (position != connectionList.size()) {
                 convertView = lf.inflate(R.layout.row_connections, parent, false);
             } else if (position == connectionList.size()) {
                 convertView = lf.inflate(R.layout.row_connectionsadd, parent, false);
-             /*   holder.txtConName = (TextView) convertView.findViewById(R.id.txtConName);
-                holder.imgConPhoto = (ImageView) convertView.findViewById(R.id.imgConPhoto);*/
+             *//*   holder.txtConName = (TextView) convertView.findViewById(R.id.txtConName);
+                holder.imgConPhoto = (ImageView) convertView.findViewById(R.id.imgConPhoto);*//*
             }
             holder = new ViewHolder();
             holder.txtConName = convertView.findViewById(R.id.txtConName);
@@ -152,11 +272,11 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                 holder.imgConPhoto.setImageResource(R.drawable.profile_darkbluecolor);
             }
             //  }
-            /*byte[] photo = connectionList.get(position).getPhoto();
-            Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);*/
+            *//*byte[] photo = connectionList.get(position).getPhoto();
+            Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);*//*
             //holder.imgConPhoto.setImageBitmap(bmp);
         }
-/*
+*//*
 if (connectionList.get(position).getAddress().equals(""))
 {
     holder.txtAddress.setText("#203,10 Downing Street, los Angeles, California.");
@@ -164,7 +284,7 @@ if (connectionList.get(position).getAddress().equals(""))
 else {
     holder.txtAddress.setText(connectionList.get(position).getAddress());
 }
-*/
+*//*
 
 
         convertView.setOnClickListener(new View.OnClickListener() {
@@ -173,34 +293,34 @@ else {
                 if (position == connectionList.size()) {
 
                     ShowOptionDialog();
-//                    AlertDialog.Builder builders = new AlertDialog.Builder(context);
-//                    builders.setTitle("");
-//                    builders.setItems(import_new, new DialogInterface.OnClickListener() {
-//                        public void onClick(DialogInterface dialog, int itemPos) {
-//                            switch (itemPos) {
-//                                case 0: // new
-//                                    preferences.putString(PrefConstants.SOURCE, "Connection");
-//                                    Intent i = new Intent(context, GrabConnectionActivity.class);
-//                                    context.startActivity(i);
-//                                    dialog.dismiss();
-//                                    break;
-//                                case 1: // import
-//                                    Intent in = new Intent(context, DropboxLoginActivity.class);
-//                                    in.putExtra("FROM", "Backup");
-//                                    in.putExtra("ToDo", "Individual");
-//                                    in.putExtra("ToDoWhat", "Import");
-//                                    context.startActivity(in);
-//                                    dialog.dismiss();
-//                                    break;
-//                               /* case 2://FTU
-//                                    Intent intentFtu = new Intent(context, InstructionActivity.class);
-//                                    intentFtu.putExtra("From", "ShareProfileFTU");
-//                                    context.startActivity(intentFtu);
-//                                    break;*/
-//                            }
-//                        }
-//                    });
-//                    builders.create().show();
+                *//*    AlertDialog.Builder builders = new AlertDialog.Builder(context);
+                    builders.setTitle("");
+                    builders.setItems(import_new, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int itemPos) {
+                            switch (itemPos) {
+                                case 0: // new
+                                    preferences.putString(PrefConstants.SOURCE, "Connection");
+                                    Intent i = new Intent(context, GrabConnectionActivity.class);
+                                    context.startActivity(i);
+                                    dialog.dismiss();
+                                    break;
+                                case 1: // import
+                                    Intent in = new Intent(context, DropboxLoginActivity.class);
+                                    in.putExtra("FROM", "Backup");
+                                    in.putExtra("ToDo", "Individual");
+                                    in.putExtra("ToDoWhat", "Import");
+                                    context.startActivity(in);
+                                    dialog.dismiss();
+                                    break;
+                              *//**//* case 2://FTU
+                                    Intent intentFtu = new Intent(context, InstructionActivity.class);
+                                    intentFtu.putExtra("From", "ShareProfileFTU");
+                                    context.startActivity(intentFtu);
+                                    break;*//**//*
+                            }
+                        }
+                   });
+                    builders.create().show();*//*
 
                 } else {
                     if (connectionList.get(position).getRelationType().equals("")) {
@@ -229,7 +349,7 @@ else {
             }
         });
 
-        return convertView;
+        return convertView;*/
     }
 
     private void ShowOptionDialog() {

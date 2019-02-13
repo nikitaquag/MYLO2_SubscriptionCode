@@ -14,7 +14,7 @@
     <color name="colorBlackDark">#000000</color>
     <color name="colorLightBlack">#575757</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="colorBlue">#286BDA</color>
+    <!--<color name="colorBlue">#286BDA</color>-->
     <color name="colorGreen">#AFD135</color>
     <color name="colorDarkGreen">#8eA82a</color>
     <color name="colorDarkBlue">#042B4C</color>
@@ -64,6 +64,7 @@
     <!--Colors for Mylo Version2 codes-->
     <color name="colorNewHereBlue">#2AABE1</color>
     <color name="colorSideBlue">#3DA1CD</color>
+    <color name="colorBlue">#2AABE1</color>
     <color name="colorRegisteredGreen">#A6D17B</color>
     <color name="colorSponsorBlue">#0277C2</color>
     <color name="colorLogoutGray">#E3E3E3</color>

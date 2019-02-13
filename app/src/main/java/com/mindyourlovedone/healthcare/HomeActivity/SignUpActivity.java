@@ -75,9 +75,10 @@ import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextInputLayout tilName;
-    TextView txtName, txtNext;
+    TextView txtName, txtNext,txtEmail;
     ImageView imgBack;
     Context context = this;
+    String name="",email="";
   /*  private static final int REQUEST_CALL_PERMISSION = 100;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
@@ -123,6 +124,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         tilName = findViewById(R.id.tilName);
         txtName = findViewById(R.id.txtName);
         txtNext = findViewById(R.id.txtNext);
+        txtEmail = findViewById(R.id.txtEmail);
         imgBack = findViewById(R.id.imgBack);
 
 
@@ -143,10 +145,33 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.txtNext:
-                Intent intentNext = new Intent(context, ImpAgreementActivity.class);
-                startActivity(intentNext);
+                 name=txtName.getText().toString();
+                 email=txtEmail.getText().toString();
+                if (validate()) {
+                    Intent intentNext = new Intent(context, ImpAgreementActivity.class);
+                    intentNext.putExtra("Name", name);
+                    intentNext.putExtra("Email", email);
+                    startActivity(intentNext);
+                }
                 break;
         }
+    }
+
+    private boolean validate() {
+        if (name.equals("")) {
+            txtName.setError("Please Enter Name");
+            DialogManager.showAlert("Please Enter Name", context);
+        } else if (email.equals("")) {
+            txtEmail.setError("Please Enter email");
+            DialogManager.showAlert("Please Enter email", context);
+        } else if (!email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+            txtEmail.setError("Please enter valid email");
+            DialogManager.showAlert("Please enter valid email", context);
+        }
+        else {
+            return true;
+        }
+        return false;
     }
 /*
     private void initComponent() {

@@ -20,7 +20,7 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dimension0dp"
             android:layout_marginTop="@dimen/dimension10dp"
-            android:src="@drawable/doct" />
+            android:src="@drawable/lightblue" />
 
         <LinearLayout
             android:id="@+id/llSelf"
@@ -84,7 +84,9 @@
         android:id="@+id/lvSelf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtYour"></ListView>
+        android:layout_below="@+id/txtYour"
+        android:divider="@null"
+        ></ListView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatAdd"

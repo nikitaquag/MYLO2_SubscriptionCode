@@ -962,8 +962,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-    //   int c2 = 0;
-/*
+      int c2 = 0;
+
     @Override
     public void onBackPressed() {
 
@@ -973,10 +973,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     c2 = 1;
                     callFragmentData(new FragmentConnectionNew());
                 }
-            }else{
-                Intent intent=new Intent(context,SplashNewActivity.class);
-                startActivity(intent);
-                finish();
+                else{
+                    Intent intent=new Intent(context,SplashNewActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }else {
             SplashNewActivity.fromDash = true;
@@ -996,7 +997,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-*/
+
 
     public class AsynData extends AsyncTask {//shradha
 

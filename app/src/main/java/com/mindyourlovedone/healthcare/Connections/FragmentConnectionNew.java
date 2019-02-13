@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -56,6 +59,11 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     final CharSequence[] backup_profile = {"Share Profile"};
     View rootview;
     GridView lvConnection;
+    ListView lvSelf;
+    TextView txtUser,txtRelation;
+    FloatingActionButton floatAdd;
+    LinearLayout llSelf;
+    ImageView imgSelfFolder,imgSelf;
     ArrayList<RelativeConnection> connectionList;
     TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep22, txtStep55, txtStep555, txtStep5, txtStep6, txtStep7, txtStep8;
     //RelativeLayout llAddConn;
@@ -114,7 +122,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     public void setListData() {
         if (connectionList.size() != 0) {
             connectionAdapter = new ConnectionAdapter(getActivity(), connectionList);
-            lvConnection.setAdapter(connectionAdapter);
+            lvSelf.setAdapter(connectionAdapter);
             if (connectionList.size() > 1) {
                 rlGuide.setVisibility(View.GONE);
             } else {
@@ -132,6 +140,14 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
     private void initUI() {
+        lvSelf = rootview.findViewById(R.id.lvSelf);
+        floatAdd = rootview.findViewById(R.id.floatAdd);
+        llSelf = rootview.findViewById(R.id.llSelf);
+        imgSelfFolder = rootview.findViewById(R.id.imgSelfFolder);
+        imgSelf= rootview.findViewById(R.id.imgSelf);
+        txtUser = rootview.findViewById(R.id.txtUser);
+        txtRelation = rootview.findViewById(R.id.txtRelation);
+
         imgR = getActivity().findViewById(R.id.imgR);
         imgR.setVisibility(View.GONE);
         imgRight = getActivity().findViewById(R.id.imgRight);
@@ -214,7 +230,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         {
             setListData();
         }*/
-        lvConnection.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+
+        lvSelf.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 //  Toast.makeText(getActivity(),"Long Pressed",Toast.LENGTH_SHORT).show();
@@ -680,20 +698,27 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
         //byte[] photo = Base64.decode(image, Base64.DEFAULT);
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
+        txtUser.setText(preferences.getString(PrefConstants.USER_NAME));
         if (!image.equals("")) {
             File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
             imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             if (imgFile.exists()) {
-                if (imgDrawerProfile.getDrawable() == null)
-                    imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
-                else
+                if (imgDrawerProfile.getDrawable() == null) {
+                    imgDrawerProfile.setImageResource(R.drawable.lightblue);
+                    }
+                else {
                     imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
-                //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
-
+                    }
+                if (imgSelf.getDrawable() == null) {
+                    imgSelf.setImageResource(R.drawable.lightblue);
+                }
+                else {
+                    imgSelf.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                 }
             }
         } else {
-            imgDrawerProfile.setImageResource(R.drawable.profile_darkbluecolor);
+            imgDrawerProfile.setImageResource(R.drawable.lightblue);
+            imgSelf.setImageResource(R.drawable.lightblue);
         }
     }
 
@@ -733,5 +758,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             m.dropTable();*/
         }
     }
+
+
 
 }
