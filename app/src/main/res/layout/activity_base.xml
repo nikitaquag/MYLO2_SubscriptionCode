@@ -39,21 +39,13 @@
                     android:tint="@color/colorWhite"
                     android:visibility="gone" />
 
-                <TextView
+                <ImageView
                     android:id="@+id/txtDrawer"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension15dp"
-                    android:layout_marginTop="@dimen/dimension5dp"
-                    android:drawableBottom="@drawable/ic_menus"
-                    android:gravity="center"
-                    android:textAllCaps="true"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="14dp"
-                    android:textStyle="normal"
-                    android:visibility="visible" />
+                    android:src="@drawable/left_drawer" />
 
                 <ImageView
                     android:id="@+id/imgDrawer"
@@ -79,21 +71,35 @@
                     android:id="@+id/imgProfile"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
-                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/txtDrawer"
                     android:layout_marginTop="@dimen/dimension2dp"
                     android:layout_marginBottom="@dimen/dimension2dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
                     android:src="@drawable/ic_profiles" />
 
                 <TextView
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/imgProfile"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:text="MyAPP"
+                    android:text="Name"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/dimension22dp"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                     />
+                <TextView
+                    android:id="@+id/txtRel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:text="rel"
+                    android:layout_toRightOf="@+id/imgProfile"
+                    android:layout_below="@+id/txtName"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension19dp"
+                    android:visibility="gone"
+                    />
 
                 <TextView
                     android:id="@+id/txtTitle"

@@ -85,13 +85,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
     ImageView imgHelp, imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
-    TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
+    TextView txtTitle, txtName,txtRel, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance, txtPodcast;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
     RelativeLayout rlLogOutt;
     FrameLayout flLogout;
     Preferences preferences;
+    ImageView txtDrawer;
     TextView txtPrivacyPolicy, txtEULA, txtversion;
     RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
@@ -489,6 +490,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
+        txtRel = findViewById(R.id.txtRel);
         //  txtversion= findViewById(R.id.txtversion);
 
        /* try {
