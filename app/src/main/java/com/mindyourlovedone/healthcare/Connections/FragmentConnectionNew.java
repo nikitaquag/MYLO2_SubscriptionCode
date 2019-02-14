@@ -33,8 +33,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
+import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
@@ -603,6 +605,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         preferences.putInt(PrefConstants.USER_ID, connection.getUserid());
         preferences.putString(PrefConstants.USER_NAME, connection.getName());
         preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
+        preferences.putString(PrefConstants.USER_EMAIL,connection.getEmail());
     }
 
     /* private void deleteConnection(RelativeConnection item) {
@@ -632,7 +635,23 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgSelfFolder:
-                callFragment(new FragmentDashboardNew());
+                FragmentDashboard ldf = new FragmentDashboard();
+                Bundle args = new Bundle();
+                args.putString("Name", preferences.getString(PrefConstants.USER_NAME));
+               // args.putString("Address", connectionList.get(position).getAddress());
+                args.putString("Relation","Self");
+                //String saveThis = Base64.encodeToString(connectionList.get(position).getPhoto(), Base64.DEFAULT);
+                preferences.putString(PrefConstants.USER_IMAGE, preferences.getString(PrefConstants.USER_PROFILEIMAGE));
+                preferences.putString(PrefConstants.CONNECTED_NAME,preferences.getString(PrefConstants.USER_NAME));
+                preferences.putString(PrefConstants.CONNECTED_USEREMAIL, preferences.getString(PrefConstants.USER_EMAIL));
+                preferences.putInt(PrefConstants.CONNECTED_USERID, preferences.getInt(PrefConstants.USER_ID));
+                String mail = preferences.getString(PrefConstants.USER_EMAIL);
+                mail = mail.replace(".", "_");
+                mail = mail.replace("@", "_");
+                preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                ldf.setArguments(args);
+                ((BaseActivity) getActivity()).callFragment("DASHBOARD", ldf);
                 break;
             case R.id.imgRight:
                 showInstructionDialog();

@@ -196,6 +196,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 p = intent.getExtras().getInt("c");
                 if (p == 1) {
                     callFragmentData(new FragmentDashboard());
+                    txtTitle.setVisibility(View.GONE);
                     p = 1;
                 } else if (p == 3) {
                     callFragmentData(new FragmentConnectionNew());

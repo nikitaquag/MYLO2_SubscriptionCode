@@ -199,7 +199,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
             preferences.putString(PrefConstants.CONNECTED_NAME, connection.getName());
             String name = connection.getName();
-            String address = connection.getAddress();
+           // String address = connection.getAddress();
             String relation = "Self";
             //byte[]array =personalInfo.getPhoto();
             if (!connection.getPhoto().equals("")) {
@@ -219,7 +219,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
             txtName.setText(name + " - " + relation);
            // txtRelation.setText(relation);
-            txtAddress.setText(address);
+          //  txtAddress.setText(address);
           /*  Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
             imgProfile.setImageBitmap(bmp);*/
         } else {
