@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,7 +23,11 @@ import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -71,12 +77,13 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
     Button btnFiles, btnBackup, btnRestore;
     TextView txtHBackUp, txtHRestore, txtHShare, txtHUpload;
     TextView txtName, txtFile, txtBackup2, txtLogoutDropbox, txtLoginPerson;
-    ImageView imgBack, imgDot, imgForward, imgDown;
+    ImageView imgBack, imgDot;
     Preferences preferences;
     String from = "";
     String todo = "";
     String todoWhat = "";
-    RelativeLayout rlBackup, rlBackupNew, rlView;
+    RelativeLayout rlBackup, rlView;
+    LinearLayout llHowToBackUp, llHowToRetore, llHowToShare, llHowToUpload;
     LinearLayout llBackup;
     boolean flagBackup = false;
 
@@ -119,43 +126,54 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             }
         });
 */
-        txtHBackUp = findViewById(R.id.txtHBackUp);
+      /*  txtHBackUp = findViewById(R.id.txtHBackUp);
         txtHBackUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CopyReadAssetss("mylo_backup.pdf");
 
             }
-        });
-        txtHRestore = findViewById(R.id.txtHRestore);
-        txtHRestore.setOnClickListener(new View.OnClickListener() {
+        });*/
+        llHowToBackUp = findViewById(R.id.rlHowToBackUp);
+        llHowToBackUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CopyReadAssetss("mylo_restore.pdf");
+                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                // CopyReadAssetss("mylo_restore.pdf");
 
             }
         });
-        txtHShare = findViewById(R.id.txtHShare);
-        txtHShare.setOnClickListener(new View.OnClickListener() {
+        llHowToRetore = findViewById(R.id.rlHowToRetore);
+        llHowToRetore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CopyReadAssetss("mylo_share.pdf");
+                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                // CopyReadAssetss("mylo_restore.pdf");
 
             }
         });
-        txtHUpload = findViewById(R.id.txtHUpload);
+
+        llHowToUpload = findViewById(R.id.rlHowToUpload);
+        llHowToUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                //  CopyReadAssetss("mylo_share.pdf");
+
+            }
+        });
+       /* txtHUpload = findViewById(R.id.txtHUpload);
         txtHUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CopyReadAssetss("mylo_download.pdf");
 
             }
-        });
+        });*/
 
-        imgDown = findViewById(R.id.imgDown);
-        imgForward = findViewById(R.id.imgForward);
-        rlBackupNew = findViewById(R.id.rlBackupNew);
+
         llBackup = findViewById(R.id.llBackup);
+/*
         rlBackupNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,6 +193,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
             }
         });
+*/
         /*Shradha*/
         txtLoginPerson = findViewById(R.id.txtLoginPerson);
         txtLogoutDropbox = findViewById(R.id.txtLogoutDropbox);
@@ -296,18 +315,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         btnBackup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
-                if (prefs.contains("access-token")) {
-                    Fun_Type = 4;
-                    preferences.putString(PrefConstants.STORE, "Backup");
-                    preferences.putString(PrefConstants.TODO, todo);
-                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
-                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                    //    loadDropboxData();
-                } else {
-                    Fun_Type = 1;
-                    Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
-                }
+                showBackupDialog();
+
             }
         });
 
@@ -345,7 +354,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 if (DropboxClientFactory.getClient() == null) {
                     prefs.edit().remove("access-token").apply();
                     com.dropbox.core.android.AuthActivity.result = null;
-                  //  loadDropboxData();
+                    //  loadDropboxData();
                     DropboxClientFactory.revokeClient(new DropboxClientFactory.CallBack() {
                         @Override
                         public void onRevoke() {
@@ -378,7 +387,60 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         }
 
     }
-/*Shradha*/
+
+    @SuppressLint("ResourceAsColor")
+    private void showBackupDialog() {
+        final Dialog dialogBank = new Dialog(context);
+        dialogBank.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogBank.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_backup, null);
+        final TextView txtCancel = dialogview.findViewById(R.id.txtCancel);
+        final TextView txtBackup = dialogview.findViewById(R.id.txtBackup);
+
+        // txtComming.setText("Comming Soon");
+        // txtComming.setTextColor(R.color.colorBlue);
+        dialogBank.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogBank.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.70);
+        lp.width = width;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogBank.getWindow().setAttributes(lp);
+        dialogBank.show();
+
+
+        txtBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
+                if (prefs.contains("access-token")) {
+                    Fun_Type = 4;
+                    preferences.putString(PrefConstants.STORE, "Backup");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
+                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                    //    loadDropboxData();
+                } else {
+                    Fun_Type = 1;
+                    Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                }
+            }
+        });
+
+
+        txtCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogBank.dismiss();
+            }
+        });
+    }
+
+
+    /*Shradha*/
     private void showLogOutDialog(String msg) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle("Logout");
@@ -520,7 +582,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 }
 
 
-                String value = "You have Logged in as " + result.getName().getDisplayName() + " in dropbox.";
+                String value = "You are logged in DropBox as " + result.getName().getDisplayName() /*+ " in dropbox."*/;
                 txtName.setText(value);
                 txtLogoutDropbox.setVisibility(View.VISIBLE);
 //                btnLogin.setText("Login With Different User");
@@ -529,8 +591,6 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 /*((TextView) findViewById(R.id.email_text)).setText(result.getEmail());
                 ((TextView) findViewById(R.id.name_text)).setText(result.getName().getDisplayName());
                 ((TextView) findViewById(R.id.type_text)).setText(result.getAccountType().name());*/
-
-
             }
 
             @Override

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.SettingAdapter;
@@ -86,8 +87,7 @@ public class FragmentSetting extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intentContactUs = new Intent(getActivity(), BaseActivity.class);
-                        intentContactUs.putExtra("c", 5);
+                        Intent intentContactUs = new Intent(getActivity(), DropboxLoginActivity.class);
                         getActivity().startActivity(intentContactUs);
                         break;
                     case 1:
