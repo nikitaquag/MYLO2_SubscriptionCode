@@ -73,7 +73,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     ArrayList<RelativeConnection> connectionList;
     TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep22, txtStep55, txtStep555, txtStep5, txtStep6, txtStep7, txtStep8;
     //RelativeLayout llAddConn;
-    TextView txtTitle, txtName, txtDrawerName;
+    TextView txtTitle, txtName,txtRel, txtDrawerName;
     ImageView imgNoti, imgProfile, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
     DBHelper dbHelper;
     ConnectionAdapter connectionAdapter;
@@ -217,10 +217,12 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         imgPdf.setVisibility(View.GONE);
         imgProfile = getActivity().findViewById(R.id.imgProfile);
         txtName = getActivity().findViewById(R.id.txtName);
+        txtRel = getActivity().findViewById(R.id.txtRel);
         leftDrawer = getActivity().findViewById(R.id.leftDrawer);
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
         txtName.setVisibility(View.GONE);
+        txtRel.setVisibility(View.GONE);
         imgProfile.setVisibility(View.GONE);
         imgNoti = getActivity().findViewById(R.id.imgNoti);
         imgNoti.setVisibility(View.GONE);

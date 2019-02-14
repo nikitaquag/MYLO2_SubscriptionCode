@@ -54,7 +54,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
     private static final int REQUEST_CALL_PERMISSION = 300;
     FragmentOverview fragmentOverview;
     ImageView imgHelp, imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
-    TextView txtName, txtAddress, txtRelation, txtDrawerName;
+    TextView txtName,txtRel, txtAddress, txtRelation, txtDrawerName;
     RelativeLayout rlEmergencyContact, rlSpecialist, rlInsuranceCard, rlEmergencyEvent, rlPrescription, rlCarePlan;
     View rootview;
     boolean flag = false;
@@ -217,7 +217,8 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 imgProfile.setImageResource(R.drawable.ic_profiles);
             }
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
-            txtName.setText(name + " - " + relation);
+            txtName.setText(name);
+            txtRel.setText(relation);
            // txtRelation.setText(relation);
           //  txtAddress.setText(address);
           /*  Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
@@ -258,10 +259,12 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
 
             if (relation.equals("Other")) {
-                txtName.setText(name + " - " + otherrelation);
+                txtName.setText(name);
+                txtRel.setText(otherrelation);
              //   txtRelation.setText(otherrelation);
             } else {
-                txtName.setText(name + " - " + relation);
+                txtName.setText(name);
+                txtRel.setText(relation);
              //   txtRelation.setText(relation);
             }
 //            txtAddress.setText(address);
@@ -304,8 +307,9 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         imgProfile = getActivity().findViewById(R.id.imgProfile);
         imgProfile.setVisibility(View.VISIBLE);
         txtName = getActivity().findViewById(R.id.txtName);
+        txtRel = getActivity().findViewById(R.id.txtRel);
         txtName.setVisibility(View.VISIBLE);
-
+        txtRel.setVisibility(View.VISIBLE);
         leftDrawer = getActivity().findViewById(R.id.leftDrawer);
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
