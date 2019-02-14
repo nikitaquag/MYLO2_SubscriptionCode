@@ -81,7 +81,6 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         initUI();
         initListener();
         initComponent();
-
         return rootview;
     }
 
@@ -219,7 +218,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             }
             // byte[] array = Base64.decode(image, Base64.DEFAULT);
             txtName.setText(name + " - " + relation);
-            txtRelation.setText(relation);
+           // txtRelation.setText(relation);
             txtAddress.setText(address);
           /*  Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
             imgProfile.setImageBitmap(bmp);*/
@@ -260,12 +259,12 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
 
             if (relation.equals("Other")) {
                 txtName.setText(name + " - " + otherrelation);
-                txtRelation.setText(otherrelation);
+             //   txtRelation.setText(otherrelation);
             } else {
                 txtName.setText(name + " - " + relation);
-                txtRelation.setText(relation);
+             //   txtRelation.setText(relation);
             }
-            txtAddress.setText(address);
+//            txtAddress.setText(address);
 //            Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
 //            imgProfile.setImageBitmap(bmp);
         }
