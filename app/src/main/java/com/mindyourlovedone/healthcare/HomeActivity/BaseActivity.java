@@ -34,6 +34,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -79,15 +80,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
+    ImageView imgHelp,imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
     TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance, txtPodcast;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
     RelativeLayout rlLogOutt;
+    FrameLayout flLogout;
     Preferences preferences;
     TextView txtPrivacyPolicy, txtEULA,txtversion;
-    RelativeLayout rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContact, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    RelativeLayout rlSettings,rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
     int p = 0;
 
@@ -427,37 +429,49 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     private void initListener() {
         txtDrawer.setOnClickListener(this);
         imgDrawer.setOnClickListener(this);
-        imgPdf.setOnClickListener(this);
+     //   imgPdf.setOnClickListener(this);
         //   imgNoti.setOnClickListener(this);
-        rlLogOutt.setOnClickListener(this);
-        imgLocationFeed.setOnClickListener(this);
+        flLogout.setOnClickListener(this);
+       /* imgLocationFeed.setOnClickListener(this);
         rlProfiles.setOnClickListener(this);
         rlHome.setOnClickListener(this);
-        rlSupport.setOnClickListener(this);
         rlResources.setOnClickListener(this);
-        rlPrivacy.setOnClickListener(this);
         rlMarketPlace.setOnClickListener(this);
         rlVideos.setOnClickListener(this);
-        rlBackup.setOnClickListener(this);
-        rlContact.setOnClickListener(this);
+        rlContactUs.setOnClickListener(this);
         rlSponsor.setOnClickListener(this);
-        rlGuide.setOnClickListener(this);
-        rlWebsite.setOnClickListener(this);
-        txtBank.setOnClickListener(this);
+        rlWebsite.setOnClickListener(this);*/
+       /* txtBank.setOnClickListener(this);
         txtForm.setOnClickListener(this);
         txtSenior.setOnClickListener(this);
         txtAdvance.setOnClickListener(this);
-        rlPrivacyDetail.setOnClickListener(this);
-        txtPrivacyPolicy.setOnClickListener(this);
-        txtEULA.setOnClickListener(this);
-        txtPodcast.setOnClickListener(this);
+       txtPrivacyPolicy.setOnClickListener(this);
+        txtEULA.setOnClickListener(this); */
+       // txtPodcast.setOnClickListener(this);
     }
 
     private void initUI() {
+
+        imgHelp = findViewById(R.id.imgHelp);
+        imgDrawer = findViewById(R.id.imgDrawer);
+        drawerLayout = findViewById(R.id.drawerLayout);
+        leftDrawer = findViewById(R.id.leftDrawer);
+        container = findViewById(R.id.fragmentContainer);
+        rlHome = leftDrawer.findViewById(R.id.rlHome);
+        rlProfiles =leftDrawer.findViewById(R.id.rlProfiles);
+        rlResources =leftDrawer.findViewById(R.id.rlResources);
+        rlSponsor =leftDrawer.findViewById(R.id.rlSponsor);
+        rlSettings =leftDrawer.findViewById(R.id.rlSettings);
+        rlContactUs =leftDrawer.findViewById(R.id.rlContactUs);
+        rlMarketPlace = leftDrawer.findViewById(R.id.rlMarketPlace);
+        rlVideos = leftDrawer.findViewById(R.id.rlVideos);
+        flLogout = leftDrawer.findViewById(R.id.flLogout);
+
+
         txtFname = findViewById(R.id.txtFName);
         txtAdd = findViewById(R.id.txtAdd);
         txtDrawer = findViewById(R.id.txtDrawer);
-        imgDrawer = findViewById(R.id.imgDrawer);
+
         imgNoti = findViewById(R.id.imgNoti);
         imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.GONE);
@@ -468,9 +482,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
-        txtversion= findViewById(R.id.txtversion);
+      //  txtversion= findViewById(R.id.txtversion);
 
-        try {
+       /* try {
             PackageInfo pInfo = context.getPackageManager().getPackageInfo(getPackageName(), 0);
             String version = pInfo.versionName;
             SpannableString s = new SpannableString("Version - " + version);
@@ -478,7 +492,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             txtversion.setText(s);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         txtBank = findViewById(R.id.txtBank);
         txtForm = findViewById(R.id.txtForm);
@@ -489,27 +503,19 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         drawerLayout = findViewById(R.id.drawerLayout);
         leftDrawer = findViewById(R.id.leftDrawer);
         header = findViewById(R.id.header);
-        rlLogOutt = findViewById(R.id.rlLogOutt);
+       // rlLogOutt = findViewById(R.id.rlLogOutt);
+
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
         imgDrawerProfile.setVisibility(View.VISIBLE);
         imgRight = leftDrawer.findViewById(R.id.imgRight);
        /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
         imgDrawerProfile.setImageBitmap(bmp);*/
-        rlGuide = leftDrawer.findViewById(R.id.rlGuide);
         rlWebsite = leftDrawer.findViewById(R.id.rlWebsite);
         rlProfiles = leftDrawer.findViewById(R.id.rlProfiles);
-        rlHome = leftDrawer.findViewById(R.id.rlHome);
-        rlSupport = leftDrawer.findViewById(R.id.rlSupport);
-        rlResources = leftDrawer.findViewById(R.id.rlResources);
-        rlPrivacy = leftDrawer.findViewById(R.id.rlPrivacy);
-        rlMarketPlace = leftDrawer.findViewById(R.id.rlMarketPlace);
-        rlVideos = leftDrawer.findViewById(R.id.rlVideos);
-        rlBackup = leftDrawer.findViewById(R.id.rlBackup);
-        rlMarketDetail = leftDrawer.findViewById(R.id.rlMarketDetail);
-        rlResourcesDetail = leftDrawer.findViewById(R.id.rlResourcesDetail);
-        rlPrivacyDetail = leftDrawer.findViewById(R.id.rlPrivacyDetail);
-        rlContact = leftDrawer.findViewById(R.id.rlContact);
+
+
+
         rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
         txtPrivacyPolicy = leftDrawer.findViewById(R.id.txtPrivacyPolicy);
         txtEULA = leftDrawer.findViewById(R.id.txtEULA);
@@ -573,7 +579,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 // copydb(context);
                 break;
 
-            case R.id.rlProfiles:
+            /*case R.id.rlProfiles:
                 //if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
                 if (fragmentConnection.isAdded()) {
                     drawerLayout.closeDrawer(leftDrawer);
@@ -598,28 +604,28 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
                 startActivity(intents);
-                break;
+                break;*/
 
-            case R.id.rlSupport:
+        /*    case R.id.rlSupport:
 
                 CopyReadAssetss("FAQ.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
-               /* Intent intent = new Intent();
+               *//* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://www.myhealthcarewishes.com/support.html"));
-                startActivity(intent);*/
-                break;
-            case R.id.rlSponsor:
+                startActivity(intent);*//*
+                break;*/
+            /*case R.id.rlSponsor:
                 Intent intentSponsor = new Intent(context, SponsorActivity.class);
                 startActivity(intentSponsor);
-                break;
-            case R.id.rlContact:
-               /* Intent intents = new Intent();
+                break;*/
+            /*case R.id.rlContact:
+               *//* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://www.myhealthcarewishes.com/support.html"));
-                startActivity(intents);*/
+                startActivity(intents);*//*
 
                 Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
                 emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -636,19 +642,19 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 emailIntent.setType("application/email");
                 startActivity(Intent.createChooser(emailIntent, "Send mail..."));
-                break;
+                break;*/
 
-            case R.id.rlResources:
+           /* case R.id.rlResources:
                 if (flagResource == false) {
-                    rlResourcesDetail.setVisibility(View.GONE);
+                 //   rlResourcesDetail.setVisibility(View.GONE);
                     flagResource = true;
                 } else if (flagResource == true) {
-                    rlResourcesDetail.setVisibility(View.VISIBLE);
+                 //   rlResourcesDetail.setVisibility(View.VISIBLE);
                     flagResource = false;
                 }
-                break;
+                break;*/
 
-            case R.id.rlPrivacy:
+            /*case R.id.rlPrivacy:
                 if (flagPrivacy == false) {
                     rlPrivacyDetail.setVisibility(View.VISIBLE);
                     flagPrivacy = true;
@@ -657,87 +663,87 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     flagPrivacy = false;
                 }
 
-                break;
+                break;*/
 
-            case R.id.rlMarketPlace:
+            /*case R.id.rlMarketPlace:
                 showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
-                /*if (flagMarket == false) {
+                *//*if (flagMarket == false) {
                     rlMarketDetail.setVisibility(View.VISIBLE);
                     flagMarket = true;
                 } else if (flagMarket == true) {
                     rlMarketDetail.setVisibility(View.GONE);
                     flagMarket = false;
-                }*/
-                break;
+                }*//*
+                break;*/
 
-            case R.id.txtForm:
+           /* case R.id.txtForm:
                 if (fragmentManager.findFragmentByTag("FORM") == null) {
                     callFragment("FORM", fragmentForm);
                 }
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
-            case R.id.txtAdvance:
+            /*case R.id.txtAdvance:
                 if (fragmentManager.findFragmentByTag("ADVANCE") == null) {
                     callFragment("ADVANCE", fragmentResources);
                 }
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
-            case R.id.txtPodcast:
+          /*  case R.id.txtPodcast:
                 if (fragmentManager.findFragmentByTag("VIDEOS") == null) {
                     callFragment("VIDEOS", fragmentVideos);
                 }
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
-            case R.id.txtPrivacyPolicy:
+                break;*/
+           /* case R.id.txtPrivacyPolicy:
                 // callFragment("FORM", fragmentResources);
                 CopyReadAssetss("Privacy Policy.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
-            case R.id.rlGuide:
+           /* case R.id.rlGuide:
                 // callFragment("FORM", fragmentResources);
                 CopyReadAssetss("mylo_users_guide.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
-            case R.id.txtEULA:
+          /*  case R.id.txtEULA:
                 // callFragment("FORM", fragmentResources);
                 CopyReadAssetss("eula_new.pdf");
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
 
-            case R.id.txtBank:
+           /* case R.id.txtBank:
                 //shradha
                 showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 //  callFragment("MARKET", fragmentMarketPlace);
                 //  }
-               /* Intent intent = new Intent();
+               *//* Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intent);*/
-                break;
+                startActivity(intent);*//*
+                break;*/
 
-            case R.id.txtSenior:
+          /*  case R.id.txtSenior:
                 //   if (fragmentManager.findFragmentByTag("MARKET") == null) {
                 // callFragment("MARKET", fragmentMarketPlace);
                 //  }
-               /* Intent intents = new Intent();
+               *//* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://mindyour-lovedones.com/"));
-                startActivity(intents);*/
+                startActivity(intents);*//*
 
                 //shradha
                 // showBankDialog();
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
 
             case R.id.rlVideos:
@@ -745,7 +751,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 dialogCommingSoon();
                 break;
 
-            case R.id.rlBackup:
+            /*case R.id.rlBackup:
                 Intent i = new Intent(BaseActivity.this, DropboxLoginActivity.class);
                 i.putExtra("FROM", "Backup");
                 i.putExtra("ToDo", "Whole");
@@ -755,9 +761,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 // callFragment("VIDEOS", fragmentBackup);
                 //  }
                 drawerLayout.closeDrawer(leftDrawer);
-                break;
+                break;*/
 
-            case R.id.rlLogOutt:
+            case R.id.flLogout:
                 preferences.clearPreferences();
                 finish();
                 startActivity(new Intent(BaseActivity.this, LoginActivity.class));
@@ -831,6 +837,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
+/*
     @Override
     protected void onResume() {
         super.onResume();
@@ -854,6 +861,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
         }
     }
+*/
 
     public void CopyReadAssetss(String documentPath) {
         AssetManager assetManager = getAssets();
@@ -950,7 +958,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    /*Add code for back button: Rahul*/
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {

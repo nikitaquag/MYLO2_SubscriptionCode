@@ -10,6 +10,7 @@
         android:background="@color/colorTransparent">
 
         <ImageView
+            android:id="@+id/imgDrawerProfile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension250dp"
             android:scaleType="fitXY"

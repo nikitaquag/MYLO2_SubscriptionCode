@@ -189,7 +189,7 @@
             android:layout_gravity="start"
             android:background="@color/colorWhite">
 
-            <include layout="@layout/left_drawer"></include>
+            <include layout="@layout/left_drawer_new"></include>
             <!--<ImageView
                 android:id="@+id/imgProfile"
                 android:layout_width="@dimen/dimension100dp"
