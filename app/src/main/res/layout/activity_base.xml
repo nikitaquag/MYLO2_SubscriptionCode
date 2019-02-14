@@ -53,8 +53,7 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="14dp"
                     android:textStyle="normal"
-                    android:visibility="visible"
-                    />
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgDrawer"
@@ -139,8 +138,8 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:src="@drawable/information"
-                    android:visibility="visible"
-                    android:tint="@color/colorWhite"/>
+                    android:tint="@color/colorWhite"
+                    android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/imgLogo"

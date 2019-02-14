@@ -27,7 +27,7 @@ public class FragmentContactUs extends Fragment {
     ArrayList<Setting> contactList;
     ListView lvContactUs;
     ImageView imgHelp;
-    TextView txtName;
+    TextView txtTitle;
 
     @Nullable
     @Override
@@ -63,16 +63,14 @@ public class FragmentContactUs extends Fragment {
         contactList.add(s1);
         contactList.add(s2);
         contactList.add(s3);
-
     }
 
     private void initUi() {
-        txtName = getActivity().findViewById(R.id.txtName);
-        txtName.setText("Contact Us");
+        txtTitle = getActivity().findViewById(R.id.txtTitle);
+        txtTitle.setText("Contact Us");
         lvContactUs = rootView.findViewById(R.id.lvContactUs);
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
-
 
 
     }

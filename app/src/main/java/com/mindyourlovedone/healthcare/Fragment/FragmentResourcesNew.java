@@ -26,7 +26,7 @@ public class FragmentResourcesNew extends Fragment {
     ArrayList<ResourcesNew> resourcesList;
     ListView lvResources;
     ImageView imgHelp;
-    TextView txtName;
+    TextView txtTitle;
 
     @Nullable
     @Override
@@ -65,13 +65,14 @@ public class FragmentResourcesNew extends Fragment {
     }
 
     private void initUi() {
-        txtName = getActivity().findViewById(R.id.txtName);
-        txtName.setText("Resources");
+        txtTitle = getActivity().findViewById(R.id.txtTitle);
+        txtTitle.setText("Resources");
         lvResources = rootView.findViewById(R.id.lvResources);
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
 
         //Shradha
+/*
         lvResources.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -90,6 +91,7 @@ public class FragmentResourcesNew extends Fragment {
                 }
             }
         });
+*/
     }
 
 }

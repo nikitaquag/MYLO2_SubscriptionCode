@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class FragmentSponsor extends Fragment {
     View rootView;
-    TextView txtName;
+    TextView txtTitle;
     ImageView imgHelp;
 
     @Nullable
@@ -32,9 +32,9 @@ public class FragmentSponsor extends Fragment {
 
 
     private void initUi() {
-        txtName = getActivity().findViewById(R.id.txtName);
-        txtName.setText("Sponsor");
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        txtTitle = getActivity().findViewById(R.id.txtTitle);
+        txtTitle.setText("Sponsor");
+        imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
     }
 }

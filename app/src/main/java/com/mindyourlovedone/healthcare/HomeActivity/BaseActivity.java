@@ -46,6 +46,10 @@ import com.mindyourlovedone.healthcare.DashBoard.CustomArrayAdapter;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentNotification;
+import com.mindyourlovedone.healthcare.Fragment.FragmentContactUs;
+import com.mindyourlovedone.healthcare.Fragment.FragmentResourcesNew;
+import com.mindyourlovedone.healthcare.Fragment.FragmentSetting;
+import com.mindyourlovedone.healthcare.Fragment.FragmentSponsor;
 import com.mindyourlovedone.healthcare.IndexMenu.FragmentOverview;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.DBHelper;
@@ -80,7 +84,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentConnectionNew fragmentConnection = null;
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
-    ImageView imgHelp,imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
+    ImageView imgHelp, imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
     TextView txtDrawer, txtTitle, txtName, txtDrawerName, txtFname, txtAdd;
     TextView txtBank, txtForm, txtSenior, txtAdvance, txtPodcast;
     DrawerLayout drawerLayout;
@@ -88,13 +92,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout rlLogOutt;
     FrameLayout flLogout;
     Preferences preferences;
-    TextView txtPrivacyPolicy, txtEULA,txtversion;
-    RelativeLayout rlSettings,rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    TextView txtPrivacyPolicy, txtEULA, txtversion;
+    RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
     int p = 0;
 
-    ImageLoader imageLoader,imageLoaderProfile;
-    DisplayImageOptions displayImageOptions,displayDrawerImageOptions;
+    ImageLoader imageLoader, imageLoaderProfile;
+    DisplayImageOptions displayImageOptions, displayDrawerImageOptions;
     DBHelper dbHelper;
     boolean external_flag = false;
     String originPath = "";
@@ -196,7 +200,18 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (p == 3) {
                     callFragmentData(new FragmentConnectionNew());
                     p = 1;
+                }/*New Changes*/ else if (p == 2) {
+                    callFragmentData(new FragmentResourcesNew());
+                } else if (p == 7) {
+                    callFragmentData(new FragmentSetting());
+                } else if (p == 8) {
+                    callFragmentData(new FragmentContactUs());
+                } else if (p == 5) {
+                    callFragmentData(new FragmentResources());
+                } else if (p == 6) {
+                    callFragmentData(new FragmentSponsor());
                 }
+                /*Ends here*/
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -429,25 +444,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     private void initListener() {
         txtDrawer.setOnClickListener(this);
         imgDrawer.setOnClickListener(this);
-     //   imgPdf.setOnClickListener(this);
-        //   imgNoti.setOnClickListener(this);
-        flLogout.setOnClickListener(this);
-       /* imgLocationFeed.setOnClickListener(this);
-        rlProfiles.setOnClickListener(this);
         rlHome.setOnClickListener(this);
+        rlProfiles.setOnClickListener(this);
         rlResources.setOnClickListener(this);
         rlMarketPlace.setOnClickListener(this);
         rlVideos.setOnClickListener(this);
-        rlContactUs.setOnClickListener(this);
         rlSponsor.setOnClickListener(this);
-        rlWebsite.setOnClickListener(this);*/
-       /* txtBank.setOnClickListener(this);
-        txtForm.setOnClickListener(this);
-        txtSenior.setOnClickListener(this);
-        txtAdvance.setOnClickListener(this);
-       txtPrivacyPolicy.setOnClickListener(this);
-        txtEULA.setOnClickListener(this); */
-       // txtPodcast.setOnClickListener(this);
+        rlSettings.setOnClickListener(this);
+        rlContactUs.setOnClickListener(this);
+       // flLogout.setOnClickListener(this);
+
     }
 
     private void initUI() {
@@ -458,11 +464,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         leftDrawer = findViewById(R.id.leftDrawer);
         container = findViewById(R.id.fragmentContainer);
         rlHome = leftDrawer.findViewById(R.id.rlHome);
-        rlProfiles =leftDrawer.findViewById(R.id.rlProfiles);
-        rlResources =leftDrawer.findViewById(R.id.rlResources);
-        rlSponsor =leftDrawer.findViewById(R.id.rlSponsor);
-        rlSettings =leftDrawer.findViewById(R.id.rlSettings);
-        rlContactUs =leftDrawer.findViewById(R.id.rlContactUs);
+        rlProfiles = leftDrawer.findViewById(R.id.rlProfiles);
+        rlResources = leftDrawer.findViewById(R.id.rlResources);
+        rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
+        rlSettings = leftDrawer.findViewById(R.id.rlSettings);
+        rlContactUs = leftDrawer.findViewById(R.id.rlContactUs);
         rlMarketPlace = leftDrawer.findViewById(R.id.rlMarketPlace);
         rlVideos = leftDrawer.findViewById(R.id.rlVideos);
         flLogout = leftDrawer.findViewById(R.id.flLogout);
@@ -482,7 +488,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
-      //  txtversion= findViewById(R.id.txtversion);
+        //  txtversion= findViewById(R.id.txtversion);
 
        /* try {
             PackageInfo pInfo = context.getPackageManager().getPackageInfo(getPackageName(), 0);
@@ -499,24 +505,14 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         txtSenior = findViewById(R.id.txtSenior);
         txtAdvance = findViewById(R.id.txtAdvance);
 
-
         drawerLayout = findViewById(R.id.drawerLayout);
         leftDrawer = findViewById(R.id.leftDrawer);
         header = findViewById(R.id.header);
-       // rlLogOutt = findViewById(R.id.rlLogOutt);
-
         txtDrawerName = leftDrawer.findViewById(R.id.txtDrawerName);
         imgDrawerProfile = leftDrawer.findViewById(R.id.imgDrawerProfile);
         imgDrawerProfile.setVisibility(View.VISIBLE);
         imgRight = leftDrawer.findViewById(R.id.imgRight);
-       /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        imgDrawerProfile.setImageBitmap(bmp);*/
         rlWebsite = leftDrawer.findViewById(R.id.rlWebsite);
-        rlProfiles = leftDrawer.findViewById(R.id.rlProfiles);
-
-
-
-        rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
         txtPrivacyPolicy = leftDrawer.findViewById(R.id.txtPrivacyPolicy);
         txtEULA = leftDrawer.findViewById(R.id.txtEULA);
         txtPodcast = leftDrawer.findViewById(R.id.txtPodcast);
@@ -572,12 +568,74 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            /*Left drawer clicks-Shradha*/
+
             case R.id.txtDrawer:
                 // Intent intn=new Intent(context, ImageActivity.class);
                 // startActivity(intn);
                 drawerLayout.openDrawer(leftDrawer);
                 // copydb(context);
                 break;
+
+            case R.id.rlHome:
+                Intent intentHome = new Intent(context, SplashNewActivity.class);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlProfiles:
+                Intent intentProfile = new Intent(context, BaseActivity.class);
+                intentProfile.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentProfile.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentProfile);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlResources:
+                Intent intentResources = new Intent(context, BaseActivity.class);
+                intentResources.putExtra("c", 2);
+                intentResources.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentResources.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentResources);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlSponsor:
+                Intent intentSponsor = new Intent(context, BaseActivity.class);
+                intentSponsor.putExtra("c", 6);
+                intentSponsor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentSponsor.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentSponsor);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlSettings:
+                Intent intentSettings = new Intent(context, BaseActivity.class);
+                intentSettings.putExtra("c", 7);
+                intentSettings.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentSettings);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlContactUs:
+                Intent intentContactUs = new Intent(context, BaseActivity.class);
+                intentContactUs.putExtra("c", 8);
+                intentContactUs.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentContactUs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentContactUs);
+                drawerLayout.closeDrawer(leftDrawer);
+                break;
+            case R.id.rlMarketPlace:
+                drawerLayout.closeDrawer(leftDrawer);
+                dialogCommingSoon();
+                break;
+            case R.id.rlVideos:
+                drawerLayout.closeDrawer(leftDrawer);
+                dialogCommingSoon();
+                break;
+
+            /*Ends here...*/
+
+
 
             /*case R.id.rlProfiles:
                 //if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
@@ -621,7 +679,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentSponsor);
                 break;*/
             /*case R.id.rlContact:
-               *//* Intent intents = new Intent();
+             *//* Intent intents = new Intent();
                 intents.setAction(Intent.ACTION_VIEW);
                 intents.addCategory(Intent.CATEGORY_BROWSABLE);
                 intents.setData(Uri.parse("http://www.myhealthcarewishes.com/support.html"));
@@ -746,11 +804,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;*/
 
 
-            case R.id.rlVideos:
-                drawerLayout.closeDrawer(leftDrawer);
-                dialogCommingSoon();
-                break;
-
             /*case R.id.rlBackup:
                 Intent i = new Intent(BaseActivity.this, DropboxLoginActivity.class);
                 i.putExtra("FROM", "Backup");
@@ -763,11 +816,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawer(leftDrawer);
                 break;*/
 
-            case R.id.flLogout:
+           /* case R.id.flLogout:
                 preferences.clearPreferences();
                 finish();
                 startActivity(new Intent(BaseActivity.this, LoginActivity.class));
-                break;
+                break;*/
         }
     }
 
@@ -970,24 +1023,23 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         return false;
     }
 
-      int c2 = 0;
+    int c2 = 0;
 
     @Override
     public void onBackPressed() {
 
-        if(getIntent().hasExtra("c")) {
-            if(c2==0) {
+        if (getIntent().hasExtra("c")) {
+            if (c2 == 0) {
                 if (getIntent().getExtras().getInt("c") == 1) {
                     c2 = 1;
                     callFragmentData(new FragmentConnectionNew());
-                }
-                else{
-                    Intent intent=new Intent(context,SplashNewActivity.class);
+                } else {
+                    Intent intent = new Intent(context, SplashNewActivity.class);
                     startActivity(intent);
                     finish();
                 }
             }
-        }else {
+        } else {
             SplashNewActivity.fromDash = true;
 
             int count = getFragmentManager().getBackStackEntryCount();

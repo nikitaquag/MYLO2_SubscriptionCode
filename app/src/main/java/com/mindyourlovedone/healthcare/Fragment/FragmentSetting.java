@@ -21,7 +21,7 @@ public class FragmentSetting extends Fragment {
     ArrayList<Setting> settingList;
     ListView lvSetting;
     ImageView imgHelp;
-    TextView txtName;
+    TextView txtTitle;
 
     @Nullable
     @Override
@@ -70,10 +70,10 @@ public class FragmentSetting extends Fragment {
     }
 
     private void initUi() {
-        txtName = getActivity().findViewById(R.id.txtName);
-        txtName.setText("Settings");
+        txtTitle = getActivity().findViewById(R.id.txtTitle);
+        txtTitle.setText("Settings");
         lvSetting = rootView.findViewById(R.id.lvSetting);
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
     }
 }
