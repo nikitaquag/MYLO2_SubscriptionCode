@@ -53,7 +53,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
     private static final int REQUEST_WRITE_PERMISSION = 200;
     private static final int REQUEST_CALL_PERMISSION = 300;
     FragmentOverview fragmentOverview;
-    ImageView imgHelp,imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
+    ImageView imgHelp, imgProfile, imgShareLocation, imgLocationFeed, imgNoti, imgLogo, imgPdf, imgDrawerProfile, imgRight, imgR;
     TextView txtName, txtAddress, txtRelation, txtDrawerName;
     RelativeLayout rlEmergencyContact, rlSpecialist, rlInsuranceCard, rlEmergencyEvent, rlPrescription, rlCarePlan;
     View rootview;
@@ -269,8 +269,6 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
 //            Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
 //            imgProfile.setImageBitmap(bmp);
         }
-
-
     }
 
     private void initListener() {
@@ -306,7 +304,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         imgLogo.setVisibility(View.GONE);
         imgProfile = getActivity().findViewById(R.id.imgProfile);
         imgProfile.setVisibility(View.VISIBLE);
-        txtName = rootview.findViewById(R.id.txtName);
+        txtName = getActivity().findViewById(R.id.txtName);
         txtName.setVisibility(View.VISIBLE);
 
         leftDrawer = getActivity().findViewById(R.id.leftDrawer);

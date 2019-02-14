@@ -138,8 +138,9 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension10dp"
-                    android:src="@drawable/menudot"
-                    android:visibility="visible" />
+                    android:src="@drawable/information"
+                    android:visibility="visible"
+                    android:tint="@color/colorWhite"/>
 
                 <ImageView
                     android:id="@+id/imgLogo"

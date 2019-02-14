@@ -4,6 +4,8 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,6 +34,7 @@ import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
+import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
@@ -61,10 +64,10 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     View rootview;
     GridView lvConnection;
     ListView lvSelf;
-    TextView txtUser,txtRelation;
+    TextView txtUser, txtRelation;
     FloatingActionButton floatAdd;
     LinearLayout llSelf;
-    ImageView imgSelfFolder,imgSelf;
+    ImageView imgSelfFolder, imgSelf;
     ArrayList<RelativeConnection> connectionList;
     TextView txtAdd, txtMsg, txtFTU, txtStep1, txtStep2, txtStep3, txtStep4, txtStep22, txtStep55, txtStep555, txtStep5, txtStep6, txtStep7, txtStep8;
     //RelativeLayout llAddConn;
@@ -138,6 +141,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         imgLogo.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
+        imgSelfFolder.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -145,7 +149,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         floatAdd = rootview.findViewById(R.id.floatAdd);
         llSelf = rootview.findViewById(R.id.llSelf);
         imgSelfFolder = rootview.findViewById(R.id.imgSelfFolder);
-        imgSelf= rootview.findViewById(R.id.imgSelf);
+        imgSelf = rootview.findViewById(R.id.imgSelf);
         txtUser = rootview.findViewById(R.id.txtUser);
         txtRelation = rootview.findViewById(R.id.txtRelation);
 
@@ -615,11 +619,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         DBHelper dbHelper = new DBHelper(getActivity(), "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
         ArrayList<RelativeConnection> myconnectionList = MyConnectionsQuery.fetchAllRecord();
-        connectionList=new ArrayList<>();
-        for (int i=0;i<myconnectionList.size();i++)
-        {
-            if (!myconnectionList.get(i).getRelationType().equalsIgnoreCase("self"))
-            {
+        connectionList = new ArrayList<>();
+        for (int i = 0; i < myconnectionList.size(); i++) {
+            if (!myconnectionList.get(i).getRelationType().equalsIgnoreCase("self")) {
                 connectionList.add(myconnectionList.get(i));
             }
 
@@ -629,6 +631,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgSelfFolder:
+                callFragment(new FragmentDashboardNew());
+                break;
             case R.id.imgRight:
                 showInstructionDialog();
                 break;
@@ -644,6 +649,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 showContactDialog();
                 break;
         }
+    }
+
+    private void callFragment(Fragment fragment) {
+        FragmentManager fm = getActivity().getFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.fragmentContainer, fragment);
+        ft.commit();
     }
 
     private void showContactDialog() {
@@ -699,6 +711,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         });
 
     }
+
     private void showFloatDialog() {
 
         final Dialog dialog = new Dialog(getActivity());
@@ -733,8 +746,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.SOURCE,"Connection");
-                Intent i=new Intent(getActivity(),GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "Connection");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 getActivity().startActivity(i);
                 dialog.dismiss();
             }
@@ -744,8 +757,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.SOURCE,"Connection");
-                Intent i=new Intent(getActivity(),GrabConnectionActivity.class);
+                preferences.putString(PrefConstants.SOURCE, "Connection");
+                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 getActivity().startActivity(i);
                 dialog.dismiss();
             }
@@ -755,6 +768,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
 
 
     }
+
     @SuppressLint("ResourceAsColor")
     private void showInstructionDialog() {
         final Dialog dialogInstruction = new Dialog(getActivity());
@@ -827,14 +841,12 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             if (imgFile.exists()) {
                 if (imgDrawerProfile.getDrawable() == null) {
                     imgDrawerProfile.setImageResource(R.drawable.lightblue);
-                }
-                else {
+                } else {
                     imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                 }
                 if (imgSelf.getDrawable() == null) {
                     imgSelf.setImageResource(R.drawable.lightblue);
-                }
-                else {
+                } else {
                     imgSelf.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                 }
             }
@@ -880,7 +892,6 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             m.dropTable();*/
         }
     }
-
 
 
 }

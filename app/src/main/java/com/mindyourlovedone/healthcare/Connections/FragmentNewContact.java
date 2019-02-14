@@ -246,7 +246,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             MyConnectionsQuery m1 = new MyConnectionsQuery(getActivity(), dbHelper1);
                             Boolean flagg = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
                             if (flagg == true) {
-                                Toast.makeText(context, "You have added profile Successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
                                 getActivity().finish();
                             }
                         } else {

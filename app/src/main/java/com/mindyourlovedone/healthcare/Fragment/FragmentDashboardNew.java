@@ -73,12 +73,10 @@ public class FragmentDashboardNew extends Fragment implements View.OnClickListen
     }
 
     private void initUi() {
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
-        imgHelp.setVisibility(View.GONE);
+       /// imgHelp = getActivity().findViewById(R.id.imgHelp);
+
         imgProfile = getActivity().findViewById(R.id.imgProfile);
         imgProfile.setVisibility(View.VISIBLE);
-        txtSelf = getActivity().findViewById(R.id.txtSelf);
-        txtSelf.setVisibility(View.VISIBLE);
 
         rlCarePlan = rootView.findViewById(R.id.rlCarePlan);
         rlEmergencyContact = rootView.findViewById(R.id.rlEmergencyContact);
