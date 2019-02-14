@@ -133,7 +133,7 @@ public class FragmentResources extends Fragment {
     }
 
     private void initUI() {
-        imgHelp = getActivity().findViewById(R.id.imgHelp);
+        imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
 
         imgDrawer = getActivity().findViewById(R.id.imgDrawer);
@@ -146,7 +146,7 @@ public class FragmentResources extends Fragment {
             }
         });
 
-        txtName = getActivity().findViewById(R.id.txtName);
+        txtName = getActivity().findViewById(R.id.txtTitle);
         txtName.setVisibility(View.VISIBLE);
         txtName.setText("Advance Directives Informaton");
         txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);

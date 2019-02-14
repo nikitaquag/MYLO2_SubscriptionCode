@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.ResourceAdapter;
@@ -72,14 +73,13 @@ public class FragmentResourcesNew extends Fragment {
         imgHelp.setVisibility(View.GONE);
 
         //Shradha
-/*
         lvResources.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intentContactUs = new Intent(getActivity(), BaseNewActivity.class);
-                        intentContactUs.putExtra("Home", 5);
+                        Intent intentContactUs = new Intent(getActivity(), BaseActivity.class);
+                        intentContactUs.putExtra("c", 5);
                         getActivity().startActivity(intentContactUs);
                         break;
                     case 1:
@@ -91,7 +91,6 @@ public class FragmentResourcesNew extends Fragment {
                 }
             }
         });
-*/
     }
 
 }

@@ -41,7 +41,7 @@
             android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:background="@drawable/border_sub_forward"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/next" />
