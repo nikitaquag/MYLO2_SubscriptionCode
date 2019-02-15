@@ -30,7 +30,7 @@
             android:layout_toLeftOf="@+id/txtsave"
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
-            android:text="Grab Contact (Manual)"
+            android:text=""
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension21dp" />
 
@@ -78,7 +78,9 @@
         android:layout_height="@dimen/dimension50dp"
         android:layout_below="@+id/header"
         android:background="@color/colorLightBlue"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone"
+        >
 
         <TextView
             android:id="@+id/txtNew"

@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -40,6 +41,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     ProgressDialog pd;//nikita
     boolean i = false;
     int c = 1;
+    String tab="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,21 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         initUI();
         initListener();
         fragmentData();
+        Intent i=getIntent();
+        if (i!=null)
+        {
+            if (i.getStringExtra("TAB").equalsIgnoreCase("New"))
+            {
+                callFragment("NEWCONTACT", fragmentNewContact);
+            }
+            else{
+                callFragment("CONTACT", fragmentGrabContact);
+            }
 
+        }
+        else {
+            callFragment("NEWCONTACT", fragmentNewContact);
+        }
         //  if (fragmentManager.findFragmentByTag("INSURANCE") == null) {
         source = preferences.getString(PrefConstants.SOURCE);
         if (source.equals("PhysicianViewData") || source.equals("HospitalViewData") || source.equals("PharmacyDataView") || source.equals("ProxyUpdateView") || source.equals("EmergencyView") || source.equals("SpecialistViewData") || source.equals("FinanceViewData") || source.equals("InsuranceViewData") || source.equals("AidesViewData")) {
@@ -76,7 +92,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             txtsave.setVisibility(View.GONE);
 
         } else {
-            llGrab.setVisibility(View.VISIBLE);
+            //llGrab.setVisibility(View.VISIBLE);
             txtTitle.setVisibility(View.VISIBLE);
             txtsave.setVisibility(View.VISIBLE);
         }
@@ -199,9 +215,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorThree);
                 break;
         }
-
-
-        callFragment("NEWCONTACT", fragmentNewContact);
 
         // }
 

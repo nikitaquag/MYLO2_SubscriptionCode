@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -51,6 +52,7 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
     ArrayList<Contact> offcontactList;
     DBHelper dbHelper;
     RelativeLayout rlSearch;
+    TextView txtTitle,txtsave;
 
     public static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -104,10 +106,16 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
     }
 
     private void initUI() {
+        txtTitle=getActivity().findViewById(R.id.txtTitle);
+        txtsave=getActivity().findViewById(R.id.txtSave);
+        txtsave.setVisibility(View.GONE);
+        txtTitle.setText("Select From Contacts");
         lvContact = rootview.findViewById(R.id.lvContact);
         etSearch = rootview.findViewById(R.id.etSearch);
         imgRefresh = getActivity().findViewById(R.id.imgRefresh);
         rlSearch = rootview.findViewById(R.id.rlSearch);
+        imgRefresh.setVisibility(View.GONE);
+        rlSearch.setVisibility(View.GONE);
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -137,9 +138,9 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
             if (!connectionList.get(position).getPhoto().equals("")) {
                 File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/Master/",connectionList.get(position).getPhoto());
                 //  if (imgFile.exists()) {
-                //   Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                // holder.imgConPhoto.setImageBitmap(myBitmap);
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)),holder.imgConPhoto,displayImageOptions);
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                 holder.imgConPhoto.setImageBitmap(myBitmap);
+               // imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)),holder.imgConPhoto,displayImageOptions);
             }
             else{
                 holder.imgConPhoto.setImageResource(R.drawable.lightblue);
