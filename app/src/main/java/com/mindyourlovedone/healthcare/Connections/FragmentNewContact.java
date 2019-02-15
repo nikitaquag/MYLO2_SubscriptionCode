@@ -94,6 +94,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
+    private static int RESULT_RELATION = 10;
     Bitmap ProfileMap = null, CardMap = null;
     ContentValues values;
     Uri imageUriProfile, imageUriCard;
@@ -116,14 +117,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtAids, txtSchedule, txtOther, txtEmergencyNote;
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
-    TextView txtTitle;
+    TextView txtTitle,txtRelation;
     TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
     String agent = "";
     ImageView imgEdit, imgProfile, imgCard, imgEditCard;
     View rootview;
-    RelativeLayout rlDoctorCategory, rlHospital, rlRelation, rlConnection, rlDoctor, rlInsurance, rlCommon, rlAids, rlFinance, rlProxy, rlTop, llAddConn, rlPharmacy;
+    RelativeLayout rlRelation,rlDoctorCategory, rlHospital, rlConnection, rlDoctor, rlInsurance, rlCommon, rlAids, rlFinance, rlProxy, rlTop, llAddConn, rlPharmacy;
     Preferences preferences;
     String source = "";
     TextInputLayout tilOtherCategoryHospital;
@@ -143,7 +144,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     int connectionFlag;
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
-    TextInputLayout tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
+    TextInputLayout tilRelation,tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
 
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
@@ -888,7 +889,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 rlTop.setVisibility(View.GONE);
                 rlCommon.setVisibility(View.VISIBLE);
-                spinnerRelation.setVisibility(View.VISIBLE);
+                spinnerRelation.setVisibility(View.GONE);
+                rlRelation.setVisibility(View.VISIBLE);
                 rlConnection.setVisibility(View.VISIBLE);
                 rlDoctor.setVisibility(View.GONE);
                 rlInsurance.setVisibility(View.GONE);
@@ -2774,6 +2776,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlFinance.setVisibility(View.GONE);
         rlHospital.setVisibility(View.VISIBLE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.GONE);
@@ -2924,6 +2927,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlTop.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.GONE);
         rlInsurance.setVisibility(View.GONE);
@@ -3074,6 +3078,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlDoctorCategory.setVisibility(View.GONE);
         rlFinance.setVisibility(View.VISIBLE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.GONE);
@@ -3102,6 +3107,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.GONE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlInsurance.setVisibility(View.GONE);
         rlAids.setVisibility(View.VISIBLE);
         rlFinance.setVisibility(View.GONE);
@@ -3127,6 +3133,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlFinance.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.VISIBLE);
         rlInsurance.setVisibility(View.GONE);
@@ -3153,6 +3160,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlTop.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         spinnerRelation.setVisibility(View.GONE);
+        rlRelation.setVisibility(View.GONE);
         rlConnection.setVisibility(View.GONE);
         rlDoctor.setVisibility(View.GONE);
         rlInsurance.setVisibility(View.VISIBLE);
@@ -3459,6 +3467,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtHomePhone = rootview.findViewById(txtPhone);
         txtWorkPhone = rootview.findViewById(R.id.txtOfficePhone);
         rlRelation = rootview.findViewById(R.id.rlRelation);
+        txtRelation = rootview.findViewById(R.id.txtRelation);
+        txtRelation.setFocusable(false);
+        tilRelation = rootview.findViewById(R.id.tilRelation);
         rlProxy = rootview.findViewById(R.id.rlProxy);
         txtAdd = rootview.findViewById(R.id.txtAdd);
         imgEdit = rootview.findViewById(R.id.imgEdit);
@@ -3890,6 +3901,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
      //   txtTitle.setAllCaps(true);
         txtAdd.setAllCaps(true);
 
+        txtRelation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),RelationActivity.class);
+                startActivityForResult(i,RESULT_RELATION);
+            }
+        });
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -4163,19 +4181,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             phone = txtHomePhone.getText().toString().trim();
             workphone = txtWorkPhone.getText().toString().trim();
             address = txtAddress.getText().toString().trim();
+            relation = txtRelation.getText().toString().trim();
         }
-        int indexValue = spinnerRelation.getSelectedItemPosition();
+      int indexValue = spinnerRelation.getSelectedItemPosition();
 
         if (screen.equals("Connection")) {
-            if (indexValue != 0) {
+           /*   if (indexValue != 0) {
                 relation = Relationship[indexValue - 1];
-            }
+            }*/
             otherRelation = txtOtherRelation.getText().toString();
             if (name.equals("")) {
                 txtName.setError("Please Enter Name");
                 DialogManager.showAlert("Please Enter Name", context);
             } else if (relation.equals("")) {
-                spinnerRelation.setError("Please Select Relation");
+                txtRelation.setError("Please Select Relation");
                 DialogManager.showAlert("Please Select Relation", context);
             } else if (relation.equals("Other") && otherRelation.equals("")) {
                 txtOtherRelation.setError("Please Enter Other Relation");
@@ -4755,6 +4774,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 e.printStackTrace();
             }
 
+        }else if(requestCode==RESULT_RELATION&&data!=null)
+        {
+            relation=data.getStringExtra("Relation");
+            txtRelation.setText(relation);
+            if (relation.equals("Other")) {
+                tilOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherRelation.setVisibility(View.GONE);
+            }
         }
 
     }
