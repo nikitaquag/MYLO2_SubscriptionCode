@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -91,7 +92,9 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentContactUs);
                         break;
                     case 1:
-                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
+                        getActivity().startActivity(intentChangePass);
+                        // Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
                         break;
                     case 2:
                         Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
