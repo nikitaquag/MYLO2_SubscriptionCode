@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity;
+import com.mindyourlovedone.healthcare.Activity.PrivacyActivity;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -87,16 +88,25 @@ public class FragmentSetting extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0:
+                    case 0://BackUp-Section
                         Intent intentContactUs = new Intent(getActivity(), DropboxLoginActivity.class);
                         getActivity().startActivity(intentContactUs);
                         break;
-                    case 1:
+                    case 1://Change Password-Section
                         Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
                         getActivity().startActivity(intentChangePass);
-                        // Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
                         break;
-                    case 2:
+                    case 2://User Guide-Section
+                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
+                        break;
+                    case 3://Privacy Policy-Section
+                        Toast.makeText(getActivity(), "Screen not provided...!!", Toast.LENGTH_SHORT).show();
+                       // ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
+                       /* Intent intentPrivacy = new Intent(getActivity(), PrivacyActivity.class);
+                        intentPrivacy.putExtra("Privacy","PRIVACY");
+                        getActivity().startActivity(intentPrivacy);*/
+                        break;
+                    case 4://End User License Agreement-Section
                         Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
                         break;
                 }

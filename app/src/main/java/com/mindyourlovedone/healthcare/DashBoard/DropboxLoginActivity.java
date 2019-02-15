@@ -138,8 +138,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         llHowToBackUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
-                // CopyReadAssetss("mylo_restore.pdf");
+                //Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                CopyReadAssetss("mylo_backup.pdf");
 
             }
         });
@@ -147,8 +147,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         llHowToRetore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
-                // CopyReadAssetss("mylo_restore.pdf");
+                //Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                CopyReadAssetss("mylo_restore.pdf");
 
             }
         });
@@ -157,19 +157,19 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         llHowToUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
-                //  CopyReadAssetss("mylo_share.pdf");
+                //Toast.makeText(context, "Please Wait in progress..!!!", Toast.LENGTH_SHORT).show();
+                CopyReadAssetss("mylo_share.pdf");
 
             }
         });
-       /* txtHUpload = findViewById(R.id.txtHUpload);
-        txtHUpload.setOnClickListener(new View.OnClickListener() {
+        llHowToShare = findViewById(R.id.rlHowToShare);
+        llHowToShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CopyReadAssetss("mylo_download.pdf");
+                CopyReadAssetss("mylo_share.pdf");
 
             }
-        });*/
+        });
 
 
         llBackup = findViewById(R.id.llBackup);
@@ -427,7 +427,10 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     Fun_Type = 1;
                     Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
                 }
+                dialogBank.dismiss();
             }
+
+
         });
 
 

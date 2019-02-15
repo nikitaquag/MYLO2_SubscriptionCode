@@ -251,7 +251,8 @@
             android:name="com.mindyourlovedone.healthcare.Activity.TransparentActivity"
             android:theme="@style/Theme.Transparent" />
         <activity android:name="com.mindyourlovedone.healthcare.Activity.RelationshipActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity" />
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.PrivacyActivity"></activity>
     </application>
 
 </manifest>
