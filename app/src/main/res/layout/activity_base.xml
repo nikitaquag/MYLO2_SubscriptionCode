@@ -19,17 +19,12 @@
                 android:id="@+id/header"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension80dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:gravity="center_vertical">
+               >
 
                 <ImageView
                     android:id="@+id/imgBack"
                     android:layout_width="@dimen/dimension40dp"
                     android:layout_height="@dimen/dimension40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="@dimen/dimension5dp"
                     android:layout_marginTop="@dimen/dimension15dp"
@@ -41,9 +36,9 @@
 
                 <ImageView
                     android:id="@+id/txtDrawer"
-                    android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension40dp"
-                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/dimension35dp"
+                    android:layout_height="@dimen/dimension35dp"
+                   android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension15dp"
                     android:src="@drawable/left_drawer" />
 
@@ -69,12 +64,13 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="@dimen/dimension50dp"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/txtDrawer"
                     android:layout_marginTop="@dimen/dimension2dp"
                     android:layout_marginBottom="@dimen/dimension2dp"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:src="@drawable/ic_profiles" />
 
                 <TextView
@@ -83,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:text="Name"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/dimension22dp"
@@ -97,7 +94,7 @@
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_below="@+id/txtName"
                     android:textColor="#FFFFFF"
-                    android:textSize="@dimen/dimension19dp"
+                    android:textSize="@dimen/dimension17dp"
                     android:visibility="gone"
                     />
 

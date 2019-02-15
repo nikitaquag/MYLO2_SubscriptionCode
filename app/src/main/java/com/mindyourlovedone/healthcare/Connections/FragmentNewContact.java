@@ -177,6 +177,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
+    //new
     boolean isOnActivityResult = false;
     String cardImgPath = "";
     public static boolean fromDevice = false;
@@ -894,8 +895,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 rlAids.setVisibility(View.GONE);
                 rlProxy.setVisibility(View.GONE);
                 rlFinance.setVisibility(View.GONE);
-                txtAdd.setText("ADD PROFILE");
-                tilName.setHint("First Name, Last Name");
+                txtAdd.setText("Create New Profile");
+                tilName.setHint("Name");
                 tilName.setHintEnabled(false);
                 txtName.setOnTouchListener(new View.OnTouchListener() {
                     @Override
@@ -4030,6 +4031,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent i = new Intent(getActivity(), AddFormActivity.class);
                 i.putExtra("Image", cardPath);
                 i.putExtra("IsDelete", true);
+                //new
                 i.putExtra("isOnActivityResult", isOnActivityResult);
                 i.putExtra("cardImgPath", cardImgPath);
                 startActivityForResult(i, REQUEST_CARD);
@@ -4663,7 +4665,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgProfile.setImageBitmap(scaled);
 //                ProfileMap = selectedImage;
                 ProfileMap = scaled;
-                storeImage(ProfileMap, "Profile");
+              //  storeImage(ProfileMap, "Profile");
                 //  profileImage.setImageBitmap(selectedImage);
 //                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
                 //   storeImage(selectedImage,"Profile");
@@ -4681,10 +4683,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
+                ProfileMap = scaled;
+                //new comment
+               // storeImage(scaled, "Profile");
 
-                storeImage(scaled, "Profile");
             /*    imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
-                ProfileMap = selectedImage;
+
                 // profileImage.setImageBitmap(bitmap);
                 //  storeImage(selectedImage,"Profile");*/
             } catch (Exception e) {
@@ -4704,7 +4708,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
                 CardMap = scaled;
-                storeImage(scaled, "Card");
+                //new comment
+               // storeImage(scaled, "Card");
 
               /*  int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
@@ -4733,13 +4738,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 String imageurl = getRealPathFromURI(imageUriCard);
                 Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
-                profileCard.setImageBitmap(selectedImage);
+             //new
+               // profileCard.setImageBitmap(selectedImage);
+                imgCard.setImageBitmap(selectedImage);
                 //  imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
 
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
                 CardMap = selectedImage;
+                //new
                 isOnActivityResult = true;
                 cardImgPath = String.valueOf(imageUriCard);
                 // storeImage(selectedImage,"Card");

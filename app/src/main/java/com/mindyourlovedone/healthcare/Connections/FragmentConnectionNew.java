@@ -769,6 +769,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Connection");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","New");
                 getActivity().startActivity(i);
                 dialog.dismiss();
             }
@@ -780,6 +781,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Connection");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","Contact");
                 getActivity().startActivity(i);
                 dialog.dismiss();
             }
