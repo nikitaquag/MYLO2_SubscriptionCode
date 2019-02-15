@@ -24,8 +24,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="@dimen/dimension100dp"
-                    android:layout_height="@dimen/dimension100dp"
+                    android:layout_width="@dimen/dimension120dp"
+                    android:layout_height="@dimen/dimension120dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:src="@drawable/ic_profile_defaults" />
 
@@ -40,58 +40,7 @@
 
             </RelativeLayout>
 
-            <RelativeLayout
-                android:id="@+id/llCard"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension60dp"
-                android:layout_below="@+id/llProfile"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="@dimen/dimension20dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension20dp"
-                android:background="@color/colorWhite">
 
-                <TextView
-                    android:id="@+id/txtCard"
-                    style="@style/EmergencyCategory"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_marginTop="@dimen/dimension10dp"
-                    android:padding="@dimen/dimension10dp"
-                    android:paddingRight="@dimen/dimension20dp"
-                    android:text="Add Business Card"
-                    android:textColor="@color/colorBlue" />
-
-                <RelativeLayout
-                    android:id="@+id/rlCard"
-                    android:layout_width="@dimen/dimension90dp"
-                    android:layout_height="@dimen/dimension60dp"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:id="@+id/imgCard"
-                        android:layout_width="@dimen/dimension80dp"
-                        android:layout_height="@dimen/dimension50dp"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="@dimen/dimension20dp"
-                        android:adjustViewBounds="true"
-                        android:background="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/busi_card"
-                        android:visibility="gone" />
-
-                    <ImageView
-                        android:id="@+id/imgEditCard"
-                        android:layout_width="@dimen/dimension30dp"
-                        android:layout_height="@dimen/dimension30dp"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_edit_blue" />
-                </RelativeLayout>
-
-
-            </RelativeLayout>
             <!--<view
                 android:id="@+id/view"
                     android:layout_width="match_parent"
@@ -104,7 +53,7 @@
                 android:id="@+id/rlInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llCard">
+                android:layout_below="@+id/llProfile">
 
                 <RelativeLayout
                     android:id="@+id/rlTop"
@@ -2489,8 +2438,61 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/llCard"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_below="@+id/rlInput"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension20dp"
+                android:background="@color/colorWhite">
+
+                <TextView
+                    android:id="@+id/txtCard"
+                    style="@style/EmergencyCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:padding="@dimen/dimension10dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:text="Add Business Card"
+                    android:textColor="@color/colorBlue" />
+
+                <RelativeLayout
+                    android:id="@+id/rlCard"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/imgCard"
+                        android:layout_width="@dimen/dimension80dp"
+                        android:layout_height="@dimen/dimension50dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="@dimen/dimension20dp"
+                        android:adjustViewBounds="true"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/busi_card"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/imgEditCard"
+                        android:layout_width="@dimen/dimension30dp"
+                        android:layout_height="@dimen/dimension30dp"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/ic_edit_blue" />
+                </RelativeLayout>
+
+
+            </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/llAddConn"
                 android:layout_width="match_parent"

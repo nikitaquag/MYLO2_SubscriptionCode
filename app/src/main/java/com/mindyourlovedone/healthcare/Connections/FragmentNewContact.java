@@ -907,8 +907,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         return false;
                     }
                 });
-                txtTitle.setText("Add Profile");
-                txtTitle.setAllCaps(true);
+                txtTitle.setText("Create New Profile");
+             //   txtTitle.setAllCaps(true);
 
                 tilEmergencyNote.setVisibility(View.GONE);
                 rlPharmacy.setVisibility(View.GONE);
@@ -3880,14 +3880,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProxy.setAdapter(adapterProxy);
         spinnerProxy.setHint("Proxy Agent Priority");
-        txtTitle.setAllCaps(true);
+    //    txtTitle.setAllCaps(true);
         txtAdd.setAllCaps(true);
 
         ArrayAdapter<String> adapterPriority = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, priorityType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPriority.setAdapter(adapterPriority);
         spinnerPriority.setHint("Priority");
-        txtTitle.setAllCaps(true);
+     //   txtTitle.setAllCaps(true);
         txtAdd.setAllCaps(true);
 
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
