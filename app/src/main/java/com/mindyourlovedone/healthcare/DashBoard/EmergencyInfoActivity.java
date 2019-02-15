@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
@@ -118,8 +119,8 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgHome:
-                Intent intentHome = new Intent(context, BaseNewActivity.class);
-                intentHome.putExtra("Home", 1);
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                /* intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/

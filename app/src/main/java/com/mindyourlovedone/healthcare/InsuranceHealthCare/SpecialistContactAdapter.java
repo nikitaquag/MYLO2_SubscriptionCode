@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.DashBoard.EmergencyInfoActivity;
@@ -16,10 +15,8 @@ import com.mindyourlovedone.healthcare.DashBoard.InsuranceActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InsuranceInfoActivity;
 import com.mindyourlovedone.healthcare.DashBoard.LivingActivity;
 import com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity;
-import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
-import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.HomeActivity.RelationshipActivity;
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 
 /**
  * Created by welcome on 9/13/2017.
