@@ -70,7 +70,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         initListener();
         fragmentData();
         Intent i=getIntent();
-        if (i!=null)
+        if (i.getExtras()!=null)//Shradha-intent
         {
             if (i.getStringExtra("TAB").equalsIgnoreCase("New"))
             {
@@ -79,7 +79,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             else{
                 callFragment("CONTACT", fragmentGrabContact);
             }
-
         }
         else {
             callFragment("NEWCONTACT", fragmentNewContact);
