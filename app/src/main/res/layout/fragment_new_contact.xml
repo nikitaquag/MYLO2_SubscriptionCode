@@ -13,26 +13,31 @@
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <View
+                android:id="@+id/vtop"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension15dp"
+                android:background="@color/colorLightGray"
+                ></View>
             <RelativeLayout
                 android:id="@+id/llProfile"
                 android:layout_width="@dimen/dimension120dp"
                 android:layout_height="@dimen/dimension120dp"
-                android:layout_below="@+id/llGrab"
+                android:layout_below="@+id/vtop"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension20dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="@dimen/dimension120dp"
-                    android:layout_height="@dimen/dimension120dp"
+                    android:layout_width="@dimen/dimension150dp"
+                    android:layout_height="@dimen/dimension150dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:src="@drawable/ic_profile_defaults" />
 
                 <ImageView
                     android:id="@+id/imgEdit"
-                    android:layout_width="@dimen/dimension30dp"
-                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimension20dp"
@@ -40,7 +45,14 @@
 
             </RelativeLayout>
 
-
+            <View
+                android:id="@+id/vbot"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension15dp"
+                android:background="@color/colorLightGray"
+                android:layout_below="@+id/llProfile"
+                android:layout_marginTop="@dimen/dimension20dp"
+                ></View>
             <!--<view
                 android:id="@+id/view"
                     android:layout_width="match_parent"
@@ -53,7 +65,9 @@
                 android:id="@+id/rlInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/llProfile">
+                android:layout_below="@+id/vbot"
+                android:layout_marginTop="@dimen/dimension15dp"
+                >
 
                 <RelativeLayout
                     android:id="@+id/rlTop"
@@ -893,13 +907,44 @@
                             app:ms_hint="hint"
                             app:ms_multiline="true"
                             custom:ms_floatingLabelColor="@color/colorBlue"
-                            custom:ms_hintColor="@color/colorDarkGray" />
+                            custom:ms_hintColor="@color/colorDarkGray"
+                            android:visibility="gone"
+                            />
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/spinnerRelation"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true"
+                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingBottom="@dimen/dimension8dp"
 
+                            app:hintEnabled="true">
+                            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                            <AutoCompleteTextView
+                                android:id="@+id/txtRelation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Relationship"
+                                android:imeOptions="actionNext"
+                                android:maxLength="30"
+                                android:maxLines="1"
+                                android:paddingLeft="@dimen/dimension15dp"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/spinnerRelation"
+                            android:layout_below="@+id/tilRelation"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension30dp"
