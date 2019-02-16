@@ -41,7 +41,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     ProgressDialog pd;//nikita
     boolean i = false;
     int c = 1;
-    String tab="";
+    String tab = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,18 +69,15 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         initUI();
         initListener();
         fragmentData();
-        Intent i=getIntent();
-        if (i.getExtras()!=null)//Shradha-intent
+        Intent i = getIntent();
+        if (i.getExtras() != null)//Shradha-intent
         {
-            if (i.getStringExtra("TAB").equalsIgnoreCase("New"))
-            {
+            if (i.getStringExtra("TAB").equalsIgnoreCase("New")) {
                 callFragment("NEWCONTACT", fragmentNewContact);
-            }
-            else{
+            } else {
                 callFragment("CONTACT", fragmentGrabContact);
             }
-        }
-        else {
+        } else {
             callFragment("NEWCONTACT", fragmentNewContact);
         }
         //  if (fragmentManager.findFragmentByTag("INSURANCE") == null) {
