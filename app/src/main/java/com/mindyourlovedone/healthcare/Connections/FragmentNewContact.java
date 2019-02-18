@@ -107,7 +107,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CHPhone = "";
     static String CWPhone = "";
     RelativeLayout rlCard, rlContact;
-    TextView txtCard;
+    TextView txtCardz;
+    ImageView txtCard;
     //TextView btnShowMore,btnShowLess,btnSon;
     TextView txtOtherInsurance, txtOtherCategory, txtOtherRelation, txtName, txtEmail, txtMobile, txtHomePhone, txtWorkPhone, txtAdd, txtInsuaranceName, txtInsuarancePhone, txtId, txtGroup, txtMember, txtAddress;
     String contactName = "";

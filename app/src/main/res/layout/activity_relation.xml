@@ -60,11 +60,12 @@
 
     </RelativeLayout>
 
-    <ListView
+   <ListView
         android:id="@+id/listRelation"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/headers"
         ></ListView>
+
 
 </RelativeLayout>
