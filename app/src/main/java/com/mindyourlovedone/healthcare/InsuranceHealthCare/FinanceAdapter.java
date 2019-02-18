@@ -150,11 +150,11 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         } else {
             holder.txtAddress.setVisibility(View.VISIBLE);
         }
-       /* if(FinanceList.get(position).getCategory().equals(""))
+        if(FinanceList.get(position).getCategory().equals(""))
         {
             holder.txtCategory.setVisibility(View.GONE);
         }
-        else
+        /*else
         {
             holder.txtCategory.setVisibility(View.VISIBLE);
         }*/

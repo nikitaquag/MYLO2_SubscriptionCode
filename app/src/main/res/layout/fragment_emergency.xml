@@ -308,7 +308,7 @@ If you have a Health Care Proxy add your primary agent and in case they are not 
                 android:padding="@dimen/dimension5dp"
                 android:text="Add Emergency Contact &amp; Proxy Agent"
                 android:textAllCaps="true"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension20dp" />
         </RelativeLayout>
     </RelativeLayout>

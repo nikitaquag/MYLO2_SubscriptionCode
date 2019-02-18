@@ -221,7 +221,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
                     Boolean flags = MyConnectionsQuery.fetchEmailRecord(email);
                     if (flags == true) {
-                        Toast.makeText(context, "This email address is already registered by another profile, Please add another email address", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "This email address is already registered by another profile, Please add another email address", Toast.LENGTH_SHORT).show();
                         txtEmail.setError("This email address is already registered by another profile, Please add another email address");
                     } else {
                         Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
@@ -252,7 +252,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                                 getActivity().finish();
                             }
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                         }
                         //   Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
                     }
@@ -271,10 +271,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 */
                     Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
                     // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
@@ -291,10 +291,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
                     // Toast.makeText(getActivity(), "Succesas", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
@@ -310,12 +310,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added proxy contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added proxy contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -330,12 +330,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -349,12 +349,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added physician contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added physician contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -368,14 +368,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added doctor contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added doctor contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
-                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", context, "ADD_CONNECTION", null);
+                    //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
                 break;
             case "SpecialistData":
@@ -389,21 +389,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (isPhysician == 1) {
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
-                            Toast.makeText(context, "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             getActivity().finish();
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     } else if (isPhysician == 2) {
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
-                            Toast.makeText(context, "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
                             getActivity().finish();
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     }
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
@@ -420,21 +420,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (isPhysician == 1) {
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 1, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
-                            Toast.makeText(context, "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             getActivity().finish();
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     } else if (isPhysician == 2) {
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
-                            Toast.makeText(context, "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
                             getActivity().finish();
                         } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                         }
-                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     }
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
@@ -449,12 +449,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = PharmacyQuery.insertPharmacyData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, phone, imagepath, fax, note, cardPath, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added pharmacy successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added pharmacy successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -468,12 +468,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = PharmacyQuery.updatePharmacyData(id, name, website, address, phone, imagepath, fax, note, cardPath, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -488,12 +488,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = AideQuery.insertAidesData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added Health Service successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added Health Service successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -507,12 +507,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = AideQuery.updateAideData(id, name, website, email, mobile, phone, workphone, imagepath, fax, note, address, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated Health Service successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated Health Service successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -527,12 +527,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
@@ -545,12 +545,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "Finance":
@@ -562,12 +562,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = FinanceQuery.insertFinanceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "FinanceData":
@@ -579,12 +579,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = FinanceQuery.updateFinanceData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated contact successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case "Insurance":
@@ -596,12 +596,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -615,12 +615,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();*/
                     Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
                     if (flag == true) {
-                        Toast.makeText(context, "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                     } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                     //  dialogManager = new DialogManager(new FragmentNewContact());
                     //  dialogManager.showCommonDialog("Save?", "Do you want to save Connection?", getActivity(), "ADD_CONNECTION", null);
                 }
@@ -4142,7 +4142,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         });
     }
 
-    Context context;
+    Context context=getActivity();
 
     @Override
     public void onAttach(Context context) {

@@ -148,15 +148,19 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
 
         if (hospitalList.get(position).getOfficePhone().equals("")) {
             holder.txtPhone.setVisibility(View.GONE);
-        } else {
+        }
+        //Commented as to match screen as invision-shradha
+        /*else {
             holder.txtPhone.setVisibility(View.VISIBLE);
         }
-
+*/
         if (hospitalList.get(position).getAddress().equals("")) {
             holder.txtAddress.setVisibility(View.GONE);
-        } else {
-            holder.txtAddress.setVisibility(View.VISIBLE);
         }
+        //Commented as to match screen as invision-shradha
+        /*else {
+            holder.txtAddress.setVisibility(View.VISIBLE);
+        }*/
 
         if (hospitalList.get(position).getCategory().equals("")) {
             holder.txtCategory.setVisibility(View.GONE);
@@ -164,8 +168,11 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
             holder.txtCategory.setVisibility(View.VISIBLE);
         }
         holder.txtName.setText(hospitalList.get(position).getName());
-        holder.txtAddress.setText(hospitalList.get(position).getAddress());
-        holder.txtPhone.setText(hospitalList.get(position).getOfficePhone());
+        //Commented as to match screen as invision-shradha
+       // holder.txtAddress.setText(hospitalList.get(position).getAddress());
+
+        //Commented as to match screen as invision-shradha
+      //  holder.txtPhone.setText(hospitalList.get(position).getOfficePhone());
         holder.txtType.setText(hospitalList.get(position).getName());
         if (hospitalList.get(position).getCategory().equals("Other")) {
             holder.txtCategory.setText(hospitalList.get(position).getCategory() + " - " + hospitalList.get(position).getOtherCategory());
@@ -203,7 +210,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
           /*  byte[] photoCard = hospitalList.get(position).getPhotoCard();
             Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
             holder.imgForward.setImageBitmap(bmpCard);*/
-            holder.imgForward.setVisibility(View.VISIBLE);
+           // holder.imgForward.setVisibility(View.VISIBLE);
         } else {
             holder.imgForward.setVisibility(View.GONE);
         }

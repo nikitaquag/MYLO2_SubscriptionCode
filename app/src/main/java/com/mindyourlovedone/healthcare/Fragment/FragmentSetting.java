@@ -1,9 +1,17 @@
 package com.mindyourlovedone.healthcare.Fragment;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +29,7 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.SettingAdapter;
 import com.mindyourlovedone.healthcare.model.Setting;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class FragmentSetting extends Fragment {
@@ -97,11 +106,37 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentChangePass);
                         break;
                     case 2://User Guide-Section
-                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("No Application Found");
+                        builder.setMessage("Download Office Tool from Google Play ?");
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog,
+                                                int which) {
+
+                                Intent intent = new Intent();
+                                intent.setAction(Intent.ACTION_VIEW);
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                intent.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                                intent.setType(String.valueOf(Uri.parse("application/pdf")));
+                                ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
+                                // intent.setDataAndType(uri, "application/pdf");
+                                getActivity().startActivity(intent);
+
+
+                                /*Intent marketIntent = new Intent(
+                                        Intent.ACTION_VIEW);
+                                marketIntent.setData(Uri
+                                        .parse("market://details?id=com.adobe.reader"));
+                                startActivity(marketIntent);*/
+                            }
+                        });
+                        builder.setNegativeButton("No", null);
+                        builder.create().show();
                         break;
                     case 3://Privacy Policy-Section
                         Toast.makeText(getActivity(), "Screen not provided...!!", Toast.LENGTH_SHORT).show();
-                       // ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
+                        // ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
                        /* Intent intentPrivacy = new Intent(getActivity(), PrivacyActivity.class);
                         intentPrivacy.putExtra("Privacy","PRIVACY");
                         getActivity().startActivity(intentPrivacy);*/
@@ -114,5 +149,7 @@ public class FragmentSetting extends Fragment {
         });
 
     }
+
+
 }
 

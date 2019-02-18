@@ -121,9 +121,10 @@
                     android:text="Primary Proxy"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension17dp"
-                    android:textStyle="italic" />
+                    android:textStyle="normal" />
 
                 <TextView
+                    android:visibility="gone"
                     android:id="@+id/txtAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -141,6 +142,7 @@
 
                 <TextView
                     android:id="@+id/txtPhone"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -166,6 +168,7 @@
 
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/imgForword"
                 android:layout_width="@dimen/dimension40dp"
                 android:layout_height="@dimen/dimension30dp"

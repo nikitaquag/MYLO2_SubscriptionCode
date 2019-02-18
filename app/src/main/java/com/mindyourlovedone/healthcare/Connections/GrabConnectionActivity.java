@@ -132,9 +132,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
             case "EmergencyView":
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
-
                 break;
-
 
             case "Speciality":
                 header.setBackgroundResource(R.color.colorThree);
@@ -211,9 +209,6 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorThree);
                 break;
         }
-
-        // }
-
     }
 
 

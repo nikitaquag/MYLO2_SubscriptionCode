@@ -52,7 +52,7 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
     ArrayList<Contact> offcontactList;
     DBHelper dbHelper;
     RelativeLayout rlSearch;
-    TextView txtTitle,txtsave;
+    TextView txtTitle, txtsave;
 
     public static byte[] getBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -92,8 +92,6 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
             lvContact.setAdapter(contactAdapter);
             // contactAdapter.getFilter().filter(etSearch.getText().toString());
         }
-
-        //
     }
 
     private void getOfflineContacts() {
@@ -106,8 +104,8 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
     }
 
     private void initUI() {
-        txtTitle=getActivity().findViewById(R.id.txtTitle);
-        txtsave=getActivity().findViewById(R.id.txtSave);
+        txtTitle = getActivity().findViewById(R.id.txtTitle);
+        txtsave = getActivity().findViewById(R.id.txtSave);
         txtsave.setVisibility(View.GONE);
         txtTitle.setText("Select From Contacts");
         lvContact = rootview.findViewById(R.id.lvContact);

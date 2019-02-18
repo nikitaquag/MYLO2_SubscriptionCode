@@ -144,14 +144,23 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
 
         if (emergencyList.get(position).getMobile().equals("")) {
             viewHolder.txtPhone.setVisibility(View.GONE);
-        } else {
-            viewHolder.txtPhone.setVisibility(View.VISIBLE);
         }
+        //Commented as to match screen as invision-shradha
+        /*else {
+            viewHolder.txtPhone.setVisibility(View.VISIBLE);
+        }*/
         if (emergencyList.get(position).getPhone().equals("")) {
             viewHolder.txtTelePhone.setVisibility(View.GONE);
-        } else {
-            viewHolder.txtTelePhone.setVisibility(View.VISIBLE);
         }
+        //Commented as to match screen as invision-shradha
+        /*else {
+            viewHolder.txtTelePhone.setVisibility(View.VISIBLE);
+        }*/
+
+        /*Comment ends here*/
+
+
+
        /* if(emergencyList.get(position).getRelationType().equals(""))
         {
            txtType.setVisibility(View.GONE);
@@ -166,7 +175,8 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         if (emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtState.setVisibility(View.GONE);
         } else {
-            viewHolder.txtState.setVisibility(View.VISIBLE);
+            //Commented as to match screen as invision-shradha
+           // viewHolder.txtState.setVisibility(View.VISIBLE);
 
             if (emergencyList.get(position).getIsPrimary() == 0) {
                 viewHolder.txtState.setText(priorityType[0]); //nikita
@@ -181,15 +191,16 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             }
         }
         viewHolder.txtName.setText(emergencyList.get(position).getName());
-        viewHolder.txtOfficePhone.setText(emergencyList.get(position).getWorkPhone());
-        viewHolder.txtPhone.setText(emergencyList.get(position).getMobile());
+       // viewHolder.txtOfficePhone.setText(emergencyList.get(position).getWorkPhone());
+       //viewHolder.txtPhone.setText(emergencyList.get(position).getMobile());
         if (emergencyList.get(position).getRelationType().equals("") && emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtType.setVisibility(View.GONE);
         } else {
             viewHolder.txtType.setVisibility(View.VISIBLE);
             viewHolder.txtType.setText(emergencyList.get(position).getRelationType());
         }
-        viewHolder.txtTelePhone.setText(emergencyList.get(position).getPhone());
+        //Commented as to match screen as invision-shradha
+       // viewHolder.txtTelePhone.setText(emergencyList.get(position).getPhone());
 
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhoto());

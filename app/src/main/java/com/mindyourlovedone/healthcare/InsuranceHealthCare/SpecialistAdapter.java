@@ -265,14 +265,18 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 
         if (specialistList.get(position).getOfficePhone().equals("")) {
             holder.txtPhone.setVisibility(View.GONE);
-        } else {
-            holder.txtPhone.setVisibility(View.VISIBLE);
         }
+        //Commented as to match screen as invision-shradha
+        /*else {
+            holder.txtPhone.setVisibility(View.VISIBLE);
+        }*/
         if (specialistList.get(position).getAddress().equals("")) {
             holder.txtAddress.setVisibility(View.GONE);
-        } else {
-            holder.txtAddress.setVisibility(View.VISIBLE);
         }
+        //Commented as to match screen as invision-shradha
+        /* else {
+            holder.txtAddress.setVisibility(View.VISIBLE);
+        }*/
         if (specialistList.get(position).getType().equals("")) {
             holder.txtType.setVisibility(View.GONE);
         } else {
@@ -281,7 +285,8 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 
         holder.txtName.setText(specialistList.get(position).getName());
         holder.txtOfficePhone.setText(specialistList.get(position).getOtherPhone());
-        holder.txtPhone.setText(specialistList.get(position).getOfficePhone());
+        //Commented as to match screen as invision-shradha
+      //  holder.txtPhone.setText(specialistList.get(position).getOfficePhone());
         if (specialistList.get(position).getType().equals("Other")) {
             holder.txtType.setText(specialistList.get(position).getType() + " - " + specialistList.get(position).getOtherType());
         } else {
@@ -289,7 +294,8 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
         }
         // holder.txtType.setText(specialistList.get(position).getType());
         holder.txtTelePhone.setText(specialistList.get(position).getOtherPhone());
-        holder.txtAddress.setText(specialistList.get(position).getAddress());
+        //Commented as to match screen as invision-shradha
+       // holder.txtAddress.setText(specialistList.get(position).getAddress());
         //  holder.imgProfile.setImageResource(specialistList.get(position).getImage());
 
 //  Card code for Speciality Adapter
@@ -300,7 +306,8 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
 
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
             }
-            holder.imgForword.setVisibility(View.VISIBLE);
+            //Commented as to match screen as invision-shradha
+           // holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
         }
