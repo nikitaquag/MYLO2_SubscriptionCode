@@ -1,5 +1,6 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,13 +17,16 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity;
 import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.AddFormActivity;
+import com.mindyourlovedone.healthcare.DashBoard.PrescriptionInfoAdapter;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
 import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
-import com.mindyourlovedone.healthcare.model.Finance;
+import com.mindyourlovedone.healthcare.model.Hospital;
+import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -35,32 +39,20 @@ import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 import java.io.File;
 import java.util.ArrayList;
 
-/**
- * Created by varsha on 8/28/2017. Changes done by nikita on 18/6/18
- */
-
-public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHolder> {
+public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> {
     Context context;
-    ArrayList<Finance> FinanceList;
+    ArrayList<VitalSigns> vitalList;
     LayoutInflater lf;
     Preferences preferences;
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
-    FragmentFinance fr;
+    FragmentVitalSigns fr;
 
-    public FinanceAdapter(Context context, ArrayList<Finance> FinanceList) {
+
+    public VitalAdpater(Activity activity, ArrayList<VitalSigns> vitalList, FragmentVitalSigns fragmentVitalSigns) {
         preferences = new Preferences(context);
         this.context = context;
-        this.FinanceList = FinanceList;
-        lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        initImageLoader();
-    }
-
-    public FinanceAdapter(Context context, ArrayList<Finance> FinanceList, FragmentFinance fr) {
-        this.fr = fr;
-        preferences = new Preferences(context);
-        this.context = context;
-        this.FinanceList = FinanceList;
+        this.vitalList = this.vitalList;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         initImageLoader();
     }
@@ -71,7 +63,7 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.yellow)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -103,134 +95,78 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         imageLoaderCard = ImageLoader.getInstance();
     }
 
+
     @Override
-    public FinanceAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_finance, parent, false);
-        return new FinanceAdapter.ViewHolder(view);
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public VitalAdpater.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_vital, parent, false);
+        return new VitalAdpater.ViewHolder(view);
     }
 
     @Override
     public int getItemCount() {
-        return FinanceList.size();
+        return vitalList.size();
     }
 
     @Override
-    public void onBindViewHolder(final FinanceAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final VitalAdpater.ViewHolder holder, final int position) {
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.imgNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fr != null) {
-                    fr.callUser(FinanceList.get(position));
-                }
-            }
-        });
         holder.lintrash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (fr != null) {
-                    fr.deleteFinance(FinanceList.get(position));
+                    fr.deleteVital(vitalList.get(position));
                 }
             }
         });
 
-        if (FinanceList.get(position).getOfficePhone().equals("")) {
+ /*
+        if (vitalList.get(position).getOfficePhone().equals("")) {
             holder.txtPhone.setVisibility(View.GONE);
-        }
-        //Commented as to match screen as invision-shradha
-        /*else {
+        } else {
             holder.txtPhone.setVisibility(View.VISIBLE);
-        }*/
-
-        if (FinanceList.get(position).getAddress().equals("")) {
-            holder.txtAddress.setVisibility(View.GONE);
         }
-        //Commented as to match screen as invision-shradha
-        /* else {
+
+        if (vitalList.get(position).getAddress().equals("")) {
+            holder.txtAddress.setVisibility(View.GONE);
+        } else {
             holder.txtAddress.setVisibility(View.VISIBLE);
-        }*/
-        if (FinanceList.get(position).getCategory().equals("")) {
+        }
+
+       if (vitalList.get(position).getCategory().equals("")) {
             holder.txtCategory.setVisibility(View.GONE);
         } else {
             holder.txtCategory.setVisibility(View.VISIBLE);
         }
-        holder.txtName.setText(FinanceList.get(position).getName());
-        //Commented as to match screen as invision-shradha
-        // holder.txtAddress.setText(FinanceList.get(position).getAddress());
-        //  holder.txtPhone.setText(FinanceList.get(position).getOfficePhone());
-        if (FinanceList.get(position).getCategory().equals("Other")) {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-            holder.txtCategory.setText(FinanceList.get(position).getCategory() + " - " + FinanceList.get(position).getOtherCategory());
+        holder.txtName.setText(vitalList.get(position).getName());
+        holder.txtAddress.setText(vitalList.get(position).getAddress());
+        holder.txtPhone.setText(vitalList.get(position).getOfficePhone());
+        holder.txtType.setText(vitalList.get(position).getName());
+        if (vitalList.get(position).getCategory().equals("Other")) {
+            holder.txtCategory.setText(vitalList.get(position).getCategory() + " - " + vitalList.get(position).getOtherCategory());
         } else {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-            holder.txtCategory.setText(FinanceList.get(position).getCategory());
-        }
-
-       /* if (FinanceList.get(position).getOtherCategory() == null || FinanceList.get(position).getOtherCategory().equals("null") || FinanceList.get(position).getOtherCategory().isEmpty()) {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-            holder.txtCategory.setText(FinanceList.get(position).getCategory());
-        } else {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-            holder.txtCategory.setText(FinanceList.get(position).getOtherCategory());
+            holder.txtCategory.setText(vitalList.get(position).getCategory());
         }*/
         //holder.imgProfile.setImageResource(FinanceList.get(position).getImage());
-        File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhoto());
-        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
-        if (imgFile.exists()) {
-            if (holder.imgProfile.getDrawable() == null)
-                holder.imgProfile.setImageResource(R.drawable.yellow);
-            else
-                holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
-        }
-        holder.imgProfile.setImageResource(R.drawable.yellow);
-
-        if (!FinanceList.get(position).getPhotoCard().equals("")) {
-            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());
-            if (imgFile1.exists()) {
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForward, displayImageOptionsCard);
-            }
-            //Commented as to match screen as invision-shradha
-            //   holder.imgForward.setVisibility(View.VISIBLE);
-        } else {
-            holder.imgForward.setVisibility(View.GONE);
-        }
 
 
-        holder.imgForward.setOnClickListener(new View.OnClickListener() {
+        holder.rlVital.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, AddFormActivity.class);
-                i.putExtra("Image", FinanceList.get(position).getPhotoCard());
+                Intent i = new Intent(context, AddVitalSignsActivity.class);
+                VitalSigns hospital = vitalList.get(position);
+                i.putExtra("isEdit", true);
+                i.putExtra("IsView", true);
                 context.startActivity(i);
-            }
-        });
-
-        holder.rlFinance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "FinanceData");
-                Finance finance = FinanceList.get(position);
-                i.putExtra("FinanceObject", finance);
-                context.startActivity(i);
-            }
-        });
-      /*  holder.txtName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "FinanceData");
-                Finance finance = FinanceList.get(position);
-                i.putExtra("FinanceObject", finance);
-                context.startActivity(i);
-
             }
         });
         holder.imgNext.setOnClickListener(new View.OnClickListener() {
@@ -238,17 +174,13 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
             public void onClick(View v) {
 
                 Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "FinanceViewData");
-                Finance finance = FinanceList.get(position);
-                i.putExtra("FinanceObject", finance);
+                preferences.putString(PrefConstants.SOURCE, "HospitalViewData");
+                //  Hospital hospital = vitalList.get(position);
+                // i.putExtra("HospitalObject", hospital);
                 context.startActivity(i);
             }
-        });*/
-    }
+        });
 
-    @Override
-    public long getItemId(int position) {
-        return position;
     }
 
     @Override
@@ -260,16 +192,19 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
         TextView txtName, txtAddress, txtPhone, txtType, txtCategory;
         ImageView imgProfile, imgForward, imgEdit;
         ImageView imgNext;
+
         SwipeLayout swipeLayout;
-        RelativeLayout rlFinance;
         LinearLayout lincall, lintrash;
+        RelativeLayout rlVital;
         // SwipeRevealLayout swipeLayout;
 
         public ViewHolder(View convertView) {
             super(convertView);
             lincall = itemView.findViewById(R.id.lincall);
             lintrash = itemView.findViewById(R.id.lintrash);
+            rlVital = itemView.findViewById(R.id.rlVital);
             swipeLayout = itemView.findViewById(R.id.swipe);
+
             txtName = convertView.findViewById(R.id.txtName);
             txtAddress = convertView.findViewById(R.id.txtAddress);
             txtPhone = convertView.findViewById(R.id.txtPhone);
@@ -279,7 +214,8 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
             imgForward = convertView.findViewById(R.id.imgForword);
             imgEdit = convertView.findViewById(R.id.imgEdit);
             imgNext = convertView.findViewById(R.id.imgNext);
-            rlFinance = convertView.findViewById(R.id.rlFinance);
         }
     }
+
 }
+

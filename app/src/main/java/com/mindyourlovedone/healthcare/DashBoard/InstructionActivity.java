@@ -195,6 +195,49 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtHeader.setText("Create Prescription Tracker");
                 break;
 
+            case "VitalInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n"));
+                txt62.setText(Html.fromHtml("To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n"));
+                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n"));
+
+                UI = Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
+
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img622.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Vital Signs");
+                break;
+
             case "FormInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);

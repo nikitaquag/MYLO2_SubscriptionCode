@@ -6,7 +6,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
 /**
- * Created by varsha on 7/27/2017.
+ * Created by varsha on 7/27/2017.Created by shradha 28 Jan.
  */
 
 public class DBHelper extends SQLiteOpenHelper {
@@ -56,6 +56,9 @@ public class DBHelper extends SQLiteOpenHelper {
         //Event Note Table
         db.execSQL(EventNoteQuery.createNoteTable());
 
+        //Vital Table
+        db.execSQL(VitalQuery.createVitalTable());
+
         //Prescription Table
         db.execSQL(PrescribeImageQuery.createImageTable());
         db.execSQL(DosageQuery.createDosageTable());
@@ -75,6 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(LivingQuery.createLivingTable());
         db.execSQL(ImplantQuery.createVaccineTable());
         db.execSQL(ImageQuery.createTable());
+
     }
 
     @Override
@@ -109,6 +113,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
         //Event Note
         db.execSQL(EventNoteQuery.dropTable());
+
+        //Vital Table
+        db.execSQL(VitalQuery.dropTable());
 
         //Prescription
         db.execSQL(PrescribeImageQuery.dropTable());

@@ -170,7 +170,8 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
             if (imgFile1.exists()) {
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
             }
-            holder.imgForword.setVisibility(View.VISIBLE);
+            //Commented as to match screen as invision-shradha
+          //  holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
         }

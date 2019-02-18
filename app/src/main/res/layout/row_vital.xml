@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linswipe"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:tag="Bottom3"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/lincall"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#C9C9CE"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:src="@drawable/ic_call" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lintrash"
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#FF5534"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/trash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:src="@drawable/ic_delete" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- xmlns:android="http://schemas.android.com/apk/res/android"
+          -->
+    <RelativeLayout
+        android:id="@+id/rlVital"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension80dp"
+            android:background="@color/colorWhite"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/drop_down" />
+
+            <RelativeLayout
+                android:id="@+id/rlBP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimension10dp">
+
+                <TextView
+                    android:id="@+id/txtBP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="BP"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtBpValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtBP"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="100/60,"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtHR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtBpValue"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="HR"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtHRValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtHR"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="90,"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtHRValue"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="T"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/txtTempValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_toRightOf="@+id/txtTemp"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="96.5"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlBP"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="18 Feb 2019"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="@dimen/dimension2dp"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/txtDate"
+                    android:background="@color/colorBlackDark" />
+
+                <TextView
+                    android:id="@+id/txtTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/view1"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="12:26 PM"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

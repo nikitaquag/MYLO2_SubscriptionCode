@@ -46,16 +46,6 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
     FragmentHospital fr;
 
 
-
-   /*  public FinanceAdapter(Context context, ArrayList<Finance> FinanceList, FragmentFinance fr) {
-        this.fr = fr;
-        preferences = new Preferences(context);
-        this.context = context;
-        this.FinanceList = FinanceList;
-        lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        initImageLoader();
-    }*/
-
     public PrescriptionInfoAdapter(Activity activity, ArrayList<Hospital> hospitalList, FragmentPrescriptionInfo fragmentPrescriptionInfo) {
         preferences = new Preferences(context);
         this.context = context;

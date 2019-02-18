@@ -23,6 +23,7 @@ import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentInsurance;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPharmacy;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPrescriptionInfo;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentSpecialist;
+import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentVitalSigns;
 
 public class InsuranceActivity extends AppCompatActivity implements View.OnClickListener {
     public static FragmentManager fragmentManager;
@@ -35,6 +36,8 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
     FragmentHospital fragmentHospital = null;
     FragmentPrescriptionInfo fragmentPrescriptionInfo = null;
     FragmentPrescriptionUpload fragmentPrescriptionUpload = null;
+    FragmentVitalSigns fragmentVitalSigns = null;
+
     RelativeLayout rlGuide;
     TextView txtTitle;
     Spinner spinner;
@@ -109,6 +112,11 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("Prescription Upload", fragmentPrescriptionUpload);
                     break;
 
+                case "Vital Signs":
+                    header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
+                    txtTitle.setText("Vital Signs");
+                    callFragment("Vital Signs", fragmentVitalSigns);
+                    break;
             }
         }
     }
@@ -128,6 +136,7 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
         fragmentPharmacy = new FragmentPharmacy();
         fragmentHospital = new FragmentHospital();
         fragmentPrescriptionInfo = new FragmentPrescriptionInfo();
+        fragmentVitalSigns = new FragmentVitalSigns();
         fragmentPrescriptionUpload = new FragmentPrescriptionUpload();
     }
 

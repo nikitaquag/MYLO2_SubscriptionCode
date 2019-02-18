@@ -197,6 +197,10 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Prescription Upload";
                         break;
 
+                    case "Vital Signs":
+                        fragment = "Vital Signs";
+                        break;
+
                 }
                /* if (fragment.equals("Prescription Information") || fragment.equals("Prescription Upload")) {
                     Intent i = new Intent(context, PrescriptionActivity.class);
@@ -204,7 +208,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                     context.startActivity(i);
                 }*/
                 if (isEmergency == false && isInsurance == false) {
-                    if (fragment.equals("Event Notes") || fragment.equals("Appointment Tracker") || fragment.equals("Functional")) {
+                    if (fragment.equals("Event Notes") || fragment.equals("Appointment Tracker") || fragment.equals("Functional") /*|| fragment.equals("Vital Signs")*/) {
                         if (fragment.equals("Event Notes")) {
                             Intent i = new Intent(context, EventNoteActivity.class);
                             i.putExtra("FRAGMENT", fragment);
@@ -217,7 +221,11 @@ public class SpecialistContactAdapter extends BaseAdapter {
                             Intent i = new Intent(context, LivingActivity.class);
                             i.putExtra("FRAGMENT", fragment);
                             context.startActivity(i);
-                        }
+                        }/* else if (fragment.equals("Vital Signs")) {
+                            Intent i = new Intent(context, LivingActivity.class);
+                            i.putExtra("FRAGMENT", fragment);
+                            context.startActivity(i);
+                        }*/
                     } else {
                         Intent i = new Intent(context, InsuranceActivity.class);
                         i.putExtra("FRAGMENT", fragment);
