@@ -25,6 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
         <activity android:name="com.mindyourlovedone.healthcare.Connections.RelationActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Connections.PhoneActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
