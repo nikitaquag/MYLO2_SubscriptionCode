@@ -69,7 +69,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_vital_signs, null);
         initComponent();
-        getData();
+       // getData();
         initUI();
         initListener();
 
@@ -83,9 +83,9 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     }
 
     private void setListData() {
-        if (vitalList.size() != 0) {
-            VitalAdpater hospitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
-            lvVital.setAdapter(hospitalAdapter);
+        if (vitalList.size() != 0 && vitalList.isEmpty()) {
+            VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
+            lvVital.setAdapter(vitalAdapter);
             lvVital.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
         } else {
@@ -163,7 +163,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         rlGuide = rootview.findViewById(R.id.rlGuide);
         llAddVital = rootview.findViewById(R.id.llAddVital);
         lvVital = rootview.findViewById(R.id.lvVital);
-        // setListData();
+      //  setListData();
 
         // Layout Managers:
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -189,8 +189,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                 boolean flag = VitalQuery.deleteRecord(item.getId());
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                    getData();
-                    setListData();
+                  //  getData();
+                  //  setListData();
                 }
                 dialog.dismiss();
             }
@@ -319,8 +319,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
-        getData();
-        setListData();
+       // getData();
+       // setListData();
     }
 
 
@@ -334,8 +334,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                 boolean flag = VitalQuery.deleteRecord(item.getId());
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
-                    getData();
-                    setListData();
+                   // getData();
+                  //  setListData();
                 }
                 dialog.dismiss();
             }

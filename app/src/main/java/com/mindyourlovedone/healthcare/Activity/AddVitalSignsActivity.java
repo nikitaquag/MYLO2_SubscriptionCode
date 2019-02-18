@@ -151,7 +151,14 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.txtSave:
-                location = txtLocation.getText().toString().trim();
+                Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                if (flag == true) {
+                    Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                    DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                } else {
+                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                }
+              /*  location = txtLocation.getText().toString().trim();
                 Date = txtDate.getText().toString().trim();
                 time = txtTime.getText().toString().trim();
                 bp = txtBP.getText().toString().trim();
@@ -182,7 +189,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
                     }
-                }
+                }*/
                 break;
         }
 

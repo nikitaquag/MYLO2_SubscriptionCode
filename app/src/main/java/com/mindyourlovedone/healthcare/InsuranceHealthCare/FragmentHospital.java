@@ -62,7 +62,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
-    FloatingActionButton floatProfile,floatAdd,floatOptions;
+    FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable
     @Override
@@ -134,7 +134,6 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         img68.setVisibility(View.GONE);
 
 
-
         // txtMsg = rootview.findViewById(R.id.txtMsg);
         String msg = "To <b>add</b> information click the green bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data." +
                 "<br><br>" +
@@ -156,7 +155,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
                 intentEmerInstruc.putExtra("From", "HospitalInstruction");
                 startActivity(intentEmerInstruc);
-               // relMsg.setVisibility(View.VISIBLE);
+                // relMsg.setVisibility(View.VISIBLE);
             }
         });
         imgRight = getActivity().findViewById(R.id.imgRight);
@@ -222,39 +221,6 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
 
     private void getData() {
         hospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-       /* FinanceList=new ArrayList<>();
-
-        Finance P1=new Finance();
-        P1.setFirm("Grand Capital");
-        P1.setName("James Holms");
-        P1.setCategory("Accountant");
-        P1.setAddress("799 E DRAGRAM SUITE 5A,TUCSON AZ 85705, USA");
-        P1.setImage(R.drawable.insis);
-        P1.setPhone("589-789-5236");
-
-
-        Finance P2=new Finance();
-        P2.setFirm("Latham & Watkins");
-        P2.setCategory("Attorney");
-        P2.setName("Jack Watson");
-        P2.setAddress("300 BOYLSTON AVE E, SEATTLE WA 98102, USA");
-        P2.setImage(R.drawable.insir);
-        P2.setPhone("366-789-5236");
-
-        Finance P3=new Finance();
-        P3.setFirm("American Advisory Group");
-        P3.setName("John Sheridon");
-        P3.setCategory("Financial Planner");
-        P3.setAddress("200 E MAIN ST, PHOENIX AZ 85123, USA");
-        P3.setImage(R.drawable.insurs);
-        P3.setPhone("986-789-5236");
-
-
-        FinanceList.add(P1);
-        FinanceList.add(P2);
-        FinanceList.add(P3);*/
-
-
     }
 
     @Override

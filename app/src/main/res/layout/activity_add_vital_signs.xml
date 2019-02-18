@@ -285,7 +285,7 @@
                 android:paddingTop="@dimen/dimension8dp"
                 android:paddingRight="@dimen/dimension10dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintEnabled="false">
+                app:hintEnabled="true">
 
                 <AutoCompleteTextView
                     android:id="@+id/txtNote"

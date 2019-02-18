@@ -95,6 +95,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
     private static int RESULT_RELATION = 10;
+    private static int RESULT_TYPE = 11;
     Bitmap ProfileMap = null, CardMap = null;
     ContentValues values;
     Uri imageUriProfile, imageUriCard;
@@ -118,7 +119,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtAids, txtSchedule, txtOther, txtEmergencyNote;
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
-    TextView txtTitle,txtRelation;
+    TextView txtTitle,txtRelation,txtType;
     TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
@@ -3470,6 +3471,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlRelation = rootview.findViewById(R.id.rlRelation);
         txtRelation = rootview.findViewById(R.id.txtRelation);
         txtRelation.setFocusable(false);
+        txtType = rootview.findViewById(R.id.txtType);
+        txtType.setFocusable(false);
         tilRelation = rootview.findViewById(R.id.tilRelation);
         rlProxy = rootview.findViewById(R.id.rlProxy);
         txtAdd = rootview.findViewById(R.id.txtAdd);
@@ -3907,6 +3910,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i=new Intent(getActivity(),RelationActivity.class);
                 startActivityForResult(i,RESULT_RELATION);
+            }
+        });
+        txtType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getActivity(),PhoneActivity.class);
+                startActivityForResult(i,RESULT_TYPE);
             }
         });
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -4784,6 +4794,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             } else {
                 tilOtherRelation.setVisibility(View.GONE);
             }
+        }
+        else if(requestCode==RESULT_TYPE&&data!=null)
+        {
+           String type=data.getStringExtra("Relation");
+            txtType.setText(type);
+
         }
 
     }

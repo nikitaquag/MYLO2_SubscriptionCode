@@ -24,7 +24,8 @@
         android:roundIcon="@mipmap/mylo_new_cropped_logo"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-        <activity android:name="com.mindyourlovedone.healthcare.Connections.RelationActivity" />
+        <activity android:name="com.mindyourlovedone.healthcare.Connections.RelationActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Connections.PhoneActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
@@ -253,7 +254,8 @@
         <activity android:name="com.mindyourlovedone.healthcare.Activity.RelationshipActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.Activity.PrivacyActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity" />
+
     </application>
 
 </manifest>

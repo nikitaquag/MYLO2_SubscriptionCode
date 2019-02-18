@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.mindyourlovedone.healthcare.model.Dosage;
+import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.PrescribeImage;
 import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
@@ -32,7 +33,7 @@ public class VitalQuery {
     static Context context;
 
     public VitalQuery(Context context, DBHelper dbHelper) {
-        this.context = context;
+        VitalQuery.context = context;
         VitalQuery.dbHelper = dbHelper;
     }
 
@@ -75,10 +76,14 @@ public class VitalQuery {
         return flag;
     }
 
+
     public static ArrayList<VitalSigns> fetchAllVitalRecord(int userid) {
         ArrayList<VitalSigns> vitalList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor c = db.rawQuery("select * from " + TABLE_NAME + ";", null);
+        String query = "select * from " + TABLE_NAME + ";";
+
+        // String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
+        Cursor c = db.rawQuery(query, null);
 
        // Cursor c = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_USERID + "='" + userid + "';", null);
         if (c != null && c.getCount() > 0) {
