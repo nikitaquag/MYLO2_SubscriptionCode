@@ -202,11 +202,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         break;
 
                 }
-               /* if (fragment.equals("Prescription Information") || fragment.equals("Prescription Upload")) {
-                    Intent i = new Intent(context, PrescriptionActivity.class);
-                    i.putExtra("FRAGMENT", fragment);
-                    context.startActivity(i);
-                }*/
+
                 if (isEmergency == false && isInsurance == false) {
                     if (fragment.equals("Event Notes") || fragment.equals("Appointment Tracker") || fragment.equals("Functional") /*|| fragment.equals("Vital Signs")*/) {
                         if (fragment.equals("Event Notes")) {

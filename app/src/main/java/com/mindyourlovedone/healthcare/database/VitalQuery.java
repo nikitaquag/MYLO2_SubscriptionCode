@@ -52,7 +52,6 @@ public class VitalQuery {
         return dropTableQuery;
     }
 
-
     public static Boolean insertVitalData(int userid, String location, String date, String time, String bp, String heartRate, String temperature, String pulseRate, String respRate, String note) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -85,7 +84,7 @@ public class VitalQuery {
         // String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
         Cursor c = db.rawQuery(query, null);
 
-       // Cursor c = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_USERID + "='" + userid + "';", null);
+        // Cursor c = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_USERID + "='" + userid + "';", null);
         if (c != null && c.getCount() > 0) {
             if (c.moveToFirst()) {
                 do {

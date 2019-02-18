@@ -266,11 +266,6 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
             case R.id.floatAdd:
                 showFloatDialog();
                 break;
-           /* case R.id.llAddHospital:
-                preferences.putString(PrefConstants.SOURCE, "Hospital");
-                Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
-                startActivity(i);
-                break;*/
             case R.id.imgRight:
                 final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";

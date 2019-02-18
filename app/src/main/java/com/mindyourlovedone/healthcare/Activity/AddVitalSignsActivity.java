@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentVitalSigns;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DosageQuery;
 import com.mindyourlovedone.healthcare.database.PrescribeImageQuery;
@@ -30,7 +31,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
     TextView txtTitle, txtLocation, txtDate, txtTime, txtBP, txtHeart, txtTemperature, txtPulseRate, txtRespRate, txtNote, txtSave;
     ImageView imgHome, imgBack;
     Context context = this;
-    boolean isEdit, isView;
+    boolean isEdit=false, isView;
     String location = "", Date = "", time = "", bp = "", heart = "", temperature = "", pulse = "", respiratory = "", note = "";
     Preferences preferences;
     DBHelper dbHelper;
@@ -151,14 +152,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.txtSave:
-                Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-                if (flag == true) {
-                    Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
-                    DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-                } else {
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                }
-              /*  location = txtLocation.getText().toString().trim();
+                location = txtLocation.getText().toString().trim();
                 Date = txtDate.getText().toString().trim();
                 time = txtTime.getText().toString().trim();
                 bp = txtBP.getText().toString().trim();
@@ -171,15 +165,16 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                     Toast.makeText(context, "Please Enter Location", Toast.LENGTH_SHORT).show();
                     txtLocation.setError("Please Enter Location");
                 } else {
-                    if (isEdit == false) {
-
+                    if (isEdit == true) {
                         Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                         if (flag == true) {
                             Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
                             DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
+                      //  finish();
                     } else {
                         Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                         if (flag == true) {
@@ -188,8 +183,9 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
+                     //   finish();
                     }
-                }*/
+                }
                 break;
         }
 
