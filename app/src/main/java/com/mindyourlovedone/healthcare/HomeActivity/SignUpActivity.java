@@ -10,6 +10,7 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -39,6 +40,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -102,7 +104,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     DBHelper dbHelper;
 
     int userid = 1;*/
-
+RelativeLayout rlTops;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,20 +116,59 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         initListener();
         initImageLoader();*/
     }
-
+    public void hideSoftKeyboard() {
+        if (getCurrentFocus() != null) {
+            InputMethodManager inm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        }
+    }
     private void initListener() {
         imgBack.setOnClickListener(this);
         txtNext.setOnClickListener(this);
     }
-
     private void initUI() {
         tilName = findViewById(R.id.tilName);
         txtName = findViewById(R.id.txtName);
         txtNext = findViewById(R.id.txtNext);
         txtEmail = findViewById(R.id.txtEmail);
         imgBack = findViewById(R.id.imgBack);
+       // rlTops= findViewById(R.id.rlTops);
+       /* rlTops.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hideSoftKeyboard();
+                txtName.setFocusable(false);
+                txtEmail.setFocusable(false);
+            }
+        });*/
 
-
+        RelativeLayout touchInterceptor = (RelativeLayout)findViewById(R.id.rlTops);
+        touchInterceptor.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (txtName.isFocused()) {
+                        Rect outRect = new Rect();
+                        txtName.getGlobalVisibleRect(outRect);
+                        if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                            txtName.clearFocus();
+                            InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        }
+                    }
+                    if (txtEmail.isFocused()) {
+                        Rect outRect = new Rect();
+                        txtEmail.getGlobalVisibleRect(outRect);
+                        if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                            txtEmail.clearFocus();
+                            InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        }
+                    }
+                }
+                return false;
+            }
+        });
         txtName.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -358,12 +399,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         spinner.setAdapter(adapter);
         spinner.setHint("Country");
 
-        llSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                hideSoftKeyboard();
-            }
-        });
+
 
         txtPhone.addTextChangedListener(new TextWatcher() {
             int prevL = 0;
@@ -930,12 +966,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    public void hideSoftKeyboard() {
-        if (getCurrentFocus() != null) {
-            InputMethodManager inm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-            inm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-        }
-    }
+
 
     class CreateUserAsynk extends AsyncTask<Void, Void, String> {
         String name;
