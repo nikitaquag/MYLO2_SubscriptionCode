@@ -1,10 +1,12 @@
 package com.mindyourlovedone.healthcare.Connections;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -21,6 +23,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -32,9 +35,12 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +63,7 @@ import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.Insurance;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.Phone;
 import com.mindyourlovedone.healthcare.model.Proxy;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
@@ -82,7 +89,10 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
+
+
 import static com.mindyourlovedone.healthcare.HomeActivity.R.id.txtPhone;
+import static com.mindyourlovedone.healthcare.HomeActivity.R.id.txtT;
 
 /**
  * Created by varsha on 8/28/2017.
@@ -97,7 +107,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_RELATION = 10;
     private static int RESULT_TYPE = 11;
     Bitmap ProfileMap = null, CardMap = null;
+    ListView listRelation,listPhone;
     ContentValues values;
+    static int val=1;
     Uri imageUriProfile, imageUriCard;
     // byte[] photoCard = null;
     String card = "";
@@ -107,9 +119,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CAddress = "";
     static String CHPhone = "";
     static String CWPhone = "";
-    RelativeLayout rlCard, rlContact;
+    RelativeLayout rlCard, rlContact,RlPhone;
     TextView txtCardz;
     ImageView txtCard;
+    LayoutInflater layoutInflater;
     //TextView btnShowMore,btnShowLess,btnSon;
     TextView txtOtherInsurance, txtOtherCategory, txtOtherRelation, txtName, txtEmail, txtMobile, txtHomePhone, txtWorkPhone, txtAdd, txtInsuaranceName, txtInsuarancePhone, txtId, txtGroup, txtMember, txtAddress;
     String contactName = "";
@@ -184,6 +197,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     boolean isOnActivityResult = false;
     String cardImgPath = "";
     public static boolean fromDevice = false;
+
+    LinearLayout llAddPhone;
+    ImageView imgAddPhone;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_new_contact, null);
@@ -3189,9 +3205,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
+        imgAddPhone.setOnClickListener(this);
     }
 
     private void initUI() {
+
+         layoutInflater= (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        llAddPhone =rootview.findViewById(R.id.llAddPhone);
+        RlPhone=rootview.findViewById(R.id.RlPhone);
+         imgAddPhone=rootview.findViewById(R.id.imgAddPhone);
         imgProfile = rootview.findViewById(R.id.imgProfile);
         if (source.equals("Emergency")) {
             imgProfile.setImageResource(R.drawable.lightblue);
@@ -3210,6 +3232,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             final int newColor = res.getColor(R.color.colorFive);
             image.setColorFilter(newColor, PorterDuff.Mode.SRC_ATOP);
         }*/
+        listPhone = rootview.findViewById(R.id.listPhone);
         rlDoctorCategory = rootview.findViewById(R.id.rlDoctorCategory);
         rlContact = rootview.findViewById(R.id.rlContact);
         rlCard = rootview.findViewById(R.id.rlCard);
@@ -3226,6 +3249,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorHourOfficePhone = rootview.findViewById(R.id.txtDoctorHourOfficePhone);
         txtDoctorOtherPhone = rootview.findViewById(R.id.txtDoctorOtherPhone);
         txtDoctorFax = rootview.findViewById(R.id.txtDoctorFax);
+
+
+
 
         rlContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -3915,8 +3941,23 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),PhoneActivity.class);
-                startActivityForResult(i,RESULT_TYPE);
+                AlertDialog.Builder b = new AlertDialog.Builder(context);
+                b.setTitle("Type");
+                final String[] types = {"Mobile", "Office","Home","Fax"};
+                b.setItems(types, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                       // TextView txtType=helperview.findViewById(R.id.txtType);
+                        txtType.setText(types[which]);
+                       dialog.dismiss();
+                    }
+
+                });
+
+                b.show();
+                /*Intent i=new Intent(getActivity(),PhoneActivity.class);
+                startActivityForResult(i,RESULT_TYPE);*/
             }
         });
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -4040,6 +4081,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 //Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
 
                 break;
+
+            case R.id.imgAddPhone:
+
+                addNewPhone();
+                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+
+                break;
             case R.id.imgEdit:
                 ShowCameraDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, "Profile");
 
@@ -4068,6 +4116,49 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
         }
+    }
+
+    private void addNewPhone() {
+      /*  ArrayList phonelist=new ArrayList();
+
+        PhoneAdapter pd=new PhoneAdapter(context,phonelist,val);
+        listPhone.setAdapter(pd);*/
+       final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
+        llAddPhone.addView(helperview);//jobt
+
+        TextView txtPhoNum=helperview.findViewById(R.id.txtPhoNum);
+        TextView txtType=helperview.findViewById(R.id.txtType);
+        ImageView imgdeletePhone=helperview.findViewById(R.id.imgdeletePhone);
+        txtType.setFocusable(false);
+        txtType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(context);
+                b.setTitle("Type");
+                final String[] types = {"Mobile", "Office","Home","Fax"};
+                b.setItems(types, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        TextView txtType=helperview.findViewById(R.id.txtType);
+                        txtType.setText(types[which]);
+                        dialog.dismiss();
+                    }
+
+                });
+
+                b.show();
+              //  Intent i=new Intent(getActivity(),PhoneActivity.class);
+              //  startActivityForResult(i,RESULT_TYPE);
+            }
+        });
+        imgdeletePhone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              llAddPhone.removeView(helperview);
+            }
+        });
+
     }
 
     private void ShowCameraDialog(final int resultCameraImageCard, final int resultSelectPhotoCard, final String profile) {
@@ -4798,6 +4889,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         else if(requestCode==RESULT_TYPE&&data!=null)
         {
            String type=data.getStringExtra("Relation");
+           txtType=llAddPhone.findViewById(R.id.txtType);
             txtType.setText(type);
 
         }
