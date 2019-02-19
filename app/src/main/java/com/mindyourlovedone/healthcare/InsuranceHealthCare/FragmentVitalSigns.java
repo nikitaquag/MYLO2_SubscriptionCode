@@ -82,6 +82,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         VitalQuery v = new VitalQuery(getActivity(), dbHelper);
     }
 
+
     private void setListData() {
         if (vitalList.size() != 0 && vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
