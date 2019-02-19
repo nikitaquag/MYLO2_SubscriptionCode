@@ -62,6 +62,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
+
     FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable

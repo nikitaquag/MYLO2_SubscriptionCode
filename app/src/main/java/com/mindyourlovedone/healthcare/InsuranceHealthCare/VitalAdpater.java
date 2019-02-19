@@ -50,9 +50,10 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
 
     public VitalAdpater(Activity activity, ArrayList<VitalSigns> vitalList, FragmentVitalSigns fragmentVitalSigns) {
-//        preferences = new Preferences(context);
+        // preferences = new Preferences(context);
         this.context = activity;
         this.vitalList = vitalList;
+        this.fr=fragmentVitalSigns;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
