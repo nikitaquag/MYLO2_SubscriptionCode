@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.mindyourlovedone.healthcare.util.IabHelper;
@@ -262,7 +263,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
             case R.id.txtRegistered:
                 if (preferences == null) {
                     preferences = new Preferences(SplashNewActivity.this);
-                }
+                      }
 
                 if (preferences.getREGISTERED()) {
                     Intent intent1 = new Intent(SplashNewActivity.this, BaseActivity.class);
@@ -270,7 +271,9 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
 //                    finish();
                 } else {
-                   // Intent intent2 = new Intent(SplashNewActivity.this, LoginActivity.class);
+                    Toast.makeText(context,"Please Signin first you have not signed up yet.!!",Toast.LENGTH_SHORT).show();
+
+                    // Intent intent2 = new Intent(SplashNewActivity.this, LoginActivity.class);
                    // startActivity(intent2);
 //                    finish();
                 }
