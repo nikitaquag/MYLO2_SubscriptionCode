@@ -50,7 +50,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
 
     public VitalAdpater(Activity activity, ArrayList<VitalSigns> vitalList, FragmentVitalSigns fragmentVitalSigns) {
-        preferences = new Preferences(context);
+//        preferences = new Preferences(context);
         this.context = activity;
         this.vitalList = vitalList;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -74,12 +74,14 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final VitalAdpater.ViewHolder holder, final int position) {
+/*
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
+*/
 
  /*
         if (vitalList.get(position).getOfficePhone().equals("")) {

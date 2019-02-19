@@ -82,9 +82,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         VitalQuery v = new VitalQuery(getActivity(), dbHelper);
     }
 
-
     public void setListData() {
-        if (vitalList.size() != 0 && vitalList.isEmpty()) {
+        if (vitalList.size() != 0 && !vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
             lvVital.setVisibility(View.VISIBLE);
@@ -95,13 +94,11 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         }
     }
 
-
     private void initListener() {
         llAddVital.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
-
     }
 
     private void initUI() {
@@ -163,7 +160,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         rlGuide = rootview.findViewById(R.id.rlGuide);
         llAddVital = rootview.findViewById(R.id.llAddVital);
-        lvVital = rootview.findViewById(R.id.lvVital);
+        lvVital = getActivity().findViewById(R.id.lvVital);
         setListData();
 
         // Layout Managers:

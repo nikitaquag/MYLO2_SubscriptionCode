@@ -220,7 +220,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
                         DialogManager.closeKeyboard(AddVitalSignsActivity.this);
                         clearData();
-                        fragmentVitalSigns.getData();
+                        //fragmentVitalSigns.getData();
                         fragmentVitalSigns.setListData();
                         finish();
                     } else {
