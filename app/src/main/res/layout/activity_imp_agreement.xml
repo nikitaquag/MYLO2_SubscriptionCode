@@ -73,7 +73,7 @@
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
                     android:layout_alignParentLeft="true"
-                    android:button="@drawable/circle_privacy"
+                    android:button="@drawable/radiocheck"
                     android:checked="true" />
 
                 <TextView
@@ -101,7 +101,7 @@
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
                     android:layout_alignParentLeft="true"
-                    android:button="@drawable/circle_privacy"
+                    android:button="@drawable/radiocheck"
                     android:checked="true" />
 
                 <TextView
@@ -129,7 +129,7 @@
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
                     android:layout_alignParentLeft="true"
-                    android:button="@drawable/circle_privacy"
+                    android:button="@drawable/radiocheck"
                     android:checked="false" />
 
                 <TextView
@@ -157,7 +157,7 @@
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
                     android:layout_alignParentLeft="true"
-                    android:button="@drawable/circle_privacy"
+                    android:button="@drawable/radiocheck"
                     android:checked="false" />
 
                 <TextView
