@@ -134,7 +134,7 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension17dp"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/dimension2dp"/>
+                android:layout_marginRight="@dimen/dimension2dp"/>
 
             <TextView
                 android:id="@+id/txtPolicy3"
@@ -154,6 +154,7 @@
                 android:layout_toRightOf="@+id/txtPolicy3"
                 android:text="@string/UserAgreement"
                 android:textColor="@color/colorBlack"
+                android:layout_marginLeft="@dimen/dimension2dp"
                 android:textSize="@dimen/dimension17dp"
                 android:textStyle="bold" />
 

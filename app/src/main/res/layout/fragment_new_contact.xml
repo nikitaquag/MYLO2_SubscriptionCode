@@ -29,8 +29,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="@dimen/dimension165dp"
+                    android:layout_width="170dp"
+                    android:layout_height="170dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:src="@drawable/ic_profile_defaults" />
 
@@ -41,7 +41,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimension20dp"
-                    android:src="@drawable/ic_edit_blue" />
+                    android:src="@drawable/edit_n" />
 
             </RelativeLayout>
 
@@ -103,9 +103,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinner"
-                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -116,7 +116,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -162,8 +162,8 @@
                             android:layout_below="@+id/rlCategory"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="visible">
 
@@ -175,7 +175,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -192,8 +192,8 @@
                             android:layout_below="@+id/tilOtherCategory"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -204,7 +204,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -220,8 +220,8 @@
                             android:layout_below="@+id/tilFName"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -232,7 +232,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -246,8 +246,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilContactName"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -257,7 +257,7 @@
                                 android:hint="Email"
                                 android:imeOptions="actionNext"
                                 android:maxLines="2"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="false"
                                 android:textColor="@color/colorPrimaryDark"
@@ -272,8 +272,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceEmail"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -285,7 +285,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -299,8 +299,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceOfficePhone"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -312,7 +312,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -326,8 +326,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceMobilePhone"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -339,7 +339,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -353,8 +353,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceOtherPhone"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
 
@@ -364,7 +364,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Location"
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -377,8 +377,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceLocation"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -390,7 +390,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -404,8 +404,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceFax"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -414,7 +414,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Address"
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -427,8 +427,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceAddres"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -439,7 +439,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -453,8 +453,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceWebsite"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
 
@@ -464,7 +464,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Company Name"
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -477,8 +477,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinancePracticeName"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -488,7 +488,7 @@
                                 android:hint="Last Seen"
 
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
 
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
@@ -501,8 +501,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilLastSeen"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp">
 
                             <AutoCompleteTextView
@@ -511,7 +511,7 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Notes"
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -554,9 +554,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinnerHospital"
-                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             app:hintEnabled="true">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -568,7 +568,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -585,8 +585,8 @@
                         android:layout_below="@+id/rlCategoryHospital"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -597,7 +597,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -611,8 +611,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilFNameHospital"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -624,7 +624,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -638,8 +638,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -651,7 +651,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -665,8 +665,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -678,7 +678,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -692,8 +692,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalOtherPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -702,7 +702,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -715,8 +715,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalAddres"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -727,7 +727,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -741,8 +741,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalWebsite"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -751,7 +751,7 @@
                             android:layout_height="wrap_content"
                             android:hint="In Network Status"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -764,8 +764,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLocation"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -774,7 +774,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Contact Person"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -787,8 +787,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalPracticeName"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -798,7 +798,7 @@
                             android:hint="Last Seen"
 
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
 
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -812,8 +812,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLastSeen"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -822,7 +822,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
 
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -835,8 +835,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLocator"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -845,7 +845,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -867,9 +867,9 @@
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         app:hintEnabled="true">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -880,7 +880,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -917,9 +917,9 @@
                             android:layout_below="@+id/spinnerRelation"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
 
                             app:hintEnabled="true">
@@ -932,7 +932,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                                android:drawableRight="@drawable/drp"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -947,9 +947,9 @@
                             android:layout_below="@+id/tilRelation"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
-                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone"
                             app:hintEnabled="true">
@@ -962,7 +962,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -993,8 +993,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/spinnerPriority"
-                        android:layout_marginLeft="@dimen/dimension30dp"
-                        android:layout_marginRight="@dimen/dimension30dp"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension20dp"
                         >
                         <LinearLayout
                             android:id="@+id/llNum"
@@ -1019,7 +1019,7 @@
                                     android:inputType="phone"
                                     android:maxLength="12"
                                     android:maxLines="1"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                   
                                     android:paddingTop="@dimen/dimension2dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
@@ -1041,7 +1041,7 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:drawableRight="@drawable/drp"
                                     android:paddingTop="@dimen/dimension2dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
@@ -1054,7 +1054,7 @@
                                 android:layout_width="@dimen/dimension0dp"
                                 android:layout_height="@dimen/dimension35dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/addblue"
+                                android:src="@drawable/add_n"
                                 android:layout_weight="1"
                                 />
                         </LinearLayout>
@@ -1085,8 +1085,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/RlPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         >
@@ -1100,7 +1100,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1114,8 +1114,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilMobile"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         >
@@ -1129,7 +1129,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1143,8 +1143,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         >
@@ -1158,7 +1158,7 @@
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1172,8 +1172,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rlRelations"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
@@ -1183,7 +1183,7 @@
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
@@ -1197,8 +1197,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1207,7 +1207,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1240,8 +1240,8 @@
                         android:id="@+id/tilEmergencyNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -1252,7 +1252,7 @@
                             android:hint="Notes"
                             android:imeOptions="actionNext"
                             android:maxLines="3"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1264,7 +1264,7 @@
                         android:id="@+id/rlRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingRight="@dimen/dimension15dp"
                         android:visibility="gone">
 
@@ -1334,8 +1334,8 @@ android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1346,7 +1346,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1360,8 +1360,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorName"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1373,7 +1373,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1387,8 +1387,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1400,7 +1400,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1414,8 +1414,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorHourOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1427,7 +1427,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1441,8 +1441,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorOtherPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1454,7 +1454,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1467,8 +1467,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -1478,7 +1478,7 @@ android:visibility="gone"
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
@@ -1492,8 +1492,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorAddress"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1504,7 +1504,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1518,8 +1518,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1528,7 +1528,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1541,9 +1541,9 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorWebsite"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
@@ -1553,7 +1553,7 @@ android:visibility="gone"
                             android:hint="Medical Practice Name"
 
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
 
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -1567,8 +1567,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilNetwork"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1577,7 +1577,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Last Seen"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1590,8 +1590,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAffiliation"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1602,7 +1602,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1616,8 +1616,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPracticeName"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1626,7 +1626,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Hospital Affiliations"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1639,8 +1639,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorLastSeen"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1649,7 +1649,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1661,8 +1661,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorLocator"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1671,7 +1671,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1691,9 +1691,9 @@ android:visibility="gone"
                         android:id="@+id/tilInsuaranceName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
 
                         >
@@ -1707,7 +1707,7 @@ android:visibility="gone"
                             android:inputType="text|none"
                             android:maxLength="200"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1745,8 +1745,8 @@ android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinnerInsuarance"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
 
@@ -1758,7 +1758,7 @@ android:visibility="gone"
                                 android:imeOptions="actionNext"
                                 android:maxLength="100"
                                 android:maxLines="1"
-                                android:paddingLeft="@dimen/dimension15dp"
+                               
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -1775,8 +1775,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rlInsuranceType"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
 
                         >
@@ -1789,7 +1789,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1803,8 +1803,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilId"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
 
                         >
@@ -1817,7 +1817,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1831,8 +1831,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilGroup"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1843,7 +1843,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1857,8 +1857,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilSubscribe"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1870,7 +1870,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1884,8 +1884,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuarancePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1897,7 +1897,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1911,8 +1911,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1922,7 +1922,7 @@ android:visibility="gone"
                             android:hint="Provider Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
@@ -1936,8 +1936,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceEmail"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1947,7 +1947,7 @@ android:visibility="gone"
                             android:hint="Website"
                             android:imeOptions="actionNext"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1961,8 +1961,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilWebsite"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1971,7 +1971,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Agent Name, Phone, Email"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1983,8 +1983,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAgent"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -1993,7 +1993,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2005,8 +2005,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceEmail"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2018,7 +2018,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2041,9 +2041,9 @@ android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
 
                         >
@@ -2056,7 +2056,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2070,8 +2070,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideCompName"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2083,7 +2083,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2097,8 +2097,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2110,7 +2110,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2124,8 +2124,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHourOfficePhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2137,7 +2137,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2151,8 +2151,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilOtherPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2164,7 +2164,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2178,8 +2178,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2189,7 +2189,7 @@ android:visibility="gone"
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
@@ -2203,8 +2203,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideEmail"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2213,7 +2213,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2226,8 +2226,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideAddress"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2238,7 +2238,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2251,8 +2251,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideWebsite"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2261,7 +2261,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2273,8 +2273,8 @@ android:visibility="gone"
                         android:id="@+id/tilAids"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2286,7 +2286,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2300,8 +2300,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAids"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2313,7 +2313,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2326,8 +2326,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilSchedule"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2339,7 +2339,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2386,9 +2386,9 @@ android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
@@ -2399,7 +2399,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2414,9 +2414,9 @@ android:visibility="gone"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyName"
 
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
@@ -2425,7 +2425,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2438,8 +2438,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyAddres"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2451,7 +2451,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2465,8 +2465,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyPhone"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2478,7 +2478,7 @@ android:visibility="gone"
                             android:inputType="phone"
                             android:maxLength="12"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2492,8 +2492,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyFax"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2504,7 +2504,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2518,8 +2518,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyWebsite"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2528,7 +2528,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2541,8 +2541,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyLocator"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">
 
                         <AutoCompleteTextView
@@ -2551,7 +2551,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2563,8 +2563,8 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyNote"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2575,7 +2575,7 @@ android:visibility="gone"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="3"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -2670,7 +2670,7 @@ android:visibility="gone"
                         android:layout_width="@dimen/dimension40dp"
                         android:layout_height="@dimen/dimension40dp"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/ic_edit_blue" />
+                        android:src="@drawable/edit_n" />
                 </RelativeLayout>
 
 

@@ -31,11 +31,13 @@
                     android:inputType="phone"
                     android:maxLength="12"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/dimension15dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dimension20dp" />
+                    android:textSize="@dimen/dimension20dp"
+
+                    />
+
 
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
@@ -53,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Type"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:drawableRight="@drawable/drp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
@@ -66,7 +68,7 @@
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="@dimen/dimension35dp"
                 android:layout_gravity="center"
-                android:src="@drawable/delete_icon"
+                android:src="@drawable/delete_n"
                 android:layout_weight="1"
                 />
         </LinearLayout>
