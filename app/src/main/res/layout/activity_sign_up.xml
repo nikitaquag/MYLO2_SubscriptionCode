@@ -6,16 +6,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorLightBlue">-->
-<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue">
+    android:background="@color/colorLightBlue"
+    android:orientation="vertical"
+    >
 <RelativeLayout
     android:id="@+id/rlTops"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="@dimen/dimension0dp"
     android:layout_above="@+id/rlSponsor"
+    android:layout_weight="9"
     >
     <FrameLayout
         android:id="@+id/flTop"
@@ -196,9 +199,11 @@
     <RelativeLayout
         android:id="@+id/rlSponsor"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension80dp"
+        android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorSponsorBlue">
+        android:background="@color/colorSponsorBlue"
+        android:layout_weight="2"
+        >
 
         <TextView
             android:id="@+id/txtSponsor"
@@ -1065,6 +1070,6 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension24dp" />
     -->
-</RelativeLayout>
+</LinearLayout>
 <!--
 </ScrollView>-->
