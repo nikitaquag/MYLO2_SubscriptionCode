@@ -83,7 +83,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     }
 
 
-    private void setListData() {
+    public void setListData() {
         if (vitalList.size() != 0 && vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
@@ -208,7 +208,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 
     }
 
-    private void getData() {
+    public void getData() {
         vitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
     }
 
@@ -218,16 +218,18 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
             case R.id.floatAdd:
                 Intent intentVital = new Intent(getActivity(), AddVitalSignsActivity.class);
+                intentVital.putExtra("Date", "Date");
+                intentVital.putExtra("Time", "Time");
                 startActivity(intentVital);
                 break;
             case R.id.llAddVital:
-//                preferences.putString(PrefConstants.SOURCE, "Vital");
+                preferences.putString(PrefConstants.SOURCE, "Vital");
                 Intent i = new Intent(getActivity(), AddVitalSignsActivity.class);
                 i.putExtra("IsEdit", false);
                 startActivity(i);
@@ -320,8 +322,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
-         getData();
-         setListData();
+        getData();
+        setListData();
     }
 
 

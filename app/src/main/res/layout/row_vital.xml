@@ -63,6 +63,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/imgDropDown"
                 android:layout_width="@dimen/dimension30dp"
                 android:layout_height="@dimen/dimension30dp"
                 android:layout_alignParentRight="true"

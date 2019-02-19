@@ -107,9 +107,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_RELATION = 10;
     private static int RESULT_TYPE = 11;
     Bitmap ProfileMap = null, CardMap = null;
-    ListView listRelation,listPhone;
+    ListView listRelation, listPhone;
     ContentValues values;
-    static int val=1;
+    static int val = 1;
     Uri imageUriProfile, imageUriCard;
     // byte[] photoCard = null;
     String card = "";
@@ -119,7 +119,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CAddress = "";
     static String CHPhone = "";
     static String CWPhone = "";
-    RelativeLayout rlCard, rlContact,RlPhone;
+    RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz;
     ImageView txtCard;
     LayoutInflater layoutInflater;
@@ -132,14 +132,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtAids, txtSchedule, txtOther, txtEmergencyNote;
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
-    TextView txtTitle,txtRelation,txtType;
+    TextView txtTitle, txtRelation, txtType;
     TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
     String agent = "";
     ImageView imgEdit, imgProfile, imgCard, imgEditCard;
     View rootview;
-    RelativeLayout rlRelation,rlDoctorCategory, rlHospital, rlConnection, rlDoctor, rlInsurance, rlCommon, rlAids, rlFinance, rlProxy, rlTop, llAddConn, rlPharmacy;
+    RelativeLayout rlRelation, rlDoctorCategory, rlHospital, rlConnection, rlDoctor, rlInsurance, rlCommon, rlAids, rlFinance, rlProxy, rlTop, llAddConn, rlPharmacy;
     Preferences preferences;
     String source = "";
     TextInputLayout tilOtherCategoryHospital;
@@ -159,7 +159,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     int connectionFlag;
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
-    TextInputLayout tilRelation,tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
+    TextInputLayout tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
 
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
@@ -537,7 +537,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "Hospital":
-
                 if (validate("Hospital")) {
                           /*  Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -928,7 +927,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                 });
                 txtTitle.setText("Create New Profile");
-             //   txtTitle.setAllCaps(true);
+                //   txtTitle.setAllCaps(true);
 
                 tilEmergencyNote.setVisibility(View.GONE);
                 rlPharmacy.setVisibility(View.GONE);
@@ -3210,10 +3209,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     private void initUI() {
 
-         layoutInflater= (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        llAddPhone =rootview.findViewById(R.id.llAddPhone);
-        RlPhone=rootview.findViewById(R.id.RlPhone);
-         imgAddPhone=rootview.findViewById(R.id.imgAddPhone);
+        layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        llAddPhone = rootview.findViewById(R.id.llAddPhone);
+        RlPhone = rootview.findViewById(R.id.RlPhone);
+        imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
         imgProfile = rootview.findViewById(R.id.imgProfile);
         if (source.equals("Emergency")) {
             imgProfile.setImageResource(R.drawable.lightblue);
@@ -3249,8 +3248,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorHourOfficePhone = rootview.findViewById(R.id.txtDoctorHourOfficePhone);
         txtDoctorOtherPhone = rootview.findViewById(R.id.txtDoctorOtherPhone);
         txtDoctorFax = rootview.findViewById(R.id.txtDoctorFax);
-
-
 
 
         rlContact.setOnClickListener(new View.OnClickListener() {
@@ -3921,21 +3918,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerProxy.setAdapter(adapterProxy);
         spinnerProxy.setHint("Proxy Agent Priority");
-    //    txtTitle.setAllCaps(true);
+        //    txtTitle.setAllCaps(true);
         txtAdd.setAllCaps(true);
 
         ArrayAdapter<String> adapterPriority = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, priorityType);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPriority.setAdapter(adapterPriority);
         spinnerPriority.setHint("Priority");
-     //   txtTitle.setAllCaps(true);
+        //   txtTitle.setAllCaps(true);
         txtAdd.setAllCaps(true);
 
         txtRelation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(getActivity(),RelationActivity.class);
-                startActivityForResult(i,RESULT_RELATION);
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                startActivityForResult(i, RESULT_RELATION);
             }
         });
         txtType.setOnClickListener(new View.OnClickListener() {
@@ -3943,14 +3940,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 b.setTitle("Type");
-                final String[] types = {"Mobile", "Office","Home","Fax"};
+                final String[] types = {"Mobile", "Office", "Home", "Fax"};
                 b.setItems(types, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                       // TextView txtType=helperview.findViewById(R.id.txtType);
+                        // TextView txtType=helperview.findViewById(R.id.txtType);
                         txtType.setText(types[which]);
-                       dialog.dismiss();
+                        dialog.dismiss();
                     }
 
                 });
@@ -4085,7 +4082,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case R.id.imgAddPhone:
 
                 addNewPhone();
-                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 
                 break;
             case R.id.imgEdit:
@@ -4123,24 +4120,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         PhoneAdapter pd=new PhoneAdapter(context,phonelist,val);
         listPhone.setAdapter(pd);*/
-       final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
+        final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
         llAddPhone.addView(helperview);//jobt
 
-        TextView txtPhoNum=helperview.findViewById(R.id.txtPhoNum);
-        TextView txtType=helperview.findViewById(R.id.txtType);
-        ImageView imgdeletePhone=helperview.findViewById(R.id.imgdeletePhone);
+        TextView txtPhoNum = helperview.findViewById(R.id.txtPhoNum);
+        TextView txtType = helperview.findViewById(R.id.txtType);
+        ImageView imgdeletePhone = helperview.findViewById(R.id.imgdeletePhone);
         txtType.setFocusable(false);
         txtType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 b.setTitle("Type");
-                final String[] types = {"Mobile", "Office","Home","Fax"};
+                final String[] types = {"Mobile", "Office", "Home", "Fax"};
                 b.setItems(types, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        TextView txtType=helperview.findViewById(R.id.txtType);
+                        TextView txtType = helperview.findViewById(R.id.txtType);
                         txtType.setText(types[which]);
                         dialog.dismiss();
                     }
@@ -4148,14 +4145,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 });
 
                 b.show();
-              //  Intent i=new Intent(getActivity(),PhoneActivity.class);
-              //  startActivityForResult(i,RESULT_TYPE);
+                //  Intent i=new Intent(getActivity(),PhoneActivity.class);
+                //  startActivityForResult(i,RESULT_TYPE);
             }
         });
         imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              llAddPhone.removeView(helperview);
+                llAddPhone.removeView(helperview);
             }
         });
 
@@ -4244,7 +4241,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         });
     }
 
-    Context context=getActivity();
+    Context context = getActivity();
 
     @Override
     public void onAttach(Context context) {
@@ -4285,7 +4282,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             address = txtAddress.getText().toString().trim();
             relation = txtRelation.getText().toString().trim();
         }
-      int indexValue = spinnerRelation.getSelectedItemPosition();
+        int indexValue = spinnerRelation.getSelectedItemPosition();
 
         if (screen.equals("Connection")) {
            /*   if (indexValue != 0) {
@@ -4786,7 +4783,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgProfile.setImageBitmap(scaled);
 //                ProfileMap = selectedImage;
                 ProfileMap = scaled;
-              //  storeImage(ProfileMap, "Profile");
+                //  storeImage(ProfileMap, "Profile");
                 //  profileImage.setImageBitmap(selectedImage);
 //                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
                 //   storeImage(selectedImage,"Profile");
@@ -4806,7 +4803,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgProfile.setImageBitmap(scaled);
                 ProfileMap = scaled;
                 //new comment
-               // storeImage(scaled, "Profile");
+                // storeImage(scaled, "Profile");
 
             /*    imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
 
@@ -4830,7 +4827,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtCard.setVisibility(View.GONE);
                 CardMap = scaled;
                 //new comment
-               // storeImage(scaled, "Card");
+                // storeImage(scaled, "Card");
 
               /*  int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
@@ -4859,8 +4856,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 String imageurl = getRealPathFromURI(imageUriCard);
                 Bitmap selectedImage = imageOreintationValidator(thumbnail, imageurl);
-             //new
-               // profileCard.setImageBitmap(selectedImage);
+                //new
+                // profileCard.setImageBitmap(selectedImage);
                 imgCard.setImageBitmap(selectedImage);
                 //  imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
 
@@ -4876,20 +4873,17 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 e.printStackTrace();
             }
 
-        }else if(requestCode==RESULT_RELATION&&data!=null)
-        {
-            relation=data.getStringExtra("Relation");
+        } else if (requestCode == RESULT_RELATION && data != null) {
+            relation = data.getStringExtra("Relation");
             txtRelation.setText(relation);
             if (relation.equals("Other")) {
                 tilOtherRelation.setVisibility(View.VISIBLE);
             } else {
                 tilOtherRelation.setVisibility(View.GONE);
             }
-        }
-        else if(requestCode==RESULT_TYPE&&data!=null)
-        {
-           String type=data.getStringExtra("Relation");
-           txtType=llAddPhone.findViewById(R.id.txtType);
+        } else if (requestCode == RESULT_TYPE && data != null) {
+            String type = data.getStringExtra("Relation");
+            txtType = llAddPhone.findViewById(R.id.txtType);
             txtType.setText(type);
 
         }

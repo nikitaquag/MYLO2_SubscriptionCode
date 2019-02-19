@@ -1,5 +1,7 @@
 package com.mindyourlovedone.healthcare.Activity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
@@ -7,11 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.DateClass;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentVitalSigns;
@@ -26,24 +31,53 @@ import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class AddVitalSignsActivity extends AppCompatActivity implements View.OnClickListener {
     TextInputLayout tilLocation;
     TextView txtTitle, txtLocation, txtDate, txtTime, txtBP, txtHeart, txtTemperature, txtPulseRate, txtRespRate, txtNote, txtSave;
     ImageView imgHome, imgBack;
     Context context = this;
-    boolean isEdit=false, isView;
+    boolean isEdit = false, isView, save = false;
     String location = "", Date = "", time = "", bp = "", heart = "", temperature = "", pulse = "", respiratory = "", note = "";
     Preferences preferences;
     DBHelper dbHelper;
     int id, colid;
+    FragmentVitalSigns fragmentVitalSigns = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vital_signs);
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            String date = intent.getExtras().getString("Date");
+            if (date.equals("Date")) {
+                Calendar c = Calendar.getInstance();
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                String formattedDate = df.format(c.getTime());
+                txtDate = findViewById(R.id.txtDate);
+                txtDate.setText(formattedDate);
+            }
+            String time = intent.getExtras().getString("Time");
+            if (time.equals("Time")) {
+                SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
+                String currentDateandTime = sdf.format(new Date());
+                txtTime = findViewById(R.id.txtTime);
+                txtTime.setText(currentDateandTime);
+            }
+        }
         initComponent();
         initUi();
         initListener();
+        FragmentData();
+    }
+
+    private void FragmentData() {
+        fragmentVitalSigns = new FragmentVitalSigns();
     }
 
     private void initComponent() {
@@ -56,7 +90,10 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         imgHome.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         txtSave.setOnClickListener(this);
+        txtDate.setOnClickListener(this);
+        txtTime.setOnClickListener(this);
     }
+
 
     private void initUi() {
         imgBack = findViewById(R.id.imgBack);
@@ -161,10 +198,37 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 pulse = txtPulseRate.getText().toString().trim();
                 respiratory = txtRespRate.getText().toString().trim();
                 note = txtNote.getText().toString().trim();
-                if (location.equals("")) {
-                    Toast.makeText(context, "Please Enter Location", Toast.LENGTH_SHORT).show();
-                    txtLocation.setError("Please Enter Location");
+
+                if (Date.equals("")) {
+                    Toast.makeText(context, "Please Enter Date", Toast.LENGTH_SHORT).show();
+                    txtDate.setError("Please Enter Date");
+                } else if (time.equals("")) {
+                    Toast.makeText(context, "Please Enter Time", Toast.LENGTH_SHORT).show();
+                    txtTime.setError("Please Enter Time");
+                } else if (bp.equals("")) {
+                    Toast.makeText(context, "Please Enter BP", Toast.LENGTH_SHORT).show();
+                    txtBP.setError("Please Enter BP");
+                } else if (heart.equals("")) {
+                    Toast.makeText(context, "Please Enter Heart Rate", Toast.LENGTH_SHORT).show();
+                    txtHeart.setError("Please Enter Heart Rate");
+                } else if (temperature.equals("")) {
+                    Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
+                    txtTemperature.setError("Please Enter Temperature");
                 } else {
+                    Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    if (flag == true) {
+                        Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                        DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                        clearData();
+                        fragmentVitalSigns.getData();
+                        fragmentVitalSigns.setListData();
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+              /*  else {
                     if (isEdit == true) {
                         Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                         if (flag == true) {
@@ -174,7 +238,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
-                      //  finish();
+                        //  finish();
                     } else {
                         Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                         if (flag == true) {
@@ -183,13 +247,53 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
-                     //   finish();
+                        //   finish();
                     }
-                }
+                }*/
                 break;
         }
+    }
 
+    private void showDateDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog dpd = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, month, dayOfMonth);
+                long selectedMilli = newDate.getTimeInMillis();
 
+                java.util.Date datePickerDate = new Date(selectedMilli);
+                String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+
+                DateClass d = new DateClass();
+                d.setDate(reportDate);
+                txtDate.setText(reportDate);
+               /* if (datePickerDate.after(calendar.getTime())) {
+                    Toast.makeText(context, "Date should be greater than today's date", Toast.LENGTH_SHORT).show();
+                } else {
+                    txtDate.setText(reportDate);
+                }*/
+            }
+        }, year, month, day);
+        dpd.show();
+    }
+
+    private void clearData() {
+        txtLocation.setText("");
+        txtDate.setText("");
+        txtTime.setText("");
+        txtLocation.setText("");
+        txtBP.setText("");
+        txtHeart.setText("");
+        txtTemperature.setText("");
+        txtPulseRate.setText("");
+        txtRespRate.setText("");
+        txtLocation.setText("");
+        txtNote.setText("");
     }
 }
 
