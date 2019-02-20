@@ -893,7 +893,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         });
     }
 
-/*
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -917,7 +917,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
         }
     }
-*/
+
 
     public void CopyReadAssetss(String documentPath) {
         AssetManager assetManager = getAssets();

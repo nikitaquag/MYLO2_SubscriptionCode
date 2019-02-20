@@ -178,7 +178,47 @@
 
                                 </FrameLayout>
                 -->
-                <FrameLayout
+                <View
+                    android:id="@+id/vtop"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"
+                    ></View>
+                <RelativeLayout
+                    android:id="@+id/llProfile"
+                    android:layout_width="@dimen/dimension120dp"
+                    android:layout_height="@dimen/dimension120dp"
+                    android:layout_below="@+id/vtop"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimension20dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:src="@drawable/ic_profile_defaults" />
+
+                    <ImageView
+                        android:id="@+id/imgEdit"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimension20dp"
+                        android:src="@drawable/edit_n" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/vbot"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"
+                    android:layout_below="@+id/llProfile"
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    ></View>
+                <!--<FrameLayout
                     android:id="@+id/flProfile"
                     android:layout_width="@dimen/dimension110dp"
                     android:layout_height="@dimen/dimension110dp"
@@ -199,7 +239,7 @@
                         android:layout_gravity="top|right"
                         android:src="@drawable/ic_edit_blue" />
 
-                </FrameLayout>
+                </FrameLayout>-->
                 <!--Code commented for prev image loader-->
                 <!--
                                 <FrameLayout
@@ -280,14 +320,14 @@
                     android:id="@+id/tilName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/llCard"
+                    android:layout_below="@+id/vbot"
                     android:layout_marginTop="@dimen/dimension22dp"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
 
                     >
@@ -300,7 +340,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -314,10 +354,10 @@
                     android:id="@+id/tilEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/rlRelation"
+                    android:layout_below="@+id/rlRelations"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
@@ -327,7 +367,7 @@
                         android:hint="Email"
                         android:imeOptions="actionNext"
                         android:maxLines="2"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="false"
@@ -337,15 +377,93 @@
 
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
+                <RelativeLayout
+                    android:id="@+id/llPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilEmail"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    >
+                    <LinearLayout
+                        android:id="@+id/llNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
 
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilPhoNum"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            >
+
+                            <AutoCompleteTextView
+                                android:id="@+id/txtPhoNum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Phone Number"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="12"
+                                android:maxLines="1"
+
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilType"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            >
+
+                            <AutoCompleteTextView
+                                android:id="@+id/txtType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Type"
+                                android:imeOptions="actionNext"
+                                android:drawableRight="@drawable/drp"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
+                        <ImageView
+                            android:id="@+id/imgAddPhone"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="@dimen/dimension35dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/add_n"
+                            android:layout_weight="1"
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/llAddPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_below="@+id/llNum"
+                        ></LinearLayout>
+
+                </RelativeLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilAddres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilWorkPhone"
+                    android:layout_below="@+id/llPhone"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -354,7 +472,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Address"
                         android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -376,8 +494,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilAddres"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -391,7 +509,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
@@ -407,9 +525,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmail"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    >
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtPhone"
@@ -420,7 +540,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -436,9 +556,11 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilPhone"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    >
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtHomePhone"
@@ -449,7 +571,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -465,10 +587,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilHomePhone"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="visible">
+                    android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtWorkPhone"
@@ -479,7 +601,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -490,7 +612,7 @@
                 </android.support.design.widget.TextInputLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rlRelation"
+                    android:id="@+id/rlRelations"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilName">
@@ -501,105 +623,75 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimension35dp"
                         android:layout_marginRight="@dimen/dimension35dp"
-                        android:visibility="gone"
                         app:ms_arrowColor="@color/colorBlue"
                         app:ms_arrowSize="16dp"
                         app:ms_floatingLabelText="Relationship"
                         app:ms_hint="hint"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"
-
-                        custom:ms_hintColor="@color/colorDarkGray" />
-
+                        custom:ms_hintColor="@color/colorDarkGray"
+                        android:visibility="gone"
+                        />
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/tilOtherRelation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/spinnerRelation"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
-                        android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
-
-                        <AutoCompleteTextView
-                            android:id="@+id/txtOtherRelation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="Other Relation"
-                            android:imeOptions="actionNext"
-                            android:maxLength="30"
-                            android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
-                            android:paddingTop="@dimen/dimension2dp"
-                            android:singleLine="true"
-                            android:textColor="@color/colorPrimaryDark"
-
-                            android:textSize="@dimen/dimension20dp" />
-
-                        <requestFocus />
-
-                    </android.support.design.widget.TextInputLayout>
-                    <!--<android.support.design.widget.TextInputLayout
-                        android:id="@+id/tilOtherRelation"
+                        android:id="@+id/tilRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/spinnerRelation"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingBottom="@dimen/dimension8dp"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
-                        app:ms_floatingLabelText="Other Relation"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:visibility="gone"
-                        app:hintEnabled="false">
-                        &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+
+                        app:hintEnabled="true">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
-                            android:id="@+id/txtOtherRelation"
+                            android:id="@+id/txtRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="Relationship"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:hint="Other Relation"
-                            android:paddingLeft="@dimen/dimension15dp"
+                            android:drawableRight="@drawable/drp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
                         <requestFocus />
-                    </android.support.design.widget.TextInputLayout>-->
-                    <!-- <android.support.design.widget.TextInputLayout
-                         android:id="@+id/tilOtherRelation"
-                         android:layout_width="match_parent"
-                         android:layout_height="wrap_content"
-                         android:layout_below="@+id/spinnerRelation"
-                         android:descendantFocusability="beforeDescendants"
-                         android:focusableInTouchMode="true"
-                         android:paddingBottom="@dimen/dimension8dp"
-                         android:paddingLeft="@dimen/dimension30dp"
-                         android:paddingRight="@dimen/dimension30dp"
-                         android:paddingTop="@dimen/dimension8dp"
-                         android:visibility="gone"
-                         app:hintEnabled="false">
-                         &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
-                         <AutoCompleteTextView
-                             android:id="@+id/txtOtherRelation"
-                             android:layout_width="match_parent"
-                             android:layout_height="wrap_content"
-                             android:imeOptions="actionNext"
-                             android:maxLength="30"
-                             android:hint="Other Relation"
-                             android:maxLines="1"
-                             android:paddingLeft="@dimen/dimension15dp"
-                             android:paddingTop="@dimen/dimension2dp"
-                             android:singleLine="true"
-                             android:textColor="@color/colorPrimaryDark"
-                             android:textSize="@dimen/dimension20dp" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilOtherRelation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilRelation"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintEnabled="true">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtOtherRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Other Relationship"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
 
-                         <requestFocus />
-                     </android.support.design.widget.TextInputLayout>-->
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
                 </RelativeLayout>
 
                 <com.mindyourlovedone.healthcare.customview.MySpinner
@@ -627,8 +719,8 @@
                     android:layout_alignParentLeft="true"
                     android:focusable="false"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
@@ -640,7 +732,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -658,10 +750,10 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    >
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtBdate"
@@ -672,7 +764,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -689,8 +781,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilGender"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -701,7 +793,7 @@
                         android:imeOptions="actionNext"
                         android:inputType="phone"
                         android:nextFocusDown="@+id/txtWeight"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -716,8 +808,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilHeight"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -727,7 +819,7 @@
                         android:hint="Weight(lbs)"
                         android:imeOptions="actionNext"
                         android:inputType="number"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -766,9 +858,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view3"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Do you live alone?"
                     android:textColor="@color/colorPrimary"
@@ -780,9 +872,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtLiving"
                     android:orientation="horizontal"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <RadioButton
@@ -871,8 +963,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkOther"
                         android:gravity="bottom"
-                        android:paddingLeft="@dimen/dimension30dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                       android:paddingLeft="@dimen/dimension20dp"
+                       android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -882,7 +974,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Other(Specify)"
                             android:imeOptions="actionNext"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension10dp"
                             android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -907,8 +999,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view12"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -917,7 +1009,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Profession"
                         android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -932,8 +1024,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilProfession"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -942,7 +1034,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Employed by"
                         android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -957,8 +1049,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmployedBy"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -970,7 +1062,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="2"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1013,9 +1105,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/spinnerLanguage"
-                        android:paddingLeft="@dimen/dimension30dp"
+                       android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                       android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -1026,7 +1118,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingLeft="@dimen/dimension15dp"
+                           
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1042,9 +1134,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlLangauge"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Understand English"
                     android:textColor="@color/colorPrimary"
@@ -1056,9 +1148,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtUnderstand"
                     android:orientation="horizontal"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <RadioButton
@@ -1111,8 +1203,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/spinnerMarital"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -1122,7 +1214,7 @@
                         android:hint="Religion - Notes"
                         android:imeOptions="actionNext"
                         android:maxLines="3"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1146,9 +1238,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view5"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Veteran"
                     android:textColor="@color/colorPrimary"
@@ -1160,9 +1252,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtVeteran"
                     android:orientation="horizontal"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <RadioButton
@@ -1189,8 +1281,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rgVeteran"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
 
@@ -1200,7 +1292,7 @@
                         android:layout_height="wrap_content"
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1214,8 +1306,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilId"
                     android:gravity="bottom"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
 
@@ -1225,7 +1317,7 @@
                         android:background="@drawable/corner_gray_white_border"
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension15dp"
+                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1249,9 +1341,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view6"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                   android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Pet(s)"
                     android:textColor="@color/colorPrimary"
@@ -1263,9 +1355,9 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtPet"
                     android:orientation="horizontal"
-                    android:paddingLeft="@dimen/dimension30dp"
+                   android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension30dp">
+                   android:paddingRight="@dimen/dimension20dp">
 
                     <RadioButton
                         android:id="@+id/rbYesPet"
@@ -1302,7 +1394,7 @@
                         android:layout_height="@dimen/dimension40dp"
                         android:layout_toRightOf="@+id/imgAllergy"
                         android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/dimension30dp"
+                       android:paddingLeft="@dimen/dimension20dp"
                         android:text="Add Pets"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/dimension20dp" />
