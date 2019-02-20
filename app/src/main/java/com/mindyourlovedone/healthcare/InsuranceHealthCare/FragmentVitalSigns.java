@@ -233,6 +233,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                 if (file.exists()) {
                     file.delete();
                 }
+
+
                 new Header().createPdfHeader(file.getAbsolutePath(),
                         "" + preferences.getString(PrefConstants.CONNECTED_NAME));
                 preferences.copyFile("ic_launcher.png", getActivity());
