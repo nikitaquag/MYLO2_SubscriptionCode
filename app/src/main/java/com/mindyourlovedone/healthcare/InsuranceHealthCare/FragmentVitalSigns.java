@@ -70,10 +70,10 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_vital_signs, null);
         initComponent();
-        getData();
         initUI();
         initListener();
-
+        getData();
+       // setListData();
         return rootview;
     }
 
@@ -84,7 +84,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     }
 
     public void setListData() {
-        if (vitalList.size() != 0 && !vitalList.isEmpty()) {
+        if (vitalList != null && !vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
             lvVital.setVisibility(View.VISIBLE);
@@ -161,7 +161,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         rlGuide = rootview.findViewById(R.id.rlGuide);
         llAddVital = rootview.findViewById(R.id.llAddVital);
-        lvVital = getActivity().findViewById(R.id.lvVital);
+        lvVital = rootview.findViewById(R.id.lvVital);
         setListData();
 
         // Layout Managers:

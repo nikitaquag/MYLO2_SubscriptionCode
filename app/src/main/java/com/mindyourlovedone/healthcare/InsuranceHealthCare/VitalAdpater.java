@@ -53,7 +53,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
         // preferences = new Preferences(context);
         this.context = activity;
         this.vitalList = vitalList;
-        this.fr=fragmentVitalSigns;
+        this.fr = fragmentVitalSigns;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -120,7 +120,9 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
                 // VitalSigns hospital = vitalList.get(position);
                 i.putExtra("isEdit", true);
-                i.putExtra("IsView", true);
+                i.putExtra("Date", "Date");
+                i.putExtra("Time", "Time");
+                // i.putExtra("IsView", true);
                 context.startActivity(i);
             }
         });
