@@ -1,9 +1,7 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.app.Fragment;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +14,6 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,14 +25,12 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
-
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
-import com.mindyourlovedone.healthcare.database.PharmacyQuery;
 import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
@@ -44,7 +38,6 @@ import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
-import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -70,10 +63,10 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_vital_signs, null);
         initComponent();
-        getData();
         initUI();
         initListener();
-
+        getData();
+        setListData();
         return rootview;
     }
 
@@ -84,7 +77,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     }
 
     public void setListData() {
-        if (vitalList.size() != 0 && !vitalList.isEmpty()) {
+        if (vitalList !=null && !vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
             lvVital.setVisibility(View.VISIBLE);
@@ -161,7 +154,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         rlGuide = rootview.findViewById(R.id.rlGuide);
         llAddVital = rootview.findViewById(R.id.llAddVital);
-        lvVital = getActivity().findViewById(R.id.lvVital);
+        lvVital = rootview.findViewById(R.id.lvVital);
         setListData();
 
         // Layout Managers:
