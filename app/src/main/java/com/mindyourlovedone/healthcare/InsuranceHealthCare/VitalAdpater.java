@@ -119,7 +119,8 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             public void onClick(View v) {
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
                 // VitalSigns hospital = vitalList.get(position);
-                i.putExtra("isEdit", true);
+               // i.putExtra("isEdit", true);
+                i.putExtra("isEdit","IsEDIT");
                 i.putExtra("Date", "Date");
                 i.putExtra("Time", "Time");
                 // i.putExtra("IsView", true);

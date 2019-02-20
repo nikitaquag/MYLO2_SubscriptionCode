@@ -73,7 +73,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         initUI();
         initListener();
         getData();
-       // setListData();
+        // setListData();
         return rootview;
     }
 

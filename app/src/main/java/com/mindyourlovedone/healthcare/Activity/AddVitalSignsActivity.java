@@ -40,7 +40,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
     TextView txtTitle, txtLocation, txtDate, txtTime, txtBP, txtHeart, txtTemperature, txtPulseRate, txtRespRate, txtNote, txtSave;
     ImageView imgHome, imgBack;
     Context context = this;
-    boolean isEdit = false, isView, save = false;
+    boolean isEdit, isView, save = false;
     String location = "", Date = "", time = "", bp = "", heart = "", temperature = "", pulse = "", respiratory = "", note = "";
     Preferences preferences;
     DBHelper dbHelper;
@@ -55,12 +55,6 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         try {
             Intent intent = getIntent();
             if (intent.getExtras() != null) {
-              /*  boolean isEdit = intent.getBooleanExtra("IsEdit", true);
-                if (isEdit == true) {
-                    updateVitalDb();
-                } else if (isEdit == false) {
-                    insertVitalDb();
-                }*/
                 String date = intent.getExtras().getString("Date");
                 assert date != null;
                 if (date.equals("Date")) {
@@ -79,7 +73,6 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 }
             }
         } catch (Exception e) {
-            // Toast.makeText(context, "Code is in ctach block.!!", Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
 
@@ -87,31 +80,6 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         initUi();
         initListener();
         FragmentData();
-    }
-
-    private void insertVitalDb() {
-        Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-        if (flag == true) {
-            Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
-            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-            clearData();
-            fragmentVitalSigns.getData();
-            fragmentVitalSigns.setListData();
-            finish();
-        } else {
-            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void updateVitalDb() {
-        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-        if (flag == true) {
-            Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
-            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-        } else {
-            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-        }
-        finish();
     }
 
     private void FragmentData() {
@@ -176,7 +144,6 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.txtSave:
-
                 location = txtLocation.getText().toString().trim();
                 Date = txtDate.getText().toString().trim();
                 time = txtTime.getText().toString().trim();
@@ -203,11 +170,25 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                     Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
                     txtTemperature.setError("Please Enter Temperature");
                 } else {
-                    if (isEdit == false) {
-                        // insertVitalDb();
-                        Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    if (flag == true) {
+                        Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                        DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                        clearData();
+                        fragmentVitalSigns.getData();
+                        fragmentVitalSigns.setListData();
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                Intent i = getIntent();
+                if (i.getExtras() != null) {
+                    String update = i.getExtras().getString("IsEDIT");
+                    if (update.equals("IsEDIT")) {
+                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                         if (flag == true) {
-                            Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
                             DialogManager.closeKeyboard(AddVitalSignsActivity.this);
                             clearData();
                             // fragmentVitalSigns.getData();
@@ -216,18 +197,12 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (isEdit == true) {
-                        // updateVitalDb();
-                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-                        if (flag == true) {
-                            Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
-                            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-                        } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                        }
                         finish();
                     }
+
                 }
+
+
                 break;
         }
     }

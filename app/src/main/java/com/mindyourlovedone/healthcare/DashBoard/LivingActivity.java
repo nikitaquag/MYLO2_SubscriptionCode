@@ -10,8 +10,10 @@ import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -45,7 +47,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     Context context = this;
     View rootview;
     RelativeLayout rlLiving;
-    ImageView imgBack, imgDone, imgRight, imgInfo;
+    ImageView imgHome, imgBack, imgDone, imgRight, imgInfo;
     Preferences preferences;
     TextView txtTitle, txtName, txtSave;
     DBHelper dbHelper;
@@ -71,6 +73,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         floatProfile.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         imgInfoF.setOnClickListener(this);
         imgInfoI.setOnClickListener(this);
         imgRight.setOnClickListener(this);
@@ -136,12 +139,13 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
         txtTitle = findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("ACTIVITIES OF DAILY\nLIVING");
+        txtTitle.setText("Activities of Daily Living");
 
         txtSave = findViewById(R.id.txtSave);
         txtSave.setVisibility(View.VISIBLE);
 
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
         imgRight = findViewById(R.id.imgRight);
         imgDone = findViewById(R.id.imgDone);
         //imgDone.setVisibility(View.VISIBLE);
@@ -354,11 +358,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.floatProfile:
-                Intent intentDashboard = new Intent(context, BaseActivity.class);
-                intentDashboard.putExtra("c", 1);//Profile Data
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-               // intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intentDashboard);
+                showFloatDialog();
                 break;
 
             case R.id.imgInfoF:
@@ -472,7 +472,69 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 hideSoftKeyboard();
                 finish();
                 break;
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
         }
+    }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //  CopyReadAssetss("insu_pdf.pdf");
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
     }
 
     private void showViewDialog(Context context, String Message, String title) {
