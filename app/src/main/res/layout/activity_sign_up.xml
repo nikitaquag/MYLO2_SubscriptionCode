@@ -18,7 +18,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimension0dp"
     android:layout_above="@+id/rlSponsor"
-    android:layout_weight="9"
+    android:layout_weight="10"
     >
     <FrameLayout
         android:id="@+id/flTop"
@@ -180,7 +180,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlcheck"
-
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dimension15dp"

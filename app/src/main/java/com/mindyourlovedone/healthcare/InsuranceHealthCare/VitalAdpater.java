@@ -3,40 +3,23 @@ package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity;
-import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
-import com.mindyourlovedone.healthcare.DashBoard.AddFormActivity;
-import com.mindyourlovedone.healthcare.DashBoard.PrescriptionInfoAdapter;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
-import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
-import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
-import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
-import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
 
-import java.io.File;
 import java.util.ArrayList;
 
 public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> {
@@ -84,29 +67,45 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
         });
 */
 
- /*
-        if (vitalList.get(position).getOfficePhone().equals("")) {
-            holder.txtPhone.setVisibility(View.GONE);
+        if (vitalList.get(position).getBp().equals("")) {
+            holder.txtBPValue.setVisibility(View.GONE);
         } else {
-            holder.txtPhone.setVisibility(View.VISIBLE);
+            holder.txtBPValue.setVisibility(View.VISIBLE);
+        }
+        if (vitalList.get(position).getHeartRate().equals("")) {
+            holder.txtHRValue.setVisibility(View.GONE);
+        } else {
+            holder.txtHRValue.setVisibility(View.VISIBLE);
+        }
+        if (vitalList.get(position).getTemperature().equals("")) {
+            holder.txtTempValue.setVisibility(View.GONE);
+        } else {
+            holder.txtTempValue.setVisibility(View.VISIBLE);
+        }
+        if (vitalList.get(position).getDate().equals("")) {
+            holder.txtDate.setVisibility(View.GONE);
+        } else {
+            holder.txtDate.setVisibility(View.VISIBLE);
+        }
+        if (vitalList.get(position).getTime().equals("")) {
+            holder.txtTime.setVisibility(View.GONE);
+        } else {
+            holder.txtTime.setVisibility(View.VISIBLE);
         }
 
-        if (vitalList.get(position).getAddress().equals("")) {
-            holder.txtAddress.setVisibility(View.GONE);
-        } else {
-            holder.txtAddress.setVisibility(View.VISIBLE);
-        }
 
-       if (vitalList.get(position).getCategory().equals("")) {
+      /* if (vitalList.get(position).getCategory().equals("")) {
             holder.txtCategory.setVisibility(View.GONE);
         } else {
             holder.txtCategory.setVisibility(View.VISIBLE);
-        }
-        holder.txtName.setText(vitalList.get(position).getName());
-        holder.txtAddress.setText(vitalList.get(position).getAddress());
-        holder.txtPhone.setText(vitalList.get(position).getOfficePhone());
-        holder.txtType.setText(vitalList.get(position).getName());
-        if (vitalList.get(position).getCategory().equals("Other")) {
+        }*/
+        holder.txtBPValue.setText(vitalList.get(position).getBp());
+        holder.txtHRValue.setText(vitalList.get(position).getHeartRate());
+        holder.txtTempValue.setText(vitalList.get(position).getTemperature());
+        holder.txtDate.setText(vitalList.get(position).getDate());
+        holder.txtTime.setText(vitalList.get(position).getTime());
+
+      /*  if (vitalList.get(position).getCategory().equals("Other")) {
             holder.txtCategory.setText(vitalList.get(position).getCategory() + " - " + vitalList.get(position).getOtherCategory());
         } else {
             holder.txtCategory.setText(vitalList.get(position).getCategory());
@@ -118,9 +117,8 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
-                // VitalSigns hospital = vitalList.get(position);
-               // i.putExtra("isEdit", true);
-                i.putExtra("isEdit","IsEDIT");
+                VitalSigns hospital = vitalList.get(position);
+                i.putExtra("isEdit", true);
                 i.putExtra("Date", "Date");
                 i.putExtra("Time", "Time");
                 // i.putExtra("IsView", true);
