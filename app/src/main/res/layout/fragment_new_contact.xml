@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rlContact"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <RelativeLayout
-        android:id="@+id/rlContact"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorLightGray"
+    android:paddingBottom="@dimen/dimension10dp"
+    >
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/txtDelete"
+    >
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+           android:background="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <View
@@ -932,7 +937,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:drawableRight="@drawable/drp"
+                                android:drawableRight="@drawable/dropd"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -977,8 +982,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilEmail"
-                        android:layout_marginLeft="@dimen/dimension35dp"
-                        android:layout_marginRight="@dimen/dimension35dp"
+                        android:layout_marginLeft="@dimen/dimension25dp"
+                        android:layout_marginRight="@dimen/dimension25dp"
                         android:visibility="gone"
                         app:ms_arrowColor="@color/colorBlue"
                         app:ms_arrowSize="16dp"
@@ -1236,12 +1241,20 @@
                         custom:ms_floatingLabelColor="@color/colorBlue"
                         custom:ms_hintColor="@color/colorDarkGray" />
 
+                    <View
+                        android:id="@+id/vEmNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:background="@color/colorLightGray"
+
+                        ></View>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilEmergencyNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
+                        android:layout_below="@+id/vEmNote"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -2611,10 +2624,11 @@ android:visibility="gone"
                     />
                 <ToggleButton
                     android:id="@+id/tbCard"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension55dp"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension35dp"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimension15dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
                     android:gravity="center_vertical"
@@ -2709,6 +2723,29 @@ android:visibility="gone"
 
 
         </RelativeLayout>
+</ScrollView>
+        <TextView
+            android:id="@+id/txtDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:background="@drawable/border_dir_delete"
+            android:paddingLeft="@dimen/dimension60dp"
+            android:paddingTop="@dimen/dimension11dp"
+            android:paddingRight="@dimen/dimension60dp"
+            android:paddingBottom="@dimen/dimension11dp"
+            android:drawableLeft="@drawable/deletebox"
+            android:drawablePadding="@dimen/dimension10dp"
+            android:text="Delete"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimension18dp"
+            android:visibility="gone"
+            />
+
     </RelativeLayout>
 
-</ScrollView>

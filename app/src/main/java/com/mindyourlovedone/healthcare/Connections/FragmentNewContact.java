@@ -119,8 +119,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CAddress = "";
     static String CHPhone = "";
     static String CWPhone = "";
+    Emergency rel;
     RelativeLayout rlCard, rlContact, RlPhone;
-    TextView txtCardz;
+    TextView txtCardz,txtDelete;
     ImageView txtCard;
     LayoutInflater layoutInflater;
     //TextView btnShowMore,btnShowLess,btnSon;
@@ -943,6 +944,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "PharmacyData":
                 changeIcon(source);
                 visiPharmacy();
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 txtTitle.setText("Update PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 Intent specialistIntents = getActivity().getIntent();
@@ -1081,6 +1083,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "ProxyUpdate":
                 visiProxy();
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Proxy AGENT & SUCCESSOR(S)");
                 txtTitle.setText("Update Proxy AGENT & SUCCESSOR(S)");
                 Intent ProxyIntent = getActivity().getIntent();
@@ -1365,11 +1368,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilName.setHintEnabled(true);
                 spinnerPriority.setVisibility(View.VISIBLE);
                 spinnerPriority.setFloatingLabelText("Priority");
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Emergency Contact & Proxy Agent");
                 txtTitle.setText("Update Emergency Contact & Proxy Agent");
                 Intent EmergencyIntents = getActivity().getIntent();
                 if (EmergencyIntents.getExtras() != null) {
-                    Emergency rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
+                     rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
 
                     if (Cname.isEmpty()) {//nikita
                         txtName.setText(rel.getName());
@@ -1580,6 +1584,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "SpecialistData":
                 changeIcon(source);
                 visiSpecialist();
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 txtTitle.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 Intent specialistIntent = getActivity().getIntent();
@@ -1685,6 +1690,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "PhysicianData":
                 changeIcon(source);
                 visiSpecialist();
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Primary Physician");
                 txtTitle.setText("Update Primary Physician");
                 Intent specialistIntent1 = getActivity().getIntent();
@@ -1961,6 +1967,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtInsuaranceName.setFocusable(true);
                 txtAdd.setText("Update Insurance");
                 txtTitle.setText("Update Insurance");
+                txtDelete.setVisibility(View.VISIBLE);
                 Intent insuranceIntent = getActivity().getIntent();
                 if (insuranceIntent.getExtras() != null) {
                     Insurance insurance = (Insurance) insuranceIntent.getExtras().getSerializable("InsuranceObject");
@@ -2130,6 +2137,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "AidesData":
                 visiAides();
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Health Service");
                 txtTitle.setText("Update Health Service");
                 Intent aidesIntent = getActivity().getIntent();
@@ -2298,6 +2306,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiHospital();
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update HOSPITALS & REHABILITATION CENTERS");
                 txtTitle.setText("Update HOSPITALS & REHABILITATION CENTERS");
                 Intent hospIntent = getActivity().getIntent();
@@ -2476,6 +2485,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiFinance();
                 tilFName.setHintEnabled(true);
                 txtFName.setFocusable(true);
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Finance and Legal");
                 txtTitle.setText("Update Finance and Legal");
                 Intent financeIntent = getActivity().getIntent();
@@ -2941,6 +2951,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
     private void visiPharmacy() {
+
         rlTop.setVisibility(View.GONE);
         rlCommon.setVisibility(View.GONE);
         spinnerRelation.setVisibility(View.GONE);
@@ -3205,6 +3216,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
         imgAddPhone.setOnClickListener(this);
+        txtDelete.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -3212,12 +3224,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
+        txtDelete = rootview.findViewById(R.id.txtDelete);
         imgProfile = rootview.findViewById(R.id.imgProfile);
         if (source.equals("Emergency")) {
             imgProfile.setImageResource(R.drawable.lightblue);
         } else if (source.equals("Physician")) {
             imgProfile.setImageResource(R.drawable.yellow);
         }
+
 
       /*  if (imgProfile.equals(R.color.colorThree)) {
             Resources res = getActivity().getResources();
@@ -4044,6 +4058,48 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.txtDelete:
+                switch (source) {
+                    case "Connection":
+
+                        break;
+
+                    case "EmergencyUpdate":
+                              deleteEmergency(rel);
+                        break;
+
+
+                    case "SpecialistData":
+
+                        break;
+                    case "PhysicianData":
+
+                        break;
+
+                    case "PharmacyData":
+
+
+                        break;
+
+
+
+                    case "HospitalData":
+
+                        break;
+
+
+                    case "FinanceData":
+
+
+                        break;
+
+                    case "InsuranceData":
+
+                        break;
+                    // InsuranceObject
+                }
+                break;
 
             case R.id.llAddConn:
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
@@ -5063,4 +5119,33 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         }
     }
+
+    public void deleteEmergency(final Emergency item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = MyConnectionsQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                   // getData();
+                    //setListData();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
+
 }

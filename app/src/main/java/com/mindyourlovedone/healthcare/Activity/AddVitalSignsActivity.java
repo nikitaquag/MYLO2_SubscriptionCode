@@ -162,37 +162,43 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                     Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
                     txtTemperature.setError("Please Enter Temperature");
                 } else {
-                    Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-                    if (flag == true) {
-                        Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
-                        DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-                        clearData();
-                        fragmentVitalSigns.getData();
-                        fragmentVitalSigns.setListData();
-                        finish();
-                    } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                    }
-                }
-                Intent i = getIntent();
-                if (i.getExtras() != null) {
-                    String update = i.getExtras().getString("IsEDIT");
-                    if (update.equals("IsEDIT")) {
-                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
-                        if (flag == true) {
-                            Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
-                            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
-                            clearData();
-                            // fragmentVitalSigns.getData();
-                            //  fragmentVitalSigns.setListData();
+
+                    Intent i = getIntent();
+                    if (i.getExtras() != null) {
+
+                       boolean update=i.getExtras().getBoolean("IsEDIT");
+                        if (update==true) {
+                            Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                            if (flag == true) {
+                                Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
+                                DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                                clearData();
+                                // fragmentVitalSigns.getData();
+                                //  fragmentVitalSigns.setListData();
+                                finish();
+                            } else {
+                                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            }
                             finish();
-                        } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }else
+                        {
+                            Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                            if (flag == true) {
+                                Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                                DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                                clearData();
+                                // fragmentVitalSigns.getData();
+                                // fragmentVitalSigns.setListData();
+                                finish();
+                            } else {
+                                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        finish();
+
                     }
 
                 }
+
 
 
                 break;

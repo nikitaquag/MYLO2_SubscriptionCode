@@ -245,6 +245,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "EmergencyUpdate");
                 Intent i = new Intent(context, GrabConnectionActivity.class);
+                i.putExtra("TAB","New");
                 i.putExtra("EmergencyObject", emergencyList.get(position));
                 context.startActivity(i);
             }

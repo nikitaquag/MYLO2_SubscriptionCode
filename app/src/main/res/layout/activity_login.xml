@@ -72,7 +72,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tilName"
-                android:layout_marginTop="@dimen/dimension5dp"
                 android:paddingLeft="@dimen/dimension18dp"
                 android:paddingRight="@dimen/dimension18dp"
                 app:hintTextAppearance="@style/TextLabel">
