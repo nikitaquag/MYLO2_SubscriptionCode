@@ -669,14 +669,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             // spinner.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
-            txtWorkPhone.setVisibility(View.VISIBLE);//shradha
-            tilWorkPhone.setVisibility(View.VISIBLE);
+          //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
+           // tilWorkPhone.setVisibility(View.VISIBLE);
             txtHomePhone.setVisibility(View.VISIBLE);
         } else {
             tilBdate.setVisibility(View.GONE);
             // spinner.setVisibility(View.GONE);
-            txtWorkPhone.setVisibility(View.VISIBLE);
-            tilWorkPhone.setVisibility(View.VISIBLE);
+            //txtWorkPhone.setVisibility(View.VISIBLE);
+            //tilWorkPhone.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.GONE);
         }
