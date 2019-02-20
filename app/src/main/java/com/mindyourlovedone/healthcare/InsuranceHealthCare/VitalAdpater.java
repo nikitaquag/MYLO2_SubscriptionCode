@@ -58,12 +58,14 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final VitalAdpater.ViewHolder holder, final int position) {
+/*
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
+*/
 
         if (vitalList.get(position).getBp().equals("")) {
             holder.txtBPValue.setVisibility(View.GONE);
