@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rlView"
+    android:alpha="0.8"
     android:background="@android:color/transparent"
     tools:context="com.mindyourlovedone.healthcare.Activity.TransparentActivity">
 
@@ -51,7 +52,9 @@
             android:text="Add From Contacts"
             android:textColor="@color/colorWhite"
             android:textStyle="bold"
-            android:textSize="@dimen/dimension20dp" />
+            android:textSize="@dimen/dimension20dp"
+
+            />
 
     </RelativeLayout>
 
@@ -83,6 +86,7 @@
             android:layout_centerInParent="true"
             android:layout_toLeftOf="@+id/floatNew"
             android:text="Add New"
+
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />

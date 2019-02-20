@@ -15,7 +15,7 @@
         android:singleLine="true"
         android:text=""
         android:textColor="@color/colorWhite"
-        android:textSize="20sp"
+        android:textSize="@dimen/dimension22dp"
         android:textStyle="bold"
         android:visibility="gone" />
     <LinearLayout
@@ -52,7 +52,7 @@
             android:padding="@dimen/dimension15dp"
             android:text="Option1"
             android:textColor="#0F7DEF"
-            android:textSize="@dimen/dimension18dp"
+            android:textSize="@dimen/dimension20dp"
            
             >
 
@@ -71,7 +71,7 @@
             android:padding="@dimen/dimension15dp"
             android:text="Option2"
             android:textColor="#0F7DEF"
-            android:textSize="@dimen/dimension18dp"
+            android:textSize="@dimen/dimension20dp"
             >
 
         </TextView>
@@ -110,7 +110,7 @@
         android:padding="@dimen/dimension15dp"
         android:text="Cancel"
         android:textColor="#0F7DEF"
-        android:textSize="@dimen/dimension20dp"
+        android:textSize="@dimen/dimension22dp"
         android:textStyle="bold"
         >
 
