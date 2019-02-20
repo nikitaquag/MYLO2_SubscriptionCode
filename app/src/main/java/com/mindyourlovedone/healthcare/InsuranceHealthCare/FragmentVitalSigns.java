@@ -196,7 +196,6 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             }
         });
         alert.show();
-
     }
 
     public void getData() {
