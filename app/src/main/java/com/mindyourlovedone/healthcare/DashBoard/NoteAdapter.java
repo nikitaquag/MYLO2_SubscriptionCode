@@ -75,7 +75,6 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
 
         holder.txtNote.setText(noteList.get(position).getTxtNote());
         holder.txtDateTime.setText(noteList.get(position).getTxtDate());
-        //holder.imgProfile.setImageResource(student.getImgid());
 
         holder.imgForward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +98,7 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
 
     public class Holder extends RecyclerView.ViewHolder {
         TextView txtNote, txtDateTime, txtTime;
-        ImageView imgForward;
+        ImageView imgForward, imgDrop;
         LinearLayout lintrash;
         SwipeLayout swipeLayout;
 
@@ -110,6 +109,7 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
             txtNote = convertView.findViewById(R.id.txtNote);
             txtDateTime = convertView.findViewById(R.id.txtDateTime);
             imgForward = convertView.findViewById(R.id.imgForword);
+            imgDrop = convertView.findViewById(R.id.imgDrop);
         }
     }
 }

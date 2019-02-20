@@ -56,7 +56,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     ToggleButton tbAlert, tbComputer, tbRemote, tbFinances, tbPreparing, tbShopping, tbUsing, tbBathing, tbContinence, tbDressing, tbfeed, tbToileting, tbTranfering, tbTransport, tbPets, tbDriving, tbKeeping, tbMedication;
     String alert = "NO", computer = "NO", remote = "NO", eating = "NO", finance = "NO", prepare = "NO", shop = "NO", use = "NO", bath = "NO", continence = "NO", dress = "NO", feed = "NO", toileting = "NO", transfer = "NO", transport = "NO", pets = "NO", drive = "NO", keep = "NO", medication = "NO";
     String functionnote = "", fouctionOther = "", instaOther = "", instaNote = "";
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +70,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initListener() {
         txtSave.setOnClickListener(this);
-        floatProfile.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgHome.setOnClickListener(this);
@@ -100,7 +100,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void initUI() {
-        floatProfile = findViewById(R.id.floatProfile);
+        floatOptions = findViewById(R.id.floatOptions);
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -357,7 +357,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.floatProfile:
+            case R.id.floatOptions:
                 showFloatDialog();
                 break;
 
@@ -402,10 +402,6 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-                /*new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Activities Of Daily Living");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
 
                 Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 ArrayList<Living> LivingList = new ArrayList<Living>();

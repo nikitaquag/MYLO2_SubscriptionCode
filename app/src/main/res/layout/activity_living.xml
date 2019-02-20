@@ -61,9 +61,10 @@
                     android:id="@+id/txtSave"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension15dp"
-                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_toLeftOf="@+id/imgRight"
                     android:paddingLeft="@dimen/dimension3dp"
                     android:paddingRight="@dimen/dimension3dp"
@@ -72,7 +73,8 @@
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension18dp"
                     android:textStyle="bold"
-                    android:visibility="gone" />
+
+                    android:visibility="visible" />
 
 
                 <ImageView
@@ -94,7 +96,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension5dp"
                     android:src="@drawable/menudot"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -1235,7 +1237,7 @@
     </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatProfile"
+        android:id="@+id/floatOptions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"

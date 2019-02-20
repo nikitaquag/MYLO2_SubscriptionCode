@@ -3208,7 +3208,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
     private void initUI() {
-
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         RlPhone = rootview.findViewById(R.id.RlPhone);

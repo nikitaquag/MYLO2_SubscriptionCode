@@ -1,6 +1,8 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,14 +14,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
+import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.model.Note;
 
 public class ViewEventActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    ImageView imgBack, imgEdit, imgDelete;
+    ImageView imgBack, imgEdit;
     EditText etNote;
-    TextView txtDate,txtSave;
+    TextView txtDate, txtSave, txtTitle, txtDelete;
     int id, userid;
 
     @Override
@@ -37,6 +41,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             Note note = (Note) intent.getExtras().getSerializable("NoteObject");
+            txtTitle.setText("Edit Event Notes");
             String notes = note.getTxtNote();
             String dates = note.getTxtDate();
             id = note.getId();
@@ -49,19 +54,19 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
     private void initListener() {
         imgBack.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
-        imgDelete.setOnClickListener(this);
+        txtDelete.setOnClickListener(this);
+        txtSave.setOnClickListener(this);
         txtSave.setOnClickListener(this);
     }
 
     private void initUI() {
-
-
         imgBack = findViewById(R.id.imgBack);
         imgEdit = findViewById(R.id.imgEdit);
-        imgDelete = findViewById(R.id.imgDelete);
+        txtDelete = findViewById(R.id.txtDelete);
         etNote = findViewById(R.id.etNote);
         txtDate = findViewById(R.id.txtDate);
-        txtSave=findViewById(R.id.txtSave);
+        txtSave = findViewById(R.id.txtSave);
+        txtTitle = findViewById(R.id.txtTitle);
     }
 
     @Override
@@ -88,13 +93,37 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
                 }
 
                 break;
-            case R.id.imgDelete:
+            case R.id.txtDelete:
+                deleteNote();
+                break;
+        }
+    }
+
+    private void deleteNote() {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
                 boolean flags = EventNoteQuery.deleteRecord(id);
                 if (flags == true) {
                     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                 }
                 finish();
-                break;
-        }
+            }
+        });
+
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+
     }
 }
