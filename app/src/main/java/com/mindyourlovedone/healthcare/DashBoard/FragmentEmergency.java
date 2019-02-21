@@ -52,7 +52,7 @@ import java.util.ArrayList;
  */
 
 public class FragmentEmergency extends Fragment implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     ImageView imgRight;
     View rootview;

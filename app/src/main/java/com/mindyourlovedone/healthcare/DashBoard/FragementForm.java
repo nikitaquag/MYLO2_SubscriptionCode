@@ -48,7 +48,7 @@ import java.util.ArrayList;
  */
 
 public class FragementForm extends Fragment implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final String dialog_items[] = {"View", "Email", "User Instructions"};
     View rootview;
     ImageView imgRight;

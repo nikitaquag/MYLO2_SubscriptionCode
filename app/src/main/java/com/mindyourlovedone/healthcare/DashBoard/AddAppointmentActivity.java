@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -19,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
@@ -37,13 +40,13 @@ import java.util.Random;
 
 public class AddAppointmentActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    TextView txtName, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
+    TextView txtName, txtNote, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
     Preferences preferences;
     MySpinner spinnerType, spinnerFrequency;
     DBHelper dbHelper;
     ArrayList<DateClass> dateList = null;
-    ImageView imgBack;
-    RelativeLayout llAddConn;
+    ImageView imgBack, imgHome;
+    RelativeLayout llAddConn, rlDelete;
     TextInputLayout tilName, tilOtherFrequency, tilOtherSpecialist;
     RadioGroup rgCompleted;
     RadioButton rbYes, rbNo;
@@ -88,10 +91,15 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     }
 
     private void initListener() {
+
+        rlDelete.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        txtNote.setOnClickListener(this);
+
     }
 
     private void initUi() {
@@ -99,6 +107,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         txtName = findViewById(R.id.txtName);
         tilName = findViewById(R.id.tilName);
         txtDate = findViewById(R.id.txtDate);
+        txtNote = findViewById(R.id.txtNote);
         txtOtherFrequency = findViewById(R.id.txtOtherFrequency);
         txtOtherSpecialist = findViewById(R.id.txtOtherType);
         tilOtherFrequency = findViewById(R.id.tilOtherFrequency);
@@ -107,6 +116,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         spinnerType = findViewById(R.id.spinnerType);
         spinnerFrequency = findViewById(R.id.spinnerFrequency);
         imgBack = findViewById(R.id.imgBack);
+        rlDelete = findViewById(R.id.rlDelete);
+        imgHome = findViewById(R.id.imgHome);
         llAddConn = findViewById(R.id.llAddConn);
         txtAdd = findViewById(R.id.txtAdd);
 
@@ -252,6 +263,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         Intent i = getIntent();
         if (i.getExtras() != null) {
             if (i.getExtras().get("FROM").equals("View")) {
+                rlDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Appointment");
                 isUpdate = true;
                 Appoint a = (Appoint) i.getExtras().getSerializable("AppointObject");
@@ -299,6 +311,18 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 hideSoftKeyboard();
                 finish();
                 break;
+            //Shradha
+            case R.id.rlDelete:
+                deleteAppointment(p);
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
 
             case R.id.txtDate:
                 Calendar calendar = Calendar.getInstance();
@@ -319,6 +343,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 int unique = generateRandom();
                 String name = txtName.getText().toString().trim();
                 String date = txtDate.getText().toString().trim();
+                String note = txtNote.getText().toString().trim();
                 otherType = txtOtherSpecialist.getText().toString();
                 otherFrequency = txtOtherFrequency.getText().toString();
                 int indexValuex = spinnerType.getSelectedItemPosition();
@@ -340,7 +365,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                     DialogManager.showAlert("Please Select Specialist or Test", AddAppointmentActivity.this);
                 } else {
                     if (isUpdate == false) {
-                        Boolean flag = AppointmentQuery.insertAppointmentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, date, type, frequency, otherType, otherFrequency, dateList, unique);
+                        Boolean flag = AppointmentQuery.insertAppointmentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, date, note, type, frequency, otherType, otherFrequency, dateList, unique);
                         if (flag == true) {
                             hideSoftKeyboard();
                             Toast.makeText(context, "Appointment added succesfully", Toast.LENGTH_SHORT).show();
@@ -349,7 +374,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
                     } else if (isUpdate == true) {
-                        Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
+                        Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
                         if (flag == true) {
                             hideSoftKeyboard();
                             Toast.makeText(context, "Appointment updated succesfully", Toast.LENGTH_SHORT).show();
@@ -359,11 +384,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                         }
                     }
                 }
-
-
-
-
-               /* Appoint appoint=new Appoint();
+                /* Appoint appoint=new Appoint();
                 appoint.setDoctor(name);
                 appoint.setDate(date);
                 appoint.setFrequency(frequency);
@@ -374,6 +395,38 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 setResult(100,i);*/
                 break;
         }
+    }
+
+    //Shradha
+    private void deleteAppointment(final Appoint p) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = AppointmentQuery.deleteRecord(p.getUnique());
+                if (flag == true) {
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+
+                    if (context instanceof MedicalAppointActivity) {
+                        ((MedicalAppointActivity) context).getData();
+                        ((MedicalAppointActivity) context).setNoteData();
+                    }
+                }
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 
     private int generateRandom() {

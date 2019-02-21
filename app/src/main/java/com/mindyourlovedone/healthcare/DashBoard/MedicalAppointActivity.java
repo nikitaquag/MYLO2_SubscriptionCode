@@ -47,12 +47,12 @@ import java.util.Date;
 
 
 public class MedicalAppointActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Appoint> noteList = new ArrayList<>();
-    ImageView imgBack, imgAdd, imgEdit, imgRight;
+    ImageView imgHome, imgBack, imgAdd, imgEdit, imgRight;
     RelativeLayout rlGuide;
     Preferences preferences;
     ArrayList<DateClass> dateList;
@@ -61,7 +61,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     boolean flag = false;
     TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile, floatAdd;
 
     public static String getFormattedDate(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -94,13 +94,16 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     private void initListener() {
         txtAdd.setOnClickListener(this);
         //imgAdd.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
     }
 
     private void initUI() {
         floatProfile = findViewById(R.id.floatProfile);
+        floatAdd = findViewById(R.id.floatAdd);
         scrollvw = findViewById(R.id.scrollvw);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> an Appointment  click  the <b>plus</b> box " +
@@ -137,14 +140,15 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 intentEmerInstruc.putExtra("From", "CheckListInstruction");
                 startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
-              //  relMsg.setVisibility(View.VISIBLE);//nikita
-               // scrollvw.setVisibility(View.VISIBLE);//nikita
+                //  relMsg.setVisibility(View.VISIBLE);//nikita
+                // scrollvw.setVisibility(View.VISIBLE);//nikita
                 rlGuide.setVisibility(View.GONE);//nikita
             }
         });
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorEventPink);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
 
         txtAdd = findViewById(R.id.txtAdd);
 
@@ -333,7 +337,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 
     }
 
-    private void setNoteData() {
+    public void setNoteData() {
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
@@ -347,7 +351,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         lvNote.setAdapter(adapter);
     }
 
-    private void getData() {
+    public void getData() {
         noteList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         //   noteList=new ArrayList<>();
     }
@@ -366,19 +370,32 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
                 break;
 
             case R.id.imgBack:
                 finish();
                 break;
-            case R.id.txtAdd:
+            case R.id.floatAdd:
                 Intent i = new Intent(context, AddAppointmentActivity.class);
                 i.putExtra("FROM", "Add");
                 startActivity(i);
                 break;
+          /*  case R.id.txtAdd:
+                Intent i = new Intent(context, AddAppointmentActivity.class);
+                i.putExtra("FROM", "Add");
+                startActivity(i);
+                break;*/
 
             case R.id.imgRight:
 

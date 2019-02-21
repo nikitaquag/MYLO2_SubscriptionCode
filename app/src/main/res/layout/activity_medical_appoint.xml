@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorOnesGray"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.EventNoteActivity">
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatAdd"
         android:layout_width="wrap_content"
@@ -33,6 +35,7 @@
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatProfile"
         android:layout_width="wrap_content"
@@ -40,11 +43,11 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension20dp"
-        app:backgroundTint="@color/colorFloatRed"
         android:src="@drawable/ic_box"
         android:tint="@color/colorWhite"
-        app:fabSize="normal"
         android:visibility="gone"
+        app:backgroundTint="@color/colorFloatRed"
+        app:fabSize="normal"
         tools:targetApi="lollipop" />
 
     <RelativeLayout
@@ -52,7 +55,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
         android:background="@color/colorBlue">
-
 
         <ImageView
             android:id="@+id/imgBack"
@@ -62,6 +64,16 @@
             android:layout_marginLeft="@dimen/dimension15dp"
             android:src="@drawable/backward_arrow" />
 
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
+
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
@@ -69,7 +81,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:gravity="center"
-            android:text="APPOINTMENT \nCHECKLIST"
+            android:text="Appointment Checklist"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
 
@@ -84,7 +96,8 @@
             android:text="Add"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <!--
                 <ImageView
@@ -101,12 +114,14 @@
 
         <ImageView
             android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dimension5dp"
-            android:src="@drawable/menudot"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:src="@drawable/information"
+            android:tint="@color/colorWhite"
             android:visibility="visible" />
     </RelativeLayout>
 
@@ -115,21 +130,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/header"
-        android:background="@color/colorLightBlue"
-        android:divider="@color/colorLightGray"
-        android:dividerHeight="@dimen/dimension20dp"
+        android:background="@color/colorOnesGray"
         android:scrollbars="none"
         android:transcriptMode="alwaysScroll"
         android:visibility="gone"></android.support.v7.widget.RecyclerView>
 
-
+    <!--  android:divider="@color/colorLightGray"
+            android:dividerHeight="@dimen/dimension20dp"
+          -->
     <RelativeLayout
         android:id="@+id/rlGuide"
-        android:gravity="center"
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:gravity="center"
         android:padding="@dimen/dimension20dp">
 
         <ImageView
@@ -173,7 +188,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension18dp"
-            android:visibility="visible"/>
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/txtMsg"

@@ -174,5 +174,6 @@
                 android:visibility="gone" />
         </RelativeLayout>
 
+
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

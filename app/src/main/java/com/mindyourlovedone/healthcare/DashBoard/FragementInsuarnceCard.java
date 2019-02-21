@@ -53,7 +53,7 @@ import java.util.ArrayList;
 
 public class FragementInsuarnceCard extends Fragment implements View.OnClickListener {
     public static final int REQUEST_PRES = 100;
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final String dialog_items[] = {"View", "Email", "User Instructions"};
     Preferences preferences;
     View rootview;

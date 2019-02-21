@@ -18,7 +18,7 @@ import com.mindyourlovedone.healthcare.model.TypeSpecialist;
 import java.util.ArrayList;
 
 /**
- * Created by Niki on 11-07-2018.
+ * Created by shradha on 11-07-2018.
  */
 
 public class CustomTypeSpecialistAdapters extends ArrayAdapter<TypeSpecialist> {

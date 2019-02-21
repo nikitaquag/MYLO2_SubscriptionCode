@@ -73,7 +73,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     String From;
     Preferences preferences;
     ArrayAdapter<String> adapter, adapter1, adapterPro;
-    TextInputLayout tilLocator,tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
+    TextInputLayout tilLocator, tilDate, tilOther, tilOtherDocType, tilDocType, tilHosp, tilName, tilPName;
     RelativeLayout rlDocType, rlDelete;
     Document document;
     DBHelper dbHelper;
@@ -1150,11 +1150,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         } else if (docType.equals("")) {
             txtDocTYpe.setError("Please enter type of document");
             Toast.makeText(context, "Please enter type of document", Toast.LENGTH_SHORT).show();
-        }
-        else if (date.equals("")) {
+        } else if (date.equals("")) {
             txtDate.setError("Please select date");
             Toast.makeText(context, "Please select date", Toast.LENGTH_SHORT).show();
-        }else {
+        } else {
             return true;
         }
 
