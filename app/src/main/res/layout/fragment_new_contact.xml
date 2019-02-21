@@ -34,8 +34,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
+                    android:layout_width="190dp"
+                    android:layout_height="190dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:src="@drawable/ic_profile_defaults" />
 
@@ -45,7 +45,7 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:src="@drawable/edit_n" />
 
             </RelativeLayout>
@@ -84,7 +84,35 @@
                         android:id="@+id/rlDoctorCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilSpecialty"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:paddingBottom="@dimen/dimension8dp"
 
+                            app:hintEnabled="true">
+                            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                            <AutoCompleteTextView
+                                android:id="@+id/txtSpecialty"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Specialty"
+                                android:imeOptions="actionNext"
+                                android:maxLength="30"
+                                android:maxLines="1"
+                                android:drawableRight="@drawable/dropd"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinner"
                             android:layout_width="match_parent"
@@ -107,7 +135,7 @@
                             android:id="@+id/tilOtherCategoryDoctor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/spinner"
+                            android:layout_below="@+id/tilSpecialty"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
@@ -1699,11 +1727,17 @@ android:visibility="gone"
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
-
+                    <View
+                        android:id="@+id/vDrNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:background="@color/colorLightGray"
+android:layout_below="@+id/tilDoctorLocator"
+                        ></View>
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilDoctorLocator"
+                        android:layout_below="@+id/vDrNote"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp">

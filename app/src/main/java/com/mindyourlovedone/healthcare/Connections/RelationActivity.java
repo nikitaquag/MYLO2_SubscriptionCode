@@ -19,6 +19,7 @@ ImageView imgBack;
     String category="";
     private static int RESULT_RELATION = 10;
     private static int RESULT_PRIORITY = 12;
+    private static int RESULT_SPECIALTY = 13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,14 @@ if (i.getExtras()!=null) {
         String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent"};
         RelationsAdapter rd = new RelationsAdapter(context, priorityType);
         listRelation.setAdapter(rd);
+    } else if (category.equalsIgnoreCase("Specialty"))
+    {
+        String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
+        RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality);
+        listRelation.setAdapter(rd);
     }
+
+
 }
 
    // RelationsAdapter rd = new RelationsAdapter(context, Relationship);
@@ -62,6 +70,10 @@ if (i.getExtras()!=null) {
                 }else if (category.equalsIgnoreCase("Priority")) {
                     i.putExtra("Priority", txtRel.getText().toString());
                     setResult(RESULT_PRIORITY, i);
+                }
+                else if (category.equalsIgnoreCase("Specialty")) {
+                    i.putExtra("Specialty", txtRel.getText().toString());
+                    setResult(RESULT_SPECIALTY, i);
                 }
                 finish();
             }

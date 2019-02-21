@@ -555,7 +555,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         llBottom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onInfiniteGasButtonClicked();
+              //  onInfiniteGasButtonClicked();
             }
         });
     }

@@ -17,16 +17,16 @@
 
         <ImageView
             android:id="@+id/imgBack"
-            android:layout_width="@dimen/dimension35dp"
-            android:layout_height="@dimen/dimension45dp"
+            android:layout_width="@dimen/dimension40dp"
+            android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:src="@drawable/backward_arrow" />
 
         <ImageView
             android:id="@+id/imgHome"
-            android:layout_width="@dimen/dimension35dp"
-            android:layout_height="@dimen/dimension30dp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension5dp"

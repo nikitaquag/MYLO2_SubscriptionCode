@@ -96,7 +96,7 @@
                 <!--  android:drawableRight="@drawable/ic_edit_blue" -->
                 <TextView
                     android:id="@+id/txtType"
-                    android:layout_width="@dimen/dimension100dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtName"
                     android:layout_marginBottom="@dimen/dimension5dp"
@@ -220,13 +220,13 @@
                 android:padding="@dimen/dimension10dp"
                 android:src="@drawable/call_emer" />
             <!--            android:src="@drawable/forword_arrow"-->
-            <!--<View
+           <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
+                android:layout_height="@dimen/dimension2dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorDarkGray"
-                ></View>-->
+                android:background="@color/colorLightGray"
+                ></View>
         </RelativeLayout>
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

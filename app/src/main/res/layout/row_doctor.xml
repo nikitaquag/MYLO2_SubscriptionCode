@@ -207,13 +207,13 @@
                 android:src="@drawable/call_emer" />
 
 
-            <!--  <View
+           <View
                   android:id="@+id/view1"
                   android:layout_width="match_parent"
-                  android:layout_height="@dimen/dimension1dp"
+                  android:layout_height="@dimen/dimension2dp"
                   android:layout_alignParentBottom="true"
-                  android:background="@color/colorDarkGray"
-                  ></View>-->
+                  android:background="@color/colorLightGray"
+                  ></View>
         </RelativeLayout>
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

@@ -158,7 +158,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 header.setBackgroundResource(R.color.colorEmerMainGreen);
                 isEmergency = true;
                 isInsurance = false;
-                profile = new int[]{R.drawable.emergency_one, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
+                profile = new int[]{R.drawable.pp, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
                 specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agent", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
