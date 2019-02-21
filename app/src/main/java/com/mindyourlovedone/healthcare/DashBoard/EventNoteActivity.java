@@ -49,7 +49,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class EventNoteActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
@@ -315,7 +315,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 hideSoftKeyboard();
                 finish();
                 break;
-                
+
             case R.id.imgHome:
                 Intent intentHome = new Intent(context, BaseActivity.class);
                 intentHome.putExtra("c", 1);
@@ -323,7 +323,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentHome);
                 break;
-                
+
             case R.id.txtAdd:
                 showInputDialog(context);
                 break;
@@ -437,14 +437,11 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
             public void onClick(View v) {
 
                 String note = etNote.getText().toString();
-                //   String date=etDate.getText().toString();
-
                 SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
                 String currentDateandTime = sdf.format(new Date());
                 if (note.length() != 0) {
                     Boolean flag = EventNoteQuery.insertNoteData(preferences.getInt(PrefConstants.CONNECTED_USERID), note, currentDateandTime);
                     if (flag == true) {
-
                         Toast.makeText(context, "Event Note Added Succesfully", Toast.LENGTH_SHORT).show();
                         getData();
                         setNoteData();

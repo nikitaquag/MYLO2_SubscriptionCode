@@ -2,11 +2,13 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.Techniques;
@@ -27,6 +29,7 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
     Context context;
     ArrayList<Note> noteList;
     LayoutInflater lf;
+    boolean flagDrop = false;
 
     public NoteAdapter(Context context, ArrayList noteList) {
         this.context = context;
@@ -73,10 +76,15 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
             }
         });
 
+        holder.txtNote.setSingleLine(true);
+        holder.txtNote.setEllipsize(TextUtils.TruncateAt.END);
         holder.txtNote.setText(noteList.get(position).getTxtNote());
+
+        holder.txtNoteData.setText(noteList.get(position).getTxtNote());
+
         holder.txtDateTime.setText(noteList.get(position).getTxtDate());
 
-        holder.imgForward.setOnClickListener(new View.OnClickListener() {
+        holder.txtEditNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -85,6 +93,7 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
                 }
             }
         });
+/*
         holder.txtDateTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,23 +102,49 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
                 }
             }
         });
+*/
 
+        holder.rlTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (flagDrop == false) {
+                    holder.llNote.setVisibility(View.VISIBLE);
+                    holder.imgForward.setImageResource(R.drawable.dropup);
+                    holder.txtNote.setVisibility(View.GONE);
+                    holder.rlView.setVisibility(View.GONE);
+                    flagDrop = true;
+                } else if (flagDrop == true) {
+                    holder.llNote.setVisibility(View.GONE);
+                    holder.imgForward.setImageResource(R.drawable.drop_down);
+                    holder.txtNote.setVisibility(View.VISIBLE);
+                    holder.rlView.setVisibility(View.VISIBLE);
+                    flagDrop = false;
+                }
+            }
+        });
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView txtNote, txtDateTime, txtTime;
+        TextView txtNote, txtNoteData, txtDateTime, txtEditNote, txtTime;
         ImageView imgForward, imgDrop;
-        LinearLayout lintrash;
+        LinearLayout lintrash, llNote;
         SwipeLayout swipeLayout;
+        RelativeLayout rlTop,rlView;
 
         public Holder(View convertView) {
             super(convertView);
             swipeLayout = itemView.findViewById(R.id.swipe);
             lintrash = itemView.findViewById(R.id.lintrash);
+            llNote = itemView.findViewById(R.id.llNote);
             txtNote = convertView.findViewById(R.id.txtNote);
+            txtNoteData = convertView.findViewById(R.id.txtNoteData);
             txtDateTime = convertView.findViewById(R.id.txtDateTime);
+            txtEditNote = convertView.findViewById(R.id.txtEditNote);
             imgForward = convertView.findViewById(R.id.imgForword);
             imgDrop = convertView.findViewById(R.id.imgDrop);
+            rlTop = convertView.findViewById(R.id.rlTop);
+            rlView = convertView.findViewById(R.id.rlView);
+
         }
     }
 }

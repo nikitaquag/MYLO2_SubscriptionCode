@@ -58,7 +58,7 @@ import java.util.ArrayList;
 
 
 public class CarePlanListActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvDoc;//by nikita on 20/6/18
@@ -70,11 +70,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout llAddDoc, header;
     Preferences preferences;
     RelativeLayout rlGuide;
-    ImageView imgPicture, imgPicture2,imgHome;
+    ImageView imgPicture, imgPicture2, imgHome;
     TextView txtHeader, txtHeader2, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
-    FloatingActionButton floatProfile, floatOptions,floatAdd;
+    FloatingActionButton floatProfile, floatOptions, floatAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -352,7 +352,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 startActivity(intentHome);
                 break;
             case R.id.floatOptions:
-               showFloatDialog();
+                showFloatDialog();
                 break;
             case R.id.floatAdd:
                 Intent i = new Intent(context, AddDocumentActivity.class);

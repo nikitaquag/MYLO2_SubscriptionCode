@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EFEFEF"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.EventNoteActivity">
 
     <android.support.design.widget.FloatingActionButton
@@ -137,9 +138,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
-            android:background="@color/colorLightBlue"
-            android:divider="@color/colorLightGray"
-            android:dividerHeight="@dimen/dimension20dp"
+            android:background="#EFEFEF"
+            android:divider="@null"
             android:scrollbars="none"
             android:visibility="gone"></android.support.v7.widget.RecyclerView>
 
