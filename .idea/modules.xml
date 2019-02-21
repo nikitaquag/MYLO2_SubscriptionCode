@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MYLO-Version2--Android.iml" filepath="$PROJECT_DIR$/MYLO-Version2--Android.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylo-androidS-master.iml" filepath="$PROJECT_DIR$/mylo-androidS-master.iml" />
     </modules>
   </component>
 </project>

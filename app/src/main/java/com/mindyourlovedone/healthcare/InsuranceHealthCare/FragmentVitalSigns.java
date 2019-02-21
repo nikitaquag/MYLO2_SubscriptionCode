@@ -199,6 +199,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     }
 
     public void getData() {
+        vitalList=new ArrayList<>();
         vitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
     }
 
