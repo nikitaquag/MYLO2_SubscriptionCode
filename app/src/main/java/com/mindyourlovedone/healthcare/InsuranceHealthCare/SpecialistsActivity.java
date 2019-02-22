@@ -131,7 +131,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
         txtName = findViewById(R.id.txtName);
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        String name=preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION);
+        txtName.setText(name);
         //   imgRight= (ImageView) findViewById(R.id.imgRight);
         if (i.getExtras() != null) {
             from = i.getExtras().getString("FROM");
@@ -772,7 +773,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION));
     }
 
     @Override

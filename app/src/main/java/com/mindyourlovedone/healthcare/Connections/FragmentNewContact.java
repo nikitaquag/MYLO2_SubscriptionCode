@@ -123,7 +123,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CHPhone = "";
     static String CWPhone = "";
     Emergency rel;
-    Specialist specialist;
+    Specialist specialist,specialistDoctor;
     RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz, txtDelete;
     ImageView txtCard;
@@ -1607,7 +1607,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtTitle.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 Intent specialistIntent = getActivity().getIntent();
                 if (specialistIntent.getExtras() != null) {
-                    Specialist specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
+                    specialist= (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
+                    specialistDoctor = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
 
                     if (Cname.isEmpty()) {//nikita
                         txtDoctorName.setText(specialist.getName());
@@ -4119,10 +4120,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
                     case "SpecialistData":
-
+                        deleteSpecialist(specialistDoctor,2);
                         break;
                     case "PhysicianData":
-                        deleteSpecialist(specialist);
+                        deleteSpecialist(specialist,1);
                         break;
 
                     case "PharmacyData":
@@ -4217,14 +4218,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         }
     }
 
-    private void deleteSpecialist(final Specialist specialist) {
+    private void deleteSpecialist(final Specialist specialist, final int id) {
         AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
         alert.setTitle("Delete");
         alert.setMessage("Do you want to Delete this record?");
         alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                boolean flag = SpecialistQuery.deleteRecord(specialist.getId(), 1);
+                boolean flag = SpecialistQuery.deleteRecord(specialist.getId(), id);
                 // boolean flags=SpecialistQuery.deleteRecord(item.getUnique());
                 if (flag == true) {//Shradha delete whole record and image
                     ArrayList<Specialist> specialistList = new ArrayList<>();
