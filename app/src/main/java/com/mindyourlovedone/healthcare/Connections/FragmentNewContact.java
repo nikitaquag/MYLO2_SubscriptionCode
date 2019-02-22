@@ -1,6 +1,5 @@
 package com.mindyourlovedone.healthcare.Connections;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
@@ -8,14 +7,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,7 +18,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
-import android.support.constraint.solver.ArrayLinkedVariables;
 import android.support.design.widget.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -35,7 +29,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -63,7 +56,6 @@ import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.Insurance;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
-import com.mindyourlovedone.healthcare.model.Phone;
 import com.mindyourlovedone.healthcare.model.Proxy;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
@@ -91,9 +83,7 @@ import java.util.ArrayList;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 
-import static com.mindyourlovedone.healthcare.HomeActivity.R.id.txtPhone;
-import static com.mindyourlovedone.healthcare.HomeActivity.R.id.txtSpecialist;
-import static com.mindyourlovedone.healthcare.HomeActivity.R.id.txtT;
+
 
 /**
  * Created by varsha on 8/28/2017.
@@ -108,6 +98,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_RELATION = 10;
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
+    private static int RESULT_CATEGORY = 14;
     private static int RESULT_TYPE = 11;
     Bitmap ProfileMap = null, CardMap = null;
     ListView listRelation, listPhone;
@@ -124,6 +115,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CWPhone = "";
     Emergency rel;
     Specialist specialist,specialistDoctor;
+    Hospital hospital;
+    Pharmacy pharmacy;
+    Insurance insurance;
+    Finance finance;
     RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz, txtDelete;
     ImageView txtCard;
@@ -137,7 +132,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtAids, txtSchedule, txtOther, txtEmergencyNote;
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
-    TextView txtTitle, txtRelation, txtType, txtPriority;
+    TextView txtTitle, txtRelation, txtPriority;
     TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
@@ -165,7 +160,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
     TextInputLayout tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
-    TextView txtSpecialty;
+    TextView txtSpecialty,txtHCategory;
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
     RelationAdapter relationAdapter;
@@ -203,8 +198,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     String cardImgPath = "";
     public static boolean fromDevice = false;
 
-    LinearLayout llAddPhone;
-    ImageView imgAddPhone;
+    LinearLayout llAddPhone,llAddDrPhone;
+    ImageView imgAddPhone, imgAddDrPhone;
+    TextView txtType,txtDrType;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_new_contact, null);
@@ -954,6 +950,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent specialistIntents = getActivity().getIntent();
                 if (specialistIntents.getExtras() != null) {
                     Pharmacy specialist = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
+                    pharmacy = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
 
                     if (Cname.isEmpty()) {//nikita
                         txtPharmacyName.setText(specialist.getName());
@@ -1419,11 +1416,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (!rel.getRelationType().equals("")) {
                         txtRelation.setText(rel.getRelationType());
                         if (rel.getRelationType().equals("Other")) {
-                            txtOtherRelation.setVisibility(View.VISIBLE);
+                            tilOtherRelation.setVisibility(View.VISIBLE);
                             txtOtherRelation.setText(rel.getOtherRelation());
                         } else {
-                            txtOtherRelation.setVisibility(View.GONE);
-
+                            tilOtherRelation.setVisibility(View.GONE);
+                            txtOtherRelation.setText("");
                         }
                         //  spinnerRelation.setSelection(index + 1);
                     }
@@ -1658,6 +1655,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinner.setSelection(index + 1);
                     }*/
                     txtSpecialty.setText(specialist.getType());
+                    if (specialist.getType().equals("Other"))
+                    {
+                        tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        tilOtherCategoryDoctor.setVisibility(View.GONE);
+                    }
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -1765,6 +1770,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinner.setSelection(index + 1);
                     }*/
                     txtSpecialty.setText(specialist.getType());
+                    if (specialist.getType().equals("Other"))
+                    {
+                        tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        tilOtherCategoryDoctor.setVisibility(View.GONE);
+                    }
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
                         photo = specialist.getPhoto();
@@ -1990,7 +2003,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtDelete.setVisibility(View.VISIBLE);
                 Intent insuranceIntent = getActivity().getIntent();
                 if (insuranceIntent.getExtras() != null) {
-                    Insurance insurance = (Insurance) insuranceIntent.getExtras().getSerializable("InsuranceObject");
+                     insurance = (Insurance) insuranceIntent.getExtras().getSerializable("InsuranceObject");
                     if (!insurance.getType().equals("")) {
                         int index = 0;
                         for (int i = 0; i < insuaranceType.length; i++) {
@@ -2332,7 +2345,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent hospIntent = getActivity().getIntent();
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
-
+                    hospital = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
                     if (Cname.isEmpty()) {//nikita
                         txtFNameHospital.setText(specialist.getName());
                     } else {
@@ -2364,7 +2377,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtHospitalLocation.setText(specialist.getLocation());
 
                     id = specialist.getId();
-                    if (!specialist.getCategory().equals("")) {
+                   /* if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < HospitalType.length; i++) {
                             if (specialist.getCategory().equals(HospitalType[i])) {
@@ -2372,7 +2385,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                         }
                         spinnerHospital.setSelection(index + 1);
-                    }
+                    }*/
+                   txtHCategory.setText(specialist.getCategory());
+                   if (specialist.getCategory().equals("Other"))
+                   {
+                       tilOtherCategoryHospital.setVisibility(View.VISIBLE);
+                   }else{
+                       tilOtherCategoryHospital.setVisibility(View.GONE);
+                   }
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -2449,7 +2469,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtHospitalLocation.setText(specialist.getLocation());
 
                     id = specialist.getId();
-                    if (!specialist.getCategory().equals("")) {
+                   /* if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < HospitalType.length; i++) {
                             if (specialist.getCategory().equals(HospitalType[i])) {
@@ -2457,7 +2477,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                         }
                         spinnerHospital.setSelection(index + 1);
-                    }
+                    }*/
+                    txtHCategory.setText(specialist.getCategory());
 
                     imagepath = specialist.getPhoto();
                     String photo = specialist.getPhoto();
@@ -2511,6 +2532,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent financeIntent = getActivity().getIntent();
                 if (financeIntent.getExtras() != null) {
                     Finance specialist = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");
+                    finance = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");
                     if (Cname.isEmpty()) {//nikita
                         txtContactName.setText(specialist.getContactName());
                     } else {
@@ -3241,14 +3263,17 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
         imgAddPhone.setOnClickListener(this);
+        imgAddDrPhone.setOnClickListener(this);
         txtDelete.setOnClickListener(this);
     }
 
     private void initUI() {
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
+        llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
+        imgAddDrPhone=rootview.findViewById(R.id.imgAddDrPhone);
         txtDelete = rootview.findViewById(R.id.txtDelete);
         txtPriority = rootview.findViewById(R.id.txtPriority);
         txtPriority.setFocusable(false);
@@ -3530,17 +3555,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         });
 
-        txtHomePhone = rootview.findViewById(txtPhone);
+        txtHomePhone = rootview.findViewById(R.id.txtPhone);
         txtWorkPhone = rootview.findViewById(R.id.txtOfficePhone);
         rlRelation = rootview.findViewById(R.id.rlRelation);
         txtRelation = rootview.findViewById(R.id.txtRelation);
         txtRelation.setFocusable(false);
         txtType = rootview.findViewById(R.id.txtType);
         txtType.setFocusable(false);
+        txtDrType= rootview.findViewById(R.id.txtDrType);
+        txtDrType.setFocusable(false);
+
         tilRelation = rootview.findViewById(R.id.tilRelation);
         tilSpecialty = rootview.findViewById(R.id.tilSpecialty);
         txtSpecialty = rootview.findViewById(R.id.txtSpecialty);
         txtSpecialty.setFocusable(false);
+        txtHCategory = rootview.findViewById(R.id.txtHCategory);
+        txtHCategory.setFocusable(false);
         rlProxy = rootview.findViewById(R.id.rlProxy);
         txtAdd = rootview.findViewById(R.id.txtAdd);
         imgEdit = rootview.findViewById(R.id.imgEdit);
@@ -3988,6 +4018,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 startActivityForResult(i, RESULT_SPECIALTY);
             }
         });
+        txtHCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "Category");
+                startActivityForResult(i, RESULT_CATEGORY);
+            }
+        });
 
         txtPriority.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -4007,16 +4045,31 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // TextView txtType=helperview.findViewById(R.id.txtType);
                         txtType.setText(types[which]);
                         dialog.dismiss();
                     }
 
                 });
-
                 b.show();
-                /*Intent i=new Intent(getActivity(),PhoneActivity.class);
-                startActivityForResult(i,RESULT_TYPE);*/
+            }
+        });
+
+        txtDrType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(context);
+                b.setTitle("Type");
+                final String[] types = {"Mobile", "Office", "Home", "Fax"};
+                b.setItems(types, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        txtDrType.setText(types[which]);
+                        dialog.dismiss();
+                    }
+
+                });
+                b.show();
             }
         });
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -4127,23 +4180,23 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         break;
 
                     case "PharmacyData":
-
+                        deletePharmacy(pharmacy);
 
                         break;
 
 
                     case "HospitalData":
-
+                         deleteHospital(hospital);
                         break;
 
 
                     case "FinanceData":
-
+                        deleteFinance(finance);
 
                         break;
 
                     case "InsuranceData":
-
+                        deleteInsurance(insurance);
                         break;
                     // InsuranceObject
                 }
@@ -4184,7 +4237,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case R.id.imgAddPhone:
 
-                addNewPhone();
+                addNewPhone(llAddPhone);
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+
+                break;
+
+            case R.id.imgAddDrPhone:
+
+                addNewPhone(llAddDrPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
 
                 break;
@@ -4256,13 +4316,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     }
 
-    private void addNewPhone() {
+    private void addNewPhone(final LinearLayout layout) {
       /*  ArrayList phonelist=new ArrayList();
 
         PhoneAdapter pd=new PhoneAdapter(context,phonelist,val);
         listPhone.setAdapter(pd);*/
         final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
-        llAddPhone.addView(helperview);//jobt
+        layout.addView(helperview);//jobt
 
         TextView txtPhoNum = helperview.findViewById(R.id.txtPhoNum);
         TextView txtType = helperview.findViewById(R.id.txtType);
@@ -4293,7 +4353,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                llAddPhone.removeView(helperview);
+                layout.removeView(helperview);
             }
         });
 
@@ -4584,7 +4644,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 workphone = txtDoctorOtherPhone.getText().toString();
                 address = txtDoctorAddress.getText().toString();
             }
-            otherDoctor = txtOtherCategoryDoctor.getText().toString();
+
             fax = txtDoctorFax.getText().toString();
 
             website = txtDoctorWebsite.getText().toString();
@@ -4596,6 +4656,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 speciality = healthSpeciality[indexValuex - 1];
             }*/
             speciality = txtSpecialty.getText().toString();
+            if (speciality.equals("Other"))
+            {
+                tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+               tilOtherCategoryDoctor.setVisibility(View.GONE);
+            }
+            otherDoctor = txtOtherCategoryDoctor.getText().toString();
             practice_name = txtPracticeName.getText().toString();
             network = txtNetwork.getText().toString();
             affil = txtAffiliation.getText().toString();
@@ -4712,11 +4781,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             lastseen = txtHospitalLastSeen.getText().toString();
             locator = txtHospitalLocator.getText().toString();
             otherCategory = txtOtherCategoryHospital.getText().toString();
-            int indexValuex = spinnerHospital.getSelectedItemPosition();
+           /* int indexValuex = spinnerHospital.getSelectedItemPosition();
             String sources = preferences.getString(PrefConstants.SOURCE);
             if (indexValuex != 0) {
                 speciality = HospitalType[indexValuex - 1];
-            }
+            }*/
+            speciality=txtHCategory.getText().toString();
+           if (speciality.equals("Other"))
+           {
+               tilOtherCategoryHospital.setVisibility(View.VISIBLE);
+           }
+           else{
+               tilOtherCategoryHospital.setVisibility(View.GONE);
+           }
+
             practice_name = txtHospitalPracticeName.getText().toString();
             note = txtHospitalNote.getText().toString();
             if (name.equals("")) {
@@ -5022,8 +5100,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             txtRelation.setText(relation);
             if (relation.equals("Other")) {
                 tilOtherRelation.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
             } else {
                 tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
             }
         } else if (requestCode == RESULT_PRIORITY && data != null) {
             priority = data.getStringExtra("Priority");
@@ -5032,7 +5112,27 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         } else if (requestCode == RESULT_SPECIALTY && data != null) {
             speciality = data.getStringExtra("Specialty");
             txtSpecialty.setText(speciality);
-        } else if (requestCode == RESULT_TYPE && data != null) {
+            if (speciality.equals("Other")) {
+                //tilOtherRelation.setVisibility(View.VISIBLE);
+                tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
+
+            } else {
+                //tilOtherRelation.setVisibility(View.GONE);
+                tilOtherCategoryDoctor.setVisibility(View.GONE);
+                txtOtherCategoryDoctor.setText("");
+            }
+        } else if (requestCode == RESULT_CATEGORY && data != null) {
+            speciality = data.getStringExtra("Category");
+            txtHCategory.setText(speciality);
+            if (speciality.equals("Other")) {
+                tilOtherCategoryHospital.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherCategoryHospital.setVisibility(View.GONE);
+                txtOtherCategoryHospital.setText("");
+            }
+        }
+
+        else if (requestCode == RESULT_TYPE && data != null) {
             String type = data.getStringExtra("Relation");
             txtType = llAddPhone.findViewById(R.id.txtType);
             txtType.setText(type);
@@ -5242,6 +5342,111 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         });
         alert.show();
+    }
+    public void deleteHospital(final Hospital item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = HospitalHealthQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
+
+    public void deletePharmacy(final Pharmacy item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = PharmacyQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                   getActivity().finish();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
+    public void deleteFinance(final Finance item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = FinanceQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
+    public void deleteInsurance(final Insurance item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = InsuranceQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                   getActivity().finish();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
     }
 
 }

@@ -20,6 +20,7 @@ public class RelationActivity extends AppCompatActivity {
     private static int RESULT_RELATION = 10;
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
+    private static int RESULT_CATEGORY = 14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,12 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality);
                 listRelation.setAdapter(rd);
             }
+            else if (category.equalsIgnoreCase("Category")) {
+                String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
+                listRelation.setAdapter(rd);
+            }
+
 
 
         }
@@ -69,6 +76,10 @@ public class RelationActivity extends AppCompatActivity {
                 } else if (category.equalsIgnoreCase("Specialty")) {
                     i.putExtra("Specialty", txtRel.getText().toString());
                     setResult(RESULT_SPECIALTY, i);
+                }
+                else if (category.equalsIgnoreCase("Category")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_CATEGORY, i);
                 }
                 finish();
             }

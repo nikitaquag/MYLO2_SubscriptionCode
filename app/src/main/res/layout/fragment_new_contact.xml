@@ -583,7 +583,37 @@
                         android:id="@+id/rlCategoryHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilHCategory"
 
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintEnabled="true"
+
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
+                            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                            <AutoCompleteTextView
+                                android:id="@+id/txtHCategory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/dropd"
+                                android:hint="Category"
+                                android:imeOptions="actionNext"
+                                android:maxLength="30"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinnerHospital"
                             android:layout_width="match_parent"
@@ -597,7 +627,9 @@
                             app:ms_hint="hint"
                             app:ms_multiline="true"
                             custom:ms_floatingLabelColor="@color/colorBlue"
-                            custom:ms_hintColor="@color/colorDarkGray" />
+                            custom:ms_hintColor="@color/colorDarkGray"
+                            android:visibility="gone"
+                            />
 
                         <requestFocus />
 
@@ -605,7 +637,7 @@
                             android:id="@+id/tilOtherCategoryHospital"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/spinnerHospital"
+                            android:layout_below="@+id/tilHCategory"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
