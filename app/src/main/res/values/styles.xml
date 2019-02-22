@@ -24,7 +24,7 @@
     </style>
 
     <style name="TextLabel" parent="TextAppearance.Design.Hint">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/dimension20dp</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -137,4 +137,8 @@
         <item name="android:windowContentOverlay">@null</item>
     </style>
     <!--<item name="android:windowContentOverlay">@null</item>-->
+
+    <style name="TextInputLayoutHintText">
+
+        <item name="android:textSize">@dimen/dimension20dp</item></style>
 </resources>

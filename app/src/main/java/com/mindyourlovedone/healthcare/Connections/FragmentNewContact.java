@@ -125,7 +125,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Emergency rel;
     Specialist specialist;
     RelativeLayout rlCard, rlContact, RlPhone;
-    TextView txtCardz,txtDelete;
+    TextView txtCardz, txtDelete;
     ImageView txtCard;
     LayoutInflater layoutInflater;
     //TextView btnShowMore,btnShowLess,btnSon;
@@ -137,7 +137,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtAids, txtSchedule, txtOther, txtEmergencyNote;
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
-    TextView txtTitle, txtRelation, txtType,txtPriority;
+    TextView txtTitle, txtRelation, txtType, txtPriority;
     TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
@@ -147,7 +147,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     RelativeLayout rlRelation, rlDoctorCategory, rlHospital, rlConnection, rlDoctor, rlInsurance, rlCommon, rlAids, rlFinance, rlProxy, rlTop, llAddConn, rlPharmacy;
     Preferences preferences;
     String source = "";
-    TextInputLayout tilOtherCategoryHospital,tilPriority;
+    TextInputLayout tilOtherCategoryHospital, tilPriority;
 
     String location = "";
     String name = "", Email = "", email = "", mobile = "", speciality = "", phone = "", address = "", workphone = "", note = "", member = "", group = "", subscriber = "", type = "";
@@ -164,8 +164,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     int connectionFlag;
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
-    TextInputLayout tilSpecialty,tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
-      TextView txtSpecialty;
+    TextInputLayout tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
+    TextView txtSpecialty;
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
     RelationAdapter relationAdapter;
@@ -1301,7 +1301,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "Emergency":
                 changeIcon(source);
                 visiEmergency();
-               // spinnerPriority.setVisibility(View.VISIBLE);
+                // spinnerPriority.setVisibility(View.VISIBLE);
                 tilPriority.setVisibility(View.VISIBLE);
 
                 txtAdd.setText("Add Emergency Contact & Proxy Agent");
@@ -1372,7 +1372,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiEmergency();
                 tilName.setHint("Name");
                 tilName.setHintEnabled(true);
-               // spinnerPriority.setVisibility(View.VISIBLE);
+                // spinnerPriority.setVisibility(View.VISIBLE);
                 //spinnerPriority.setFloatingLabelText("Priority");
                 tilPriority.setVisibility(View.VISIBLE);
                 txtPriority.setVisibility(View.VISIBLE);
@@ -1381,7 +1381,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtTitle.setText("Update Emergency Contact & Proxy Agent");
                 Intent EmergencyIntents = getActivity().getIntent();
                 if (EmergencyIntents.getExtras() != null) {
-                     rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
+                    rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
 
                     if (Cname.isEmpty()) {//nikita
                         txtName.setText(rel.getName());
@@ -1417,31 +1417,29 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtEmergencyNote.setText(rel.getNote());
                     id = rel.getId();
                     if (!rel.getRelationType().equals("")) {
-                      txtRelation.setText(rel.getRelationType());
-                        if (rel.getRelationType().equals("Other"))
-                        {
+                        txtRelation.setText(rel.getRelationType());
+                        if (rel.getRelationType().equals("Other")) {
                             txtOtherRelation.setVisibility(View.VISIBLE);
                             txtOtherRelation.setText(rel.getOtherRelation());
-                        }
-                        else{
+                        } else {
                             txtOtherRelation.setVisibility(View.GONE);
 
                         }
-                      //  spinnerRelation.setSelection(index + 1);
+                        //  spinnerRelation.setSelection(index + 1);
                     }
 
-                    if (rel.getIsPrimary()==0) {
+                    if (rel.getIsPrimary() == 0) {
                         priority = "Primary - Emergency Contact";
                         txtPriority.setText(priority);
-                    } else if (rel.getIsPrimary()==1) {
+                    } else if (rel.getIsPrimary() == 1) {
 
                         priority = "Primary - Health Care Proxy Agent";
                         txtPriority.setText(priority);
-                    } else if (rel.getIsPrimary()==2) {
+                    } else if (rel.getIsPrimary() == 2) {
 
                         priority = "Secondary - Emergency Contact";
                         txtPriority.setText(priority);
-                    } else if (rel.getIsPrimary()==3) {
+                    } else if (rel.getIsPrimary() == 3) {
 
                         priority = "Secondary - Health Care Proxy Agent";
                         txtPriority.setText(priority);
@@ -1506,8 +1504,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 disableEmergency();
                 tilName.setHint("Name");
                 tilName.setHintEnabled(true);
-               // spinnerPriority.setVisibility(View.VISIBLE);
-               // spinnerPriority.setFloatingLabelText("Priority");
+                // spinnerPriority.setVisibility(View.VISIBLE);
+                // spinnerPriority.setFloatingLabelText("Priority");
                 tilPriority.setVisibility(View.VISIBLE);
                 txtTitle.setVisibility(View.VISIBLE);
                 txtTitle.setText("Emergency Contact and \nHealth Care Proxy Agent");
@@ -1537,11 +1535,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     if (rel.getIsPrimary() != 4) {
                         for (int i = 0; i < priorityType.length; i++) {
-                            if (rel.getIsPrimary()==i) {
+                            if (rel.getIsPrimary() == i) {
                                 txtPriority.setText(priorityType[i]);
                             }
                         }
-                      //  spinnerPriority.setSelection(rel.getIsPrimary() + 1);
+                        //  spinnerPriority.setSelection(rel.getIsPrimary() + 1);
                     }
                     String photo = rel.getPhoto();
                     imagepath = rel.getPhoto();
@@ -1716,7 +1714,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtTitle.setText("Update Primary Physician");
                 Intent specialistIntent1 = getActivity().getIntent();
                 if (specialistIntent1.getExtras() != null) {
-                     specialist = (Specialist) specialistIntent1.getExtras().getSerializable("SpecialistObject");
+                    specialist = (Specialist) specialistIntent1.getExtras().getSerializable("SpecialistObject");
 
                     if (Cname.isEmpty()) {//nikita
                         txtDoctorName.setText(specialist.getName());
@@ -2963,10 +2961,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtAddress.setEnabled(false);
         txtEmergencyNote.setEnabled(false);
         spinnerRelation.setClickable(false);
-      //  spinnerPriority.setClickable(false);
+        //  spinnerPriority.setClickable(false);
         txtPriority.setClickable(false);
         spinnerRelation.setFocusable(false);
-      //  spinnerPriority.setFocusable(false);
+        //  spinnerPriority.setFocusable(false);
         imgEdit.setVisibility(View.GONE);
         txtCard.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
@@ -3977,7 +3975,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
-                i.putExtra("Category","Relation");
+                i.putExtra("Category", "Relation");
                 startActivityForResult(i, RESULT_RELATION);
             }
         });
@@ -3985,7 +3983,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
-                i.putExtra("Category","Specialty");
+                i.putExtra("Category", "Specialty");
                 startActivityForResult(i, RESULT_SPECIALTY);
             }
         });
@@ -3994,7 +3992,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
-                i.putExtra("Category","Priority");
+                i.putExtra("Category", "Priority");
                 startActivityForResult(i, RESULT_PRIORITY);
             }
         });
@@ -4116,7 +4114,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         break;
 
                     case "EmergencyUpdate":
-                              deleteEmergency(rel);
+                        deleteEmergency(rel);
                         break;
 
 
@@ -4131,7 +4129,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
                         break;
-
 
 
                     case "HospitalData":
@@ -4473,8 +4470,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             } else return true;
         } else if (screen.equals("Emergency")) {
-          //  priority=txtPriority.getText().toString();
-            relation=txtRelation.getText().toString();
+            //  priority=txtPriority.getText().toString();
+            relation = txtRelation.getText().toString();
             /*int indexs = spinnerPriority.getSelectedItemPosition();
             if (indexValue != 0) {
                 relation = Relationship[indexValue - 1];
@@ -4597,7 +4594,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             if (indexValuex != 0) {
                 speciality = healthSpeciality[indexValuex - 1];
             }*/
-            speciality=txtSpecialty.getText().toString();
+            speciality = txtSpecialty.getText().toString();
             practice_name = txtPracticeName.getText().toString();
             network = txtNetwork.getText().toString();
             affil = txtAffiliation.getText().toString();
@@ -5027,17 +5024,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             } else {
                 tilOtherRelation.setVisibility(View.GONE);
             }
-        }
-        else if (requestCode == RESULT_PRIORITY && data != null) {
+        } else if (requestCode == RESULT_PRIORITY && data != null) {
             priority = data.getStringExtra("Priority");
             txtPriority.setText(priority);
 
-        }
-        else if (requestCode == RESULT_SPECIALTY && data != null) {
+        } else if (requestCode == RESULT_SPECIALTY && data != null) {
             speciality = data.getStringExtra("Specialty");
             txtSpecialty.setText(speciality);
-        }
-        else if (requestCode == RESULT_TYPE && data != null) {
+        } else if (requestCode == RESULT_TYPE && data != null) {
             String type = data.getStringExtra("Relation");
             txtType = llAddPhone.findViewById(R.id.txtType);
             txtType.setText(type);
@@ -5232,7 +5226,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                     getActivity().finish();
-                   // getData();
+                    // getData();
                     //setListData();
                 }
                 dialog.dismiss();
