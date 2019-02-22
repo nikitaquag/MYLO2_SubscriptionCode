@@ -198,6 +198,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             connection = MyConnectionsQuery.fetchOneRecord("Self");
             preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
             preferences.putString(PrefConstants.CONNECTED_NAME, connection.getName());
+            preferences.putString(PrefConstants.CONNECTED_RELATION,"Self");
             String name = connection.getName();
            // String address = connection.getAddress();
             String relation = "Self";
@@ -226,6 +227,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         } else {
             connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             preferences.putString(PrefConstants.CONNECTED_NAME, connection.getName());
+            preferences.putString(PrefConstants.CONNECTED_RELATION,connection.getRelationType());
             String name = connection.getName();
             String address = connection.getAddress();
             String relation = connection.getRelationType();

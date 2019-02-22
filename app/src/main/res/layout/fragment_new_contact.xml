@@ -83,9 +83,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
-
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilSpecialty"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:descendantFocusability="beforeDescendants"
@@ -94,8 +94,9 @@
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            app:hintEnabled="true"
 
-                            app:hintEnabled="true">
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
                                 android:id="@+id/txtSpecialty"
@@ -132,7 +133,7 @@
 
                         <requestFocus />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherCategoryDoctor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -141,7 +142,8 @@
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
                                 android:id="@+id/txtOtherCategoryDoctor"
@@ -189,7 +191,7 @@
                             <requestFocus />
                         </RelativeLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherCategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -199,7 +201,8 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            android:visibility="visible">
+                            android:visibility="visible"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtOtherCategory"
@@ -219,7 +222,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -228,7 +231,8 @@
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFName"
@@ -247,7 +251,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilContactName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -256,7 +260,8 @@
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtContactName"
@@ -275,7 +280,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -283,7 +288,8 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            
+                            app:hintTextAppearance="@style/TextInputLayoutHintText"
+
                             >
 
                             <AutoCompleteTextView
@@ -303,14 +309,15 @@
                         </android.support.design.widget.TextInputLayout>
 
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceEmail"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceOfficePhone"
@@ -330,14 +337,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceMobilePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceOfficePhone"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceMobilePhone"
@@ -357,14 +365,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceOtherPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceMobilePhone"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceOtherPhone"
@@ -384,7 +393,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceLocation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -392,7 +401,8 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceLocation"
@@ -408,14 +418,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceLocation"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceFax"
@@ -426,7 +437,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
-                               
+
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -435,14 +446,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceAddres"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceFax"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceAddress"
@@ -458,14 +470,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinanceWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceAddres"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceWebsite"
@@ -484,7 +497,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilFinancePracticeName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -492,7 +505,8 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinancePracticeName"
@@ -508,14 +522,15 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilLastSeen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinancePracticeName"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtLastSeen"
@@ -533,13 +548,14 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilLastSeen"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtFinanceNote"
@@ -585,7 +601,7 @@
 
                         <requestFocus />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherCategoryHospital"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -594,7 +610,8 @@
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            app:hintEnabled="true">
+                            app:hintEnabled="true"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
                                 android:id="@+id/txtOtherCategoryHospital"
@@ -614,7 +631,7 @@
                         </android.support.design.widget.TextInputLayout>
                     </RelativeLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilFNameHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -623,7 +640,8 @@
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtFNameHospital"
@@ -642,14 +660,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalOfficePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilFNameHospital"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalOfficePhone"
@@ -669,14 +688,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalOtherPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalOtherPhone"
@@ -696,14 +716,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalFax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalFax"
@@ -723,14 +744,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalAddres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalOtherPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalAddress"
@@ -746,14 +768,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalAddres"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalWebsite"
@@ -772,14 +795,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalWebsite"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalLocation"
@@ -795,14 +819,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalPracticeName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLocation"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalPracticeName"
@@ -818,14 +843,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalLastSeen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalPracticeName"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalLastSeen"
@@ -843,14 +869,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHospitalLocator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLastSeen"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalLocator"
@@ -867,13 +894,14 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHospitalLocator"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHospitalNote"
@@ -897,7 +925,7 @@
                     android:layout_below="@+id/rlHospital"
                     android:visibility="gone">
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -907,7 +935,8 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        app:hintEnabled="true">
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtName"
@@ -946,7 +975,7 @@
                             custom:ms_floatingLabelColor="@color/colorBlue"
                             custom:ms_hintColor="@color/colorDarkGray" />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -957,8 +986,9 @@
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            app:hintEnabled="true"
 
-                            app:hintEnabled="true">
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
                                 android:id="@+id/txtRelation"
@@ -977,7 +1007,7 @@
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -989,7 +1019,8 @@
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone"
-                            app:hintEnabled="true">
+                            app:hintEnabled="true"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
                                 android:id="@+id/txtOtherRelation"
@@ -1025,7 +1056,7 @@
                         custom:ms_floatingLabelColor="@color/colorBlue"
                         custom:ms_hintColor="@color/colorDarkGray" />
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPriority"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1037,7 +1068,8 @@
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        app:hintEnabled="true">
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtPriority"
@@ -1070,11 +1102,12 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                            <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilPhoNum"
                                 android:layout_width="@dimen/dimension0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="3">
+                                android:layout_weight="3"
+                                app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
                                     android:id="@+id/txtPhoNum"
@@ -1094,11 +1127,12 @@
                                 <requestFocus />
                             </android.support.design.widget.TextInputLayout>
 
-                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                            <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilType"
                                 android:layout_width="@dimen/dimension0dp"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="2">
+                                android:layout_weight="2"
+                                app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
                                     android:id="@+id/txtType"
@@ -1147,15 +1181,16 @@
                             android:layout_height="wrap_content"></ListView>
                     </RelativeLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilMobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/RlPhone"
+                        android:layout_below="@+id/llPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtMobile"
@@ -1175,7 +1210,7 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1183,7 +1218,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPhone"
@@ -1203,7 +1239,7 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOfficePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1211,7 +1247,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtOfficePhone"
@@ -1231,14 +1268,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rlRelations"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtEmail"
@@ -1256,14 +1294,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAddres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAddress"
@@ -1308,7 +1347,7 @@
 
                         ></View>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilEmergencyNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1316,7 +1355,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtEmergencyNote"
@@ -1400,7 +1440,7 @@
                     android:layout_below="@+id/rlTop"
                     android:visibility="gone">
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1408,7 +1448,8 @@
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorName"
@@ -1427,14 +1468,96 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
-                        android:id="@+id/tilDoctorOfficePhone"
+                    <RelativeLayout
+                        android:id="@+id/llDrPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorName"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:layout_marginRight="@dimen/dimension20dp">
+
+                        <LinearLayout
+                            android:id="@+id/llDrNum"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrPhoNum"
+                                android:layout_width="@dimen/dimension0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrPhoNum"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="Phone Number"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="phone"
+                                    android:maxLength="12"
+                                    android:maxLines="1"
+
+                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+
+                                <requestFocus />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrType"
+                                android:layout_width="@dimen/dimension0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:drawableRight="@drawable/drp"
+                                    android:hint="Type"
+                                    android:imeOptions="actionNext"
+                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+
+                                <requestFocus />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <ImageView
+                                android:id="@+id/imgAddDrPhone"
+                                android:layout_width="@dimen/dimension0dp"
+                                android:layout_height="@dimen/dimension35dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/add_n" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/llAddDrPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/llDrNum"
+                            android:orientation="vertical"></LinearLayout>
+
+                    </RelativeLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilDoctorOfficePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llDrPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorOfficePhone"
@@ -1454,14 +1577,16 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorHourOfficePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorHourOfficePhone"
@@ -1481,14 +1606,16 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorOtherPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorHourOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorOtherPhone"
@@ -1508,14 +1635,16 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorFax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorOtherPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorFax"
@@ -1535,14 +1664,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:layout_width="match_parent"
@@ -1559,14 +1689,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorAddress"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorWebsite"
@@ -1585,14 +1716,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorAddress"
@@ -1608,7 +1740,7 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPracticeName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1616,7 +1748,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtPracticeName"
@@ -1634,14 +1767,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorLastSeen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilNetwork"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorLastSeen"
@@ -1657,14 +1791,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilNetwork"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAffiliation"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtNetwork"
@@ -1683,14 +1818,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAffiliation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPracticeName"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAffiliation"
@@ -1706,14 +1842,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilDoctorLocator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorLastSeen"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorLocator"
@@ -1736,13 +1873,14 @@
                         android:layout_below="@+id/tilDoctorLocator"
                         android:background="@color/colorLightGray"></View>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vDrNote"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtDoctorNote"
@@ -1766,7 +1904,7 @@
                     android:layout_below="@+id/rlCommon"
                     android:visibility="gone">
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilInsuaranceName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1774,6 +1912,7 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -1819,7 +1958,7 @@
 
                         <requestFocus />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherInsurance"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1827,7 +1966,8 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
-                            android:visibility="gone">
+                            android:visibility="gone"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtOtherInsurance"
@@ -1849,7 +1989,7 @@
                         </android.support.design.widget.TextInputLayout>
                     </RelativeLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1857,6 +1997,7 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                         >
 
@@ -1877,7 +2018,7 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilGroup"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1885,6 +2026,7 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                         >
 
@@ -1905,14 +2047,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilSubscribe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilGroup"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtSubscribe"
@@ -1931,14 +2074,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilInsuarancePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilSubscribe"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtInsuarancePhone"
@@ -1958,14 +2102,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilInsuaranceFax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuarancePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtInsuaranceFax"
@@ -1985,14 +2130,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilInsuaranceEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtInsuaranceEmail"
@@ -2010,14 +2156,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceEmail"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtWebsite"
@@ -2035,14 +2182,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAgent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilWebsite"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAgent"
@@ -2058,13 +2206,14 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAgent"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtInsuaranceNote"
@@ -2080,14 +2229,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceEmail"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtMember"
@@ -2114,7 +2264,7 @@
                     android:layout_below="@+id/rlCommon"
                     android:visibility="gone">
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideCompName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2124,6 +2274,7 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -2144,14 +2295,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideOfficePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideCompName"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideOfficePhone"
@@ -2171,14 +2323,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilHourOfficePhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtHourOfficePhone"
@@ -2198,14 +2351,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOtherPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilHourOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtOtherPhone"
@@ -2225,14 +2379,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideFax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilOtherPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideFax"
@@ -2252,14 +2407,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideEmail"
@@ -2277,14 +2433,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideEmail"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideAddress"
@@ -2300,14 +2457,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAideWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideAddress"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideWebsite"
@@ -2326,13 +2484,14 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAideWebsite"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAideNote"
@@ -2348,14 +2507,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAids"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtAids"
@@ -2374,7 +2534,7 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilSchedule"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2382,7 +2542,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtSchedule"
@@ -2401,14 +2562,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilSchedule"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtOther"
@@ -2459,7 +2621,7 @@
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:visibility="gone">
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2468,7 +2630,8 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyName"
@@ -2487,16 +2650,17 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyAddres"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyName"
-
                         android:paddingLeft="@dimen/dimension20dp"
+
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyAddress"
@@ -2512,14 +2676,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyAddres"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyPhone"
@@ -2539,14 +2704,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyFax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyFax"
@@ -2566,14 +2732,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyFax"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyWebsite"
@@ -2592,14 +2759,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyLocator"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyWebsite"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyLocator"
@@ -2615,14 +2783,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPharmacyNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyLocator"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPharmacyNote"
@@ -2638,14 +2807,15 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyNote"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
                             android:layout_width="match_parent"

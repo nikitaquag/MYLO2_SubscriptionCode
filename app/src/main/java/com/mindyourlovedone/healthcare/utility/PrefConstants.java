@@ -27,4 +27,5 @@ public class PrefConstants {
     public static final String FROM_DB = "FromDb";
 
     public static final String TODOWHAT = "ToDoWhat";
+    public static final String CONNECTED_RELATION = "Relation";
 }
