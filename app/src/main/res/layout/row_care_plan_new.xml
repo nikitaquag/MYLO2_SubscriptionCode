@@ -108,13 +108,13 @@
 
             <ImageView
                 android:id="@+id/imgNext"
-                android:layout_width="@dimen/dimension60dp"
-                android:layout_height="@dimen/dimension60dp"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension0dp"
                 android:focusableInTouchMode="false"
-                android:padding="@dimen/dimension20dp"
+                android:padding="@dimen/dimension5dp"
                 android:src="@drawable/right"
 
                 />

@@ -155,7 +155,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         lvInsurance.setLayoutManager(linearLayoutManager);
 
         //add ItemDecoration
-        lvInsurance.addItemDecoration(new VerticalSpaceItemDecoration(48));
+        lvInsurance.addItemDecoration(new VerticalSpaceItemDecoration(0));
 
         //or
         lvInsurance.addItemDecoration(

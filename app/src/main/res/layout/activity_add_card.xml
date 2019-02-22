@@ -26,15 +26,24 @@
                 android:layout_marginLeft="@dimen/dimension15dp"
                 android:src="@drawable/backward_arrow" />
 
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
-
-                android:text="Add Insurance Card"
-                android:textAllCaps="true"
+                android:text="Add/Edit Insurance Card"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -209,7 +218,7 @@
 
                     <ImageView
                         android:id="@+id/imgFrontCard"
-                        android:layout_width="240dp"
+                        android:layout_width="250dp"
                         android:layout_height="@dimen/dimension160dp"
                         android:layout_gravity="center"
                         android:scaleType="fitXY" />
