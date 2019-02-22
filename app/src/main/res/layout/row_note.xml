@@ -70,6 +70,7 @@
                 style="@style/EmergencyDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="false"
                 android:layout_toLeftOf="@+id/imgForword"
                 android:layout_toRightOf="@id/imgDocType"
                 android:text="08/09/2017  14:00" />

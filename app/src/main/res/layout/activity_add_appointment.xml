@@ -226,9 +226,9 @@
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dimension20dp" />
+                    android:textSize="@dimen/dimension20dp"
+                    android:visibility="visible" />
             </android.support.design.widget.TextInputLayout>
-
 
             <TextView
                 android:id="@+id/txtCompleted"
@@ -339,11 +339,11 @@
 
         <RelativeLayout
             android:id="@+id/rlDelete"
-            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:padding="@dimen/dimension10dp">
+            android:padding="@dimen/dimension10dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtDelete"

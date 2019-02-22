@@ -271,6 +271,9 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 if (a.getDoctor() != null) {
                     txtName.setText(a.getDoctor());
                 }
+                if (a.getNote() != null) {
+                    txtNote.setText(a.getNote());
+                }
                 if (a.getFrequency() != null) {
                     int index = 0;
                     for (int j = 0; j < Frequency.length; j++) {
@@ -295,13 +298,11 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                     }
                     spinnerType.setSelection(index + 1);
                 }
-
             } else if (i.getExtras().get("FROM").equals("Add")) {
                 txtAdd.setText("Add Appointment");
                 isUpdate = false;
             }
         }
-
     }
 
     @Override
@@ -347,7 +348,6 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 otherType = txtOtherSpecialist.getText().toString();
                 otherFrequency = txtOtherFrequency.getText().toString();
                 int indexValuex = spinnerType.getSelectedItemPosition();
-
 
                 String type = "";
                 String frequency = "";

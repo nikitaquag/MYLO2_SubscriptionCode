@@ -76,6 +76,16 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
             }
         });
 
+        if (noteList.get(position).getTxtNote().equals("")) {
+            holder.txtNote.setVisibility(View.GONE);
+        } else {
+            holder.txtNote.setVisibility(View.VISIBLE);
+        }
+        if (holder.txtNoteData.getVisibility() == View.VISIBLE) {
+            holder.txtNote.setVisibility(View.GONE);
+        } else {
+            holder.txtNote.setVisibility(View.VISIBLE);
+        }
         holder.txtNote.setSingleLine(true);
         holder.txtNote.setEllipsize(TextUtils.TruncateAt.END);
         holder.txtNote.setText(noteList.get(position).getTxtNote());
@@ -129,7 +139,7 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
         ImageView imgForward, imgDrop;
         LinearLayout lintrash, llNote;
         SwipeLayout swipeLayout;
-        RelativeLayout rlTop,rlView;
+        RelativeLayout rlTop, rlView;
 
         public Holder(View convertView) {
             super(convertView);
