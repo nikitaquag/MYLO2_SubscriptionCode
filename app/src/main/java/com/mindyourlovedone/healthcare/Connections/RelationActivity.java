@@ -54,6 +54,7 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
                 listRelation.setAdapter(rd);
             }
+
             else if (category.equalsIgnoreCase("finance")) {
                 String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, financeType);
