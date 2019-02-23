@@ -21,6 +21,7 @@ public class RelationActivity extends AppCompatActivity {
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
     private static int RESULT_CATEGORY = 14;
+    private static int RESULT_FINANCECAT = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +48,19 @@ public class RelationActivity extends AppCompatActivity {
                 String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality);
                 listRelation.setAdapter(rd);
-            } else if (category.equalsIgnoreCase("Category")) {
+            }
+            else if (category.equalsIgnoreCase("Category")) {
                 String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
                 listRelation.setAdapter(rd);
             }
+            else if (category.equalsIgnoreCase("finance")) {
+                String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, financeType);
+                listRelation.setAdapter(rd);
+            }
+
+
         }
 
         // RelationsAdapter rd = new RelationsAdapter(context, Relationship);
@@ -72,9 +81,14 @@ public class RelationActivity extends AppCompatActivity {
                 } else if (category.equalsIgnoreCase("Specialty")) {
                     i.putExtra("Specialty", txtRel.getText().toString());
                     setResult(RESULT_SPECIALTY, i);
-                } else if (category.equalsIgnoreCase("Category")) {
+                }
+                else if (category.equalsIgnoreCase("Category")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_CATEGORY, i);
+                }
+                else if (category.equalsIgnoreCase("finance")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_FINANCECAT, i);
                 }
                 finish();
             }
