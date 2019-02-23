@@ -1058,17 +1058,38 @@
                                 android:layout_weight="1"
                                 />
                         </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/llAddPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_below="@+id/llNum"
+                            ></LinearLayout>
 
                     </RelativeLayout>
-
+                    <RelativeLayout
+                        android:id="@+id/RlPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llPhone"
+                        android:layout_marginLeft="@dimen/dimension30dp"
+                        android:layout_marginRight="@dimen/dimension30dp"
+                        >
+                        <ListView
+                            android:id="@+id/listPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"></ListView>
+                    </RelativeLayout>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilMobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/llPhone"
+                        android:layout_below="@+id/RlPhone"
                         android:paddingLeft="@dimen/dimension30dp"
                         android:paddingRight="@dimen/dimension30dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        >
 
                         <AutoCompleteTextView
                             android:id="@+id/txtMobile"
@@ -1095,7 +1116,9 @@
                         android:layout_below="@+id/tilMobile"
                         android:paddingLeft="@dimen/dimension30dp"
                         android:paddingRight="@dimen/dimension30dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        >
 
                         <AutoCompleteTextView
                             android:id="@+id/txtPhone"
@@ -1122,7 +1145,9 @@
                         android:layout_below="@+id/tilPhone"
                         android:paddingLeft="@dimen/dimension30dp"
                         android:paddingRight="@dimen/dimension30dp"
-                        android:paddingBottom="@dimen/dimension8dp">
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        >
 
                         <AutoCompleteTextView
                             android:id="@+id/txtOfficePhone"

@@ -21,6 +21,7 @@
             android:divider="@color/colorLightGray"
             android:dividerHeight="@dimen/dimension20dp"
             android:paddingTop="@dimen/dimension15dp"
+            android:visibility="visible"
             android:scrollbars="none"></android.support.v7.widget.RecyclerView>
 
         <ScrollView

@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<!--<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue">
-<RelativeLayout
+    android:background="@color/colorLightBlue">-->
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue">
-
+    android:background="@color/colorLightBlue"
+    android:orientation="vertical"
+    >
+<RelativeLayout
+    android:id="@+id/rlTops"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimension0dp"
+    android:layout_above="@+id/rlSponsor"
+    android:layout_weight="9"
+    >
     <FrameLayout
         android:id="@+id/flTop"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/dimension250dp">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -46,7 +55,7 @@
             android:hint="Name"
             android:maxLength="30"
             android:maxLines="1"
-            android:paddingLeft="@dimen/dimension15dp"
+
             android:paddingTop="@dimen/dimension5dp"
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"
@@ -72,7 +81,7 @@
             android:hint="Email"
             android:maxLength="30"
             android:maxLines="1"
-            android:paddingLeft="@dimen/dimension15dp"
+
             android:paddingTop="@dimen/dimension5dp"
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"
@@ -170,10 +179,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlcheck"
+
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dimension25dp"
-        android:layout_marginBottom="@dimen/dimension25dp"
+        android:layout_marginTop="@dimen/dimension15dp"
+        android:layout_marginBottom="@dimen/dimension15dp"
         android:background="@drawable/border_registered"
         android:paddingLeft="@dimen/dimension60dp"
         android:paddingTop="@dimen/dimension11dp"
@@ -185,14 +195,15 @@
         android:textStyle="bold"
         android:textSize="@dimen/dimension17dp"/>
 
-
+</RelativeLayout>
     <RelativeLayout
         android:id="@+id/rlSponsor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtNext"
+        android:layout_height="@dimen/dimension0dp"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorSponsorBlue"
-       android:layout_alignParentBottom="true">
+        android:layout_weight="1.5"
+        >
 
         <TextView
             android:id="@+id/txtSponsor"
@@ -210,8 +221,8 @@
             android:layout_width="@dimen/dimension200dp"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/r_new"
-            android:padding="@dimen/dimension5dp"/>
+            android:padding="@dimen/dimension5dp"
+            android:src="@drawable/r_new" />
 
     </RelativeLayout>
 
@@ -1059,5 +1070,6 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension24dp" />
     -->
-</RelativeLayout>
-</ScrollView>
+</LinearLayout>
+<!--
+</ScrollView>-->

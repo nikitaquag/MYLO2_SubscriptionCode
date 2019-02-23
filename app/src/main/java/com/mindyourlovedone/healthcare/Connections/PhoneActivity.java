@@ -16,7 +16,7 @@ public class PhoneActivity extends AppCompatActivity {
 ListView listRelation;
 Context context=this;
 ImageView imgBack;
-    String[] Relationship = {"Mobile", "Home", "Work", "Fax"};
+    String[] Relationship = {"Mobile", "Home", "Office", "Fax"};
     private static int RESULT_RELATION = 10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ ImageView imgBack;
                 TextView txtRel=view.findViewById(R.id.txtRel);
                 Intent i=new Intent();
                 i.putExtra("Relation",txtRel.getText().toString());
-
                 setResult(RESULT_RELATION,i);
                 finish();
             }

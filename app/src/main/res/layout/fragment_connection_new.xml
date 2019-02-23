@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/dimension5dp"
                 android:text="Self"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
+                android:textSize="@dimen/dimension16dp"
                 android:textStyle="normal" />
 
         </LinearLayout>

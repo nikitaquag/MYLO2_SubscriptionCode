@@ -62,6 +62,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
+
     FloatingActionButton floatProfile, floatAdd, floatOptions;
 
     @Nullable
@@ -82,25 +83,23 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         VitalQuery v = new VitalQuery(getActivity(), dbHelper);
     }
 
-    private void setListData() {
-        if (vitalList.size() != 0 && vitalList.isEmpty()) {
+    public void setListData() {
+        if (vitalList.size() != 0 && !vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
-            lvVital.setVisibility(View.VISIBLE);
+            lvVital.setSystemUiVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
         } else {
-            lvVital.setVisibility(View.GONE);
+            lvVital.setSystemUiVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
         }
     }
-
 
     private void initListener() {
         llAddVital.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
-
     }
 
     private void initUI() {
@@ -162,7 +161,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         rlGuide = rootview.findViewById(R.id.rlGuide);
         llAddVital = rootview.findViewById(R.id.llAddVital);
-        lvVital = rootview.findViewById(R.id.lvVital);
+        lvVital = getActivity().findViewById(R.id.lvVital);
         setListData();
 
         // Layout Managers:
@@ -207,7 +206,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 
     }
 
-    private void getData() {
+    public void getData() {
         vitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
     }
 
@@ -217,16 +216,18 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
             case R.id.floatAdd:
                 Intent intentVital = new Intent(getActivity(), AddVitalSignsActivity.class);
+                intentVital.putExtra("Date", "Date");
+                intentVital.putExtra("Time", "Time");
                 startActivity(intentVital);
                 break;
             case R.id.llAddVital:
-//                preferences.putString(PrefConstants.SOURCE, "Vital");
+                preferences.putString(PrefConstants.SOURCE, "Vital");
                 Intent i = new Intent(getActivity(), AddVitalSignsActivity.class);
                 i.putExtra("IsEdit", false);
                 startActivity(i);
@@ -319,8 +320,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     @Override
     public void onResume() {
         super.onResume();
-         getData();
-         setListData();
+        getData();
+        setListData();
     }
 
 

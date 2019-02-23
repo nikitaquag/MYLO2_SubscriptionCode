@@ -149,7 +149,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     private void initUI() {
         lvSelf = rootview.findViewById(R.id.lvSelf);
         floatAdd = rootview.findViewById(R.id.floatAdd);
-        floatAdd.setImageResource(R.drawable.plus);
+        //floatAdd.setImageResource(R.drawable.plus);
         llSelf = rootview.findViewById(R.id.llSelf);
         imgSelfFolder = rootview.findViewById(R.id.imgSelfFolder);
         imgSelf = rootview.findViewById(R.id.imgSelf);
@@ -213,7 +213,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         });
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
-        txtTitle.setText("PROFILES");
+        txtTitle.setText("Profiles");
         imgPdf = getActivity().findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgProfile = getActivity().findViewById(R.id.imgProfile);

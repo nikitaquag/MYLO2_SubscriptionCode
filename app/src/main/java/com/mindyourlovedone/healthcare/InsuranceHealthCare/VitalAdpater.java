@@ -50,51 +50,12 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
 
     public VitalAdpater(Activity activity, ArrayList<VitalSigns> vitalList, FragmentVitalSigns fragmentVitalSigns) {
-        preferences = new Preferences(context);
-        this.context = context;
-        this.vitalList = this.vitalList;
+        // preferences = new Preferences(context);
+        this.context = activity;
+        this.vitalList = vitalList;
+        this.fr=fragmentVitalSigns;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        initImageLoader();
     }
-
-    private void initImageLoader() {
-        //Profile
-        displayImageOptionsProfile = new DisplayImageOptions.Builder() // resource
-                .resetViewBeforeLoading(true) // default
-                .cacheInMemory(true) // default
-                .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.yellow)
-                .considerExifParams(false) // default
-//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
-                .bitmapConfig(Bitmap.Config.ARGB_8888) // default
-                .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
-                .displayer(new RoundedBitmapDisplayer(150)) // default //for square SimpleBitmapDisplayer()
-                .handler(new Handler()) // default
-                .build();
-        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(displayImageOptionsProfile)
-                .build();
-        ImageLoader.getInstance().init(config);
-        imageLoaderProfile = ImageLoader.getInstance();
-
-        //Card
-        displayImageOptionsCard = new DisplayImageOptions.Builder() // resource
-                .resetViewBeforeLoading(true) // default
-                .cacheInMemory(true) // default
-                .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.busi_card)
-                .considerExifParams(false) // default
-//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
-                .bitmapConfig(Bitmap.Config.ARGB_8888) // default
-                .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
-                .displayer(new SimpleBitmapDisplayer()) // default //for square SimpleBitmapDisplayer()
-                .handler(new Handler()) // default
-                .build();
-        ImageLoaderConfiguration configs = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(displayImageOptionsCard)
-                .build();
-        ImageLoader.getInstance().init(configs);
-        imageLoaderCard = ImageLoader.getInstance();
-    }
-
 
     @Override
     public long getItemId(int position) {
@@ -114,20 +75,14 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final VitalAdpater.ViewHolder holder, final int position) {
+/*
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lintrash.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (fr != null) {
-                    fr.deleteVital(vitalList.get(position));
-                }
-            }
-        });
+*/
 
  /*
         if (vitalList.get(position).getOfficePhone().equals("")) {
@@ -163,24 +118,12 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
-                VitalSigns hospital = vitalList.get(position);
+                // VitalSigns hospital = vitalList.get(position);
                 i.putExtra("isEdit", true);
                 i.putExtra("IsView", true);
                 context.startActivity(i);
             }
         });
-        holder.imgNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "HospitalViewData");
-                //  Hospital hospital = vitalList.get(position);
-                // i.putExtra("HospitalObject", hospital);
-                context.startActivity(i);
-            }
-        });
-
     }
 
     @Override
@@ -189,31 +132,25 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtName, txtAddress, txtPhone, txtType, txtCategory;
-        ImageView imgProfile, imgForward, imgEdit;
-        ImageView imgNext;
+        TextView txtBP, txtBPValue, txtHR, txtHRValue, txtTemp, txtTempValue, txtDate, txtTime;
+        ImageView imgDropDown;
 
         SwipeLayout swipeLayout;
-        LinearLayout lincall, lintrash;
         RelativeLayout rlVital;
-        // SwipeRevealLayout swipeLayout;
 
         public ViewHolder(View convertView) {
             super(convertView);
-            lincall = itemView.findViewById(R.id.lincall);
-            lintrash = itemView.findViewById(R.id.lintrash);
-            rlVital = itemView.findViewById(R.id.rlVital);
-            swipeLayout = itemView.findViewById(R.id.swipe);
+            txtBP = convertView.findViewById(R.id.txtBP);
+            txtBPValue = convertView.findViewById(R.id.txtBpValue);
+            txtHR = convertView.findViewById(R.id.txtHR);
+            txtHRValue = convertView.findViewById(R.id.txtHRValue);
+            txtTemp = convertView.findViewById(R.id.txtTemp);
+            txtTempValue = convertView.findViewById(R.id.txtTempValue);
+            txtDate = convertView.findViewById(R.id.txtDate);
+            txtTime = convertView.findViewById(R.id.txtTime);
+            rlVital = convertView.findViewById(R.id.rlVital);
 
-            txtName = convertView.findViewById(R.id.txtName);
-            txtAddress = convertView.findViewById(R.id.txtAddress);
-            txtPhone = convertView.findViewById(R.id.txtPhone);
-            txtType = convertView.findViewById(R.id.txtType);
-            txtCategory = convertView.findViewById(R.id.txtCategory);
-            imgProfile = convertView.findViewById(R.id.imgProfile);
-            imgForward = convertView.findViewById(R.id.imgForword);
-            imgEdit = convertView.findViewById(R.id.imgEdit);
-            imgNext = convertView.findViewById(R.id.imgNext);
+            imgDropDown = convertView.findViewById(R.id.imgDropDown);
         }
     }
 
