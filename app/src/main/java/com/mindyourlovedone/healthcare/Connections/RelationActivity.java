@@ -21,6 +21,7 @@ public class RelationActivity extends AppCompatActivity {
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
     private static int RESULT_CATEGORY = 14;
+    private static int RESULT_FINANCECAT = 15;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +54,11 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
                 listRelation.setAdapter(rd);
             }
-
+            else if (category.equalsIgnoreCase("finance")) {
+                String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, financeType);
+                listRelation.setAdapter(rd);
+            }
 
 
         }
@@ -80,6 +85,10 @@ public class RelationActivity extends AppCompatActivity {
                 else if (category.equalsIgnoreCase("Category")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_CATEGORY, i);
+                }
+                else if (category.equalsIgnoreCase("finance")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_FINANCECAT, i);
                 }
                 finish();
             }

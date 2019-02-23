@@ -99,6 +99,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
     private static int RESULT_CATEGORY = 14;
+    private static int RESULT_FINANCECAT = 15;
     private static int RESULT_TYPE = 11;
     Bitmap ProfileMap = null, CardMap = null;
     ListView listRelation, listPhone;
@@ -159,8 +160,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     int connectionFlag;
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
-    TextInputLayout tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
-    TextView txtSpecialty,txtHCategory;
+    TextInputLayout tilFCategory,tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
+    TextView txtSpecialty,txtHCategory,txtFCategory;
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
     RelationAdapter relationAdapter;
@@ -198,8 +199,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     String cardImgPath = "";
     public static boolean fromDevice = false;
 
-    LinearLayout llAddPhone,llAddDrPhone;
-    ImageView imgAddPhone, imgAddDrPhone;
+    LinearLayout llAddPhone,llAddDrPhone,llAddHospPhone,llAddPharmPhone,llAddFinPhone,llAddInsuPhone;
+    ImageView imgAddPhone, imgAddDrPhone,imgAddHospPhone,imgAddPharmPhone,imgAddFinPhone,imgAddInsuPhone;
     TextView txtType,txtDrType;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -2573,13 +2574,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtFinanceNote.setText(specialist.getNote());
 
 //                    txtOtherCategory.setText(specialist.getOtherCategory());
-                    if (specialist.getOtherCategory() == null || specialist.getOtherCategory().equals("null") || specialist.getOtherCategory().isEmpty()) {
+                    /*if (specialist.getOtherCategory() == null || specialist.getOtherCategory().equals("null") || specialist.getOtherCategory().isEmpty()) {
                         txtOtherCategory.setText(specialist.getCategory());
                     } else {
                         txtOtherCategory.setText(specialist.getOtherCategory());
-                    }
+                    }*/
+                    txtFCategory.setText(specialist.getCategory());
 
-                    id = specialist.getId();
+                    if (specialist.getCategory().equals("Other"))
+                    {
+                        txtOtherCategory.setText(specialist.getOtherCategory());
+                    tilOtherCategory.setVisibility(View.VISIBLE);
+                } else {
+                    txtOtherCategory.setText("");
+                        tilOtherCategory.setVisibility(View.GONE);
+                }
+                    /*id = specialist.getId();
                     if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < financeType.length; i++) {
@@ -2588,7 +2598,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                         }
                         spinnerFinance.setSelection(index + 1);
-                    }
+                    }*/
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -3264,6 +3274,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtCard.setOnClickListener(this);
         imgAddPhone.setOnClickListener(this);
         imgAddDrPhone.setOnClickListener(this);
+        imgAddHospPhone.setOnClickListener(this);
+        imgAddPharmPhone.setOnClickListener(this);
+        imgAddFinPhone.setOnClickListener(this);
+        imgAddInsuPhone.setOnClickListener(this);
         txtDelete.setOnClickListener(this);
     }
 
@@ -3271,9 +3285,17 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
+        llAddHospPhone = rootview.findViewById(R.id.llAddHospPhone);
+        llAddPharmPhone = rootview.findViewById(R.id.llAddPharmPhone);
+        llAddFinPhone = rootview.findViewById(R.id.llAddFinPhone);
+        llAddInsuPhone = rootview.findViewById(R.id.llAddInsPhone);
         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
         imgAddDrPhone=rootview.findViewById(R.id.imgAddDrPhone);
+        imgAddHospPhone = rootview.findViewById(R.id.imgAddHospPhone);
+        imgAddPharmPhone = rootview.findViewById(R.id.imgAddPharmPhone);
+        imgAddFinPhone = rootview.findViewById(R.id.imgAddFinPhone);
+        imgAddInsuPhone = rootview.findViewById(R.id.imgAddInsPhone);
         txtDelete = rootview.findViewById(R.id.txtDelete);
         txtPriority = rootview.findViewById(R.id.txtPriority);
         txtPriority.setFocusable(false);
@@ -3525,7 +3547,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlTop = rootview.findViewById(R.id.rlTop);
 
         tilOtherCategory = rootview.findViewById(R.id.tilOtherCategory);
-        tilOtherCategory.setHint("Category");
+        tilOtherCategory.setHint("Other Category");
         txtOtherCategory = rootview.findViewById(R.id.txtOtherCategory);
         tilOtherInsurance = rootview.findViewById(R.id.tilOtherInsurance);
 
@@ -3571,6 +3593,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtSpecialty.setFocusable(false);
         txtHCategory = rootview.findViewById(R.id.txtHCategory);
         txtHCategory.setFocusable(false);
+        tilFCategory = rootview.findViewById(R.id.tilFCategory);
+        txtFCategory = rootview.findViewById(R.id.txtFCategory);
+        txtFCategory.setFocusable(false);
         rlProxy = rootview.findViewById(R.id.rlProxy);
         txtAdd = rootview.findViewById(R.id.txtAdd);
         imgEdit = rootview.findViewById(R.id.imgEdit);
@@ -4027,6 +4052,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         });
 
+        txtFCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "finance");
+                startActivityForResult(i, RESULT_FINANCECAT);
+            }
+        });
+
         txtPriority.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -4243,10 +4277,28 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.imgAddDrPhone:
-
                 addNewPhone(llAddDrPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+                break;
 
+            case R.id.imgAddHospPhone:
+                addNewPhone(llAddHospPhone);
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.imgAddPharmPhone:
+                addNewPhone(llAddPharmPhone);
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.imgAddFinPhone:
+                addNewPhone(llAddFinPhone);
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.imgAddInsPhone:
+                addNewPhone(llAddInsuPhone);
+                Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.imgEdit:
                 ShowCameraDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, "Profile");
@@ -4846,14 +4898,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             int indexValuex = spinnerFinance.getSelectedItemPosition();
             String sources = preferences.getString(PrefConstants.SOURCE);
             if (sources.equals("Finance") || sources.equals("FinanceViewData") || sources.equals("FinanceData")) {
-                if (indexValuex != 0) {
+                /*if (indexValuex != 0) {
                     speciality = financeType[indexValuex - 1];
+                }*/
+                speciality=txtFCategory.getText().toString();
+                if (speciality.equals("Other"))
+                {
+                    tilOtherCategory.setVisibility(View.VISIBLE);
+                }
+                else{
+                    tilOtherCategory.setVisibility(View.GONE);
+                    txtOtherCategory.setText("");
                 }
             } else {
                 if (indexValuex != 0) {
                     speciality = HospitalType[indexValuex - 1];
                 }
             }
+
             practice_name = txtFinancePracticeName.getText().toString();
             note = txtFinanceNote.getText().toString();
             if (name.equals("")) {
@@ -5131,7 +5193,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtOtherCategoryHospital.setText("");
             }
         }
-
+        else if (requestCode == RESULT_FINANCECAT&& data != null) {
+            speciality = data.getStringExtra("Category");
+            txtFCategory.setText(speciality);
+            if (speciality.equals("Other")) {
+                tilOtherCategory.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherCategory.setVisibility(View.GONE);
+                txtOtherCategory.setText("");
+            }
+        }
         else if (requestCode == RESULT_TYPE && data != null) {
             String type = data.getStringExtra("Relation");
             txtType = llAddPhone.findViewById(R.id.txtType);
