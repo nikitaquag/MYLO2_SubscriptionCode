@@ -119,17 +119,14 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
             }
         });
         
-       /* byte[] photo=cardList.get(position).getImgFront();
-        Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-        holder.imgCard.setImageBitmap(bmp);*/
-        File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgFront());
+       /* File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgFront());
         if (imgFile.exists()) {
 
             imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgCard, displayImageOptions);
 
         } else {
             holder.imgCard.setImageResource(R.drawable.ins_card);
-        }
+        }*/
         holder.txtProvider.setText(cardList.get(position).getName());
         holder.txtType.setText(cardList.get(position).getType());
 
@@ -151,43 +148,50 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
                 context.startActivity(i);
             }
         });*/
+/*
         holder.imgFront.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                           /* byte[] photo = CardList.get(position).getImgFront();
+                           */
+/* byte[] photo = CardList.get(position).getImgFront();
                             Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
-                            imgCard.setImageBitmap(bmp);*/
+                            imgCard.setImageBitmap(bmp);*//*
+
                 File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgFront());
                 if (imgFile.exists()) {
                     imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgCard, displayImageOptions);
-                            /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-            holder.imgProfile.setImageBitmap(myBitmap);*/
+                            */
+/* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            holder.imgProfile.setImageBitmap(myBitmap);*//*
+
                 } else {
                     holder.imgCard.setImageResource(R.drawable.ins_card);
                 }
                 //  imageLoader.displayImage(String.valueOf(CardList.get(position).getImgFront()),imgCard,displayImageOptions);
                 holder.imgBack.setImageResource(R.drawable.white_dot);
-                holder.imgFront.setImageResource(R.drawable.blue_dot);
+                //holder.imgFront.setImageResource(R.drawable.blue_dot);
             }
         });
+*/
+/*
         holder.imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                           /* byte[] photo1 = CardList.get(position).getImgBack();
-                            Bitmap bmp1 = BitmapFactory.decodeByteArray(photo1, 0, photo1.length);
-                            imgCard.setImageBitmap(bmp1);*/
-                File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgBack());
+               */
+/* File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), cardList.get(position).getImgBack());
                 if (imgFile.exists()) {
                     imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgCard, displayImageOptions);
                 } else {
                     holder.imgCard.setImageResource(R.drawable.ins_card);
-                }
+                }*//*
+
                 // imageLoader.displayImage(String.valueOf(CardList.get(position).getImgBack()),imgCard,displayImageOptions);
 
-                holder.imgBack.setImageResource(R.drawable.blue_dot);
-                holder.imgFront.setImageResource(R.drawable.white_dot);
+                //holder.imgBack.setImageResource(R.drawable.blue_dot);
+              //  holder.imgFront.setImageResource(R.drawable.white_dot);
             }
         });
+*/
 
        /* holder.imgForward.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,13 +216,13 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
             super(convertView);
             imgForward = itemView.findViewById(R.id.imgForword);
             imgBack = itemView.findViewById(R.id.imgBack);
-            imgFront = itemView.findViewById(R.id.imgFront);
+          //  imgFront = itemView.findViewById(R.id.imgFront);
             swipeLayout = itemView.findViewById(R.id.swipe);
             lintrash = itemView.findViewById(R.id.lintrash);
-            imgCard = convertView.findViewById(R.id.imgCard);
+           // imgCard = convertView.findViewById(R.id.imgCard);
             txtProvider = convertView.findViewById(R.id.txtProviderValue);
             txtType = convertView.findViewById(R.id.txtTypeValue);
-            imgEdit = convertView.findViewById(R.id.imgEdit);
+           // imgEdit = convertView.findViewById(R.id.imgEdit);
             rlCard = convertView.findViewById(R.id.rlCard);
         }
     }

@@ -38,11 +38,11 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Created by welcome on 9/14/2017. Changes done by nikita on 18/6/18
+ * Created by welcome on 9/14/2017. Changes done by nikita on 18/6/18. Changes done by shradha on 28 Jan 2019
  */
 
 public class FragmentProxy extends Fragment implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final String dialog_items[] = {"View", "Email", "Fax"};
     ImageView imgRight;
     View rootview;

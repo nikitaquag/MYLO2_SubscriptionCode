@@ -49,19 +49,19 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class EventNoteActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final int VERTICAL_ITEM_SPACE = 48;
+    private static final int VERTICAL_ITEM_SPACE = 0;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Note> noteList = new ArrayList<>();
-    ImageView imgBack, imgAdd, imgEdit, imgRight;
+    ImageView imgBack, imgHome, imgAdd, imgEdit, imgRight;
     RelativeLayout rlGuide;
     Preferences preferences;
     DBHelper dbHelper;
     TextView txtMsg, txtFTU, txtAdd;
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,17 +75,17 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
 
     private void initListener() {
         txtAdd.setOnClickListener(this);
-        //imgAdd.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
-        floatProfile.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
         //txtDateTime.setOnClickListener(this);
 
     }
 
     private void initUI() {
         scrollvw = findViewById(R.id.scrollvw);
-        floatProfile = findViewById(R.id.floatProfile);
+        floatAdd = findViewById(R.id.floatAdd);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To add a note click plus box " +
 //                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
@@ -117,14 +117,15 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 startActivity(intentEmerInstruc);
 //                txtMsg.setVisibility(View.VISIBLE);
                 rlGuide.setVisibility(View.GONE);//nikita
-              //  scrollvw.setVisibility(View.VISIBLE);//nikita
-              //  relMsg.setVisibility(View.VISIBLE);//nikita
+                //  scrollvw.setVisibility(View.VISIBLE);//nikita
+                //  relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
         rlEvent = findViewById(R.id.rlEvent);
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorEventPink);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
 
         txtAdd = findViewById(R.id.txtAdd);
         imgAdd = findViewById(R.id.imgAdd);
@@ -306,18 +307,23 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.floatProfile:
-                Intent intentDashboard = new Intent(context, BaseActivity.class);
-                intentDashboard.putExtra("c", 1);//Profile Data
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-             //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intentDashboard);
+            case R.id.floatAdd:
+                showInputDialog(context);
                 break;
 
             case R.id.imgBack:
                 hideSoftKeyboard();
                 finish();
                 break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
+
             case R.id.txtAdd:
                 showInputDialog(context);
                 break;
@@ -410,10 +416,6 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
 
     private void showInputDialog(final Context context) {
         final Dialog customDialog;
-
-        // LayoutInflater inflater = (LayoutInflater) getLayoutInflater();
-        //  View customView = inflater.inflate(R.layout.dialog_input, null);
-        // Build the dialog
         customDialog = new Dialog(context);
         customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         customDialog.setContentView(R.layout.dialog_input);
@@ -429,51 +431,17 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 hideSoftKeyboard();
             }
         });
-      /*  etDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                etDate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Calendar calendar = Calendar.getInstance();
-                        int year = calendar.get(Calendar.YEAR);
-                        int month = calendar.get(Calendar.MONTH);
-                        int day = calendar.get(Calendar.DAY_OF_MONTH);
-                        DatePickerDialog dpd = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
-                            @Override
-                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                                Calendar newDate = Calendar.getInstance();
-                                newDate.set(year, month, dayOfMonth);
-                                long selectedMilli = newDate.getTimeInMillis();
-
-                                Date datePickerDate = new Date(selectedMilli);
-                                String reportDate=new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
-
-                                DateClass d=new DateClass();
-                                d.setDate(reportDate);
-                                etDate.setText(reportDate);
-                            }
-                        }, year, month, day);
-                        dpd.show();
-                    }
-                });
-            }
-        });*/
 
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 String note = etNote.getText().toString();
-                //   String date=etDate.getText().toString();
-
-                SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy hh:mm a");
+                SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
                 String currentDateandTime = sdf.format(new Date());
                 if (note.length() != 0) {
                     Boolean flag = EventNoteQuery.insertNoteData(preferences.getInt(PrefConstants.CONNECTED_USERID), note, currentDateandTime);
                     if (flag == true) {
-
                         Toast.makeText(context, "Event Note Added Succesfully", Toast.LENGTH_SHORT).show();
                         getData();
                         setNoteData();
@@ -482,12 +450,6 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                     } else {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
-                    /*Note notes=new Note();
-                    notes.setTxtDate(currentDateandTime);
-                    notes.setTxtNote(note);
-                    noteList.add(notes);
-                    customDialog.dismiss();
-                    setNoteData();*/
                 } else {
                     Toast.makeText(context, "Enter Note", Toast.LENGTH_SHORT).show();
                 }

@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
         imgFbSignup = findViewById(R.id.imgFbSignup);
         imgGoogleSignup = findViewById(R.id.imgGoogleSignup);
-        txtUserName = findViewById(R.id.txtUserName);
+       txtUserName = findViewById(R.id.txtUserName);
         txtPassword = findViewById(R.id.txtPassword);
         tilName = findViewById(R.id.tilName);
         tilName.setHintEnabled(false);

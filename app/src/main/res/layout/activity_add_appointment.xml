@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorOnesGray"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.AddInfoActivity">
 
     <RelativeLayout xmlns:custom="http://schemas.android.com/apk/res-auto"
@@ -26,14 +27,24 @@
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:src="@drawable/backward_arrow" />
 
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:text="Add Type of Appointment"
-                android:textAllCaps="true"
+                android:text="Add Appointment"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp" />
 
@@ -62,119 +73,111 @@
                 android:visibility="gone" />
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rlSpecialist"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/header"
-            android:layout_marginTop="35dp">
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
 
-            <com.mindyourlovedone.healthcare.customview.MySpinner
-                android:id="@+id/spinnerType"
+            <RelativeLayout
+                android:id="@+id/rlSpecialist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension35dp"
-                android:layout_marginRight="@dimen/dimension35dp"
-                android:focusable="false"
-                app:ms_arrowColor="@color/colorBlue"
-                app:ms_arrowSize="16dp"
-                app:ms_floatingLabelText="Type of Test or Specialist"
-                app:ms_hint="hint"
-                app:ms_multiline="true"
-                custom:ms_floatingLabelColor="@color/colorBlue"
-                custom:ms_hintColor="@color/colorDarkGray" />
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilOtherType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/spinnerType"
-                android:paddingBottom="@dimen/dimension8dp"
-                android:paddingLeft="@dimen/dimension30dp"
-                android:paddingRight="@dimen/dimension30dp"
-                android:visibility="gone"
-                custom:ms_floatingLabelColor="@color/colorBlue">
-
-                <AutoCompleteTextView
-                    android:id="@+id/txtOtherType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Other Specialist"
-                    android:maxLength="30"
-                    android:maxLines="1"
-                    android:paddingLeft="@dimen/dimension15dp"
-                    android:paddingTop="@dimen/dimension2dp"
-                    android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dimension20dp" />
-            </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rlSpecialist"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-
-
-            <AutoCompleteTextView
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name of Doctor(if applicable)"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-        </android.support.design.widget.TextInputLayout>
-
-        <RelativeLayout
-            android:id="@+id/rlFrequency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilName">
-
-            <com.mindyourlovedone.healthcare.customview.MySpinner
-                android:id="@+id/spinnerFrequency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension35dp"
-                android:layout_marginRight="@dimen/dimension35dp"
-                android:focusable="false"
-                app:ms_arrowColor="@color/colorBlue"
-                app:ms_arrowSize="16dp"
-                app:ms_floatingLabelText="Frequency"
-                app:ms_hint="hint"
-                app:ms_multiline="true"
-                custom:ms_floatingLabelColor="@color/colorBlue"
-                custom:ms_hintColor="@color/colorDarkGray" />
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilOtherFrequency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/spinnerFrequency"
-                android:paddingBottom="@dimen/dimension8dp"
-                android:paddingLeft="@dimen/dimension30dp"
-                android:paddingRight="@dimen/dimension30dp"
+                android:layout_marginTop="@dimen/dimension10dp"
                 android:visibility="gone">
 
-                <AutoCompleteTextView
-                    android:id="@+id/txtOtherFrequency"
+                <com.mindyourlovedone.healthcare.customview.MySpinner
+                    android:id="@+id/spinnerType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Other Frequency"
-                    android:maxLength="30"
+                    android:layout_marginLeft="@dimen/dimension35dp"
+                    android:layout_marginRight="@dimen/dimension35dp"
+                    android:focusable="false"
+                    app:ms_arrowColor="@color/colorBlue"
+                    app:ms_arrowSize="16dp"
+                    app:ms_floatingLabelText="Type of Test or Specialist"
+                    app:ms_hint="hint"
+                    app:ms_multiline="true"
+                    custom:ms_floatingLabelColor="@color/colorBlue"
+                    custom:ms_hintColor="@color/colorDarkGray" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilOtherType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinnerType"
+                    android:paddingLeft="@dimen/dimension30dp"
+                    android:paddingRight="@dimen/dimension30dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    custom:ms_floatingLabelColor="@color/colorBlue">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtOtherType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Other Specialist"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/dimension15dp"
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRelation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlSpecialist"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true"
+
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtRelation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/dropd"
+                    android:hint="Relationship"
+                    android:imeOptions="actionNext"
+                    android:maxLength="300"
+                    android:maxLines="1"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRelation"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name of Doctor(if applicable)"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/dimension15dp"
                     android:paddingTop="@dimen/dimension2dp"
@@ -182,111 +185,231 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
             </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/txtCompleted"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rlFrequency"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp"
-            android:text="Completed"
-            android:visibility="gone" />
-
-        <RadioGroup
-            android:id="@+id/rgCompleted"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtCompleted"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp"
-            android:visibility="gone"
-
-            >
-
-            <RadioButton
-                android:id="@+id/rbYes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension20dp"
-                android:text="Yes"
-                android:textSize="@dimen/dimension20dp" />
-
-            <RadioButton
-                android:id="@+id/rbNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension20dp"
-                android:text="No"
-                android:textSize="@dimen/dimension20dp" />
-        </RadioGroup>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rgCompleted"
-            android:descendantFocusability="beforeDescendants"
-            android:focusable="false"
-            android:focusableInTouchMode="true"
-            android:hint="Date Completed"
-            android:paddingBottom="@dimen/dimension8dp"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-
-
-            <AutoCompleteTextView
-                android:id="@+id/txtDate"
+            <RelativeLayout
+                android:id="@+id/rlFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp"
-                android:visibility="gone" />
+                android:layout_below="@+id/tilName">
 
-        </android.support.design.widget.TextInputLayout>
+                <com.mindyourlovedone.healthcare.customview.MySpinner
+                    android:id="@+id/spinnerFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension35dp"
+                    android:layout_marginRight="@dimen/dimension35dp"
+                    android:focusable="false"
+                    app:ms_arrowColor="@color/colorBlue"
+                    app:ms_arrowSize="16dp"
+                    app:ms_floatingLabelText="Frequency"
+                    app:ms_hint="hint"
+                    app:ms_multiline="true"
+                    custom:ms_floatingLabelColor="@color/colorBlue"
+                    custom:ms_hintColor="@color/colorDarkGray" />
 
-        <RelativeLayout
-            android:id="@+id/llAddConn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension60dp"
-            android:layout_below="@+id/tilDate"
-            android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension15dp"
-            android:layout_marginTop="@dimen/dimension15dp"
-            android:background="@color/colorGreen"
-            android:visibility="gone">
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilOtherFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/spinnerFrequency"
+                    android:paddingLeft="@dimen/dimension30dp"
+                    android:paddingRight="@dimen/dimension30dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone">
 
-            <ImageView
-                android:id="@+id/imgAdd"
-                android:layout_width="@dimen/dimension60dp"
-                android:layout_height="@dimen/dimension60dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/adddoc" />
+                    <AutoCompleteTextView
+                        android:id="@+id/txtOtherFrequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Other Frequency"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/dimension15dp"
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlFrequency"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Note"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp"
+                    android:visibility="visible" />
+            </android.support.design.widget.TextInputLayout>
 
             <TextView
-                android:id="@+id/txtAdd"
+                android:id="@+id/txtCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilNote"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:text="Completed"
+                android:visibility="gone" />
+
+            <RadioGroup
+                android:id="@+id/rgCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtCompleted"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:visibility="gone"
+
+                >
+
+                <RadioButton
+                    android:id="@+id/rbYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:text="Yes"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <RadioButton
+                    android:id="@+id/rbNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:text="No"
+                    android:textSize="@dimen/dimension20dp" />
+            </RadioGroup>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rgCompleted"
+                android:descendantFocusability="beforeDescendants"
+                android:focusable="false"
+                android:focusableInTouchMode="true"
+                android:hint="Date Completed"
+                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension30dp"
+                android:paddingBottom="@dimen/dimension8dp">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:maxLines="1"
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp"
+                    android:visibility="gone" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/llAddConn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension60dp"
-                android:layout_toRightOf="@+id/imgAdd"
+                android:layout_below="@+id/tilDate"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginTop="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:background="@color/colorGreen"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/imgAdd"
+                    android:layout_width="@dimen/dimension60dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/adddoc" />
+
+                <TextView
+                    android:id="@+id/txtAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_toRightOf="@+id/imgAdd"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textAllCaps="true"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension24dp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlDelete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:padding="@dimen/dimension10dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/txtDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border_dir_delete"
+                android:drawableLeft="@drawable/ic_delete"
+                android:drawablePadding="@dimen/dimension5dp"
                 android:gravity="center"
-                android:text="Add"
-                android:textAllCaps="true"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension24dp" />
+                android:paddingLeft="@dimen/dimension50dp"
+                android:paddingTop="@dimen/dimension10dp"
+                android:paddingRight="@dimen/dimension50dp"
+                android:paddingBottom="@dimen/dimension10dp"
+                android:text="Delete"
+                android:textColor="@color/colorWhite" />
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/delete_icon"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imgEdits"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_alignParentRight="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/save"
+                android:visibility="gone" />
         </RelativeLayout>
+
     </RelativeLayout>
-</ScrollView>
+</RelativeLayout>

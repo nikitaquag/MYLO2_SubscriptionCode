@@ -99,7 +99,7 @@ public class FinanceQuery {
         cv.put(COL_OTHER_PHONE, otherphone);
         cv.put(COL_NOTE, note);
         cv.put(COL_PRACTICENAME, contactName);
-        cv.put(COL_CATEGORY, otherCategory);
+        cv.put(COL_CATEGORY, speciality);
         cv.put(COL_PHOTO, photo);
         cv.put(COL_FAX, fax);
         cv.put(COL_OTHER_CATEGORY, otherCategory);

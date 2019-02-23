@@ -19,7 +19,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginBottom="@dimen/dimension75dp"
             android:divider="@color/colorLightGray"
-            android:dividerHeight="@dimen/dimension20dp"
+            android:dividerHeight="@dimen/dimension5dp"
             android:paddingTop="@dimen/dimension15dp"
             android:visibility="visible"
             android:scrollbars="none"></android.support.v7.widget.RecyclerView>

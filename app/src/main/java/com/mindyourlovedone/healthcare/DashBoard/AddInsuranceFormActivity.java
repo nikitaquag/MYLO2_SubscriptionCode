@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -56,7 +57,8 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     Form document;
     DBHelper dbHelper;
     String name = "";
-    RelativeLayout rlDoc,rlDocument;
+    RelativeLayout rlDoc, rlDocument;
+    FrameLayout flDelete;
 
     String documentPath = "";
     String originPath = "";
@@ -74,6 +76,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         initListener();
     }
 
+
     private void initListener() {
         imgBack.setOnClickListener(this);
         imgDot.setOnClickListener(this);
@@ -83,6 +86,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         txtSave.setOnClickListener(this);
         rlDoc.setOnClickListener(this);
         rlDocument.setOnClickListener(this);
+        flDelete.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
 
     }
@@ -100,6 +104,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         txtSave = findViewById(R.id.txtSave);
         rlDoc = findViewById(R.id.rlDoc);
         rlDocument = findViewById(R.id.rlDocument);
+        flDelete = findViewById(R.id.flDelete);
         imgEdit = findViewById(R.id.imgEdit);
 
         txtName.setClickable(false);
@@ -135,6 +140,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
         } else if (Goto.endsWith("Edit")) {
             document = (Form) i.getExtras().getSerializable("FormObject");
+            flDelete.setVisibility(View.VISIBLE);
             txtName.setText(document.getName());
             documentPath = document.getDocument();
             // imgDoc.setImageResource(document.getImage());
@@ -175,6 +181,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         switch (v.getId()) {
             case R.id.imgBack:
                 finish();
+                break;
+            case R.id.flDelete:
+                deleteForm(document);
                 break;
             case R.id.imgDoc:
                 Uri uri = null;
@@ -335,6 +344,32 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 break;
 
         }
+    }
+
+    private void deleteForm(final Form item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = FormQuery.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                }
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 
     private void formDialog() {

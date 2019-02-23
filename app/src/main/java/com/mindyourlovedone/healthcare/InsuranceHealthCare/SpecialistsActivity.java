@@ -131,7 +131,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
         txtName = findViewById(R.id.txtName);
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        String name=preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION);
+        txtName.setText(name);
         //   imgRight= (ImageView) findViewById(R.id.imgRight);
         if (i.getExtras() != null) {
             from = i.getExtras().getString("FROM");
@@ -158,7 +159,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 header.setBackgroundResource(R.color.colorEmerMainGreen);
                 isEmergency = true;
                 isInsurance = false;
-                profile = new int[]{R.drawable.emergency_one, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
+                profile = new int[]{R.drawable.pp, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
                 specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agent", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
@@ -772,7 +773,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION));
     }
 
     @Override

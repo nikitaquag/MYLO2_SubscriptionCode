@@ -669,14 +669,14 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             // spinner.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
-            txtWorkPhone.setVisibility(View.VISIBLE);//shradha
-            tilWorkPhone.setVisibility(View.VISIBLE);
+          //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
+           // tilWorkPhone.setVisibility(View.VISIBLE);
             txtHomePhone.setVisibility(View.VISIBLE);
         } else {
             tilBdate.setVisibility(View.GONE);
             // spinner.setVisibility(View.GONE);
-            txtWorkPhone.setVisibility(View.VISIBLE);
-            tilWorkPhone.setVisibility(View.VISIBLE);
+            //txtWorkPhone.setVisibility(View.VISIBLE);
+            //tilWorkPhone.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.GONE);
         }
@@ -2002,6 +2002,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     }
                     //Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                     preferences.putString(PrefConstants.CONNECTED_NAME, name);
+                    preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
                     finish();
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
@@ -2026,6 +2027,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (flags == true) {
                     Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
                     preferences.putString(PrefConstants.CONNECTED_NAME, name);
+                    preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
                     String mail = email;
                     mail = mail.replace(".", "_");
                     mail = mail.replace("@", "_");
@@ -2707,6 +2709,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                             }
                             //  Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                             preferences.putString(PrefConstants.CONNECTED_NAME, name);
+                            preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
                             finish();
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();

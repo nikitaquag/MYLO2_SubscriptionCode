@@ -1,6 +1,5 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
@@ -30,10 +29,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.CardQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.model.Card;
+import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -63,9 +64,9 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     TextInputLayout tilTitle;
     Bitmap bitmap1, bitmap2;
     String imagePathFront = "", imagePathBack = "";
-    ImageView imgDone, imgBack, imgEdit1, imgEdit2, imgfrontCard, imgBackCard;
+    ImageView imgDone, imgHome, imgBack, imgEdit1, imgEdit2, imgfrontCard, imgBackCard;
     String imagepath = "";//
-    String name, type;
+    String name = "", type = "";
     Boolean isEdit = false;
     FrameLayout flFront, flBack;
     int id;
@@ -117,6 +118,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         txtSave.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         imgEdit1.setOnClickListener(this);
         imgEdit2.setOnClickListener(this);
         imgfrontCard.setOnClickListener(this);
@@ -139,6 +141,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         txtTitle = findViewById(R.id.txtTitle);
         imgDone = findViewById(R.id.imgDone);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
         imgEdit1 = findViewById(R.id.imgEdit1);
         imgEdit2 = findViewById(R.id.imgEdit2);
         imgfrontCard = findViewById(R.id.imgFrontCard);
@@ -163,7 +166,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
 
         Intent i = getIntent();
         if (i.getExtras() != null) {
-            txtTitle.setText("Update Insurance Card");
+            txtTitle.setText("Add/Edit Insurance Card");
             if (i.getExtras().getBoolean("IsEdit") == true) {
                 isEdit = true;
             }
@@ -255,6 +258,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     startActivityForResult(j, REQUEST_CARD);
                 }
                 break;
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
            /* case R.id.imgBackCard:
                 if (backFlag == true) {
                     Intent j = new Intent(context, AddFormActivity.class);
@@ -264,63 +274,39 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;*/
             case R.id.txtSave:
-                name = txtName.getText().toString();
-                type = txttype.getText().toString();
-                storeImage(PHOTO1, "Front");
-                storeImage(PHOTO2, "Back");
-//                Bitmap bitmap1 = ((BitmapDrawable) imgfrontCard.getDrawable()).getBitmap();
-//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//                bitmap1.compress(Bitmap.CompressFormat.JPEG, 10, baos);
-               /* int newHeight = bitmap1.getHeight();
-                int newWidth = bitmap1.getWidth();
-                int ratio = bitmap1.getWidth() / bitmap1.getHeight();
-                if (ratio==0)
-                {
-                    ratio=1;
-                }
-                if (bitmap1.getWidth() > 800) {
-                    newWidth = 800;
-                    newHeight = ratio * newWidth;
-                }
-                Bitmap.createBitmap(bitmap1,bitmap1.getWidth()-100,bitmap1.getHeight()-100, newWidth, newHeight).compress(Bitmap.CompressFormat.JPEG, 100, baos);
-*/
-               /* byte[] photo1 = baos.toByteArray();
-               Bitmap bitmap2 = ((BitmapDrawable) imgBackCard.getDrawable()).getBitmap();
-                ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
-                bitmap2.compress(Bitmap.CompressFormat.JPEG, 10, baos2);*/
-               /* newHeight = bitmap2.getHeight();
-                newWidth = bitmap2.getWidth();
-                ratio = bitmap2.getWidth() / bitmap2.getHeight();
-                if (ratio==0)
-                {
-                    ratio=1;
-                }
-                if (bitmap2.getWidth() > 800) {
-                    newWidth =800;
-                    newHeight = ratio * newWidth;
-                }
-                Bitmap.createBitmap(bitmap2,bitmap2.getWidth()+100, bitmap2.getHeight()+100, newWidth, newHeight).compress(Bitmap.CompressFormat.JPEG, 100, baos2);
-*/
-                //   byte[] photo2 = baos2.toByteArray();
-                if (isEdit == false) {
-                    boolean flag = CardQuery.insertInsuranceCardData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, type, imagePathFront, imagePathBack);
-                    if (flag) {
-                        Toast.makeText(context, "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
-                        finish();
-                    } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                //Shradha
+                if (validate()) {
+                    type = txttype.getText().toString();
+                    name = txtName.getText().toString();
+                    storeImage(PHOTO1, "Front");
+                    storeImage(PHOTO2, "Back");
+
+                    if (isEdit == false) {
+                        boolean flag = CardQuery.insertInsuranceCardData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, type, imagePathFront, imagePathBack);
+                        if (flag) {
+                            Toast.makeText(context, "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                    } else if (isEdit == true) {
+                        boolean flag = CardQuery.updateInsuranceCardData(id, name, type, imagePathFront, imagePathBack);
+                        if (flag) {
+                            Toast.makeText(context, "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                        Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
-                } else if (isEdit == true) {
-                    boolean flag = CardQuery.updateInsuranceCardData(id, name, type, imagePathFront, imagePathBack);
-                    if (flag) {
-                        Toast.makeText(context, "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
-                        finish();
-                    } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                    }
-                    Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(context, "Credentials Saved..", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(context, "Invalid Credentials..", Toast.LENGTH_SHORT).show();
+
                 }
+
                 break;
 
             case R.id.imgBack:
@@ -339,6 +325,22 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
 
 
         }
+    }
+
+    //shradha
+    private boolean validate() {
+        String name = txtName.getText().toString().trim();
+        String type = txttype.getText().toString().trim();
+        if (name.equals("")) {
+            txtName.setError("Please Enter Name");
+            DialogManager.showAlert("Please Enter Name", context);
+        } else if (type.equals("")) {
+            txttype.setError("Please Enter Type");
+            DialogManager.showAlert("Please Enter Type", context);
+        } else {
+            return true;
+        }
+        return false;
     }
 
     private void dialogCameraFront(final int resultCameraImage, final int resultSelectPhoto, final String from) {

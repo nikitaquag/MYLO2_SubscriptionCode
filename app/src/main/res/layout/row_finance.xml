@@ -14,12 +14,12 @@
 
         <LinearLayout
             android:id="@+id/lincall"
-            android:visibility="gone"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="#C9C9CE"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/call"
@@ -58,8 +58,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:gravity="center_vertical"
             android:paddingTop="@dimen/dimension2dp">
@@ -106,7 +106,6 @@
                     android:visibility="gone" />
 
                 <TextView
-                    android:visibility="visible"
                     android:id="@+id/txtCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -118,10 +117,10 @@
                     android:text="Primary Proxy"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension17dp"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:visibility="visible" />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/txtAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -130,28 +129,29 @@
                     android:drawablePadding="@dimen/dimension10dp"
                     android:gravity="top|left"
                     android:padding="@dimen/dimension5dp"
-
                     android:text="#203,10 Downing Street, los Angeles, California."
+
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone"
 
                     />
 
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/txtPhone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
                     android:layout_below="@+id/txtAddress"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
                     android:drawableLeft="@drawable/tele"
                     android:drawablePadding="@dimen/dimension10dp"
                     android:gravity="top|left"
                     android:padding="@dimen/dimension5dp"
                     android:text="8789-879-78"
                     android:textColor="@color/colorDarkGray"
-                    android:textSize="@dimen/dimension16dp" />
+                    android:textSize="@dimen/dimension16dp"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/imgEdit"
@@ -164,7 +164,6 @@
             </RelativeLayout>
 
             <ImageView
-                android:visibility="gone"
                 android:id="@+id/imgForword"
                 android:layout_width="@dimen/dimension40dp"
                 android:layout_height="@dimen/dimension30dp"
@@ -172,7 +171,8 @@
                 android:layout_toLeftOf="@+id/imgNext"
                 android:paddingRight="@dimen/dimension5dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/busi_card" />
+                android:src="@drawable/busi_card"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imgNext"
@@ -186,13 +186,12 @@
                 android:src="@drawable/call_emer" />
 
 
-            <!-- <View
-                 android:id="@+id/view1"
-                 android:layout_width="match_parent"
-                 android:layout_height="@dimen/dimension1dp"
-              android:layout_alignParentBottom="true"
-                 android:background="@color/colorDarkGray"
-                 ></View>-->
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorLightGray"></View>
         </RelativeLayout>
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

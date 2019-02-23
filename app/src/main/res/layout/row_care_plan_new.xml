@@ -44,16 +44,13 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:gravity="center_vertical"
-            android:paddingTop="@dimen/dimension2dp"
-
-            >
+            android:padding="@dimen/dimension10dp">
 
             <ImageView
                 android:id="@+id/imgDocType"
                 android:layout_width="@dimen/dimension60dp"
                 android:layout_height="@dimen/dimension60dp"
                 android:layout_centerVertical="true"
-                android:layout_margin="@dimen/dimension10dp"
                 android:src="@drawable/word" />
 
             <RelativeLayout
@@ -111,16 +108,24 @@
 
             <ImageView
                 android:id="@+id/imgNext"
-                android:layout_width="@dimen/dimension60dp"
-                android:layout_height="@dimen/dimension60dp"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension0dp"
                 android:focusableInTouchMode="false"
-                android:padding="@dimen/dimension20dp"
+                android:padding="@dimen/dimension5dp"
                 android:src="@drawable/right"
 
                 />
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"
+            android:layout_below="@+id/rlFix"
+            android:layout_marginBottom="@dimen/dimension5dp"
+            android:background="@color/colorOnesGray" />
+
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

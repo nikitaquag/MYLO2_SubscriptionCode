@@ -33,7 +33,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     Preferences preferences;
     FragmentNewContact fragmentNewContact = null;
     FragmentGrabContact fragmentGrabContact = null;
-    TextView txtNew, txtTitle, txtsave, txtContact;
+    TextView txtNew, txtTitle, txtsave, txtContact,txtDelete;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
     String source = "";
     LinearLayout llGrab;
@@ -42,6 +42,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     boolean i = false;
     int c = 1;
     String tab = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,10 +73,10 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         Intent i = getIntent();
         if (i.getExtras() != null)//Shradha-intent
         {
-            if (i.getStringExtra("TAB").equalsIgnoreCase("New")) {
-                callFragment("NEWCONTACT", fragmentNewContact);
-            } else {
+            if (i.getStringExtra("TAB")!=null&&i.getStringExtra("TAB").equalsIgnoreCase("Contact")) {
                 callFragment("CONTACT", fragmentGrabContact);
+            } else {
+                callFragment("NEWCONTACT", fragmentNewContact);
             }
         } else {
             callFragment("NEWCONTACT", fragmentNewContact);
@@ -87,11 +88,14 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
             txtTitle.setVisibility(View.GONE);
             txtsave.setVisibility(View.GONE);
 
-        } else {
+        } else
+            {
             //llGrab.setVisibility(View.VISIBLE);
             txtTitle.setVisibility(View.VISIBLE);
             txtsave.setVisibility(View.VISIBLE);
+
         }
+
 
         switch (source) {
             case "Connection":
@@ -128,6 +132,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
             case "EmergencyUpdate":
                 header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+
                 break;
 
             case "EmergencyView":

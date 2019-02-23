@@ -51,14 +51,9 @@
     </LinearLayout>
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
         >
-
-
         <RelativeLayout
             android:id="@+id/rlInsurance"
             android:layout_width="match_parent"
@@ -203,10 +198,10 @@
             <View
                 android:id="@+id/view1"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
+                android:layout_height="@dimen/dimension2dp"
                 android:layout_alignParentBottom="true"
-                android:background="@color/colorDarkGray"
-                android:visibility="gone"></View>
+                android:background="@color/colorOnesGray"
+                android:visibility="visible"></View>
         </RelativeLayout>
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

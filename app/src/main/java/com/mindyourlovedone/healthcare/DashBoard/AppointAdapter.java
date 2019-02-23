@@ -23,7 +23,7 @@ import com.mindyourlovedone.healthcare.model.Appoint;
 import java.util.ArrayList;
 
 /**
- * Created by welcome on 10/12/2017. Changes done by nikita on 18/6/18
+ * Created by welcome on 10/12/2017. Changes done by shradha on 18/6/18
  */
 
 public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> {

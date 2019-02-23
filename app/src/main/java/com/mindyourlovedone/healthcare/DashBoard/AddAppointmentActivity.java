@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -13,12 +15,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
@@ -37,13 +42,13 @@ import java.util.Random;
 
 public class AddAppointmentActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    TextView txtName, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
+    TextView txtRelation, txtName, txtNote, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
     Preferences preferences;
     MySpinner spinnerType, spinnerFrequency;
     DBHelper dbHelper;
     ArrayList<DateClass> dateList = null;
-    ImageView imgBack;
-    RelativeLayout llAddConn;
+    ImageView imgBack, imgHome;
+    RelativeLayout llAddConn, rlDelete;
     TextInputLayout tilName, tilOtherFrequency, tilOtherSpecialist;
     RadioGroup rgCompleted;
     RadioButton rbYes, rbNo;
@@ -52,6 +57,9 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     String status = "No";
     boolean isUpdate = false;
     Appoint p;
+    private static int RESULT_TYPE = 10;
+    ListView lvType,lvSpecialist;
+
 
 
     //    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
@@ -88,17 +96,26 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     }
 
     private void initListener() {
+
+        rlDelete.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         txtDate.setOnClickListener(this);
+        txtNote.setOnClickListener(this);
+        txtRelation.setOnClickListener(this);
     }
 
     private void initUi() {
+
+        txtRelation = findViewById(R.id.txtRelation);
+        txtRelation.setFocusable(false);
         txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         tilName = findViewById(R.id.tilName);
         txtDate = findViewById(R.id.txtDate);
+        txtNote = findViewById(R.id.txtNote);
         txtOtherFrequency = findViewById(R.id.txtOtherFrequency);
         txtOtherSpecialist = findViewById(R.id.txtOtherType);
         tilOtherFrequency = findViewById(R.id.tilOtherFrequency);
@@ -107,6 +124,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         spinnerType = findViewById(R.id.spinnerType);
         spinnerFrequency = findViewById(R.id.spinnerFrequency);
         imgBack = findViewById(R.id.imgBack);
+        rlDelete = findViewById(R.id.rlDelete);
+        imgHome = findViewById(R.id.imgHome);
         llAddConn = findViewById(R.id.llAddConn);
         txtAdd = findViewById(R.id.txtAdd);
 
@@ -142,7 +161,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         }
 
 
-        for (int i = 0; i < Type2.length; i++) {
+//Comment for spinner
+     /*   for (int i = 0; i < Type2.length; i++) {
 //            spinnerType.setPrompt("Specialist");//shradha
             TypeSpecialist ts = new TypeSpecialist();
             //    ts.setHint("Specialist"+"\n");
@@ -154,12 +174,12 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 ts.setDiff(1);
             }
             items.add(ts);
-        }
+        }*/
 
-
-        CustomTypeSpecialistAdapters adapter = new CustomTypeSpecialistAdapters(context, android.R.layout.simple_spinner_dropdown_item, items);
+//Comment for spinner
+    /*    CustomTypeSpecialistAdapters adapter = new CustomTypeSpecialistAdapters(context, android.R.layout.simple_spinner_dropdown_item, items);
         spinnerType.setAdapter(adapter);
-        spinnerType.setHint("Type of Test or Specialist");
+        spinnerType.setHint("Type of Test or Specialist");*/
 
 
 
@@ -188,6 +208,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         };
 */
 
+
+
         ArrayAdapter adapter1 = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Frequency);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFrequency.setAdapter(adapter1);
@@ -207,6 +229,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+        //Comment for spinner
+/*
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -227,6 +251,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+*/
         /*txtName.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -252,12 +277,16 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         Intent i = getIntent();
         if (i.getExtras() != null) {
             if (i.getExtras().get("FROM").equals("View")) {
+                rlDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Appointment");
                 isUpdate = true;
                 Appoint a = (Appoint) i.getExtras().getSerializable("AppointObject");
                 p = (Appoint) i.getExtras().getSerializable("AppointObject");
                 if (a.getDoctor() != null) {
                     txtName.setText(a.getDoctor());
+                }
+                if (a.getNote() != null) {
+                    txtNote.setText(a.getNote());
                 }
                 if (a.getFrequency() != null) {
                     int index = 0;
@@ -271,7 +300,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 if (a.getFrequency().equals("Other")) {
                     txtOtherFrequency.setText(a.getOtherFrequency());
                 }
-                if (a.getType().equals("Other")) {
+                //Comment for spinner
+              /*  if (a.getType().equals("Other")) {
                     txtOtherSpecialist.setText(a.getOtherDoctor());
                 }
                 if (a.getType() != null) {
@@ -282,22 +312,55 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                         }
                     }
                     spinnerType.setSelection(index + 1);
-                }
-
+                }*/
             } else if (i.getExtras().get("FROM").equals("Add")) {
                 txtAdd.setText("Add Appointment");
                 isUpdate = false;
             }
         }
-
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_TYPE && data != null) {
+            String type=data.getExtras().getString("TypeAppointment");
+            txtRelation.setText(type);
+            /*if (relation.equals("Other")) {
+                tilOtherRelation.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
+            }*/
+        }
+    }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.txtRelation:
+                Intent intentType = new Intent(context, RelationshipActivity.class);
+                intentType.putExtra("Category", "TypeAppointment");
+                intentType.putExtra("Category", "TypeSpecialist");
+                startActivityForResult(intentType, RESULT_TYPE);
+                break;
             case R.id.imgBack:
                 hideSoftKeyboard();
                 finish();
+                break;
+            //Shradha
+            case R.id.rlDelete:
+                deleteAppointment(p);
+                break;
+
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
                 break;
 
             case R.id.txtDate:
@@ -313,57 +376,57 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 }, year, month, day);
                 dpd.show();
                 break;
+           /* case R.id.txtNote:
 
+                break;*/
             case R.id.txtSave:
                 hideSoftKeyboard();
                 int unique = generateRandom();
                 String name = txtName.getText().toString().trim();
                 String date = txtDate.getText().toString().trim();
+                String note = txtNote.getText().toString().trim();
                 otherType = txtOtherSpecialist.getText().toString();
                 otherFrequency = txtOtherFrequency.getText().toString();
-                int indexValuex = spinnerType.getSelectedItemPosition();
-
+                // int indexValuex = spinnerType.getSelectedItemPosition();
 
                 String type = "";
                 String frequency = "";
-                if (indexValuex != 0) {
+                //Comment for spinner
+                /*if (indexValuex != 0) {
                     type = items.get(indexValuex - 1).getType();
                 }
 
                 int indexValue = spinnerFrequency.getSelectedItemPosition();
                 if (indexValue != 0) {
                     frequency = Frequency[indexValue - 1];
-                }
+                }*/
 
-                if (type.equals("")) {
+              /*  if (type.equals("")) {
                     spinnerType.setError("Please Select Specialist or Test");
                     DialogManager.showAlert("Please Select Specialist or Test", AddAppointmentActivity.this);
-                } else {
-                    if (isUpdate == false) {
-                        Boolean flag = AppointmentQuery.insertAppointmentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, date, type, frequency, otherType, otherFrequency, dateList, unique);
-                        if (flag == true) {
-                            hideSoftKeyboard();
-                            Toast.makeText(context, "Appointment added succesfully", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                        }
-                    } else if (isUpdate == true) {
-                        Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
-                        if (flag == true) {
-                            hideSoftKeyboard();
-                            Toast.makeText(context, "Appointment updated succesfully", Toast.LENGTH_SHORT).show();
-                            finish();
-                        } else {
-                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                        }
+                } else*/
+            {
+                if (isUpdate == false) {
+                    Boolean flag = AppointmentQuery.insertAppointmentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, date, note, type, frequency, otherType, otherFrequency, dateList, unique);
+                    if (flag == true) {
+                        hideSoftKeyboard();
+                        Toast.makeText(context, "Appointment added succesfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                } else if (isUpdate == true) {
+                    Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
+                    if (flag == true) {
+                        hideSoftKeyboard();
+                        Toast.makeText(context, "Appointment updated succesfully", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
-
-
-
-
-               /* Appoint appoint=new Appoint();
+            }
+                /* Appoint appoint=new Appoint();
                 appoint.setDoctor(name);
                 appoint.setDate(date);
                 appoint.setFrequency(frequency);
@@ -372,8 +435,40 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 i.putExtra("AppointObject",appoint);
 
                 setResult(100,i);*/
-                break;
+            break;
         }
+    }
+
+    //Shradha
+    private void deleteAppointment(final Appoint p) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = AppointmentQuery.deleteRecord(p.getUnique());
+                if (flag == true) {
+                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+
+                    if (context instanceof MedicalAppointActivity) {
+                        ((MedicalAppointActivity) context).getData();
+                        ((MedicalAppointActivity) context).setNoteData();
+                    }
+                }
+                dialog.dismiss();
+                finish();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
     }
 
     private int generateRandom() {

@@ -16,7 +16,7 @@
             android:layout_width="@dimen/dimension40dp"
             android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginLeft="@dimen/dimension0dp"
             android:src="@drawable/backward_arrow" />
 
         <TextView
@@ -29,6 +29,7 @@
             android:text="Event Notes"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
+
         <TextView
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
@@ -36,13 +37,13 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:text="Save"
-            android:textSize="@dimen/dimension18dp"
-            android:textColor="@color/colorWhite"
-            android:textStyle="bold"
             android:paddingLeft="@dimen/dimension5dp"
             android:paddingRight="@dimen/dimension5dp"
-            />
+            android:text="Save"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/imgEdit"
@@ -59,35 +60,58 @@
 
     <TextView
         android:id="@+id/txtDate"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
-        android:layout_marginLeft="@dimen/dimension20dp"
-        android:padding="@dimen/dimension10dp"
+        android:background="@color/colorOnesGray"
+        android:paddingLeft="@dimen/dimension10dp"
+        android:paddingTop="@dimen/dimension10dp"
+        android:paddingBottom="@dimen/dimension10dp"
         android:text="jkehfjksd "
-        android:textSize="@dimen/dimension18dp"
+        android:textSize="@dimen/dimension18dp" />
 
-        />
-
-    <EditText
-        android:id="@+id/etNote"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/rlBottom"
         android:layout_below="@+id/txtDate"
-        android:layout_margin="@dimen/dimension15dp"
-        android:background="@drawable/gray_white_corner_border"
-        android:gravity="top"
-        android:padding="@dimen/dimension10dp"
-        android:textSize="@dimen/dimension18dp" />
+        android:background="@color/colorWhite">
+
+        <EditText
+            android:id="@+id/etNote"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension15dp"
+            android:background="@drawable/gray_white_corner_border"
+            android:gravity="top"
+            android:padding="@dimen/dimension10dp"
+            android:textSize="@dimen/dimension18dp" />
+
+    </RelativeLayout>
+
 
     <RelativeLayout
         android:id="@+id/rlBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_margin="13dp"
         android:padding="@dimen/dimension10dp">
+
+        <TextView
+            android:id="@+id/txtDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/border_dir_delete"
+            android:drawableLeft="@drawable/ic_delete"
+            android:drawablePadding="@dimen/dimension5dp"
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimension50dp"
+            android:paddingTop="@dimen/dimension10dp"
+            android:paddingRight="@dimen/dimension50dp"
+            android:paddingBottom="@dimen/dimension10dp"
+            android:text="Delete"
+            android:textColor="@color/colorWhite" />
 
         <ImageView
             android:id="@+id/imgDelete"
@@ -95,7 +119,8 @@
             android:layout_height="@dimen/dimension40dp"
             android:layout_centerInParent="true"
             android:scaleType="fitXY"
-            android:src="@drawable/delete_icon" />
+            android:src="@drawable/delete_icon"
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/imgEdits"

@@ -16,8 +16,10 @@ class RelationsAdapter extends BaseAdapter {
     String[] relationship;
     LayoutInflater lf;
     ViewHolder holder;
+
     public RelationsAdapter(Context context, String[] relationship) {
         this.context=context;
+
         this.relationship=relationship;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -50,9 +52,7 @@ class RelationsAdapter extends BaseAdapter {
 
 
             convertView.setTag(holder);
-            view = convertView;
         } else {
-            view = convertView;
             holder = (ViewHolder) convertView.getTag();
         }
         holder.txtRel.setText(relationship[position]);

@@ -22,6 +22,16 @@ public class Appoint implements Serializable {
     String Date = "";
     String frequency = "";
 
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    String note="";
+
     public int getUnique() {
         return unique;
     }

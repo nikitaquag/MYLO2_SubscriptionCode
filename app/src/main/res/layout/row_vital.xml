@@ -69,6 +69,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension15dp"
+                android:padding="@dimen/dimension8dp"
                 android:src="@drawable/drop_down" />
 
             <RelativeLayout
