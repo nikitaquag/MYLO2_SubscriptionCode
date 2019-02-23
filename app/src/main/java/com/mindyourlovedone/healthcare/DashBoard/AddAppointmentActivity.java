@@ -21,6 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -55,6 +56,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     String status = "No";
     boolean isUpdate = false;
     Appoint p;
+    private static int RESULT_TYPE = 10;
 
 
     //    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
@@ -306,6 +308,21 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        /* else if (requestCode == RESULT_RELATION && data != null) {
+            relation = data.getStringExtra("Relation");
+            txtRelation.setText(relation);
+            if (relation.equals("Other")) {
+                tilOtherRelation.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
+            }*/
+    }
+
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgBack:
@@ -338,7 +355,12 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 }, year, month, day);
                 dpd.show();
                 break;
-
+            case R.id.txtNote:
+                Intent intentType = new Intent(context, RelationshipActivity.class);
+                intentType.putExtra("Category", "TypeAppointment");
+                intentType.putExtra("Category", "TypeSpecialist");
+                startActivity(intentType);
+                break;
             case R.id.txtSave:
                 hideSoftKeyboard();
                 int unique = generateRandom();

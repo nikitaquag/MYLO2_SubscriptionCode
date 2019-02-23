@@ -1,5 +1,6 @@
-package com.mindyourlovedone.healthcare.Connections;
+package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +9,21 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
-class RelationsAdapter extends BaseAdapter {
+import java.util.ArrayList;
 
-    Context context;
+public class TypeAdapter extends BaseAdapter {
+
     String[] relationship;
     LayoutInflater lf;
-    ViewHolder holder;
+    Holders holder;
+    Context context;
 
-    public RelationsAdapter(Context context, String[] relationship) {
-        this.context=context;
-
-        this.relationship=relationship;
+    public TypeAdapter(Context context, String[] relationship) {
+        this.context = context;
+        this.relationship = relationship;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
@@ -41,28 +44,21 @@ class RelationsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view;
-
         if (convertView == null) {
-            convertView = lf.inflate(R.layout.row_relations, parent, false);
-            holder = new ViewHolder();
-
-            holder.txtRel=  convertView.findViewById(R.id.txtRel);
-            holder.imgCheck=  convertView.findViewById(R.id.imgCheck);
-
-
+            convertView = lf.inflate(R.layout.row_type, parent, false);
+            holder = new Holders();
+            holder.txtType = convertView.findViewById(R.id.txtType);
+            holder.imgType = convertView.findViewById(R.id.imgType);
             convertView.setTag(holder);
         } else {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (Holders) convertView.getTag();
         }
-        holder.txtRel.setText(relationship[position]);
-      //  holder.txtName.setText(student.getName());
-       // holder.txtCity.setText(student.getCity());
+        holder.txtType.setText(relationship[position]);
         return convertView;
     }
 
-    public class ViewHolder {
-        TextView txtRel;
-        ImageView imgCheck;
+    private class Holders {
+        TextView txtType;
+        ImageView imgType;
     }
 }
