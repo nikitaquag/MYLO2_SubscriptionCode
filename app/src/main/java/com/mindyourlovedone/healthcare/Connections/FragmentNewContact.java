@@ -2530,6 +2530,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Finance and Legal");
                 txtTitle.setText("Update Finance and Legal");
+
                 Intent financeIntent = getActivity().getIntent();
                 if (financeIntent.getExtras() != null) {
                     Finance specialist = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");

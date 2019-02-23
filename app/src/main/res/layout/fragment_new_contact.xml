@@ -232,7 +232,6 @@
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
-
                                 
                                 <AutoCompleteTextView
                                     android:id="@+id/txtOtherCategory"
