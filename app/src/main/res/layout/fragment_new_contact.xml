@@ -232,7 +232,7 @@
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
-                                
+
                                 <AutoCompleteTextView
                                     android:id="@+id/txtOtherCategory"
                                     android:layout_width="match_parent"
@@ -2160,12 +2160,41 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceName">
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilInsuType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:paddingBottom="@dimen/dimension8dp"
+                            app:hintEnabled="true"
+
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
+                            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                            <AutoCompleteTextView
+                                android:id="@+id/txtInsuType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/dropd"
+                                android:hint="Insurance Type"
+                                android:imeOptions="actionNext"
+                                android:maxLength="30"
+                                android:maxLines="1"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
 
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinnerInsuarance"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-
                             android:layout_marginLeft="@dimen/dimension35dp"
                             android:layout_marginRight="@dimen/dimension35dp"
                             android:imeOptions="actionNext"
@@ -2175,7 +2204,9 @@
                             app:ms_hint="hint"
                             app:ms_multiline="true"
                             custom:ms_floatingLabelColor="@color/colorBlue"
-                            custom:ms_hintColor="@color/colorDarkGray" />
+                            custom:ms_hintColor="@color/colorDarkGray"
+                            android:visibility="gone"
+                            />
 
                         <requestFocus />
 
@@ -2183,7 +2214,7 @@
                             android:id="@+id/tilOtherInsurance"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/spinnerInsuarance"
+                            android:layout_below="@+id/tilInsuType"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
