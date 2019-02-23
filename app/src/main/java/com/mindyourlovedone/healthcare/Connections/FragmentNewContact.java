@@ -3285,11 +3285,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
-        llAddHospPhone = rootview.findViewById(R.id.llAddHospPhone);
-        llAddPharmPhone = rootview.findViewById(R.id.llAddPharmPhone);
-        llAddFinPhone = rootview.findViewById(R.id.llAddFinPhone);
-        llAddInsuPhone = rootview.findViewById(R.id.llAddInsPhone);
-        RlPhone = rootview.findViewById(R.id.RlPhone);
+         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
         imgAddDrPhone=rootview.findViewById(R.id.imgAddDrPhone);
         imgAddHospPhone = rootview.findViewById(R.id.imgAddHospPhone);
