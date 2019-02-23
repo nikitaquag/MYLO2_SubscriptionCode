@@ -233,6 +233,7 @@
                                 android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
+                                
                                 <AutoCompleteTextView
                                     android:id="@+id/txtOtherCategory"
                                     android:layout_width="match_parent"
