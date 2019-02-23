@@ -91,6 +91,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 
 public class FragmentNewContact extends Fragment implements View.OnClickListener {
     private static final int REQUEST_CARD = 50;
+    private static final int RESULT_INSURANCE = 16;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
@@ -160,8 +161,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     int connectionFlag;
     boolean inPrimary;
     MySpinner spinner, spinnerInsuarance, spinnerFinance, spinnerProxy, spinnerRelation, spinnerPriority, spinnerHospital;
-    TextInputLayout tilFCategory,tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
-    TextView txtSpecialty,txtHCategory,txtFCategory;
+    TextInputLayout tilInsutype,tilFCategory,tilSpecialty, tilRelation, tilOtherInsurance, tilOtherCategory, tilOtherRelation, tilName, tilFName, tilEmergencyNote, tilDoctorName, tilPharmacyName, tilAideCompName, tilInsuaranceName;
+    TextView txtSpecialty,txtHCategory,txtFCategory,txtInsuType;
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
     RelationAdapter relationAdapter;
@@ -2005,7 +2006,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent insuranceIntent = getActivity().getIntent();
                 if (insuranceIntent.getExtras() != null) {
                      insurance = (Insurance) insuranceIntent.getExtras().getSerializable("InsuranceObject");
-                    if (!insurance.getType().equals("")) {
+                   /* if (!insurance.getType().equals("")) {
                         int index = 0;
                         for (int i = 0; i < insuaranceType.length; i++) {
                             if (insurance.getType().equalsIgnoreCase(insuaranceType[i])) {
@@ -2013,8 +2014,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                         }
                         spinnerInsuarance.setSelection(index + 1);
-                    }
-
+                    }*/
+txtInsuType.setText(insurance.getType());
+if (insurance.getType().equals("Other"))
+{
+    tilOtherInsurance.setVisibility(View.VISIBLE);
+}
+else{
+    tilOtherInsurance.setVisibility(View.GONE);
+}
                     if (Cname.isEmpty()) {//nikita
                         txtInsuaranceName.setText(insurance.getName());
                     } else {
@@ -2104,7 +2112,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent insuranceIntent2 = getActivity().getIntent();
                 if (insuranceIntent2.getExtras() != null) {
                     Insurance insurance = (Insurance) insuranceIntent2.getExtras().getSerializable("InsuranceObject");
-                    if (!insurance.getType().equals("")) {
+                    /*if (!insurance.getType().equals("")) {
                         int index = 0;
                         for (int i = 0; i < insuaranceType.length; i++) {
                             if (insurance.getType().equalsIgnoreCase(insuaranceType[i])) {
@@ -2112,6 +2120,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                         }
                         spinnerInsuarance.setSelection(index + 1);
+                    }*/
+                    txtInsuType.setText(insurance.getType());
+                    if (insurance.getType().equals("Other"))
+                    {
+                        tilOtherInsurance.setVisibility(View.VISIBLE);
+                    }
+                    else{
+                        tilOtherInsurance.setVisibility(View.GONE);
                     }
                     spinnerInsuarance.setDisabledColor(getActivity().getResources().getColor(R.color.colorBlack));
                     txtInsuarancePhone.setText(insurance.getPhone());
@@ -2590,8 +2606,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtOtherCategory.setText("");
                         tilOtherCategory.setVisibility(View.GONE);
                 }
-                    /*id = specialist.getId();
-                    if (!specialist.getCategory().equals("")) {
+                    id = specialist.getId();
+                /*    if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < financeType.length; i++) {
                             if (specialist.getCategory().equals(financeType[i])) {
@@ -3588,6 +3604,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         tilSpecialty = rootview.findViewById(R.id.tilSpecialty);
         txtSpecialty = rootview.findViewById(R.id.txtSpecialty);
         txtSpecialty.setFocusable(false);
+        tilInsutype = rootview.findViewById(R.id.tilInsuType);
+        txtInsuType = rootview.findViewById(R.id.txtInsuType);
+        txtInsuType.setFocusable(false);
         txtHCategory = rootview.findViewById(R.id.txtHCategory);
         txtHCategory.setFocusable(false);
         tilFCategory = rootview.findViewById(R.id.tilFCategory);
@@ -4055,6 +4074,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "finance");
                 startActivityForResult(i, RESULT_FINANCECAT);
+            }
+        });
+        txtInsuType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "Insurance");
+                startActivityForResult(i, RESULT_INSURANCE);
             }
         });
 
@@ -4961,11 +4988,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             member = txtId.getText().toString();
             group = txtGroup.getText().toString();
             subscriber = txtSubscribe.getText().toString();
-            int indexValuex = spinnerInsuarance.getSelectedItemPosition();
+           /* int indexValuex = spinnerInsuarance.getSelectedItemPosition();
             if (indexValuex != 0) {
                 type = insuaranceType[indexValuex - 1];
-            }
-
+            }*/
+ type=txtInsuType.getText().toString();
             agent = txtAgent.getText().toString();
             otherInsurance = txtOtherInsurance.getText().toString();
             if (name.equals("")) {
@@ -5198,6 +5225,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             } else {
                 tilOtherCategory.setVisibility(View.GONE);
                 txtOtherCategory.setText("");
+            }
+        }
+        else if (requestCode == RESULT_INSURANCE&& data != null) {
+            type = data.getStringExtra("Category");
+            txtInsuType.setText(type);
+            if (type.equals("Other")) {
+                tilOtherInsurance.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherInsurance.setVisibility(View.GONE);
+                txtOtherInsurance.setText("");
             }
         }
         else if (requestCode == RESULT_TYPE && data != null) {

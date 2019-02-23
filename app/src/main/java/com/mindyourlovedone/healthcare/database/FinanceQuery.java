@@ -149,7 +149,7 @@ public class FinanceQuery {
         cv.put(COL_OTHER_PHONE, otherphone);
         cv.put(COL_NOTE, note);
         cv.put(COL_PRACTICENAME, contactName);
-        cv.put(COL_CATEGORY, otherCategory);
+        cv.put(COL_CATEGORY, speciality);
         cv.put(COL_PHOTO, photo);
         cv.put(COL_FAX, fax);
         cv.put(COL_OTHER_CATEGORY, otherCategory);
@@ -157,8 +157,8 @@ public class FinanceQuery {
         cv.put(COL_EMAIL, email);
         cv.put(COL_LOCATION, location);
 
-        cv.put(COL_PracticeName, "");
-        cv.put(COL_ContactPerson, "");
+        cv.put(COL_PracticeName, practice_name);
+        cv.put(COL_ContactPerson, contactName);
 
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
