@@ -1,4 +1,3 @@
-
 package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.annotation.SuppressLint;
@@ -190,7 +189,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgAdd = findViewById(R.id.imgAdd);
         spinnerDoc = findViewById(R.id.spinnerDoc);
         rlDocType = findViewById(R.id.rlDocType);
-        rlDelete = findViewById(R.id.rlDelete);
+       // rlDelete = findViewById(R.id.rlDelete);
         flDelete = findViewById(R.id.flDelete);
         spinnerType = findViewById(R.id.spinnerType);
 
@@ -376,7 +375,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgAdd.setVisibility(View.VISIBLE);
             txtAdd.setVisibility(View.GONE);
             imgDoc.setClickable(true);
-            rlDelete.setVisibility(View.VISIBLE);
+           // rlDelete.setVisibility(View.VISIBLE);
             flDelete.setVisibility(View.VISIBLE);
             disableView();
         } else if (Goto.equals("Edit")) {
@@ -384,7 +383,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
-            rlDelete.setVisibility(View.VISIBLE);
+           // rlDelete.setVisibility(View.VISIBLE);
             flDelete.setVisibility(View.VISIBLE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Edit File");
@@ -394,7 +393,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.VISIBLE);
-            rlDelete.setVisibility(View.GONE);
+          //  rlDelete.setVisibility(View.GONE);
             flDelete.setVisibility(View.GONE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Select File");
@@ -522,7 +521,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 spinnerDoc.setHint("Document Type");
                 for (int j = 0; j < ADList.length; j++) {
                     if (document.getType().equals(ADList[j])) {
-
                         indexs = j;
                         if (ADList[j].equals("Other")) {
                             tilOtherDocType.setVisibility(View.VISIBLE);
@@ -735,12 +733,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 DirectiveDialog();
 
                /* AlertDialog.Builder builder = new AlertDialog.Builder(AddDocumentActivity.this);
-
                 builder.setTitle("");
                 builder.setItems(alert_items, new DialogInterface.OnClickListener() {
-
                     public void onClick(DialogInterface dialog, int itemPos) {
-
                         switch (itemPos) {
                             case 0:
                                 Intent i = new Intent(context, DocumentSdCardList.class);
@@ -751,15 +746,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                 intent.putExtra("FROM", "Document");
                                 startActivityForResult(intent, RQUESTCODE);
                                 break;
-
                         }
-
                     }
-
                 });
-
                 builder.create().show();
-
 */
                 break;
 
@@ -837,7 +827,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                 String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + txtFName.getText().toString();
 /*
                                 File sourceFile = new File(path);
-
                                 try {
                                     FileInputStream fileInputStream = new FileInputStream(sourceFile);
                                     Toast.makeText(AddDocumentActivity.this,"valid",Toast.LENGTH_SHORT).show();
@@ -852,7 +841,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                     File file=new File(getExternalFilesDir(null),documentPath);
                                     Uri urifile=null;
                                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-
                                         urifile = FileProvider.getUriForFile(context, "com.mindyourelders.healthcare.HomeActivity.fileProvider", file);
                                     } else {
                                         urifile = Uri.fromFile(file);
@@ -862,7 +850,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                    // emailAttachement(urifile);
                                 }
                                 else {
-
                                     Uri uris = Uri.parse(documentPath);
                                     String path=uris.getPath();
                                     serverAttachement(uris);
@@ -1110,7 +1097,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             out.close();
             out = null;
             /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
-
             copyFiles(in, out);
             in.close();
             in = null;
