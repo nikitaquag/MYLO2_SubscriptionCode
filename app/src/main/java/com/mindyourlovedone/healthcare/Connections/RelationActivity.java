@@ -22,7 +22,7 @@ public class RelationActivity extends AppCompatActivity {
     private static int RESULT_SPECIALTY = 13;
     private static int RESULT_CATEGORY = 14;
     private static int RESULT_FINANCECAT = 15;
-
+    private static final int RESULT_INSURANCE = 16;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +54,11 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
                 listRelation.setAdapter(rd);
             }
-
+            else if (category.equalsIgnoreCase("Insurance")) {
+                String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, insuaranceType);
+                listRelation.setAdapter(rd);
+            }
             else if (category.equalsIgnoreCase("finance")) {
                 String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, financeType);
@@ -90,6 +94,10 @@ public class RelationActivity extends AppCompatActivity {
                 else if (category.equalsIgnoreCase("finance")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_FINANCECAT, i);
+                }
+                else if (category.equalsIgnoreCase("Insurance")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_INSURANCE, i);
                 }
                 finish();
             }

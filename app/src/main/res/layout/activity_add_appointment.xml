@@ -84,7 +84,8 @@
                 android:id="@+id/rlSpecialist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimension10dp">
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:visibility="gone">
 
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerType"
@@ -126,20 +127,50 @@
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
-
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilName"
+                android:id="@+id/tilRelation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlSpecialist"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingLeft="@dimen/dimension20dp"
                 android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension30dp"
-                android:paddingBottom="@dimen/dimension8dp">
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true"
 
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtRelation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/dropd"
+                    android:hint="Relationship"
+                    android:imeOptions="actionNext"
+                    android:maxLength="300"
+                    android:maxLines="1"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRelation"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp">
 
 
                 <AutoCompleteTextView
@@ -208,9 +239,9 @@
                 android:layout_below="@+id/rlFrequency"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension30dp"
+                android:paddingLeft="@dimen/dimension20dp"
                 android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension30dp"
+                android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->

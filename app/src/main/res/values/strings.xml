@@ -106,6 +106,7 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="FTUEmergency"><i>First time user instructions</i></string>
     <string name="FTUEmergencyInstruc">Instructions</string>
     <string name="AddNew">Add New</string>
+    <string name="AddNews"><u>Add New</u></string>
     <string name="AddContacts">Add From Contacts</string>
     <string name="EmailReports">Email Reports</string>
     <string name="ViewReports">View Reports</string>

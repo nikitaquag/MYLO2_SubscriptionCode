@@ -80,10 +80,10 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         if (vitalList !=null && !vitalList.isEmpty()) {
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
-            lvVital.setVisibility(View.VISIBLE);
+            lvVital.setSystemUiVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
         } else {
-            lvVital.setVisibility(View.GONE);
+            lvVital.setSystemUiVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
         }
     }

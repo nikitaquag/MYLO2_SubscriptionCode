@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -32,7 +33,8 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
     ListView lvType, lvSpecialist;
     String Type[] = {"Blood Work", "Colonsocopy", "CT Scan", "Echocardiogram", "EKG", "Glucose Test", "Hyperthyroid Blood Test", "Hypothyroid Blood Test", "Mammogram", "MRI", "Prostate Specific Antigen (PSA)", "Sonogram", "Thyroid Scan"};
     String Specialist[] = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
-
+    String category = "";
+    private static int RESULT_TYPE = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,43 +93,61 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             final String category = intent.getExtras().getString("Category");
-            switch (category) {
-                case "TypeAppointment":
-                    rd = new TypeAdapter(context, Type);
-                    lvType.setAdapter(rd);
+            if (category != null) {
+                switch (category) {
+                    case "TypeAppointment":
+                        rd = new TypeAdapter(context, Type);
+                        lvType.setAdapter(rd);
 
-                    txtType.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (category.equalsIgnoreCase("TypeAppointment")) {
-                                Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
-                                rlType.setVisibility(View.VISIBLE);
-                                rlSpecialist.setVisibility(View.GONE);
-                                rd = new TypeAdapter(context, Type);
-                                lvType.setAdapter(rd);
-                            }
-                        }
-                    });
-                    break;
-                case "TypeSpecialist":
-                    rd = new TypeAdapter(context, Specialist);
-                    lvSpecialist.setAdapter(rd);
 
-                    txtSpecialist.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            if (category.equalsIgnoreCase("TypeSpecialist")) {
-                                Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
-                                rlType.setVisibility(View.GONE);
-                                rlSpecialist.setVisibility(View.VISIBLE);
-                                rd = new TypeAdapter(context, Specialist);
-                                lvSpecialist.setAdapter(rd);
-                            }
-                        }
-                    });
+                        break;
+                    case "TypeSpecialist":
+                        rd = new TypeAdapter(context, Specialist);
+                        lvSpecialist.setAdapter(rd);
 
-                    break;
+
+                        break;
+                }
             }
+            txtSpecialist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                 //  if (category.equalsIgnoreCase("TypeSpecialist")) {
+                        Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
+                        rlType.setVisibility(View.GONE);
+                        rlSpecialist.setVisibility(View.VISIBLE);
+                        rd = new TypeAdapter(context, Specialist);
+                        lvSpecialist.setAdapter(rd);
+                 //   }
+                }
+            });
+
+            txtType.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                   // if (category.equalsIgnoreCase("TypeAppointment")) {
+                        Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
+                        rlType.setVisibility(View.VISIBLE);
+                        rlSpecialist.setVisibility(View.GONE);
+                        rd = new TypeAdapter(context, Type);
+                        lvType.setAdapter(rd);
+                    }
+               // }
+            });
+
+            lvType.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    TextView txtType = view.findViewById(R.id.txtType);
+                    Intent i1 = new Intent();
+                    if (category.equalsIgnoreCase("TypeAppointment")) {
+                        i1.putExtra("TypeAppointment", txtType.getText().toString());
+                        setResult(RESULT_TYPE, i1);
+                    }
+                    finish();
+                }
+            });
+
 
              /* Bundle bundle = new Bundle();
                 bundle.putString("Category", "TypeAppointment");
