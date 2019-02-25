@@ -100,6 +100,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
         final ArrayList<DateClass> dates = a.getDateList();
 
 //Commented for adding static values for checking
+
+        if (noteList.get(position).getType().equals("")) {
+            holder.txtType.setVisibility(View.GONE);
+        } else {
+            holder.txtType.setVisibility(View.VISIBLE);
+            holder.txtType.setText(noteList.get(position).getType());
+        }
+
         if (noteList.get(position).getDoctor().equals("")) {
             holder.txtDoctor.setVisibility(View.GONE);
         } else {
@@ -128,14 +136,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View helperview = lf.inflate(R.layout.date_row, null);
 
-                           final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
+                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
 
                         holder.llDate.addView(helperview);
                         TextView datetime = helperview.findViewById(R.id.txtDateTime);
 
                         if (i == dates.size()) {
 
-                             swipeDate.setSwipeEnabled(false);
+                            swipeDate.setSwipeEnabled(false);
 
                             //  datetime.setText("Add +");
                             //datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));

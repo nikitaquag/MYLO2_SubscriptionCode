@@ -75,7 +75,7 @@
                     android:layout_width="@dimen/dimension5dp"
                     android:layout_height="@dimen/dimension1dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@color/colorOnesGray" />
+                    android:background="@color/colorDarkGray" />
 
                 <TextView
                     android:id="@+id/txtDoctor"

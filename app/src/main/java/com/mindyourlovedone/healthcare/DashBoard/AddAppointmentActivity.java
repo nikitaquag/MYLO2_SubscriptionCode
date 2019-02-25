@@ -382,6 +382,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             case R.id.txtSave:
                 hideSoftKeyboard();
                 int unique = generateRandom();
+                String type=txtRelation.getText().toString().trim();
                 String name = txtName.getText().toString().trim();
                 String date = txtDate.getText().toString().trim();
                 String note = txtNote.getText().toString().trim();
@@ -389,7 +390,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 otherFrequency = txtOtherFrequency.getText().toString();
                 // int indexValuex = spinnerType.getSelectedItemPosition();
 
-                String type = "";
+               // String type = "";
                 String frequency = "";
                 //Comment for spinner
                 /*if (indexValuex != 0) {
@@ -416,7 +417,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
                 } else if (isUpdate == true) {
-                    Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
+                    Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(),name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
                     if (flag == true) {
                         hideSoftKeyboard();
                         Toast.makeText(context, "Appointment updated succesfully", Toast.LENGTH_SHORT).show();
