@@ -519,6 +519,7 @@ emergencyList=new ArrayList<>();
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Emergency");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","New");
                 startActivity(i);
                 dialog.dismiss();
             }
@@ -529,6 +530,7 @@ emergencyList=new ArrayList<>();
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Emergency");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","Contact");
                 startActivity(i);
                 dialog.dismiss();
             }

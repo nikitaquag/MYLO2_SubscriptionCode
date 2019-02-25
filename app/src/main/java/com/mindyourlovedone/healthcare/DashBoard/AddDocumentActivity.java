@@ -684,7 +684,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                         long selectedMilli = newDate.getTimeInMillis();
 
                         Date datePickerDate = new Date(selectedMilli);
-                        String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+                        String reportDate = new SimpleDateFormat("d MMM yyyy").format(datePickerDate);
 
                         DateClass d = new DateClass();
                         d.setDate(reportDate);
