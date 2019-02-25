@@ -23,6 +23,9 @@ public class RelationActivity extends AppCompatActivity {
     private static int RESULT_CATEGORY = 14;
     private static int RESULT_FINANCECAT = 15;
     private static final int RESULT_INSURANCE = 16;
+    private static final int RESULT_ADVANCE = 20;
+    private static final int RESULT_OTHER =30 ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +67,15 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, financeType);
                 listRelation.setAdapter(rd);
             }
+            else if (category.equalsIgnoreCase("Advance")) {
+                String[] ADList = {"HIPAA Authorization", "Health Care Proxy", "Living Will", "Living Will/Health Care Proxy", "MOLST", "Non-Hospital DNR Order", "POLST", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, ADList);
+                listRelation.setAdapter(rd);
+            } else if (category.equalsIgnoreCase("Other")) {
+                String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, OtherList);
+                listRelation.setAdapter(rd);
+            }
 
 
         }
@@ -98,6 +110,14 @@ public class RelationActivity extends AppCompatActivity {
                 else if (category.equalsIgnoreCase("Insurance")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_INSURANCE, i);
+                }
+                else if (category.equalsIgnoreCase("Advance")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_ADVANCE, i);
+                }
+                else if (category.equalsIgnoreCase("Other")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(RESULT_OTHER, i);
                 }
                 finish();
             }

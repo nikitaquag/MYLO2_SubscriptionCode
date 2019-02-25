@@ -32,6 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -62,6 +63,8 @@ import java.util.List;
 public class AddDocumentActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int RQUESTCODE = 400;
     private static final int RESULTCODE = 200;
+    private static final int RESULT_ADVANCE = 20;
+    private static final int RESULT_OTHER = 30;
     final CharSequence[] alert_items = {"Phone Storage", "Dropbox"};
     //final CharSequence[] dialog_items = { "Email", "Bluetooth", "View", "Print", "Fax" };
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
@@ -95,6 +98,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     Intent i;
     String[] ADList = {"HIPAA Authorization", "Health Care Proxy", "Living Will", "Living Will/Health Care Proxy", "MOLST", "Non-Hospital DNR Order", "POLST", "Other"};
     String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
+
+    TextInputLayout tilDocuType, tilSpinDoc;
+    TextView txtDocuType, txtSpinDoc;
 
     boolean external_flag = false;
     List<RelativeConnection> items;
@@ -160,10 +166,19 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtSave.setOnClickListener(this);
         imgHome.setOnClickListener(this);
         txtDelete.setOnClickListener(this);
-
+        txtDocuType.setOnClickListener(this);
+        txtSpinDoc.setOnClickListener(this);
     }
 
     private void initUi() {
+
+        tilDocuType = findViewById(R.id.tilDocuType);
+        txtDocuType = findViewById(R.id.txtDocuType);
+        txtDocuType.setFocusable(false);
+
+        tilSpinDoc = findViewById(R.id.tilSpinDoc);
+        txtSpinDoc = findViewById(R.id.txtSpinDoc);
+        txtSpinDoc.setFocusable(false);
 
         txtDelete = findViewById(R.id.txtDelete);
 
@@ -232,6 +247,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDoc.setAdapter(adapter);
         spinnerDoc.setHint("Document Type");
+
+
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -249,7 +266,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
 
         if (From.equals("AD")) {
-            spinnerDoc.setVisibility(View.VISIBLE);
+            // spinnerDoc.setVisibility(View.VISIBLE);
+            tilSpinDoc.setVisibility(View.VISIBLE);
             rlDocType.setVisibility(View.VISIBLE);
             adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -282,7 +300,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtTitle.setText("Advance Directives");
 
         } else if (From.equals("Other")) {
-            spinnerDoc.setVisibility(View.GONE);
+            // spinnerDoc.setVisibility(View.GONE);
+            tilSpinDoc.setVisibility(View.GONE);
             tilDocType.setVisibility(View.VISIBLE);
             tilHosp.setVisibility(View.GONE);
             txtHosp.setVisibility(View.GONE);
@@ -296,7 +315,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtTitle.setText("Other Documents");
         } else if (From.equals("Record")) {
             spinnerDoc.setVisibility(View.GONE);
+            tilSpinDoc.setVisibility(View.GONE);
             spinnerType.setVisibility(View.GONE);
+            tilDocuType.setVisibility(View.GONE);
             tilDocType.setVisibility(View.VISIBLE);
             /*txtHolderName.setVisibility(View.GONE);
             txtLocation.setVisibility(View.GONE);*/
@@ -312,11 +333,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         }
         switch (From) {
             case "AD":
-                spinnerType.setVisibility(View.GONE);
+                //  spinnerType.setVisibility(View.GONE);
+                tilDocuType.setVisibility(View.GONE);
                 break;
 
             case "Other":
-                spinnerType.setVisibility(View.VISIBLE);
+                // spinnerType.setVisibility(View.VISIBLE);
+                tilDocuType.setVisibility(View.VISIBLE);
                 break;
         }
 //intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -381,7 +404,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         if (Goto.equals("View") || Goto.equals("Edit")) {
 
             if (From.equals("AD")) {
-                spinnerDoc.setVisibility(View.VISIBLE);
+                // spinnerDoc.setVisibility(View.VISIBLE);
+                tilSpinDoc.setVisibility(View.VISIBLE);
                 adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerDoc.setAdapter(adapter);
@@ -411,6 +435,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 // txtDate.setHint("Date Signed");
             } else if (From.equals("Other")) {
                 spinnerDoc.setVisibility(View.GONE);
+                tilSpinDoc.setVisibility(View.GONE);
                 tilDocType.setVisibility(View.VISIBLE);
                 txtHosp.setVisibility(View.GONE);
                 tilHosp.setVisibility(View.GONE);
@@ -422,7 +447,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 //  txtDate.setHint("Date Signed");
             } else if (From.equals("Record")) {
                 spinnerDoc.setVisibility(View.GONE);
-                spinnerType.setVisibility(View.GONE);
+
+                tilSpinDoc.setVisibility(View.GONE);
+                //spinnerType.setVisibility(View.GONE);
+                tilDocuType.setVisibility(View.GONE);
                 tilDocType.setVisibility(View.VISIBLE);
                /* txtHolderName.setVisibility(View.GONE);
                 txtLocation.setVisibility(View.GONE);*/
@@ -439,6 +467,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             //imgDone.setVisibility(View.GONE);
 
             document = (Document) i.getExtras().getSerializable("DocumentObject");
+            txtSpinDoc.setText(document.getType());
+            txtDocuType.setText(document.getCategory());
             txtDate.setText(document.getDate());
             txtHolderName.setText(document.getHolder());
             txtLocation.setText(document.getLocation());
@@ -451,7 +481,16 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             documentPath = document.getDocument();
 
             imgDoc.setImageResource(R.drawable.pdf);//document.getImage()
-
+            if (document.getType().equals("Other")) {
+                tilOtherDocType.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherDocType.setVisibility(View.GONE);
+            }
+            if (document.getCategory().equals("Other")) {
+                tilOther.setVisibility(View.VISIBLE);
+            } else {
+                tilOther.setVisibility(View.GONE);
+            }
             id = document.getId();
 
             int index = 0;
@@ -464,18 +503,19 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             } else {
                 txtDocTYpe.setText(document.getType());
                 if (!document.getCategory().equals("")) {
-                    int indexs = 0;
+                    /*int indexs = 0;
                     for (int j = 0; j < OtherList.length; j++) {
                         if (document.getCategory().equals(OtherList[j])) {
                             indexs = j;
                         }
                     }
-                    spinnerType.setSelection(indexs + 1);
+                    spinnerType.setSelection(indexs + 1);*/
+                    txtDocuType.setText(document.getCategory());
                 }
             }
 
             if (document.getFrom().equals("AD")) {
-                int indexs = 0;
+               /* int indexs = 0;
                 adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerDoc.setAdapter(adapter);
@@ -494,7 +534,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 }
                 spinnerDoc.setSelection(indexs + 1);
                 String sel = spinnerDoc.getSelectedItem().toString();
-
+*/
+                if (document.getType().equals("Other")) {
+                    tilOtherDocType.setVisibility(View.VISIBLE);
+                    txtOtherDocType.setText(document.getOtherDoc());
+                } else {
+                    tilOtherDocType.setVisibility(View.GONE);
+                }
             }
 
 
@@ -572,6 +618,20 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.txtDocuType:
+                Intent j = new Intent(AddDocumentActivity.this, RelationActivity.class);
+                j.putExtra("Category", "Other");
+                startActivityForResult(j, RESULT_OTHER);
+                break;
+
+            case R.id.txtSpinDoc:
+                Intent x = new Intent(AddDocumentActivity.this, RelationActivity.class);
+                x.putExtra("Category", "Advance");
+                startActivityForResult(x, RESULT_ADVANCE);
+
+                break;
+
             case R.id.imgHome:
                 Intent intentHome = new Intent(context, BaseActivity.class);
                 intentHome.putExtra("c", 1);
@@ -1094,18 +1154,20 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         principle = txtName.getText().toString();
         if (From.equals("AD")) {
             category = "AD";
-            if (indexValue != 0) {
+            /*if (indexValue != 0) {
                 docType = ADList[indexValue - 1];
             }
             if (docType.equals("Other")) {
                 otherDocType = txtOtherDocType.getText().toString().trim();
-            }
+            }*/
+            docType = txtSpinDoc.getText().toString();
+            otherDocType = txtOtherDocType.getText().toString().trim();
         } else {
             otherDocType = "";
             docType = txtDocTYpe.getText().toString();
-            if (indexValues != 0) {
-                category = OtherList[indexValues - 1];
-            }
+            //  if (indexValues != 0) {
+            category = txtDocuType.getText().toString();
+            // }
             otherCategory = txtOther.getText().toString();
            /* switch(category)
             {
@@ -1185,6 +1247,26 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             showDialogWindow(text);
             //  txtAdd.setText("Edit File");
             imgDoc.setImageResource(R.drawable.pdf);
+        } else if (requestCode == RESULT_ADVANCE && data != null) {
+            docType = data.getStringExtra("Category");
+            txtSpinDoc.setText(docType);
+            if (docType.equals("Other")) {
+                tilOtherDocType.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherDocType.setVisibility(View.GONE);
+                txtOtherDocType.setText("");
+            }
+        } else if (requestCode == RESULT_OTHER && data != null) {
+
+
+            category = data.getStringExtra("Category");
+            txtDocuType.setText(category);
+            if (category.equals("Other")) {
+                tilOther.setVisibility(View.VISIBLE);
+            } else {
+                tilOther.setVisibility(View.GONE);
+                txtOther.setText("");
+            }
         }
 
     }
