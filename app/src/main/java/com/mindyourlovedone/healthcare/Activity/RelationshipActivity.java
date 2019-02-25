@@ -104,8 +104,6 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                     case "TypeSpecialist":
                         rd = new TypeAdapter(context, Specialist);
                         lvSpecialist.setAdapter(rd);
-
-
                         break;
                 }
             }
@@ -147,6 +145,20 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                     finish();
                 }
             });
+
+            lvSpecialist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                    TextView txtType = view.findViewById(R.id.txtType);
+                    Intent i1 = new Intent();
+                    if (category.equalsIgnoreCase("TypeAppointment")) {
+                        i1.putExtra("TypeAppointment", txtType.getText().toString());
+                        setResult(RESULT_TYPE, i1);
+                    }
+                    finish();
+                }
+            });
+
 
 
              /* Bundle bundle = new Bundle();

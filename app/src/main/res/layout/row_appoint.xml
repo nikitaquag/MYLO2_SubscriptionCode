@@ -98,7 +98,7 @@
                 android:singleLine="false"
                 android:text="jksdffs "
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dimension18dp" />
+                android:textSize="@dimen/dimension16dp" />
 
             <LinearLayout
                 android:id="@+id/llSubApp"
@@ -265,7 +265,7 @@
             android:layout_below="@+id/rlMain"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
-            android:background="@drawable/border_row_white"
+            android:background="@drawable/border_row_white_one"
             android:visibility="visible"></View>
 
         <TextView

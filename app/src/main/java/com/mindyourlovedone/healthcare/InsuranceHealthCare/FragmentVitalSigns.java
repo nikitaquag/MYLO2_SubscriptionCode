@@ -162,7 +162,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         lvVital.setLayoutManager(linearLayoutManager);
 
         //add ItemDecoration
-        lvVital.addItemDecoration(new VerticalSpaceItemDecoration(48));
+        lvVital.addItemDecoration(new VerticalSpaceItemDecoration(0));
 
         //or
         lvVital.addItemDecoration(

@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -42,7 +43,7 @@ import java.util.Random;
 
 public class AddAppointmentActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    TextView txtRelation, txtName, txtNote, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
+    TextView txtRelation, txtFrequency, txtName, txtNote, txtDate, txtOtherSpecialist, txtOtherFrequency, txtAdd, txtSave;
     Preferences preferences;
     MySpinner spinnerType, spinnerFrequency;
     DBHelper dbHelper;
@@ -58,8 +59,9 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     boolean isUpdate = false;
     Appoint p;
     private static int RESULT_TYPE = 10;
-    ListView lvType,lvSpecialist;
+    private static int RESULT_FREQUENCY = 110;
 
+    ListView lvType, lvSpecialist;
 
 
     //    String[] Type = {"CT Scan", "Colonoscopy", "Glucose Test", "Hypothyroid Blood test", "Mammogram", "Thyroid Scan", "Other", "",
@@ -105,12 +107,16 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         txtDate.setOnClickListener(this);
         txtNote.setOnClickListener(this);
         txtRelation.setOnClickListener(this);
+        txtFrequency.setOnClickListener(this);
+
     }
 
     private void initUi() {
 
         txtRelation = findViewById(R.id.txtRelation);
         txtRelation.setFocusable(false);
+        txtFrequency = findViewById(R.id.txtFrequency);
+        txtFrequency.setFocusable(false);
         txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         tilName = findViewById(R.id.tilName);
@@ -209,8 +215,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
 */
 
 
-
-        ArrayAdapter adapter1 = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Frequency);
+//comment for spinner Frequency
+       /* ArrayAdapter adapter1 = new ArrayAdapter(context, android.R.layout.simple_spinner_item, Frequency);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerFrequency.setAdapter(adapter1);
         spinnerFrequency.setHint("Frequency");
@@ -228,7 +234,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
-        });
+        });*/
         //Comment for spinner
 /*
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -282,13 +288,25 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 isUpdate = true;
                 Appoint a = (Appoint) i.getExtras().getSerializable("AppointObject");
                 p = (Appoint) i.getExtras().getSerializable("AppointObject");
+                if (a.getType() != null) {
+                    txtRelation.setText(a.getType());
+                }
+                if (a.getFrequency() != null) {
+                    txtFrequency.setText(a.getFrequency());
+                }
+                if (a.getFrequency().equals("Other")) {
+                    txtOtherFrequency.setText(a.getOtherFrequency());
+                }
+
                 if (a.getDoctor() != null) {
                     txtName.setText(a.getDoctor());
                 }
                 if (a.getNote() != null) {
                     txtNote.setText(a.getNote());
                 }
-                if (a.getFrequency() != null) {
+
+                //Comment for spinner Frequency
+               /* if (a.getFrequency() != null) {
                     int index = 0;
                     for (int j = 0; j < Frequency.length; j++) {
                         if (a.getFrequency().equals(Frequency[j])) {
@@ -299,8 +317,9 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 }
                 if (a.getFrequency().equals("Other")) {
                     txtOtherFrequency.setText(a.getOtherFrequency());
-                }
-                //Comment for spinner
+                }*/
+
+                //Comment for spinner type
               /*  if (a.getType().equals("Other")) {
                     txtOtherSpecialist.setText(a.getOtherDoctor());
                 }
@@ -324,15 +343,19 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_TYPE && data != null) {
-            String type=data.getExtras().getString("TypeAppointment");
+            String type = data.getExtras().getString("TypeAppointment");
             txtRelation.setText(type);
-            /*if (relation.equals("Other")) {
-                tilOtherRelation.setVisibility(View.VISIBLE);
-                txtOtherRelation.setVisibility(View.VISIBLE);
+        } else if (requestCode == RESULT_FREQUENCY && data != null) {
+            String freq = data.getExtras().getString("Category");
+            txtFrequency.setText(freq);
+
+            if (freq.equals("Other")) {
+                tilOtherFrequency.setVisibility(View.VISIBLE);
+                txtOtherFrequency.setVisibility(View.VISIBLE);
             } else {
-                tilOtherRelation.setVisibility(View.GONE);
-                txtOtherRelation.setVisibility(View.GONE);
-            }*/
+                tilOtherFrequency.setVisibility(View.GONE);
+                txtOtherFrequency.setVisibility(View.GONE);
+            }
         }
     }
 
@@ -343,9 +366,14 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             case R.id.txtRelation:
                 Intent intentType = new Intent(context, RelationshipActivity.class);
                 intentType.putExtra("Category", "TypeAppointment");
-               // intentType.putExtra("Category", "TypeSpecialist");
                 startActivityForResult(intentType, RESULT_TYPE);
                 break;
+            case R.id.txtFrequency:
+                Intent intentFrequency = new Intent(context, RelationActivity.class);
+                intentFrequency.putExtra("Category", "TypeFrequency");
+                startActivityForResult(intentFrequency, RESULT_FREQUENCY);
+                break;
+
             case R.id.imgBack:
                 hideSoftKeyboard();
                 finish();
@@ -382,7 +410,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             case R.id.txtSave:
                 hideSoftKeyboard();
                 int unique = generateRandom();
-                String type=txtRelation.getText().toString().trim();
+                String type = txtRelation.getText().toString().trim();
+                String frequency = txtFrequency.getText().toString().trim();
                 String name = txtName.getText().toString().trim();
                 String date = txtDate.getText().toString().trim();
                 String note = txtNote.getText().toString().trim();
@@ -390,8 +419,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 otherFrequency = txtOtherFrequency.getText().toString();
                 // int indexValuex = spinnerType.getSelectedItemPosition();
 
-               // String type = "";
-                String frequency = "";
+                // String type = "";
+
                 //Comment for spinner
                 /*if (indexValuex != 0) {
                     type = items.get(indexValuex - 1).getType();
@@ -417,7 +446,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
                 } else if (isUpdate == true) {
-                    Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(),name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
+                    Boolean flag = AppointmentQuery.updateAppointmentData(p.getId(), name, date, note, type, frequency, otherType, otherFrequency, dateList, p.getUnique());
                     if (flag == true) {
                         hideSoftKeyboard();
                         Toast.makeText(context, "Appointment updated succesfully", Toast.LENGTH_SHORT).show();

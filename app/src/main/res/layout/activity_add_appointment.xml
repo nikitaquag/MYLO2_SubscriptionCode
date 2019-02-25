@@ -127,6 +127,7 @@
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
+
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilRelation"
                 android:layout_width="match_parent"
@@ -179,7 +180,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Name of Doctor(if applicable)"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
@@ -199,6 +200,7 @@
                     android:layout_marginLeft="@dimen/dimension35dp"
                     android:layout_marginRight="@dimen/dimension35dp"
                     android:focusable="false"
+                    android:visibility="gone"
                     app:ms_arrowColor="@color/colorBlue"
                     app:ms_arrowSize="16dp"
                     app:ms_floatingLabelText="Frequency"
@@ -208,23 +210,62 @@
                     custom:ms_hintColor="@color/colorDarkGray" />
 
                 <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilOtherFrequency"
+                    android:id="@+id/tilFrequency"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/spinnerFrequency"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="visible"
+                    app:hintEnabled="true"
+
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtFrequency"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/dropd"
+                        android:hint="Frequency"
+                        android:imeOptions="actionNext"
+                        android:maxLength="300"
+                        android:maxLines="1"
+                        android:paddingLeft="@dimen/dimension5dp"
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilOtherFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilFrequency"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintEnabled="true"
+
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtOtherFrequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Other Frequency"
-                        android:maxLength="30"
+                        android:imeOptions="actionNext"
+                        android:maxLength="300"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
+                        android:paddingLeft="@dimen/dimension5dp"
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
@@ -253,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Note"
                     android:maxLines="1"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"

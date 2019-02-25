@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
     FragmentVitalSigns fr;
+    boolean flagDrop = false;
 
 
     public VitalAdpater(Activity activity, ArrayList<VitalSigns> vitalList, FragmentVitalSigns fragmentVitalSigns) {
@@ -93,24 +95,60 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             holder.txtTime.setVisibility(View.VISIBLE);
         }
 
+        holder.rlMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (flagDrop == false) {
+                    holder.llSubVital.setVisibility(View.VISIBLE);
+                    holder.imgDropDown.setImageResource(R.drawable.dropup);
+                    holder.txtEdit.setVisibility(View.VISIBLE);
+                    holder.viewVital.setVisibility(View.VISIBLE);
+                    holder.view2.setVisibility(View.GONE);
+                    flagDrop = true;
+                } else if (flagDrop == true) {
+                    holder.llSubVital.setVisibility(View.GONE);
+                    holder.imgDropDown.setImageResource(R.drawable.drop_down);
+                    holder.txtEdit.setVisibility(View.GONE);
+                    holder.viewVital.setVisibility(View.GONE);
+                    holder.view2.setVisibility(View.VISIBLE);
+                    flagDrop = false;
+                }
+            }
+        });
 
-      /* if (vitalList.get(position).getCategory().equals("")) {
-            holder.txtCategory.setVisibility(View.GONE);
+        if (vitalList.get(position).getPulseRate().equals("")) {
+            holder.txtPulseData.setVisibility(View.GONE);
         } else {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-        }*/
+            holder.txtPulseData.setVisibility(View.VISIBLE);
+            holder.txtPulseData.setText(vitalList.get(position).getPulseRate());
+        }
+
+        if (vitalList.get(position).getRespRate().equals("")) {
+            holder.txtRespData.setVisibility(View.GONE);
+        } else {
+            holder.txtRespData.setVisibility(View.VISIBLE);
+            holder.txtRespData.setText(vitalList.get(position).getRespRate());
+        }
+
+        if (vitalList.get(position).getLocation().equals("")) {
+            holder.txtLocData.setVisibility(View.GONE);
+        } else {
+            holder.txtLocData.setVisibility(View.VISIBLE);
+            holder.txtLocData.setText(vitalList.get(position).getLocation());
+        }
+
+        if (vitalList.get(position).getNote().equals("")) {
+            holder.txtNoteData.setVisibility(View.GONE);
+        } else {
+            holder.txtNoteData.setVisibility(View.VISIBLE);
+            holder.txtNoteData.setText(vitalList.get(position).getNote());
+        }
+
         holder.txtBPValue.setText(vitalList.get(position).getBp());
         holder.txtHRValue.setText(vitalList.get(position).getHeartRate());
         holder.txtTempValue.setText(vitalList.get(position).getTemperature());
         holder.txtDate.setText(vitalList.get(position).getDate());
         holder.txtTime.setText(vitalList.get(position).getTime());
-
-      /*  if (vitalList.get(position).getCategory().equals("Other")) {
-            holder.txtCategory.setText(vitalList.get(position).getCategory() + " - " + vitalList.get(position).getOtherCategory());
-        } else {
-            holder.txtCategory.setText(vitalList.get(position).getCategory());
-        }*/
-        //holder.imgProfile.setImageResource(FinanceList.get(position).getImage());
 
 
         holder.rlVital.setOnClickListener(new View.OnClickListener() {
@@ -133,14 +171,17 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtBP, txtBPValue, txtHR, txtHRValue, txtTemp, txtTempValue, txtDate, txtTime;
+        TextView txtEdit, txtBP, txtBPValue, txtHR, txtHRValue, txtTemp, txtTempValue, txtDate, txtTime, txtPulseData, txtRespData, txtLocData, txtNoteData;
         ImageView imgDropDown;
 
         SwipeLayout swipeLayout;
-        RelativeLayout rlVital;
+        RelativeLayout rlVital, rlMain;
+        LinearLayout llSubVital;
+        View viewVital, view2;
 
         public ViewHolder(View convertView) {
             super(convertView);
+            txtEdit = convertView.findViewById(R.id.txtEdit);
             txtBP = convertView.findViewById(R.id.txtBP);
             txtBPValue = convertView.findViewById(R.id.txtBpValue);
             txtHR = convertView.findViewById(R.id.txtHR);
@@ -149,9 +190,21 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             txtTempValue = convertView.findViewById(R.id.txtTempValue);
             txtDate = convertView.findViewById(R.id.txtDate);
             txtTime = convertView.findViewById(R.id.txtTime);
+
+            txtPulseData = convertView.findViewById(R.id.txtPulseData);
+            txtRespData = convertView.findViewById(R.id.txtRespData);
+            txtLocData = convertView.findViewById(R.id.txtLocData);
+            txtNoteData = convertView.findViewById(R.id.txtNoteData);
+
+
             rlVital = convertView.findViewById(R.id.rlVital);
+            rlMain = convertView.findViewById(R.id.rlMain);
+            llSubVital = convertView.findViewById(R.id.llSubVital);
 
             imgDropDown = convertView.findViewById(R.id.imgDropDown);
+            viewVital = convertView.findViewById(R.id.viewVital);
+            view2 = convertView.findViewById(R.id.view2);
+
         }
     }
 
