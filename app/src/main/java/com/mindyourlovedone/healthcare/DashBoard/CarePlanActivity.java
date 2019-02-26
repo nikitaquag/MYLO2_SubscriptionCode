@@ -115,7 +115,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         txtClick = findViewById(R.id.txtClick);
         txtUserName = findViewById(R.id.txtUserName);
         txtUserName.setBackgroundColor(getResources().getColor(R.color.colorDirectiveSubRed));
-        txtUserName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        txtUserName.setText(preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION));
         imgBack = findViewById(R.id.imgBack);
         imgRight = findViewById(R.id.imgRight);
         imgHomes = findViewById(R.id.imgHomes);
@@ -208,8 +208,8 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.txtClick:
-                Intent intentContactUs = new Intent(context, BaseNewActivity.class);
-                intentContactUs.putExtra("Home", 5);
+                Intent intentContactUs = new Intent(context, BaseActivity.class);
+                intentContactUs.putExtra("c", 5);
                 startActivity(intentContactUs);
                 break;
             case R.id.floatOptions:

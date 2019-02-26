@@ -408,6 +408,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Insurance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","New");
                 startActivity(i);
                 dialog.dismiss();
             }
@@ -418,6 +419,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             public void onClick(View v) {
                 preferences.putString(PrefConstants.SOURCE, "Insurance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
+                i.putExtra("TAB","Contact");
                 startActivity(i);
                 dialog.dismiss();
             }

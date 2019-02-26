@@ -37,6 +37,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.mindyourlovedone.healthcare.DashBoard.AddFormActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -166,7 +167,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     StaggeredTextGridView gridRelation;
     ArrayList<String> relationArraylist;
     RelationAdapter relationAdapter;
-
+     ToggleButton tbCard;
     DialogManager dialogManager;
 
     String imagepath = "", cardPath = "";
@@ -1323,7 +1324,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     String photo = "";
                     String ph = "";
                     if (imagepath.isEmpty()) {//nikita
-                        photo = rel.getPhoto();
+                        if (rel != null) {
+                            photo = rel.getPhoto();
+                        }
                     } else {
                         photo = imagepath;
                         ph = imagepath;
@@ -1342,26 +1345,30 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                     }
 
-                    cardPath = rel.getPhotoCard();
-                    if (!rel.getPhotoCard().equals("")) {
-                        String photoCard = rel.getPhotoCard();
-                        File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photoCard);
-                        if (imgFile1.exists()) {
-                          /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                            imgCard.setImageBitmap(myBitmap);*/
-                            imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
-                            //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
-                        }
-                       /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-                        imgCard.setImageBitmap(bmpCard);*/
-                        imgCard.setVisibility(View.VISIBLE);
-                        rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
-                    } else {
-                        imgCard.setVisibility(View.GONE);
-                        rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                    if (rel != null) {
+                        cardPath = rel.getPhotoCard();
+                    }
+                    if (rel != null) {
+                        if (!rel.getPhotoCard().equals("")) {
+                            String photoCard = rel.getPhotoCard();
+                            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photoCard);
+                            if (imgFile1.exists()) {
+                              /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
+                                imgCard.setImageBitmap(myBitmap);*/
+                                imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+                                //  imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+                            }
+                           /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
+                            imgCard.setImageBitmap(bmpCard);*/
+                            imgCard.setVisibility(View.VISIBLE);
+                            rlCard.setVisibility(View.VISIBLE);
+                            txtCard.setVisibility(View.GONE);
+                        } else {
+                            imgCard.setVisibility(View.GONE);
+                            rlCard.setVisibility(View.GONE);
+                            txtCard.setVisibility(View.VISIBLE);
 
+                        }
                     }
                 }
                 break;
