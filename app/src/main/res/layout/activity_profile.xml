@@ -26,7 +26,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@color/colorOne">
+        android:background="@color/colorEmerMainGreen">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -45,7 +45,7 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center"
             android:text="Personal Profile"
-            android:textAllCaps="true"
+
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />
 
@@ -53,23 +53,25 @@
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension5dp"
-            android:layout_toLeftOf="@+id/imgRight"
-            android:paddingLeft="@dimen/dimension3dp"
-            android:paddingRight="@dimen/dimension3dp"
-            android:text="Save"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="SAVE"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/dimension18dp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/imgDone"
             android:layout_width="@dimen/dimension30dp"
             android:layout_height="@dimen/dimension30dp"
             android:layout_centerVertical="true"
+
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension5dp"
             android:layout_toLeftOf="@+id/imgRight"
@@ -83,7 +85,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:src="@drawable/menudot"
-            android:visibility="visible" />
+            android:visibility="gone" />
     </RelativeLayout>
 
     <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -779,7 +781,7 @@
                 </RelativeLayout>
 <View
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dimension2dp"
+   android:layout_height="@dimen/dimension1dp"
     android:id="@+id/vgender"
     android:layout_below="@+id/rlGender"
     android:layout_marginTop="@dimen/dimension3dp"
@@ -840,7 +842,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableRight="@drawable/cal"
-                        android:drawablePadding="5dp"
+                        android:drawablePadding="@dimen/dimension15dp"
                         android:focusable="false"
                         android:hint="Birthdate"
                         android:imeOptions="actionNext"
@@ -861,6 +863,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_below="@+id/vgender"
+    android:layout_marginTop="@dimen/dimension5dp"
     >
     <android.support.design.widget.TextInputLayout
         android:id="@+id/tilHeight"
@@ -1019,78 +1022,138 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rgLive"
-                    android:layout_marginLeft="@dimen/dimension50dp">
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    >
+                    <View
+                        android:id="@+id/vw"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
 
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkChild"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Child"
+                        android:layout_below="@+id/vw"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
-
+                    <View
+                        android:id="@+id/vw1"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_below="@+id/chkChild"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkFriend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkChild"
+                        android:layout_below="@+id/vw1"
                         android:text="Friend"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
-
+                    <View
+                        android:id="@+id/vw3"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="@dimen/dimension5dp"
+android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_below="@+id/chkFriend"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkGrandParent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkFriend"
+                        android:layout_below="@+id/vw3"
                         android:text="Grandparent(s)"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
-
+                    <View
+                        android:id="@+id/vw2"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_below="@+id/chkGrandParent"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkParent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkGrandParent"
+                        android:layout_below="@+id/vw2"
                         android:text="Parent(s)"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
-
+                    <View
+                        android:id="@+id/vw4"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
+                        android:layout_below="@+id/chkParent"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkSpouse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkParent"
+                        android:layout_below="@+id/vw4"
                         android:text="Spouse"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
-
+                    <View
+                        android:id="@+id/vw5"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_below="@+id/chkSpouse"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkSibling"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkSpouse"
+                        android:layout_below="@+id/vw5"
                         android:text="Sibling"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         />
+                    <View
+                        android:id="@+id/vw6"
+                        android:layout_width="match_parent"
+                       android:layout_height="@dimen/dimension1dp"
 
+                        android:layout_below="@+id/chkSibling"
+                        android:background="@color/colorGray"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        ></View>
                     <CheckBox
                         android:id="@+id/chkOther"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/chkSibling"
+                        android:layout_below="@+id/vw6"
                         android:text="Significant Other"
                         android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
