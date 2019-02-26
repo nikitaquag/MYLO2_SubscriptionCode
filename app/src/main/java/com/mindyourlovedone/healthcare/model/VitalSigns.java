@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.model;
 
-public class VitalSigns {
-    int id;
+import java.io.Serializable;
+
+public class VitalSigns implements Serializable {
+    int id=0;
 
     public int getId() {
         return id;

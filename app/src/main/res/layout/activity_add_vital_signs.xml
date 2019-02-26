@@ -90,7 +90,8 @@
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
                 android:paddingRight="@dimen/dimension10dp"
-                android:paddingBottom="@dimen/dimension8dp">
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true">
 
                 <AutoCompleteTextView
                     android:id="@+id/txtLocation"
@@ -102,7 +103,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
 
-                <requestFocus />
+
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -122,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Date"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -147,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Time"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -172,7 +173,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Blood Pressure"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -197,7 +198,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Heart Rate"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -220,7 +221,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Temperature"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -243,7 +244,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Pulse Rate"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -268,7 +269,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Respiratory Rate"
                     android:imeOptions="actionNext"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
@@ -293,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Note"
                     android:imeOptions="actionDone"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingLeft="@dimen/dimension0dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />

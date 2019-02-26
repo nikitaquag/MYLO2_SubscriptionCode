@@ -80,17 +80,24 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
             holder.txtNote.setVisibility(View.GONE);
         } else {
             holder.txtNote.setVisibility(View.VISIBLE);
+            holder.txtNote.setText(noteList.get(position).getTxtNote());
         }
-        if (holder.txtNoteData.getVisibility() == View.VISIBLE) {
+    /*    if (holder.txtNote.getVisibility() == View.VISIBLE) {
             holder.txtNote.setVisibility(View.GONE);
         } else {
             holder.txtNote.setVisibility(View.VISIBLE);
-        }
+        }*/
+       /* if (holder.txtNoteData.getVisibility() == View.VISIBLE) {
+            holder.txtNote.setVisibility(View.GONE);
+        } else {
+            holder.txtNote.setVisibility(View.VISIBLE);
+        }*/
+
+
+        //   holder.txtNoteData.setText(noteList.get(position).getTxtNote());
         holder.txtNote.setSingleLine(true);
         holder.txtNote.setEllipsize(TextUtils.TruncateAt.END);
         holder.txtNote.setText(noteList.get(position).getTxtNote());
-
-        holder.txtNoteData.setText(noteList.get(position).getTxtNote());
 
         holder.txtDateTime.setText(noteList.get(position).getTxtDate());
 
@@ -120,13 +127,18 @@ public class NoteAdapter extends RecyclerSwipeAdapter<NoteAdapter.Holder> {
                 if (flagDrop == false) {
                     holder.llNote.setVisibility(View.VISIBLE);
                     holder.imgForward.setImageResource(R.drawable.dropup);
-                    holder.txtNote.setVisibility(View.GONE);
+                    holder.txtNote.setVisibility(View.VISIBLE);
+                    holder.txtNote.setSingleLine(false);
+                    holder.txtNote.setText(noteList.get(position).getTxtNote());
                     holder.rlView.setVisibility(View.GONE);
                     flagDrop = true;
                 } else if (flagDrop == true) {
                     holder.llNote.setVisibility(View.GONE);
                     holder.imgForward.setImageResource(R.drawable.drop_down);
                     holder.txtNote.setVisibility(View.VISIBLE);
+                    holder.txtNote.setSingleLine(true);
+                    holder.txtNote.setEllipsize(TextUtils.TruncateAt.END);
+                    holder.txtNote.setText(noteList.get(position).getTxtNote());
                     holder.rlView.setVisibility(View.VISIBLE);
                     flagDrop = false;
                 }

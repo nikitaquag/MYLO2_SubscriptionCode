@@ -417,25 +417,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 String note = txtNote.getText().toString().trim();
                 otherType = txtOtherSpecialist.getText().toString();
                 otherFrequency = txtOtherFrequency.getText().toString();
-                // int indexValuex = spinnerType.getSelectedItemPosition();
 
-                // String type = "";
-
-                //Comment for spinner
-                /*if (indexValuex != 0) {
-                    type = items.get(indexValuex - 1).getType();
-                }
-
-                int indexValue = spinnerFrequency.getSelectedItemPosition();
-                if (indexValue != 0) {
-                    frequency = Frequency[indexValue - 1];
-                }*/
-
-              /*  if (type.equals("")) {
-                    spinnerType.setError("Please Select Specialist or Test");
-                    DialogManager.showAlert("Please Select Specialist or Test", AddAppointmentActivity.this);
-                } else*/
-            {
                 if (isUpdate == false) {
                     Boolean flag = AppointmentQuery.insertAppointmentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, date, note, type, frequency, otherType, otherFrequency, dateList, unique);
                     if (flag == true) {
@@ -455,17 +437,8 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
                 }
-            }
-                /* Appoint appoint=new Appoint();
-                appoint.setDoctor(name);
-                appoint.setDate(date);
-                appoint.setFrequency(frequency);
-                appoint.setType(type);
-                Intent i=new Intent();
-                i.putExtra("AppointObject",appoint);
 
-                setResult(100,i);*/
-            break;
+                break;
         }
     }
 

@@ -12,15 +12,22 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity;
+import com.mindyourlovedone.healthcare.DashBoard.AddAppointmentActivity;
+import com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
+import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
+import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> {
@@ -60,15 +67,20 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final VitalAdpater.ViewHolder holder, final int position) {
-/*
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
             @Override
             public void onOpen(SwipeLayout layout) {
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-*/
-
+        holder.lintrash.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (fr != null) {
+                    fr.deleteVital(vitalList.get(position));
+                }
+            }
+        });
         if (vitalList.get(position).getBp().equals("")) {
             holder.txtBPValue.setVisibility(View.GONE);
         } else {
@@ -144,22 +156,19 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             holder.txtNoteData.setText(vitalList.get(position).getNote());
         }
 
-        holder.txtBPValue.setText(vitalList.get(position).getBp());
-        holder.txtHRValue.setText(vitalList.get(position).getHeartRate());
-        holder.txtTempValue.setText(vitalList.get(position).getTemperature());
+        holder.txtBPValue.setText(vitalList.get(position).getBp() + ",");
+        holder.txtHRValue.setText(vitalList.get(position).getHeartRate() + ",");
+        holder.txtTempValue.setText(vitalList.get(position).getTemperature() + ",");
         holder.txtDate.setText(vitalList.get(position).getDate());
         holder.txtTime.setText(vitalList.get(position).getTime());
 
 
-        holder.rlVital.setOnClickListener(new View.OnClickListener() {
+        holder.txtEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                VitalSigns vi = vitalList.get(position);
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
-                VitalSigns hospital = vitalList.get(position);
-                i.putExtra("IsEdit", true);
-                i.putExtra("Date", "Date");
-                i.putExtra("Time", "Time");
-                // i.putExtra("IsView", true);
+                i.putExtra("VitalEdit", vi);
                 context.startActivity(i);
             }
         });
@@ -178,6 +187,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
         RelativeLayout rlVital, rlMain;
         LinearLayout llSubVital;
         View viewVital, view2;
+        LinearLayout lintrash;
 
         public ViewHolder(View convertView) {
             super(convertView);
@@ -204,6 +214,8 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             imgDropDown = convertView.findViewById(R.id.imgDropDown);
             viewVital = convertView.findViewById(R.id.viewVital);
             view2 = convertView.findViewById(R.id.view2);
+            lintrash = convertView.findViewById(R.id.lintrash);
+            swipeLayout = convertView.findViewById(R.id.swipe);
 
         }
     }

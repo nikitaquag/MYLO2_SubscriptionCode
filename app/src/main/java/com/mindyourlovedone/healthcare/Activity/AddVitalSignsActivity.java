@@ -19,6 +19,8 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentVitalSigns;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.VitalQuery;
+import com.mindyourlovedone.healthcare.model.Appoint;
+import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -37,6 +39,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
     Preferences preferences;
     DBHelper dbHelper;
     int id, colid;
+    VitalSigns vitalSigns;
+    boolean isUpdate=false;
     FragmentVitalSigns fragmentVitalSigns = null;
 
 
@@ -44,12 +48,13 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_vital_signs);
+
         try {
             Intent intent = getIntent();
             if (intent.getExtras() != null) {
                 String date = intent.getExtras().getString("Date");
                 assert date != null;
-                if (date.equals("Date")) {
+                if (date.equalsIgnoreCase("Date")) {
                     Calendar c = Calendar.getInstance();
                     SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
                     String formattedDate = df.format(c.getTime());
@@ -97,7 +102,18 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         imgBack = findViewById(R.id.imgBack);
         imgHome = findViewById(R.id.imgHome);
         tilLocation = findViewById(R.id.tilLocation);
+        tilLocation.setHintEnabled(false);
         txtLocation = findViewById(R.id.txtLocation);
+        txtLocation.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tilLocation.setHintEnabled(true);
+                txtLocation.setFocusable(true);
+
+                return false;
+            }
+        });
+
         txtDate = findViewById(R.id.txtDate);
         txtTime = findViewById(R.id.txtTime);
         txtBP = findViewById(R.id.txtBP);
@@ -110,16 +126,48 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         txtSave = findViewById(R.id.txtSave);
         txtTitle = findViewById(R.id.txtTitle);
 
-        tilLocation.setHintEnabled(false);
-        txtLocation.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tilLocation.setHintEnabled(true);
-                txtLocation.setFocusable(true);
 
-                return false;
+        try {
+            Intent intent1 = getIntent();
+            if (intent1.getExtras() != null) {
+
+                VitalSigns vi = (VitalSigns) intent1.getExtras().getSerializable("VitalEdit");
+                vitalSigns = (VitalSigns) intent1.getExtras().getSerializable("VitalEdit");
+
+                isUpdate = true;
+
+                if (vi.getLocation() != null) {
+                    txtLocation.setText(vi.getLocation());
+                }
+                if (vi.getDate() != null) {
+                    txtDate.setText(vi.getDate());
+                }
+                if (vi.getTime() != null) {
+                    txtTime.setText(vi.getTime());
+                }
+                if (vi.getBp() != null) {
+                    txtBP.setText(vi.getBp());
+                }
+                if (vi.getHeartRate() != null) {
+                    txtHeart.setText(vi.getHeartRate());
+                }
+                if (vi.getTemperature() != null) {
+                    txtTemperature.setText(vi.getTemperature());
+                }
+                if (vi.getPulseRate() != null) {
+                    txtPulseRate.setText(vi.getPulseRate());
+                }
+                if (vi.getRespRate() != null) {
+                    txtRespRate.setText(vi.getRespRate());
+                }
+                if (vi.getNote() != null) {
+                    txtNote.setText(vi.getNote());
+                }
             }
-        });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     @Override
@@ -136,38 +184,54 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 finish();
                 break;
             case R.id.txtSave:
-                location = txtLocation.getText().toString().trim();
-                Date = txtDate.getText().toString().trim();
-                time = txtTime.getText().toString().trim();
-                bp = txtBP.getText().toString().trim();
-                heart = txtHeart.getText().toString().trim();
-                temperature = txtTemperature.getText().toString().trim();
-                pulse = txtPulseRate.getText().toString().trim();
-                respiratory = txtRespRate.getText().toString().trim();
-                note = txtNote.getText().toString().trim();
-
-                if (Date.equals("")) {
-                    Toast.makeText(context, "Please Enter Date", Toast.LENGTH_SHORT).show();
-                    txtDate.setError("Please Enter Date");
-                } else if (time.equals("")) {
-                    Toast.makeText(context, "Please Enter Time", Toast.LENGTH_SHORT).show();
-                    txtTime.setError("Please Enter Time");
-                } else if (bp.equals("")) {
-                    Toast.makeText(context, "Please Enter BP", Toast.LENGTH_SHORT).show();
-                    txtBP.setError("Please Enter BP");
-                } else if (heart.equals("")) {
-                    Toast.makeText(context, "Please Enter Heart Rate", Toast.LENGTH_SHORT).show();
-                    txtHeart.setError("Please Enter Heart Rate");
-                } else if (temperature.equals("")) {
-                    Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
-                    txtTemperature.setError("Please Enter Temperature");
+                if (validate()) {
+                    if (isUpdate == true) {
+                        Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                        if (flag == true) {
+                            Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
+                            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                            clearData();
+                            // fragmentVitalSigns.getData();
+                            // fragmentVitalSigns.setListData();
+                            finish();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (isUpdate == false) {
+                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                        if (flag == true) {
+                            Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
+                            DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                            clearData();
+                            finish();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    }
                 } else {
+                    Toast.makeText(context, "Im not here sorry..!!!", Toast.LENGTH_SHORT).show();
+                }
+
+              /*else if (isUpdate == true) {
+                    Boolean flag = VitalQuery.updateVitalData(vitalSigns.getId(), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    if (flag == true) {
+                        Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
+                        DialogManager.closeKeyboard(AddVitalSignsActivity.this);
+                        clearData();
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                }*/
+
+
+               /*else {
 
                     Intent i = getIntent();
                     if (i.getExtras() != null) {
 
-                       boolean update=i.getExtras().getBoolean("IsEDIT");
-                        if (update==true) {
+                        boolean update = i.getExtras().getBoolean("IsEDIT");
+                        if (update == true) {
                             Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                             if (flag == true) {
                                 Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
@@ -180,8 +244,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                                 Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                             }
                             finish();
-                        }else
-                        {
+                        } else {
                             Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
                             if (flag == true) {
                                 Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
@@ -197,12 +260,45 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
 
                     }
 
-                }
-
+                }*/
 
 
                 break;
         }
+    }
+
+    private boolean validate() {
+        location = txtLocation.getText().toString().trim();
+        Date = txtDate.getText().toString().trim();
+        time = txtTime.getText().toString().trim();
+        bp = txtBP.getText().toString().trim();
+        heart = txtHeart.getText().toString().trim();
+        temperature = txtTemperature.getText().toString().trim();
+        pulse = txtPulseRate.getText().toString().trim();
+        respiratory = txtRespRate.getText().toString().trim();
+        note = txtNote.getText().toString().trim();
+
+
+        if (Date.equals("")) {
+            Toast.makeText(context, "Please Enter Date", Toast.LENGTH_SHORT).show();
+            txtDate.setError("Please Enter Date");
+        } else if (time.equals("")) {
+            Toast.makeText(context, "Please Enter Time", Toast.LENGTH_SHORT).show();
+            txtTime.setError("Please Enter Time");
+        } else if (bp.equals("")) {
+            Toast.makeText(context, "Please Enter BP", Toast.LENGTH_SHORT).show();
+            txtBP.setError("Please Enter BP");
+        } else if (heart.equals("")) {
+            Toast.makeText(context, "Please Enter Heart Rate", Toast.LENGTH_SHORT).show();
+            txtHeart.setError("Please Enter Heart Rate");
+        } else if (temperature.equals("")) {
+            Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
+            txtTemperature.setError("Please Enter Temperature");
+        } else {
+            return true;
+        }
+
+        return false;
     }
 
     private void showDateDialog() {
