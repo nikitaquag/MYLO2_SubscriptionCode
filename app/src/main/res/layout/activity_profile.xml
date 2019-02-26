@@ -182,8 +182,8 @@
                     android:id="@+id/vtop"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension15dp"
-                    android:background="@color/colorLightGray"
-                    ></View>
+                    android:background="@color/colorLightGray"></View>
+
                 <RelativeLayout
                     android:id="@+id/llProfile"
                     android:layout_width="@dimen/dimension120dp"
@@ -214,10 +214,9 @@
                     android:id="@+id/vbot"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension15dp"
-                    android:background="@color/colorLightGray"
                     android:layout_below="@+id/llProfile"
                     android:layout_marginTop="@dimen/dimension20dp"
-                    ></View>
+                    android:background="@color/colorLightGray"></View>
                 <!--<FrameLayout
                     android:id="@+id/flProfile"
                     android:layout_width="@dimen/dimension110dp"
@@ -270,7 +269,7 @@
                     android:id="@+id/llCard"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension60dp"
-                    android:layout_below="@+id/flProfile"
+                    android:layout_below="@+id/viewg"
                     android:layout_alignParentLeft="true"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_marginTop="@dimen/dimension10dp"
@@ -325,9 +324,9 @@
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
 
                     >
@@ -340,7 +339,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -356,8 +355,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlRelations"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
@@ -367,7 +366,7 @@
                         android:hint="Email"
                         android:imeOptions="actionNext"
                         android:maxLines="2"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="false"
@@ -377,27 +376,26 @@
 
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
+
                 <RelativeLayout
                     android:id="@+id/llPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmail"
                     android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginRight="@dimen/dimension20dp"
-                    >
+                    android:layout_marginRight="@dimen/dimension20dp">
+
                     <LinearLayout
                         android:id="@+id/llNum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        >
+                        android:orientation="horizontal">
 
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilPhoNum"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3"
-                            >
+                            android:layout_weight="3">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtPhoNum"
@@ -421,16 +419,15 @@
                             android:id="@+id/tilType"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            >
+                            android:layout_weight="2">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/drp"
                                 android:hint="Type"
                                 android:imeOptions="actionNext"
-                                android:drawableRight="@drawable/drp"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -438,32 +435,33 @@
 
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
+
                         <ImageView
                             android:id="@+id/imgAddPhone"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension35dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/add_n"
                             android:layout_weight="1"
-                            />
+                            android:src="@drawable/add_n" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/llAddPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
                         android:layout_below="@+id/llNum"
-                        ></LinearLayout>
+                        android:orientation="vertical"></LinearLayout>
 
                 </RelativeLayout>
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilAddres"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/llPhone"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -472,7 +470,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Address"
                         android:imeOptions="actionNext"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -494,8 +492,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilAddres"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -509,7 +507,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
@@ -525,11 +523,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmail"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtPhone"
@@ -540,7 +537,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -556,11 +553,10 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilPhone"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtHomePhone"
@@ -571,7 +567,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -587,8 +583,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilHomePhone"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -601,7 +597,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -623,15 +619,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimension35dp"
                         android:layout_marginRight="@dimen/dimension35dp"
+                        android:visibility="gone"
                         app:ms_arrowColor="@color/colorBlue"
                         app:ms_arrowSize="16dp"
                         app:ms_floatingLabelText="Relationship"
                         app:ms_hint="hint"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"
-                        custom:ms_hintColor="@color/colorDarkGray"
-                        android:visibility="gone"
-                        />
+                        custom:ms_hintColor="@color/colorDarkGray" />
+
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilRelation"
                         android:layout_width="match_parent"
@@ -650,11 +646,11 @@
                             android:id="@+id/txtRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/drp"
                             android:hint="Relationship"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:drawableRight="@drawable/drp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -662,6 +658,7 @@
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
+
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOtherRelation"
                         android:layout_width="match_parent"
@@ -710,17 +707,101 @@
                     custom:ms_floatingLabelColor="@color/colorBlue"
                     custom:ms_hintColor="@color/colorDarkGray" />
 
+                <RelativeLayout
+                    android:id="@+id/rlGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilBdate"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp">
+
+                    <TextView
+                        android:id="@+id/txtvGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension10dp"
+                        android:paddingBottom="@dimen/dimension10dp"
+                        android:singleLine="true"
+                        android:text="Gender"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtvGender"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:button="@android:color/transparent"
+                            android:background="@drawable/male_radio"
+                            android:layout_margin="@dimen/dimension5dp"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:button="@android:color/transparent"
+                            android:background="@drawable/female_radio"
+                            android:layout_margin="@dimen/dimension5dp"
+                            />
+
+                        <RadioButton
+                            android:id="@+id/rbTrans"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:button="@android:color/transparent"
+                            android:background="@drawable/trans_radio"
+                            android:layout_margin="@dimen/dimension5dp"
+                            />
+                    </RadioGroup>
+                </RelativeLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimension2dp"
+    android:id="@+id/vgender"
+    android:layout_below="@+id/rlGender"
+    android:layout_marginTop="@dimen/dimension3dp"
+    android:layout_marginBottom="@dimen/dimension3dp"
+    android:background="@color/colorGray"
+    android:layout_marginRight="@dimen/dimension20dp"
+    android:layout_marginLeft="@dimen/dimension20dp"
+    >
+
+</View>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilBdate"
+                    android:layout_below="@+id/rlGender"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:focusable="false"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:visibility="gone"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
@@ -732,7 +813,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -750,21 +831,21 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp"
-                    >
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtBdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/cal"
+                        android:drawablePadding="5dp"
                         android:focusable="false"
                         android:hint="Birthdate"
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                       
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:singleLine="true"
@@ -774,65 +855,76 @@
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
 
+<LinearLayout
+    android:id="@+id/llHeight"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_below="@+id/vgender"
+    >
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilHeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilGender"
+        android:gravity="bottom"
+        android:paddingLeft="@dimen/dimension20dp"
+        android:paddingRight="@dimen/dimension20dp"
+        android:paddingBottom="@dimen/dimension8dp"
+        android:layout_weight="1"
+        >
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilHeight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilGender"
-                    android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+        <AutoCompleteTextView
+            android:id="@+id/txtHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Height(Ft-Inches)"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:nextFocusDown="@+id/txtWeight"
 
-                    <AutoCompleteTextView
-                        android:id="@+id/txtHeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Height(Ft-Inches)"
-                        android:imeOptions="actionNext"
-                        android:inputType="phone"
-                        android:nextFocusDown="@+id/txtWeight"
-                       
-                        android:paddingTop="@dimen/dimension10dp"
-                        android:paddingBottom="@dimen/dimension10dp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="@dimen/dimension20dp" />
+            android:paddingTop="@dimen/dimension10dp"
+            android:paddingBottom="@dimen/dimension10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimension20dp" />
 
-                    <requestFocus />
-                </android.support.design.widget.TextInputLayout>
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tilWeight"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilHeight"
-                    android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tilHeight"
+        android:gravity="bottom"
+        android:paddingLeft="@dimen/dimension20dp"
+        android:paddingRight="@dimen/dimension20dp"
+        android:paddingBottom="@dimen/dimension8dp"
+        android:layout_weight="1">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/txtWeight"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Weight(lbs)"
-                        android:imeOptions="actionNext"
-                        android:inputType="number"
-                       
-                        android:paddingTop="@dimen/dimension10dp"
-                        android:paddingBottom="@dimen/dimension10dp"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="@dimen/dimension20dp" />
+        <AutoCompleteTextView
+            android:id="@+id/txtWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight(lbs)"
+            android:imeOptions="actionNext"
+            android:inputType="number"
 
-                    <requestFocus />
-                </android.support.design.widget.TextInputLayout>
+            android:paddingTop="@dimen/dimension10dp"
+            android:paddingBottom="@dimen/dimension10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/dimension20dp" />
+
+        <requestFocus />
+    </android.support.design.widget.TextInputLayout>
+
+</LinearLayout>
 
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerEyes"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension85dp"
-                    android:layout_below="@+id/tilWeight"
+                    android:layout_below="@+id/llHeight"
                     android:layout_marginLeft="@dimen/dimension35dp"
                     android:layout_marginRight="@dimen/dimension35dp"
                     app:ms_arrowColor="@color/colorBlue"
@@ -854,17 +946,42 @@
 
                 <TextView
                     android:id="@+id/txtLiving"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view3"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Do you live alone?"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorGray"
                     android:textSize="@dimen/dimension20dp" />
+
+
+                <ToggleButton
+                    android:id="@+id/tbCard"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_below="@+id/view3"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <View
+                    android:id="@+id/v"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/txtCardz"
+                    android:layout_margin="@dimen/dimension10dp"
+                    android:background="@color/colorLightGray"></View>
 
                 <RadioGroup
                     android:id="@+id/rgLive"
@@ -872,10 +989,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtLiving"
                     android:orientation="horizontal"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    >
 
                     <RadioButton
                         android:id="@+id/rbYesLive"
@@ -907,7 +1026,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Child"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkFriend"
@@ -915,7 +1037,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkChild"
                         android:text="Friend"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkGrandParent"
@@ -923,7 +1048,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkFriend"
                         android:text="Grandparent(s)"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkParent"
@@ -931,7 +1059,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkGrandParent"
                         android:text="Parent(s)"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkSpouse"
@@ -939,7 +1070,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkParent"
                         android:text="Spouse"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkSibling"
@@ -947,7 +1081,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkSpouse"
                         android:text="Sibling"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <CheckBox
                         android:id="@+id/chkOther"
@@ -955,7 +1092,10 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkSibling"
                         android:text="Significant Other"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension20dp"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOther"
@@ -963,10 +1103,13 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkOther"
                         android:gravity="bottom"
-                       android:paddingLeft="@dimen/dimension20dp"
-                       android:paddingRight="@dimen/dimension20dp"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        android:visibility="gone"
+
+                        >
+
 
                         <AutoCompleteTextView
                             android:id="@+id/txtOther"
@@ -974,7 +1117,7 @@
                             android:layout_height="wrap_content"
                             android:hint="Other(Specify)"
                             android:imeOptions="actionNext"
-                           
+
                             android:paddingTop="@dimen/dimension10dp"
                             android:paddingBottom="@dimen/dimension10dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -999,8 +1142,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view12"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -1009,7 +1152,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Profession"
                         android:imeOptions="actionNext"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1024,8 +1167,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilProfession"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -1034,7 +1177,7 @@
                         android:layout_height="wrap_content"
                         android:hint="Employed by"
                         android:imeOptions="actionNext"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1049,8 +1192,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmployedBy"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -1062,7 +1205,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="2"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1105,9 +1248,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/spinnerLanguage"
-                       android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                       android:paddingRight="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -1118,7 +1261,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                           
+
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1134,13 +1277,28 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlLangauge"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Understand English"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/dimension20dp" />
+                <ToggleButton
+                    android:id="@+id/tbEnglih"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_below="@+id/rlLangauge"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
 
                 <RadioGroup
                     android:id="@+id/rgUnderstand"
@@ -1148,10 +1306,12 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtUnderstand"
                     android:orientation="horizontal"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    >
 
                     <RadioButton
                         android:id="@+id/rbYess"
@@ -1203,8 +1363,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/spinnerMarital"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp">
 
                     <AutoCompleteTextView
@@ -1214,7 +1374,7 @@
                         android:hint="Religion - Notes"
                         android:imeOptions="actionNext"
                         android:maxLines="3"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1238,24 +1398,40 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view5"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Veteran"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/dimension20dp" />
+                <ToggleButton
+                    android:id="@+id/tbVeteran"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_below="@+id/view5"
+                    android:layout_alignParentRight="true"
 
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
                 <RadioGroup
                     android:id="@+id/rgVeteran"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtVeteran"
                     android:orientation="horizontal"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    >
 
                     <RadioButton
                         android:id="@+id/rbYes"
@@ -1281,8 +1457,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rgVeteran"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
 
@@ -1292,7 +1468,7 @@
                         android:layout_height="wrap_content"
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1306,8 +1482,8 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilId"
                     android:gravity="bottom"
-                   android:paddingLeft="@dimen/dimension20dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone">
 
@@ -1317,7 +1493,7 @@
                         android:background="@drawable/corner_gray_white_border"
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
-                       
+
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
                         android:textColor="@color/colorPrimaryDark"
@@ -1341,23 +1517,39 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view6"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Pet(s)"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/dimension20dp" />
+                <ToggleButton
+                    android:id="@+id/tbPet"
+                    android:layout_width="@dimen/dimension70dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_below="@+id/view6"
+                    android:layout_alignParentRight="true"
 
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
                 <RadioGroup
                     android:id="@+id/rgPet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtPet"
                     android:orientation="horizontal"
-                   android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                   android:paddingRight="@dimen/dimension20dp">
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:visibility="gone"
+                    >
 
                     <RadioButton
                         android:id="@+id/rbYesPet"
@@ -1394,7 +1586,7 @@
                         android:layout_height="@dimen/dimension40dp"
                         android:layout_toRightOf="@+id/imgAllergy"
                         android:gravity="center_vertical"
-                       android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingLeft="@dimen/dimension20dp"
                         android:text="Add Pets"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/dimension20dp" />
