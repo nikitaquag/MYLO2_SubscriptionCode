@@ -100,7 +100,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
 
-    public static final int REQUEST_RELATIONP = 21;
+    public static final int REQUEST_RELATIONP = 100;
     public static final int REQUEST_MARITAL = 22;
     public static final int REQUEST_EYES = 23;
     public static final int REQUEST_LANGUAGE= 24;
@@ -122,7 +122,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String name = "", Email = "", email = "", phone = "", manager_phone = "", country = "", bdate = "", address = "", homePhone = "", workPhone = "", gender = "";
     String height = "", weight = "", profession = "", employed = "", religion = "", idnumber = "";
     String pet = "NO", veteran = "NO", english = "NO", live = "NO";
-    String eyes, language, marital_status;
+    String eyes="", language="", marital_status="";
     String otherRelation;
     RadioGroup rgPet, rgVeteran, rgUnderstand, rgLive;
     RadioButton rbYes, rbNo, rbYesPet, rbNoPet, rbYess, rbNoo, rbYesLive, rbNoLive;
@@ -140,7 +140,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlCard;
-    TextView txtCard;
+    ImageView txtCard;
     DBHelper dbHelper, dbHelper1;
     View rootview;
     Preferences preferences;
@@ -882,12 +882,20 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 }
             }
             txtBdate.setText(connection.getDob());
-            int index = 0;
+           /* int index = 0;
             for (int i = 0; i < Relationship.length; i++) {
                 if (connection.getRelationType().equalsIgnoreCase(Relationship[i])) {
                     index = i;
                     spinnerRelation.setSelection(index + 1);
                 }
+            }*/  txtRelation.setText(connection.getRelationType());
+            if (connection.getRelationType().equalsIgnoreCase("Other"))
+            {
+                tilOtherRelation.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            }else{
+                tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
             }
            /* if (index!=0)
                 spinnerRelation.setSelection(index+1);*/
@@ -1024,16 +1032,16 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtIdNumber.setText(connection.getIdnumber());
             int indexd = 0;
 
-            if (!connection.getEyes().equals("")) {
+            /*if (!connection.getEyes().equals("")) {
                 for (int i = 0; i < EyesList.length; i++) {
                     if (connection.getEyes().equalsIgnoreCase(EyesList[i])) {
                         indexd = i;
                     }
                 }
                 spinnerEyes.setSelection(indexd + 1);
-            }
+            }*/ txtSpinEye.setText(connection.getEyes());
 
-            if (!connection.getLanguage().equals("")) {
+            /*if (!connection.getLanguage().equals("")) {
                 int indexs = 0;
                 for (int i = 0; i < LangList.length; i++) {
                     if (connection.getLanguage().equalsIgnoreCase(LangList[i])) {
@@ -1048,9 +1056,17 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     }
                 }
                 spinnerLanguage.setSelection(indexs + 1);
+            }*/  txtSpinLang.setText(connection.getLanguage());
+            if (connection.getLanguage().equalsIgnoreCase("Other"))
+            {
+                tilOtherLanguage.setVisibility(View.VISIBLE);
+                txtOtherLanguage.setText(connection.getOtherLang());
+            }else{
+                tilOtherLanguage.setVisibility(View.GONE);
+                txtOtherLanguage.setText("");
             }
 //Shradha
-            if (!connection.getMarital_status().equals("")) {
+            /*if (!connection.getMarital_status().equals("")) {
                 int indexss = 0;
                 for (int i = 0; i < MaritalList.length; i++) {
                     if (connection.getMarital_status().equalsIgnoreCase(MaritalList[i])) {
@@ -1058,7 +1074,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     }
                 }
                 spinnerMarital.setSelection(indexss + 1);
-            }
+            }*/  txtSpinMarital.setText(connection.getMarital_status());
 
 /*
             if (connection.getMarital_status() != null) {
@@ -2001,7 +2017,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         homePhone = txtHomePhone.getText().toString().trim();
         otherRelation = txtOtherRelation.getText().toString().trim();
         address = txtAddress.getText().toString().trim();
-        int i = spinnerRelation.getSelectedItemPosition();
+        relation=txtRelation.getText().toString();
+        eyes=txtSpinEye.getText().toString();
+        marital_status=txtSpinMarital.getText().toString();
+        language=txtSpinLang.getText().toString();
+       /* int i = spinnerRelation.getSelectedItemPosition();
         if (i != 0)
             relation = Relationship[i - 1];
 
@@ -2023,7 +2043,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         }
         int i3 = spinnerMarital.getSelectedItemPosition();
         if (i3 != 0)
-            marital_status = MaritalList[i3 - 1];
+            marital_status = MaritalList[i3 - 1];*/
 
         bdate = txtBdate.getText().toString().trim();
         homePhone = txtHomePhone.getText().toString().trim();
@@ -2524,32 +2544,32 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
             //photoCard=null;
         }if (requestCode == REQUEST_RELATIONP && data != null) {
-           String relation = data.getStringExtra("Relationp");
+           String relation = data.getStringExtra("Category");
             txtRelation.setText(relation);
-            /*if (data.getStringExtra("Relationp").equals("Other")) {
+            if (relation.equals("Other")) {
                 tilOtherRelation.setVisibility(View.VISIBLE);
                 txtOtherRelation.setVisibility(View.VISIBLE);
             } else {
                 tilOtherRelation.setVisibility(View.GONE);
                 txtOtherRelation.setVisibility(View.GONE);
-            }*/
+            }
         }else if (requestCode == REQUEST_LANGUAGE && data != null) {
-            language = data.getStringExtra("language");
+            language = data.getStringExtra("Category");
             txtSpinLang.setText(language);
-           /* if (data.getStringExtra("language").equals("Other")) {
+           if (language.equals("Other")) {
                 tilOtherLanguage.setVisibility(View.VISIBLE);
                 txtOtherRelation.setVisibility(View.VISIBLE);
             } else {
                 tilOtherLanguage.setVisibility(View.GONE);
                 txtOtherRelation.setVisibility(View.GONE);
-            }*/
+            }
         }
         else if (requestCode == REQUEST_EYES && data != null) {
-            eyes = data.getStringExtra("eyes");
+            eyes = data.getStringExtra("Category");
             txtSpinEye.setText(eyes);
         }
         else if (requestCode == REQUEST_MARITAL && data != null) {
-            marital_status = data.getStringExtra("marital");
+            marital_status = data.getStringExtra("Category");
             txtSpinMarital.setText(marital_status);
             /*if (marital_status.equals("Other")) {
                 .setVisibility(View.VISIBLE);
