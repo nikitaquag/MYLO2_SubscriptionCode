@@ -330,6 +330,7 @@
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                     >
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -359,7 +360,8 @@
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtEmail"
@@ -397,7 +399,8 @@
                             android:id="@+id/tilPhoNum"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="3">
+                            android:layout_weight="3"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtPhoNum"
@@ -421,7 +424,8 @@
                             android:id="@+id/tilType"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2">
+                            android:layout_weight="2"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
                                 android:id="@+id/txtType"
@@ -464,7 +468,8 @@
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtAddress"
@@ -497,7 +502,8 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtCountry"
@@ -528,7 +534,8 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtPhone"
@@ -558,7 +565,8 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtHomePhone"
@@ -588,7 +596,8 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtWorkPhone"
@@ -641,8 +650,9 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        app:hintEnabled="true"
 
-                        app:hintEnabled="true">
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtRelation"
@@ -673,7 +683,8 @@
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        app:hintEnabled="true">
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtOtherRelation"
@@ -747,51 +758,49 @@
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension45dp"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:checked="false"
-                            android:button="@android:color/transparent"
-                            android:background="@drawable/male_radio"
                             android:layout_margin="@dimen/dimension5dp"
-                            />
+                            android:layout_weight="1"
+                            android:background="@drawable/male_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
 
                         <RadioButton
                             android:id="@+id/rbFemale"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension45dp"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:checked="false"
-                            android:button="@android:color/transparent"
-                            android:background="@drawable/female_radio"
                             android:layout_margin="@dimen/dimension5dp"
-                            />
+                            android:layout_weight="1"
+                            android:background="@drawable/female_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
 
                         <RadioButton
                             android:id="@+id/rbTrans"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension45dp"
                             android:layout_gravity="center"
-                            android:layout_weight="1"
-                            android:checked="false"
-                            android:button="@android:color/transparent"
-                            android:background="@drawable/trans_radio"
                             android:layout_margin="@dimen/dimension5dp"
-                            />
+                            android:layout_weight="1"
+                            android:background="@drawable/trans_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
                     </RadioGroup>
                 </RelativeLayout>
-<View
-    android:layout_width="match_parent"
-   android:layout_height="@dimen/dimension1dp"
-    android:id="@+id/vgender"
-    android:layout_below="@+id/rlGender"
-    android:layout_marginTop="@dimen/dimension3dp"
-    android:layout_marginBottom="@dimen/dimension3dp"
-    android:background="@color/colorGray"
-    android:layout_marginRight="@dimen/dimension20dp"
-    android:layout_marginLeft="@dimen/dimension20dp"
-    >
 
-</View>
+                <View
+                    android:id="@+id/vgender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_below="@+id/rlGender"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension3dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension3dp"
+                    android:background="@color/colorGray">
+
+                </View>
+
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilGender"
                     android:layout_width="match_parent"
@@ -801,10 +810,11 @@
                     android:layout_alignParentLeft="true"
                     android:focusable="false"
                     android:gravity="bottom"
-                    android:visibility="gone"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtGender"
@@ -835,7 +845,8 @@
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtBdate"
@@ -857,71 +868,72 @@
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
 
-<LinearLayout
-    android:id="@+id/llHeight"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_below="@+id/vgender"
-    android:layout_marginTop="@dimen/dimension5dp"
-    >
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilHeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tilGender"
-        android:gravity="bottom"
-        android:paddingLeft="@dimen/dimension20dp"
-        android:paddingRight="@dimen/dimension20dp"
-        android:paddingBottom="@dimen/dimension8dp"
-        android:layout_weight="1"
-        >
+                <LinearLayout
+                    android:id="@+id/llHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vgender"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:orientation="horizontal">
 
-        <AutoCompleteTextView
-            android:id="@+id/txtHeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Height(Ft-Inches)"
-            android:imeOptions="actionNext"
-            android:inputType="phone"
-            android:nextFocusDown="@+id/txtWeight"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilGender"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
-            android:paddingTop="@dimen/dimension10dp"
-            android:paddingBottom="@dimen/dimension10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/dimension20dp" />
+                        <AutoCompleteTextView
+                            android:id="@+id/txtHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Height(Ft-Inches)"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:nextFocusDown="@+id/txtWeight"
 
-        <requestFocus />
-    </android.support.design.widget.TextInputLayout>
+                            android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilWeight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tilHeight"
-        android:gravity="bottom"
-        android:paddingLeft="@dimen/dimension20dp"
-        android:paddingRight="@dimen/dimension20dp"
-        android:paddingBottom="@dimen/dimension8dp"
-        android:layout_weight="1">
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
 
-        <AutoCompleteTextView
-            android:id="@+id/txtWeight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Weight(lbs)"
-            android:imeOptions="actionNext"
-            android:inputType="number"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilHeight"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
 
-            android:paddingTop="@dimen/dimension10dp"
-            android:paddingBottom="@dimen/dimension10dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/dimension20dp" />
+                        <AutoCompleteTextView
+                            android:id="@+id/txtWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Weight(lbs)"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
 
-        <requestFocus />
-    </android.support.design.widget.TextInputLayout>
+                            android:paddingTop="@dimen/dimension10dp"
+                            android:paddingBottom="@dimen/dimension10dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
 
-</LinearLayout>
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
 
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerEyes"
@@ -935,14 +947,45 @@
                     app:ms_floatingLabelText="Eye Color"
                     app:ms_hint="hint"
                     app:ms_multiline="true"
+                    android:visibility="gone"
                     custom:ms_floatingLabelColor="@color/colorBlue"
                     custom:ms_hintColor="@color/colorDarkGray" />
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSpinEyes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llHeight"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintEnabled="true"
 
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtSpinEyes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/drp"
+                        android:hint="Eye Color"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
                 <View
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension20dp"
-                    android:layout_below="@+id/spinnerEyes"
+                    android:layout_below="@+id/tilSpinEyes"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:background="@color/colorLightGray"></View>
@@ -958,12 +1001,12 @@
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Do you live alone?"
-                    android:textColor="@color/colorGray"
+                    android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension20dp" />
 
 
                 <ToggleButton
-                    android:id="@+id/tbCard"
+                    android:id="@+id/tbLive"
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension35dp"
                     android:layout_below="@+id/view3"
@@ -996,8 +1039,7 @@
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/rbYesLive"
@@ -1023,142 +1065,140 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rgLive"
                     android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginRight="@dimen/dimension20dp"
-                    >
+                    android:layout_marginRight="@dimen/dimension20dp">
+
                     <View
                         android:id="@+id/vw"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
-
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:layout_marginBottom="@dimen/dimension5dp"
-                        ></View>
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkChild"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Child"
                         android:layout_below="@+id/vw"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Child"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw1"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
-                        android:layout_marginTop="@dimen/dimension5dp"
-                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkChild"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkFriend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw1"
-                        android:text="Friend"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Friend"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw3"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
-                        android:layout_marginTop="@dimen/dimension5dp"
-android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkFriend"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkGrandParent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw3"
-                        android:text="Grandparent(s)"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Grandparent(s)"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw2"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
-                        android:layout_marginTop="@dimen/dimension5dp"
-                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkGrandParent"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkParent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw2"
-                        android:text="Parent(s)"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Parent(s)"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw4"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
+                        android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkParent"
-                        android:layout_marginTop="@dimen/dimension5dp"
-                        android:layout_marginBottom="@dimen/dimension5dp"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkSpouse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw4"
-                        android:text="Spouse"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Spouse"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw5"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
-                        android:background="@color/colorGray"
-                        android:layout_marginTop="@dimen/dimension5dp"
-                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkSpouse"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkSibling"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw5"
-                        android:text="Sibling"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Sibling"
+                        android:textSize="@dimen/dimension20dp" />
+
                     <View
                         android:id="@+id/vw6"
                         android:layout_width="match_parent"
-                       android:layout_height="@dimen/dimension1dp"
+                        android:layout_height="@dimen/dimension1dp"
 
                         android:layout_below="@+id/chkSibling"
-                        android:background="@color/colorGray"
-                        android:layout_marginTop="@dimen/dimension5dp"
-                        android:layout_marginBottom="@dimen/dimension5dp"
-                        ></View>
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
                     <CheckBox
                         android:id="@+id/chkOther"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw6"
-                        android:text="Significant Other"
-                        android:textSize="@dimen/dimension20dp"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        />
+                        android:text="Significant Other"
+                        android:textSize="@dimen/dimension20dp" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOther"
@@ -1166,10 +1206,12 @@ android:layout_marginBottom="@dimen/dimension5dp"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/chkOther"
                         android:gravity="bottom"
+                        android:layout_marginTop="@dimen/dimension8dp"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                         >
 
@@ -1207,7 +1249,8 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtProfession"
@@ -1232,7 +1275,8 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtEmployedBy"
@@ -1257,7 +1301,8 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txttelephone"
@@ -1304,18 +1349,50 @@ android:layout_marginBottom="@dimen/dimension5dp"
                         app:ms_hint="hint"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"
-                        custom:ms_hintColor="@color/colorDarkGray" />
-
+                        custom:ms_hintColor="@color/colorDarkGray"
+                        android:visibility="gone"
+                        />
                     <android.support.design.widget.TextInputLayout
-                        android:id="@+id/tilOtherLanguage"
+                        android:id="@+id/tilSpinLang"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/spinnerLanguage"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone">
+                        app:hintEnabled="true"
+
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtSpinLang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/drp"
+                            android:hint="Language Spoken"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilOtherLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilSpinLang"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:id="@+id/txtOtherLanguage"
@@ -1345,10 +1422,11 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Understand English"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension20dp" />
+
                 <ToggleButton
-                    android:id="@+id/tbEnglih"
+                    android:id="@+id/tbEnglish"
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension35dp"
                     android:layout_below="@+id/rlLangauge"
@@ -1373,8 +1451,7 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/rbYess"
@@ -1417,18 +1494,49 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     app:ms_multiline="true"
                     custom:ms_floatingLabelColor="@color/colorBlue"
                     custom:ms_hintColor="@color/colorDarkGray"
-
+android:visibility="gone"
                     />
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSpinMarital"
+                    android:layout_below="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintEnabled="true"
 
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtSpinMarital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/drp"
+                        android:hint="Marital Status"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilReligion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/spinnerMarital"
+                    android:layout_below="@+id/tilSpinMarital"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp">
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtReligion"
@@ -1466,8 +1574,9 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Veteran"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension20dp" />
+
                 <ToggleButton
                     android:id="@+id/tbVeteran"
                     android:layout_width="@dimen/dimension70dp"
@@ -1483,6 +1592,7 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:text=""
                     android:textOff=""
                     android:textOn="" />
+
                 <RadioGroup
                     android:id="@+id/rgVeteran"
                     android:layout_width="match_parent"
@@ -1493,8 +1603,7 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/rbYes"
@@ -1523,7 +1632,8 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:id="@+id/txtId"
@@ -1548,7 +1658,8 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:layout_width="match_parent"
@@ -1585,8 +1696,9 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     android:text="Pet(s)"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension20dp" />
+
                 <ToggleButton
                     android:id="@+id/tbPet"
                     android:layout_width="@dimen/dimension70dp"
@@ -1602,6 +1714,7 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:text=""
                     android:textOff=""
                     android:textOn="" />
+
                 <RadioGroup
                     android:id="@+id/rgPet"
                     android:layout_width="match_parent"
@@ -1611,8 +1724,7 @@ android:layout_marginBottom="@dimen/dimension5dp"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:visibility="gone"
-                    >
+                    android:visibility="gone">
 
                     <RadioButton
                         android:id="@+id/rbYesPet"
