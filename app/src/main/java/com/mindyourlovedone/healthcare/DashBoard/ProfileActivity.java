@@ -46,11 +46,13 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -97,6 +99,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
+
+    public static final int REQUEST_RELATIONP = 21;
+    public static final int REQUEST_MARITAL = 22;
+    public static final int REQUEST_EYES = 23;
+    public static final int REQUEST_LANGUAGE= 24;
+
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
@@ -123,6 +131,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String liveOther = "";
     ListView ListPet;
     MySpinner spinner, spinnerRelation, spinnerEyes, spinnerLanguage, spinnerMarital;
+    TextInputLayout tilRelation,tilSpinMarital,tilSpinEye,tilSpinLang;
+    TextView txtEyes,txtvGender,txtSpinMarital,txtSpinEye,txtSpinLang;
     String[] countryList = {"Canada", "Mexico", "USA", "UK", "California", "India"};
     String imagepath = "", cardpath = "";//
     String relation = "Self";
@@ -137,6 +147,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     ImageView imgBack;
     RelativeConnection connection;
     //   PersonalInfo personalInfo;
+    RadioGroup rgGender;
+    RadioButton rbMale,rbFemale,rbTrans;
+    
+    ToggleButton tbLive,tbEnglish,tbVeteran,tbPet;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
     String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
@@ -245,7 +259,23 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);*/
+      tilRelation=findViewById(R.id.tilRelation);
+      txtRelation=findViewById(R.id.txtRelation);
+      txtRelation.setFocusable(false);
 
+        tilSpinEye=findViewById(R.id.tilSpinEyes);
+        txtSpinEye=findViewById(R.id.txtSpinEyes);
+        txtSpinEye.setFocusable(false);
+
+        tilSpinLang=findViewById(R.id.tilSpinLang);
+        txtSpinLang=findViewById(R.id.txtSpinLang);
+        txtSpinLang.setFocusable(false);
+
+        tilSpinMarital=findViewById(R.id.tilSpinMarital);
+        txtSpinMarital=findViewById(R.id.txtSpinMarital);
+        txtSpinMarital.setFocusable(false);
+
+        txtvGender=findViewById(R.id.txtvGender);
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -379,6 +409,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         rgVeteran = findViewById(R.id.rgVeteran);
         rgUnderstand = findViewById(R.id.rgUnderstand);
 
+        rgGender=findViewById(R.id.rgGender);
+        rbMale=findViewById(R.id.rbMale);
+        rbFemale=findViewById(R.id.rbFemale);
+        rbTrans=findViewById(R.id.rbTrans);
+
         spinner = findViewById(R.id.spinner);
         spinnerEyes = findViewById(R.id.spinnerEyes);
         spinnerLanguage = findViewById(R.id.spinnerLanguage);
@@ -441,6 +476,85 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
+        tbLive=findViewById(R.id.tbLive);
+        tbEnglish=findViewById(R.id.tbEnglish);
+        tbVeteran=findViewById(R.id.tbVeteran);
+        tbPet=findViewById(R.id.tbPet);
+        
+        tbLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true) {
+                    live = "YES";
+                    rlLive.setVisibility(View.GONE);
+                    child = "NO";
+                    friend = "NO";
+                    grandParent = "NO";
+                    parent = "NO";
+                    spouse = "NO";
+                    other = "NO";
+                    sibling = "NO";
+                    liveOther = "";
+                    chkChild.setChecked(false);
+                    chkSibling.setChecked(false);
+                    chkFriend.setChecked(false);
+                    chkGrandParent.setChecked(false);
+                    chkParent.setChecked(false);
+                    chkSpouse.setChecked(false);
+                    chkOther.setChecked(false);
+                }
+                else {
+                    live = "NO";
+                    rlLive.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        tbEnglish.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true)
+                    english = "YES";
+                else
+                    english = "NO";
+            }
+        });
+
+        tbPet.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true) {
+                    pet = "YES";
+                    rlPet.setVisibility(View.VISIBLE);
+                }else {
+                    pet = "NO";
+                    rlPet.setVisibility(View.GONE);
+                    boolean flag = PetQuery.deleteRecords(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    if (flag == true) {
+                        //  Toast.makeText(context,"Deleted",Toast.LENGTH_SHORT).show();
+                        setPetData();
+                        // ListPet.requestFocus();
+                    }
+                }
+            }
+        });
+
+        tbVeteran.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked == true) {
+                    veteran = "YES";
+                    tilId.setVisibility(View.VISIBLE);
+                }
+                else {
+                    veteran = "NO";
+                    tilId.setVisibility(View.GONE);
+                    idnumber = "";
+                    txtIdNumber.setText(idnumber);
+                }
+            }
+        });
+        
         rgPet.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -473,6 +587,21 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     tilId.setVisibility(View.GONE);
                     idnumber = "";
                     txtIdNumber.setText(idnumber);
+                }
+            }
+        });
+
+        rgGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                if (checkedId == R.id.rbMale) {
+                    gender="Male";
+
+                } else if (checkedId == R.id.rbFemale) {
+                    gender="Female";
+                }
+                else if (checkedId == R.id.rbTrans) {
+                    gender="Trans*";
                 }
             }
         });
@@ -635,6 +764,41 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         setValues();
+txtRelation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RelationActivity.class);
+                i.putExtra("Category", "Relationp");
+                startActivityForResult(i, REQUEST_RELATIONP);
+            }
+        });
+
+        txtSpinMarital.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RelationActivity.class);
+                i.putExtra("Category", "Marital");
+                startActivityForResult(i, REQUEST_MARITAL);
+            }
+        });
+
+        txtSpinLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RelationActivity.class);
+                i.putExtra("Category", "language");
+                startActivityForResult(i, REQUEST_LANGUAGE);
+            }
+        });
+
+        txtSpinEye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RelationActivity.class);
+                i.putExtra("Category", "eyes");
+                startActivityForResult(i, REQUEST_EYES);
+            }
+        });
 
         spinnerRelation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -667,8 +831,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if (connection.getRelationType().equals("Self")) {
             tilBdate.setVisibility(View.VISIBLE);
             // spinner.setVisibility(View.VISIBLE);
-            txtGender.setVisibility(View.VISIBLE);
+          //  txtGender.setVisibility(View.VISIBLE);
+            rgGender.setVisibility(View.VISIBLE);
+            txtvGender.setVisibility(View.GONE);
             spinnerRelation.setVisibility(View.GONE);
+            tilRelation.setVisibility(View.GONE);
           //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
            // tilWorkPhone.setVisibility(View.VISIBLE);
             txtHomePhone.setVisibility(View.VISIBLE);
@@ -677,8 +844,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             // spinner.setVisibility(View.GONE);
             //txtWorkPhone.setVisibility(View.VISIBLE);
             //tilWorkPhone.setVisibility(View.VISIBLE);
-            spinnerRelation.setVisibility(View.VISIBLE);
+           // spinnerRelation.setVisibility(View.VISIBLE);
+            tilRelation.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.GONE);
+            txtvGender.setVisibility(View.GONE);
+            rgGender.setVisibility(View.GONE);
         }
         if (connection != null) {
             txtName.setText(connection.getName());
@@ -689,7 +859,28 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             txtOtherRelation.setText(connection.getOtherRelation());
             txtHomePhone.setText(connection.getPhone());
             txtWorkPhone.setText(connection.getWorkPhone());
-            txtGender.setText(connection.getGender());
+            //txtGender.setText(connection.getGender());
+            if (connection.getGender() != null) {
+                if (connection.getGender().equalsIgnoreCase("Male")) {
+                    rbMale.setChecked(true);
+                    rbFemale.setChecked(false);
+                    rbTrans.setChecked(false);
+                    gender = "Male";
+
+                } else if (connection.getGender().equalsIgnoreCase("Female")) {
+                    rbMale.setChecked(false);
+                    rbFemale.setChecked(true);
+                    rbTrans.setChecked(false);
+                    gender = "Female";
+
+                }else  if (connection.getGender().equalsIgnoreCase("Trans*")) {
+                    rbMale.setChecked(false);
+                    rbFemale.setChecked(false);
+                    rbTrans.setChecked(true);
+                    gender = "Trans*";
+
+                }
+            }
             txtBdate.setText(connection.getDob());
             int index = 0;
             for (int i = 0; i < Relationship.length; i++) {
@@ -704,13 +895,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
             if (connection.getLive() != null) {
                 if (connection.getLive().equals("YES")) {
-                    rbYesLive.setChecked(true);
-                    rbNoLive.setChecked(false);
+                    tbLive.setChecked(true);
                     live = "YES";
                     rlLive.setVisibility(View.GONE);
                 } else {
-                    rbYesLive.setChecked(false);
-                    rbNoLive.setChecked(true);
+                    tbLive.setChecked(false);
+
                     live = "NO";
                     rlLive.setVisibility(View.VISIBLE);
                 }
@@ -883,29 +1073,29 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 */
             if (connection.getVeteran() != null) {
                 if (connection.getVeteran().equals("YES")) {
-                    rbYes.setChecked(true);
-                    rbNo.setChecked(false);
+                    tbVeteran.setChecked(true);
+                   veteran="YES";
                 } else {
-                    rbYes.setChecked(false);
-                    rbNo.setChecked(true);
+                    tbVeteran.setChecked(false);
+                   veteran="NO";
                 }
             }
             if (connection.getEnglish() != null) {
                 if (connection.getEnglish().equals("YES")) {
-                    rbYess.setChecked(true);
-                    rbNoo.setChecked(false);
+                    tbEnglish.setChecked(true);
+                  english="YES";
                 } else {
-                    rbYess.setChecked(false);
-                    rbNoo.setChecked(true);
+                    tbEnglish.setChecked(false);
+                  english="NO";
                 }
             }
             if (connection.getPet() != null) {
                 if (connection.getPet().equals("YES")) {
-                    rbYesPet.setChecked(true);
-                    rbNoPet.setChecked(false);
+                    tbPet.setChecked(true);
+                    pet="YES";
                 } else {
-                    rbYesPet.setChecked(false);
-                    rbNoPet.setChecked(true);
+                    tbPet.setChecked(false);
+                    pet="NO";
                 }
             }
 
@@ -1837,7 +2027,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         bdate = txtBdate.getText().toString().trim();
         homePhone = txtHomePhone.getText().toString().trim();
-        gender = txtGender.getText().toString().trim();
+      //  gender = txtGender.getText().toString().trim();
         liveOther = txtOther.getText().toString();
         idnumber = txtIdNumber.getText().toString();
         height = txtHeight.getText().toString();
@@ -2333,7 +2523,43 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 cardpath = "";
             }
             //photoCard=null;
+        }if (requestCode == REQUEST_RELATIONP && data != null) {
+           String relation = data.getStringExtra("Relationp");
+            txtRelation.setText(relation);
+            /*if (data.getStringExtra("Relationp").equals("Other")) {
+                tilOtherRelation.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
+            }*/
+        }else if (requestCode == REQUEST_LANGUAGE && data != null) {
+            language = data.getStringExtra("language");
+            txtSpinLang.setText(language);
+           /* if (data.getStringExtra("language").equals("Other")) {
+                tilOtherLanguage.setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherLanguage.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
+            }*/
         }
+        else if (requestCode == REQUEST_EYES && data != null) {
+            eyes = data.getStringExtra("eyes");
+            txtSpinEye.setText(eyes);
+        }
+        else if (requestCode == REQUEST_MARITAL && data != null) {
+            marital_status = data.getStringExtra("marital");
+            txtSpinMarital.setText(marital_status);
+            /*if (marital_status.equals("Other")) {
+                .setVisibility(View.VISIBLE);
+                txtOtherRelation.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherRelation.setVisibility(View.GONE);
+                txtOtherRelation.setVisibility(View.GONE);
+            }*/
+        }
+
     }
 
 

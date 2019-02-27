@@ -28,6 +28,10 @@ public class RelationActivity extends AppCompatActivity {
     private static final int RESULT_FREQUENCY = 110;
     private static final int RESULT_BLOOD = 1;
 
+    public static final int REQUEST_RELATIONP = 21;
+    public static final int REQUEST_MARITAL = 22;
+    public static final int REQUEST_EYES = 23;
+    public static final int REQUEST_LANGUAGE= 24;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +87,26 @@ public class RelationActivity extends AppCompatActivity {
                 RelationsAdapter rd = new RelationsAdapter(context, BloodList);
                 listRelation.setAdapter(rd);
             }
+            else if (category.equalsIgnoreCase("Relationp")) {
+                String[] Relationships = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, Relationships);
+                listRelation.setAdapter(rd);
+            }
+            else if (category.equalsIgnoreCase("Marital")) {
+                String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
+                RelationsAdapter rd = new RelationsAdapter(context, MaritalList);
+                listRelation.setAdapter(rd);
+            }
+            else if (category.equalsIgnoreCase("language")) {
+                String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, LangList);
+                listRelation.setAdapter(rd);
+            }
+            else if (category.equalsIgnoreCase("eyes")) {
+                String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
+                RelationsAdapter rd = new RelationsAdapter(context, EyesList);
+                listRelation.setAdapter(rd);
+            }
         }
 
         // RelationsAdapter rd = new RelationsAdapter(context, Relationship);
@@ -124,6 +148,23 @@ public class RelationActivity extends AppCompatActivity {
                 } else if (category.equalsIgnoreCase("Blood")) {
                     i.putExtra("Blood", txtRel.getText().toString());
                     setResult(RESULT_BLOOD, i);
+                }
+                else if (category.equalsIgnoreCase("Relationp")) {
+                    String rel=txtRel.getText().toString();
+                    i.putExtra("Category", rel);
+                    setResult(REQUEST_RELATIONP, i);
+                }
+                else if (category.equalsIgnoreCase("Marital")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(REQUEST_MARITAL, i);
+                }
+                else if (category.equalsIgnoreCase("language")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(REQUEST_LANGUAGE, i);
+                }
+                else if (category.equalsIgnoreCase("eyes")) {
+                    i.putExtra("Category", txtRel.getText().toString());
+                    setResult(REQUEST_EYES, i);
                 }
                 finish();
             }

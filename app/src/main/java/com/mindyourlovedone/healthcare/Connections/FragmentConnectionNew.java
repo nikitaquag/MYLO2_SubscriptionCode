@@ -83,6 +83,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
+    RelativeConnection connection;
 
     @Nullable
     @Override
@@ -604,7 +605,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     private void getProfile() {
         dbHelper = new DBHelper(getActivity(), "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
-        RelativeConnection connection = MyConnectionsQuery.fetchOneRecord("Self");
+        connection = MyConnectionsQuery.fetchOneRecord("Self");
         preferences.putInt(PrefConstants.USER_ID, connection.getUserid());
         preferences.putString(PrefConstants.USER_NAME, connection.getName());
         preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
@@ -643,11 +644,12 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 args.putString("Name", preferences.getString(PrefConstants.USER_NAME));
                // args.putString("Address", connectionList.get(position).getAddress());
                 args.putString("Relation","Self");
+                getProfile();
                 //String saveThis = Base64.encodeToString(connectionList.get(position).getPhoto(), Base64.DEFAULT);
                 preferences.putString(PrefConstants.USER_IMAGE, preferences.getString(PrefConstants.USER_PROFILEIMAGE));
                 preferences.putString(PrefConstants.CONNECTED_NAME,preferences.getString(PrefConstants.USER_NAME));
                 preferences.putString(PrefConstants.CONNECTED_USEREMAIL, preferences.getString(PrefConstants.USER_EMAIL));
-                preferences.putInt(PrefConstants.CONNECTED_USERID, preferences.getInt(PrefConstants.USER_ID));
+                preferences.putInt(PrefConstants.CONNECTED_USERID, connection.getId());
                 String mail = preferences.getString(PrefConstants.USER_EMAIL);
                 mail = mail.replace(".", "_");
                 mail = mail.replace("@", "_");
