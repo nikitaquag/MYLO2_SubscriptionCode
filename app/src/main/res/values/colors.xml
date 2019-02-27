@@ -91,5 +91,6 @@
     <color name="colorFTUGray">#B8B8B8</color>
     <color name="colorInsuFrontGray">#F4F4F4</color>
     <color name="colorImpGray">#4C4C4C</color>
+    <color name="colorTextGray">#828282</color>
 
 </resources>

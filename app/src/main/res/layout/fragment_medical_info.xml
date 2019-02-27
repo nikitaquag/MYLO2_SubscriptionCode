@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rlMedical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorOnesGray">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorOnesGray">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/colorOnesGray"
             android:orientation="vertical">
 
             <TextView
@@ -24,7 +27,8 @@
                 android:gravity="center"
                 android:text="XYZ XYZ"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/dimension22dp" />
+                android:textSize="@dimen/dimension22dp"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/imgInfo"
@@ -36,76 +40,168 @@
                 android:visibility="gone" />
 
             <RelativeLayout
-                android:id="@+id/rlAllergis"
+                android:id="@+id/rlAllergyMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtName"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/dimension10dp"
-                android:background="@drawable/gray_white_border"
-                android:padding="@dimen/dimension5dp">
+                android:background="@color/colorOnesGray">
 
-                <ImageView
-                    android:id="@+id/imgAllergy"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/can" />
-
-                <TextView
-                    android:id="@+id/txtAllergyHeader"
-                    style="@style/EmergencyCategory"
+                <RelativeLayout
+                    android:id="@+id/rlAllergis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@+id/imgAddAllergy"
-                    android:layout_toRightOf="@+id/imgAllergy"
-                    android:text="Allergies and Medication Reactions" />
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:background="@drawable/border_row_white_app"
+                    android:gravity="center"
+                    android:padding="@dimen/dimension5dp">
+
+                    <ImageView
+                        android:id="@+id/imgAllergy"
+                        android:layout_width="@dimen/dimension50dp"
+                        android:layout_height="@dimen/dimension50dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension6dp"
+                        android:src="@drawable/can" />
+
+                    <TextView
+                        android:id="@+id/txtAllergyHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="false"
+                        android:layout_marginTop="@dimen/dimension15dp"
+                        android:layout_toLeftOf="@+id/imgAddAllergy"
+                        android:layout_toRightOf="@+id/imgAllergy"
+                        android:text="Allergies"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <TextView
+                        android:id="@+id/txtAddAllergy1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginRight="@dimen/dimension5dp"
+                        android:gravity="center"
+                        android:text="Add"
+                        android:textColor="@color/colorBlueAdd"
+                        android:textSize="@dimen/dimension18dp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/imgAddAllergy"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginTop="@dimen/dimension15dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/llSubAllergis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/imgAllergy"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:background="@color/colorOnesGray" />
+
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/ListAllergy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension15dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
+                            android:divider="@null" />
+
+                        <TextView
+                            android:id="@+id/txtAllergyNote"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ListAllergy"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension0dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
+                            android:gravity="top"
+                            android:padding="@null"
+                            android:text="Note"
+                            android:textColor="@color/colorTextGray"
+                            android:textSize="@dimen/dimension20dp"
+                            android:textStyle="normal" />
+
+                        <EditText
+                            android:id="@+id/etAllergyNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtAllergyNote"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
+                            android:background="@null"
+                            android:gravity="start"
+                            android:padding="@null"
+                            android:paddingTop="@dimen/dimension5dp"
+                            android:paddingBottom="@dimen/dimension5dp"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension18dp" />
+
+                        <View
+                            android:id="@+id/view1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_below="@+id/etAllergyNote"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
+                            android:layout_marginBottom="@dimen/dimension8dp"
+                            android:background="@color/colorOnesGray" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/txtAddAllergy"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dimension8dp"
-                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:layout_below="@+id/rlAllergis"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:background="@drawable/border_edit_note"
                     android:gravity="center"
-                    android:text="Add"
-                    android:textColor="@color/colorBlueAdd"
+                    android:padding="@dimen/dimension15dp"
+                    android:text="Add new"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension18dp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/imgAddAllergy"
-                    android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension40dp"
-                    android:layout_alignParentRight="true"
-                    android:padding="@dimen/dimension5dp"
-                    android:src="@drawable/add_square"
+                    android:textStyle="normal"
                     android:visibility="gone" />
 
-                <com.mindyourlovedone.healthcare.customview.NonScrollListView
-                    android:id="@+id/ListAllergy"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtAllergyHeader"
-                    android:layout_toRightOf="@+id/imgAllergy"
-                    android:divider="@null" />
 
-                <EditText
-                    android:id="@+id/etAllergyNote"
-                    style="@style/EmergencyDesc"
+                <View
+                    android:id="@+id/viewAllergyBottom"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/ListAllergy"
-                    android:layout_margin="@dimen/dimension15dp"
-                    android:layout_toRightOf="@+id/imgAllergy"
-                    android:background="@drawable/darkgray_white_border"
-                    android:gravity="top"
-                    android:hint="Note"
-                    android:padding="@dimen/dimension8dp"
-                    android:textColor="@color/colorBlue" />
-
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/rlAllergis"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:background="@drawable/border_bottom_medical"
+                    android:visibility="visible"></View>
             </RelativeLayout>
 
             <RelativeLayout
@@ -359,7 +455,7 @@
                 android:id="@+id/rlPre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/view3"
+                android:layout_below="@+id/rlAllergyMain"
                 android:layout_margin="@dimen/dimension10dp"
                 android:background="@drawable/gray_white_border"
                 android:padding="@dimen/dimension5dp">
@@ -434,12 +530,14 @@
                 android:layout_below="@+id/rlHistory"
                 android:background="@color/colorLightGray" />
 
-            <View
-                android:id="@+id/view3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension20dp"
-                android:layout_below="@+id/rlAllergis"
-                android:background="@color/colorLightGray" />
+            <!--
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension10dp"
+                            android:layout_below="@+id/txtAddAllergy"
+                            android:background="@color/colorLightGray" />
+            -->
 
             <RelativeLayout
                 android:id="@+id/rlEyes"
@@ -581,7 +679,7 @@
                 android:id="@+id/rlTeeth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/view12"
+                android:layout_below="@+id/rlBloodMain"
                 android:layout_margin="@dimen/dimension10dp"
                 android:background="@drawable/gray_white_border"
                 android:padding="@dimen/dimension5dp">
@@ -1950,41 +2048,128 @@
                 android:layout_below="@+id/rlHospital"
                 android:background="@color/colorLightGray" />
 
-
             <RelativeLayout
-                android:id="@+id/rlBlood"
+                android:id="@+id/rlBloodMain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view11"
-                android:layout_margin="@dimen/dimension10dp"
-                android:background="@drawable/gray_white_border"
-                android:padding="@dimen/dimension5dp">
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorOnesGray">
 
-                <ImageView
-                    android:id="@+id/imgBlood"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                <RelativeLayout
+                    android:id="@+id/rlBlood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension10dp"
-                    android:padding="@dimen/dimension6dp"
-                    android:src="@drawable/drops" />
+                    android:background="@drawable/border_row_white"
+                    android:padding="@dimen/dimension5dp">
 
-                <TextView
-                    android:id="@+id/txtBloodHeader"
-                    style="@style/EmergencyCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension40dp"
-                    android:layout_toRightOf="@+id/imgBlood"
-                    android:text="Blood Type" />
+                    <ImageView
+                        android:id="@+id/imgBloodDrop"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginTop="@dimen/dimension15dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
 
-                <Spinner
-                    android:id="@+id/spinnerBlood"
-                    style="@style/SpinnerTheme"
+                    <ImageView
+                        android:id="@+id/imgBlood"
+                        android:layout_width="@dimen/dimension50dp"
+                        android:layout_height="@dimen/dimension50dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension6dp"
+                        android:src="@drawable/drops" />
+
+                    <TextView
+                        android:id="@+id/txtBloodHeader"
+                        style="@style/EmergencyCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toRightOf="@+id/imgBlood"
+                        android:text="Blood Type" />
+
+                    <LinearLayout
+                        android:id="@+id/llSubBlood"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtBloodHeader"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginBottom="@dimen/dimension0dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:background="@color/colorOnesGray" />
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilBlood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:descendantFocusability="beforeDescendants"
+                            android:focusableInTouchMode="true"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            app:hintEnabled="true"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
+
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
+                            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                            <AutoCompleteTextView
+                                android:id="@+id/txtBlood"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/dropd"
+                                android:hint="Blood Type"
+                                android:imeOptions="actionNext"
+                                android:maxLength="300"
+                                android:maxLines="1"
+                                android:background="@null"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension18dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <Spinner
+                            android:visibility="gone"
+                            android:id="@+id/spinnerBlood"
+                            style="@style/SpinnerTheme"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_margin="@dimen/dimension10dp"
+                            android:layout_toRightOf="@+id/imgBlood"
+                            android:popupBackground="@android:color/transparent" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/viewBloodBottom"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension40dp"
-                    android:layout_below="@+id/txtBloodHeader"
-                    android:layout_margin="@dimen/dimension10dp"
-                    android:layout_toRightOf="@+id/imgBlood"
-                    android:popupBackground="@android:color/transparent" />
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/rlBlood"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:background="@drawable/border_bottom_medical"
+                    android:visibility="gone"></View>
+
             </RelativeLayout>
 
             <View
@@ -2051,12 +2236,14 @@
 
             </RelativeLayout>
 
-            <View
-                android:id="@+id/view12"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension20dp"
-                android:layout_below="@+id/rlBlood"
-                android:background="@color/colorLightGray" />
+            <!--
+                        <View
+                            android:id="@+id/view12"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension20dp"
+                            android:layout_below="@+id/rlBloodMain"
+                            android:background="@color/colorLightGray" />
+            -->
 
             <RelativeLayout
                 android:id="@+id/rlDonor"
@@ -2681,9 +2868,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/dimension20dp"
-            app:backgroundTint="@color/colorFloatRed"
             android:src="@drawable/ic_box"
             android:tint="@color/colorWhite"
+            app:backgroundTint="@color/colorFloatRed"
             app:fabSize="normal"
             tools:targetApi="lollipop" />
 

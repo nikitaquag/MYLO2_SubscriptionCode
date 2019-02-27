@@ -220,7 +220,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                             context.startActivity(i);
                         }/* else if (fragment.equals("Vital Signs")) {
                             Intent i = new Intent(context, LivingActivity.class);
-                            i.putExtra("FRAGMENT", fragment);
+                            i.putExtra("FRAGMEMedical ProfileNT", fragment);
                             context.startActivity(i);
                         }*/
                     } else {

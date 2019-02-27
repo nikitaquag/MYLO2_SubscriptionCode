@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +58,9 @@ public class MedAdapter extends BaseAdapter {
             holder.txtInfo = convertView.findViewById(R.id.txtInfo);
             holder.imgEdit = convertView.findViewById(R.id.imgEdit);
             holder.imgDelete = convertView.findViewById(R.id.imgDelete);
+            holder.rlEdit = convertView.findViewById(R.id.rlEdit);
+            holder.rlDelete = convertView.findViewById(R.id.rlDelete);
+
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();
@@ -64,7 +68,7 @@ public class MedAdapter extends BaseAdapter {
 
         holder.txtInfo.setText(medArraylist.get(position));
 
-        holder.imgDelete.setOnClickListener(new View.OnClickListener() {
+        holder.rlDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -85,7 +89,7 @@ public class MedAdapter extends BaseAdapter {
             }
         });
 
-        holder.imgEdit.setOnClickListener(new View.OnClickListener() {
+        holder.rlEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (fr != null) {
@@ -112,6 +116,7 @@ public class MedAdapter extends BaseAdapter {
     private class Holder {
         TextView txtInfo;
         ImageView imgEdit, imgDelete;
+        RelativeLayout rlEdit, rlDelete;
     }
 
 }

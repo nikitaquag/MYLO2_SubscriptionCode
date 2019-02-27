@@ -139,6 +139,6 @@
     <!--<item name="android:windowContentOverlay">@null</item>-->
 
     <style name="TextInputLayoutHintText">
-
-        <item name="android:textSize">@dimen/dimension20dp</item></style>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/dimension18dp</item></style>
 </resources>

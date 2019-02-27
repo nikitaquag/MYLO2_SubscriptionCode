@@ -26,6 +26,8 @@ public class RelationActivity extends AppCompatActivity {
     private static final int RESULT_ADVANCE = 20;
     private static final int RESULT_OTHER = 30;
     private static final int RESULT_FREQUENCY = 110;
+    private static final int RESULT_BLOOD = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +78,10 @@ public class RelationActivity extends AppCompatActivity {
                 String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Frequency);
                 listRelation.setAdapter(rd);
+            } else if (category.equalsIgnoreCase("Blood")) {
+                String[] BloodList = {"A - negative", "A - positive", "AB - negative", "AB - positive", "B - negative", "B - positive", "O - negative", "O - positive", "I don't know"};
+                RelationsAdapter rd = new RelationsAdapter(context, BloodList);
+                listRelation.setAdapter(rd);
             }
         }
 
@@ -115,6 +121,9 @@ public class RelationActivity extends AppCompatActivity {
                 } else if (category.equalsIgnoreCase("TypeFrequency")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_FREQUENCY, i);
+                } else if (category.equalsIgnoreCase("Blood")) {
+                    i.putExtra("Blood", txtRel.getText().toString());
+                    setResult(RESULT_BLOOD, i);
                 }
                 finish();
             }

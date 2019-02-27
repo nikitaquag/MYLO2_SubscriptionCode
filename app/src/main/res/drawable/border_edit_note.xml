@@ -4,5 +4,5 @@
     android:bottomRightRadius="@dimen/dimension10dp"
     android:bottomLeftRadius="@dimen/dimension10dp"/>
     <solid
-        android:color="#F6F6F6"/>
+        android:color="@color/colorBlue"/>
 </shape>

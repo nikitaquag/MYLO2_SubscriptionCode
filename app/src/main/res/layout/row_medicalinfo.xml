@@ -3,44 +3,139 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/dimension10dp"
-    android:layout_marginBottom="@dimen/dimension10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/colorWhite"
+    android:layout_marginBottom="@dimen/dimension0dp">
 
-    <TextView
-        android:id="@+id/txtInfo"
+    <RelativeLayout
+        android:id="@+id/rlMedical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:drawableLeft="@drawable/dot"
-        android:drawablePadding="@dimen/dimension10dp"
-        android:layout_marginRight="@dimen/dimension10dp"
-        android:padding="@dimen/dimension10dp"
-        android:layout_toLeftOf="@+id/imgEdit"
-        android:text="klklaskdlsaczx kssafsacssczxcss"
-        android:textColor="@color/colorDarkGray"
-        android:textSize="@dimen/dimension18dp" />
+        android:layout_marginBottom="@dimen/dimension0dp"
+        android:background="@drawable/gray_white_border_medical"
+        android:gravity="center">
 
-    <ImageView
-        android:id="@+id/imgEdit"
-        android:layout_width="@dimen/dimension25dp"
-        android:layout_height="@dimen/dimension25dp"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/dimension20dp"
-        android:layout_toLeftOf="@+id/imgDelete"
-        android:padding="@dimen/dimension0dp"
-        android:src="@drawable/edit"></ImageView>
 
-    <ImageView
-        android:id="@+id/imgDelete"
-        android:layout_width="@dimen/dimension25dp"
-        android:layout_height="@dimen/dimension25dp"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_vertical"
-        android:layout_marginRight="@dimen/dimension10dp"
-        android:padding="@dimen/dimension0dp"
-        android:src="@drawable/delete_icon"></ImageView>
+        <TextView
+            android:id="@+id/txtInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:padding="@dimen/dimension10dp"
+            android:text="klklaskdlsaczx kssafsacssczxcss"
+            android:textColor="@color/colorDarkGray"
+            android:textSize="@dimen/dimension18dp" />
+
+        <ImageView
+            android:id="@+id/imgEdit1"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:padding="@dimen/dimension0dp"
+            android:src="@drawable/edit"
+            android:visibility="gone"></ImageView>
+
+        <ImageView
+            android:id="@+id/imgDelete1"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:padding="@dimen/dimension0dp"
+            android:src="@drawable/delete_icon"
+            android:visibility="gone"></ImageView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rlMedical"
+        android:background="@drawable/edit_del_med_border"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginBottom="@dimen/dimension10dp">
+
+        <RelativeLayout
+            android:id="@+id/rlEdit"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dimension5dp">
+
+            <ImageView
+                android:id="@+id/imgEdit"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension20dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimension0dp"
+                android:padding="@dimen/dimension0dp"
+                android:src="@drawable/edit_pencil"
+                android:tint="@color/colorBlue"
+                android:visibility="visible"></ImageView>
+
+            <TextView
+                android:id="@+id/txtEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgEdit"
+                android:layout_weight="1"
+                android:padding="@dimen/dimension5dp"
+                android:text="Edit"
+                android:textAllCaps="true"
+                android:textColor="@color/colorBlue"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="@dimen/dimension2dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorOnesGray" />
+
+        <RelativeLayout
+            android:id="@+id/rlDelete"
+            android:layout_width="@dimen/dimension0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/dimension5dp">
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension20dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimension0dp"
+                android:padding="@dimen/dimension0dp"
+                android:src="@drawable/delete_icon"
+                android:tint="@color/colorRed"
+                android:visibility="visible"></ImageView>
+
+            <TextView
+                android:id="@+id/txtDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgDelete"
+                android:layout_weight="1"
+                android:padding="@dimen/dimension5dp"
+                android:text="Delete"
+                android:textAllCaps="true"
+                android:textColor="@color/colorRedButton"
+                android:textSize="14dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 </RelativeLayout>

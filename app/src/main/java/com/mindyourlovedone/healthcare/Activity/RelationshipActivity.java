@@ -40,28 +40,6 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relationship);
-
-       /* Intent intent = getIntent();
-        if (intent.getExtras() != null) {
-            String category = intent.getExtras().getString("Category");
-            if (category.equalsIgnoreCase("TypeAppointment")) {
-                rd = new TypeAdapter(context, Type);
-                lvType = findViewById(R.id.lvType);
-                lvType.setAdapter(rd);
-
-                txtType.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
-                        initUi();
-                        rlType.setVisibility(View.VISIBLE);
-                        rlSpecialist.setVisibility(View.GONE);
-                        TypeAdapter rd = new TypeAdapter(context, Type);
-                        lvType.setAdapter(rd);
-                    }
-                });
-            }
-        }*/
         initUi();
         initListener();
     }

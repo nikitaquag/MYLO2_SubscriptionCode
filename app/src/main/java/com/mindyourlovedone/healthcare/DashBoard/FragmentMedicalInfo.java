@@ -20,6 +20,7 @@ import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,7 +34,9 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 import com.mindyourlovedone.healthcare.Connections.MedAdapter;
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
@@ -111,6 +114,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     DBHelper dbHelper;
     FloatingActionButton floatProfile;
 
+    TextView txtBlood;
+    ImageView imgBloodDrop;
+    LinearLayout llSubAllergis, llSubBlood;
+    RelativeLayout rlAllergis;
+    View viewAllergyBottom, viewBloodBottom;
+    boolean flagAllergy = false, flagBlood = false;
+    private static int RESULT_BLOOD = 1;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -181,10 +192,25 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         tbMedicate.setOnCheckedChangeListener(this);
         tbToilet.setOnCheckedChangeListener(this);
         tbFeed.setOnCheckedChangeListener(this);
+
+        rlAllergis.setOnClickListener(this);
+        imgBloodDrop.setOnClickListener(this);
+        txtBlood.setOnClickListener(this);
     }
 
     private void initUI() {
-        floatProfile=rootview.findViewById(R.id.floatProfile);
+
+        rlAllergis = rootview.findViewById(R.id.rlAllergis);
+        llSubAllergis = rootview.findViewById(R.id.llSubAllergis);
+        llSubBlood = rootview.findViewById(R.id.llSubBlood);
+
+        viewAllergyBottom = rootview.findViewById(R.id.viewAllergyBottom);
+        viewBloodBottom = rootview.findViewById(R.id.viewBloodBottom);
+        imgBloodDrop = rootview.findViewById(R.id.imgBloodDrop);
+        txtBlood = rootview.findViewById(R.id.txtBlood);
+        txtBlood.setFocusable(false);
+
+        floatProfile = rootview.findViewById(R.id.floatProfile);
         imgInfo = rootview.findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,10 +253,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         txtAddAllergy = rootview.findViewById(R.id.txtAddAllergy);
         txtAddCondition = rootview.findViewById(R.id.txtAddCondition);
-        txtAddImplants=rootview.findViewById(R.id.txtAddImplants);
-        txtAddHistory=rootview.findViewById(R.id.txtAddHistory);
-        txtAddHospital=rootview.findViewById(R.id.txtAddHospital);
-        txtAddVaccine=rootview.findViewById(R.id.txtAddVaccine);;
+        txtAddImplants = rootview.findViewById(R.id.txtAddImplants);
+        txtAddHistory = rootview.findViewById(R.id.txtAddHistory);
+        txtAddHospital = rootview.findViewById(R.id.txtAddHospital);
+        txtAddVaccine = rootview.findViewById(R.id.txtAddVaccine);
+        ;
 
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
@@ -275,7 +302,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         etFunctionalNote = rootview.findViewById(R.id.etFunctionalNote);
         etDietNote = rootview.findViewById(R.id.etDietNote);
         txtName = rootview.findViewById(R.id.txtName);
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
+        //  txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
 
         spinnerBlood = rootview.findViewById(R.id.spinnerBlood);
         spinnerEyes = rootview.findViewById(R.id.spinnerEyes);
@@ -360,10 +387,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         spinnerLang.setAdapter(langadapter);
         spinnerLang.setPrompt("Select Primary Language");
 
-        ArrayAdapter<String> financeadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, BloodList);
+        //Commented for spinner blood-shradha
+       /* ArrayAdapter<String> financeadapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, BloodList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBlood.setAdapter(financeadapter);
-        spinnerBlood.setPrompt("Select Blood Type");
+        spinnerBlood.setPrompt("Select Blood Type");*/
 
 
         rgDonor.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -458,12 +486,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<String> ConditionList = new ArrayList<String>();//nikita
+    ArrayList<String> ConditionList = new ArrayList<String>();//shradha
 
     private void setConditionData() {
         ConditionList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (ConditionList.size() != 0) {
-            //nikita
+            //shradha
             MedAdapter md = new MedAdapter(getActivity(), ConditionList, "condition", FragmentMedicalInfo.this);
             ListCondition.setAdapter(md);
             ListCondition.setVisibility(View.VISIBLE);
@@ -472,7 +500,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void conditionEditDelete(int position, int type) {//nikita
+    public void conditionEditDelete(int position, int type) {//shradha
         if (type == 0) {
             String value = ConditionList.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -516,13 +544,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             txtDrugAmt.setText(medInfo.getDrug_amt());
             txtDrugYear.setText(medInfo.getDrug_year());
 
-            int indexi = 0;
+            //Commented for spinner blood-shradha
+            /*int indexi = 0;
             for (int i = 0; i < BloodList.length; i++) {
                 if (medInfo.getBloodType().equals(BloodList[i])) {
                     indexi = i;
                 }
             }
-            spinnerBlood.setSelection(indexi);
+            spinnerBlood.setSelection(indexi);*/
 
 
             if (medInfo.getSpeech().equals("YES")) {
@@ -641,7 +670,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<Implant> ImplantsLists = new ArrayList<Implant>();//nikita
+    ArrayList<Implant> ImplantsLists = new ArrayList<Implant>();//shradha
 
     private void setImplantData() {
         final ArrayList allergyList = new ArrayList();
@@ -661,7 +690,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                //nikita
+                //shradha
                 MedAdapter md = new MedAdapter(getActivity(), allergyList, "implants", FragmentMedicalInfo.this);
                 ListImplants.setAdapter(md);
                 ListImplants.setVisibility(View.VISIBLE);
@@ -671,7 +700,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void implantsEditDelete(int position, int type) {  //nikita
+    public void implantsEditDelete(int position, int type) {  //shradha
         if (type == 0) {
             Implant a = ImplantsLists.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -694,7 +723,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<History> HistoryLists = new ArrayList<History>();//nikita
+    ArrayList<History> HistoryLists = new ArrayList<History>();//shradha
 
     private void setHistoryData() {
         final ArrayList allergyList = new ArrayList();
@@ -712,7 +741,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                //nikita
+                //shradha
                 MedAdapter md = new MedAdapter(getActivity(), allergyList, "history", FragmentMedicalInfo.this);
                 ListHistory.setAdapter(md);
                 ListHistory.setVisibility(View.VISIBLE);
@@ -722,7 +751,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void historyEditDelete(int position, int type) {  //nikita
+    public void historyEditDelete(int position, int type) {  //shradha
         if (type == 0) {
             History value = HistoryLists.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -744,12 +773,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<String> HospitalList = new ArrayList<String>();//nikita
+    ArrayList<String> HospitalList = new ArrayList<String>();//shradha
 
     private void setHospitalData() {
         HospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (HospitalList.size() != 0) {
-            //nikita
+            //shradha
             MedAdapter md = new MedAdapter(getActivity(), HospitalList, "hospital", FragmentMedicalInfo.this);
             ListHospital.setAdapter(md);
             ListHospital.setVisibility(View.VISIBLE);
@@ -758,7 +787,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void hospitalEditDelete(int position, int type) {  //nikita
+    public void hospitalEditDelete(int position, int type) {  //shradha
         if (type == 0) {
             String value = HospitalList.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -780,7 +809,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<Vaccine> VaccineLists = new ArrayList<Vaccine>();//nikita
+    ArrayList<Vaccine> VaccineLists = new ArrayList<Vaccine>();//shradha
 
     private void setVaccineData() {
         final ArrayList allergyList = new ArrayList();
@@ -798,7 +827,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                //nikita
+                //shradha
                 MedAdapter md = new MedAdapter(getActivity(), allergyList, "vaccine", FragmentMedicalInfo.this);
                 ListVaccine.setAdapter(md);
                 ListVaccine.setVisibility(View.VISIBLE);
@@ -808,7 +837,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void vaccineEditDelete(int position, int type) {  //nikita
+    public void vaccineEditDelete(int position, int type) {  //shradha
         if (type == 0) {
             Vaccine a = VaccineLists.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -831,7 +860,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    ArrayList<Allergy> AllargyLists = new ArrayList<Allergy>();//nikita
+    ArrayList<Allergy> AllargyLists = new ArrayList<Allergy>();//shradha
 
     private void setAllergyData() {
         final ArrayList allergyList = new ArrayList();
@@ -842,14 +871,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Allergy a = AllargyLists.get(i);
                 String allergy = "";
                 if (a.getReaction().equals("Other")) {
-                    allergy = "Allergy: " + a.getAllergy() + "\nReaction: " + a.getReaction() + " - " + a.getOtherReaction() + "\nTreatment: " + a.getTreatment();
+                    allergy = "Allergy\n" + a.getAllergy() + "\n" + "\nReaction" + "\n" + a.getReaction() + " - " + a.getOtherReaction() + "\n" + "\nTreatment" + "\n" + a.getTreatment();
                 } else {
-                    allergy = "Allergy: " + a.getAllergy() + "\nReaction: " + a.getReaction() + "\nTreatment: " + a.getTreatment();
+                    allergy = "Allergy\n" + a.getAllergy() + "\n" + "\nReaction" + "\n" + a.getReaction() + "\n" + "\nTreatment" + "\n" + a.getTreatment();
                 }
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
-                //nikita
+                //shradha
                 MedAdapter md = new MedAdapter(getActivity(), allergyList, "allergy", FragmentMedicalInfo.this);
                 ListAllergy.setAdapter(md);
                 ListAllergy.setVisibility(View.VISIBLE);
@@ -859,7 +888,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         }
     }
 
-    public void allergyEditDelete(int position, int type) {  //nikita
+    public void allergyEditDelete(int position, int type) {  //shradha
         if (type == 0) {
             Allergy a = AllargyLists.get(position);
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
@@ -1021,6 +1050,42 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 builder.create().show();
                 break;
 
+            case R.id.imgAddAllergy:
+                if (flagAllergy == false) {
+                    llSubAllergis.setVisibility(View.VISIBLE);
+                    imgAddAllergy.setImageResource(R.drawable.dropup);
+                    txtAddAllergy.setVisibility(View.VISIBLE);
+                    viewAllergyBottom.setVisibility(View.GONE);
+                    flagAllergy = true;
+                } else if (flagAllergy == true) {
+                    llSubAllergis.setVisibility(View.GONE);
+                    imgAddAllergy.setImageResource(R.drawable.drop_down);
+                    txtAddAllergy.setVisibility(View.GONE);
+                    viewAllergyBottom.setVisibility(View.VISIBLE);
+                    flagAllergy = false;
+                }
+
+                break;
+
+            case R.id.imgBloodDrop:
+                if (flagBlood == false) {
+                    llSubBlood.setVisibility(View.VISIBLE);
+                    imgBloodDrop.setImageResource(R.drawable.dropup);
+                    //  viewBloodBottom.setVisibility(View.VISIBLE);
+                    flagBlood = true;
+                } else if (flagBlood == true) {
+                    llSubBlood.setVisibility(View.GONE);
+                    imgBloodDrop.setImageResource(R.drawable.drop_down);
+                    //  viewBloodBottom.setVisibility(View.VISIBLE);
+                    flagBlood = false;
+                }
+                break;
+
+            case R.id.txtBlood:
+                Intent intentType = new Intent(getActivity(), RelationActivity.class);
+                intentType.putExtra("Category", "Blood");
+                startActivityForResult(intentType, RESULT_BLOOD);
+                break;
 
             case R.id.txtSave:
                 ft = etFt.getText().toString().trim();
@@ -1029,7 +1094,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 color = spinnerEyes.getSelectedItem().toString();
                 lang1 = spinnerLang.getSelectedItem().toString();
                 lang2 = etAdditional.getText().toString();
-                blood = spinnerBlood.getSelectedItem().toString();
+                blood = txtBlood.getText().toString().trim();
                 pet = etPet.getText().toString().trim();
                 note = etPreNote.getText().toString().trim();
                 allergynote = etAllergyNote.getText().toString().trim();
@@ -1062,8 +1127,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-              //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
                 break;
 
@@ -1196,6 +1261,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             historList.add(value);*/
             setVaccineData();
             ListVaccine.requestFocus();
+        } else if (requestCode == RESULT_BLOOD && data != null) {
+            String blood = data.getExtras().getString("Blood");
+            txtBlood.setText(blood);
         }
 
     }

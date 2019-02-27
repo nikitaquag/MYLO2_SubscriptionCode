@@ -106,7 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtFrequency"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <View
                     android:id="@+id/viewApp"
