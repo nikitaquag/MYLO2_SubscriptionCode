@@ -526,9 +526,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 if (isChecked == true) {
                     pet = "YES";
                     rlPet.setVisibility(View.VISIBLE);
+                    txtAddPet.setVisibility(View.VISIBLE);
+
                 }else {
                     pet = "NO";
                     rlPet.setVisibility(View.GONE);
+                    txtAddPet.setVisibility(View.GONE);
+
                     boolean flag = PetQuery.deleteRecords(preferences.getInt(PrefConstants.CONNECTED_USERID));
                     if (flag == true) {
                         //  Toast.makeText(context,"Deleted",Toast.LENGTH_SHORT).show();
@@ -555,7 +559,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         
-        rgPet.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+      /*  rgPet.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                 if (checkedId == R.id.rbYesPet) {
@@ -573,7 +577,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 }
             }
-        });
+        });*/
 
         rgVeteran.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -2641,6 +2645,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 allergyList.add(allergy);
             }
             if (allergyList.size() != 0) {
+
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
                 ListPet.setAdapter(adapter);
                 ListPet.setOnItemClickListener(new AdapterView.OnItemClickListener() {

@@ -26,6 +26,11 @@ public class PetQuery {
     public static final String COL_COLOR = "Color";
     public static final String COL_VETERIAN = "Veteran";
     public static final String COL_GUARD = "Guard";
+    public static final String COL_VETERIAN_AD = "VeterianAddress";
+
+    public static final String COL_GUARD_AD = "GuardAddress";
+    public static final String COL_VETERIAN_PH = "VeterianPhone";
+    public static final String COL_GUARD_PH = "GuardPhone";
     public static final String COL_CHIP = "Chip";
     public static final String COL_Bdate = "Bdate";
     public static final String COL_NOTES = "Notes";
@@ -40,7 +45,8 @@ public class PetQuery {
     public static String createPetTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " + COL_USERID + " INTEGER, " +
                 COL_NAME + " VARCHAR(30)," + COL_BREED + " TEXT," + COL_COLOR + " VARCHAR(30)," +
-                COL_VETERIAN + " TEXT," + COL_GUARD + " TEXT," + COL_Bdate + " VARCHAR(50)," + COL_NOTES + " TEXT," + COL_CHIP + " TEXT" +
+                COL_VETERIAN + " TEXT," + COL_GUARD + " TEXT," + COL_Bdate + " VARCHAR(50)," + COL_NOTES + " TEXT," + COL_CHIP + " TEXT," +
+                COL_VETERIAN_AD + " TEXT," + COL_VETERIAN_PH + " TEXT," +COL_GUARD_AD + " TEXT," + COL_GUARD_PH + " TEXT" +
                 ");";
         return createTableQuery;
     }
@@ -51,7 +57,7 @@ public class PetQuery {
     }
 
 
-    public static Boolean insertPetData(int userid, String name, String breed, String color, String chip, String veterain, String care, String bdate, String notes) {
+    public static Boolean insertPetData(int userid, String name, String breed, String color, String chip, String veterain, String care, String bdate, String notes, String veterain_add, String veterain_ph, String care_add, String care_ph) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -65,7 +71,10 @@ public class PetQuery {
         cv.put(COL_NAME, name);
         cv.put(COL_Bdate, bdate);
         cv.put(COL_NOTES, notes);
-
+        cv.put(COL_VETERIAN_AD, veterain_add);
+        cv.put(COL_GUARD_AD, care_add);
+        cv.put(COL_VETERIAN_PH, veterain_ph);
+        cv.put(COL_GUARD_PH, care_ph);
         long rowid = db.insert(TABLE_NAME, null, cv);
 
         flag = rowid != -1;
@@ -93,6 +102,10 @@ public class PetQuery {
                     allergy.setBreed(c.getString(c.getColumnIndex(COL_BREED)));
                     allergy.setBdate(c.getString(c.getColumnIndex(COL_Bdate)));
                     allergy.setNotes(c.getString(c.getColumnIndex(COL_NOTES)));
+                    allergy.setVeterian_add(c.getString(c.getColumnIndex(COL_NOTES)));
+                    allergy.setVeterian_ph(c.getString(c.getColumnIndex(COL_NOTES)));
+                    allergy.setCare_add(c.getString(c.getColumnIndex(COL_NOTES)));
+                    allergy.setCare_ph(c.getString(c.getColumnIndex(COL_NOTES)));
                     allergyList.add(allergy);
                 } while (c.moveToNext());
             }
@@ -131,7 +144,7 @@ public class PetQuery {
         return true;
     }
 
-    public static Boolean updatePetData(int id, String name, String breed, String color, String chip, String veterain, String care, String bdate, String notes) {
+    public static Boolean updatePetData(int id, String name, String breed, String color, String chip, String veterain, String care, String bdate, String notes, String veterain_add, String veterain_ph, String care_add, String care_ph) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -145,7 +158,10 @@ public class PetQuery {
         cv.put(COL_NAME, name);
         cv.put(COL_Bdate, bdate);
         cv.put(COL_NOTES, notes);
-
+        cv.put(COL_VETERIAN_AD, veterain_add);
+        cv.put(COL_GUARD, care_add);
+        cv.put(COL_VETERIAN_PH, veterain_ph);
+        cv.put(COL_GUARD, care_ph);
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;
