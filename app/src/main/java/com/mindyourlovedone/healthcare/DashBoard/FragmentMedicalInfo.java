@@ -116,10 +116,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
     TextView txtBlood;
     ImageView imgBloodDrop;
-    LinearLayout llSubAllergis, llSubBlood;
+    LinearLayout llSubAllergis, llSubPre, llSubImplants, llSubBlood;
     RelativeLayout rlAllergis;
-    View viewAllergyBottom, viewBloodBottom;
-    boolean flagAllergy = false, flagBlood = false;
+    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom;
+    boolean flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false;
     private static int RESULT_BLOOD = 1;
 
     @Nullable
@@ -202,10 +202,15 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         rlAllergis = rootview.findViewById(R.id.rlAllergis);
         llSubAllergis = rootview.findViewById(R.id.llSubAllergis);
+        llSubPre = rootview.findViewById(R.id.llSubPre);
+        llSubImplants = rootview.findViewById(R.id.llSubImplants);
         llSubBlood = rootview.findViewById(R.id.llSubBlood);
 
         viewAllergyBottom = rootview.findViewById(R.id.viewAllergyBottom);
+        viewPreBottom = rootview.findViewById(R.id.viewPreBottom);
+        viewImplantsBottom = rootview.findViewById(R.id.viewImplantsBottom);
         viewBloodBottom = rootview.findViewById(R.id.viewBloodBottom);
+
         imgBloodDrop = rootview.findViewById(R.id.imgBloodDrop);
         txtBlood = rootview.findViewById(R.id.txtBlood);
         txtBlood.setFocusable(false);
@@ -218,35 +223,6 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Intent i = new Intent(getActivity(), InstructionActivity.class);
                 i.putExtra("From", "Medical");
                 startActivity(i);
-                // final Dialog customDialog;
-               /* customDialog = new Dialog(getActivity());
-                customDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                customDialog.setContentView(R.layout.dialog_living);
-                customDialog.setCancelable(false);
-                TextView txtNotes= (TextView) customDialog.findViewById(R.id.txtNotes);
-                String msg="To <b>add</b> information click the <b>plus box</b> for each section " +
-                        "and then click the green bar." +
-                        "<br><br>" +
-                        "To <b>save</b> information click the <b>check mark</b>" +
-                        " on the top right side of the screen." +
-                        "<br><br>" +
-                        "To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>. To save your edits click the green bar at the lower half of the screen." +
-                        "<br><br>" +
-                        "To <b>delete</b> information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simply delete the data." +
-                        "<br><br>" +
-                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-
-                txtNotes.setText(Html.fromHtml(msg));
-                TextView txtNoteHeader= (TextView) customDialog.findViewById(R.id.txtNoteHeader);
-                txtNoteHeader.setText("Help");
-                TextView btnYes= (TextView) customDialog.findViewById(R.id.btnYes);
-                btnYes.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        customDialog.dismiss();
-                    }
-                });
-                customDialog.show();*/
             }
         });
         rlMedical = rootview.findViewById(R.id.rlMedical);
@@ -257,7 +233,6 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         txtAddHistory = rootview.findViewById(R.id.txtAddHistory);
         txtAddHospital = rootview.findViewById(R.id.txtAddHospital);
         txtAddVaccine = rootview.findViewById(R.id.txtAddVaccine);
-        ;
 
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setVisibility(View.VISIBLE);
@@ -544,6 +519,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             txtDrugAmt.setText(medInfo.getDrug_amt());
             txtDrugYear.setText(medInfo.getDrug_year());
 
+            txtBlood.setText(medInfo.getBloodType());
             //Commented for spinner blood-shradha
             /*int indexi = 0;
             for (int i = 0; i < BloodList.length; i++) {
@@ -1050,6 +1026,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 builder.create().show();
                 break;
 
+
             case R.id.imgAddAllergy:
                 if (flagAllergy == false) {
                     llSubAllergis.setVisibility(View.VISIBLE);
@@ -1066,6 +1043,39 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 }
 
                 break;
+
+            case R.id.imgAddCondition:
+                if (flagPre == false) {
+                    llSubPre.setVisibility(View.VISIBLE);
+                    imgAddCondition.setImageResource(R.drawable.dropup);
+                    txtAddCondition.setVisibility(View.VISIBLE);
+                    viewPreBottom.setVisibility(View.GONE);
+                    flagPre = true;
+                } else if (flagPre == true) {
+                    llSubPre.setVisibility(View.GONE);
+                    imgAddCondition.setImageResource(R.drawable.drop_down);
+                    txtAddCondition.setVisibility(View.GONE);
+                    viewPreBottom.setVisibility(View.VISIBLE);
+                    flagPre = false;
+                }
+                break;
+
+            case R.id.imgAddImplants:
+                if (flagImplants == false) {
+                    llSubImplants.setVisibility(View.VISIBLE);
+                    imgAddImplants.setImageResource(R.drawable.dropup);
+                    txtAddImplants.setVisibility(View.VISIBLE);
+                    viewImplantsBottom.setVisibility(View.GONE);
+                    flagImplants = true;
+                } else if (flagImplants == true) {
+                    llSubImplants.setVisibility(View.GONE);
+                    imgAddImplants.setImageResource(R.drawable.drop_down);
+                    txtAddImplants.setVisibility(View.GONE);
+                    viewImplantsBottom.setVisibility(View.VISIBLE);
+                    flagImplants = false;
+                }
+                break;
+
 
             case R.id.imgBloodDrop:
                 if (flagBlood == false) {

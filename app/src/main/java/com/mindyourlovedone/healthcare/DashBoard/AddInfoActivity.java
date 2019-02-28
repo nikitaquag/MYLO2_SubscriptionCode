@@ -24,6 +24,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -68,10 +70,12 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     String data = "";
     String header = "";
     String msg = "";
-    TextView txtHeader, txtInfo;
+    TextView txtHeader, txtInfo, txtMedical;
+    TextInputLayout tilMedical;
     RelativeLayout rlName, rlReactionSpinner;
     MySpinner spinner, spinnerReaction;
     FloatingActionButton floatProfile;
+    private static int RESULT_MEDICAL = 2;
 
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
@@ -117,15 +121,16 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 spinner.setAdapter(adapter1);
 
             } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, implantList);
+               /* ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, implantList);
                 adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter1);
+                spinner.setAdapter(adapter1);*/
             } else if (from.equals("HistoryUpdate") || from.equals("History")) {
                 ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, surgeryList);
                 adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter1);
 
             }
+
 
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
@@ -169,6 +174,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "Allergy":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
@@ -179,16 +185,23 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "AllergyUpdate":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
                     tilOtherReaction.setHint("Other Reaction");
                     spinnerReaction.setHint("Reaction");
                     break;
+
                 case "Implants":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
-                    spinner.setVisibility(View.VISIBLE);
+                    tilMedical.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.VISIBLE);
+                    txtMedical.setFocusable(false);
+                    tilMedical.setHintEnabled(true);
+                    tilMedical.setHint("Medical Implants");
+                    spinner.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
                     spinner.setHint("Medical Implants");
                     spinnerReaction.setVisibility(View.GONE);
@@ -198,7 +211,10 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "ImplantUpdate":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
-                    spinner.setVisibility(View.VISIBLE);
+                    tilMedical.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.VISIBLE);
+                    txtMedical.setFocusable(false);
+                    spinner.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
                     spinner.setHint("Medical Implants");
                     spinnerReaction.setVisibility(View.GONE);
@@ -207,6 +223,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "Condition":
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -215,6 +232,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "ConditionUpdate":
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -222,6 +240,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "Hospital":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -230,6 +249,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "HospitalUpdate":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
+                    txtMedical.setVisibility(View.GONE);
                     spinner.setVisibility(View.GONE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -238,6 +258,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "History":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
+                    txtMedical.setVisibility(View.VISIBLE);
                     spinner.setVisibility(View.VISIBLE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -248,6 +269,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "HistoryUpdate":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
+                    txtMedical.setVisibility(View.VISIBLE);
                     spinner.setVisibility(View.VISIBLE);
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
@@ -258,6 +280,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "Vaccine":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
+                    txtMedical.setVisibility(View.VISIBLE);
                     spinner.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
                     spinner.setHint("Immunizations/Vaccines");
@@ -268,6 +291,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "VaccineUpdate":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
+                    txtMedical.setVisibility(View.VISIBLE);
                     spinner.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
                     spinner.setHint("Immunizations/Vaccines");
@@ -586,13 +610,14 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtOtherVaccine.setText(implant.getOther());
                     txtDate.setText(implant.getDate());
                     id = implant.getId();
-                    int index = 0;
+                    // txtMedical.setText(implant.getName());
+                   /* int index = 0;
                     for (int j = 0; j < implantList.length; j++) {
                         if (implant.getName().equals(implantList[j])) {
                             index = j;
                         }
                     }
-                    spinner.setSelection(index + 1);
+                    spinner.setSelection(index + 1);*/
                     break;
 
                 case "VaccineUpdate":
@@ -705,6 +730,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         llAddConn.setOnClickListener(this);
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
+        txtMedical.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -721,6 +747,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         txtTitle = findViewById(R.id.txtTitle);
         txtHeader = findViewById(R.id.txtHeader);
         txtInfo = findViewById(R.id.txtInfo);
+        txtMedical = findViewById(R.id.txtMedical);
+        tilMedical = findViewById(R.id.tilMedical);
 
         txtDate = findViewById(R.id.txtDate);
         txtDoctor = findViewById(R.id.txtDoctor);
@@ -752,8 +780,23 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 hideSoftKeyboard();
             }
         });
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RESULT_MEDICAL && data != null) {
+            String medical = data.getExtras().getString("Medical");
+            txtMedical.setText(medical);
 
+            if (medical.equals("Other")) {
+                tilOtherVaccine.setVisibility(View.VISIBLE);
+                txtOtherVaccine.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherVaccine.setVisibility(View.GONE);
+                txtOtherVaccine.setVisibility(View.GONE);
+            }
+        }
     }
 
     @Override
@@ -930,18 +973,28 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }, year, month, day);
                 dpd.show();
                 break;*/
+
+            case R.id.txtMedical:
+                Intent intentType = new Intent(context, RelationActivity.class);
+                intentType.putExtra("Category", "Medical");
+                startActivityForResult(intentType, RESULT_MEDICAL);
+                break;
+
             case R.id.txtSave:
-                String value = "";
+                String value = txtMedical.getText().toString().trim();
+               // String medical = txtMedical.getText().toString().trim();
                 if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
                     int indexValue = spinner.getSelectedItemPosition();
                     if (indexValue != 0) {
                         value = vaccineList[indexValue - 1];
                     }
                 } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
-                    int indexValue = spinner.getSelectedItemPosition();
+                    txtMedical.setText(value);
+
+                   /* int indexValue = spinner.getSelectedItemPosition();
                     if (indexValue != 0) {
                         value = implantList[indexValue - 1];
-                    }
+                    }*/
                 } else if (from.equals("HistoryUpdate") || from.equals("History")) {
                     int indexValue = spinner.getSelectedItemPosition();
                     if (indexValue != 0) {
@@ -952,7 +1005,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 if (value.length() != 0) {
-                    hideSoftKeyboard();//nikita
+                    hideSoftKeyboard();//shradha
                     switch (from) {
                         case "Allergy":
                             //  String reaction=txtReaction.getText().toString();

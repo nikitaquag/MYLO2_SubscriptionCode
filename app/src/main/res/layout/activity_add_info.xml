@@ -18,6 +18,7 @@
         android:tint="@color/colorWhite"
         app:backgroundTint="@color/colorFloatRed"
         app:fabSize="normal"
+        android:visibility="gone"
         tools:targetApi="lollipop" />
 
     <RelativeLayout
@@ -58,7 +59,7 @@
                 android:layout_toRightOf="@+id/imgBack"
                 android:gravity="center"
                 android:text="Emergency Info"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp" />
 
@@ -91,6 +92,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
+            android:background="@color/colorWhite"
             android:layout_marginBottom="@dimen/dimension10dp">
 
             <RelativeLayout
@@ -113,10 +115,45 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgInfo">
 
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilMedical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlSpecialist"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtMedical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableRight="@drawable/dropd"
+                            android:hint="Relationship"
+                            android:imeOptions="actionNext"
+                            android:maxLength="300"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
                     <RelativeLayout
                         android:id="@+id/rlSpinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+
 
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinner"

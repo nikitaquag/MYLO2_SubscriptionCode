@@ -12,8 +12,9 @@ import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
-public class RelationActivity extends AppCompatActivity {
+public class RelationActivity extends AppCompatActivity implements View.OnClickListener {
     ListView listRelation;
+    TextView txtTitles;
     Context context = this;
     ImageView imgBack;
     String category = "";
@@ -29,16 +30,22 @@ public class RelationActivity extends AppCompatActivity {
     public static final int REQUEST_RELATIONP = 21;
     public static final int REQUEST_MARITAL = 22;
     public static final int REQUEST_EYES = 23;
-    public static final int REQUEST_LANGUAGE= 24;
+    public static final int REQUEST_BLOOD = 1;
+    public static final int REQUEST_LANGUAGE = 24;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_relation);
         initUi();
+        initListener();
+    }
+
+    private void initListener() {
     }
 
     private void initUi() {
+        txtTitles = findViewById(R.id.txtTitles);
         listRelation = findViewById(R.id.listRelation);
         imgBack = findViewById(R.id.imgBack);
         Intent i = getIntent();
@@ -80,25 +87,31 @@ public class RelationActivity extends AppCompatActivity {
                 String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Frequency);
                 listRelation.setAdapter(rd);
-            }
-            else if (category.equalsIgnoreCase("Relationp")) {
+            } else if (category.equalsIgnoreCase("Relationp")) {
                 String[] Relationships = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Relationships);
                 listRelation.setAdapter(rd);
-            }
-            else if (category.equalsIgnoreCase("Marital")) {
+            } else if (category.equalsIgnoreCase("Marital")) {
                 String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
                 RelationsAdapter rd = new RelationsAdapter(context, MaritalList);
                 listRelation.setAdapter(rd);
-            }
-            else if (category.equalsIgnoreCase("language")) {
+            } else if (category.equalsIgnoreCase("language")) {
                 String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, LangList);
                 listRelation.setAdapter(rd);
-            }
-            else if (category.equalsIgnoreCase("eyes")) {
+            } else if (category.equalsIgnoreCase("eyes")) {
                 String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
                 RelationsAdapter rd = new RelationsAdapter(context, EyesList);
+                listRelation.setAdapter(rd);
+            } else if (category.equalsIgnoreCase("Blood")) {
+                txtTitles.setText("Select Blood Type");
+                String[] BloodList = {"A - Negative", "A - Positive", "AB - Negative", "AB - Positive", "B - Negative", "B - positive", "O - negative", "O - Positive", "I Don't Know"};
+                RelationsAdapter rd = new RelationsAdapter(context, BloodList);
+                listRelation.setAdapter(rd);
+            } else if (category.equalsIgnoreCase("Medical")) {
+                txtTitles.setText("Select Medical Implants");
+                String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, implantList);
                 listRelation.setAdapter(rd);
             }
         }
@@ -139,23 +152,25 @@ public class RelationActivity extends AppCompatActivity {
                 } else if (category.equalsIgnoreCase("TypeFrequency")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_FREQUENCY, i);
-                }
-                else if (category.equalsIgnoreCase("Relationp")) {
-                    String rel=txtRel.getText().toString();
+                } else if (category.equalsIgnoreCase("Relationp")) {
+                    String rel = txtRel.getText().toString();
                     i.putExtra("Category", rel);
                     setResult(REQUEST_RELATIONP, i);
-                }
-                else if (category.equalsIgnoreCase("Marital")) {
+                } else if (category.equalsIgnoreCase("Marital")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(REQUEST_MARITAL, i);
-                }
-                else if (category.equalsIgnoreCase("language")) {
+                } else if (category.equalsIgnoreCase("language")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(REQUEST_LANGUAGE, i);
-                }
-                else if (category.equalsIgnoreCase("eyes")) {
+                } else if (category.equalsIgnoreCase("eyes")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(REQUEST_EYES, i);
+                } else if (category.equalsIgnoreCase("Blood")) {
+                    i.putExtra("Blood", txtRel.getText().toString());
+                    setResult(REQUEST_BLOOD, i);
+                }else if (category.equalsIgnoreCase("Medical")) {
+                    i.putExtra("Medical", txtRel.getText().toString());
+                    setResult(REQUEST_BLOOD, i);
                 }
                 finish();
             }
@@ -167,5 +182,12 @@ public class RelationActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+        }
     }
 }

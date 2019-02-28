@@ -26,7 +26,7 @@ import com.mindyourlovedone.healthcare.InsuranceHealthCare.TypeAdapter;
 /*Created by Shradha 15 Feb 2019*/
 public class RelationshipActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imgBack, imgHome;
-    TextView txtType, txtSpecialist;
+    TextView txtType, txtSpecialist, txtTitles;
     RelativeLayout rlType, rlSpecialist;
     Context context = this;
     TypeAdapter rd;
@@ -46,6 +46,7 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
 
 
     private void initUi() {
+        txtTitles = findViewById(R.id.txtTitles);
         imgBack = findViewById(R.id.imgBack);
         imgHome = findViewById(R.id.imgHome);
 
@@ -88,27 +89,29 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
             txtSpecialist.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                 //  if (category.equalsIgnoreCase("TypeSpecialist")) {
-                        Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
-                        rlType.setVisibility(View.GONE);
-                        rlSpecialist.setVisibility(View.VISIBLE);
-                        rd = new TypeAdapter(context, Specialist);
-                        lvSpecialist.setAdapter(rd);
-                 //   }
+                    //  if (category.equalsIgnoreCase("TypeSpecialist")) {
+                    txtTitles.setText("Select Specialist");
+                    // Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
+                    rlType.setVisibility(View.GONE);
+                    rlSpecialist.setVisibility(View.VISIBLE);
+                    rd = new TypeAdapter(context, Specialist);
+                    lvSpecialist.setAdapter(rd);
+                    //   }
                 }
             });
 
             txtType.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                   // if (category.equalsIgnoreCase("TypeAppointment")) {
-                        Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
-                        rlType.setVisibility(View.VISIBLE);
-                        rlSpecialist.setVisibility(View.GONE);
-                        rd = new TypeAdapter(context, Type);
-                        lvType.setAdapter(rd);
-                    }
-               // }
+                    // if (category.equalsIgnoreCase("TypeAppointment")) {
+                    txtTitles.setText("Select Type");
+                    //  Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
+                    rlType.setVisibility(View.VISIBLE);
+                    rlSpecialist.setVisibility(View.GONE);
+                    rd = new TypeAdapter(context, Type);
+                    lvType.setAdapter(rd);
+                }
+                // }
             });
 
             lvType.setOnItemClickListener(new AdapterView.OnItemClickListener() {

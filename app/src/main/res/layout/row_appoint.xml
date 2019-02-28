@@ -281,7 +281,7 @@
             android:padding="@dimen/dimension10dp"
             android:text="Edit Appointment"
             android:textAllCaps="true"
-            android:textColor="@color/colorBlue"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension16dp"
             android:textStyle="normal"
             android:visibility="gone" />
