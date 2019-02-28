@@ -18,6 +18,43 @@ public class Pet implements Serializable {
     String chip = "";
     String guard = "";
 
+    public String getVeterian_add() {
+        return veterian_add;
+    }
+
+    public void setVeterian_add(String veterian_add) {
+        this.veterian_add = veterian_add;
+    }
+
+    public String getVeterian_ph() {
+        return veterian_ph;
+    }
+
+    public void setVeterian_ph(String veterian_ph) {
+        this.veterian_ph = veterian_ph;
+    }
+
+    public String getCare_add() {
+        return care_add;
+    }
+
+    public void setCare_add(String care_add) {
+        this.care_add = care_add;
+    }
+
+    public String getCare_ph() {
+        return care_ph;
+    }
+
+    public void setCare_ph(String care_ph) {
+        this.care_ph = care_ph;
+    }
+
+    String veterian_add="";
+    String veterian_ph="";
+    String care_add="";
+    String care_ph="";
+
     public int getUserId() {
         return userId;
     }

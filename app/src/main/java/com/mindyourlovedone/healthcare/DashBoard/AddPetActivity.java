@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.PetQuery;
@@ -22,14 +23,16 @@ public class AddPetActivity extends AppCompatActivity {
     Context context = this;
     TextView txtTitle, txtAdd,txtSave;
     TextView txtName, txtBreed, txtColor, txtChip, txtVeterian, txtCare, txtPetBirthDate, txtPetNotes;
-    String name = "", breed = "", color = "", veterain = "", care = "", chip = "", bdate = "", notes = "";
-    ImageView imgBack, imgDone;
+    String name = "", breed = "", color = "", veterain = "", care = "", chip = "", bdate = "", notes = "",veterain_add="",veterain_ph="",care_add="",care_ph="";
+    ImageView imgBack, imgDone,imgHome;
     boolean isUpdate = false;
     RelativeLayout llAddConn;
     Preferences preferences;
     DBHelper dbHelper;
 
     Pet pet;
+   TextView txtVeteranAd,txtVeteranPh,txtCareAd,txtCarePh;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,7 @@ public class AddPetActivity extends AppCompatActivity {
         PetQuery a = new PetQuery(context, dbHelper);
 
         imgBack = findViewById(R.id.imgBack);
+        imgHome=findViewById(R.id.imgHome);
         imgDone = findViewById(R.id.imgDone);
         llAddConn = findViewById(R.id.llAddConn);
         txtSave = findViewById(R.id.txtSave);
@@ -59,9 +63,26 @@ public class AddPetActivity extends AppCompatActivity {
         txtColor = findViewById(R.id.txtColor);
         txtChip = findViewById(R.id.txtChip);
         txtVeterian = findViewById(R.id.txtVeteran);
+        txtVeteranAd = findViewById(R.id.txtVeteranAd);
+        txtVeteranPh = findViewById(R.id.txtVeteranPh);
         txtCare = findViewById(R.id.txtCare);
+        txtCareAd = findViewById(R.id.txtCareAd);
+        txtCarePh = findViewById(R.id.txtCarePh);
         txtPetBirthDate = findViewById(R.id.txtPetBirthDate);
         txtPetNotes = findViewById(R.id.txtPetNote);
+
+        imgHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+            }
+        });
+
+
         Intent i = getIntent();
         if (i.getExtras() != null) {
             if (i.getExtras().get("FROM").equals("Update")) {
@@ -82,11 +103,23 @@ public class AddPetActivity extends AppCompatActivity {
                 if (p.getVeterian() != null) {
                     txtVeterian.setText(p.getVeterian());
                 }
+                if (p.getVeterian_add() != null) {
+                    txtVeteranAd.setText(p.getVeterian());
+                }
+                if (p.getVeterian_ph() != null) {
+                    txtVeteranPh.setText(p.getVeterian());
+                }
                 if (p.getChip() != null) {
                     txtChip.setText(p.getChip());
                 }
                 if (p.getGuard() != null) {
                     txtCare.setText(p.getGuard());
+                }
+                if (p.getCare_add() != null) {
+                    txtCareAd.setText(p.getGuard());
+                }
+                if (p.getCare_ph() != null) {
+                    txtCarePh.setText(p.getGuard());
                 }
                 if (p.getBdate() != null) {
                     txtPetBirthDate.setText(p.getBdate());
@@ -115,18 +148,22 @@ public class AddPetActivity extends AppCompatActivity {
                 color = txtColor.getText().toString();
                 chip = txtChip.getText().toString();
                 veterain = txtVeterian.getText().toString();
+                veterain_add = txtVeteranAd.getText().toString();
+                veterain_ph = txtVeteranPh.getText().toString();
                 care = txtCare.getText().toString();
+                care_add = txtCareAd.getText().toString();
+                care_ph = txtCarePh.getText().toString();
                 bdate = txtPetBirthDate.getText().toString();
                 notes = txtPetNotes.getText().toString();
                 if (isUpdate == false) {
-                    Boolean flag = PetQuery.insertPetData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, breed, color, chip, veterain, care, bdate, notes);
+                    Boolean flag = PetQuery.insertPetData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, breed, color, chip, veterain, care, bdate, notes,veterain_add,veterain_ph,care_add,care_ph);
                     if (flag == true) {
                         Toast.makeText(context, "Pet Added Succesfully", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
                 } else if (isUpdate == true) {
-                    Boolean flag = PetQuery.updatePetData(pet.getId(), name, breed, color, chip, veterain, care, bdate, notes);
+                    Boolean flag = PetQuery.updatePetData(pet.getId(), name, breed, color, chip, veterain, care, bdate, notes,veterain_add,veterain_ph,care_add,care_ph);
                     if (flag == true) {
                         Toast.makeText(context, "Pet updated Succesfully", Toast.LENGTH_SHORT).show();
                     } else {
