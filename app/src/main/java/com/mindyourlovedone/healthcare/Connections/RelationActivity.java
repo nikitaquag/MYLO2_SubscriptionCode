@@ -165,7 +165,8 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 } else if (category.equalsIgnoreCase("eyes")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(REQUEST_EYES, i);
-                } else if (category.equalsIgnoreCase("Blood")) {
+                }
+                else if (category.equalsIgnoreCase("Blood")) {
                     i.putExtra("Blood", txtRel.getText().toString());
                     setResult(REQUEST_BLOOD, i);
                 }else if (category.equalsIgnoreCase("Medical")) {
