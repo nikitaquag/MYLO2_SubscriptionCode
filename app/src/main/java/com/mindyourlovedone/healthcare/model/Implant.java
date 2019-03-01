@@ -13,6 +13,35 @@ public class Implant implements Serializable {
     String name = "";
     String date = "";
 
+    String location = "";
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    String details = "";
+    String notes = "";
+
     public String getOther() {
         return other;
     }

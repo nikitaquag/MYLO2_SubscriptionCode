@@ -20,6 +20,9 @@ public class MedicalImplantsQuery {
     public static final String COL_NAME = "Name";
     public static final String COL_DATE = "Date";
     public static final String COL_OTHER = "OtherImplant";
+    public static final String COL_LOCATION = "Location";
+    public static final String COL_DETAILS = "Details";
+    public static final String COL_NOTE_IMPLANT = "Note";
     static DBHelper dbHelper;
     Context context;
 
@@ -31,7 +34,7 @@ public class MedicalImplantsQuery {
 
     public static String createVaccineTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " + COL_USERID + " INTEGER, " +
-                COL_NAME + " VARCHAR(100)," + COL_OTHER + " VARCHAR(100)," + COL_DATE + " TEXT" +
+                COL_NAME + " VARCHAR(100)," + COL_OTHER + " VARCHAR(100)," + COL_LOCATION + " VARCHAR(100)," + COL_DETAILS + " VARCHAR(100)," + COL_NOTE_IMPLANT + " TEXT," + COL_DATE + " TEXT" +
                 ");";
         return createTableQuery;
     }
@@ -42,7 +45,7 @@ public class MedicalImplantsQuery {
     }
 
 
-    public static Boolean insertImplantData(int userid, String value, String date, String other) {
+    public static Boolean insertImplantData(int userid, String value, String date, String other, String location, String details, String note) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -51,7 +54,9 @@ public class MedicalImplantsQuery {
         cv.put(COL_NAME, value);
         cv.put(COL_DATE, date);
         cv.put(COL_OTHER, other);
-
+        cv.put(COL_LOCATION, location);
+        cv.put(COL_DETAILS, details);
+        cv.put(COL_NOTE_IMPLANT, note);
         long rowid = db.insert(TABLE_NAME, null, cv);
 
         flag = rowid != -1;
@@ -75,6 +80,9 @@ public class MedicalImplantsQuery {
                     allergy.setName(c.getString(c.getColumnIndex(COL_NAME)));
                     allergy.setDate(c.getString(c.getColumnIndex(COL_DATE)));
                     allergy.setOther(c.getString(c.getColumnIndex(COL_OTHER)));
+                    allergy.setLocation(c.getString(c.getColumnIndex(COL_LOCATION)));
+                    allergy.setDetails(c.getString(c.getColumnIndex(COL_DETAILS)));
+                    allergy.setNotes(c.getString(c.getColumnIndex(COL_NOTE_IMPLANT)));
                     allergyList.add(allergy);
                 } while (c.moveToNext());
             }
@@ -83,7 +91,7 @@ public class MedicalImplantsQuery {
         return allergyList;
     }
 
-    public static Boolean updateImplantData(int id, String value, String date, String otherd) {
+    public static Boolean updateImplantData(int id, String value, String date, String otherd, String location, String details, String note) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -92,6 +100,9 @@ public class MedicalImplantsQuery {
         cv.put(COL_NAME, value);
         cv.put(COL_DATE, date);
         cv.put(COL_OTHER, otherd);
+        cv.put(COL_LOCATION, location);
+        cv.put(COL_DETAILS, details);
+        cv.put(COL_NOTE_IMPLANT, note);
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;

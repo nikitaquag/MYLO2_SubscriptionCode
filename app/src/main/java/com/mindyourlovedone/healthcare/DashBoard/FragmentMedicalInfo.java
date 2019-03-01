@@ -657,11 +657,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Implant a = ImplantsLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Implant: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate();
+                    allergy = "Medical Implants\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
                 } else if (a.getName().equals("Joint Replacements (specify)")) {
-                    allergy = "Implant: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate();
+                    allergy = "Medical Implants\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
                 } else {
-                    allergy = "Implant: " + a.getName() + "\nDate: " + a.getDate();
+                    allergy = "Medical Implants\n" + a.getName() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
                 }
                 allergyList.add(allergy);
             }

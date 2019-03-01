@@ -71,11 +71,12 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     String header = "";
     String msg = "";
     TextView txtHeader, txtInfo, txtMedical;
-    TextInputLayout tilMedical;
+    TextInputLayout tilMedical, tilLocation, tilDetails, tilNote;
     RelativeLayout rlName, rlReactionSpinner;
     MySpinner spinner, spinnerReaction;
     FloatingActionButton floatProfile;
     private static int RESULT_MEDICAL = 2;
+    TextView txtLocation, txtDetails, txtNote;
 
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
@@ -121,6 +122,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 spinner.setAdapter(adapter1);
 
             } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
+
                /* ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, implantList);
                 adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter1);*/
@@ -198,6 +200,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     tilTitle.setVisibility(View.GONE);
                     tilMedical.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.VISIBLE);
+                    txtLocation.setVisibility(View.VISIBLE);
+                    txtDetails.setVisibility(View.VISIBLE);
+                    txtNote.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
                     tilMedical.setHint("Medical Implants");
@@ -214,12 +219,22 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     tilMedical.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
+                    tilMedical.setHintEnabled(true);
+                    tilMedical.setHint("Medical Implants");
+                    txtLocation.setVisibility(View.VISIBLE);
+                    txtDetails.setVisibility(View.VISIBLE);
+                    txtNote.setVisibility(View.VISIBLE);
+                    txtLocation.setVisibility(View.VISIBLE);
+                    txtDetails.setVisibility(View.VISIBLE);
+                    txtNote.setVisibility(View.VISIBLE);
+
                     spinner.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
                     spinner.setHint("Medical Implants");
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
+
                 case "Condition":
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -237,6 +252,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     spinnerReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
+
                 case "Hospital":
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -607,10 +623,19 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 case "ImplantUpdate":
                     Implant implant = (Implant) i.getExtras().getSerializable("ImplantObject");
                     //txtName.setText(implant.getName());
+                    //shradha
+                    if (implant.getName().equalsIgnoreCase("Other")) {
+                        tilOtherVaccine.setVisibility(View.VISIBLE);
+                    } else {
+                        tilOtherVaccine.setVisibility(View.GONE);
+                    }
                     txtOtherVaccine.setText(implant.getOther());
                     txtDate.setText(implant.getDate());
+                    txtMedical.setText(implant.getName());
+                    txtLocation.setText(implant.getLocation());
+                    txtDetails.setText(implant.getDetails());
+                    txtNote.setText(implant.getNotes());
                     id = implant.getId();
-                    // txtMedical.setText(implant.getName());
                    /* int index = 0;
                     for (int j = 0; j < implantList.length; j++) {
                         if (implant.getName().equals(implantList[j])) {
@@ -749,6 +774,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         txtInfo = findViewById(R.id.txtInfo);
         txtMedical = findViewById(R.id.txtMedical);
         tilMedical = findViewById(R.id.tilMedical);
+        tilLocation = findViewById(R.id.tilLocation);
+        tilDetails = findViewById(R.id.tilDetails);
+        tilNote = findViewById(R.id.tilNote);
 
         txtDate = findViewById(R.id.txtDate);
         txtDoctor = findViewById(R.id.txtDoctor);
@@ -756,6 +784,10 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         tilTreatment = findViewById(R.id.tilTreatment);
         txtTreatment = findViewById(R.id.txtTreatment);
         txtOtherVaccine = findViewById(R.id.txtOtherVaccine);
+
+        txtLocation = findViewById(R.id.txtLocation);
+        txtDetails = findViewById(R.id.txtDetails);
+        txtNote = findViewById(R.id.txtNote);
 
         tilOtherVaccine = findViewById(R.id.tilOtherVaccine);
 
@@ -982,7 +1014,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.txtSave:
                 String value = txtMedical.getText().toString().trim();
-               // String medical = txtMedical.getText().toString().trim();
+
+                // String medical = txtMedical.getText().toString().trim();
                 if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
                     int indexValue = spinner.getSelectedItemPosition();
                     if (indexValue != 0) {
@@ -1056,11 +1089,15 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             break;
                         case "Implants":
                             String dater = txtDate.getText().toString();
+                            String location = txtLocation.getText().toString().trim();
+                            String details = txtDetails.getText().toString().trim();
+                            String notes = txtNote.getText().toString().trim();
+
                             String otheri = "";
                             if (value.equals("Other") || value.equals("Joint Replacements (specify)")) {
                                 otheri = txtOtherVaccine.getText().toString();
                             }
-                            Boolean flage = MedicalImplantsQuery.insertImplantData(preferences.getInt(PrefConstants.CONNECTED_USERID), value, dater, otheri);
+                            Boolean flage = MedicalImplantsQuery.insertImplantData(preferences.getInt(PrefConstants.CONNECTED_USERID), value, dater, otheri, location, details, notes);
                             if (flage == true) {
                                 Toast.makeText(context, "Implant Added Succesfully", Toast.LENGTH_SHORT).show();
                             } else {
@@ -1108,12 +1145,16 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
                         case "ImplantUpdate":
                             String datee = txtDate.getText().toString();
+                            location = txtLocation.getText().toString().trim();
+                            details = txtDetails.getText().toString().trim();
+                            notes = txtNote.getText().toString().trim();
+
                             String otherd = "";
                             if (value.equals("Other") || value.equals("Joint Replacements (specify)")) {
                                 otherd = txtOtherVaccine.getText().toString();
                             }
 
-                            Boolean flagw = MedicalImplantsQuery.updateImplantData(id, value, datee, otherd);
+                            Boolean flagw = MedicalImplantsQuery.updateImplantData(id, value, datee, otherd, location, details, notes);
                             if (flagw == true) {
                                 Toast.makeText(context, "Implant Updated Succesfully", Toast.LENGTH_SHORT).show();
                             } else {

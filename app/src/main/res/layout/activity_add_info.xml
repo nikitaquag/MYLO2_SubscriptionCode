@@ -149,10 +149,14 @@
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
+
+
                     <RelativeLayout
                         android:id="@+id/rlSpinner"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilMedical"
+                    >
 
 
                         <com.mindyourlovedone.healthcare.customview.MySpinner
@@ -195,7 +199,114 @@
                         </android.support.design.widget.TextInputLayout>
                     </RelativeLayout>
 
+<!--Implant New fields-Location-->
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rlSpinner"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtLocation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Location"
+                            android:imeOptions="actionNext"
+                            android:maxLength="300"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
 
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <!--Location ends here-->
+
+                    <!--Details-->
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilLocation"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Details"
+                            android:imeOptions="actionNext"
+                            android:maxLength="300"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <!--Detail ends here-->
+
+
+                    <!--Implant sub Note-->
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilDetails"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Note"
+                            android:imeOptions="actionNext"
+                            android:maxLength="300"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <!--Note ends here-->
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilTitle"
                         android:layout_width="match_parent"
@@ -228,6 +339,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlName">
+
+
 
                     <RelativeLayout
                         android:id="@+id/rlReaction"
