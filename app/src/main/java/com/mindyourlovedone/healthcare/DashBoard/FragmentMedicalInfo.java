@@ -97,7 +97,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     TextView txtName;
     Spinner spinnerEyes, spinnerBlood, spinnerLang;
     TextView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
-    ImageView imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine;
+    ImageView imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine, imgTeethDrop;
     ListView ListHistory, ListAllergy, ListImplants, ListHospital, ListCondition, ListVaccine;
     String note = "", allergynote = "";
     String mouthnote = "";
@@ -116,10 +116,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
     TextView txtBlood;
     ImageView imgBloodDrop;
-    LinearLayout llSubAllergis, llSubPre, llSubImplants, llSubBlood;
+    LinearLayout llSubAllergis, llSubPre, llSubImplants, llSubHistory, llSubHospital, llSubBlood, llSubTeeth;
     RelativeLayout rlAllergis;
-    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom;
-    boolean flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false;
+    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom, viewHistoryBottom, viewHospitalBottom;
+    boolean flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false, flagHistory = false, flagHospital = false, flagTeeth = false;
     private static int RESULT_BLOOD = 1;
 
     @Nullable
@@ -165,6 +165,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddHistory.setOnClickListener(this);
         imgAddHospital.setOnClickListener(this);
         imgAddImplants.setOnClickListener(this);
+        imgTeethDrop.setOnClickListener(this);
         imgAddCondition.setOnClickListener(this);
 
 
@@ -204,11 +205,16 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         llSubAllergis = rootview.findViewById(R.id.llSubAllergis);
         llSubPre = rootview.findViewById(R.id.llSubPre);
         llSubImplants = rootview.findViewById(R.id.llSubImplants);
+        llSubHistory = rootview.findViewById(R.id.llSubHistory);
+        llSubHospital = rootview.findViewById(R.id.llSubHospital);
         llSubBlood = rootview.findViewById(R.id.llSubBlood);
+        llSubTeeth = rootview.findViewById(R.id.llSubTeeth);
 
         viewAllergyBottom = rootview.findViewById(R.id.viewAllergyBottom);
         viewPreBottom = rootview.findViewById(R.id.viewPreBottom);
         viewImplantsBottom = rootview.findViewById(R.id.viewImplantsBottom);
+        viewHistoryBottom = rootview.findViewById(R.id.viewHistoryBottom);
+        viewHospitalBottom = rootview.findViewById(R.id.viewHospitalBottom);
         viewBloodBottom = rootview.findViewById(R.id.viewBloodBottom);
 
         imgBloodDrop = rootview.findViewById(R.id.imgBloodDrop);
@@ -285,6 +291,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddAllergy = rootview.findViewById(R.id.imgAddAllergy);
         imgAddVaccine = rootview.findViewById(R.id.imgAddVaccine);
         imgAddImplants = rootview.findViewById(R.id.imgAddImplants);
+        imgTeethDrop = rootview.findViewById(R.id.imgTeethDrop);
         imgAddCondition = rootview.findViewById(R.id.imgAddCondition);
         imgAddHospital = rootview.findViewById(R.id.imgAddHospital);
         imgAddHistory = rootview.findViewById(R.id.imgAddHistory);
@@ -710,9 +717,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 History a = HistoryLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Surgical History: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate() + "\nDoctor: " + a.getDoctor() + "\nLocation: " + a.getDone();
+                    allergy = "Surgical History" + "\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nDoctor" + "\n" + a.getDoctor() + "\n" + "\nLocation" + "\n" + a.getDone();
                 } else {
-                    allergy = "Surgical History: " + a.getName() + "\nDate: " + a.getDate() + "\nDoctor: " + a.getDoctor() + "\nLocation: " + a.getDone();
+                    allergy = "Surgical History" + "\n" + a.getName() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nDoctor" + "\n" + a.getDoctor() + "\n" + "\nLocation" + "\n" + a.getDone();
                 }
                 allergyList.add(allergy);
             }
@@ -1076,7 +1083,36 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 }
                 break;
 
-
+            case R.id.imgAddHistory:
+                if (flagHistory == false) {
+                    llSubHistory.setVisibility(View.VISIBLE);
+                    imgAddHistory.setImageResource(R.drawable.dropup);
+                    txtAddHistory.setVisibility(View.VISIBLE);
+                    viewHistoryBottom.setVisibility(View.GONE);
+                    flagHistory = true;
+                } else if (flagHistory == true) {
+                    llSubHistory.setVisibility(View.GONE);
+                    imgAddHistory.setImageResource(R.drawable.drop_down);
+                    txtAddHistory.setVisibility(View.GONE);
+                    viewHistoryBottom.setVisibility(View.VISIBLE);
+                    flagHistory = false;
+                }
+                break;
+            case R.id.imgAddHospital:
+                if (flagHospital == false) {
+                    llSubHospital.setVisibility(View.VISIBLE);
+                    imgAddHospital.setImageResource(R.drawable.dropup);
+                    txtAddHospital.setVisibility(View.VISIBLE);
+                    viewHospitalBottom.setVisibility(View.GONE);
+                    flagHospital = true;
+                } else if (flagHospital == true) {
+                    llSubHospital.setVisibility(View.GONE);
+                    imgAddHospital.setImageResource(R.drawable.drop_down);
+                    txtAddHospital.setVisibility(View.GONE);
+                    viewHospitalBottom.setVisibility(View.VISIBLE);
+                    flagHospital = false;
+                }
+                break;
             case R.id.imgBloodDrop:
                 if (flagBlood == false) {
                     llSubBlood.setVisibility(View.VISIBLE);
@@ -1088,6 +1124,18 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     imgBloodDrop.setImageResource(R.drawable.drop_down);
                     //  viewBloodBottom.setVisibility(View.VISIBLE);
                     flagBlood = false;
+                }
+                break;
+
+            case R.id.imgTeethDrop:
+                if (flagTeeth == false) {
+                    llSubTeeth.setVisibility(View.VISIBLE);
+                    imgTeethDrop.setImageResource(R.drawable.dropup);
+                    flagTeeth = true;
+                } else if (flagTeeth == true) {
+                    llSubTeeth.setVisibility(View.GONE);
+                    imgTeethDrop.setImageResource(R.drawable.drop_down);
+                    flagTeeth = false;
                 }
                 break;
 

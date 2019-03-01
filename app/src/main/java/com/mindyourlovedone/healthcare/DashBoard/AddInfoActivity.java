@@ -103,6 +103,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             from = i.getExtras().getString("ADD");
             name = i.getExtras().getString("Name");
             title = i.getExtras().getString("Title");
+
             txtTitle.setText(title);
             txtAdd.setText(title);
             tilTitle.setHint(name);
@@ -122,7 +123,6 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 spinner.setAdapter(adapter1);
 
             } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
-
                /* ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, implantList);
                 adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter1);*/
@@ -200,9 +200,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     tilTitle.setVisibility(View.GONE);
                     tilMedical.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.VISIBLE);
-                    txtLocation.setVisibility(View.VISIBLE);
-                    txtDetails.setVisibility(View.VISIBLE);
-                    txtNote.setVisibility(View.VISIBLE);
+                    tilLocation.setVisibility(View.VISIBLE);
+                    tilDetails.setVisibility(View.VISIBLE);
+                    tilNote.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
                     tilMedical.setHint("Medical Implants");
@@ -221,12 +221,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
                     tilMedical.setHint("Medical Implants");
-                    txtLocation.setVisibility(View.VISIBLE);
-                    txtDetails.setVisibility(View.VISIBLE);
-                    txtNote.setVisibility(View.VISIBLE);
-                    txtLocation.setVisibility(View.VISIBLE);
-                    txtDetails.setVisibility(View.VISIBLE);
-                    txtNote.setVisibility(View.VISIBLE);
+                    tilLocation.setVisibility(View.VISIBLE);
+                    tilDetails.setVisibility(View.VISIBLE);
+                    tilNote.setVisibility(View.VISIBLE);
 
                     spinner.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
@@ -1088,6 +1085,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             finish();
                             break;
                         case "Implants":
+                            txtLocation.setVisibility(View.VISIBLE);
+                            txtDetails.setVisibility(View.VISIBLE);
+                            txtNote.setVisibility(View.VISIBLE);
                             String dater = txtDate.getText().toString();
                             String location = txtLocation.getText().toString().trim();
                             String details = txtDetails.getText().toString().trim();
