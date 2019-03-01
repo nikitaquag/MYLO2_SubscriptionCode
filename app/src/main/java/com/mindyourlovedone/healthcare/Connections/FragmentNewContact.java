@@ -225,6 +225,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         } catch (Exception e) {
             //TODO: handle exception
         }
+      //  Preferences preferences=new Preferences(context);
+        //String source=preferences.getString(PrefConstants.SOURCE);
         switch (source) {
             case "Connection":
                 if (validate("Connection")) {

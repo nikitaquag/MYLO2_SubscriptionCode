@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rlCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite">
+
+            <ImageView
+                android:id="@+id/imgDocType"
+                android:layout_width="@dimen/dimension50dp"
+                android:layout_height="@dimen/dimension50dp"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dimension10dp"
+                android:src="@drawable/pet_green" />
+
+            <RelativeLayout
+                android:id="@+id/rlProvider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/imgDocType"
+                android:background="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:layout_centerVertical="true"
+                >
+
+                <TextView
+                    android:id="@+id/txtProvider"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="Pet Name"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtProviderValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/txtProvider"
+                    android:background="@color/colorWhite"
+                    android:padding="@dimen/dimension3dp"
+                    android:text="Provider Name"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <TextView
+                    android:id="@+id/txtType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProvider"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="Type :"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txtTypeValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtProviderValue"
+                    android:layout_marginBottom="@dimen/dimension5dp"
+                    android:layout_toRightOf="@+id/txtType"
+                    android:padding="@dimen/dimension3dp"
+                    android:text="Type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <ImageView
+                    android:id="@+id/imgForword"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:focusableInTouchMode="false"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/right" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension2dp"
+            android:layout_below="@+id/rlCard"
+            android:background="@color/colorOnesGray"
+            android:visibility="visible"></View>
+
+    </RelativeLayout>

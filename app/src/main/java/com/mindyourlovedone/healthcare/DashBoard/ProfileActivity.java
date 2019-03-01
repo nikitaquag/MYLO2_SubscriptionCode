@@ -52,6 +52,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.Connections.PetAdapter;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -115,7 +116,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     RelativeLayout llIndividual;
     //  Button floatingBtn;
     TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
-    ImageView imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
+    ImageView imgHome,imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
     RelativeLayout rlPet, rlLive;
@@ -353,6 +354,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         imgCard = findViewById(R.id.imgCard);
         imgEditCard = findViewById(R.id.imgEditCard);
+        imgHome=findViewById(R.id.imgHome);
         imgAddpet = findViewById(R.id.imgAddPet);
         txtAddPet = findViewById(R.id.txtAddPet);
        // txtSignUp = findViewById(R.id.txtSignUp);
@@ -1113,13 +1115,26 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 if (connection.getPet().equals("YES")) {
                     tbPet.setChecked(true);
                     pet="YES";
+
+                    txtAddPet.setVisibility(View.VISIBLE);
                 } else {
                     tbPet.setChecked(false);
                     pet="NO";
+                    txtAddPet.setVisibility(View.GONE);
                 }
             }
 
         }
+        imgHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+            }
+        });
        /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
             tilBdate.setVisibility(View.VISIBLE);
            // spinner.setVisibility(View.VISIBLE);
@@ -2637,21 +2652,26 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     private void setPetData() {
         final ArrayList allergyList = new ArrayList();
         final ArrayList<Pet> AllargyLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        if (AllargyLists.size() != 0) {
+       if (AllargyLists.size() != 0) {
             ListPet.setVisibility(View.VISIBLE);
-            for (int i = 0; i < AllargyLists.size(); i++) {
+            /*for (int i = 0; i < AllargyLists.size(); i++) {
                 Pet a = AllargyLists.get(i);
                 String allergy = "Pet Name: " + a.getName() + "\nBreed / Type of Pet: " + a.getBreed() + "\nColor: " + a.getColor() + "\nVeterinarian: " + a.getVeterian() + "\nCaretaker: " + a.getGuard() + "\nMicrochip Number: " + a.getChip() + "\nBirthdate: " + a.getBdate() + "\nNotes: " + a.getNotes();
                 allergyList.add(allergy);
-            }
-            if (allergyList.size() != 0) {
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
+            }*/
+         //   if (allergyList.size() != 0) {
+                PetAdapter adapter=new PetAdapter(context,AllargyLists);
+               // ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.row_medicalinfo, R.id.txtInfo, allergyList);
                 ListPet.setAdapter(adapter);
                 ListPet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                        ImageView imgEdit = view.findViewById(R.id.imgEdit);
+                        Pet a = AllargyLists.get(position);
+                        Intent allergyIntent = new Intent(context, AddPetActivity.class);
+                        allergyIntent.putExtra("FROM", "Update");
+                        allergyIntent.putExtra("PetObject", a);
+                        startActivityForResult(allergyIntent, REQUEST_PET);
+                    /*    ImageView imgEdit = view.findViewById(R.id.imgEdit);
                         ImageView imgDelete = view.findViewById(R.id.imgDelete);
                         imgEdit.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -2675,10 +2695,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                                     ListPet.requestFocus();
                                 }
                             }
-                        });
+                        });*/
                     }
                 });
-            }
+        //    }
         } else {
             ListPet.setVisibility(View.GONE);
         }

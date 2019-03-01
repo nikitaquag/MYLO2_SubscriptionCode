@@ -22,14 +22,14 @@ public class AddPetActivity extends AppCompatActivity {
     public static final int REQUEST_PET = 400;
     Context context = this;
     TextView txtTitle, txtAdd,txtSave;
-    TextView txtName, txtBreed, txtColor, txtChip, txtVeterian, txtCare, txtPetBirthDate, txtPetNotes;
+    TextView txtName, txtBreed, txtColor, txtChip, txtVeterian, txtCare, txtPetBirthDate, txtPetNotes,txtDelete;
     String name = "", breed = "", color = "", veterain = "", care = "", chip = "", bdate = "", notes = "",veterain_add="",veterain_ph="",care_add="",care_ph="";
     ImageView imgBack, imgDone,imgHome;
     boolean isUpdate = false;
     RelativeLayout llAddConn;
     Preferences preferences;
     DBHelper dbHelper;
-
+    Pet p;
     Pet pet;
    TextView txtVeteranAd,txtVeteranPh,txtCareAd,txtCarePh;
 
@@ -50,7 +50,7 @@ public class AddPetActivity extends AppCompatActivity {
         preferences = new Preferences(context);
         dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
         PetQuery a = new PetQuery(context, dbHelper);
-
+        txtDelete=findViewById(R.id.txtDelete);
         imgBack = findViewById(R.id.imgBack);
         imgHome=findViewById(R.id.imgHome);
         imgDone = findViewById(R.id.imgDone);
@@ -87,9 +87,10 @@ public class AddPetActivity extends AppCompatActivity {
         if (i.getExtras() != null) {
             if (i.getExtras().get("FROM").equals("Update")) {
                 isUpdate = true;
+                txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Pet");
                 txtTitle.setText("Update Pet");
-                Pet p = (Pet) i.getExtras().getSerializable("PetObject");
+                p = (Pet) i.getExtras().getSerializable("PetObject");
                 pet = p;
                 if (p.getName() != null) {
                     txtName.setText(p.getName());
@@ -129,11 +130,25 @@ public class AddPetActivity extends AppCompatActivity {
                 }
             } else {
                 isUpdate = false;
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Add Pet");
                 txtTitle.setText("Add Pet");
             }
 
         }
+txtDelete.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        boolean flag = PetQuery.deleteRecord(p.getId());
+        if (flag == true) {
+            Toast.makeText(context, "Deleted Pet Record", Toast.LENGTH_SHORT).show();
+           // setPetData();
+          //  ListPet.requestFocus();
+            finish();
+        }
+    }
+});
+
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
