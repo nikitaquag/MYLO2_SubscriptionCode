@@ -9,29 +9,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.model.Pet;
+import com.mindyourlovedone.healthcare.model.Setting;
 
-class PetAdapter extends BaseAdapter {
+import java.util.ArrayList;
+
+public class PetAdapter extends BaseAdapter {
 
     Context context;
-    String[] relationship;
+    ArrayList<Pet> petList;
     LayoutInflater lf;
     ViewHolder holder;
 
-    public PetAdapter(Context context, String[] relationship) {
+    public PetAdapter(Context context, ArrayList<Pet> petLists) {
         this.context=context;
-
-        this.relationship=relationship;
+        this.petList=petLists;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return relationship.length;
+        return petList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return relationship[position];
+        return petList.get(position);
     }
 
     @Override
@@ -42,27 +45,29 @@ class PetAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view;
-
+        Pet pet = petList.get(position);
         if (convertView == null) {
-            convertView = lf.inflate(R.layout.row_specialist, parent, false);
+            convertView = lf.inflate(R.layout.row_pet, parent, false);
             holder = new ViewHolder();
 
-            holder.txtRel=  convertView.findViewById(R.id.txtRel);
-            holder.imgCheck=  convertView.findViewById(R.id.imgCheck);
+            holder.txtProvider= (TextView) convertView.findViewById(R.id.txtProviderValue);
+            holder.txtType= (TextView) convertView.findViewById(R.id.txtTypeValue);
 
 
             convertView.setTag(holder);
+            view = convertView;
         } else {
+            view = convertView;
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.txtRel.setText(relationship[position]);
-      //  holder.txtName.setText(student.getName());
-       // holder.txtCity.setText(student.getCity());
+        holder.txtProvider.setText(pet.getName());
+        holder.txtType.setText("Breed:"+pet.getBreed());
+
         return convertView;
     }
 
     public class ViewHolder {
-        TextView txtRel;
+        TextView txtProvider,txtType;
         ImageView imgCheck;
     }
 }

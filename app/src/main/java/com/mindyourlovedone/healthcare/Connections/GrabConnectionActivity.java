@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -333,6 +334,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case R.id.txtsave:
+              //  Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show();
 //                if (fragmentManager.findFragmentByTag("NEWCONTACT") == null) {
                 fragmentNewContact.savedata();
 //                }

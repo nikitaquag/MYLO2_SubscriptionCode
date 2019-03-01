@@ -121,10 +121,14 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                 ||
                 ContextCompat.checkSelfPermission(getApplicationContext(),
                         android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                ||
+                ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
         ) {
             requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE,
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_CONTACTS
             }, REQUEST_CALL_PERMISSION);
 
         } else {
