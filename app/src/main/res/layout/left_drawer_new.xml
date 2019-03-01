@@ -36,10 +36,10 @@
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:text="Martha Matheson"
-                    android:textAllCaps="false"
+                    android:textAllCaps="true"
 
                     android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/dimension16dp"
+                    android:textSize="@dimen/dimension22dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -53,7 +53,7 @@
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:text="Self"
                     android:textColor="@color/colorWhite"
-                    android:textSize="14dp" />
+                    android:textSize="@dimen/dimension20dp" />
             </LinearLayout>
         </FrameLayout>
     </RelativeLayout>

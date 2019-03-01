@@ -53,6 +53,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.PetAdapter;
+import com.mindyourlovedone.healthcare.Connections.PhoneAdapter;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -60,6 +61,7 @@ import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
@@ -87,6 +89,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -105,7 +108,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public static final int REQUEST_MARITAL = 22;
     public static final int REQUEST_EYES = 23;
     public static final int REQUEST_LANGUAGE= 24;
-
+    ArrayList<ContactData> phonelist=new ArrayList<>();
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
@@ -163,7 +166,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     boolean checkSave = false;
     boolean isOnActivityResult = false;
     String cardImgPath = "";
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile;;
+    ListView listPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -174,6 +178,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         initImageLoader();
         initUI();
         initListener();
+
+
     }
 
     private void initImageLoader() {
@@ -263,7 +269,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
       tilRelation=findViewById(R.id.tilRelation);
       txtRelation=findViewById(R.id.txtRelation);
       txtRelation.setFocusable(false);
-
+        listPhone=findViewById(R.id.listPhone);
         tilSpinEye=findViewById(R.id.tilSpinEyes);
         txtSpinEye=findViewById(R.id.txtSpinEyes);
         txtSpinEye.setFocusable(false);
@@ -824,6 +830,19 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
         });
         setPetData();
+      /* setListPh();
+         listPhone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
+            }
+        });*/
+    }
+
+    private void setListPh() {
+       // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
+        PhoneAdapter pd=new PhoneAdapter(context,phonelist);
+        listPhone.setAdapter(pd);
     }
 
     private void hideSoftKeyboard() {
@@ -2997,5 +3016,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         }
 
     }
+
+
 
 }

@@ -14,15 +14,15 @@ import java.util.ArrayList;
  */
 
 public class ContactDataQuery {
-  /*  public static final String TABLE_NAME = "Contacts";
-    public static final String COL_ID = "id";
-    public static final String COL_TABLE = "table";
-    public static final String COL_USERID = "uerId";
-    public static final String COL_TYPE = "type";
-    public static final String COL_VALUE = "Value";
-    public static final String COL_EMAIL = "email";
+    public static final String TABLE_NAME = "ContactNumber";
+    public static final String COL_ID = "Id";
+    public static final String COL_ID_FROMTABLE = "idFromTable";
+    public static final String COL_USERID = "UserId";
+    public static final String COL_CONTACTTYPE = "contactType";
+    public static final String COL_VALUE = "value";
+    public static final String COL_EMAIL = "userEmail";
     public static final String COL_FROMTABLE = "fromTable";
-    *//* public static final String COL_IMAGE = "image";*//*
+
     static DBHelper dbHelper;
     Context context;
 
@@ -32,8 +32,8 @@ public class ContactDataQuery {
         ContactDataQuery.dbHelper = dbHelper;
     }
 
-    public static String createContactTable() {
-        String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " VARCHAR(10)," + COL_TABLE + " VARCHAR(20)," + COL_USERID + " VARCHAR(20)," + COL_TYPE + " VARCHAR(20)," + COL_VALUE + " VARCHAR(15)," + COL_EMAIL + " VARCHAR(15)," + COL_FROMTABLE + " VARCHAR(15));";
+    public static String createContactDataTable() {
+        String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER," + COL_ID_FROMTABLE + " INTEGER," + COL_USERID + " INTEGER," + COL_CONTACTTYPE + " VARCHAR(30)," + COL_VALUE + " VARCHAR(50)," + COL_EMAIL + " VARCHAR(50)," + COL_FROMTABLE + " VARCHAR(30));";
         return createTableQuery;
     }
 
@@ -42,7 +42,7 @@ public class ContactDataQuery {
         return dropTableQuery;
     }
 
-    public static boolean insertContactData(String id, String name, String number, String email, byte[] image, String address, String homePhone, String workPhone) {
+   /* public static boolean insertContactDataTable(String id, String name, String number, String email, byte[] image, String address, String homePhone, String workPhone) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -94,10 +94,10 @@ public class ContactDataQuery {
         }
 
         return contactList;
-    }
+    }*/
 
-    public static void deleteContactData() {
+    public static void deleteContactDataTable() {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         db.delete(TABLE_NAME, null, null);
-    }*/
+    }
 }

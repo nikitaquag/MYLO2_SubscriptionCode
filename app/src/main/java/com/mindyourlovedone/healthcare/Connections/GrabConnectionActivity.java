@@ -100,7 +100,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
 
         switch (source) {
             case "Connection":
-                header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                header.setBackgroundColor(getResources().getColor(R.color.colorBlue));
                 break;
 
             case "Pharmacy":
@@ -128,16 +128,16 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Emergency":
-                header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                header.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 break;
 
             case "EmergencyUpdate":
-                header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                header.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
 
                 break;
 
             case "EmergencyView":
-                header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                header.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 break;
 
             case "Speciality":
@@ -145,15 +145,15 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Physician":
-                header.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                header.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 break;
 
             case "PhysicianData":
-                header.setBackgroundResource(R.color.colorOne);
+                header.setBackgroundResource(R.color.colorEmerMainGreen);
                 break;
 
             case "PhysicianViewData":
-                header.setBackgroundResource(R.color.colorOne);
+                header.setBackgroundResource(R.color.colorEmerMainGreen);
                 break;
             case "SpecialistData":
                 header.setBackgroundResource(R.color.colorThree);

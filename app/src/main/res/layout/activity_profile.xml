@@ -437,11 +437,19 @@
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_marginRight="@dimen/dimension20dp">
 
+                    <ListView
+                        android:id="@+id/listPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"></ListView>
+
                     <LinearLayout
                         android:id="@+id/llNum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+
+                        >
 
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilPhoNum"
