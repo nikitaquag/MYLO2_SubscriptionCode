@@ -84,6 +84,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 RelationsAdapter rd = new RelationsAdapter(context, OtherList);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("TypeFrequency")) {
+                txtTitles.setText("Select Frequency");
                 String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Frequency);
                 listRelation.setAdapter(rd);
@@ -165,11 +166,10 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 } else if (category.equalsIgnoreCase("eyes")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(REQUEST_EYES, i);
-                }
-                else if (category.equalsIgnoreCase("Blood")) {
+                } else if (category.equalsIgnoreCase("Blood")) {
                     i.putExtra("Blood", txtRel.getText().toString());
                     setResult(REQUEST_BLOOD, i);
-                }else if (category.equalsIgnoreCase("Medical")) {
+                } else if (category.equalsIgnoreCase("Medical")) {
                     i.putExtra("Medical", txtRel.getText().toString());
                     setResult(REQUEST_BLOOD, i);
                 }
