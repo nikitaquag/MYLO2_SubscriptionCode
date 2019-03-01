@@ -78,6 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(LivingQuery.createLivingTable());
         db.execSQL(ImplantQuery.createVaccineTable());
         db.execSQL(ImageQuery.createTable());
+        db.execSQL(ContactDataQuery.createContactDataTable());
 
     }
 
@@ -136,6 +137,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(LivingQuery.dropTable());
         db.execSQL(ImplantQuery.dropTable());
         db.execSQL(ImageQuery.dropTable());
+        db.execSQL(ContactDataQuery.dropTable());
         onCreate(db);
     }
 }

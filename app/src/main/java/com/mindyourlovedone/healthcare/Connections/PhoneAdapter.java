@@ -10,14 +10,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Phone;
 import com.mindyourlovedone.healthcare.utility.AppConstants;
 
 import java.util.ArrayList;
 
-class PhoneAdapter extends BaseAdapter {
+public class PhoneAdapter extends BaseAdapter {
     Context context;
-    ArrayList<String> phonelist;
+    ArrayList<ContactData> phonelist;
     LayoutInflater lf;
     int count;
     View previousView;
@@ -25,11 +26,17 @@ class PhoneAdapter extends BaseAdapter {
 int val;
 
 
-    public PhoneAdapter(Context context, ArrayList<String> phonelist, int val) {
-        this.context = context;
-        this.phonelist = phonelist;
-        this.val=val;
-        lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+    public PhoneAdapter(Context context, ArrayList<ContactData> phonelist) {
+        if (phonelist.size()==0)
+        {
+            val=1;
+        }else{
+            val=(phonelist.size());
+        }
+        this.context=context;
+        this.phonelist=phonelist;
+        lf= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -59,9 +66,9 @@ int val;
             holder.imgdeletePhone=  convertView.findViewById(R.id.imgdeletePhone);
             if (position==0)
             {
-                holder.imgdeletePhone.setImageResource(R.drawable.addblue);
+                holder.imgdeletePhone.setImageResource(R.drawable.add_n);
             }else{
-                holder.imgdeletePhone.setImageResource(R.drawable.delete_icon);
+                holder.imgdeletePhone.setImageResource(R.drawable.delete_n);
             }
 
 
@@ -72,18 +79,21 @@ int val;
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
+        /*holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
                 if (position==0)
                 {
+                   ContactData c=new ContactData();
 
+                   phonelist.add(c);
                    notifyDataSetChanged();
                 }else{
 
                 }
             }
-        });
+        });*/
        // holder.txtRel.setText(relationship[position]);
         //  holder.txtName.setText(student.getName());
         // holder.txtCity.setText(student.getCity());

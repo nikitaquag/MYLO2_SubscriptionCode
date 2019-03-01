@@ -102,7 +102,9 @@
                         android:text="How to Backup"
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension16dp"
-                        android:textStyle="normal" />
+                        android:textStyle="bold"
+
+                        />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -170,7 +172,7 @@
                         android:text="How to Restore"
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension16dp"
-                        android:textStyle="normal" />
+                        android:textStyle="bold"  />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -238,7 +240,7 @@
                         android:text="How to Share"
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension16dp"
-                        android:textStyle="normal" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -306,7 +308,7 @@
                         android:text="How to Upload"
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension16dp"
-                        android:textStyle="normal" />
+                        android:textStyle="bold"  />
 
                     <TextView
                         android:layout_width="match_parent"

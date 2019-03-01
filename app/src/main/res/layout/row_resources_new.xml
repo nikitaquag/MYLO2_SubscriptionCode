@@ -11,7 +11,7 @@
         android:padding="@dimen/dimension5dp"
         android:layout_below="@+id/txtUserName"
         android:layout_margin="@dimen/dimension10dp"
-        android:background="@drawable/gray_white_border">
+        android:background="@drawable/gray_white_corner_border">
 
         <ImageView
             android:id="@+id/imgResources"

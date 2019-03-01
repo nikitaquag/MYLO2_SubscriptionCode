@@ -45,7 +45,7 @@
                 android:id="@+id/txtRelation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimension5dp"
+                android:layout_marginTop="@dimen/dimension3dp"
                 android:text="Self"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension16dp"

@@ -22,8 +22,8 @@
             android:gravity="center">
 
             <ImageView
-                android:layout_width="@dimen/dimension150dp"
-                android:layout_height="@dimen/dimension90dp"
+                android:layout_width="@dimen/dimension200dp"
+                android:layout_height="@dimen/dimension110dp"
                 android:layout_gravity="center"
                 android:padding="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension20dp"
@@ -68,6 +68,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
+                android:padding="@dimen/dimension20dp"
                 android:gravity="center"
                 android:text="The ABA® trademark is owned by the American Bar Association, used under license.\n\nThe American Bar Association is one of the world’s largest voluntary professional organizations.Its mission is to serve equally its members, the profession and the public by defending liberty and delivering justice as the national representative of the legal profession.\n\nThe ABA® Commission on Law and Aging is the collaborative and interdisciplinary leader of the Association’s work to strengthen and secure the legal rights, dignity, autonomy, quality of life, and quality of care of aging persons."
                 android:textAlignment="viewStart"
