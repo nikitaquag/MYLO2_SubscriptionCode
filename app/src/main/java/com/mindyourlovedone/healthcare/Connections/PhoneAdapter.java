@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -73,6 +74,24 @@ public class PhoneAdapter extends BaseAdapter {
         holder.txtType.setText(phonelist.get(position).getContactType());
         holder.txtPhoNum.setText(phonelist.get(position).getValue());
 
+        holder.txtPhoNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus)
+                {
+
+                   // final int position = v.getId();
+                    final TextView Caption = (TextView) v;
+                    phonelist.get(position).setValue(Caption.getText().toString());
+
+                   /* phonelist.get(position).setContactType(holder.txtType.getText().toString());
+                    holder.txtType.setText(phonelist.get(position).getContactType());
+                    holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                    notifyDataSetChanged();*/
+                }
+            }
+        });
+
         holder.txtType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,8 +101,10 @@ public class PhoneAdapter extends BaseAdapter {
                 b.setItems(types, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        phonelist.get(position).setValue(phonelist.get(position).getValue());
                         phonelist.get(position).setContactType(types[which]);
-                        holder.txtType.setText(types[which]);
+                        holder.txtType.setText(phonelist.get(position).getContactType());
+                        holder.txtPhoNum.setText(phonelist.get(position).getValue());
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }

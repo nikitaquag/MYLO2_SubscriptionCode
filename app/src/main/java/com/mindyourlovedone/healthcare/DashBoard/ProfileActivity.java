@@ -59,9 +59,11 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.customview.NonScrollListView;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
+import com.mindyourlovedone.healthcare.database.PharmacyQuery;
 import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
@@ -169,6 +171,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String cardImgPath = "";
     FloatingActionButton floatProfile;;
     NonScrollListView listPhone;
+    ContactData contactData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -229,6 +232,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String ss = preferences.getString(PrefConstants.CONNECTED_USERDB);
         dbHelper1 = new DBHelper(context, ss);
         PetQuery p = new PetQuery(context, dbHelper1);
+        ContactDataQuery c=new ContactDataQuery(context,dbHelper1);
 
         /*if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID)))
         {
@@ -236,6 +240,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         else {*/
         connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),connection.getId(),"Connection");
         // }
     }
 
@@ -1629,7 +1634,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.txtSave:
-
+                       for (int i=0;i<phonelist.size();i++)
+                       {
+                           if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
+                           {
+                               phonelist.remove(phonelist.get(i));
+                           }
+                           Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                       }
                /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
@@ -2268,6 +2280,17 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling);
                     if (flags == true) {
                         Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
+                        ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                        boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                        if (flag == true) {
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            for (int i = 0; i < phonelist.size(); i++) {
+                                Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                if (flagc == true) {
+                                    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                }
+                            }                        }
+
                     }
                     //Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                     preferences.putString(PrefConstants.CONNECTED_NAME, name);
