@@ -434,21 +434,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilEmail"
-                    android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginRight="@dimen/dimension20dp">
+                 >
 
-                    <ListView
+                    <com.mindyourlovedone.healthcare.customview.NonScrollListView
                         android:id="@+id/listPhone"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"></ListView>
+                        android:layout_height="match_parent"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                      ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                     <LinearLayout
                         android:id="@+id/llNum"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-
+android:visibility="gone"
                         >
 
                         <android.support.design.widget.TextInputLayout

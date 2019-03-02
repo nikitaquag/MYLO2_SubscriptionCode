@@ -58,6 +58,7 @@ import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
+import com.mindyourlovedone.healthcare.customview.NonScrollListView;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
@@ -103,12 +104,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
     private static int RESULT_SELECT_PHOTO_CARD = 4;
-
+    PhoneAdapter pd;
     public static final int REQUEST_RELATIONP = 100;
     public static final int REQUEST_MARITAL = 22;
     public static final int REQUEST_EYES = 23;
     public static final int REQUEST_LANGUAGE= 24;
-    ArrayList<ContactData> phonelist=new ArrayList<>();
+   public ArrayList<ContactData> phonelist=new ArrayList<>();
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
@@ -167,7 +168,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     boolean isOnActivityResult = false;
     String cardImgPath = "";
     FloatingActionButton floatProfile;;
-    ListView listPhone;
+    NonScrollListView listPhone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -830,18 +831,38 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
         });
         setPetData();
-      /* setListPh();
-         listPhone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        setListPh();
+    /*  listPhone.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
+                final TextView txtPhoNum=view.findViewById(R.id.txtPhoNum);
+                txtPhoNum.setClickable(true);
+                txtPhoNum.setFocusable(true);
+                final TextView txtType=view.findViewById(R.id.txtType);
+                txtType.setFocusable(true);
+
+                txtPhoNum.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });*/
     }
-
-    private void setListPh() {
+    public void addNewPhone() {
+        ContactData c=new ContactData();
+        phonelist.add(c);
+        pd.notifyDataSetChanged();
+    }
+    public void setListPh() {
        // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
-        PhoneAdapter pd=new PhoneAdapter(context,phonelist);
+        if (phonelist.size()==0) {
+            ContactData c=new ContactData();
+            phonelist.add(c);
+        }
+         pd = new PhoneAdapter(context, phonelist);
         listPhone.setAdapter(pd);
     }
 
@@ -2914,6 +2935,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         }
 
     }
+
+
 
     class UpdateUserAsynk extends AsyncTask<Void, Void, String> {
 

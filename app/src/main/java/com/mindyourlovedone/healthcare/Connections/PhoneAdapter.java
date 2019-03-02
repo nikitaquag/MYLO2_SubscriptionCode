@@ -1,6 +1,8 @@
 package com.mindyourlovedone.healthcare.Connections;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Phone;
@@ -23,17 +26,11 @@ public class PhoneAdapter extends BaseAdapter {
     int count;
     View previousView;
     ViewHolder holder;
-int val;
+   int val;
 
 
 
     public PhoneAdapter(Context context, ArrayList<ContactData> phonelist) {
-        if (phonelist.size()==0)
-        {
-            val=1;
-        }else{
-            val=(phonelist.size());
-        }
         this.context=context;
         this.phonelist=phonelist;
         lf= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -41,7 +38,7 @@ int val;
 
     @Override
     public int getCount() {
-        return val;
+        return phonelist.size();
     }
 
     @Override
@@ -62,15 +59,10 @@ int val;
             convertView = lf.inflate(R.layout.row_phone, parent, false);
             holder = new ViewHolder();
 
-            holder.txtRel=  convertView.findViewById(R.id.txtRel);
+           // holder.txtRel=  convertView.findViewById(R.id.txtRel);
             holder.imgdeletePhone=  convertView.findViewById(R.id.imgdeletePhone);
-            if (position==0)
-            {
-                holder.imgdeletePhone.setImageResource(R.drawable.add_n);
-            }else{
-                holder.imgdeletePhone.setImageResource(R.drawable.delete_n);
-            }
-
+            holder.txtPhoNum=convertView.findViewById(R.id.txtPhoNum);
+            holder.txtType=convertView.findViewById(R.id.txtType);
 
             convertView.setTag(holder);
             view = convertView;
@@ -78,30 +70,56 @@ int val;
             view = convertView;
             holder = (ViewHolder) convertView.getTag();
         }
+        holder.txtType.setText(phonelist.get(position).getContactType());
+        holder.txtPhoNum.setText(phonelist.get(position).getValue());
 
-        /*holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
+        holder.txtType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder b = new AlertDialog.Builder(context);
+                b.setTitle("Type");
+                final String[] types = {"Mobile", "Office", "Home", "Fax"};
+                b.setItems(types, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        phonelist.get(position).setContactType(types[which]);
+                        holder.txtType.setText(types[which]);
+                        notifyDataSetChanged();
+                        dialog.dismiss();
+                    }
+
+                });
+                b.show();
+            }
+        });
+        holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
                 if (position==0)
                 {
-                   ContactData c=new ContactData();
-
-                   phonelist.add(c);
-                   notifyDataSetChanged();
+                    ((ProfileActivity)context).addNewPhone();
                 }else{
 
                 }
             }
-        });*/
+        });
        // holder.txtRel.setText(relationship[position]);
         //  holder.txtName.setText(student.getName());
         // holder.txtCity.setText(student.getCity());
+
+        if (position==0)
+        {
+            holder.imgdeletePhone.setImageResource(R.drawable.add_n);
+        }else{
+            holder.imgdeletePhone.setImageResource(R.drawable.delete_n);
+        }
+
         return convertView;
     }
 
     public class ViewHolder {
-        TextView txtRel;
+        TextView txtRel,txtPhoNum,txtType;
         ImageView imgdeletePhone;
     }
 }
