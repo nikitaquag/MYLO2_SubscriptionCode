@@ -856,6 +856,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
         });*/
     }
+
+
+
     public void addNewPhone() {
         ContactData c=new ContactData();
         phonelist.add(c);
@@ -1640,7 +1643,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                            {
                                phonelist.remove(phonelist.get(i));
                            }
-                           Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                          // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
                        }
                /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2282,12 +2285,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Connection");
-                        if (flag == true) {
+                        if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
-                                Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
-                                if (flagc == true) {
-                                    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                    Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                    if (flagc == true) {
+                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             }                        }
 
@@ -2330,6 +2335,18 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
                         preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
                     }
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                    if (flagf == true) {
+                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                        for (int i = 0; i < phonelist.size(); i++) {
+                            if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                if (flagc == true) {
+                                    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        }                        }
                 }
                 // Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                 finish();
@@ -2959,6 +2976,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
     }
 
+    public void deletePhone(int position) {
+        phonelist.remove(phonelist.get(position));
+        setListPh();
+    }
 
 
     class UpdateUserAsynk extends AsyncTask<Void, Void, String> {

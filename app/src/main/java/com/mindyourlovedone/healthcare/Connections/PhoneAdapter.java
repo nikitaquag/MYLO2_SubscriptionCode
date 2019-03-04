@@ -97,14 +97,22 @@ public class PhoneAdapter extends BaseAdapter {
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 b.setTitle("Type");
-                final String[] types = {"Mobile", "Office", "Home", "Fax"};
+                final String[] types = {"Mobile", "Office", "Home", "Fax","None"};
                 b.setItems(types, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        phonelist.get(position).setValue(phonelist.get(position).getValue());
-                        phonelist.get(position).setContactType(types[which]);
-                        holder.txtType.setText(phonelist.get(position).getContactType());
-                        holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                        if (types[which].equalsIgnoreCase("None")) {
+                            phonelist.get(position).setValue(phonelist.get(position).getValue());
+                            phonelist.get(position).setContactType("");
+                            holder.txtType.setText(phonelist.get(position).getContactType());
+                            holder.txtPhoNum.setText(phonelist.get(position).getValue());
+
+                        }else{
+                            phonelist.get(position).setValue(phonelist.get(position).getValue());
+                            phonelist.get(position).setContactType(types[which]);
+                            holder.txtType.setText(phonelist.get(position).getContactType());
+                            holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                        }
                         notifyDataSetChanged();
                         dialog.dismiss();
                     }
@@ -121,7 +129,7 @@ public class PhoneAdapter extends BaseAdapter {
                 {
                     ((ProfileActivity)context).addNewPhone();
                 }else{
-
+                    ((ProfileActivity)context).deletePhone(position);
                 }
             }
         });

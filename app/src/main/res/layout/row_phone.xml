@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     >
     <RelativeLayout
@@ -15,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+
             >
 
             <android.support.design.widget.TextInputLayout
@@ -22,8 +24,11 @@
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
 
-                >
+            >
 
                 <AutoCompleteTextView
                     android:id="@+id/txtPhoNum"
@@ -31,7 +36,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Phone Number"
                     android:imeOptions="actionNext"
-                    android:inputType="phone"
+                    android:inputType="number"
                     android:maxLength="12"
                     android:maxLines="1"
                     android:paddingTop="@dimen/dimension2dp"
@@ -50,7 +55,9 @@
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                >
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+            >
 
                 <AutoCompleteTextView
                     android:id="@+id/txtType"
