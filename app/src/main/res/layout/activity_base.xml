@@ -92,7 +92,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:text="rel"
-                    android:textStyle="normal"
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_below="@+id/txtName"
                     android:textColor="#FFFFFF"
