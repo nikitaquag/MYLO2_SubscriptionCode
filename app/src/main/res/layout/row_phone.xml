@@ -63,7 +63,7 @@ android:paddingTop="@dimen/dimension3dp"
                     android:id="@+id/txtType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                  
+
                     android:imeOptions="actionNext"
                     android:drawableRight="@drawable/drp"
                     android:paddingTop="@dimen/dimension2dp"

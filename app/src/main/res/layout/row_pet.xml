@@ -83,9 +83,10 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension5dp"
                     android:focusableInTouchMode="false"
-                    android:padding="@dimen/dimension10dp"
+                    android:paddingLeft="@dimen/dimension10dp"
+                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension10dp"
                     android:src="@drawable/right" />
             </RelativeLayout>
 

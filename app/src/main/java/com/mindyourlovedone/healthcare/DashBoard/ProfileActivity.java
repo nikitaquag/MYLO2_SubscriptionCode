@@ -229,7 +229,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initComponent() {
         dbHelper = new DBHelper(context, "MASTER");
-        MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
+
         String ss = preferences.getString(PrefConstants.CONNECTED_USERDB);
         dbHelper1 = new DBHelper(context, ss);
         PetQuery p = new PetQuery(context, dbHelper1);
@@ -240,11 +240,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             personalInfo = PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         }
         else {*/
-        connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-          MyConnectionsQuery md = new MyConnectionsQuery(context, dbHelper1);
-          con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+         MyConnectionsQuery md = new MyConnectionsQuery(context, dbHelper1);
+         con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
         // }
+        MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
+        connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
     }
 
 

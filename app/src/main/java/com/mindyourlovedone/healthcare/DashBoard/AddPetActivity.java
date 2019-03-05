@@ -1,10 +1,12 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -17,6 +19,10 @@ import com.mindyourlovedone.healthcare.database.PetQuery;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class AddPetActivity extends AppCompatActivity {
     public static final int REQUEST_PET = 400;
@@ -148,7 +154,35 @@ txtDelete.setOnClickListener(new View.OnClickListener() {
         }
     }
 });
+  txtPetBirthDate.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+          final Calendar calendar = Calendar.getInstance();
+          int year = calendar.get(Calendar.YEAR);
+          int month = calendar.get(Calendar.MONTH);
+          int day = calendar.get(Calendar.DAY_OF_MONTH);
+          DatePickerDialog dpd = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+              @Override
+              public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                  Calendar newDate = Calendar.getInstance();
+                  newDate.set(year, month, dayOfMonth);
+                  long selectedMilli = newDate.getTimeInMillis();
 
+                  Date datePickerDate = new Date(selectedMilli);
+                  String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+
+                  DateClass d = new DateClass();
+                  d.setDate(reportDate);
+                  if (datePickerDate.after(calendar.getTime())) {
+                      Toast.makeText(context, "Birthdate should be greater than today's date", Toast.LENGTH_SHORT).show();
+                  } else {
+                      txtPetBirthDate.setText(reportDate);
+                  }
+              }
+          }, year, month, day);
+          dpd.show();
+      }
+  });
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
