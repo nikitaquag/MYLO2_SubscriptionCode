@@ -67,7 +67,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     GridView lvConnection;
     ListView lvSelf;
     TextView txtUser, txtRelation;
-    FloatingActionButton floatAdd;
+    FloatingActionButton fab;
     LinearLayout llSelf;
     ImageView imgSelfFolder, imgSelf;
     ArrayList<RelativeConnection> connectionList;
@@ -143,14 +143,14 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         //llAddConn.setOnClickListener(this);
         imgLogo.setOnClickListener(this);
         imgRight.setOnClickListener(this);
-        floatAdd.setOnClickListener(this);
+        fab.setOnClickListener(this);
         imgSelfFolder.setOnClickListener(this);
     }
 
     private void initUI() {
         lvSelf = rootview.findViewById(R.id.lvSelf);
-        floatAdd = rootview.findViewById(R.id.floatAdd);
-        floatAdd.setImageResource(R.drawable.ic_add);
+        fab = rootview.findViewById(R.id.fab);
+        fab.setImageResource(R.drawable.ic_add);
         llSelf = rootview.findViewById(R.id.llSelf);
         imgSelfFolder = rootview.findViewById(R.id.imgSelfFolder);
         imgSelf = rootview.findViewById(R.id.imgSelf);
@@ -669,7 +669,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 startActivity(intent);
                */
                 break;
-            case R.id.floatAdd:
+            case R.id.fab:
                 showContactDialog();
                 break;
         }
@@ -782,10 +782,11 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.SOURCE, "Connection");
+                Toast.makeText(getActivity(),"Work in Progress due to ph number",Toast.LENGTH_SHORT).show();
+               /* preferences.putString(PrefConstants.SOURCE, "Connection");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 i.putExtra("TAB","Contact");
-                getActivity().startActivity(i);
+                getActivity().startActivity(i);*/
                 dialog.dismiss();
             }
 

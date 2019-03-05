@@ -36,8 +36,8 @@
 
                 <ImageView
                     android:id="@+id/txtDrawer"
-                    android:layout_width="@dimen/dimension35dp"
-                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
                    android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension15dp"
                     android:src="@drawable/left_drawer" />
@@ -64,8 +64,8 @@
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="@dimen/dimension50dp"
-                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_width="@dimen/dimension60dp"
+                    android:layout_height="@dimen/dimension60dp"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/txtDrawer"
                     android:layout_marginTop="@dimen/dimension2dp"
@@ -82,6 +82,7 @@
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:text="Name"
                     android:textColor="#FFFFFF"
+                    android:textStyle="bold"
                     android:textSize="@dimen/dimension22dp"
                     android:visibility="gone"
                      />
@@ -91,10 +92,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dimension10dp"
                     android:text="rel"
+                    android:textStyle="normal"
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_below="@+id/txtName"
                     android:textColor="#FFFFFF"
-                    android:textSize="@dimen/dimension17dp"
+                    android:textSize="@dimen/dimension18dp"
                     android:visibility="gone"
                     />
 

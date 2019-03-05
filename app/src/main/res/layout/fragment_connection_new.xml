@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="Prashant M"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
+                android:textSize="@dimen/dimension22dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/dimension3dp"
                 android:text="Self"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension16dp"
+                android:textSize="@dimen/dimension19dp"
                 android:textStyle="normal" />
 
         </LinearLayout>
@@ -78,7 +78,7 @@
         android:paddingBottom="@dimen/dimension7dp"
         android:text="@string/Your"
         android:textColor="@color/colorLogoutTextGray"
-        android:textSize="@dimen/dimension18dp"
+        android:textSize="@dimen/dimension17dp"
         android:textStyle="normal" />
 
     <ListView
@@ -110,7 +110,21 @@
             android:src="@drawable/ic_add"
             android:tint="@android:color/white"
             app:backgroundTint="@color/colorRegisteredGreen"
-            app:fabSize="normal" />
+            app:fabSize="normal"
+            android:visibility="gone"
+            />
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:src="@drawable/plus_n"
+            android:layout_margin="16dp"
+            app:borderWidth="@dimen/dimension0dp"
+            android:scaleType="center"
+            android:tint="@color/colorWhite"
+            android:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal"/>
 
     </FrameLayout>
 

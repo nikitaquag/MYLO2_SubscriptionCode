@@ -172,6 +172,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     FloatingActionButton floatProfile;;
     NonScrollListView listPhone;
     ContactData contactData;
+     RelativeConnection con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -240,7 +241,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         }
         else {*/
         connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),connection.getId(),"Connection");
+          MyConnectionsQuery md = new MyConnectionsQuery(context, dbHelper1);
+          con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
         // }
     }
 
@@ -885,9 +888,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         if (connection.getRelationType().equals("Self")) {
             tilBdate.setVisibility(View.VISIBLE);
             // spinner.setVisibility(View.VISIBLE);
-          //  txtGender.setVisibility(View.VISIBLE);
+          //  SavwGender.setVisibility(View.VISIBLE);
             rgGender.setVisibility(View.VISIBLE);
-            txtvGender.setVisibility(View.GONE);
+            txtvGender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
             tilRelation.setVisibility(View.GONE);
           //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
@@ -2286,12 +2289,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Connection");
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                    Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                       // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }                        }
@@ -2338,12 +2341,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     boolean flagf = ContactDataQuery.deleteRecord("Connection");
                     if (flagf == true) {
-                        Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                   //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                         for (int i = 0; i < phonelist.size(); i++) {
                             if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                Boolean flagc = ContactDataQuery.insertContactsData(connection.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
                                 if (flagc == true) {
-                                    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                               //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }                        }

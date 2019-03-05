@@ -53,7 +53,7 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center"
             android:text="Personal Profile"
-
+            android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />
 
@@ -196,16 +196,16 @@
 
                 <RelativeLayout
                     android:id="@+id/llProfile"
-                    android:layout_width="@dimen/dimension120dp"
-                    android:layout_height="@dimen/dimension120dp"
+                    android:layout_width="@dimen/dimension150dp"
+                    android:layout_height="@dimen/dimension150dp"
                     android:layout_below="@+id/vtop"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/dimension20dp">
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/imgProfile"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
+                        android:layout_width="@dimen/dimension150dp"
+                        android:layout_height="@dimen/dimension150dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:src="@drawable/ic_profile_defaults" />
 
@@ -303,7 +303,7 @@
                         android:layout_height="@dimen/dimension35dp"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension15dp"
+
                         android:background="@drawable/toggle_selector"
                         android:checked="false"
                         android:gravity="center_vertical"
@@ -1077,14 +1077,14 @@ android:visibility="gone"
                     android:textOff=""
                     android:textOn="" />
 
-                <View
+               <!-- <View
                     android:id="@+id/v"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_below="@+id/txtCardz"
                     android:layout_margin="@dimen/dimension10dp"
                     android:background="@color/colorLightGray"></View>
-
+-->
                 <RadioGroup
                     android:id="@+id/rgLive"
                     android:layout_width="match_parent"

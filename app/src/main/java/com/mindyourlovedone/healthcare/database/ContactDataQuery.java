@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -126,7 +127,7 @@ public class ContactDataQuery {
         return flag;
     }
 
-    public static ArrayList<ContactData> fetchContactRecord(int userId, int id, String fromtables) {
+    public static ArrayList<ContactData>fetchContactRecord(int userId, int id, String fromtables) {
         ArrayList contactList = new ArrayList();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery("select * from " + TABLE_NAME, null);
@@ -141,6 +142,7 @@ public class ContactDataQuery {
                 String type = c.getString(c.getColumnIndex(COL_CONTACTTYPE));
                if (userid==userId && idFromtable==id && fromtable.equalsIgnoreCase(fromtables)) {
                    ContactData contact = new ContactData();
+                   contact.setId(pid);
                    contact.setValue(value);
                    contact.setContactType(type);
                    contact.setUserEmail(email);
@@ -187,4 +189,6 @@ public class ContactDataQuery {
 
         return true;
     }
+
+
 }
