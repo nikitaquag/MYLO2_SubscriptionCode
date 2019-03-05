@@ -338,7 +338,7 @@
             <View
                 android:id="@+id/view3"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension15dp"
                 android:layout_below="@+id/tilVeteranPh"
                 android:layout_marginTop="@dimen/dimension15dp"
                 android:layout_marginBottom="@dimen/dimension15dp"
@@ -440,7 +440,7 @@
             <View
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension15dp"
                 android:layout_below="@+id/tilCarePh"
                 android:layout_marginTop="@dimen/dimension15dp"
                 android:layout_marginBottom="@dimen/dimension15dp"
@@ -449,7 +449,7 @@
             <View
                 android:id="@+id/view2"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension15dp"
                 android:layout_below="@+id/tilPetBirthDate"
                 android:layout_marginTop="@dimen/dimension15dp"
                 android:layout_marginBottom="@dimen/dimension15dp"
@@ -476,7 +476,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Birthday"
                     android:imeOptions="actionNext"
-                    
+                    android:focusable="false"
                     android:paddingTop="@dimen/dimension10dp"
                     android:paddingBottom="@dimen/dimension10dp"
                     android:textColor="@color/colorPrimaryDark"
