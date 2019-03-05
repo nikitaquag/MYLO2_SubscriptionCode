@@ -38,6 +38,7 @@
             android:layout_toLeftOf="@+id/imgfdbg"
             android:layout_toRightOf="@+id/imgHome"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Insurance and Health care specialist"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp"

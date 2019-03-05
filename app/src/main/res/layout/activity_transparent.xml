@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/dimension20dp"
-        android:src="@drawable/close"
+        android:layout_margin="@dimen/dimension16dp"
+        android:src="@drawable/cross_n"
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorBlueTrans"
         app:fabSize="normal" />

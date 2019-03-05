@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dimension20dp">
+       >
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatAdd"
@@ -117,14 +117,14 @@
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
             android:src="@drawable/plus_n"
-            android:layout_margin="16dp"
-            app:borderWidth="@dimen/dimension0dp"
-            android:scaleType="center"
-            android:tint="@color/colorWhite"
-            android:backgroundTint="@color/colorRegisteredGreen"
-            app:fabSize="normal"/>
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorEmerMainGreen"
+            app:fabSize="normal" />
+
 
     </FrameLayout>
 

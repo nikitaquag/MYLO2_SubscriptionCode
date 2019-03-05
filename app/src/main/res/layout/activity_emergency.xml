@@ -33,6 +33,7 @@
                 android:layout_toRightOf="@+id/imgBack"
                 android:text="Medical Emergency Information"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:textSize="@dimen/dimension22dp" />
 
             <ImageView

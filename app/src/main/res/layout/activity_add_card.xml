@@ -43,7 +43,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="Add/Edit Insurance Card"
-                android:textAllCaps="false"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 

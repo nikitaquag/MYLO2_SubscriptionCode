@@ -106,6 +106,7 @@
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:text="MyAPP"
+                    android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/dimension22dp"
                     android:visibility="gone" />

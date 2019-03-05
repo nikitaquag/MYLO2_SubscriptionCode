@@ -30,6 +30,7 @@
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
+                android:textStyle="bold"
                 android:text="Suzy needs your HELP!"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp"

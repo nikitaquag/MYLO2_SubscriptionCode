@@ -44,6 +44,7 @@
             android:layout_toLeftOf="@+id/imgRight"
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="PRESCRIPTION TRACKER"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"

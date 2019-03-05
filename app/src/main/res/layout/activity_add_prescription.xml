@@ -45,7 +45,9 @@
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="Add/Edit Prescription"
                 android:textAllCaps="false"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
+
                 android:textSize="@dimen/dimension20dp" />
 
             <TextView
