@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
+android:paddingTop="@dimen/dimension3dp"
     >
     <RelativeLayout
         android:id="@+id/llPhone"
@@ -63,7 +63,7 @@
                     android:id="@+id/txtType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Type"
+                  
                     android:imeOptions="actionNext"
                     android:drawableRight="@drawable/drp"
                     android:paddingTop="@dimen/dimension2dp"
@@ -78,10 +78,11 @@
             <ImageView
                 android:id="@+id/imgdeletePhone"
                 android:layout_width="@dimen/dimension0dp"
-                android:layout_height="@dimen/dimension35dp"
+                android:layout_height="@dimen/dimension40dp"
                 android:layout_gravity="center"
                 android:src="@drawable/delete_n"
                 android:layout_weight="1"
+                android:paddingLeft="@dimen/dimension5dp"
                 />
         </LinearLayout>
 

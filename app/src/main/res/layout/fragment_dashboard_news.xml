@@ -72,8 +72,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Personal &amp; Medical Profile &amp; Emergency Contacts"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/imgECForward"
@@ -138,8 +138,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Advance Directives &amp; Documents"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold"
 
                             />
 
@@ -222,8 +222,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Specialty\nContacts"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/imgSPForward"
@@ -288,8 +288,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Insurance\nInformation"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/imgICForward"
@@ -363,8 +363,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Note &amp; Appointment Checklist"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/imgEVForward"
@@ -431,8 +431,8 @@
                             android:padding="@dimen/dimension5dp"
                             android:text="Prescription\nTracker"
                             android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
 
                         <ImageView
                             android:id="@+id/imgPresForward"

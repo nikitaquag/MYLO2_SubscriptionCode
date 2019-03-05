@@ -42,6 +42,7 @@
             android:gravity="center_horizontal"
             android:text="Specialist Contacts"
             android:textColor="#FFFFFF"
+            android:textStyle="bold"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView

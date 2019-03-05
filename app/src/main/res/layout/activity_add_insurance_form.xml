@@ -35,7 +35,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="Add Insurance Form"
-                android:textAllCaps="true"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 

@@ -14,7 +14,8 @@
         android:text="Note"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+       />
 
     <TextView
         android:id="@+id/txtMsg"

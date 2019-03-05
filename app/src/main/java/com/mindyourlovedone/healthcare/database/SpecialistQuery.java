@@ -86,7 +86,45 @@ public class SpecialistQuery {
 
         return connectionList;
     }
+    public static ArrayList<Specialist> fetchPhysicianRecord(int id, int physician) {
+        ArrayList<Specialist> connectionList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + " where " + COL_ISPHISYCIAN + "=" + physician + ";";
 
+        //   String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id + " and " + COL_ISPHISYCIAN + "=" + physician + ";";
+        Cursor c = db.rawQuery(query, null);
+
+        if (c.moveToFirst()) {
+            do {
+
+                Specialist connection = new Specialist();
+                connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                connection.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                connection.setLastseen(c.getString(c.getColumnIndex(COL_LASTSEEN)));
+                connection.setLocator(c.getString(c.getColumnIndex(COL_LOCATOR)));
+                connection.setOfficePhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                connection.setHourPhone(c.getString(c.getColumnIndex(COL_HOUR_PHONE)));
+                connection.setOtherPhone(c.getString(c.getColumnIndex(COL_OTHER_PHONE)));
+                connection.setType(c.getString(c.getColumnIndex(COL_SPECIALITY)));
+                connection.setHospAffiliation(c.getString(c.getColumnIndex(COL_AFFIL)));
+                connection.setPracticeName(c.getString(c.getColumnIndex(COL_PRACTICENAME)));
+                connection.setNetwork(c.getString(c.getColumnIndex(COL_NETWORK)));
+                connection.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                connection.setIsPhysician(c.getInt(c.getColumnIndex(COL_ISPHISYCIAN)));
+                connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                connection.setOtherType(c.getString(c.getColumnIndex(COL_OTHER_SPECIALITY)));
+                connectionList.add(connection);
+
+            } while (c.moveToNext());
+        }
+
+
+        return connectionList;
+    }
     public static Boolean insertPhysicianData(int userId, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String network, String affil, String note, int i, String lastseen, String photoCard, String otherDoctor, String locator) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -216,5 +254,49 @@ public class SpecialistQuery {
         }
 
         return true;
+    }
+
+    public static ArrayList<Specialist> getPhysician(int anInt, String name, String speciality, int i) {
+        ArrayList<Specialist> connectionList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + " where " + COL_ISPHISYCIAN + "=" + i + ";";
+
+        //   String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id + " and " + COL_ISPHISYCIAN + "=" + physician + ";";
+        Cursor c = db.rawQuery(query, null);
+
+        if (c.moveToFirst()) {
+            do {
+
+                Specialist connection = new Specialist();
+
+                    connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+
+                connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                connection.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                connection.setLastseen(c.getString(c.getColumnIndex(COL_LASTSEEN)));
+                connection.setLocator(c.getString(c.getColumnIndex(COL_LOCATOR)));
+                connection.setOfficePhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                connection.setHourPhone(c.getString(c.getColumnIndex(COL_HOUR_PHONE)));
+                connection.setOtherPhone(c.getString(c.getColumnIndex(COL_OTHER_PHONE)));
+                connection.setType(c.getString(c.getColumnIndex(COL_SPECIALITY)));
+                connection.setHospAffiliation(c.getString(c.getColumnIndex(COL_AFFIL)));
+                connection.setPracticeName(c.getString(c.getColumnIndex(COL_PRACTICENAME)));
+                connection.setNetwork(c.getString(c.getColumnIndex(COL_NETWORK)));
+                connection.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                connection.setIsPhysician(c.getInt(c.getColumnIndex(COL_ISPHISYCIAN)));
+                connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                connection.setOtherType(c.getString(c.getColumnIndex(COL_OTHER_SPECIALITY)));
+                if (name.equalsIgnoreCase(connection.getName()) && connection.getIsPhysician()==1) {
+                    connectionList.add(connection);
+                }
+
+            } while (c.moveToNext());
+        }
+
+
+        return connectionList;
     }
 }

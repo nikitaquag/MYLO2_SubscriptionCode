@@ -26,16 +26,16 @@
 
             <RelativeLayout
                 android:id="@+id/llProfile"
-                android:layout_width="@dimen/dimension120dp"
-                android:layout_height="@dimen/dimension120dp"
+                android:layout_width="@dimen/dimension150dp"
+                android:layout_height="@dimen/dimension150dp"
                 android:layout_below="@+id/vtop"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension20dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgProfile"
-                    android:layout_width="190dp"
-                    android:layout_height="190dp"
+                    android:layout_width="@dimen/dimension150dp"
+                    android:layout_height="@dimen/dimension150dp"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:src="@drawable/ic_profile_defaults" />
 
@@ -1312,14 +1312,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPriority"
-                        android:layout_marginLeft="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension20dp">
+                       >
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/listPrPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
                             android:id="@+id/llNum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilPhoNum"

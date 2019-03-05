@@ -360,6 +360,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
+            android:textStyle="bold"
             android:layout_toRightOf="@+id/imgHomes"
             android:gravity="center"
             android:text="Advance Directives\n&amp; Documents"

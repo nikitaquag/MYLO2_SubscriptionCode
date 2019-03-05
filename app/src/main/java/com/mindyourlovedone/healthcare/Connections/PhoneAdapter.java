@@ -124,7 +124,7 @@ public class PhoneAdapter extends BaseAdapter {
         holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
                 if (position==0)
                 {
                     ((ProfileActivity)context).addNewPhone();

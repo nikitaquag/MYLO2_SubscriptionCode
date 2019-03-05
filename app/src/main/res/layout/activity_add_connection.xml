@@ -30,7 +30,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:text="Add Connection"
-                android:textAllCaps="true"
+                android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp"
 

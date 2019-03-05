@@ -41,6 +41,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="Emergency Info"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"

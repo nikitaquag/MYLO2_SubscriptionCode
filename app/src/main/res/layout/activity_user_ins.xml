@@ -43,7 +43,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
             android:text="User INSTRUCTIONS"
-            android:textAllCaps="true"
+            android:textAllCaps="true" android:textStyle="bold"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension22dp" />
 

@@ -28,7 +28,9 @@
             android:layout_marginLeft="@dimen/dimension20dp"
             android:text="Event Notes"
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension20dp" />
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/txtSave"
