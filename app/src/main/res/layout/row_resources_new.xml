@@ -19,6 +19,7 @@
             android:layout_height="@dimen/dimension45dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
+            android:tint="@color/colorBlueTrans"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/dir_one" />
 
