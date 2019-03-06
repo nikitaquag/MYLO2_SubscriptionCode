@@ -9,7 +9,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
@@ -24,9 +23,6 @@ import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.text.Layout;
-import android.text.SpannableString;
-import android.text.style.AlignmentSpan;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -43,7 +39,6 @@ import android.widget.Toast;
 import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedone.healthcare.DashBoard.CustomArrayAdapter;
-import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentNotification;
 import com.mindyourlovedone.healthcare.Fragment.FragmentContactUs;
@@ -203,12 +198,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     callFragmentData(new FragmentConnectionNew());
                     p = 1;
                 }/*New Changes*/ else if (p == 2) {
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Resources");
+                    imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResourcesNew());
                 } else if (p == 7) {
                     callFragmentData(new FragmentSetting());
                 } else if (p == 8) {
                     callFragmentData(new FragmentContactUs());
                 } else if (p == 5) {
+                    imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResources());
                 } else if (p == 6) {
                     callFragmentData(new FragmentSponsor());
