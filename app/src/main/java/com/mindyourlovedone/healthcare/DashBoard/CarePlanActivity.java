@@ -34,7 +34,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DocumentQuery;
@@ -378,6 +377,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         View dialogview = lf.inflate(R.layout.activity_transparent, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+      //  final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);        // Rahul
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
         floatContact.setImageResource(R.drawable.closee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
