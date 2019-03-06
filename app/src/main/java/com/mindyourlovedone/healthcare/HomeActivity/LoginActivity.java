@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     String username = "", password = "", name = "";
     Preferences preferences;
     TextInputLayout tilName;
-
+    String has_card="NO";
     DBHelper dbHelper;
 
     @Override
@@ -233,7 +233,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 int userid = Integer.parseInt(userId);
                 Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
                 //After Success
-                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, username, "", "", "", "", "Self", "", "", 1, 2, "", "");
+                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, username, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
 
                 PersonalInfoQuery pi = new PersonalInfoQuery(context, dbHelper);
                 Boolean flagPersonalinfo = PersonalInfoQuery.insertPersonalInfoData(name, username, "", "", "", "", "", "", "", "", "");
@@ -244,7 +244,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     mail = mail.replace("@", "_");
                     DBHelper dbHelper = new DBHelper(context, mail);
                     MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                    Boolean flags = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, username, "", "", "", "", "Self", "", "", 1, 2, "", "");
+                    Boolean flags = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, username, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
                     if (flags == true) {
                         // Toast.makeText(context, "You have created db Successfully", Toast.LENGTH_SHORT).show();
                     }

@@ -49,6 +49,7 @@
             android:paddingLeft="@dimen/dimension20dp"
             android:text="Advance Directives"
             android:textAllCaps="false"
+            android:textStyle="bold"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp" />
 
@@ -59,7 +60,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/dimension10dp"
-            android:background="@drawable/border_sub_forward"
+            android:background="@drawable/next_n"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/next" />
     </RelativeLayout>
@@ -265,6 +266,7 @@
             android:gravity="center_vertical"
             android:padding="@dimen/dimension15dp"
             android:paddingLeft="@dimen/dimension20dp"
+            android:textStyle="bold"
             android:text="Other Documents"
             android:textAllCaps="false"
             android:textColor="@color/colorBlackDark"
@@ -311,6 +313,7 @@
             android:padding="@dimen/dimension15dp"
             android:paddingLeft="@dimen/dimension20dp"
             android:text="Medical Records"
+            android:textStyle="bold"
             android:textAllCaps="false"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp" />
@@ -321,7 +324,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/dimension10dp"
-            android:background="@drawable/border_sub_forward"
+            android:background="@drawable/next_n"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/next" />
     </RelativeLayout>

@@ -1085,13 +1085,13 @@ android:visibility="gone"
                     android:textOff=""
                     android:textOn="" />
 
-                <View
+               <!-- <View
                     android:id="@+id/v"
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
                     android:layout_below="@+id/txtCardz"
                     android:layout_margin="@dimen/dimension10dp"
-                    android:background="@color/colorLightGray"></View>
+                    android:background="@color/colorLightGray"></View>-->
 
                 <RadioGroup
                     android:id="@+id/rgLive"

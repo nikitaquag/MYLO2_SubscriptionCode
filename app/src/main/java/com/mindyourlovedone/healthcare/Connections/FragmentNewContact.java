@@ -148,7 +148,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Preferences preferences;
     String source = "";
     TextInputLayout tilOtherCategoryHospital, tilPriority;
-
+    String has_card = "NO";
     String location = "";
     String name = "", Email = "", email = "", mobile = "", speciality = "", phone = "", address = "", workphone = "", note = "", member = "", group = "", subscriber = "", type = "";
     String network = "", affil = "", practice_name = "", website = "", lastseen = "", locator = "";
@@ -290,7 +290,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Toast.makeText(getActivity(), "This email address is already registered by another profile, Please add another email address", Toast.LENGTH_SHORT).show();
                         txtEmail.setError("This email address is already registered by another profile, Please add another email address");
                     } else {
-                        Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
+                        Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.USER_ID), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath,has_card);
                         if (flag == true) {
                             RelativeConnection connection = MyConnectionsQuery.fetchConnectionRecord(preferences.getInt(PrefConstants.USER_ID), email);
                             String mail = connection.getEmail();
@@ -313,7 +313,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                             DBHelper dbHelper1 = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
                             MyConnectionsQuery m1 = new MyConnectionsQuery(getActivity(), dbHelper1);
-                            Boolean flagg = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath);
+                            Boolean flagg = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, address, mobile, phone, workphone, relation, imagepath, "", 1, 2, otherRelation, cardPath, has_card);
                             if (flagg == true) {
                                 Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
                                 RelativeConnection con = MyConnectionsQuery.fetchConnectionRecordforImport(email);
@@ -358,7 +358,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             byte[] photo = baos.toByteArray();
 */
 
-                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, cardPath);
+                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, cardPath, has_card);
                     RelativeConnection con = MyConnectionsQuery.fetchConnectionRecordforImport(email);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
@@ -398,7 +398,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
 
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "",has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -430,7 +430,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, cardPath);
+                    Boolean flag = MyConnectionsQuery.insertMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, cardPath, has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added proxy contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
@@ -450,7 +450,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "");
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "", has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();
