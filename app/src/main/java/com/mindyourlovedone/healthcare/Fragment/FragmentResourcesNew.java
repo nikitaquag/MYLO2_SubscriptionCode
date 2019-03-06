@@ -65,7 +65,7 @@ public class FragmentResourcesNew extends Fragment {
 
     private void initUi() {
         txtTitle = getActivity().findViewById(R.id.txtTitle);
-        imgProfile= getActivity().findViewById(R.id.txtTitle);
+
 
         lvResources = rootView.findViewById(R.id.lvResources);
         imgHelp = getActivity().findViewById(R.id.imgRight);
@@ -81,7 +81,7 @@ public class FragmentResourcesNew extends Fragment {
                         intentContactUs.putExtra("c", 5);
                         getActivity().startActivity(intentContactUs);
                         txtTitle.setText("Resources");
-                        imgProfile.setVisibility(View.GONE);
+                        //imgProfile.setVisibility(View.GONE);
                         break;
                     case 1:
                         Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
