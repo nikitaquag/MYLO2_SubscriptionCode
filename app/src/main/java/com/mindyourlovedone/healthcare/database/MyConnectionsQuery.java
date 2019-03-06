@@ -120,7 +120,7 @@ public class MyConnectionsQuery {
         cv.put(COL_PET, "");
         cv.put(COL_IDNUMBER, "");
         cv.put(COL_MANGER_PHONE, "");
-        cv.put(COL_PHOTOCARD, "");
+
         cv.put(COL_ENGLISH, "");
 
         cv.put(COL_CHILD, "");
