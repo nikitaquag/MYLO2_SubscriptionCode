@@ -1181,7 +1181,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     has_card="YES";
                     rlCard.setVisibility(View.VISIBLE);
                 } else {
-                    tbCard.setChecked(false);
+                            tbCard.setChecked(false);
                     has_card="NO";
                     rlCard.setVisibility(View.GONE);
                     cardpath = "";

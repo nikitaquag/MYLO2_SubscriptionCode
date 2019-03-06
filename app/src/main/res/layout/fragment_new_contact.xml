@@ -3297,7 +3297,9 @@
                     android:id="@+id/rlCard"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension200dp"
-                    android:layout_below="@+id/v">
+                    android:layout_below="@+id/v"
+                    android:visibility="gone"
+                    >
 
                     <ImageView
                         android:id="@+id/imgCard"
