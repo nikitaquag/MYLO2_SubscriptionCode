@@ -3,9 +3,9 @@
     <font
         app:fontStyle="normal"
         app:fontWeight="400"
-        app:font="@font/latoregular" />
+        app:font="@font/latobold" />
     <font
         app:fontStyle="italic"
         app:fontWeight="400"
-        app:font="@font/latoregular" />
+        app:font="@font/latobold" />
 </font-family>
