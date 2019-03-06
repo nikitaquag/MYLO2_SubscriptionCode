@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Environment;
@@ -16,7 +15,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +44,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
     private static final int REQUEST_CALL_PERMISSION = 100;
     Preferences preferences;
     DBHelper dbHelper;
+    String has_card="NO";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -283,7 +282,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                         Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
 
                         //After Success
-                        Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, email, "", "", "", "", "Self", "", "", 1, 2, "", "");
+                        Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, email, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
 
                         PersonalInfoQuery pi = new PersonalInfoQuery(context, dbHelper);
                         Boolean flagPersonalinfo = PersonalInfoQuery.insertPersonalInfoData(name, email, "", "", "", "", "", "", "", "", "");
@@ -300,7 +299,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                             mail = mail.replace("@", "_");
                             DBHelper dbHelper = new DBHelper(context, mail);
                             MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                            Boolean flags = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, "", "", "", "", "Self", "", "", 1, 2, "", "");
+                            Boolean flags = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
                             if (flags == true) {
                                 // Toast.makeText(context, "You have created db Successfully", Toast.LENGTH_SHORT).show();
                             }

@@ -60,6 +60,7 @@ public class MyConnectionsQuery {
     public static final String COL_OTHER_LANG = "other_language";
     public static final String COL_GENDER = "Gender";
     public static final String COL_DOB = "DOB";
+    public static final String COL_HASCARD= "Has_Card";
     static Context context;
     static DBHelper dbHelper;
 
@@ -77,7 +78,7 @@ public class MyConnectionsQuery {
                 COL_MANGER_PHONE + " VARCHAR(20)," + COL_IDNUMBER + " VARCHAR(10)," + COL_PHOTOCARD + " VARCHAR(50)," +
                 COL_CHILD + " VARCHAR(10)," + COL_SIBLING + " VARCHAR(10)," + COL_FRIEND + " VARCHAR(10)," + COL_GRAND + " VARCHAR(10)," + COL_PARENT + " VARCHAR(10)," + COL_SPOUSE + " VARCHAR(10)," +
                 COL_OTHER_SIGN + " TEXT," + COL_OTHER_LANG + " VARCHAR(20)," + COL_OTHER + " VARCHAR(50)," + COL_LIVE + " VARCHAR(20)," +
-                COL_PHOTO + " VARCHAR(50)," + COL_ENGLISH + " VARCHAR(10));";
+                COL_PHOTO + " VARCHAR(50)," + COL_ENGLISH + " VARCHAR(10),"+ COL_HASCARD + " VARCHAR(10));";
         return createTableQuery;
     }
 
@@ -86,7 +87,7 @@ public class MyConnectionsQuery {
         return dropTableQuery;
     }
 
-    public static Boolean insertMyConnectionsData(int id, String name, String email, String address, String mobile, String phone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String photoCard) {
+    public static Boolean insertMyConnectionsData(int id, String name, String email, String address, String mobile, String phone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String photoCard, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -105,6 +106,7 @@ public class MyConnectionsQuery {
         cv.put(COL_PHOTO, photo + "");
         cv.put(COL_PHOTOCARD, photoCard + "");
         cv.put(COL_OTHER_RELATION, otherRelation + "");
+        cv.put(COL_HASCARD, has_card);
 
         cv.put(COL_HEIGHT, "");
         cv.put(COL_WEIGHT, "");
@@ -223,7 +225,7 @@ public class MyConnectionsQuery {
                     connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                     connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                     connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connection.setDob(c.getString(c.getColumnIndex(COL_DOB)));
                     connection.setGender(c.getString(c.getColumnIndex(COL_GENDER)));
 
@@ -284,7 +286,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setDob(c.getString(c.getColumnIndex(COL_DOB)));
                 connection.setGender(c.getString(c.getColumnIndex(COL_GENDER)));
 
@@ -358,7 +360,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                 connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                 connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -410,7 +412,7 @@ public class MyConnectionsQuery {
         return flag;
     }
 
-    public static Boolean updateMyConnectionsData(int id, String name, String email, String address, String mobile, String homephone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String height, String weight, String eyes, String profession, String employed, String language, String marital_status, String religion, String veteran, String idnumber, String pet, String manager_phone, String photoCard, String english, String child, String friend, String grandParent, String parent, String spouse, String other, String liveOther, String live, String otherLang, String bdate, String gender, String sibling) {
+    public static Boolean updateMyConnectionsData(int id, String name, String email, String address, String mobile, String homephone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String height, String weight, String eyes, String profession, String employed, String language, String marital_status, String religion, String veteran, String idnumber, String pet, String manager_phone, String photoCard, String english, String child, String friend, String grandParent, String parent, String spouse, String other, String liveOther, String live, String otherLang, String bdate, String gender, String sibling, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -443,7 +445,7 @@ public class MyConnectionsQuery {
         cv.put(COL_MANGER_PHONE, manager_phone + "");
         cv.put(COL_PHOTOCARD, photoCard + "");
         cv.put(COL_ENGLISH, english + "");
-
+cv.put(COL_HASCARD,has_card);
         cv.put(COL_CHILD, child + "");
         cv.put(COL_SIBLING, sibling + "");
         cv.put(COL_FRIEND, friend + "");
@@ -489,7 +491,7 @@ public class MyConnectionsQuery {
                     connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                     connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
                     connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
-
+                    connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connectionList.add(connection);
 
 
@@ -555,7 +557,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                 connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                 connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -638,7 +640,7 @@ public class MyConnectionsQuery {
                     connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                     connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                     connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                    connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                     connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                     connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -701,7 +703,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                 connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                 connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -773,7 +775,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                 connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                 connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -828,7 +830,7 @@ public class MyConnectionsQuery {
                     connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                     connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                     connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                    connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connection.setDob(c.getString(c.getColumnIndex(COL_DOB)));
                     connection.setGender(c.getString(c.getColumnIndex(COL_GENDER)));
 
@@ -933,7 +935,7 @@ public class MyConnectionsQuery {
 
                     connection.setDob(c.getString(c.getColumnIndex(COL_DOB)));
                     connection.setGender(c.getString(c.getColumnIndex(COL_GENDER)));
-
+                    connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                     connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                     connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
@@ -1008,7 +1010,7 @@ public class MyConnectionsQuery {
                 connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
                 connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
                 connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));

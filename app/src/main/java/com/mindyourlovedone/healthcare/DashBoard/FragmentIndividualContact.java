@@ -49,7 +49,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
@@ -140,6 +139,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
+String has_card="No";
 
     @Override
     public void onAttach(Activity activity) {
@@ -1926,7 +1926,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
          /**/
 
         } else {
-            Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, "");
+            Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, "", has_card);
             if (flag == true) {
                 Toast.makeText(getActivity(), "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                 preferences.putString(PrefConstants.CONNECTED_NAME, name);
@@ -2342,7 +2342,7 @@ public class FragmentIndividualContact extends Fragment implements OnTaskComplet
                /* FragmentIndividualContact f=new FragmentIndividualContact();
                 f.addData();*/
 
-                Boolean flag = MyConnectionsQuery.updateMyConnectionsData(1, "samiya", "samiya@gmail.com", "", "", "", "", "Self", "", "", 1, 2, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+                Boolean flag = MyConnectionsQuery.updateMyConnectionsData(1, "samiya", "samiya@gmail.com", "", "", "", "", "Self", "", "", 1, 2, "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", has_card);
                 if (flag == true) {
                     Toast.makeText(getActivity().getApplicationContext(), "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                     //   preferences.putString(PrefConstants.CONNECTED_NAME,name);

@@ -49,6 +49,16 @@ public class RelativeConnection {
     int image;
     int userid;
 
+    public String getHas_card() {
+        return has_card;
+    }
+
+    public void setHas_card(String has_card) {
+        this.has_card = has_card;
+    }
+
+    String has_card="";
+
     public String getDob() {
         return dob;
     }
