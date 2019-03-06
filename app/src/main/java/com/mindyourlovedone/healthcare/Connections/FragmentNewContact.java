@@ -32,6 +32,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -1561,6 +1562,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                     }
                 }
+
+
+
                 break;
 
             case "EmergencyUpdate":
@@ -1692,6 +1696,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.GONE);
                         txtCard.setVisibility(View.VISIBLE);
 
+                    }
+                    if (rel.getHas_card() != null) {
+                        if (rel.getHas_card().equals("YES")) {
+                            tbCard.setChecked(true);
+                            has_card="YES";
+                            rlCard.setVisibility(View.VISIBLE);
+                        } else {
+                            tbCard.setChecked(false);
+                            has_card="NO";
+                            rlCard.setVisibility(View.GONE);
+                            cardPath = "";
+                            CardMap = null;
+                        }
                     }
                 }
                 break;
@@ -3513,7 +3530,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             imgProfile.setImageResource(R.drawable.yellow);
         }
 
-
+        tbCard=rootview.findViewById(R.id.tbCard);
       /*  if (imgProfile.equals(R.color.colorThree)) {
             Resources res = getActivity().getResources();
             final ImageView image = (ImageView) rootview.findViewById(R.id.imgProfile);
@@ -3543,6 +3560,26 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorOtherPhone = rootview.findViewById(R.id.txtDoctorOtherPhone);
         txtDoctorFax = rootview.findViewById(R.id.txtDoctorFax);
 
+        tbCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked==true)
+                {
+                    has_card="YES";
+                    rlCard.setVisibility(View.VISIBLE);
+                }
+                else{
+                    has_card="NO";
+                    // imgCard.setImageResource(R.drawable.busi_card);
+                    txtCard.setVisibility(View.VISIBLE);
+                    imgCard.setVisibility(View.GONE);
+                    cardPath = "";
+                    CardMap = null;
+                    rlCard.setVisibility(View.GONE);
+
+                }
+            }
+        });
 
         rlContact.setOnClickListener(new View.OnClickListener() {
             @Override
