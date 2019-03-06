@@ -4,34 +4,33 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/llbottom"
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimension15dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:weightSum="3"
             >
 
             <LinearLayout
+                android:layout_marginBottom="@dimen/dimension15dp"
+                android:layout_weight="1"
                 android:id="@+id/llRow1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_height="0dip"
+                android:weightSum="2"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
 
                 >
                 <!--OVERVIEW-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlEmergencyContact"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlborderone"
                     android:elevation="@dimen/dimension10dp"
@@ -90,9 +89,9 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlCarePlan"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlbordertwo"
                     android:elevation="@dimen/dimension10dp"
@@ -159,20 +158,22 @@
             <!--Row Two-->
 
             <LinearLayout
+                android:layout_marginBottom="@dimen/dimension15dp"
+                android:layout_weight="1"
+                android:weightSum="2"
                 android:id="@+id/llRow2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
                 android:layout_below="@+id/llRow1"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <!--EMrgency-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlSpecialist"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlborderthree"
                     android:elevation="@dimen/dimension10dp">
@@ -186,7 +187,6 @@
                         android:visibility="gone" />
 
                     <RelativeLayout
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -240,9 +240,9 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlInsuranceCard"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlbordersix"
                     android:elevation="@dimen/dimension10dp">
@@ -305,20 +305,21 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_weight="1"
+                android:weightSum="2"
                 android:id="@+id/llRow3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
                 android:layout_below="@+id/llRow2"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <!--EMrgency-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlEmergencyEvent"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlborderfour"
                     android:elevation="@dimen/dimension10dp">
@@ -381,9 +382,9 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlPrescription"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlborderfive"
                     android:elevation="@dimen/dimension10dp">
@@ -446,6 +447,5 @@
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+    </LinearLayout>
 </RelativeLayout>
