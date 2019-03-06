@@ -110,6 +110,7 @@
         <!-- -->
 
         <TextView
+            android:textStyle="normal"
             android:fontFamily="@font/lato"
             android:id="@+id/txtPolicy1"
             android:layout_width="match_parent"
@@ -130,7 +131,7 @@
             android:layout_toRightOf="@+id/rbCheck">
 
             <TextView
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_bold"
                 android:id="@+id/txtPolicy2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,7 +154,7 @@
                 android:layout_marginLeft="@dimen/dimension2dp"/>
 
             <TextView
-                android:fontFamily="@font/lato"
+                android:fontFamily="@font/lato_bold"
                 android:id="@+id/txtPolicy4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,7 +184,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension17dp" />
     <TextView
-        android:fontFamily="@font/lato"
+        android:fontFamily="@font/lato_bold"
         android:id="@+id/txtNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
