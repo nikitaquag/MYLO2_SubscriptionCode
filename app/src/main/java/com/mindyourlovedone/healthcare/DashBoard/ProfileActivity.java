@@ -154,7 +154,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     RadioGroup rgGender;
     RadioButton rbMale,rbFemale,rbTrans;
     
-    ToggleButton tbLive,tbEnglish,tbVeteran,tbPet;
+    ToggleButton tbLive,tbEnglish,tbVeteran,tbPet,tbCard;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
     String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
@@ -495,8 +495,30 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         tbLive=findViewById(R.id.tbLive);
         tbEnglish=findViewById(R.id.tbEnglish);
         tbVeteran=findViewById(R.id.tbVeteran);
+        tbCard=findViewById(R.id.tbCard);
         tbPet=findViewById(R.id.tbPet);
-        
+
+        tbCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked==true)
+                {
+                    has_card="YES";
+                    rlCard.setVisibility(View.VISIBLE);
+                }
+                else{
+                    has_card="NO";
+                   // imgCard.setImageResource(R.drawable.busi_card);
+                    txtCard.setVisibility(View.VISIBLE);
+                    imgCard.setVisibility(View.GONE);
+                    cardpath = "";
+                    CardMap = null;
+                    rlCard.setVisibility(View.GONE);
+
+                }
+            }
+        });
+
         tbLive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -1075,7 +1097,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 txtCard.setVisibility(View.GONE);
             } else {
                 imgCard.setVisibility(View.GONE);
-                rlCard.setVisibility(View.GONE);
+                rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.VISIBLE);
             }
 
@@ -1150,6 +1172,20 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 } else {
                     tbVeteran.setChecked(false);
                    veteran="NO";
+                }
+            }
+
+            if (connection.getHas_card() != null) {
+                if (connection.getHas_card().equals("YES")) {
+                    tbCard.setChecked(true);
+                    has_card="YES";
+                    rlCard.setVisibility(View.VISIBLE);
+                } else {
+                    tbCard.setChecked(false);
+                    has_card="NO";
+                    rlCard.setVisibility(View.GONE);
+                    cardpath = "";
+                    CardMap = null;
                 }
             }
             if (connection.getEnglish() != null) {
@@ -2023,8 +2059,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     imagepath = "";
                     ProfileMap = null;
                 } else if (from.equals("Card")) {
+                    imgCard.setImageResource(R.drawable.busi_card);
                     imgCard.setVisibility(View.GONE);
-                    rlCard.setVisibility(View.GONE);
+                    rlCard.setVisibility(View.VISIBLE);
                     txtCard.setVisibility(View.VISIBLE);
                     cardpath = "";
                     CardMap = null;
