@@ -37,6 +37,7 @@
             android:orientation="vertical">
 
             <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +52,7 @@
                 app:hintTextAppearance="@style/TextLabel">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -68,6 +70,7 @@
 
 
             <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
                 android:id="@+id/tilUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +86,7 @@
                     android:hint="Email"
                     android:maxLength="30"
                     android:maxLines="1"
-
+                    android:fontFamily="@font/lato"
                     android:paddingTop="@dimen/dimension5dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
@@ -94,6 +97,7 @@
 
 
             <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
                 android:id="@+id/tilPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,6 +108,7 @@
                 android:visibility="gone">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/llLoginText"
-
+            android:fontFamily="@font/lato"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dimension15dp"
@@ -156,6 +161,7 @@
              android:layout_below="@+id/txtSignIn"
              android:layout_centerHorizontal="true" />-->
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtLoginVia"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -211,6 +217,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtNew"
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
@@ -222,6 +229,7 @@
                 android:textSize="@dimen/dimension16dp" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtForgotPassword"
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
