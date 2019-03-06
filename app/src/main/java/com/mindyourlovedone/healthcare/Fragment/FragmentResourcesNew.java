@@ -2,7 +2,6 @@ package com.mindyourlovedone.healthcare.Fragment;
 
 import android.app.Fragment;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.ResourceAdapter;
 import com.mindyourlovedone.healthcare.model.ResourcesNew;
@@ -26,7 +24,7 @@ public class FragmentResourcesNew extends Fragment {
     View rootView;
     ArrayList<ResourcesNew> resourcesList;
     ListView lvResources;
-    ImageView imgHelp;
+    ImageView imgHelp,imgProfile;
     TextView txtTitle;
 
     @Nullable
@@ -68,6 +66,8 @@ public class FragmentResourcesNew extends Fragment {
     private void initUi() {
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setText("Resources");
+        //imgProfile.setVisibility(View.GONE)
+
         lvResources = rootView.findViewById(R.id.lvResources);
         imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
@@ -81,6 +81,7 @@ public class FragmentResourcesNew extends Fragment {
                         Intent intentContactUs = new Intent(getActivity(), BaseActivity.class);
                         intentContactUs.putExtra("c", 5);
                         getActivity().startActivity(intentContactUs);
+
                         break;
                     case 1:
                         Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();

@@ -9,6 +9,18 @@
     android:background="@android:color/transparent"
     tools:context="com.mindyourlovedone.healthcare.Activity.TransparentActivity">
 
+
+   <!-- <ImageView
+        android:id="@+id/floatCancel"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension16dp"
+        android:src="@drawable/cross_n"
+
+         />-->
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatCancel"
         android:layout_width="wrap_content"
@@ -17,7 +29,6 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension16dp"
         android:src="@drawable/cross_n"
-        android:tint="@android:color/white"
         app:backgroundTint="@color/colorBlueTrans"
         app:fabSize="normal" />
 

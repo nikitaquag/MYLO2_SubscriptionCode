@@ -3,7 +3,6 @@ package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -34,10 +33,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
-import com.mindyourlovedone.healthcare.DashBoard.PrescriptionActivity;
-import com.mindyourlovedone.healthcare.Fragment.Fragment_Conn_New;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.AideQuery;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
@@ -822,6 +818,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         View dialogview = lf.inflate(R.layout.activity_transparent, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+     //   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
         floatContact.setImageResource(R.drawable.closee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
