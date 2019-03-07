@@ -36,10 +36,11 @@
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:text="Martha Matheson"
                     android:textAllCaps="true"
-
+                   android:textStyle="bold"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension22dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/lato"
+                    />
 
                 <TextView
                     android:id="@+id/txtSelf"
@@ -51,6 +52,8 @@
                     android:layout_marginTop="@dimen/dimension5dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:text="Self"
+                    android:fontFamily="@font/lato"
+
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension20dp" />
             </LinearLayout>
@@ -90,6 +93,7 @@
                     android:layout_toRightOf="@+id/imgHome"
                     android:gravity="center_vertical"
                     android:text="@string/Home"
+                    android:fontFamily="@font/lato"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension16dp" />
 
@@ -124,8 +128,11 @@
                     android:layout_toRightOf="@+id/imgProfiles"
                     android:gravity="center_vertical"
                     android:text="@string/Profiles"
+                    android:textStyle="bold"
                     android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension16dp" />
+                    android:textSize="@dimen/dimension16dp"
+                    android:fontFamily="@font/lato"
+                    />
 
                 <View
                     android:layout_width="match_parent"
@@ -153,6 +160,8 @@
                     android:src="@drawable/drawer_res" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtResources"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
@@ -200,6 +209,8 @@
                     android:src="@drawable/drawer_market" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtMarketPlace"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
@@ -238,6 +249,8 @@
                     android:src="@drawable/drawer_videos" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtVideos"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
@@ -275,6 +288,8 @@
                     android:src="@drawable/drawer_sponsor" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtSponsor"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
@@ -310,6 +325,8 @@
                     android:src="@drawable/drawer_setting" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtSettings"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
@@ -345,6 +362,8 @@
                     android:src="@drawable/drawer_contact" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtContactUs"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension50dp"
