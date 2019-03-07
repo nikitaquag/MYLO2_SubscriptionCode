@@ -38,7 +38,7 @@
             android:id="@+id/txtConName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
+            android:fontFamily="@font/lato"
             android:singleLine="true"
             android:text="Suzy Jon"
             android:textColor="@color/colorBlack"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txtConName"
             android:gravity="center"
-
+            android:fontFamily="@font/lato"
             android:text="Mother"
             android:textColor="@color/colorGray"
             android:textSize="@dimen/dimension18dp"

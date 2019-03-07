@@ -3045,7 +3045,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         } else if (source.equals("PharmacyData")) {
             return (R.drawable.yellow);
         } else if (source.equals("Connection")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else {
             return R.drawable.ic_profile_defaults;
         }
@@ -4727,7 +4727,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 if (profile.equals("Profile")) {
-                    imgProfile.setImageResource(R.drawable.green);
+                    //varsha
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imagepath = "";
                     ProfileMap = null;
                 } else if (profile.equals("Card")) {
