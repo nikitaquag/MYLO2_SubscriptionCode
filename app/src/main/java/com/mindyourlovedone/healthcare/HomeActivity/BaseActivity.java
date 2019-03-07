@@ -203,13 +203,22 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResourcesNew());
                 } else if (p == 7) {
+                    imgProfile.setVisibility(View.GONE);
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Settings");
                     callFragmentData(new FragmentSetting());
                 } else if (p == 8) {
+                    imgProfile.setVisibility(View.GONE);
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Contact Us");
                     callFragmentData(new FragmentContactUs());
                 } else if (p == 5) {
                     imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResources());
                 } else if (p == 6) {
+                    imgProfile.setVisibility(View.GONE);
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Sponsor");
                     callFragmentData(new FragmentSponsor());
                 }
                 /*Ends here*/
