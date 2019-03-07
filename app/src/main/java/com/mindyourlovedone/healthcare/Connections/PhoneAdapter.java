@@ -3,12 +3,15 @@ package com.mindyourlovedone.healthcare.Connections;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,7 +98,7 @@ public class PhoneAdapter extends BaseAdapter {
         holder.txtType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder b = new AlertDialog.Builder(context);
+              AlertDialog.Builder b = new AlertDialog.Builder(context);
                 b.setTitle("Type");
                 final String[] types = {"Mobile", "Office", "Home", "Fax","None"};
                 b.setItems(types, new DialogInterface.OnClickListener() {
@@ -119,6 +122,34 @@ public class PhoneAdapter extends BaseAdapter {
 
                 });
                 b.show();
+
+
+              /*  PopupMenu popup = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                    popup = new PopupMenu(context, v, Gravity.BOTTOM);
+                }
+                // Inflate the menu from xml
+                    popup.getMenuInflater().inflate(R.menu.popup, popup.getMenu());
+                    // Setup menu item selection
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()) {
+                                *//*case R.id.troy:
+                                    Toast.makeText(MainActivity.this, "troy", Toast.LENGTH_SHORT).show();
+                                    return true;
+                                case R.id.rise:
+                                    Toast.makeText(MainActivity.this, "300 Rise of Empire", Toast.LENGTH_SHORT).show();
+                                    return true;
+                                default:*//*
+
+                            }
+                            return true;
+                        }
+                    });
+                    // Handle dismissal with: popup.setOnDismissListener(...);
+                    // Show the menu
+                    popup.show();*/
+
             }
         });
         holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
