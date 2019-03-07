@@ -1166,11 +1166,14 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-
-                            android:paddingTop="@dimen/dimension2dp"
+android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:textSize="@dimen/dimension20dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/dimension20dp" />
+                            />
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
@@ -1205,6 +1208,7 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            android:layout_marginTop="@dimen/dimension5dp"
                             app:hintEnabled="true"
 
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -1218,7 +1222,11 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:fontFamily="@font/lato"
+                                android:includeFontPadding="true"
+                                android:paddingBottom="@dimen/dimension18dp"
+                                android:paddingTop="@dimen/dimension8dp"
+
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -1249,7 +1257,7 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-
+                                android:fontFamily="@font/lato"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
@@ -1283,6 +1291,7 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
+
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
@@ -1319,6 +1328,7 @@
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
+                            android:divider="@null"
                             ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
@@ -1512,11 +1522,14 @@
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:textSize="@dimen/dimension20dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/dimension20dp" />
+                           />
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
@@ -1528,6 +1541,7 @@
                         android:layout_below="@+id/tilOfficePhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
@@ -1537,8 +1551,11 @@
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
 
-                            android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -3267,6 +3284,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:padding="@dimen/dimension10dp"
+                    android:fontFamily="@font/lato"
                     android:paddingRight="@dimen/dimension20dp"
                     android:text="Do you have business card?"
                     android:textColor="@color/colorBlack" />
@@ -3276,7 +3294,7 @@
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension35dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension20dp"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
