@@ -165,7 +165,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         imgRight = getActivity().findViewById(R.id.imgRight);
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         llAddSpecialist = rootview.findViewById(R.id.llAddSpecialist);
-        llAddSpecialist.setVisibility(View.GONE);
+        llAddSpecialist.setVisibility(View.INVISIBLE);
         lvSpecialist = rootview.findViewById(R.id.lvSpecialist);
 
         // Layout Managers:
