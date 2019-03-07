@@ -42,6 +42,7 @@
                         android:layout_centerInParent="true">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flEC"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
@@ -111,6 +112,7 @@
                         android:layout_centerInParent="true">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flDirective"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
@@ -196,6 +198,7 @@
                         android:layout_toRightOf="@+id/imageView">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flSpeciality"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
@@ -263,6 +266,7 @@
                         android:layout_centerInParent="true">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flInsurance"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
@@ -342,6 +346,7 @@
                         android:layout_centerInParent="true">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flEvent"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
@@ -410,6 +415,7 @@
                         android:layout_centerVertical="true">
 
                         <FrameLayout
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/flPrescription"
                             android:layout_width="@dimen/dimension65dp"
                             android:layout_height="@dimen/dimension65dp"
