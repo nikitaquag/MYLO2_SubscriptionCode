@@ -90,7 +90,30 @@
         android:paddingBottom="@dimen/dimension10dp"
         ></ListView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imghelp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimension60dp"
+        android:fontFamily="@font/bold_lato"
+        android:text="Add a new Profiles!"
+        android:textColor="@color/colorLightGrays"
+        android:textSize="@dimen/dimension17dp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/imghelp"
+        android:layout_width="@dimen/dimension110dp"
+        android:layout_height="@dimen/dimension150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimension5dp"
+        android:layout_toLeftOf="@+id/frm"
+        android:src="@drawable/helparrow"
+        android:tint="@color/colorLightGrays" />
+
     <FrameLayout
+        android:id="@+id/frm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -113,13 +136,16 @@
             app:fabSize="normal"
             android:visibility="gone"
             />
+
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dimension16dp"
+            android:layout_marginBottom="@dimen/dimension16dp"
+            android:layout_marginRight="@dimen/dimension16dp"
             android:src="@drawable/plus_n"
             android:tint="@android:color/white"
             app:backgroundTint="@color/colorEmerMainGreen"

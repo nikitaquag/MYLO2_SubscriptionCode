@@ -74,6 +74,7 @@
                     android:src="@drawable/ic_profiles" />
 
                 <TextView
+                    android:fontFamily="@font/lato_bold"
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -87,10 +88,11 @@
                     android:visibility="gone"
                      />
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtRel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:text="rel"
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_below="@+id/txtName"
@@ -100,6 +102,7 @@
                     />
 
                 <TextView
+                    android:fontFamily="@font/lato_bold"
                     android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

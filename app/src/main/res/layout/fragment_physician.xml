@@ -41,6 +41,7 @@
                     android:src="@drawable/emergency_four" />
 
                 <TextView
+                    android:fontFamily="@font/bold_lato"
                     android:id="@+id/txtHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -50,10 +51,11 @@
                     android:gravity="center_horizontal"
                     android:text="@string/FTUEmergency"
                     android:textColor="@color/colorFTUGray"
-                    android:textSize="@dimen/dimension24dp"
+                    android:textSize="@dimen/dimension22dp"
                     android:textStyle="bold"/>
 
                 <TextView
+                    android:fontFamily="@font/bold_lato"
                     android:id="@+id/txtFTU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,6 +278,27 @@
             </RelativeLayout>
         </ScrollView>
 
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension60dp"
+            android:textSize="@dimen/dimension17dp"
+            android:layout_above="@+id/imghelp"
+            android:textStyle="italic"
+            android:fontFamily="@font/bold_lato"
+            android:textColor="@color/colorLightGrays"
+            android:text="Add a new Physician!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView  android:layout_marginRight="@dimen/dimension5dp"
+            android:tint="@color/colorLightGrays"
+            android:id="@+id/imghelp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/floatAdd"
+            android:src="@drawable/helparrow"
+            android:layout_width="@dimen/dimension110dp"
+            android:layout_height="@dimen/dimension150dp" />
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatAdd"
             android:layout_width="wrap_content"
@@ -309,6 +332,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dimension20dp">
+
 
 
         <android.support.design.widget.FloatingActionButton
