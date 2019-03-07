@@ -12,7 +12,8 @@
         <ImageView
             android:id="@+id/imgDrawerProfile"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension250dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
             android:src="@drawable/one" />
 
         <FrameLayout
