@@ -548,10 +548,10 @@
                         android:fontFamily="@font/lato"
                         android:hint="Address"
                         android:imeOptions="actionNext"
-                        android:paddingTop="@dimen/dimension8dp"
+                        android:textColor="@color/colorPrimaryDark"
                         android:includeFontPadding="true"
                         android:paddingBottom="@dimen/dimension18dp"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:paddingTop="@dimen/dimension8dp"
                         android:textSize="@dimen/dimension20dp" />
 
                     <requestFocus />
