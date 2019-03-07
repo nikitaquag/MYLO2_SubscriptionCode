@@ -76,7 +76,7 @@
         android:background="@color/colorSkyBlue"
         android:gravity="center"
         android:text="XYZ XYZ"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/lato"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension22dp" />
 
