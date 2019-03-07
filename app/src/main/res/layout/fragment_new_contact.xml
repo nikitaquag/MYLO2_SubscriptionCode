@@ -1308,10 +1308,14 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-                            android:paddingTop="@dimen/dimension2dp"
+
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/dimension20dp" />
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            />
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
@@ -1610,9 +1614,12 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
                             android:maxLines="3"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
-                            android:textSize="@dimen/dimension20dp" />
+                           />
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
