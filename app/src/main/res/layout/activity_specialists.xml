@@ -43,7 +43,7 @@
             android:text="Specialist Contacts"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
-            android:fontFamily="@font/latobold"
+            android:fontFamily="@font/bold_lato"
             android:textSize="@dimen/dimension20dp" />
 
         <ImageView
@@ -76,7 +76,7 @@
         android:background="@color/colorSkyBlue"
         android:gravity="center"
         android:text="XYZ XYZ"
-        android:fontFamily="@font/latoregular"
+        android:fontFamily="@font/lato"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension22dp" />
 

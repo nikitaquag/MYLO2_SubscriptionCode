@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.Typeface;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -22,6 +23,7 @@ import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -342,7 +344,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         chkOther = findViewById(R.id.chkOther);
-
+//        chkOther.setTypeface(Typeface.defaultFromStyle(R.font.lato));
         txtOtherLanguage = findViewById(R.id.txtOtherLanguage);
         tilOtherLanguage = findViewById(R.id.tilOtherLanguage);
         tilOtherLanguage.setHint("Other Language");

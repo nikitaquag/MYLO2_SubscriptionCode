@@ -36,7 +36,7 @@
             android:layout_toRightOf="@+id/imgLogo"
             android:gravity="center_vertical"
             android:padding="@dimen/dimension20dp"
-            android:fontFamily="@font/latobold"
+            android:fontFamily="@font/bold_lato"
             android:text="hjghjsd jkhjkns gfs"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension20dp"

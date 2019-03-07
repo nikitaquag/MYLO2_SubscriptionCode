@@ -4,34 +4,32 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/llbottom"
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dimension10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:weightSum="3"
             >
 
             <LinearLayout
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_weight="1"
                 android:id="@+id/llRow1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginTop="@dimen/dimension10dp"
-
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_height="0dip"
+                android:weightSum="2"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal"
 
                 >
                 <!--OVERVIEW-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlEmergencyContact"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_weight="1"
                     android:background="@drawable/rlborderone"
                     android:elevation="@dimen/dimension10dp"
@@ -64,16 +62,18 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtEmergencyContact"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flEC"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
                             android:text="Personal &amp; Medical Profile &amp; Emergency Contacts"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold" />
+                             />
 
                         <ImageView
                             android:id="@+id/imgECForward"
@@ -90,9 +90,8 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlCarePlan"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/rlbordertwo"
                     android:elevation="@dimen/dimension10dp"
@@ -130,16 +129,18 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtCarePlan"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flDirective"
                             android:gravity="center"
                             android:padding="@dimen/dimension5dp"
                             android:text="Advance Directives &amp; Documents"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold"
+                            
 
                             />
 
@@ -159,20 +160,22 @@
             <!--Row Two-->
 
             <LinearLayout
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_weight="1"
+                android:weightSum="2"
                 android:id="@+id/llRow2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
                 android:layout_below="@+id/llRow1"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <!--EMrgency-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlSpecialist"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
                     android:layout_weight="1"
                     android:background="@drawable/rlborderthree"
                     android:elevation="@dimen/dimension10dp">
@@ -186,7 +189,6 @@
                         android:visibility="gone" />
 
                     <RelativeLayout
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -213,9 +215,11 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtSpecialist"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/dimension60dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flSpeciality"
                             android:layout_centerHorizontal="true"
                             android:gravity="center_horizontal"
@@ -223,7 +227,7 @@
                             android:text="Specialty\nContacts"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold" />
+                             />
 
                         <ImageView
                             android:id="@+id/imgSPForward"
@@ -240,9 +244,8 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlInsuranceCard"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/rlbordersix"
                     android:elevation="@dimen/dimension10dp">
@@ -280,16 +283,18 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtInsuranceCard"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flInsurance"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
                             android:text="Insurance\nInformation"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold" />
+                             />
 
                         <ImageView
                             android:id="@+id/imgICForward"
@@ -305,20 +310,21 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_weight="1"
+                android:weightSum="2"
                 android:id="@+id/llRow3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
                 android:layout_below="@+id/llRow2"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
                 <!--EMrgency-->
                 <RelativeLayout
+                    android:layout_width="0dip"
                     android:id="@+id/rlEmergencyEvent"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
                     android:layout_weight="1"
                     android:background="@drawable/rlborderfour"
                     android:elevation="@dimen/dimension10dp">
@@ -337,8 +343,8 @@
 
                         <FrameLayout
                             android:id="@+id/flEvent"
-                            android:layout_width="62dp"
-                            android:layout_height="62dp"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
                             android:layout_alignParentTop="true"
                             android:layout_centerHorizontal="true"
                             android:background="@drawable/border_ec_forward">
@@ -355,16 +361,18 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtEmergencyEvent"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flEvent"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
                             android:text="Note &amp; Appointment Checklist"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold" />
+                             />
 
                         <ImageView
                             android:id="@+id/imgEVForward"
@@ -381,9 +389,9 @@
                 <!--CARE PLAN-->
                 <RelativeLayout
                     android:id="@+id/rlPrescription"
-                    android:layout_width="@dimen/dimension165dp"
-                    android:layout_height="175dp"
-                    android:layout_margin="@dimen/dimension10dp"
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+
                     android:layout_weight="1"
                     android:background="@drawable/rlborderfive"
                     android:elevation="@dimen/dimension10dp">
@@ -422,9 +430,11 @@
 
 
                         <TextView
+                            android:maxLines="2"
+                            android:fontFamily="@font/lato_bold"
                             android:id="@+id/txtPrescription"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/dimension70dp"
+                            android:layout_height="wrap_content"
                             android:layout_below="@+id/flPrescription"
                             android:layout_centerHorizontal="true"
                             android:gravity="center"
@@ -432,7 +442,7 @@
                             android:text="Prescription\nTracker"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
-                            android:textStyle="bold" />
+                             />
 
                         <ImageView
                             android:id="@+id/imgPresForward"
@@ -446,6 +456,5 @@
                     </RelativeLayout>
                 </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
-    </ScrollView>
+    </LinearLayout>
 </RelativeLayout>
