@@ -19,7 +19,7 @@
             </item>
             <item>
 
-                <bitmap android:gravity="bottom|right" android:src="@drawable/dro" />
+                <bitmap android:gravity="bottom|right" android:src="@drawable/drp" />
 
             </item>
 
