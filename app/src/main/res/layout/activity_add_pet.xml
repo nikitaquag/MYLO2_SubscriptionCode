@@ -48,6 +48,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:text="Add Pet"
+                    android:fontFamily="@font/lato_bold"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/dimension22dp" />
@@ -60,6 +61,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:text="Save"
+                    android:fontFamily="@font/lato_bold"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension20dp"
@@ -88,7 +90,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -99,9 +101,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Name"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:fontFamily="@font/lato"
+
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
 
@@ -129,7 +133,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -140,9 +144,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Type of Pet/Breed"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
 
                     android:textSize="@dimen/dimension20dp" />
@@ -160,7 +165,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -171,9 +176,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Color"
                     android:imeOptions="actionNext"
-                  
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
 
                     android:textSize="@dimen/dimension20dp" />
@@ -191,7 +197,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -202,9 +208,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Microchip number"
                     android:imeOptions="actionNext"
-
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
 
                     android:textSize="@dimen/dimension20dp" />
@@ -221,7 +228,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 android:visibility="gone"
@@ -232,11 +239,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Special Needs"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -247,12 +254,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/view2"
-                android:layout_marginTop="@dimen/dimension10dp"
+                android:layout_marginTop="@dimen/dimension5dp"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -263,11 +270,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Veterinarian Name"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -283,7 +290,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -294,11 +301,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Veterinarian Address"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -314,7 +321,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -325,11 +332,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Veterinarian Phone"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -354,7 +361,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -365,11 +372,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Name who will care for pet"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -385,7 +392,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -396,11 +403,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Address who will care for pet"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -416,7 +423,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -427,11 +434,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Phone who will care for pet"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -465,7 +472,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -477,10 +484,13 @@
                     android:hint="Birthday"
                     android:imeOptions="actionNext"
                     android:focusable="false"
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:drawableRight="@drawable/cal_c"
+                    android:drawablePadding="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -496,7 +506,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -507,11 +517,11 @@
                     android:layout_height="wrap_content"
                     android:hint="Notes about Pet"
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
-
+                    android:fontFamily="@font/lato"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
@@ -527,7 +537,7 @@
                 android:focusableInTouchMode="true"
                 android:gravity="bottom"
                 android:paddingLeft="@dimen/dimension20dp"
-                android:paddingTop="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 android:visibility="gone"
@@ -538,9 +548,10 @@
                     android:layout_height="wrap_content"
                     android:hint="Person(s) who will care for pet (name, address, phone, email) "
                     android:imeOptions="actionNext"
-                    
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingTop="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
 

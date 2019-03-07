@@ -16,11 +16,12 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
             android:layout_weight="9"
-
+android:fontFamily="@font/lato"
             android:paddingTop="@dimen/dimension15dp"
             android:paddingBottom="@dimen/dimension15dp"
             android:text="Aunt"
-            android:textSize="@dimen/dimension18dp" />
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgCheck"

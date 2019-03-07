@@ -401,7 +401,8 @@
                         android:maxLines="1"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -430,7 +431,8 @@
                         android:maxLines="2"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="false"
                         android:text=""
                         android:textColor="@color/colorPrimaryDark"
@@ -547,7 +549,8 @@
                         android:hint="Address"
                         android:imeOptions="actionNext"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -736,7 +739,8 @@
                             android:maxLength="30"
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -769,7 +773,8 @@
                             android:maxLength="30"
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -902,7 +907,8 @@
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -926,7 +932,7 @@
                         android:id="@+id/txtBdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/cal_n"
+                        android:drawableRight="@drawable/cal_c"
                         android:drawablePadding="@dimen/dimension10dp"
                         android:focusable="false"
                         android:fontFamily="@font/lato"
@@ -934,8 +940,10 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -948,7 +956,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/vgender"
-                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:orientation="horizontal">
 
                     <android.support.design.widget.TextInputLayout
@@ -973,7 +981,8 @@
                             android:inputType="phone"
                             android:nextFocusDown="@+id/txtWeight"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1001,7 +1010,8 @@
                             android:imeOptions="actionNext"
                             android:inputType="number"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1052,7 +1062,8 @@
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -1311,7 +1322,8 @@
                             android:hint="Other(Specify)"
                             android:imeOptions="actionNext"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1348,7 +1360,8 @@
                         android:imeOptions="actionNext"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -1375,7 +1388,8 @@
                         android:imeOptions="actionNext"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -1404,7 +1418,8 @@
                         android:maxLength="12"
                         android:maxLines="2"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -1466,7 +1481,8 @@
                             android:maxLength="30"
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1496,7 +1512,8 @@
                             android:maxLines="1"
 
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1603,7 +1620,7 @@
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     app:hintEnabled="true"
-
+                    android:drawableRight="@drawable/dropd"
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
@@ -1617,7 +1634,8 @@
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -1646,7 +1664,8 @@
                         android:maxLines="3"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -1743,7 +1762,8 @@
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
@@ -1769,7 +1789,8 @@
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingBottom="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
 
