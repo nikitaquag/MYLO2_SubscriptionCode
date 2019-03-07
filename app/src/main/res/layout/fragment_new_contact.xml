@@ -1618,7 +1618,6 @@ android:fontFamily="@font/lato"
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:paddingTop="@dimen/dimension8dp"
-
                             android:textColor="@color/colorPrimaryDark"
                            />
 
