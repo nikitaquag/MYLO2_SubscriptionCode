@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+android:paddingTop="@dimen/dimension3dp"
+    >
+    <RelativeLayout
+        android:id="@+id/llPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerPriority"
+        >
+        <LinearLayout
+            android:id="@+id/llNum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            >
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPhoNum"
+                android:layout_width="@dimen/dimension0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+            >
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtPhoNum"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Phone Number"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="12"
+                    android:fontFamily="@font/lato"
+                    android:maxLines="1"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp"
+
+                    />
+
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilType"
+                android:layout_width="@dimen/dimension0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+            >
+
+                <AutoCompleteTextView
+                    android:id="@+id/txtType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+android:fontFamily="@font/lato"
+                    android:imeOptions="actionNext"
+                    android:drawableRight="@drawable/drp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp"
+                    android:focusable="false"
+                    />
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+            <ImageView
+                android:id="@+id/imgdeletePhone"
+                android:layout_width="@dimen/dimension0dp"
+                android:layout_height="@dimen/dimension40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/delete_n"
+                android:layout_weight="1"
+                android:paddingLeft="@dimen/dimension5dp"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

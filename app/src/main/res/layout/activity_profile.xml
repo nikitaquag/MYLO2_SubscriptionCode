@@ -301,7 +301,7 @@
                         style="@style/EmergencyCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:fontFamily="@font/lato"
                         android:padding="@dimen/dimension10dp"
                         android:paddingRight="@dimen/dimension20dp"
@@ -497,7 +497,7 @@
                                 android:id="@+id/txtType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/drp"
+                                android:drawableRight="@drawable/dropd"
                                 android:fontFamily="@font/lato"
                                 android:hint="Type"
                                 android:imeOptions="actionNext"
@@ -729,7 +729,7 @@
                             android:id="@+id/txtRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/drp"
+                            android:drawableRight="@drawable/dropd"
                             android:fontFamily="@font/lato"
                             android:hint="Relationship"
                             android:imeOptions="actionNext"
@@ -1049,7 +1049,7 @@
                         android:id="@+id/txtSpinEyes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/drp"
+                        android:drawableRight="@drawable/dropd"
                         android:fontFamily="@font/lato"
                         android:hint="Eye Color"
                         android:imeOptions="actionNext"
@@ -1077,7 +1077,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view3"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
@@ -1167,7 +1167,7 @@
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Child"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <View
                         android:id="@+id/vw1"
@@ -1187,7 +1187,7 @@
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Friend"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <View
                         android:id="@+id/vw3"
@@ -1207,7 +1207,7 @@
                         android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Grandparent(s)"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <View
                         android:id="@+id/vw2"
@@ -1227,7 +1227,7 @@
                         android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Parent(s)"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <View
                         android:id="@+id/vw4"
@@ -1247,7 +1247,7 @@
                         android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Spouse"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <View
                         android:id="@+id/vw5"
@@ -1267,7 +1267,7 @@
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Sibling"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp"/>
 
                     <View
                         android:id="@+id/vw6"
@@ -1288,7 +1288,7 @@
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
                         android:text="Significant Other"
-                        android:textSize="@dimen/dimension20dp" />
+                        android:textSize="@dimen/dimension18dp" />
 
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOther"
@@ -1464,7 +1464,7 @@
                             android:id="@+id/txtSpinLang"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/drp"
+                            android:drawableRight="@drawable/dropd"
                             android:fontFamily="@font/lato"
                             android:hint="Language Spoken"
                             android:imeOptions="actionNext"
@@ -1513,7 +1513,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlLangauge"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
@@ -1613,7 +1613,7 @@
                         android:id="@+id/txtSpinMarital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/drp"
+                        android:drawableRight="@drawable/dropd"
                         android:fontFamily="@font/lato"
                         android:hint="Marital Status"
                         android:imeOptions="actionNext"
@@ -1669,7 +1669,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view5"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
@@ -1794,7 +1794,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view6"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"

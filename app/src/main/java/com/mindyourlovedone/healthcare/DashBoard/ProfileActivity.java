@@ -344,6 +344,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         chkOther = findViewById(R.id.chkOther);
+        Typeface font = Typeface.createFromAsset(getAssets(), "Lato-Regular.ttf");
+        chkOther.setTypeface(font);
 //        chkOther.setTypeface(Typeface.defaultFromStyle(R.font.lato));
         txtOtherLanguage = findViewById(R.id.txtOtherLanguage);
         tilOtherLanguage = findViewById(R.id.tilOtherLanguage);
@@ -355,6 +357,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         chkGrandParent = findViewById(R.id.chkGrandParent);
         chkParent = findViewById(R.id.chkParent);
         chkSpouse = findViewById(R.id.chkSpouse);
+
+        chkChild.setTypeface(font);
+        chkSibling.setTypeface(font);
+        chkFriend.setTypeface(font);
+        chkGrandParent.setTypeface(font);
+        chkParent.setTypeface(font);
+        chkSpouse.setTypeface(font);
 
         ListPet = findViewById(R.id.ListPet);
         imgProfile = findViewById(R.id.imgProfile);
