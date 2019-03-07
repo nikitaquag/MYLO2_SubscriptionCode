@@ -76,6 +76,8 @@
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/dimension18dp"
                 android:textStyle="normal"
+                android:fontFamily="@font/lato"
+
                 tools:ignore="RtlCompat" />
         </LinearLayout>
 

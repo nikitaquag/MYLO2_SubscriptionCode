@@ -416,6 +416,8 @@
                 android:gravity="center"
                 android:text="@string/Logout"
                 android:textAllCaps="true"
+                android:fontFamily="@font/lato"
+
                 android:textColor="@color/colorLogoutTextGray"
                 android:textSize="@dimen/dimension16dp"
                 android:textStyle="bold" />
