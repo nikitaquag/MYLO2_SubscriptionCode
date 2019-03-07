@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/rlView"
     android:alpha="0.8"
-    android:background="@android:color/transparent"
+    android:background="#40000000"
     tools:context="com.mindyourlovedone.healthcare.Activity.TransparentActivity">
 
 
@@ -20,6 +20,29 @@
         android:src="@drawable/cross_n"
 
          />-->
+
+
+    <TextView
+        android:layout_above="@+id/imghelp"
+        android:textStyle="italic"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        android:text="Select the option as your need"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/imghelp"
+        android:layout_margin="@dimen/dimension20dp"
+        android:layout_above="@+id/rlFloatContact"
+        android:src="@drawable/helparrowpopup"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="@dimen/dimension200dp" />
+
+
+
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatCancel"
