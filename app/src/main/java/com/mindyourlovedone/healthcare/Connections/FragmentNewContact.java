@@ -1820,8 +1820,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "Speciality":
                 changeIcon(source);
                 visiSpecialist();
-                txtAdd.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
-                txtTitle.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
+                txtAdd.setText("Add Doctors & Other\n Health Professional");
+                txtTitle.setText("Add Doctors & Other\n Health Professional");
                 setListPh(listDrPhone);
                 break;
 
@@ -1837,8 +1837,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 visiSpecialist();
                 txtDelete.setVisibility(View.VISIBLE);
-                txtAdd.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
-                txtTitle.setText("Update DOCTORS & OTHER\n HEALTH PROFESSIONALS");
+                txtAdd.setText("Update Doctors & Other\n Health Professional");
+                txtTitle.setText("Update Doctors & Other\n Health Professional");
                 Intent specialistIntent = getActivity().getIntent();
                 if (specialistIntent.getExtras() != null) {
                     specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
@@ -3474,8 +3474,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlAids.setVisibility(View.GONE);
         rlProxy.setVisibility(View.GONE);
 
-        txtAdd.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
-        txtTitle.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
+        txtAdd.setText("Add Doctors & Other\n Health Professional");
+        txtTitle.setText("Add Doctors & Other\n Health Professional");
         // tilDoctorName.setHintEnabled(false);
 
        /* txtDoctorName.setOnTouchListener(new View.OnTouchListener() {
