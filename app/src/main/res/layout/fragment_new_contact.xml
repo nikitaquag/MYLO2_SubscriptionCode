@@ -82,7 +82,22 @@
                         android:id="@+id/rlDoctorCategory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-
+                        <FrameLayout
+                            android:id="@+id/flspec"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimension22dp"
+                            >
+                        <ImageView
+                            android:id="@+id/imgspec"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension25dp"
+                            android:src="@drawable/drg"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="@dimen/dimension17dp"
+                            ></ImageView>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilSpecialty"
 
@@ -92,22 +107,26 @@
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension20dp"
+
                             android:paddingBottom="@dimen/dimension8dp"
                             app:hintEnabled="true"
 
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                                 android:id="@+id/txtSpecialty"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/dropd"
+
                                 android:hint="Specialty"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -132,12 +151,12 @@
                             custom:ms_hintColor="@color/colorDarkGray" />
 
                         <requestFocus />
-
+                        </FrameLayout>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherCategoryDoctor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilSpecialty"
+                            android:layout_below="@+id/flspec"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
@@ -146,6 +165,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                                 android:id="@+id/txtOtherCategoryDoctor"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -153,7 +174,9 @@
                                 android:maxLength="30"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -188,6 +211,8 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                                         android:id="@+id/txtFCategory"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -196,7 +221,9 @@
                                         android:imeOptions="actionNext"
                                         android:maxLength="30"
                                         android:maxLines="1"
-                                        android:paddingTop="@dimen/dimension2dp"
+                                        android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                         android:singleLine="true"
                                         android:textColor="@color/colorPrimaryDark"
                                         android:textSize="@dimen/dimension20dp" />
@@ -234,6 +261,8 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                                     android:id="@+id/txtOtherCategory"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -242,7 +271,9 @@
                                     android:maxLength="30"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp"
@@ -267,6 +298,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                                 android:id="@+id/txtFName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -275,7 +308,9 @@
                                 android:maxLength="30"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -296,6 +331,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtContactName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -304,7 +341,9 @@
                                 android:maxLength="30"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -325,6 +364,8 @@
                             >
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceEmail"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -332,7 +373,9 @@
                                 android:imeOptions="actionNext"
                                 android:maxLines="2"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="false"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -362,6 +405,8 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                     <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                         android:id="@+id/txtFinPhoNum"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
@@ -371,7 +416,9 @@
                                         android:maxLength="12"
                                         android:maxLines="1"
 
-                                        android:paddingTop="@dimen/dimension2dp"
+                                        android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                         android:singleLine="true"
                                         android:textColor="@color/colorPrimaryDark"
                                         android:textSize="@dimen/dimension20dp" />
@@ -387,13 +434,17 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                     <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                         android:id="@+id/txtFinType"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:drawableRight="@drawable/drp"
                                         android:hint="Type"
                                         android:imeOptions="actionNext"
-                                        android:paddingTop="@dimen/dimension2dp"
+                                        android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                         android:singleLine="true"
                                         android:textColor="@color/colorPrimaryDark"
                                         android:textSize="@dimen/dimension20dp" />
@@ -429,6 +480,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceOfficePhone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -438,7 +491,9 @@
                                 android:maxLength="12"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -457,6 +512,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceMobilePhone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -466,7 +523,9 @@
                                 android:maxLength="12"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -485,6 +544,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceOtherPhone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -494,7 +555,9 @@
                                 android:maxLength="12"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -514,13 +577,17 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceLocation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Location"
                                 android:imeOptions="actionNext"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
@@ -538,6 +605,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceFax"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -547,7 +616,9 @@
                                 android:maxLength="12"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -566,13 +637,17 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceAddress"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Address"
                                 android:imeOptions="actionNext"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
@@ -590,6 +665,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceWebsite"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -598,7 +675,9 @@
                                 android:maxLength="30"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -618,13 +697,17 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinancePracticeName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Company Name"
                                 android:imeOptions="actionNext"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
@@ -642,6 +725,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtLastSeen"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -650,7 +735,9 @@
                                 android:imeOptions="actionNext"
 
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
@@ -667,13 +754,17 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceNote"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Notes"
                                 android:imeOptions="actionNext"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
@@ -708,6 +799,8 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtHCategory"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -716,7 +809,9 @@
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -757,6 +852,8 @@
                             >
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherCategoryHospital"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -765,7 +862,9 @@
                                 android:maxLength="30"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -787,6 +886,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtFNameHospital"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -795,7 +896,9 @@
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -824,6 +927,8 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtHospPhoNum"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -833,7 +938,9 @@
                                     android:maxLength="12"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -849,13 +956,17 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtHospType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:drawableRight="@drawable/drp"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -892,6 +1003,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -901,7 +1014,9 @@
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -920,6 +1035,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalOtherPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -929,7 +1046,9 @@
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -948,6 +1067,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -957,7 +1078,9 @@
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -976,13 +1099,17 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1000,6 +1127,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1008,7 +1137,9 @@
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1027,13 +1158,17 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLocation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="In Network Status"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1051,13 +1186,17 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalPracticeName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Contact Person"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1075,6 +1214,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLastSeen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1083,7 +1224,9 @@
                             android:imeOptions="actionNext"
 
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1101,6 +1244,8 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1108,7 +1253,9 @@
                             android:imeOptions="actionNext"
 
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1125,13 +1272,17 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -1160,6 +1311,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1251,7 +1403,7 @@ android:fontFamily="@font/lato"
                             android:id="@+id/tilOtherRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilRelation"
+                            android:layout_below="@+id/flrel"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
@@ -1263,6 +1415,7 @@ android:fontFamily="@font/lato"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+
                                 android:id="@+id/txtOtherRelation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1271,7 +1424,9 @@ android:fontFamily="@font/lato"
                                 android:maxLength="30"
                                 android:maxLines="1"
                                 android:fontFamily="@font/lato"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -1313,6 +1468,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+
                             android:id="@+id/txtPriority"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1364,6 +1521,8 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtPhoNum"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1373,7 +1532,9 @@ android:fontFamily="@font/lato"
                                     android:maxLength="12"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -1389,13 +1550,17 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:drawableRight="@drawable/drp"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -1447,6 +1612,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtMobile"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1456,7 +1623,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1476,6 +1645,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1485,7 +1656,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1505,6 +1678,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1514,7 +1689,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1533,13 +1710,15 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
-                            android:fontFamily="@font/lato"
+
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:paddingTop="@dimen/dimension8dp"
@@ -1563,6 +1742,7 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
                             android:id="@+id/txtAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1620,6 +1800,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+
                             android:id="@+id/txtEmergencyNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1716,6 +1898,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1724,7 +1908,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1737,14 +1923,23 @@ android:fontFamily="@font/lato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctorName"
-                        android:layout_marginLeft="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension20dp">
+                       >
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/listDrPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:divider="@null"
+                            ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
                             android:id="@+id/llDrNum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilDrPhoNum"
@@ -1754,6 +1949,8 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrPhoNum"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -1763,7 +1960,9 @@ android:fontFamily="@font/lato"
                                     android:maxLength="12"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -1779,13 +1978,17 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:drawableRight="@drawable/drp"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -1824,6 +2027,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1833,7 +2038,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1853,6 +2060,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorHourOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1862,7 +2071,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1882,6 +2093,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorOtherPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1891,7 +2104,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1911,6 +2126,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1920,7 +2137,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1939,13 +2158,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Email"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1964,6 +2187,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1972,7 +2197,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1991,13 +2218,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2016,6 +2247,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPracticeName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2024,7 +2257,9 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
 
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2042,13 +2277,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorLastSeen"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Last Seen"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2066,6 +2305,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                             android:id="@+id/txtNetwork"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2074,7 +2315,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2093,13 +2336,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAffiliation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Hospital Affiliations"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2117,13 +2364,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2147,13 +2398,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2181,6 +2436,8 @@ android:fontFamily="@font/lato"
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2190,7 +2447,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="200"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2218,6 +2477,8 @@ android:fontFamily="@font/lato"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtInsuType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -2226,7 +2487,9 @@ android:fontFamily="@font/lato"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -2265,6 +2528,8 @@ android:fontFamily="@font/lato"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherInsurance"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -2273,7 +2538,9 @@ android:fontFamily="@font/lato"
                                 android:maxLength="100"
                                 android:maxLines="1"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
 
@@ -2297,6 +2564,8 @@ android:fontFamily="@font/lato"
                         >
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtId"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2305,7 +2574,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2326,6 +2597,8 @@ android:fontFamily="@font/lato"
                         >
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2334,7 +2607,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2353,6 +2628,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtSubscribe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2361,7 +2638,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2390,6 +2669,8 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtInsPhoNum"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -2399,7 +2680,9 @@ android:fontFamily="@font/lato"
                                     android:maxLength="12"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -2415,13 +2698,17 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtInsType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:drawableRight="@drawable/drp"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -2457,6 +2744,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuarancePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2466,7 +2755,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2485,6 +2776,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2494,7 +2787,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2513,6 +2808,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2520,7 +2817,9 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2539,6 +2838,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2546,7 +2847,9 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2565,13 +2868,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAgent"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Agent Name, Phone, Email"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2588,13 +2895,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2612,6 +2923,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtMember"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2620,7 +2933,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2651,6 +2966,8 @@ android:fontFamily="@font/lato"
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideCompName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2659,7 +2976,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2678,6 +2997,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2687,7 +3008,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2706,6 +3029,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtHourOfficePhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2715,7 +3040,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2734,6 +3061,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtOtherPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2743,7 +3072,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2762,6 +3093,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2771,7 +3104,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2790,6 +3125,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideEmail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2797,7 +3134,9 @@ android:fontFamily="@font/lato"
                             android:imeOptions="actionNext"
                             android:maxLines="2"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="false"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2816,13 +3155,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2840,6 +3183,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAideWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2848,7 +3193,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2866,13 +3213,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+
                             android:id="@+id/txtAideNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -2890,6 +3241,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtAids"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2898,7 +3251,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2918,6 +3273,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtSchedule"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2926,7 +3283,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -2945,6 +3304,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtOther"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2953,7 +3314,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -3006,6 +3369,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3014,7 +3379,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -3035,13 +3402,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Address"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -3069,6 +3440,8 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtPharmPhoNum"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3078,7 +3451,9 @@ android:fontFamily="@font/lato"
                                     android:maxLength="12"
                                     android:maxLines="1"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -3094,13 +3469,17 @@ android:fontFamily="@font/lato"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                                     android:id="@+id/txtPharmType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:drawableRight="@drawable/drp"
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -3136,6 +3515,7 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3145,7 +3525,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -3164,6 +3546,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyFax"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3173,7 +3557,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="12"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -3192,6 +3578,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyWebsite"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3200,7 +3588,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="1"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -3219,13 +3609,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -3243,13 +3637,17 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+
+                                android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -3267,6 +3665,8 @@ android:fontFamily="@font/lato"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
+                       
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
@@ -3274,7 +3674,9 @@ android:fontFamily="@font/lato"
                             android:maxLength="30"
                             android:maxLines="3"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />

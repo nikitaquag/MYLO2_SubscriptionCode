@@ -208,7 +208,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     ImageView imgAddPhone, imgAddDrPhone, imgAddHospPhone, imgAddPharmPhone, imgAddFinPhone, imgAddInsuPhone;
     TextView txtType, txtDrType;
 
-    NonScrollListView listPrPhone;
+    NonScrollListView listPrPhone,listDrPhone;
     public ArrayList<ContactData> phonelist = new ArrayList<>();
     SpecialPhoneAdapter pd;
 
@@ -231,28 +231,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         this.context = getActivity();
     }
 
-    public void deletePhone(int position) {
-        phonelist.remove(phonelist.get(position));
-        setListPh();
-    }
 
-    public void setListPh() {
+    public void setListPh(NonScrollListView listv) {
         // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
         if (phonelist.size() == 0) {
             ContactData c = new ContactData();
             phonelist.add(c);
         }
         pd = new SpecialPhoneAdapter(getActivity(), phonelist);
-        listPrPhone.setAdapter(pd);
+      listv.setAdapter(pd);
     }
 
-    public void addNewPhone(Context context) {
+    /*public void addNewPhone(Context context) {
         ContactData c = new ContactData();
         phonelist.add(c);
         pd.notifyDataSetChanged();
-      /*  pd= new SpecialPhoneAdapter(context, phonelist);
-        listPrPhone.setAdapter(pd);*/
-    }
+      *//*  pd= new SpecialPhoneAdapter(context, phonelist);
+        listPrPhone.setAdapter(pd);*//*
+    }*/
 
     public void savedata() {
         try {
@@ -483,18 +479,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ArrayList<Specialist> connectionList = SpecialistQuery.getPhysician(preferences.getInt(PrefConstants.CONNECTED_USERID), name, speciality, 1);
                         for( int i=0;i<connectionList.size();i++)
                         {
-                            if (con.getName().equalsIgnoreCase(name)&&con.getIsPhysician()==1)
+                            if (connectionList.get(i).getName().equalsIgnoreCase(name)&&connectionList.get(i).getIsPhysician()==1)
                             con=connectionList.get(i);
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Physician");
                         if (flagf == true) {
-                        //    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
                                     if (flagc == true) {
-                                 //       Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                       Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -524,15 +520,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     Boolean flag = SpecialistQuery.insertPhysicianData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added doctor contact successfully", Toast.LENGTH_SHORT).show();
+                        Specialist con=new Specialist();
+                        ArrayList<Specialist> connectionList = SpecialistQuery.getDoctor(preferences.getInt(PrefConstants.CONNECTED_USERID), name, speciality, 2);
+                        for( int i=0;i<connectionList.size();i++)
+                        {
+                            if (connectionList.get(i).getName().equalsIgnoreCase(name)&&connectionList.get(i).getIsPhysician()==2)
+                                con=connectionList.get(i);
+                        }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Physician");
+                        boolean flagf = ContactDataQuery.deleteRecord("Doctor");
                         if (flagf == true) {
-                         //   Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                    Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
+                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Doctor");
                                     if (flagc == true) {
-                                //        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -561,12 +564,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                             boolean flagf = ContactDataQuery.deleteRecord("Physician");
                             if (flagf == true) {
-                               // Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
                                     if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                         Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
                                         if (flagc == true) {
-                                        //    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                            //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -580,6 +583,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
+                            ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                            boolean flagf = ContactDataQuery.deleteRecord("Doctor");
+                            if (flagf == true) {
+                                //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                for (int i = 0; i < phonelist.size(); i++) {
+                                    if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Doctor");
+                                        if (flagc == true) {
+                                            //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            }
                             getActivity().finish();
                         } else {
                             Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
@@ -628,16 +644,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     } else if (isPhysician == 2) {
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator);
                         if (flag == true) {
-                            Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Emergency");
+                            boolean flagf = ContactDataQuery.deleteRecord("Doctor");
                             if (flagf == true) {
-                              //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
                                     if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Emergency");
+                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Doctor");
                                         if (flagc == true) {
-                                       //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                            //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 }
@@ -1125,7 +1140,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 tilEmergencyNote.setVisibility(View.GONE);
                 rlPharmacy.setVisibility(View.GONE);
-
+               setListPh(listPrPhone);
                 break;
 
             case "Pharmacy":
@@ -1133,6 +1148,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiPharmacy();
                 txtAdd.setText("Add PHARMACIES &\nHOME MEDICAL EQUIPMENT");
                 txtTitle.setText("Add PHARMACIES &\nHOME MEDICAL EQUIPMENT");
+                setListPh(listPrPhone);
                 break;
 
             case "PharmacyData":
@@ -1212,6 +1228,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtCard.setVisibility(View.VISIBLE);
                     }
                 }
+
                 break;
 
             case "PharmacyDataView":
@@ -1563,7 +1580,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                 }
 
-
+                setListPh(listPrPhone);
 
                 break;
 
@@ -1615,7 +1632,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), rel.getId(), "Emergency");
-                    setListPh();
+                    setListPh(listPrPhone);
                     txtEmergencyNote.setText(rel.getNote());
                     id = rel.getId();
                     if (!rel.getRelationType().equals("")) {
@@ -1805,6 +1822,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiSpecialist();
                 txtAdd.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
                 txtTitle.setText("Add DOCTORS & OTHER\n HEALTH PROFESSIONALS");
+                setListPh(listDrPhone);
                 break;
 
             case "Physician":
@@ -1812,6 +1830,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiSpecialist();
                 txtAdd.setText("Add Primary Physician");
                 txtTitle.setText("Add Primary Physician");
+                setListPh(listDrPhone);
                 break;
 
             case "SpecialistData":
@@ -1872,6 +1891,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         spinner.setSelection(index + 1);
                     }*/
+
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Doctor");
+                    setListPh(listDrPhone);
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -1984,6 +2007,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         spinner.setSelection(index + 1);
                     }*/
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
+                    setListPh(listDrPhone);
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -2009,9 +2035,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.green);
-                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
-                    setListPh();
+                    setListPh(listDrPhone);
                     /*
                     if (imgFile.exists()) {
                        */
@@ -3509,6 +3535,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         layoutInflater = (LayoutInflater) getActivity().getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
         listPrPhone = rootview.findViewById(R.id.listPrPhone);
+        listDrPhone = rootview.findViewById(R.id.listDrPhone);
 
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
@@ -4437,7 +4464,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         });
 
-        setListPh();
+       // setListPh(listPrPhone);
     }
 
     public void setRelationData() {
