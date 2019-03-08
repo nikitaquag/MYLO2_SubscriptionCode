@@ -39,6 +39,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
@@ -137,7 +138,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     String liveOther = "";
     ListView ListPet;
     MySpinner spinner, spinnerRelation, spinnerEyes, spinnerLanguage, spinnerMarital;
-    TextInputLayout tilRelation,tilSpinMarital,tilSpinEye,tilSpinLang;
+    TextInputLayout tilSpinMarital,tilSpinEye,tilSpinLang;
+    FrameLayout flrel;
     TextView txtEyes,txtvGender,txtSpinMarital,txtSpinEye,txtSpinLang;
     String[] countryList = {"Canada", "Mexico", "USA", "UK", "California", "India"};
     String imagepath = "", cardpath = "";//
@@ -276,7 +278,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);*/
-      tilRelation=findViewById(R.id.tilRelation);
+      flrel=findViewById(R.id.flrel);
       txtRelation=findViewById(R.id.txtRelation);
       txtRelation.setFocusable(false);
         listPhone=findViewById(R.id.listPhone);
@@ -924,7 +926,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             rgGender.setVisibility(View.VISIBLE);
             txtvGender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
-            tilRelation.setVisibility(View.GONE);
+            flrel.setVisibility(View.GONE);
           //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
            // tilWorkPhone.setVisibility(View.VISIBLE);
             txtHomePhone.setVisibility(View.VISIBLE);
@@ -934,7 +936,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             //txtWorkPhone.setVisibility(View.VISIBLE);
             //tilWorkPhone.setVisibility(View.VISIBLE);
            // spinnerRelation.setVisibility(View.VISIBLE);
-            tilRelation.setVisibility(View.VISIBLE);
+            flrel.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.GONE);
             txtvGender.setVisibility(View.GONE);
             rgGender.setVisibility(View.GONE);

@@ -43,7 +43,8 @@ android:paddingTop="@dimen/dimension3dp"
                     android:fontFamily="@font/lato"
                     android:maxLines="1"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingBottom="@dimen/dimension8dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp"
@@ -53,12 +54,29 @@ android:paddingTop="@dimen/dimension3dp"
 
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilType"
+            <FrameLayout
+                android:id="@+id/fltype"
                 android:layout_width="@dimen/dimension0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
+
+                >
+            <ImageView
+                android:id="@+id/imgtype"
+                android:layout_width="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:src="@drawable/drg"
+                android:layout_alignParentRight="true"
+                android:paddingTop="@dimen/dimension8dp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension2dp"
+                ></ImageView>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
             >
@@ -69,9 +87,9 @@ android:paddingTop="@dimen/dimension3dp"
                     android:layout_height="wrap_content"
 android:fontFamily="@font/lato"
                     android:imeOptions="actionNext"
-                    android:drawableRight="@drawable/drp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingBottom="@dimen/dimension8dp"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
                     android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp"
@@ -80,6 +98,7 @@ android:fontFamily="@font/lato"
 
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
+            </FrameLayout>
             <ImageView
                 android:id="@+id/imgdeletePhone"
                 android:layout_width="@dimen/dimension0dp"
