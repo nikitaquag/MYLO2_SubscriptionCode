@@ -168,4 +168,34 @@ public class PharmacyQuery {
 
         return true;
     }
+
+    public static Pharmacy getLastPharmacy() {
+        ArrayList<Pharmacy> noteList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor c = db.rawQuery("select * from " + TABLE_NAME + ";", null);
+        Pharmacy notes = new Pharmacy();
+        // Cursor c=db.rawQuery("select * from "+TABLE_NAME + " where " + COL_USER_ID + "='" + userid + "';",null);
+        if (c != null && c.getCount() > 0) {
+            if (c.moveToFirst()) {
+                do {
+
+                    notes.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                    notes.setUserid(c.getInt(c.getColumnIndex(COL_USER_ID)));
+                    notes.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                    notes.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                    notes.setPhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                    notes.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                    notes.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                    notes.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                    notes.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                    notes.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                    notes.setLocator(c.getString(c.getColumnIndex(COL_LOCATOR)));
+
+                  //  noteList.add(notes);
+                } while (c.moveToNext());
+            }
+        }
+
+        return notes;
+    }
 }

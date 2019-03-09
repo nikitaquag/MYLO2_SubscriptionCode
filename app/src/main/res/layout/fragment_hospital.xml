@@ -304,15 +304,40 @@
 
             </RelativeLayout>
         </ScrollView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension60dp"
+            android:textSize="@dimen/dimension17dp"
+            android:layout_above="@+id/imghelp"
+            android:textStyle="italic"
+            android:fontFamily="@font/bold_lato"
+            android:textColor="@color/colorLightGrays"
+            android:text="Add a new Contacts!"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView  android:layout_marginRight="@dimen/dimension5dp"
+            android:tint="@color/colorLightGrays"
+            android:id="@+id/imghelp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/floatAdd"
+            android:src="@drawable/helparrow"
+            android:layout_width="@dimen/dimension110dp"
+            android:layout_height="@dimen/dimension150dp" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/llAddHospital"
             android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginRight="@dimen/dimension20dp"
-            android:layout_marginBottom="@dimen/dimension20dp"
             android:src="@drawable/ic_add"
             android:tint="@android:color/white"
             android:visibility="visible"
@@ -323,26 +348,20 @@
             android:id="@+id/floatOptions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/llAddHospital"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension20dp"
-            android:layout_marginBottom="@dimen/dimension20dp"
             android:src="@drawable/ic_more"
             android:tint="@android:color/white"
             app:backgroundTint="@color/colorRegisteredGreen"
             app:fabSize="normal" />
-    </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimension15dp">
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/llAddHospital"
+            android:layout_above="@+id/llAddSpecialist"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension20dp"
             android:src="@drawable/ic_box"
@@ -355,12 +374,12 @@
         <RelativeLayout
             android:id="@+id/llAddHospital"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dimension0dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:background="@color/colorThree"
+            android:background="@color/colorOne"
             android:visibility="invisible">
 
             <ImageView
@@ -374,14 +393,15 @@
             <TextView
                 android:id="@+id/txtAdd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/dimension60dp"
+                android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/imgAdd"
                 android:gravity="center"
                 android:padding="@dimen/dimension5dp"
-                android:text="Add HOSPITALS, REHABILITATION CENTERS, AND HOME HEALTH CARE AGENCIES"
+                android:text="Add Primary Physician"
                 android:textAllCaps="true"
                 android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension19dp" />
+                android:textSize="@dimen/dimension20dp" />
         </RelativeLayout>
 
     </RelativeLayout>
