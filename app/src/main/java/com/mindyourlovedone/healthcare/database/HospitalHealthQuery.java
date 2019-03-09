@@ -217,4 +217,43 @@ public class HospitalHealthQuery {
 
         return hospitalList;
     }
+
+    public static Hospital getLastHopital() {
+        ArrayList<Hospital> hospitalList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + ";";
+
+        // String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
+        Cursor c = db.rawQuery(query, null);
+        Hospital connection = new Hospital();
+        if (c.moveToFirst()) {
+            do {
+
+                //Hospital connection = new Hospital();
+                connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                connection.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                connection.setLastseen(c.getString(c.getColumnIndex(COL_LASTSEEN)));
+                connection.setLocator(c.getString(c.getColumnIndex(COL_LOCATOR)));
+                connection.setOfficePhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                connection.setLocation(c.getString(c.getColumnIndex(COL_LOCATION)));
+                connection.setOtherPhone(c.getString(c.getColumnIndex(COL_OTHER_PHONE)));
+                connection.setCategory(c.getString(c.getColumnIndex(COL_CATEGORY)));
+                connection.setPracticeName(c.getString(c.getColumnIndex(COL_ContactPerson)));
+                connection.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
+                connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+
+
+              //  hospitalList.add(connection);
+
+            } while (c.moveToNext());
+        }
+
+
+        return connection;
+    }
 }

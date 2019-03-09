@@ -56,8 +56,11 @@ public class ResourceActivity extends AppCompatActivity {
         l3.setUrl("https://www.agingwithdignity.org/");
         l3.setImage(R.drawable.aba_market);
 */
+
         Links l4 = new Links();
+
         l4.setName("AARP links to Advance Directive Forms by State (PDF)");
+
         l4.setUrl("https://www.aarp.org/caregiving/financial-legal/free-printable-advance-directives/");
         l4.setImage(R.drawable.link_one);
 

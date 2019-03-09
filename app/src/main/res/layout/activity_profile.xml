@@ -402,7 +402,7 @@
 
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
-                        android:paddingBottom="@dimen/dimension18dp"
+                        android:paddingBottom="@dimen/dimension15dp"
                         android:singleLine="true"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -698,7 +698,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tilName">
-
+                    <FrameLayout
+                        android:id="@+id/flrel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:layout_marginRight="@dimen/dimension22dp"
+                        >
+                    <ImageView
+                        android:id="@+id/imgrel"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:src="@drawable/drg"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="@dimen/dimension17dp"
+                        ></ImageView>
                     <com.mindyourlovedone.healthcare.customview.MySpinner
                         android:id="@+id/spinnerRelation"
                         android:layout_width="match_parent"
@@ -723,7 +738,7 @@
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
+
                         android:paddingBottom="@dimen/dimension8dp"
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -732,7 +747,6 @@
                             android:id="@+id/txtRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/drp"
                             android:fontFamily="@font/lato"
                             android:hint="Relationship"
                             android:imeOptions="actionNext"
@@ -747,12 +761,12 @@
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
-
+                    </FrameLayout>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOtherRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilRelation"
+                        android:layout_below="@+id/flrel"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
@@ -1019,12 +1033,27 @@
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
+<FrameLayout
+    android:id="@+id/rlEyess"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/llHeight"
+    android:layout_marginRight="@dimen/dimension22dp"
+    ><ImageView
+    android:id="@+id/img"
+    android:layout_width="@dimen/dimension20dp"
+    android:layout_height="@dimen/dimension25dp"
+    android:src="@drawable/drg"
+    android:layout_alignParentRight="true"
+    android:paddingTop="@dimen/dimension8dp"
+    android:layout_gravity="bottom|right"
+    android:layout_marginBottom="@dimen/dimension17dp"
 
+    ></ImageView>
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerEyes"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension85dp"
-                    android:layout_below="@+id/llHeight"
                     android:layout_marginLeft="@dimen/dimension35dp"
                     android:layout_marginRight="@dimen/dimension35dp"
                     android:visibility="gone"
@@ -1040,22 +1069,22 @@
                     android:id="@+id/tilSpinEyes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/llHeight"
+                    android:layout_weight="9"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     app:hintEnabled="true"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    android:layout_toLeftOf="@+id/img"
 
-                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    >
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtSpinEyes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/dropd"
                         android:fontFamily="@font/lato"
                         android:hint="Eye Color"
                         android:imeOptions="actionNext"
@@ -1069,13 +1098,15 @@
                         android:textSize="@dimen/dimension20dp" />
 
                     <requestFocus />
+
                 </android.support.design.widget.TextInputLayout>
 
+</FrameLayout>
                 <View
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension15dp"
-                    android:layout_below="@+id/tilSpinEyes"
+                    android:layout_below="@+id/rlEyess"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:background="@color/colorLightGray"></View>
@@ -1440,7 +1471,23 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view4">
+                    <FrameLayout
+                        android:id="@+id/flLang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimension22dp"
+                        >
+                    <ImageView
+                    android:id="@+id/imgLn"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:src="@drawable/drg"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/dimension17dp"
 
+                    ></ImageView>
                     <com.mindyourlovedone.healthcare.customview.MySpinner
                         android:id="@+id/spinnerLanguage"
                         android:layout_width="match_parent"
@@ -1464,7 +1511,7 @@
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
+
                         android:paddingBottom="@dimen/dimension8dp"
                         app:hintEnabled="true"
 
@@ -1474,7 +1521,7 @@
                             android:id="@+id/txtSpinLang"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/dropd"
+
                             android:fontFamily="@font/lato"
                             android:hint="Language Spoken"
                             android:imeOptions="actionNext"
@@ -1489,12 +1536,12 @@
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
-
+                    </FrameLayout>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilOtherLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilSpinLang"
+                        android:layout_below="@+id/flLang"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
@@ -1591,12 +1638,29 @@
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:background="@color/colorLightGray"></View>
+                <FrameLayout
+                    android:id="@+id/flMar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimension22dp"
+                    android:layout_below="@+id/view7"
+                    >
+                <ImageView
+                    android:id="@+id/imgMr"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:src="@drawable/drg"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/dimension17dp"
 
+                    ></ImageView>
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerMarital"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension85dp"
-                    android:layout_below="@+id/view7"
+
                     android:layout_marginLeft="@dimen/dimension35dp"
                     android:layout_marginRight="@dimen/dimension35dp"
                     android:visibility="gone"
@@ -1617,18 +1681,16 @@
                     android:focusableInTouchMode="true"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension20dp"
+
                     android:paddingBottom="@dimen/dimension8dp"
                     app:hintEnabled="true"
-                    android:drawableRight="@drawable/dropd"
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
                         android:id="@+id/txtSpinMarital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/dropd"
-                        android:fontFamily="@font/lato"
+                       android:fontFamily="@font/lato"
                         android:hint="Marital Status"
                         android:imeOptions="actionNext"
                         android:maxLength="30"
@@ -1642,12 +1704,12 @@
 
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
-
+                </FrameLayout>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilReligion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilSpinMarital"
+                    android:layout_below="@+id/flMar"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
