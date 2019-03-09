@@ -10,6 +10,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:background="@color/colorLightBlue"
     android:orientation="vertical"
     >
@@ -18,7 +19,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimension0dp"
     android:layout_above="@+id/rlSponsor"
-    android:layout_weight="10"
+    android:layout_weight="8"
     >
     <FrameLayout
         android:id="@+id/flTop"
@@ -206,6 +207,9 @@
 
 </RelativeLayout>
     <RelativeLayout
+        android:layout_marginTop="@dimen/dimension2dp"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
         android:id="@+id/rlSponsor"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0dp"
