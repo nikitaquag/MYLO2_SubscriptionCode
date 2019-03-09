@@ -58,7 +58,7 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
                     break;
                 case "Information":
                     callFragment("INFORMATION", fragmentMedicalInfo);
-                    imgRight.setVisibility(View.VISIBLE);
+                    imgRight.setVisibility(View.GONE);
                     break;
                 case "Emergency":
                     header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
