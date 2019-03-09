@@ -51,6 +51,7 @@ import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DoctorQuery;
 import com.mindyourlovedone.healthcare.database.FinanceQuery;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
+import com.mindyourlovedone.healthcare.database.HospitalQuery;
 import com.mindyourlovedone.healthcare.database.InsuranceQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PharmacyQuery;
@@ -208,7 +209,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     ImageView imgAddPhone, imgAddDrPhone, imgAddHospPhone, imgAddPharmPhone, imgAddFinPhone, imgAddInsuPhone;
     TextView txtType, txtDrType;
 
-    NonScrollListView listPrPhone,listDrPhone;
+    NonScrollListView listPrPhone,listDrPhone,listHospPhone,listPharmPhone,listFinPhone,listInsuPhone;
     public ArrayList<ContactData> phonelist = new ArrayList<>();
     SpecialPhoneAdapter pd;
 
@@ -383,6 +384,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "EmergencyUpdate":
+
                 if (validate("Emergency")) {
                     for (int i = 0; i < phonelist.size(); i++) {
                         if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
@@ -687,7 +689,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "PharmacyData":
-
+                for (int i = 0; i < phonelist.size(); i++) {
+                    if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
                 if (validate("Pharmacy")) {
                             /*Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -754,6 +761,27 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
+                        Hospital con=new Hospital();
+                        con=HospitalHealthQuery.getLastHopital();
+                      /*  ArrayList<Hospital> connectionList = HospitalHealthQuery.getHospital(preferences.getInt(PrefConstants.CONNECTED_USERID), name, speciality);
+                        for( int i=0;i<connectionList.size();i++)
+                        {
+                            if (connectionList.get(i).getName().equalsIgnoreCase(name)&&connectionList.get(i).getIsPhysician()==1)
+                                con=connectionList.get(i);
+                        }*/
+                        ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                        boolean flagf = ContactDataQuery.deleteRecord("Hospital");
+                        if (flagf == true) {
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            for (int i = 0; i < phonelist.size(); i++) {
+                                if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Hospital");
+                                    if (flagc == true) {
+                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        }
                         getActivity().finish();
                     } else {
                         Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
@@ -763,7 +791,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case "HospitalData":
-
+                for (int i = 0; i < phonelist.size(); i++) {
+                    if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
                 if (validate("Hospital")) {
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -772,6 +805,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
+                        ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                        boolean flagf = ContactDataQuery.deleteRecord("Hospital");
+                        if (flagf == true) {
+                            //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            for (int i = 0; i < phonelist.size(); i++) {
+                                if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                    Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Hospital");
+                                    if (flagc == true) {
+                                        //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        }
                         getActivity().finish();
                     } else {
                         Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
@@ -797,7 +843,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "FinanceData":
-
+                for (int i = 0; i < phonelist.size(); i++) {
+                    if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
                 if (validate("Finance")) {
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -833,7 +884,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "InsuranceData":
-
+                for (int i = 0; i < phonelist.size(); i++) {
+                    if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
                 if (validate("Insurance")) {
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -1198,12 +1254,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.yellow);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
@@ -1256,7 +1312,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -1547,7 +1603,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
-                            imgProfile.setImageResource(R.drawable.green);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         }
@@ -1568,6 +1624,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             }
                            /* Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
                             imgCard.setImageBitmap(bmpCard);*/
+                      
                             imgCard.setVisibility(View.VISIBLE);
                             rlCard.setVisibility(View.VISIBLE);
                             txtCard.setVisibility(View.GONE);
@@ -1681,14 +1738,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
-                            imgProfile.setImageResource(R.drawable.green);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         }
 
                     } else
-                        imgProfile.setImageResource(R.drawable.green);
+                        imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
 
                     //Change Class Name
@@ -1780,7 +1837,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
-                            imgProfile.setImageResource(R.drawable.green);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -1915,19 +1972,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.yellow);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     } else
-                        imgProfile.setImageResource(R.drawable.green);*/
+                        imgProfile.setImageResource(R.drawable.ic_profile_defaults);*/
 
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
@@ -2042,12 +2099,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.green);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.green);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
                     setListPh(listDrPhone);
@@ -2149,7 +2206,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.lightblue);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -2221,7 +2278,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.green);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -2259,6 +2316,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiInsurance();
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
+                setListPh(listInsuPhone);
                 break;
 
             case "InsuranceData":
@@ -2315,6 +2373,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtOtherInsurance.setText(insurance.getOtherInsurance());
 
                     id = insurance.getId();
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Insurance");
+                    setListPh(listInsuPhone);
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -2329,19 +2390,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.lightblue);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.lightblue);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
                         //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     } else {
-                        imgProfile.setImageResource(R.drawable.lightblue);
+                        imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     }*/
 
                     //Change Class Name
@@ -2411,7 +2472,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.lightblue);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -2603,14 +2664,17 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiFinance();
                 txtAdd.setText("Add Finance & Legal");
                 txtTitle.setText("Add Finance & Legal");
+                setListPh(listFinPhone);
                 break;
 
             case "Hospital":
                 changeIcon(source);
                 // visiFinance();
                 visiHospital();
-                txtAdd.setText("Add HOSPITALS & REHABILITATION CENTERS");
-                txtTitle.setText("Add HOSPITALS & REHABILITATION CENTERS");
+                txtAdd.setText("Add Hospitals & Rehabilitation Centers");
+                txtTitle.setText("Add Hospitals & Rehabilitation Centers");
+                setListPh(listHospPhone);
+
                 break;
 
             case "HospitalData":
@@ -2619,8 +2683,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
                 txtDelete.setVisibility(View.VISIBLE);
-                txtAdd.setText("Update HOSPITALS & REHABILITATION CENTERS");
-                txtTitle.setText("Update HOSPITALS & REHABILITATION CENTERS");
+                txtAdd.setText("Update Hospitals & Rehabilitation Centers");
+                txtTitle.setText("Update Hospitals & Rehabilitation Centers");
                 Intent hospIntent = getActivity().getIntent();
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
@@ -2656,6 +2720,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     txtHospitalLocation.setText(specialist.getLocation());
 
                     id = specialist.getId();
+
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Hospital");
+                    setListPh(listHospPhone);
                    /* if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < HospitalType.length; i++) {
@@ -2685,12 +2753,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.yellow);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -2765,7 +2833,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -2867,6 +2935,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         tilOtherCategory.setVisibility(View.GONE);
                     }
                     id = specialist.getId();
+
+                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Finance");
+                    setListPh(listFinPhone);
                 /*    if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < financeType.length; i++) {
@@ -2890,12 +2962,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.yellow);
+                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
@@ -2971,7 +3043,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
-                            imgProfile.setImageResource(R.drawable.yellow);
+                            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                         else
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -3008,96 +3080,96 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     private void changeIcon(String source) {
         if (source.equals("Emergency")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("EmergencyView")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("EmergencyUpdate")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Physician")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Speciality")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Pharmacy")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Hospital")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Finance")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Insurance")) {
-            imgProfile.setImageResource(R.drawable.lightblue);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("FinanceViewData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("FinanceData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("HospitalViewData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("HospitalData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("InsuranceViewData")) {
-            imgProfile.setImageResource(R.drawable.lightblue);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("InsuranceData")) {
-            imgProfile.setImageResource(R.drawable.lightblue);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("PhysicianViewData")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("SpecialistViewData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("PhysicianData")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("SpecialistData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("PharmacyDataView")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("PharmacyData")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Connection")) {
-            imgProfile.setImageResource(R.drawable.green);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }
     }
 
 
     private int getIcon(String source) {
         if (source.equals("Emergency")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("EmergencyView")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("EmergencyUpdate")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Physician")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Speciality")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Pharmacy")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Hospital")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Finance")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Insurance")) {
-            return (R.drawable.lightblue);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("FinanceViewData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("FinanceData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("HospitalViewData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("HospitalData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("InsuranceViewData")) {
-            return (R.drawable.lightblue);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("InsuranceData")) {
-            return (R.drawable.lightblue);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("PhysicianViewData")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("SpecialistViewData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("PhysicianData")) {
-            return (R.drawable.green);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("SpecialistData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("PharmacyDataView")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("PharmacyData")) {
-            return (R.drawable.yellow);
+            return (R.drawable.ic_profile_defaults);
         } else if (source.equals("Connection")) {
             return (R.drawable.ic_profile_defaults);
         } else {
@@ -3564,6 +3636,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         listPrPhone = rootview.findViewById(R.id.listPrPhone);
         listDrPhone = rootview.findViewById(R.id.listDrPhone);
+        listHospPhone = rootview.findViewById(R.id.listHospPhone);
+        listPharmPhone = rootview.findViewById(R.id.listPharmPhone);
+        listFinPhone = rootview.findViewById(R.id.listFinPhone);
+        listInsuPhone = rootview.findViewById(R.id.listInsuPhone);
 
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
@@ -3580,9 +3656,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         tilPriority = rootview.findViewById(R.id.tilPriority);
         imgProfile = rootview.findViewById(R.id.imgProfile);
         if (source.equals("Emergency")) {
-            imgProfile.setImageResource(R.drawable.lightblue);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("Physician")) {
-            imgProfile.setImageResource(R.drawable.yellow);
+            imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         }
 
         tbCard=rootview.findViewById(R.id.tbCard);

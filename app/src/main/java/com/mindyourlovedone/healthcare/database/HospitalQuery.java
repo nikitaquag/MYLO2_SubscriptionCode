@@ -5,6 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.mindyourlovedone.healthcare.model.Hospital;
+
 import java.util.ArrayList;
 
 /**
@@ -102,4 +104,6 @@ public class HospitalQuery {
 
         return flag;
     }
+
+
 }
