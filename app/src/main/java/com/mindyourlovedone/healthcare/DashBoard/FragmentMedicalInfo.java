@@ -272,7 +272,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgBack = getActivity().findViewById(R.id.imgBack);
         txtSave = getActivity().findViewById(R.id.txtSave);
         imgDone = getActivity().findViewById(R.id.imgDone);
-        txtSave.setVisibility(View.VISIBLE);
+        txtSave.setVisibility(View.GONE);
         //imgDone.setVisibility(View.VISIBLE);
         imgRight = getActivity().findViewById(R.id.imgRight);
         etPreNote = rootview.findViewById(R.id.etNote);
