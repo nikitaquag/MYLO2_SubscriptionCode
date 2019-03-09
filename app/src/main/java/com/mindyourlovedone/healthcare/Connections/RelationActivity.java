@@ -52,14 +52,17 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
         if (i.getExtras() != null) {
             category = i.getStringExtra("Category");
             if (category.equalsIgnoreCase("Relation")) {
+                txtTitles.setText("Select Relationship");
                 String Relationship[] = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Relationship);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Priority")) {
+                txtTitles.setText("Select Priority");
                 String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent"};
                 RelationsAdapter rd = new RelationsAdapter(context, priorityType);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Specialty")) {
+                txtTitles.setText("Select Specialty");
                 String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality);
                 listRelation.setAdapter(rd);
@@ -89,18 +92,22 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 RelationsAdapter rd = new RelationsAdapter(context, Frequency);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Relationp")) {
+                txtTitles.setText("Select Blood Relationship");
                 String[] Relationships = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, Relationships);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Marital")) {
+                txtTitles.setText("Select Marital Status");
                 String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
                 RelationsAdapter rd = new RelationsAdapter(context, MaritalList);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("language")) {
+                txtTitles.setText("Select Language Spoken");
                 String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, LangList);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("eyes")) {
+                txtTitles.setText("Select Eyes Color");
                 String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
                 RelationsAdapter rd = new RelationsAdapter(context, EyesList);
                 listRelation.setAdapter(rd);
