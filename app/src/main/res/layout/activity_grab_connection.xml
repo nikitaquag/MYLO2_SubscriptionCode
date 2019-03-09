@@ -34,7 +34,7 @@
             android:gravity="center"
             android:text=""
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension21dp" />
+            android:textSize="@dimen/dimension20dp" />
 
         <ImageView
             android:id="@+id/imgdg"
