@@ -364,6 +364,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
             android:textStyle="bold"
+            android:fontFamily="@font/lato"
             android:layout_toRightOf="@+id/imgHomes"
             android:gravity="center"
             android:text="Advance Directives\n&amp; Documents"
@@ -401,6 +402,7 @@
         android:layout_alignParentLeft="true"
         android:background="@color/colorSkyBlue"
         android:gravity="center"
+        android:fontFamily="@font/lato"
         android:text="XYZ XYZ"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension22dp" />
@@ -418,6 +420,7 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension30dp"
             android:gravity="center"
+            android:fontFamily="@font/lato"
             android:text="@string/ClickDirective"
             android:textColor="@color/colorDirectiveBlue"
             android:textSize="@dimen/dimension17dp"

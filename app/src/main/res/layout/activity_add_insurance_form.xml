@@ -36,6 +36,7 @@
                 android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="Add Insurance Form"
                 android:textStyle="bold"
+                android:fontFamily="@font/lato"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
 
@@ -49,6 +50,7 @@
                 android:background="@drawable/border_save"
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
+                android:fontFamily="@font/lato"
                 android:text="Save"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
@@ -186,6 +188,7 @@
                     android:gravity="center"
                     android:hint="Upload New Insurance Form"
                     android:imeOptions="actionNext"
+                    android:fontFamily="@font/lato"
                     android:maxLength="30"
                     android:maxLines="1"
                     android:paddingLeft="@dimen/dimension15dp"

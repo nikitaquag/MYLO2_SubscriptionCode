@@ -86,6 +86,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/imgEdit"
+                  android:fontFamily="@font/lato_bold"
                     android:text="Cfklj kj ouio "
                     android:textColor="@color/colorDarkBlue"
                     android:textSize="@dimen/dimension20dp" />
@@ -98,6 +99,7 @@
                     android:layout_marginTop="@dimen/dimension10dp"
                     android:drawableLeft="@drawable/phone"
                     android:drawablePadding="@dimen/dimension5dp"
+                   android:fontFamily="@font/lato"
                     android:gravity="top|left"
                     android:text="8789-879-78"
                     android:textColor="@color/colorDarkGray"
