@@ -397,10 +397,11 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                preferences.putString(PrefConstants.SOURCE, "Pharmacy");
+                Toast.makeText(getActivity(),"Work in progress",Toast.LENGTH_SHORT).show();
+               /* preferences.putString(PrefConstants.SOURCE, "Pharmacy");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 i.putExtra("TAB","Contact");
-                startActivity(i);
+                startActivity(i);*/
                 dialog.dismiss();
             }
         });

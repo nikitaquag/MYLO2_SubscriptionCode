@@ -388,14 +388,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/tilFinanceEmail"
-                            android:layout_marginLeft="@dimen/dimension20dp"
-                            android:layout_marginRight="@dimen/dimension20dp">
+                           >
+                            <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                                android:id="@+id/listFinPhone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingLeft="@dimen/dimension20dp"
+                                android:paddingRight="@dimen/dimension20dp"
+                                android:divider="@null"
+                                ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                             <LinearLayout
                                 android:id="@+id/llFinNum"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                                android:orientation="horizontal"
+                                android:visibility="gone"
+                                >
 
                                 <android.support.design.widget.TextInputLayout
                                     android:id="@+id/tilFinPhoNum"
@@ -910,14 +919,23 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilFNameHospital"
-                        android:layout_marginLeft="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension20dp">
+                       >
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/listHospPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:divider="@null"
+                            ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
                             android:id="@+id/llHospNum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilHospPhoNum"
@@ -2652,14 +2670,23 @@ android:fontFamily="@font/lato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilSubscribe"
-                        android:layout_marginLeft="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension20dp">
+                        >
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/listInsuPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:divider="@null"
+                            ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
                             android:id="@+id/llInsNum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilInsPhoNum"
@@ -3423,14 +3450,23 @@ android:fontFamily="@font/lato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilPharmacyAddres"
-                        android:layout_marginLeft="@dimen/dimension20dp"
-                        android:layout_marginRight="@dimen/dimension20dp">
+                       >
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/listPharmPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:divider="@null"
+                            ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
                         <LinearLayout
                             android:id="@+id/llPharmNum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone"
+                            >
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilPharmPhoNum"
