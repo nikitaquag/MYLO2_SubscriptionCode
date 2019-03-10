@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-    <!--xmlns:tools="http://schemas.android.com/tools"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -48,22 +48,20 @@
                     android:visibility="gone" />
 
                 <RelativeLayout
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:id="@+id/rlAllergyMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtName"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorOnesGray">
+                    android:background="@drawable/border_row_white_app">
 
-                    <RelativeLayout
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:id="@+id/rlAllergis"
+                    <RelativeLayout   android:id="@+id/rlAllergis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:layout_marginTop="@dimen/dimension15dp"
-                        android:background="@drawable/border_row_white_app"
                         android:gravity="center"
                         android:padding="@dimen/dimension5dp">
 
@@ -80,7 +78,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgAddAllergy"
                             android:layout_toRightOf="@+id/imgAllergy"
                             android:fontFamily="@font/lato"
@@ -110,7 +108,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="false"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
@@ -135,9 +133,7 @@
                                 android:id="@+id/ListAllergy"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension15dp"
                                 android:divider="@null" />
 
                             <TextView
@@ -191,9 +187,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rlAllergis"
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
+
                         android:background="@drawable/border_edit_note"
                         android:fontFamily="@font/lato"
                         android:gravity="center"
@@ -474,21 +468,19 @@
                     android:visibility="gone" />
 
                 <RelativeLayout
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:id="@+id/rlPreMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlAllergyMain"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorOnesGray">
+                    android:background="@drawable/border_row_white_app">
 
-                    <RelativeLayout
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:id="@+id/rlPre"
+                    <RelativeLayout   android:id="@+id/rlPre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:background="@drawable/border_row_white_app"
                         android:padding="@dimen/dimension5dp">
 
                         <ImageView
@@ -504,7 +496,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgAddCondition"
                             android:layout_toRightOf="@+id/imgPre"
                             android:fontFamily="@font/lato"
@@ -520,7 +512,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="false"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension15dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
@@ -547,9 +539,7 @@
                                 android:id="@+id/ListCondtion"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension15dp"
                                 android:layout_toRightOf="@+id/imgPre"
                                 android:divider="@null" />
 
@@ -607,9 +597,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/rlPre"
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
+
                         android:background="@drawable/border_edit_note"
                         android:fontFamily="@font/lato"
                         android:gravity="center"
@@ -1673,7 +1661,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view7"
-                    android:padding="@dimen/dimension5dp"
                     android:layout_margin="@dimen/dimension10dp"
                     android:background="@drawable/border_row_white_app">
 
@@ -1681,8 +1668,11 @@
                         android:id="@+id/imgVaccine"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginLeft="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:padding="@dimen/dimension5dp"
+                        android:padding="@dimen/dimension8dp"
                         android:src="@drawable/syringe" />
 
                     <TextView
@@ -1703,7 +1693,7 @@
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="false"
-                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension15dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
@@ -1730,6 +1720,7 @@
                         android:layout_height="@dimen/dimension35dp"
                         android:layout_alignParentRight="true"
                         android:padding="@dimen/dimension5dp"
+
                         android:src="@drawable/add_square"
                         android:visibility="gone" />
 
@@ -1746,8 +1737,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
 
-                            android:layout_marginLeft="@dimen/dimension5dp"
-                            android:layout_marginRight="@dimen/dimension5dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension20dp"
                             android:background="@color/colordivideGray" />
 
@@ -1756,7 +1747,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/vwll"
-                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_margin="@dimen/dimension20dp"
                             android:divider="@null" />
 
                         <TextView
@@ -2490,29 +2481,27 @@
                     android:visibility="gone" />
 
                 <RelativeLayout
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:id="@+id/rlImplantsMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlPreMain"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorOnesGray">
+                    android:background="@drawable/border_row_white_app">
 
                     <RelativeLayout
-                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlImplants"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:background="@drawable/border_row_white_app"
-                        android:padding="@dimen/dimension5dp">
+                       android:padding="@dimen/dimension5dp">
 
                         <ImageView
                             android:id="@+id/imgImplants"
                             android:layout_width="@dimen/dimension45dp"
                             android:layout_height="@dimen/dimension50dp"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension5dp"
                             android:padding="@dimen/dimension6dp"
                             android:src="@drawable/implant" />
 
@@ -2521,7 +2510,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgAddImplants"
                             android:layout_toRightOf="@+id/imgImplants"
                             android:fontFamily="@font/lato"
@@ -2537,7 +2526,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="false"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
@@ -2564,9 +2553,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtImplantsHeader"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension15dp"
                                 android:layout_toRightOf="@+id/imgImplants"
                                 android:divider="@null" />
                         </LinearLayout>
@@ -2579,9 +2566,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/rlImplants"
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
+
                         android:background="@drawable/border_edit_note"
                         android:fontFamily="@font/lato"
                         android:gravity="center"
@@ -2615,21 +2600,21 @@
                                 android:background="@color/colorLightGray" />
                 -->
                 <RelativeLayout
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:id="@+id/rlHospitalMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlHistoryMain"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorOnesGray">
+                    android:background="@drawable/border_row_white_app">
 
                     <RelativeLayout
-                        android:layout_marginBottom="@dimen/dimension10dp"
+
                         android:id="@+id/rlHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:background="@drawable/border_row_white_app"
                         android:padding="@dimen/dimension5dp">
 
                         <ImageView
@@ -2637,7 +2622,6 @@
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension6dp"
                             android:src="@drawable/hospitals" />
 
@@ -2646,7 +2630,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension25dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgAddHospital"
                             android:layout_toRightOf="@+id/imgHospital"
                             android:fontFamily="@font/lato"
@@ -2661,7 +2645,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="false"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension25dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
@@ -2687,9 +2671,8 @@
                                 android:id="@+id/ListHospital"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension15dp"
+
                                 android:layout_toRightOf="@+id/imgHospital"
                                 android:divider="@null" />
 
@@ -2703,9 +2686,6 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/rlHospital"
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_edit_note"
                         android:fontFamily="@font/lato"
                         android:gravity="center"
@@ -2881,21 +2861,19 @@
                                 android:background="@color/colorLightGray" />
                 -->
                 <RelativeLayout
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:id="@+id/rlHistoryMain"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlImplantsMain"
                     android:layout_centerHorizontal="true"
-                    android:background="@color/colorOnesGray">
+                    android:background="@drawable/border_row_white_app">
 
-                    <RelativeLayout
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:id="@+id/rlHistory"
+                    <RelativeLayout     android:id="@+id/rlHistory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:background="@drawable/border_row_white_app"
                         android:padding="@dimen/dimension5dp">
 
                         <ImageView
@@ -2903,7 +2881,6 @@
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension6dp"
                             android:src="@drawable/historybook" />
 
@@ -2912,7 +2889,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension25dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgAddHistory"
                             android:layout_toRightOf="@+id/imgHistory"
                             android:fontFamily="@font/lato"
@@ -2928,7 +2905,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="false"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension25dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
@@ -2955,9 +2932,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtHistoryHeader"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension15dp"
                                 android:layout_toRightOf="@+id/imgHistory"
                                 android:divider="@null" />
 
@@ -2972,9 +2947,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_below="@+id/rlHistory"
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
+
                         android:background="@drawable/border_edit_note"
                         android:fontFamily="@font/lato"
                         android:gravity="center"
@@ -3956,23 +3929,23 @@
         </LinearLayout>
 </RelativeLayout>
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:layout_gravity="bottom"-->
-        <!--android:padding="@dimen/dimension10dp">-->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:padding="@dimen/dimension10dp">
 
-        <!--<android.support.design.widget.FloatingActionButton-->
-            <!--android:id="@+id/floatOptions"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_above="@+id/llAddConn"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_margin="@dimen/dimension5dp"-->
-            <!--android:src="@drawable/ic_more"-->
-            <!--android:tint="@android:color/white"-->
-            <!--app:backgroundTint="@color/colorRegisteredGreen"-->
-            <!--app:fabSize="normal" />-->
-    <!--</RelativeLayout>-->
-<!--</FrameLayout>-->
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/llAddConn"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="@dimen/dimension5dp"
+            android:src="@drawable/ic_more"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+    </RelativeLayout>
+</FrameLayout>

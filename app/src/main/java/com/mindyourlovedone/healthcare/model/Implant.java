@@ -7,15 +7,18 @@ import java.io.Serializable;
  */
 
 public class Implant implements Serializable {
-    String other = "";
+    String other = "--";
     int userId;
     int id;
-    String name = "";
-    String date = "";
+    String name = "--";
+    String date = "--";
 
-    String location = "";
+    String location = "--";
 
     public String getLocation() {
+        if(location.isEmpty()){
+            return "--";
+        }
         return location;
     }
 
@@ -24,6 +27,9 @@ public class Implant implements Serializable {
     }
 
     public String getDetails() {
+        if(details.isEmpty()){
+            return "--";
+        }
         return details;
     }
 
@@ -32,6 +38,9 @@ public class Implant implements Serializable {
     }
 
     public String getNotes() {
+        if(notes.isEmpty()){
+            return "--";
+        }
         return notes;
     }
 
@@ -39,10 +48,13 @@ public class Implant implements Serializable {
         this.notes = notes;
     }
 
-    String details = "";
-    String notes = "";
+    String details = "--";
+    String notes = "--";
 
     public String getOther() {
+        if(other.isEmpty()){
+            return "--";
+        }
         return other;
     }
 
@@ -67,6 +79,9 @@ public class Implant implements Serializable {
     }
 
     public String getName() {
+        if(name.isEmpty()){
+            return "--";
+        }
         return name;
     }
 
@@ -75,6 +90,9 @@ public class Implant implements Serializable {
     }
 
     public String getDate() {
+        if(date.isEmpty()){
+            return "--";
+        }
         return date;
     }
 

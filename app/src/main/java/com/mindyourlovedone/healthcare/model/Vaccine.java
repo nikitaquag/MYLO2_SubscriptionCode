@@ -7,13 +7,16 @@ import java.io.Serializable;
  */
 
 public class Vaccine implements Serializable {
-    String Other = "";
+    String Other = "--";
     int userId;
     int id;
-    String name = "";
-    String date = "";
+    String name = "--";
+    String date = "--";
 
     public String getOther() {
+        if(Other.isEmpty()){
+            return "--";
+        }
         return Other;
     }
 
@@ -38,6 +41,9 @@ public class Vaccine implements Serializable {
     }
 
     public String getName() {
+        if(name.isEmpty()){
+            return "--";
+        }
         return name;
     }
 
@@ -46,6 +52,9 @@ public class Vaccine implements Serializable {
     }
 
     public String getDate() {
+        if(date.isEmpty()){
+            return "--";
+        }
         return date;
     }
 

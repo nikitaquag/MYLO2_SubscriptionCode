@@ -688,11 +688,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Implant a = ImplantsLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Medical Implants\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
+                    allergy = "Medical Implants : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]"  + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]"  + a.getNotes();
                 } else if (a.getName().equals("Joint Replacements (specify)")) {
-                    allergy = "Medical Implants\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
+                    allergy = "Medical Implants : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]"  + a.getLocation() + "]" + "Details : ]"  + a.getDetails() + "]" + "Note : ]"  + a.getNotes();
                 } else {
-                    allergy = "Medical Implants\n" + a.getName() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nLocation" + "\n" + a.getLocation() + "\n" + "\nDetails" + "\n" + a.getDetails() + "\n" + "\nNote" + "\n" + a.getNotes();
+                    allergy = "Medical Implants : ]" + a.getName() + "]" + "Date : ]"  + a.getDate() + "]" + "Location : ]"  + a.getLocation() + "]" + "Details : ]"  + a.getDetails() + "]" + "Note : ]"  + a.getNotes();
                 }
                 allergyList.add(allergy);
             }
@@ -741,9 +741,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 History a = HistoryLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Surgical History" + "\n" + a.getName() + " - " + a.getOther() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nDoctor" + "\n" + a.getDoctor() + "\n" + "\nLocation" + "\n" + a.getDone();
+                    allergy = "Surgical History : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Doctor : ]" + a.getDoctor() + "]" + "Location : ]" + a.getDone();
                 } else {
-                    allergy = "Surgical History" + "\n" + a.getName() + "\n" + "\nDate" + "\n" + a.getDate() + "\n" + "\nDoctor" + "\n" + a.getDoctor() + "\n" + "\nLocation" + "\n" + a.getDone();
+                    allergy = "Surgical History : ]" + a.getName() + "]" + "Date : ]" + a.getDate() + "]" + "Doctor : ]" + a.getDoctor() + "]" + "Location : ]" + a.getDone();
                 }
                 allergyList.add(allergy);
             }
@@ -827,9 +827,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Vaccine a = VaccineLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Vaccine: " + a.getName() + " - " + a.getOther() + "\nDate: " + a.getDate();
+                    allergy = "Vaccine : ]" + a.getName() + " - " + a.getOther() + "]Date : ]" + a.getDate();
                 } else {
-                    allergy = "Vaccine: " + a.getName() + "\nDate: " + a.getDate();
+                    allergy = "Vaccine : ]" + a.getName() + "]Date : ]" + a.getDate();
                 }
                 allergyList.add(allergy);
             }
@@ -878,9 +878,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Allergy a = AllargyLists.get(i);
                 String allergy = "";
                 if (a.getReaction().equals("Other")) {
-                    allergy = "Allergy\n" + a.getAllergy() + "\n" + "\nReaction" + "\n" + a.getReaction() + " - " + a.getOtherReaction() + "\n" + "\nTreatment" + "\n" + a.getTreatment();
+                    allergy = "Allergy :       ]" + a.getAllergy() + "]" + "Reaction :    ]" + a.getReaction() + " - " + a.getOtherReaction() + "]" + "Treatment : ]" + a.getTreatment();
                 } else {
-                    allergy = "Allergy\n" + a.getAllergy() + "\n" + "\nReaction" + "\n" + a.getReaction() + "\n" + "\nTreatment" + "\n" + a.getTreatment();
+                    allergy = "Allergy :       ]" + a.getAllergy() + "]" + "Reaction :    ]" + a.getReaction() + "]" + "Treatment : ]" + a.getTreatment();
                 }
                 allergyList.add(allergy);
             }

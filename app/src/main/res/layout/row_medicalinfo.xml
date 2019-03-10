@@ -5,137 +5,362 @@
     android:layout_marginTop="@dimen/dimension10dp"
     android:orientation="horizontal"
     android:background="@color/colorWhite"
-    android:layout_marginBottom="@dimen/dimension0dp">
+    android:layout_marginBottom="@dimen/dimension10dp">
 
     <RelativeLayout
+
         android:id="@+id/rlMedical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/dimension0dp"
-        android:background="@drawable/gray_white_border_medical"
-        android:gravity="center">
-
-
-        <TextView
-            android:id="@+id/txtInfo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:padding="@dimen/dimension10dp"
-            android:text="klklaskdlsaczx kssafsacssczxcss"
-            android:textColor="@color/colorDarkGray"
-            android:textSize="@dimen/dimension18dp" />
-
-        <ImageView
-            android:id="@+id/imgEdit1"
-            android:layout_width="@dimen/dimension25dp"
-            android:layout_height="@dimen/dimension25dp"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/dimension20dp"
-            android:padding="@dimen/dimension0dp"
-            android:src="@drawable/edit"
-            android:visibility="gone"></ImageView>
-
-        <ImageView
-            android:id="@+id/imgDelete1"
-            android:layout_width="@dimen/dimension25dp"
-            android:layout_height="@dimen/dimension25dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:padding="@dimen/dimension0dp"
-            android:src="@drawable/delete_icon"
-            android:visibility="gone"></ImageView>
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/rlMedical"
-        android:background="@drawable/edit_del_med_border"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginBottom="@dimen/dimension10dp">
+        android:layout_height="match_parent"
+       >
 
         <RelativeLayout
-            android:id="@+id/rlEdit"
-            android:layout_width="@dimen/dimension0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="@dimen/dimension5dp">
-
-            <ImageView
-                android:id="@+id/imgEdit"
-                android:layout_width="@dimen/dimension25dp"
-                android:layout_height="@dimen/dimension20dp"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/dimension0dp"
-                android:padding="@dimen/dimension0dp"
-                android:src="@drawable/edit_pencil"
-                android:tint="@color/colorBlue"
-                android:visibility="visible"></ImageView>
-
+            android:layout_marginBottom="@dimen/dimension10dp"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_toLeftOf="@+id/linopt"
+            android:layout_alignParentLeft="true"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
             <TextView
-                android:id="@+id/txtEdit"
+                android:visibility="gone"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/txtsub1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imgEdit"
-                android:layout_weight="1"
-                android:padding="@dimen/dimension5dp"
-                android:text="Edit"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
                 android:textAllCaps="true"
-                android:textColor="@color/colorBlue"
-                android:textSize="14dp" />
+                android:textColor="#A1A1A1"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+
+                android:layout_toRightOf="@+id/txtsub1"
+                android:id="@+id/txtInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtsub1"
+                android:layout_below="@+id/txtInfo1"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/txtsub2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="#A1A1A1"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtInfo1"
+                android:layout_below="@+id/txtInfo1"
+                android:layout_toRightOf="@+id/txtsub1"
+                android:id="@+id/txtInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtsub1"
+                android:layout_below="@+id/txtInfo2"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/txtsub3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="#A1A1A1"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtInfo1"
+                android:layout_below="@+id/txtInfo2"
+                android:layout_toRightOf="@+id/txtsub3"
+                android:id="@+id/txtInfo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtsub1"
+                android:layout_below="@+id/txtInfo3"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/txtsub4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="#A1A1A1"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtInfo1"
+                android:layout_below="@+id/txtInfo3"
+                android:layout_toRightOf="@+id/txtsub4"
+                android:id="@+id/txtInfo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:textAllCaps="true"
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtsub1"
+                android:layout_below="@+id/txtInfo4"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/txtsub5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="#A1A1A1"
+                android:textSize="@dimen/dimension15dp" />
+
+            <TextView
+                android:visibility="gone"
+                android:layout_alignLeft="@+id/txtInfo1"
+                android:layout_below="@+id/txtInfo4"
+                android:layout_toRightOf="@+id/txtsub5"
+                android:id="@+id/txtInfo5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:textStyle="normal"
+                android:text=""
+                android:textColor="@color/colorBlackDark"
+                android:textSize="@dimen/dimension15dp" />
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_marginBottom="@dimen/dimension10dp"
+            android:layout_centerVertical="true"
+            android:id="@+id/linopt"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rlEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                >
+
+                <ImageView
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:id="@+id/imgEdit"
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:padding="@dimen/dimension0dp"
+                    android:src="@drawable/edit_n"
+                    android:visibility="visible"></ImageView>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:id="@+id/rlDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgDelete"
+                    android:layout_width="@dimen/dimension25dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/delete_n"
+                    android:visibility="visible">
+
+                </ImageView>
+
+            </RelativeLayout>
+        </LinearLayout>
 
         <View
-            android:layout_width="@dimen/dimension2dp"
-            android:layout_height="match_parent"
-            android:background="@color/colorOnesGray" />
+            android:id="@+id/vv"
+            android:background="@color/colordivideGray"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension1dp"/>
 
-        <RelativeLayout
-            android:id="@+id/rlDelete"
-            android:layout_width="@dimen/dimension0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="@dimen/dimension5dp">
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/imgDelete"
-                android:layout_width="@dimen/dimension25dp"
-                android:layout_height="@dimen/dimension20dp"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginRight="@dimen/dimension0dp"
-                android:padding="@dimen/dimension0dp"
-                android:src="@drawable/delete_icon"
-                android:tint="@color/colorRed"
-                android:visibility="visible"></ImageView>
-
-            <TextView
-                android:id="@+id/txtDelete"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/imgDelete"
-                android:layout_weight="1"
-                android:padding="@dimen/dimension5dp"
-                android:text="Delete"
-                android:textAllCaps="true"
-                android:textColor="@color/colorRedButton"
-                android:textSize="14dp" />
-
-        </RelativeLayout>
-
-    </LinearLayout>
 </RelativeLayout>
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="@dimen/dimension10dp"-->
+    <!--android:orientation="horizontal"-->
+    <!--android:background="@color/colorWhite"-->
+    <!--android:layout_marginBottom="@dimen/dimension0dp">-->
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/rlMedical"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginBottom="@dimen/dimension0dp"-->
+        <!--android:background="@drawable/gray_white_border_medical"-->
+        <!--android:gravity="center">-->
+
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtInfo"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginRight="@dimen/dimension10dp"-->
+            <!--android:padding="@dimen/dimension10dp"-->
+            <!--android:text="klklaskdlsaczx kssafsacssczxcss"-->
+            <!--android:textColor="@color/colorDarkGray"-->
+            <!--android:textSize="@dimen/dimension18dp" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgEdit1"-->
+            <!--android:layout_width="@dimen/dimension25dp"-->
+            <!--android:layout_height="@dimen/dimension25dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginRight="@dimen/dimension20dp"-->
+            <!--android:padding="@dimen/dimension0dp"-->
+            <!--android:src="@drawable/edit"-->
+            <!--android:visibility="gone"></ImageView>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgDelete1"-->
+            <!--android:layout_width="@dimen/dimension25dp"-->
+            <!--android:layout_height="@dimen/dimension25dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_gravity="center_vertical"-->
+            <!--android:layout_marginRight="@dimen/dimension10dp"-->
+            <!--android:padding="@dimen/dimension0dp"-->
+            <!--android:src="@drawable/delete_icon"-->
+            <!--android:visibility="gone"></ImageView>-->
+    <!--</RelativeLayout>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/rlMedical"-->
+        <!--android:background="@drawable/edit_del_med_border"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:weightSum="2"-->
+        <!--android:layout_marginBottom="@dimen/dimension10dp">-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rlEdit"-->
+            <!--android:layout_width="@dimen/dimension0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/dimension5dp">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgEdit"-->
+                <!--android:layout_width="@dimen/dimension25dp"-->
+                <!--android:layout_height="@dimen/dimension20dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginRight="@dimen/dimension0dp"-->
+                <!--android:padding="@dimen/dimension0dp"-->
+                <!--android:src="@drawable/edit_pencil"-->
+                <!--android:tint="@color/colorBlue"-->
+                <!--android:visibility="visible"></ImageView>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtEdit"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/imgEdit"-->
+                <!--android:layout_weight="1"-->
+                <!--android:padding="@dimen/dimension5dp"-->
+                <!--android:text="Edit"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textColor="@color/colorBlue"-->
+                <!--android:textSize="14dp" />-->
+
+        <!--</RelativeLayout>-->
+
+        <!--<View-->
+            <!--android:layout_width="@dimen/dimension2dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/colorOnesGray" />-->
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/rlDelete"-->
+            <!--android:layout_width="@dimen/dimension0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="@dimen/dimension5dp">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgDelete"-->
+                <!--android:layout_width="@dimen/dimension25dp"-->
+                <!--android:layout_height="@dimen/dimension20dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:layout_marginRight="@dimen/dimension0dp"-->
+                <!--android:padding="@dimen/dimension0dp"-->
+                <!--android:src="@drawable/delete_icon"-->
+                <!--android:tint="@color/colorRed"-->
+                <!--android:visibility="visible"></ImageView>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/txtDelete"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/imgDelete"-->
+                <!--android:layout_weight="1"-->
+                <!--android:padding="@dimen/dimension5dp"-->
+                <!--android:text="Delete"-->
+                <!--android:textAllCaps="true"-->
+                <!--android:textColor="@color/colorRedButton"-->
+                <!--android:textSize="14dp" />-->
+
+        <!--</RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+<!--</RelativeLayout>-->

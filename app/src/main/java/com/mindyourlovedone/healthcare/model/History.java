@@ -7,15 +7,18 @@ import java.io.Serializable;
  */
 
 public class History implements Serializable {
-    String Other = "";
+    String Other = "--";
     int userId;
     int id;
-    String name = "";
-    String date = "";
-    String doctor = "";
-    String done = "";
+    String name = "--";
+    String date = "--";
+    String doctor = "--";
+    String done = "--";
 
     public String getOther() {
+        if(Other.isEmpty()){
+            return "--";
+        }
         return Other;
     }
 
@@ -40,6 +43,9 @@ public class History implements Serializable {
     }
 
     public String getName() {
+        if(name.isEmpty()){
+            return "--";
+        }
         return name;
     }
 
@@ -48,6 +54,9 @@ public class History implements Serializable {
     }
 
     public String getDate() {
+        if(date.isEmpty()){
+            return "--";
+        }
         return date;
     }
 
@@ -56,6 +65,9 @@ public class History implements Serializable {
     }
 
     public String getDoctor() {
+        if(doctor.isEmpty()){
+            return "--";
+        }
         return doctor;
     }
 
@@ -64,6 +76,9 @@ public class History implements Serializable {
     }
 
     public String getDone() {
+        if(done.isEmpty()){
+            return "--";
+        }
         return done;
     }
 
