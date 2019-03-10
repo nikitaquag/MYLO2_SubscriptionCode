@@ -64,8 +64,7 @@
                 android:layout_width="@dimen/dimension60dp"
                 android:layout_height="@dimen/dimension60dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_margin="@dimen/dimension10dp"
                 android:src="@drawable/ic_profile_defaults" />
 
             <RelativeLayout
@@ -76,9 +75,7 @@
                 android:layout_marginLeft="@dimen/dimension5dp"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_toLeftOf="@+id/imgForword"
-                android:layout_toRightOf="@+id/imgProfile"
-                android:paddingTop="@dimen/dimension10dp"
-                android:paddingBottom="@dimen/dimension10dp">
+                android:layout_toRightOf="@+id/imgProfile">
 
                 <TextView
                     android:id="@+id/txtName"

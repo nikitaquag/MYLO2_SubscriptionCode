@@ -3548,6 +3548,7 @@ android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -3579,6 +3580,7 @@ android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -3607,7 +3609,7 @@ android:fontFamily="@font/lato"
                         android:id="@+id/tilPharmacyWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilPharmacyFax"
+                        android:layout_below="@+id/llPharmPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"

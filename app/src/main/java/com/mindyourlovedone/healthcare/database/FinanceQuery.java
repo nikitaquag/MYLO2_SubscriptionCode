@@ -179,4 +179,45 @@ public class FinanceQuery {
         }
         return true;
     }
+
+    public static Finance getLastFinance() {
+        ArrayList<Finance> connectionList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + ";";
+        Finance connection = new Finance();
+        //   String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
+        Cursor c = db.rawQuery(query, null);
+
+        if (c.moveToFirst()) {
+            do {
+
+
+                connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                connection.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                connection.setLastseen(c.getString(c.getColumnIndex(COL_LASTSEEN)));
+                connection.setOfficePhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                connection.setHourPhone(c.getString(c.getColumnIndex(COL_MOBILE_PHONE)));
+                connection.setOtherPhone(c.getString(c.getColumnIndex(COL_OTHER_PHONE)));
+                connection.setCategory(c.getString(c.getColumnIndex(COL_CATEGORY)));
+                connection.setContactName(c.getString(c.getColumnIndex(COL_PRACTICENAME)));
+                connection.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
+                connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+
+                connection.setEmail(c.getString(c.getColumnIndex(COL_EMAIL)));
+                connection.setLocation(c.getString(c.getColumnIndex(COL_LOCATION)));
+
+
+               // connectionList.add(connection);
+
+            } while (c.moveToNext());
+        }
+
+
+        return connection;
+    }
 }

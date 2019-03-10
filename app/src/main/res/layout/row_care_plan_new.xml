@@ -66,6 +66,7 @@
                 <TextView
                     android:id="@+id/txtDocHeader"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/lato_bold"
                     android:layout_height="wrap_content"
                     android:layout_toLeftOf="@+id/imgEdit"
                     android:gravity="top|left"
@@ -78,6 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtDocHeader"
+                   android:fontFamily="@font/lato"
                     android:gravity="top|left"
                     android:text="Primary Proxy"
                     android:textColor="@color/colorDarkGray"

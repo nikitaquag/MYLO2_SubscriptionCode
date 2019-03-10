@@ -184,12 +184,12 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
 
         if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
-                holder.imgProfile.setImageResource(R.drawable.yellow);
+                holder.imgProfile.setImageResource(R.drawable.all_profile);
             else
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
-        holder.imgProfile.setImageResource(R.drawable.yellow);
+        holder.imgProfile.setImageResource(R.drawable.all_profile);
 
         if (!FinanceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());

@@ -60,7 +60,7 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.yellow)
+                .showImageOnLoading(R.drawable.all_profile)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -167,7 +167,7 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
 
         if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
-                holder.imgProfile.setImageResource(R.drawable.yellow);
+                holder.imgProfile.setImageResource(R.drawable.all_profile);
             else
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);

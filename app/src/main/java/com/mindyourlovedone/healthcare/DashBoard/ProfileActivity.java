@@ -141,6 +141,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     TextInputLayout tilSpinMarital,tilSpinEye,tilSpinLang;
     FrameLayout flrel;
     TextView txtEyes,txtvGender,txtSpinMarital,txtSpinEye,txtSpinLang;
+    View vgender;
     String[] countryList = {"Canada", "Mexico", "USA", "UK", "California", "India"};
     String imagepath = "", cardpath = "";//
     String relation = "Self";
@@ -295,6 +296,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtSpinMarital.setFocusable(false);
 
         txtvGender=findViewById(R.id.txtvGender);
+        vgender=findViewById(R.id.vgender);
         imgInfo = findViewById(R.id.imgInfo);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -925,6 +927,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
           //  SavwGender.setVisibility(View.VISIBLE);
             rgGender.setVisibility(View.VISIBLE);
             txtvGender.setVisibility(View.VISIBLE);
+            vgender.setVisibility(View.VISIBLE);
             spinnerRelation.setVisibility(View.GONE);
             flrel.setVisibility(View.GONE);
           //  txtWorkPhone.setVisibility(View.VISIBLE);//shradha
@@ -939,6 +942,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             flrel.setVisibility(View.VISIBLE);
             txtGender.setVisibility(View.GONE);
             txtvGender.setVisibility(View.GONE);
+            vgender.setVisibility(View.GONE);
             rgGender.setVisibility(View.GONE);
         }
         if (connection != null) {
@@ -1688,14 +1692,15 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.txtSave:
-                       for (int i=0;i<phonelist.size();i++)
-                       {
-                           if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
-                           {
-                               phonelist.remove(phonelist.get(i));
-                           }
-                          // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
-                       }
+                for (int i=0;i<phonelist.size();i++)
+                {
+                    if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
+                    {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
+
                /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
@@ -2182,7 +2187,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         employed = txtEmployed.getText().toString();
         manager_phone = txttelephone.getText().toString();
         religion = txtReligion.getText().toString();
-
+        for (int i=0;i<phonelist.size();i++)
+        {
+            if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
+            {
+                phonelist.remove(phonelist.get(i));
+            }
+            // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+        }
         if (name.equals("")) {
             txtName.setError("Please Enter Name");
             DialogManager.showAlert("Please Enter Name", context);
@@ -2326,84 +2338,88 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     }*/
 
     private void editToConnection(String photo, String photoCard) {
-        if (connection.getRelationType().equals("Self")) {
-            if (connection.getName().equals(name) && connection.getEmail().equals(email)) {
+
+            if (connection.getRelationType().equals("Self")) {
+                if (connection.getName().equals(name) && connection.getEmail().equals(email)) {
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                    if (flag == true) {
+                        DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
+                        MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
+                        Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                        if (flags == true) {
+                            Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
+                            ContactDataQuery c = new ContactDataQuery(context, dbHelper);
+                            boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                            if (flagf == true) {
+                                //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                                for (int i = 0; i < phonelist.size(); i++) {
+                                    if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                        Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                        if (flagc == true) {
+                                            // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                        //Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
+                        preferences.putString(PrefConstants.CONNECTED_NAME, name);
+                        preferences.putString(PrefConstants.CONNECTED_RELATION, relation);
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    if (!NetworkUtils.getConnectivityStatusString(ProfileActivity.this).equals("Not connected to Internet")) {
+                        UpdateUserAsynk asynk = new UpdateUserAsynk(name, email, "" + preferences.getInt(PrefConstants.USER_ID));
+                        asynk.execute();
+                    } else {
+                        DialogManager.showAlert("Network Error, Check your internet connection", ProfileActivity.this);
+                    }
+                }
+
+            } else {
+                DBHelper dbHelpers = new DBHelper(context, "MASTER");
+                MyConnectionsQuery ms = new MyConnectionsQuery(context, dbHelpers);
                 Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
                 if (flag == true) {
                     DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                     MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
                     Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
                     if (flags == true) {
-                        Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
+                        preferences.putString(PrefConstants.CONNECTED_NAME, name);
+                        preferences.putString(PrefConstants.CONNECTED_RELATION, relation);
+                        String mail = email;
+                        mail = mail.replace(".", "_");
+                        mail = mail.replace("@", "_");
+                        File oldFolder = new File(preferences.getString(PrefConstants.CONNECTED_PATH));
+                        File newFolder = new File(Environment.getExternalStorageDirectory(), "/MYLO/" + mail + "/");
+                        boolean success = oldFolder.renameTo(newFolder);
+                        if (success) {
+                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                        }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Connection");
                         if (flagf == true) {
-                          //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
-                                if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
                                     if (flagc == true) {
-                                       // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                        //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
-                            }                        }
-
+                            }
+                        }
                     }
-                    //Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
-                    preferences.putString(PrefConstants.CONNECTED_NAME, name);
-                    preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
+                    // Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                if (!NetworkUtils.getConnectivityStatusString(ProfileActivity.this).equals("Not connected to Internet")) {
-                    UpdateUserAsynk asynk = new UpdateUserAsynk(name, email, "" + preferences.getInt(PrefConstants.USER_ID));
-                    asynk.execute();
-                } else {
-                    DialogManager.showAlert("Network Error, Check your internet connection", ProfileActivity.this);
-                }
-            }
-
-        } else {
-            DBHelper dbHelpers = new DBHelper(context, "MASTER");
-            MyConnectionsQuery ms = new MyConnectionsQuery(context, dbHelpers);
-            Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
-            if (flag == true) {
-                DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
-                MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
-                if (flags == true) {
-                    Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
-                    preferences.putString(PrefConstants.CONNECTED_NAME, name);
-                    preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
-                    String mail = email;
-                    mail = mail.replace(".", "_");
-                    mail = mail.replace("@", "_");
-                    File oldFolder = new File(preferences.getString(PrefConstants.CONNECTED_PATH));
-                    File newFolder = new File(Environment.getExternalStorageDirectory(), "/MYLO/" + mail + "/");
-                    boolean success = oldFolder.renameTo(newFolder);
-                    if (success) {
-                        preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                        preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                    }
-                    ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                    boolean flagf = ContactDataQuery.deleteRecord("Connection");
-                    if (flagf == true) {
-                   //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                        for (int i = 0; i < phonelist.size(); i++) {
-                            if(!phonelist.get(i).getContactType().equalsIgnoreCase("")&&!phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
-                                if (flagc == true) {
-                               //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        }                        }
-                }
-                // Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
             }
         }
         //  }
@@ -2422,7 +2438,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         /* */
         //   }
 
-    }
+
 
     private boolean validate() {
         name = txtName.getText().toString().trim();

@@ -17,6 +17,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -769,7 +770,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onResume() {
         super.onResume();
-        txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION));
+        String s="<b>"+preferences.getString(PrefConstants.CONNECTED_NAME)+"</b> - "+preferences.getString(PrefConstants.CONNECTED_RELATION);
+        txtName.setText(Html.fromHtml(s));
     }
 
     @Override
