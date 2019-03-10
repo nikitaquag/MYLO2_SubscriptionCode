@@ -826,6 +826,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(context, RelationActivity.class);
                 i.putExtra("Category", "Relationp");
+                i.putExtra("Selected",txtRelation.getText().toString());
                 startActivityForResult(i, REQUEST_RELATIONP);
             }
         });
@@ -835,6 +836,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(context, RelationActivity.class);
                 i.putExtra("Category", "Marital");
+                i.putExtra("Selected",txtSpinMarital.getText().toString());
                 startActivityForResult(i, REQUEST_MARITAL);
             }
         });
@@ -844,6 +846,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(context, RelationActivity.class);
                 i.putExtra("Category", "language");
+                i.putExtra("Selected",txtSpinLang.getText().toString());
                 startActivityForResult(i, REQUEST_LANGUAGE);
             }
         });
@@ -853,6 +856,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(context, RelationActivity.class);
                 i.putExtra("Category", "eyes");
+                i.putExtra("Selected",txtSpinEye.getText().toString());
                 startActivityForResult(i, REQUEST_EYES);
             }
         });

@@ -18,6 +18,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
     Context context = this;
     ImageView imgBack;
     String category = "";
+    String selected = "";
     private static int RESULT_RELATION = 10;
     private static int RESULT_PRIORITY = 12;
     private static int RESULT_SPECIALTY = 13;
@@ -51,75 +52,78 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
         Intent i = getIntent();
         if (i.getExtras() != null) {
             category = i.getStringExtra("Category");
+            if (getIntent().hasExtra("Selected")) {
+                selected = i.getStringExtra("Selected");
+            }
             if (category.equalsIgnoreCase("Relation")) {
                 txtTitles.setText("Select Relationship");
                 String Relationship[] = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, Relationship);
+                RelationsAdapter rd = new RelationsAdapter(context, Relationship,selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Priority")) {
                 txtTitles.setText("Select Priority");
                 String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent"};
-                RelationsAdapter rd = new RelationsAdapter(context, priorityType);
+                RelationsAdapter rd = new RelationsAdapter(context, priorityType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Specialty")) {
                 txtTitles.setText("Select Specialty");
                 String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality);
+                RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Category")) {
                 String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, HospitalType);
+                RelationsAdapter rd = new RelationsAdapter(context, HospitalType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Insurance")) {
                 String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, insuaranceType);
+                RelationsAdapter rd = new RelationsAdapter(context, insuaranceType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("finance")) {
                 String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, financeType);
+                RelationsAdapter rd = new RelationsAdapter(context, financeType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Advance")) {
                 String[] ADList = {"HIPAA Authorization", "Health Care Proxy", "Living Will", "Living Will/Health Care Proxy", "MOLST", "Non-Hospital DNR Order", "POLST", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, ADList);
+                RelationsAdapter rd = new RelationsAdapter(context, ADList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Other")) {
                 String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, OtherList);
+                RelationsAdapter rd = new RelationsAdapter(context, OtherList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("TypeFrequency")) {
                 txtTitles.setText("Select Frequency");
                 String[] Frequency = {"Annual", "Daily", "Every 5 Years", "Monthly", "Quarterly", "Semi-Annual", "Weekly", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, Frequency);
+                RelationsAdapter rd = new RelationsAdapter(context, Frequency, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Relationp")) {
                 txtTitles.setText("Select Blood Relationship");
                 String[] Relationships = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, Relationships);
+                RelationsAdapter rd = new RelationsAdapter(context, Relationships, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Marital")) {
                 txtTitles.setText("Select Marital Status");
                 String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
-                RelationsAdapter rd = new RelationsAdapter(context, MaritalList);
+                RelationsAdapter rd = new RelationsAdapter(context, MaritalList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("language")) {
                 txtTitles.setText("Select Language Spoken");
                 String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, LangList);
+                RelationsAdapter rd = new RelationsAdapter(context, LangList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("eyes")) {
                 txtTitles.setText("Select Eyes Color");
                 String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
-                RelationsAdapter rd = new RelationsAdapter(context, EyesList);
+                RelationsAdapter rd = new RelationsAdapter(context, EyesList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Blood")) {
                 txtTitles.setText("Select Blood Type");
                 String[] BloodList = {"A - Negative", "A - Positive", "AB - Negative", "AB - Positive", "B - Negative", "B - positive", "O - negative", "O - Positive", "I Don't Know"};
-                RelationsAdapter rd = new RelationsAdapter(context, BloodList);
+                RelationsAdapter rd = new RelationsAdapter(context, BloodList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Medical")) {
                 txtTitles.setText("Select Medical Implants");
                 String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
-                RelationsAdapter rd = new RelationsAdapter(context, implantList);
+                RelationsAdapter rd = new RelationsAdapter(context, implantList, selected);
                 listRelation.setAdapter(rd);
             }
         }
