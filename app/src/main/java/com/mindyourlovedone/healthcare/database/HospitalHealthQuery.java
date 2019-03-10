@@ -37,6 +37,7 @@ public class HospitalHealthQuery {
     public static final String COL_PHOTOCARD = "PhotoCard";
     public static final String COL_MobilePhone = "MobilePhone";
     public static final String COL_ContactPerson = "ContactPerson";
+    public static final String COL_HASCARD= "Has_Card";
     static Context context;
     static DBHelper dbHelper;
 
@@ -47,7 +48,7 @@ public class HospitalHealthQuery {
     }
 
 
-    public static Boolean insertHospitalHealthData(int userId, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String location, String locator) {
+    public static Boolean insertHospitalHealthData(int userId, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String location, String locator, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -67,7 +68,7 @@ public class HospitalHealthQuery {
         cv.put(COL_OTHER_CATEGORY, otherCategory);
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_LOCATOR, locator);
-
+        cv.put(COL_HASCARD, has_card);
         cv.put(COL_PRACTICENAME, "");
         cv.put(COL_MobilePhone, "");
         cv.put(COL_ContactPerson, practice_name);
@@ -86,7 +87,7 @@ public class HospitalHealthQuery {
                 COL_LOCATION + " VARCHAR(20)," + COL_OTHER_PHONE + " VARCHAR(20)," + COL_ADDRESS + " TEXT," +
                 COL_OFFICE_PHONE + " VARCHAR(20)," + COL_CATEGORY + " VARCHAR(50)," + COL_OTHER_CATEGORY + " VARCHAR(50)," + COL_PRACTICENAME + " VARCHAR(30)," + COL_FAX +
                 " VARCHAR(20)," + COL_NOTE + " TEXT," +
-                COL_PHOTOCARD + " VARCHAR(50)," + COL_LOCATOR + " TEXT," +
+                COL_PHOTOCARD + " VARCHAR(50)," + COL_LOCATOR + " TEXT," +COL_HASCARD + " VARCHAR(10),"+
                 COL_PHOTO + " VARCHAR(50)," + COL_MobilePhone + " VARCHAR(20)," + COL_ContactPerson + " TEXT);";
         return createTableQuery;
     }
@@ -96,7 +97,7 @@ public class HospitalHealthQuery {
         return dropTableQuery;
     }
 
-    public static Boolean updateHospitalHealthData(int id, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String location, String locator) {
+    public static Boolean updateHospitalHealthData(int id, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String location, String locator, String has_card) {
 
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -117,7 +118,7 @@ public class HospitalHealthQuery {
         cv.put(COL_OTHER_CATEGORY, otherCategory);
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_LOCATOR, locator);
-
+        cv.put(COL_HASCARD, has_card);
         cv.put(COL_PRACTICENAME, "");
         cv.put(COL_MobilePhone, "");
         cv.put(COL_ContactPerson, practice_name);
@@ -156,7 +157,7 @@ public class HospitalHealthQuery {
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
                 connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 hospitalList.add(connection);
 
                 db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
@@ -207,6 +208,7 @@ public class HospitalHealthQuery {
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
                 connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
 
 
                 hospitalList.add(connection);
@@ -246,6 +248,7 @@ public class HospitalHealthQuery {
                 connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
                 connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
                 connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
 
 
               //  hospitalList.add(connection);

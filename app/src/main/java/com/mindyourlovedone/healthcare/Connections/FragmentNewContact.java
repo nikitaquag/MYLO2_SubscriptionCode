@@ -678,7 +678,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = PharmacyQuery.insertPharmacyData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, phone, imagepath, fax, note, cardPath, locator);
+                    Boolean flag = PharmacyQuery.insertPharmacyData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, phone, imagepath, fax, note, cardPath, locator,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added pharmacy successfully", Toast.LENGTH_SHORT).show();
                         Pharmacy con=new Pharmacy();
@@ -717,7 +717,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = PharmacyQuery.updatePharmacyData(id, name, website, address, phone, imagepath, fax, note, cardPath, locator);
+                    Boolean flag = PharmacyQuery.updatePharmacyData(id, name, website, address, phone, imagepath, fax, note, cardPath, locator,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -788,11 +788,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
+                    Boolean flag = HospitalHealthQuery.insertHospitalHealthData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator,has_card);
                     if (flag == true) {
                      Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
                         Hospital con=new Hospital();
                         con=HospitalHealthQuery.getLastHopital();
+
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Hospital");
                         if (flagf == true) {
@@ -826,7 +827,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator);
+                    Boolean flag = HospitalHealthQuery.updateHospitalHealthData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, location, locator,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -856,7 +857,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = FinanceQuery.insertFinanceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
+                    Boolean flag = FinanceQuery.insertFinanceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added contact successfully", Toast.LENGTH_SHORT).show();
                         Finance con=new Finance();
@@ -893,7 +894,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = FinanceQuery.updateFinanceData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName);
+                    Boolean flag = FinanceQuery.updateFinanceData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, note, lastseen, otherCategory, cardPath, email, location, contactName,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -1364,6 +1365,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         txtCard.setVisibility(View.VISIBLE);
+                    }
+                    if (specialist.getHas_card() != null) {
+                        if (specialist.getHas_card().equals("YES")) {
+                            tbCard.setChecked(true);
+                            has_card="YES";
+                            rlCard.setVisibility(View.VISIBLE);
+                        } else {
+                            tbCard.setChecked(false);
+                            has_card="NO";
+                            rlCard.setVisibility(View.GONE);
+                            cardPath = "";
+                            CardMap = null;
+                        }
                     }
                 }
 
@@ -2870,7 +2884,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.GONE);
                         txtCard.setVisibility(View.VISIBLE);
                     }
+                    if (specialist.getHas_card() != null) {
+                        if (specialist.getHas_card().equals("YES")) {
+                            tbCard.setChecked(true);
+                            has_card="YES";
+                            rlCard.setVisibility(View.VISIBLE);
+                        } else {
+                            tbCard.setChecked(false);
+                            has_card="NO";
+                            rlCard.setVisibility(View.GONE);
+                            cardPath = "";
+                            CardMap = null;
+                        }
+                    }
                 }
+
+
                 break;
             case "HospitalViewData":
                 changeIcon(source);
@@ -3076,7 +3105,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.GONE);
                         txtCard.setVisibility(View.VISIBLE);
                     }
+                    if (specialist.getHas_card() != null) {
+                        if (specialist.getHas_card().equals("YES")) {
+                            tbCard.setChecked(true);
+                            has_card="YES";
+                            rlCard.setVisibility(View.VISIBLE);
+                        } else {
+                            tbCard.setChecked(false);
+                            has_card="NO";
+                            rlCard.setVisibility(View.GONE);
+                            cardPath = "";
+                            CardMap = null;
+                        }
+                    }
                 }
+
+
                 break;
 
             case "FinanceViewData":

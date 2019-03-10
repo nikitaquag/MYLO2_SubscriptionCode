@@ -104,15 +104,15 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Pharmacy":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "PharmacyData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "PharmacyDataView":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "Proxy":
@@ -141,7 +141,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "Speciality":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "Physician":
@@ -156,43 +156,43 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 header.setBackgroundResource(R.color.colorEmerMainGreen);
                 break;
             case "SpecialistData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "SpecialistViewData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "Insurance":
-                header.setBackgroundResource(R.color.colorFive);
+                header.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
                 break;
 
             case "InsuranceData":
-                header.setBackgroundResource(R.color.colorFive);
+                header.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
                 break;
 
             case "InsuranceViewData":
-                header.setBackgroundResource(R.color.colorFive);
+                header.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
                 break;
 
             case "Aides":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "AidesData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "AidesViewData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "Finance":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "Hospital":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "PrescriptionInfo":
@@ -200,19 +200,19 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 break;
 
             case "HospitalData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
             case "HospitalViewData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
 
             case "FinanceData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
 
             case "FinanceViewData":
-                header.setBackgroundResource(R.color.colorThree);
+                header.setBackgroundResource(R.color.colorSpecialityYellow);
                 break;
         }
     }
