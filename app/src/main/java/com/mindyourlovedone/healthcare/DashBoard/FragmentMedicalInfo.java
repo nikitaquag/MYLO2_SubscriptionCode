@@ -34,7 +34,6 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
-import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 import com.mindyourlovedone.healthcare.Connections.MedAdapter;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -97,7 +96,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     TextView txtName;
     Spinner spinnerEyes, spinnerBlood, spinnerLang;
     TextView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
-    ImageView imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine, imgTeethDrop;
+    ImageView imgDonnerDrop,imgVisionDrop, imgAidsDrop, imgDietDrop, imgVaccineDrop, imgTobacoDrop, imgDrugDrop, imgDrinkDrop, imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine, imgTeethDrop;
     ListView ListHistory, ListAllergy, ListImplants, ListHospital, ListCondition, ListVaccine;
     String note = "", allergynote = "";
     String mouthnote = "";
@@ -116,10 +115,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
     TextView txtBlood;
     ImageView imgBloodDrop;
-    LinearLayout llSubAllergis, llSubPre, llSubImplants, llSubHistory, llSubHospital, llSubBlood, llSubTeeth;
+    LinearLayout linorgan,llVision, llAidsDiet, llSubDiet, linVaccine, lintobaco, lindrug, lindrink, llSubAllergis, llSubPre, llSubImplants, llSubHistory, llSubHospital, llSubBlood, llSubTeeth;
     RelativeLayout rlAllergis;
-    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom, viewHistoryBottom, viewHospitalBottom;
-    boolean flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false, flagHistory = false, flagHospital = false, flagTeeth = false;
+    //    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom, viewHistoryBottom, viewHospitalBottom;
+    boolean flagOrgan = false,flagVission = false, flagAids = false, flagDiet = false, flagVaccine = false, flagTobaco = false, flagDrug = false, flagDrink = false, flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false, flagHistory = false, flagHospital = false, flagTeeth = false;
     private static int RESULT_BLOOD = 1;
 
     @Nullable
@@ -167,6 +166,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddImplants.setOnClickListener(this);
         imgTeethDrop.setOnClickListener(this);
         imgAddCondition.setOnClickListener(this);
+        imgDonnerDrop.setOnClickListener(this);
+        imgVisionDrop.setOnClickListener(this);
+        imgAidsDrop.setOnClickListener(this);
+        imgDietDrop.setOnClickListener(this);
+        imgVaccineDrop.setOnClickListener(this);
+        imgTobacoDrop.setOnClickListener(this);
+        imgDrugDrop.setOnClickListener(this);
+        imgDrinkDrop.setOnClickListener(this);
 
 
         imgAddPneumonia.setOnClickListener(this);
@@ -210,12 +217,21 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         llSubBlood = rootview.findViewById(R.id.llSubBlood);
         llSubTeeth = rootview.findViewById(R.id.llSubTeeth);
 
-        viewAllergyBottom = rootview.findViewById(R.id.viewAllergyBottom);
-        viewPreBottom = rootview.findViewById(R.id.viewPreBottom);
-        viewImplantsBottom = rootview.findViewById(R.id.viewImplantsBottom);
-        viewHistoryBottom = rootview.findViewById(R.id.viewHistoryBottom);
-        viewHospitalBottom = rootview.findViewById(R.id.viewHospitalBottom);
-        viewBloodBottom = rootview.findViewById(R.id.viewBloodBottom);
+        llVision = rootview.findViewById(R.id.llVision);
+        llAidsDiet = rootview.findViewById(R.id.llAidsDiet);
+        llSubDiet = rootview.findViewById(R.id.llSubDiet);
+        linVaccine = rootview.findViewById(R.id.linVaccine);
+        lintobaco = rootview.findViewById(R.id.lintobaco);
+        lindrug = rootview.findViewById(R.id.lindrug);
+        lindrink = rootview.findViewById(R.id.lindrink);
+        linorgan = rootview.findViewById(R.id.linorgan);
+
+//        viewAllergyBottom = rootview.findViewById(R.id.viewAllergyBottom);
+//        viewPreBottom = rootview.findViewById(R.id.viewPreBottom);
+//        viewImplantsBottom = rootview.findViewById(R.id.viewImplantsBottom);
+//        viewHistoryBottom = rootview.findViewById(R.id.viewHistoryBottom);
+//        viewHospitalBottom = rootview.findViewById(R.id.viewHospitalBottom);
+//        viewBloodBottom = rootview.findViewById(R.id.viewBloodBottom);
 
         imgBloodDrop = rootview.findViewById(R.id.imgBloodDrop);
         txtBlood = rootview.findViewById(R.id.txtBlood);
@@ -301,6 +317,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         ListImplants = rootview.findViewById(R.id.ListImplants);
         ListHospital = rootview.findViewById(R.id.ListHospital);
         ListCondition = rootview.findViewById(R.id.ListCondtion);
+        imgDonnerDrop= rootview.findViewById(R.id.imgDonnerDrop);
+        imgVisionDrop = rootview.findViewById(R.id.imgVisionDrop);
+        imgAidsDrop = rootview.findViewById(R.id.imgAidsDrop);
+        imgDietDrop = rootview.findViewById(R.id.imgDietDrop);
+        imgVaccineDrop = rootview.findViewById(R.id.imgVaccineDrop);
+        imgTobacoDrop = rootview.findViewById(R.id.imgTobacoDrop);
+        imgDrugDrop = rootview.findViewById(R.id.imgDrugDrop);
+        imgDrinkDrop = rootview.findViewById(R.id.imgDrinkDrop);
 
         etFt = rootview.findViewById(R.id.etFt);
         etInch = rootview.findViewById(R.id.etInch);
@@ -1033,19 +1057,110 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 builder.create().show();
                 break;
 
+            case R.id.imgVisionDrop:
+                if (flagVission == false) {
+                    llVision.setVisibility(View.VISIBLE);
+                    imgVisionDrop.setImageResource(R.drawable.dropup);
+                    flagVission = true;
+                } else if (flagVission == true) {
+                    llVision.setVisibility(View.GONE);
+                    imgVisionDrop.setImageResource(R.drawable.drop_down);
+                    flagVission = false;
+                }
+                break;
+
+            case R.id.imgDonnerDrop:
+                if (flagOrgan == false) {
+                    linorgan.setVisibility(View.VISIBLE);
+                    imgDonnerDrop.setImageResource(R.drawable.dropup);
+                    flagOrgan = true;
+                } else if (flagOrgan == true) {
+                    linorgan.setVisibility(View.GONE);
+                    imgDonnerDrop.setImageResource(R.drawable.drop_down);
+                    flagOrgan = false;
+                }
+                break;
+
+            case R.id.imgAidsDrop:
+                if (flagAids == false) {
+                    llAidsDiet.setVisibility(View.VISIBLE);
+                    imgAidsDrop.setImageResource(R.drawable.dropup);
+                    flagAids = true;
+                } else if (flagAids == true) {
+                    llAidsDiet.setVisibility(View.GONE);
+                    imgAidsDrop.setImageResource(R.drawable.drop_down);
+                    flagAids = false;
+                }
+                break;
+            case R.id.imgDietDrop:
+                if (flagDiet == false) {
+                    llSubDiet.setVisibility(View.VISIBLE);
+                    imgDietDrop.setImageResource(R.drawable.dropup);
+                    flagDiet = true;
+                } else if (flagDiet == true) {
+                    llSubDiet.setVisibility(View.GONE);
+                    imgDietDrop.setImageResource(R.drawable.drop_down);
+                    flagDiet = false;
+                }
+                break;
+            case R.id.imgVaccineDrop:
+                if (flagVaccine == false) {
+                    linVaccine.setVisibility(View.VISIBLE);
+                    imgVaccineDrop.setImageResource(R.drawable.dropup);
+                    flagVaccine = true;
+                } else if (flagVaccine == true) {
+                    linVaccine.setVisibility(View.GONE);
+                    imgVaccineDrop.setImageResource(R.drawable.drop_down);
+                    flagVaccine = false;
+                }
+                break;
+            case R.id.imgTobacoDrop:
+                if (flagTobaco == false) {
+                    lintobaco.setVisibility(View.VISIBLE);
+                    imgTobacoDrop.setImageResource(R.drawable.dropup);
+                    flagTobaco = true;
+                } else if (flagTobaco == true) {
+                    lintobaco.setVisibility(View.GONE);
+                    imgTobacoDrop.setImageResource(R.drawable.drop_down);
+                    flagTobaco = false;
+                }
+                break;
+            case R.id.imgDrugDrop:
+                if (flagDrug == false) {
+                    lindrug.setVisibility(View.VISIBLE);
+                    imgDrugDrop.setImageResource(R.drawable.dropup);
+                    flagDrug = true;
+                } else if (flagDrug == true) {
+                    lindrug.setVisibility(View.GONE);
+                    imgDrugDrop.setImageResource(R.drawable.drop_down);
+                    flagDrug = false;
+                }
+                break;
+            case R.id.imgDrinkDrop:
+                if (flagDrink == false) {
+                    lindrink.setVisibility(View.VISIBLE);
+                    imgDrinkDrop.setImageResource(R.drawable.dropup);
+                    flagDrink = true;
+                } else if (flagDrink == true) {
+                    lindrink.setVisibility(View.GONE);
+                    imgDrinkDrop.setImageResource(R.drawable.drop_down);
+                    flagDrink = false;
+                }
+                break;
+
 
             case R.id.imgAddAllergy:
                 if (flagAllergy == false) {
                     llSubAllergis.setVisibility(View.VISIBLE);
                     imgAddAllergy.setImageResource(R.drawable.dropup);
                     txtAddAllergy.setVisibility(View.VISIBLE);
-                    viewAllergyBottom.setVisibility(View.GONE);
+//                    viewAllergyBottom.setVisibility(View.GONE);
                     flagAllergy = true;
                 } else if (flagAllergy == true) {
                     llSubAllergis.setVisibility(View.GONE);
                     imgAddAllergy.setImageResource(R.drawable.drop_down);
                     txtAddAllergy.setVisibility(View.GONE);
-                    viewAllergyBottom.setVisibility(View.VISIBLE);
+//                    viewAllergyBottom.setVisibility(View.VISIBLE);
                     flagAllergy = false;
                 }
 
@@ -1056,13 +1171,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     llSubPre.setVisibility(View.VISIBLE);
                     imgAddCondition.setImageResource(R.drawable.dropup);
                     txtAddCondition.setVisibility(View.VISIBLE);
-                    viewPreBottom.setVisibility(View.GONE);
+//                    viewPreBottom.setVisibility(View.GONE);
                     flagPre = true;
                 } else if (flagPre == true) {
                     llSubPre.setVisibility(View.GONE);
                     imgAddCondition.setImageResource(R.drawable.drop_down);
                     txtAddCondition.setVisibility(View.GONE);
-                    viewPreBottom.setVisibility(View.VISIBLE);
+//                    viewPreBottom.setVisibility(View.VISIBLE);
                     flagPre = false;
                 }
                 break;
@@ -1072,13 +1187,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     llSubImplants.setVisibility(View.VISIBLE);
                     imgAddImplants.setImageResource(R.drawable.dropup);
                     txtAddImplants.setVisibility(View.VISIBLE);
-                    viewImplantsBottom.setVisibility(View.GONE);
+//                    viewImplantsBottom.setVisibility(View.GONE);
                     flagImplants = true;
                 } else if (flagImplants == true) {
                     llSubImplants.setVisibility(View.GONE);
                     imgAddImplants.setImageResource(R.drawable.drop_down);
                     txtAddImplants.setVisibility(View.GONE);
-                    viewImplantsBottom.setVisibility(View.VISIBLE);
+//                    viewImplantsBottom.setVisibility(View.VISIBLE);
                     flagImplants = false;
                 }
                 break;
@@ -1088,13 +1203,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     llSubHistory.setVisibility(View.VISIBLE);
                     imgAddHistory.setImageResource(R.drawable.dropup);
                     txtAddHistory.setVisibility(View.VISIBLE);
-                    viewHistoryBottom.setVisibility(View.GONE);
+//                    viewHistoryBottom.setVisibility(View.GONE);
                     flagHistory = true;
                 } else if (flagHistory == true) {
                     llSubHistory.setVisibility(View.GONE);
                     imgAddHistory.setImageResource(R.drawable.drop_down);
                     txtAddHistory.setVisibility(View.GONE);
-                    viewHistoryBottom.setVisibility(View.VISIBLE);
+//                    viewHistoryBottom.setVisibility(View.VISIBLE);
                     flagHistory = false;
                 }
                 break;
@@ -1103,13 +1218,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     llSubHospital.setVisibility(View.VISIBLE);
                     imgAddHospital.setImageResource(R.drawable.dropup);
                     txtAddHospital.setVisibility(View.VISIBLE);
-                    viewHospitalBottom.setVisibility(View.GONE);
+//                    viewHospitalBottom.setVisibility(View.GONE);
                     flagHospital = true;
                 } else if (flagHospital == true) {
                     llSubHospital.setVisibility(View.GONE);
                     imgAddHospital.setImageResource(R.drawable.drop_down);
                     txtAddHospital.setVisibility(View.GONE);
-                    viewHospitalBottom.setVisibility(View.VISIBLE);
+//                    viewHospitalBottom.setVisibility(View.VISIBLE);
                     flagHospital = false;
                 }
                 break;

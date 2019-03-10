@@ -22,7 +22,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@color/colorOnesGray"
                 android:orientation="vertical">
 
@@ -56,6 +56,7 @@
                     android:background="@color/colorOnesGray">
 
                     <RelativeLayout
+                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlAllergis"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -214,7 +215,7 @@
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_bottom_medical"
-                        android:visibility="visible"></View>
+                        android:visibility="gone"></View>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -481,6 +482,7 @@
                     android:background="@color/colorOnesGray">
 
                     <RelativeLayout
+                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlPre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -628,7 +630,7 @@
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_bottom_medical"
-                        android:visibility="visible"></View>
+                        android:visibility="gone"></View>
 
                 </RelativeLayout>
 
@@ -670,118 +672,202 @@
 
                     <TextView
                         android:id="@+id/txtEyesHeader"
-                        style="@style/EmergencyCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension35dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toLeftOf="@+id/imgVisionDrop"
                         android:layout_toRightOf="@+id/imgEyes"
                         android:fontFamily="@font/lato"
-                        android:text="Vision" />
+                        android:text="Vision"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlGlass"
+                    <ImageView
+                        android:id="@+id/imgVisionDrop"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/llVision"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtEyesHeader"
-                        android:layout_toRightOf="@+id/imgEyes">
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlGlass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Glasses" />
+
+                            <ToggleButton
+                                android:id="@+id/tbGlass"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlLense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Contact Lenses" />
+
+                            <ToggleButton
+                                android:id="@+id/tbLense"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
+                        <RelativeLayout
+                            android:id="@+id/rlBlind"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Color Blind" />
+
+                            <ToggleButton
+                                android:id="@+id/tbBlind"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
 
                         <TextView
-                            style="@style/EmergencyDesc"
+                            android:id="@+id/txtVisionNote"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Glasses" />
-
-                        <ToggleButton
-                            android:id="@+id/tbGlass"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:layout_alignParentRight="true"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ListAllergy"
+                            android:layout_marginLeft="@dimen/dimension8dp"
                             android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:id="@+id/rlLense"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlGlass"
-                        android:layout_toRightOf="@+id/imgEyes">
-
-                        <TextView
-                            style="@style/EmergencyDesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Contact Lenses" />
+                            android:gravity="top"
+                            android:padding="@null"
+                            android:text="Note"
+                            android:textColor="@color/colorTextGray"
+                            android:textSize="@dimen/dimension18dp"
+                            android:textStyle="normal" />
 
-                        <ToggleButton
-                            android:id="@+id/tbLense"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:layout_alignParentRight="true"
+                        <EditText
+                            android:id="@+id/etVisionNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtAllergyNote"
+                            android:layout_marginLeft="@dimen/dimension15dp"
                             android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
+                            android:background="@null"
+                            android:gravity="start"
+                            android:padding="@null"
+                            android:paddingBottom="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension5dp"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension18dp" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlBlind"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlLense"
-                        android:layout_toRightOf="@+id/imgEyes">
+                        <!--<EditText-->
+                        <!--android:id="@+id/etVisionNote"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!---->
+                        <!--android:layout_margin="@dimen/dimension15dp"-->
+                        <!--android:background="@drawable/darkgray_white_border"-->
+                        <!--android:gravity="top"-->
+                        <!--android:hint="Note"-->
+                        <!--android:padding="@dimen/dimension8dp"-->
+                        <!--android:textColor="@color/colorBlue" />-->
 
-                        <TextView
-                            style="@style/EmergencyDesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Color Blind" />
-
-                        <ToggleButton
-                            android:id="@+id/tbBlind"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
-
-                    <EditText
-                        android:id="@+id/etVisionNote"
-                        style="@style/EmergencyDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlBlind"
-                        android:layout_margin="@dimen/dimension15dp"
-                        android:layout_toRightOf="@+id/imgEyes"
-                        android:background="@drawable/darkgray_white_border"
-                        android:gravity="top"
-                        android:hint="Note"
-                        android:padding="@dimen/dimension8dp"
-                        android:textColor="@color/colorBlue" />
-
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <View
@@ -843,13 +929,13 @@
                             android:visibility="visible" />
 
                         <LinearLayout
-                            android:layout_marginTop="@dimen/dimension5dp"
                             android:id="@+id/llSubTeeth"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/imgTeeth"
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:orientation="vertical"
-                            android:visibility="visible">
+                            android:visibility="gone">
 
                             <View
                                 android:layout_width="match_parent"
@@ -866,11 +952,11 @@
                                 android:layout_toRightOf="@+id/imgTeeth">
 
                                 <TextView
-                                    android:layout_centerVertical="true"
                                     style="@style/EmergencyDesc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_toLeftOf="@+id/tbFalse"
                                     android:fontFamily="@font/lato"
                                     android:gravity="center_vertical"
@@ -878,11 +964,11 @@
                                     android:text="Dentures - Removable Upper" />
 
                                 <ToggleButton
-                                    android:layout_centerVertical="true"
                                     android:id="@+id/tbFalse"
-                                    android:layout_width="@dimen/dimension70dp"
-                                    android:layout_height="@dimen/dimension35dp"
+                                    android:layout_width="@dimen/dimension90dp"
+                                    android:layout_height="@dimen/dimension40dp"
                                     android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_marginRight="@dimen/dimension10dp"
                                     android:background="@drawable/toggle_selector"
                                     android:checked="false"
@@ -908,22 +994,22 @@
                                 android:layout_toRightOf="@+id/imgTeeth">
 
                                 <TextView
-                                    android:layout_centerVertical="true"
                                     style="@style/EmergencyDesc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
                                     android:fontFamily="@font/lato"
                                     android:gravity="center_vertical"
                                     android:padding="@dimen/dimension5dp"
                                     android:text="Dry Mouth" />
 
                                 <ToggleButton
-                                    android:layout_centerVertical="true"
                                     android:id="@+id/tbMouth"
-                                    android:layout_width="@dimen/dimension70dp"
-                                    android:layout_height="@dimen/dimension35dp"
+                                    android:layout_width="@dimen/dimension90dp"
+                                    android:layout_height="@dimen/dimension40dp"
                                     android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_marginRight="@dimen/dimension10dp"
                                     android:background="@drawable/toggle_selector"
                                     android:checked="false"
@@ -949,11 +1035,11 @@
                                 android:layout_toRightOf="@+id/imgTeeth">
 
                                 <TextView
-                                    android:layout_centerVertical="true"
                                     style="@style/EmergencyDesc"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentLeft="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_toLeftOf="@+id/tbImplants"
                                     android:fontFamily="@font/lato"
                                     android:gravity="center_vertical"
@@ -961,11 +1047,11 @@
                                     android:text="Dentures - Removable Lower" />
 
                                 <ToggleButton
-                                    android:layout_centerVertical="true"
                                     android:id="@+id/tbImplants"
-                                    android:layout_width="@dimen/dimension70dp"
-                                    android:layout_height="@dimen/dimension35dp"
+                                    android:layout_width="@dimen/dimension90dp"
+                                    android:layout_height="@dimen/dimension40dp"
                                     android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
                                     android:layout_marginRight="@dimen/dimension10dp"
                                     android:background="@drawable/toggle_selector"
                                     android:checked="false"
@@ -1058,17 +1144,17 @@
                         android:src="@drawable/hearing" />
 
                     <TextView
-                        android:textSize="@dimen/dimension18dp"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:textColor="@color/colorBlackDark"
                         android:id="@+id/txtAidesHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignTop="@+id/imgAides"
+                        android:layout_marginTop="@dimen/dimension10dp"
                         android:layout_toEndOf="@+id/imgAides"
                         android:layout_toRightOf="@+id/imgAides"
                         android:fontFamily="@font/lato"
-                        android:text="Hearing &amp; Speech" />
+                        android:text="Hearing &amp; Speech"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
 
                     <ImageView
                         android:id="@+id/imgAidsDrop"
@@ -1083,50 +1169,50 @@
                         android:visibility="visible" />
 
                     <LinearLayout
-                        android:layout_below="@+id/txtAidesHeader"
-                        android:layout_marginTop="@dimen/dimension10dp"
                         android:id="@+id/llAidsDiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtAidesHeader"
+                        android:layout_marginTop="@dimen/dimension10dp"
                         android:orientation="vertical"
-                        android:visibility="visible">
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension1dp"
-                        android:layout_margin="@dimen/dimension5dp"
-                        android:background="@color/colordivideGray" />
+                        android:visibility="gone">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
 
 
-                    <RelativeLayout
-                        android:id="@+id/rlHearingAid"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                        <RelativeLayout
+                            android:id="@+id/rlHearingAid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_centerVertical="true"
-                            style="@style/EmergencyDesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Hearing Aid(s)" />
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Hearing Aid(s)" />
 
-                        <ToggleButton
-                            android:layout_centerVertical="true"
-                            android:id="@+id/tbHearingAid"
-                            android:layout_width="@dimen/dimension70dp"
-                            android:layout_height="@dimen/dimension35dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
+                            <ToggleButton
+                                android:id="@+id/tbHearingAid"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
 
                         <View
 
@@ -1135,35 +1221,34 @@
                             android:layout_margin="@dimen/dimension5dp"
                             android:background="@color/colordivideGray" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlSpeech"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        >
+                        <RelativeLayout
+                            android:id="@+id/rlSpeech"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
 
-                        <TextView
-                            android:layout_centerVertical="true"
-                            style="@style/EmergencyDesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Speech Impaired" />
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Speech Impaired" />
 
-                        <ToggleButton
-                            android:id="@+id/tbSpeech"
-                            android:layout_width="@dimen/dimension70dp"
-                            android:layout_height="@dimen/dimension35dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
+                            <ToggleButton
+                                android:id="@+id/tbSpeech"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
 
                         <View
                             android:layout_width="match_parent"
@@ -1278,8 +1363,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbfeed"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1310,8 +1395,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbMedicate"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1342,8 +1427,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbToileting"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1374,8 +1459,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbWalking"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1406,8 +1491,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbTranfering"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1438,8 +1523,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbSwollowing"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1470,8 +1555,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbDressing"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1502,8 +1587,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbCommunication"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1534,8 +1619,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbBathing"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@drawable/toggle_selector"
@@ -1588,9 +1673,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view7"
+                    android:padding="@dimen/dimension5dp"
                     android:layout_margin="@dimen/dimension10dp"
-                    android:background="@drawable/border_row_white_app"
-                    >
+                    android:background="@drawable/border_row_white_app">
 
                     <ImageView
                         android:id="@+id/imgVaccine"
@@ -1601,16 +1686,16 @@
                         android:src="@drawable/syringe" />
 
                     <TextView
-                        android:textColor="@color/colorBlackDark"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:textSize="@dimen/dimension18dp"
                         android:id="@+id/txtVaccinesHeader"
                         android:layout_width="match_parent"
-                        android:layout_toLeftOf="@+id/imgVaccineDrop"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toLeftOf="@+id/imgVaccineDrop"
                         android:layout_toRightOf="@+id/imgVaccine"
                         android:fontFamily="@font/lato"
-                        android:text="Immunizations/Vaccines" />
+                        android:text="Immunizations/Vaccines"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
 
                     <ImageView
                         android:id="@+id/imgVaccineDrop"
@@ -1625,18 +1710,19 @@
                         android:visibility="visible" />
 
                     <!--<TextView-->
-                        <!--android:id="@+id/txtAddVaccine"-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_alignParentRight="true"-->
-                        <!--android:layout_marginRight="@dimen/dimension5dp"-->
-                        <!--android:layout_marginTop="@dimen/dimension8dp"-->
-                        <!--android:fontFamily="@font/lato"-->
-                        <!--android:gravity="center"-->
-                        <!--android:text="Add"-->
-                        <!--android:textColor="@color/colorBlueAdd"-->
-                        <!--android:textSize="@dimen/dimension18dp"-->
-                        <!--android:textStyle="bold" />-->
+                    <!--android:id="@+id/txtAddVaccine"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_marginRight="@dimen/dimension5dp"-->
+                    <!--android:layout_marginTop="@dimen/dimension8dp"-->
+                    <!--android:fontFamily="@font/lato"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="Add"-->
+                    <!--android:textColor="@color/colorBlueAdd"-->
+                    <!--android:textSize="@dimen/dimension18dp"-->
+                    <!--android:textStyle="bold" />-->
+
 
                     <ImageView
                         android:id="@+id/imgAddVaccine"
@@ -1647,42 +1733,50 @@
                         android:src="@drawable/add_square"
                         android:visibility="gone" />
 
-                    <View
-                        android:layout_marginTop="@dimen/dimension20dp"
-                        android:id="@+id/vwll"
+                    <LinearLayout
+                        android:id="@+id/linVaccine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/txtVaccinesHeader"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension1dp"
-                        android:layout_marginLeft="@dimen/dimension5dp"
-                        android:layout_marginRight="@dimen/dimension5dp"
-                        android:background="@color/colordivideGray" />
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                    <com.mindyourlovedone.healthcare.customview.NonScrollListView
-                        android:id="@+id/ListVaccine"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vwll"
-                        android:divider="@null" />
+                        <View
+                            android:id="@+id/vwll"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
 
-                    <TextView
-                        android:id="@+id/txtAddVaccine"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/ListVaccine"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="visible" />
+                            android:layout_marginLeft="@dimen/dimension5dp"
+                            android:layout_marginRight="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension20dp"
+                            android:background="@color/colordivideGray" />
 
+                        <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                            android:id="@+id/ListVaccine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vwll"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:divider="@null" />
+
+                        <TextView
+                            android:id="@+id/txtAddVaccine"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/ListVaccine"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:background="@drawable/border_edit_note"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:padding="@dimen/dimension15dp"
+                            android:text="Add new"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension18dp"
+                            android:textStyle="normal"
+                            android:visibility="visible" />
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -2288,7 +2382,6 @@
                         android:src="@drawable/diet" />
 
                     <TextView
-                        android:textColor="@color/colorBlackDark"
                         android:id="@+id/txtDietHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2297,8 +2390,8 @@
                         android:layout_toRightOf="@+id/imgDiet"
                         android:fontFamily="@font/lato"
                         android:text="Diet"
-                        android:textSize="@dimen/dimension18dp"
-                        />
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
 
                     <ImageView
                         android:id="@+id/imgDietDrop"
@@ -2313,13 +2406,14 @@
                         android:visibility="visible" />
 
                     <LinearLayout
-                        android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/llSubDiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/imgDiet"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:orientation="vertical"
-                        android:visibility="visible">
+                        android:visibility="gone">
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
@@ -2404,6 +2498,7 @@
                     android:background="@color/colorOnesGray">
 
                     <RelativeLayout
+                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlImplants"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2507,7 +2602,7 @@
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_bottom_medical"
-                        android:visibility="visible"></View>
+                        android:visibility="gone"></View>
                 </RelativeLayout>
 
 
@@ -2528,6 +2623,7 @@
                     android:background="@color/colorOnesGray">
 
                     <RelativeLayout
+                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2630,7 +2726,7 @@
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_bottom_medical"
-                        android:visibility="visible"></View>
+                        android:visibility="gone"></View>
 
 
                 </RelativeLayout>
@@ -2704,12 +2800,13 @@
                             android:visibility="gone">
 
                             <View
+
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/dimension1dp"
                                 android:layout_marginBottom="@dimen/dimension0dp"
                                 android:layout_marginLeft="@dimen/dimension10dp"
                                 android:layout_marginRight="@dimen/dimension10dp"
-                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:layout_marginTop="@dimen/dimension15dp"
                                 android:background="@color/colordivideGray" />
 
                             <android.support.design.widget.TextInputLayout
@@ -2725,10 +2822,11 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                 <AutoCompleteTextView
+                                    android:background="@null"
                                     android:id="@+id/txtBlood"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:drawableRight="@drawable/dropd"
+                                    android:drawableRight="@drawable/drp"
                                     android:hint="Blood Type"
                                     android:imeOptions="actionNext"
                                     android:textColor="@color/colorPrimaryDark"
@@ -2736,6 +2834,16 @@
 
                                 <requestFocus />
                             </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll15"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrinkYear"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_marginRight="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
 
                             <Spinner
                                 android:id="@+id/spinnerBlood"
@@ -2781,6 +2889,7 @@
                     android:background="@color/colorOnesGray">
 
                     <RelativeLayout
+                        android:layout_marginBottom="@dimen/dimension10dp"
                         android:id="@+id/rlHistory"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2886,7 +2995,7 @@
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:background="@drawable/border_bottom_medical"
-                        android:visibility="visible"></View>
+                        android:visibility="gone"></View>
                 </RelativeLayout>
 
                 <!--
@@ -2916,179 +3025,189 @@
                         android:padding="@dimen/dimension6dp"
                         android:src="@drawable/lungs" />
 
-                    <View
-                        android:layout_marginBottom="@dimen/dimension10dp"
-                        android:id="@+id/vwll2"
+                    <LinearLayout
+                        android:id="@+id/linorgan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/imgDonor"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension1dp"
-                        android:layout_marginLeft="@dimen/dimension5dp"
-                        android:layout_marginRight="@dimen/dimension5dp"
-                        android:background="@color/colordivideGray" />
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                    <RelativeLayout
-                        android:id="@+id/relorgan"
-                        android:layout_below="@+id/vwll2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                        <View
+                            android:id="@+id/vwll2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
 
-                        <TextView
-                            android:padding="@dimen/dimension10dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentLeft="true"
-                            android:textSize="@dimen/dimension18dp"
+                            android:layout_marginBottom="@dimen/dimension5dp"
+                            android:layout_marginLeft="@dimen/dimension5dp"
+                            android:layout_marginRight="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
+                        <RelativeLayout
+                            android:id="@+id/relorgan"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorBlack"
-                            android:fontFamily="@font/lato"
-                            android:layout_toLeftOf="@+id/tbOrgan"
-                            android:text="Are You a Organ Donor?" />
+                            android:layout_below="@+id/vwll2">
 
-                        <ToggleButton
-                            android:layout_centerVertical="true"
-                            android:id="@+id/tbOrgan"
-                            android:layout_width="@dimen/dimension70dp"
-                            android:layout_height="@dimen/dimension35dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension10dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-
-                    </RelativeLayout>
-
-                    <View
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:id="@+id/vwll3"
-                        android:layout_below="@+id/relorgan"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension1dp"
-                        android:layout_marginLeft="@dimen/dimension5dp"
-                        android:layout_marginRight="@dimen/dimension5dp"
-                        android:background="@color/colordivideGray" />
-
-
-                    <RelativeLayout
-                        android:visibility="gone"
-                        android:id="@+id/rlRadio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vwll2"
-                        android:layout_toRightOf="@+id/imgDonor">
-
-                        <RadioGroup
-                            android:visibility="gone"
-                            android:id="@+id/rgDonor"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rbYes"
-                                android:layout_width="wrap_content"
+                            <TextView
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension10dp"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Yes"
-                                android:textSize="@dimen/dimension18dp"
-
-                                />
-
-                            <RadioButton
-                                android:id="@+id/rbNo"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="No"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/tbOrgan"
+                                android:fontFamily="@font/lato"
+                                android:padding="@dimen/dimension10dp"
+                                android:text="Are You a Organ Donor?"
+                                android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/dimension18dp" />
-                        </RadioGroup>
-                    </RelativeLayout>
 
-                    <RelativeLayout
-                        android:id="@+id/rlYes"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtDonorHeader"
-                        android:layout_toRightOf="@+id/imgDonor"
-                        android:visibility="gone">
+                            <ToggleButton
+                                android:id="@+id/tbOrgan"
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="@dimen/dimension10dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:id="@+id/vwll3"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_below="@+id/relorgan"
+                            android:layout_marginLeft="@dimen/dimension5dp"
+                            android:layout_marginRight="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@color/colordivideGray" />
+
+
+                        <RelativeLayout
+                            android:id="@+id/rlRadio"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vwll2"
+                            android:layout_toRightOf="@+id/imgDonor"
+                            android:visibility="gone">
+
+                            <RadioGroup
+                                android:id="@+id/rgDonor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="gone">
+
+                                <RadioButton
+                                    android:id="@+id/rbYes"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dimension10dp"
+                                    android:layout_marginRight="@dimen/dimension10dp"
+                                    android:text="Yes"
+                                    android:textSize="@dimen/dimension18dp"
+
+                                    />
+
+                                <RadioButton
+                                    android:id="@+id/rbNo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:text="No"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </RadioGroup>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlYes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/txtDonorHeader"
+                            android:layout_toRightOf="@+id/imgDonor"
+                            android:visibility="gone">
+
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="Yes" />
+
+                            <ToggleButton
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rlYes"
+                            android:layout_toRightOf="@+id/imgDonor"
+                            android:visibility="gone">
+
+                            <TextView
+                                style="@style/EmergencyDesc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center_vertical"
+                                android:padding="@dimen/dimension5dp"
+                                android:text="No" />
+
+                            <ToggleButton
+                                android:layout_width="@dimen/dimension90dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="@dimen/dimension15dp"
+                                android:background="@drawable/toggle_selector"
+                                android:checked="false"
+                                android:gravity="center_vertical"
+                                android:text=""
+                                android:textOff=""
+                                android:textOn="" />
+                        </RelativeLayout>
 
                         <TextView
-                            style="@style/EmergencyDesc"
+                            android:id="@+id/txtNote"
                             android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vwll3"
                             android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="Yes" />
+                            android:gravity="center_vertical|left"
+                            android:padding="@dimen/dimension8dp"
+                            android:text="If yes, see Driver's License or Health Care Proxy"
+                            android:textSize="@dimen/dimension16dp" />
 
-                        <ToggleButton
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
-
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlYes"
-                        android:layout_toRightOf="@+id/imgDonor"
-                        android:visibility="gone">
-
-                        <TextView
-                            style="@style/EmergencyDesc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center_vertical"
-                            android:padding="@dimen/dimension5dp"
-                            android:text="No" />
-
-                        <ToggleButton
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension50dp"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@drawable/toggle_selector"
-                            android:checked="false"
-                            android:gravity="center_vertical"
-                            android:text=""
-                            android:textOff=""
-                            android:textOn="" />
-                    </RelativeLayout>
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/txtNote"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/vwll3"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center_vertical|left"
-                        android:padding="@dimen/dimension8dp"
-                        android:text="If yes, see Driver's License or Health Care Proxy"
-                        android:textSize="@dimen/dimension16dp" />
-
-                    <TextView
-                        android:layout_marginTop="@dimen/dimension10dp"
                         android:id="@+id/txtDonorHeader"
-                        android:textSize="@dimen/dimension18dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorBlackDark"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toLeftOf="@+id/imgDonnerDrop"
                         android:layout_toRightOf="@+id/imgDonor"
                         android:fontFamily="@font/lato"
-                        android:layout_toLeftOf="@+id/imgDonnerDrop"
-                        android:text="Organ Donor" />
+                        android:text="Organ Donor"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
 
                     <ImageView
                         android:id="@+id/imgDonnerDrop"
@@ -3178,129 +3297,201 @@
                         android:src="@drawable/cigarette" />
 
                     <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension10dp"
                         android:id="@+id/txtTobacoHeader"
-                        style="@style/EmergencyCategory"
+                        android:layout_toLeftOf="@+id/imgTobacoDrop"
+                        android:textColor="@color/colorBlackDark"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension35dp"
+                        android:textSize="@dimen/dimension18dp"
                         android:layout_toRightOf="@+id/imgTobaco"
                         android:fontFamily="@font/lato"
                         android:text="Smoking/ Tobacco Use" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlRadios"
+                    <ImageView
+                        android:id="@+id/imgTobacoDrop"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/lintobaco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtTobacoHeader"
-                        android:layout_toRightOf="@+id/imgTobaco">
-
-                        <RadioGroup
-                            android:id="@+id/rgTobaco"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rbTobacoCurrent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension10dp"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Current"
-                                android:textSize="@dimen/dimension18dp"
-
-                                />
-
-                            <RadioButton
-                                android:id="@+id/rbTobacoPast"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Past"
-                                android:textSize="@dimen/dimension18dp" />
-
-                            <RadioButton
-                                android:id="@+id/rbTobacoNever"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="Never"
-                                android:textSize="@dimen/dimension18dp" />
-                        </RadioGroup>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlTobacoDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlRadios"
-                        android:layout_toRightOf="@+id/imgTobaco"
+                        android:layout_below="@+id/imgTobaco"
+                        android:orientation="vertical"
                         android:visibility="gone">
 
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilTobacoType"
+                        <View
+                            android:id="@+id/vwll4"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:layout_height="@dimen/dimension1dp"
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtTobacoType"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Type"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilTobacoAmt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilTobacoType"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_marginBottom="@dimen/dimension5dp"
                             android:layout_marginTop="@dimen/dimension5dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:background="@color/colordivideGray" />
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtTobacoAmt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Amount/Frequency"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
 
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilTobacoYear"
+                        <RelativeLayout
+                            android:id="@+id/rlRadios"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilTobacoAmt"
-                            android:layout_marginTop="@dimen/dimension5dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:layout_below="@+id/vwll4">
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtTobacoYear"
+                            <RadioGroup
+                                android:id="@+id/rgTobaco"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/numOfYear"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-                    </RelativeLayout>
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimension10dp"
+                                android:weightSum="3">
+
+                                <RadioButton
+                                    android:id="@+id/rbTobacoCurrent"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/current_selector"
+                                    android:button="@null"
+                                    android:textSize="@dimen/dimension18dp"
+
+                                    />
+
+                                <RadioButton
+                                    android:id="@+id/rbTobacoPast"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/past_selector"
+                                    android:button="@null"
+                                    android:textSize="@dimen/dimension18dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbTobacoNever"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/never_selector"
+                                    android:button="@null"
+                                    android:checked="true"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </RadioGroup>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlTobacoDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rlRadios"
+                            android:visibility="gone">
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilTobacoType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtTobacoType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="Type"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll5"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilTobacoType"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilTobacoAmt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vwll5"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtTobacoAmt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="Amount/Frequency"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll6"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilTobacoAmt"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilTobacoYear"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vwll6"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtTobacoYear"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="@string/numOfYear"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll7"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilTobacoYear"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <View
@@ -3332,127 +3523,201 @@
                         android:src="@drawable/drugs" />
 
                     <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toLeftOf="@+id/imgDrugDrop"
                         android:id="@+id/txtDrugHeader"
-                        style="@style/EmergencyCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension35dp"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp"
                         android:layout_toRightOf="@+id/imgDrug"
                         android:fontFamily="@font/lato"
                         android:text="Recreational Drug Use" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlRadioDrug"
+                    <ImageView
+                        android:id="@+id/imgDrugDrop"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/lindrug"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtDrugHeader"
-                        android:layout_toRightOf="@+id/imgDrug">
-
-                        <RadioGroup
-                            android:id="@+id/rgDrug"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rbDrugCurrent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension10dp"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Current"
-                                android:textSize="@dimen/dimension18dp" />
-
-                            <RadioButton
-                                android:id="@+id/rbDrugPast"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Past"
-                                android:textSize="@dimen/dimension18dp" />
-
-                            <RadioButton
-                                android:id="@+id/rbDrugNever"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="Never"
-                                android:textSize="@dimen/dimension18dp" />
-                        </RadioGroup>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlDrugDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlRadioDrug"
-                        android:layout_toRightOf="@+id/imgDrug"
+                        android:layout_below="@+id/imgDrug"
+                        android:orientation="vertical"
                         android:visibility="gone">
 
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilDrugType"
+                        <View
+                            android:id="@+id/vwll11"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:layout_height="@dimen/dimension1dp"
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtDrugType"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Type"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilDrugAmt"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilDrugType"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
-
-                            <AutoCompleteTextView
-                                android:id="@+id/txtDrugAmt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Amount/Frequency/Other Notes"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilDrugYear"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilDrugAmt"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_marginBottom="@dimen/dimension5dp"
                             android:layout_marginTop="@dimen/dimension5dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:background="@color/colordivideGray" />
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtDrugYear"
+                        <RelativeLayout
+                            android:id="@+id/rlRadioDrug"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vwll11">
+
+                            <RadioGroup
+                                android:id="@+id/rgDrug"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/numOfYear"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-                    </RelativeLayout>
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimension10dp"
+                                android:weightSum="3">
+
+                                <RadioButton
+                                    android:id="@+id/rbDrugCurrent"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/current_selector"
+                                    android:button="@null"
+
+                                    android:textSize="@dimen/dimension18dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbDrugPast"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/past_selector"
+                                    android:button="@null"
+
+                                    android:textSize="@dimen/dimension18dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbDrugNever"
+                                    android:layout_width="0dip"
+                                    android:layout_height="50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/never_selector"
+                                    android:button="@null"
+                                    android:checked="true"
+
+                                    android:textSize="@dimen/dimension18dp" />
+                            </RadioGroup>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlDrugDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rlRadioDrug"
+                            android:visibility="gone">
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrugType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrugType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="Type"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll12"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrugType"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrugAmt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vwll12"
+                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrugAmt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="Amount/Frequency/Other Notes"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll13"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrugAmt"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrugYear"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vwll13"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrugYear"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="@string/numOfYear"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll14"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrugYear"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -3493,104 +3758,167 @@
 
                     <TextView
                         android:id="@+id/txtDrinkHeader"
-                        style="@style/EmergencyCategory"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_toLeftOf="@+id/imgDrinkDrop"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension35dp"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp"
                         android:layout_toRightOf="@+id/imgDrink"
                         android:fontFamily="@font/lato"
                         android:text="Alcohol" />
 
-                    <RelativeLayout
-                        android:id="@+id/rlRadioDrink"
+                    <ImageView
+                        android:id="@+id/imgDrinkDrop"
+                        android:layout_width="@dimen/dimension25dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="false"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/drop_down"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:id="@+id/lindrink"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtDrinkHeader"
-                        android:layout_toRightOf="@+id/imgDrink">
-
-                        <RadioGroup
-                            android:id="@+id/rgDrink"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <RadioButton
-                                android:id="@+id/rbDrinkCurrent"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension10dp"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Current"
-                                android:textSize="@dimen/dimension18dp" />
-
-                            <RadioButton
-                                android:id="@+id/rbDrinkPast"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="@dimen/dimension10dp"
-                                android:text="Past"
-                                android:textSize="@dimen/dimension18dp" />
-
-                            <RadioButton
-                                android:id="@+id/rbDrinkNever"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="Never"
-                                android:textSize="@dimen/dimension18dp" />
-                        </RadioGroup>
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:id="@+id/rlDrinkDesc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlRadioDrink"
-                        android:layout_toRightOf="@+id/imgDrink"
+                        android:layout_below="@+id/imgDrink"
+                        android:orientation="vertical"
                         android:visibility="gone">
 
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilDrinkAmt"
+                        <View
+                            android:id="@+id/vwll8"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
-
-                            <AutoCompleteTextView
-                                android:id="@+id/txtDrinkAmt"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="Amount/Frequency/Other Notes"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-
-                        <android.support.design.widget.TextInputLayout
-                            android:id="@+id/tilDrinkYear"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilDrinkAmt"
+                            android:layout_height="@dimen/dimension1dp"
+                            android:layout_below="@+id/imgDrink"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_marginBottom="@dimen/dimension5dp"
                             android:layout_marginTop="@dimen/dimension5dp"
-                            android:gravity="bottom"
-                            android:paddingBottom="@dimen/dimension8dp">
+                            android:background="@color/colordivideGray" />
 
-                            <AutoCompleteTextView
-                                android:id="@+id/txtDrinkYear"
+                        <RelativeLayout
+                            android:id="@+id/rlRadioDrink"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/vwll8">
+
+                            <RadioGroup
+                                android:id="@+id/rgDrink"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/numOfYear"
-                                android:imeOptions="actionNext"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingLeft="@dimen/dimension15dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:textColor="@color/colorPrimaryDark"
-                                android:textSize="@dimen/dimension20dp" />
-                        </android.support.design.widget.TextInputLayout>
-                    </RelativeLayout>
+                                android:orientation="horizontal"
+                                android:padding="@dimen/dimension10dp"
+                                android:weightSum="3">
+
+                                <RadioButton
+                                    android:id="@+id/rbDrinkCurrent"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/current_selector"
+                                    android:button="@null"
+
+                                    android:textSize="@dimen/dimension18dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbDrinkPast"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/past_selector"
+                                    android:button="@null"
+
+                                    android:textSize="@dimen/dimension18dp" />
+
+                                <RadioButton
+                                    android:id="@+id/rbDrinkNever"
+                                    android:layout_width="0dip"
+                                    android:layout_height="@dimen/dimension50dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/never_selector"
+                                    android:button="@null"
+                                    android:checked="true"
+
+                                    android:textSize="@dimen/dimension18dp" />
+                            </RadioGroup>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlDrinkDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/rlRadioDrink"
+                            android:visibility="gone">
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrinkAmt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrinkAmt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="Amount/Frequency/Other Notes"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll9"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrinkAmt"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilDrinkYear"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/vwll9"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:gravity="bottom"
+                                android:paddingBottom="@dimen/dimension8dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txtDrinkYear"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:hint="@string/numOfYear"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <View
+                                android:id="@+id/vwll10"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dimension1dp"
+                                android:layout_below="@+id/tilDrinkYear"
+                                android:layout_margin="@dimen/dimension5dp"
+                                android:layout_marginBottom="@dimen/dimension5dp"
+                                android:background="@color/colordivideGray" />
+                        </RelativeLayout>
+                    </LinearLayout>
                 </RelativeLayout>
 
                 <View
