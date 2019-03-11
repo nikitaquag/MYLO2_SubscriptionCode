@@ -3,6 +3,8 @@ package com.mindyourlovedone.healthcare.Connections;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -40,6 +42,8 @@ public class PhoneAdapter extends BaseAdapter {
         lf= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+
+
     @Override
     public int getCount() {
         return phonelist.size();
@@ -74,8 +78,18 @@ public class PhoneAdapter extends BaseAdapter {
             view = convertView;
             holder = (ViewHolder) convertView.getTag();
         }
+       /* CustomWatcher oldWatcher = (CustomWatcher)holder.txtPhoNum.getTag();
+        if(oldWatcher != null)
+            holder.txtPhoNum.removeTextChangedListener(oldWatcher);
+        */
         holder.txtType.setText(phonelist.get(position).getContactType());
         holder.txtPhoNum.setText(phonelist.get(position).getValue());
+
+        /*CustomWatcher newWatcher = new CustomWatcher(phonelist.get(position),context);
+        holder.txtPhoNum.setTag(newWatcher);
+        holder.txtPhoNum.addTextChangedListener(newWatcher);*/
+
+
 
         holder.txtPhoNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -94,6 +108,30 @@ public class PhoneAdapter extends BaseAdapter {
                 }
             }
         });
+
+   /*  holder.txtPhoNum.addTextChangedListener(new TextWatcher() {
+            int prevL = 0;
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                prevL =  holder.txtPhoNum.getText().toString().length();
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                int length = editable.length();
+
+                if ((prevL < length) && (length == 3 || length == 7)) {
+                    editable.append("-");
+                    Toast.makeText(context,""+length,Toast.LENGTH_SHORT).show();
+                }
+            }
+        });*/
 
         holder.txtType.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,4 +220,43 @@ public class PhoneAdapter extends BaseAdapter {
         TextView txtRel,txtPhoNum,txtType;
         ImageView imgdeletePhone;
     }
+
+    public class CustomWatcher  implements TextWatcher
+    {
+        private ContactData item;
+        Context context;
+        String s="";
+        int prevL = 0;
+        public CustomWatcher(ContactData item, Context context)
+        {
+            this.item = item;
+            this.context=context;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
+        {
+            prevL = holder.txtPhoNum.getText().toString().length();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2)
+        {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable)
+        {
+
+            int length = editable.length();
+
+            if ((prevL < length) && (length == 3 || length == 7)) {
+                editable.append("-");
+                Toast.makeText(context,editable,Toast.LENGTH_SHORT).show();
+            }
+
+        }
+    }
+
 }

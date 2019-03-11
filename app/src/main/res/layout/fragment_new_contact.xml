@@ -194,7 +194,22 @@
                             android:id="@+id/rlCategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-
+                            <FrameLayout
+                                android:id="@+id/flCat"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimension22dp"
+                                >
+                            <ImageView
+                                android:id="@+id/imgCat"
+                                android:layout_width="@dimen/dimension20dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:src="@drawable/drg"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="@dimen/dimension8dp"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="@dimen/dimension17dp"
+                                ></ImageView>
                                 <android.support.design.widget.TextInputLayout
                                     android:id="@+id/tilFCategory"
 
@@ -204,7 +219,7 @@
                                     android:focusableInTouchMode="true"
                                     android:paddingLeft="@dimen/dimension20dp"
                                     android:paddingTop="@dimen/dimension8dp"
-                                    android:paddingRight="@dimen/dimension20dp"
+
                                     android:paddingBottom="@dimen/dimension8dp"
                                     app:hintEnabled="true"
 
@@ -216,7 +231,7 @@
                                         android:id="@+id/txtFCategory"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:drawableRight="@drawable/dropd"
+
                                         android:hint="Category"
                                         android:imeOptions="actionNext"
                                         android:maxLength="30"
@@ -230,6 +245,7 @@
 
                                     <requestFocus />
                                 </android.support.design.widget.TextInputLayout>
+                            </FrameLayout>
                             <com.mindyourlovedone.healthcare.customview.MySpinner
                                 android:id="@+id/spinnerFinance"
                                 android:layout_width="match_parent"
@@ -251,7 +267,7 @@
                                 android:id="@+id/tilOtherCategory"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/tilFCategory"
+                                android:layout_below="@+id/flCat"
                                 android:descendantFocusability="beforeDescendants"
                                 android:focusableInTouchMode="true"
                                 android:paddingLeft="@dimen/dimension20dp"
@@ -486,6 +502,7 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
@@ -518,6 +535,7 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
@@ -550,6 +568,7 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
@@ -611,6 +630,7 @@
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
+                            android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
@@ -792,6 +812,22 @@
                         android:id="@+id/rlCategoryHospital"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
+                        <FrameLayout
+                            android:id="@+id/flhosp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimension22dp"
+                            >
+                        <ImageView
+                            android:id="@+id/imghosp"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension25dp"
+                            android:src="@drawable/drg"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="@dimen/dimension17dp"
+                            ></ImageView>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilHCategory"
 
@@ -801,7 +837,7 @@
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension20dp"
+
                             android:paddingBottom="@dimen/dimension8dp"
                             app:hintEnabled="true"
 
@@ -813,7 +849,7 @@
                                 android:id="@+id/txtHCategory"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/dropd"
+
                                 android:hint="Category"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
@@ -845,12 +881,12 @@
                             />
 
                         <requestFocus />
-
+                        </FrameLayout>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilOtherCategoryHospital"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilHCategory"
+                            android:layout_below="@+id/flhosp"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
                             android:paddingRight="@dimen/dimension20dp"
@@ -1018,6 +1054,7 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -1050,6 +1087,7 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -1082,6 +1120,7 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -1468,18 +1507,34 @@ android:fontFamily="@font/lato"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"
                         custom:ms_hintColor="@color/colorDarkGray" />
-
+                    <FrameLayout
+                        android:id="@+id/flPr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimension22dp"
+                        android:layout_below="@+id/tilEmail"
+                        >
+                    <ImageView
+                        android:id="@+id/imgprio"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:src="@drawable/drg"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="@dimen/dimension17dp"
+                        ></ImageView>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilPriority"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilEmail"
+
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:paddingLeft="@dimen/dimension20dp"
 
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
+
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         app:hintEnabled="true"
@@ -1491,7 +1546,7 @@ android:fontFamily="@font/lato"
                             android:id="@+id/txtPriority"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/dropd"
+
                             android:hint="Priority"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
@@ -1507,12 +1562,12 @@ android:fontFamily="@font/lato"
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
-
+                    </FrameLayout>
                     <RelativeLayout
                         android:id="@+id/llPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilPriority"
+                        android:layout_below="@+id/flPr"
                        >
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
                             android:id="@+id/listPrPhone"
@@ -2480,6 +2535,22 @@ android:fontFamily="@font/lato"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilInsuaranceName">
+                        <FrameLayout
+                            android:id="@+id/flInsu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimension22dp"
+                            >
+                        <ImageView
+                            android:id="@+id/imgInsu"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension25dp"
+                            android:src="@drawable/drg"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="@dimen/dimension17dp"
+                            ></ImageView>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilInsuType"
                             android:layout_width="match_parent"
@@ -2514,7 +2585,7 @@ android:fontFamily="@font/lato"
 
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
-
+                        </FrameLayout>
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinnerInsuarance"
                             android:layout_width="match_parent"
@@ -2538,7 +2609,7 @@ android:fontFamily="@font/lato"
                             android:id="@+id/tilOtherInsurance"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilInsuType"
+                            android:layout_below="@+id/flInsu"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
                             android:paddingBottom="@dimen/dimension8dp"
@@ -3548,6 +3619,7 @@ android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -3579,6 +3651,7 @@ android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -3607,7 +3680,7 @@ android:fontFamily="@font/lato"
                         android:id="@+id/tilPharmacyWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilPharmacyFax"
+                        android:layout_below="@+id/llPharmPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"

@@ -32,6 +32,16 @@ public class Hospital implements Serializable {
     String schedule = "";
     String other = "";
 
+    public String getHas_card() {
+        return has_card;
+    }
+
+    public void setHas_card(String has_card) {
+        this.has_card = has_card;
+    }
+
+    String has_card="";
+
     public String getLocator() {
         return locator;
     }

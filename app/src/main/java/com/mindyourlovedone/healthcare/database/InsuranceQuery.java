@@ -197,4 +197,40 @@ public class InsuranceQuery {
 
         return flag;
     }
+
+    public static Insurance getLastInsurance() {
+        ArrayList<Insurance> noteList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Insurance notes = new Insurance();
+        Cursor c = db.rawQuery("select * from " + TABLE_NAME + ";", null);
+
+        //   Cursor c=db.rawQuery("select * from "+TABLE_NAME + " where " + COL_USER_ID + "='" + userid + "';",null);
+        if (c != null && c.getCount() > 0) {
+            if (c.moveToFirst()) {
+                do {
+
+                    notes.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                    notes.setUserid(c.getInt(c.getColumnIndex(COL_USER_ID)));
+                    notes.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                    notes.setPhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                    notes.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                    notes.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                    notes.setType(c.getString(c.getColumnIndex(COL_TYPE)));
+                    notes.setMember(c.getString(c.getColumnIndex(COL_MEMBERID)));
+                    notes.setGroup(c.getString(c.getColumnIndex(COL_GROUP)));
+                    notes.setEmail(c.getString(c.getColumnIndex(COL_EMAIL)));
+                    notes.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                    notes.setSubscriber(c.getString(c.getColumnIndex(COL_SUBSCRIBER)));
+                    notes.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                    notes.setOtherInsurance(c.getString(c.getColumnIndex(COL_OTHER_TYPE)));
+                    notes.setAgent(c.getString(c.getColumnIndex(COL_AGENT)));
+                    notes.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+
+
+                   // noteList.add(notes);
+                } while (c.moveToNext());
+            }
+        }
+        return notes;
+    }
 }

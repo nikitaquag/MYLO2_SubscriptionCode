@@ -35,6 +35,7 @@ public class FinanceQuery {
     public static final String COL_PHOTOCARD = "PhotoCard";
     public static final String COL_PracticeName = "PracticeName";
     public static final String COL_ContactPerson = "ContactPerson";
+    public static final String COL_HASCARD= "Has_Card";
     static DBHelper dbHelper;
     Context context;
 
@@ -73,7 +74,7 @@ public class FinanceQuery {
 
                 connection.setEmail(c.getString(c.getColumnIndex(COL_EMAIL)));
                 connection.setLocation(c.getString(c.getColumnIndex(COL_LOCATION)));
-
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
 
                 connectionList.add(connection);
 
@@ -84,7 +85,7 @@ public class FinanceQuery {
         return connectionList;
     }
 
-    public static Boolean insertFinanceData(int userId, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String email, String location, String contactName) {
+    public static Boolean insertFinanceData(int userId, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String email, String location, String contactName, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -106,7 +107,7 @@ public class FinanceQuery {
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_EMAIL, email);
         cv.put(COL_LOCATION, location);
-
+        cv.put(COL_HASCARD, has_card);
         cv.put(COL_PracticeName, "");
         cv.put(COL_ContactPerson, "");
 
@@ -124,7 +125,7 @@ public class FinanceQuery {
                 COL_MOBILE_PHONE + " VARCHAR(20)," + COL_OTHER_PHONE + " VARCHAR(20)," + COL_ADDRESS + " TEXT," +
                 COL_OFFICE_PHONE + " VARCHAR(20)," + COL_CATEGORY + " VARCHAR(50)," + COL_OTHER_CATEGORY + " VARCHAR(50)," + COL_PRACTICENAME + " VARCHAR(30)," + COL_FAX +
                 " VARCHAR(20)," + COL_NOTE + " TEXT," + COL_EMAIL + " VARCHAR(50)," + COL_LOCATION + " VARCHAR(50)," +
-                COL_PHOTOCARD + " VARCHAR(50)," +
+                COL_PHOTOCARD + " VARCHAR(50)," +COL_HASCARD + " VARCHAR(10),"+
                 COL_PHOTO + " VARCHAR(50)," + COL_PracticeName + " VARCHAR(30)," + COL_ContactPerson + " VARCHAR(50));";
         return createTableQuery;
     }
@@ -134,7 +135,7 @@ public class FinanceQuery {
         return dropTableQuery;
     }
 
-    public static Boolean updateFinanceData(int id, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String email, String location, String contactName) {
+    public static Boolean updateFinanceData(int id, String name, String website, String address, String officephone, String hourphone, String otherphone, String speciality, String photo, String fax, String practice_name, String note, String lastseen, String otherCategory, String photoCard, String email, String location, String contactName, String has_card) {
 
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
@@ -156,7 +157,7 @@ public class FinanceQuery {
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_EMAIL, email);
         cv.put(COL_LOCATION, location);
-
+        cv.put(COL_HASCARD, has_card);
         cv.put(COL_PracticeName, practice_name);
         cv.put(COL_ContactPerson, contactName);
 
@@ -178,5 +179,46 @@ public class FinanceQuery {
             } while (c.moveToNext());
         }
         return true;
+    }
+
+    public static Finance getLastFinance() {
+        ArrayList<Finance> connectionList = new ArrayList<>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        String query = "select * from " + TABLE_NAME + ";";
+        Finance connection = new Finance();
+        //   String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
+        Cursor c = db.rawQuery(query, null);
+
+        if (c.moveToFirst()) {
+            do {
+
+
+                connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                connection.setWebsite(c.getString(c.getColumnIndex(COL_WEBSITE)));
+                connection.setLastseen(c.getString(c.getColumnIndex(COL_LASTSEEN)));
+                connection.setOfficePhone(c.getString(c.getColumnIndex(COL_OFFICE_PHONE)));
+                connection.setHourPhone(c.getString(c.getColumnIndex(COL_MOBILE_PHONE)));
+                connection.setOtherPhone(c.getString(c.getColumnIndex(COL_OTHER_PHONE)));
+                connection.setCategory(c.getString(c.getColumnIndex(COL_CATEGORY)));
+                connection.setContactName(c.getString(c.getColumnIndex(COL_PRACTICENAME)));
+                connection.setFax(c.getString(c.getColumnIndex(COL_FAX)));
+                connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                connection.setOtherCategory(c.getString(c.getColumnIndex(COL_OTHER_CATEGORY)));
+                connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+
+                connection.setEmail(c.getString(c.getColumnIndex(COL_EMAIL)));
+                connection.setLocation(c.getString(c.getColumnIndex(COL_LOCATION)));
+                connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
+
+               // connectionList.add(connection);
+
+            } while (c.moveToNext());
+        }
+
+
+        return connection;
     }
 }

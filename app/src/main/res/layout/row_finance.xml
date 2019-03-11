@@ -70,7 +70,7 @@
                 android:layout_height="@dimen/dimension60dp"
                 android:layout_centerVertical="true"
                 android:layout_margin="@dimen/dimension10dp"
-                android:src="@drawable/ic_profile_defaults" />
+                android:src="@drawable/ic_profile_defaults"  />
 
             <RelativeLayout
                 android:id="@+id/rlMain"

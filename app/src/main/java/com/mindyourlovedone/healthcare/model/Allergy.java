@@ -10,10 +10,10 @@ public class Allergy implements Serializable {
 
     int userId;
     int id;
-    String allergy = "";
-    String treatment = "";
-    String reaction = "";
-    String otherReaction = "";
+    String allergy = "--";
+    String treatment = "--";
+    String reaction = "--";
+    String otherReaction = "--";
 
     public int getUserId() {
         return userId;
@@ -32,6 +32,9 @@ public class Allergy implements Serializable {
     }
 
     public String getAllergy() {
+        if(allergy.isEmpty()){
+            return "--";
+        }
         return allergy;
     }
 
@@ -40,6 +43,9 @@ public class Allergy implements Serializable {
     }
 
     public String getTreatment() {
+        if(treatment.isEmpty()){
+            return "--";
+        }
         return treatment;
     }
 
@@ -48,6 +54,9 @@ public class Allergy implements Serializable {
     }
 
     public String getReaction() {
+        if(reaction.isEmpty()){
+            return "--";
+        }
         return reaction;
     }
 
@@ -56,6 +65,9 @@ public class Allergy implements Serializable {
     }
 
     public String getOtherReaction() {
+        if(otherReaction.isEmpty()){
+            return "--";
+        }
         return otherReaction;
     }
 

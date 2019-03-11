@@ -88,7 +88,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.ic_profile_defaults)
+                .showImageOnLoading(R.drawable.all_profile)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -195,7 +195,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             if (specialist) {
                 if (frs != null) {
                     if (holder.imgProfile.getDrawable() == null) {
-                        holder.imgProfile.setImageResource(R.drawable.yellow);
+                        holder.imgProfile.setImageResource(R.drawable.all_profile);
                     } else {
                         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                     }
@@ -204,7 +204,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             if (physician) {
                 if (fr != null) {
                     if (holder.imgProfile.getDrawable() == null) {
-                        holder.imgProfile.setImageResource(R.drawable.green);
+                        holder.imgProfile.setImageResource(R.drawable.all_profile);
                     } else {
                         holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                     }
@@ -241,7 +241,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             if (physician) {
                 if (fr != null) {
                     if (holder.imgProfile.getDrawable() == null) {
-                        holder.imgProfile.setImageResource(R.drawable.green);
+                        holder.imgProfile.setImageResource(R.drawable.all_profile);
                     } else {
                         Toast.makeText(context, "Not Physician", Toast.LENGTH_SHORT).show();
 
@@ -252,7 +252,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             if (specialist) {
                 if (frs != null) {
                     if (holder.imgProfile.getDrawable() == null) {
-                        holder.imgProfile.setImageResource(R.drawable.yellow);
+                        holder.imgProfile.setImageResource(R.drawable.all_profile);
                     } else {
                         Toast.makeText(context, "Not Doctor", Toast.LENGTH_SHORT).show();
                         //  holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));

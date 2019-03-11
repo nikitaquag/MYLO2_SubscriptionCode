@@ -15,6 +15,7 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 public class PhoneActivity extends AppCompatActivity {
 ListView listRelation;
 Context context=this;
+String selected="";
 ImageView imgBack;
     String[] Relationship = {"Mobile", "Home", "Office", "Fax"};
     private static int RESULT_RELATION = 10;
@@ -29,7 +30,7 @@ ImageView imgBack;
         listRelation=findViewById(R.id.listRelation);
         imgBack=findViewById(R.id.imgBack);
 
-        RelationsAdapter rd=new RelationsAdapter(context,Relationship);
+        RelationsAdapter rd=new RelationsAdapter(context,Relationship, selected);
         listRelation.setAdapter(rd);
 
         listRelation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
