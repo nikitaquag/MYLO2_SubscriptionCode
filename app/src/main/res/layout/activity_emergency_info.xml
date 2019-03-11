@@ -58,7 +58,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginRight="@dimen/dimension5dp"
-            android:layout_toLeftOf="@+id/imgRight"
+            android:layout_toLeftOf="@+id/imgHelp"
             android:paddingLeft="@dimen/dimension3dp"
             android:paddingRight="@dimen/dimension3dp"
             android:text="Save"
