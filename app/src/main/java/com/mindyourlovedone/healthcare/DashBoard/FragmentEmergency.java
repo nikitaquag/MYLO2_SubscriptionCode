@@ -68,7 +68,8 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
     EmergencyAdapter emergencyAdapter;
     RelativeLayout rlGuide;
     String finalText = "";
-    FloatingActionButton floatProfile, floatOptions, floatAdd;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override

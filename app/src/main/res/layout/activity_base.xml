@@ -131,10 +131,7 @@
                     android:id="@+id/imgNoti"
                     android:layout_width="@dimen/dimension80dp"
                     android:layout_height="@dimen/dimension40dp"
-                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/dimension20dp"
-                    android:layout_toLeftOf="@+id/imgRight"
                     android:src="@drawable/aba"
                     android:visibility="invisible" />
 

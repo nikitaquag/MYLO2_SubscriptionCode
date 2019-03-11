@@ -80,7 +80,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     FragmentNotification fragmentNotification = null;
     FragmentOverview fragmentOverview = null;
     ImageView imgHelp, imgR, imgDrawer, imgNoti, imgLogout, imgLocationFeed, imgProfile, imgDrawerProfile, imgPdf, imgDoc, imgRight;
-    TextView txtTitle, txtName,txtRel, txtDrawerName, txtFname, txtAdd;
+    TextView txtTitle, txtName,txtRel, txtDrawerName, txtFname, txtAdd,txtHome;
     TextView txtBank, txtForm, txtSenior, txtAdvance, txtPodcast;
     DrawerLayout drawerLayout;
     RelativeLayout leftDrawer, container, footer, header;
@@ -495,7 +495,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         imgPdf = findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgLocationFeed = findViewById(R.id.imgLocationFeed);
-
+        txtHome=findViewById(R.id.txtHome);
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
         txtRel = findViewById(R.id.txtRel);
@@ -590,6 +590,13 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.rlHome:
+              /*  Drawable mDrawable = context.getResources().getDrawable(R.drawable.drawer_home);
+                mDrawable.setColorFilter(new
+                        PorterDuffColorFilter(context.getResources().getColor(R.color.colorMaroon),PorterDuff.Mode.MULTIPLY));
+                txtHome.setTypeface(Typeface.DEFAULT_BOLD);
+                txtHome.setTypeface(txtHome.getTypeface(), Typeface.BOLD);*/
+
+
                 Intent intentHome = new Intent(context, SplashNewActivity.class);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -612,6 +619,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 drawerLayout.closeDrawer(leftDrawer);
                 break;
             case R.id.rlSponsor:
+
                 Intent intentSponsor = new Intent(context, BaseActivity.class);
                 intentSponsor.putExtra("c", 6);
                 intentSponsor.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

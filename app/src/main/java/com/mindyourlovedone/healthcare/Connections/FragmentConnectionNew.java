@@ -35,7 +35,6 @@ import android.widget.Toast;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
-import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
@@ -54,7 +53,6 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by varsha on 8/26/2017.
@@ -67,7 +65,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     GridView lvConnection;
     ListView lvSelf;
     TextView txtUser, txtRelation;
-    FloatingActionButton fab;
+   // FloatingActionButton fab;
+    ImageView fab;
     LinearLayout llSelf;
     ImageView imgSelfFolder, imgSelf;
     ArrayList<RelativeConnection> connectionList;
@@ -150,7 +149,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     private void initUI() {
         lvSelf = rootview.findViewById(R.id.lvSelf);
         fab = rootview.findViewById(R.id.fab);
-        fab.setImageResource(R.drawable.ic_add);
+       // fab.setImageResource(R.drawable.ic_add);
         llSelf = rootview.findViewById(R.id.llSelf);
         imgSelfFolder = rootview.findViewById(R.id.imgSelfFolder);
         imgSelf = rootview.findViewById(R.id.imgSelf);

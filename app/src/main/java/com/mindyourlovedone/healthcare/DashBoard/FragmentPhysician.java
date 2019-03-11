@@ -66,7 +66,8 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     DBHelper dbHelper;
     SpecialistAdapter specialistAdapter;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile, floatOptions, floatAdd;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override
