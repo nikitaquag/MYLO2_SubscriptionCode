@@ -46,7 +46,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimension10dp"
-                    android:src="@drawable/edit_n" />
+                    android:src="@drawable/edit_n"
+                    android:visibility="gone"
+                    />
 
             </RelativeLayout>
 
