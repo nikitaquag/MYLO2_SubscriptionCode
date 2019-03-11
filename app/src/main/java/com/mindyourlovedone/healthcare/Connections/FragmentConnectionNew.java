@@ -781,11 +781,11 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Work in Progress due to ph number",Toast.LENGTH_SHORT).show();
-               /* preferences.putString(PrefConstants.SOURCE, "Connection");
+                //Toast.makeText(getActivity(),"Work in Progress due to ph number",Toast.LENGTH_SHORT).show();
+                preferences.putString(PrefConstants.SOURCE, "Connection");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 i.putExtra("TAB","Contact");
-                getActivity().startActivity(i);*/
+                getActivity().startActivity(i);
                 dialog.dismiss();
             }
 
