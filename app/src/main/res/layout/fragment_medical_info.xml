@@ -149,7 +149,7 @@
                                 android:padding="@null"
                                 android:text="Note"
                                 android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension20dp"
+                                android:textSize="@dimen/dimension16dp"
                                 android:textStyle="normal" />
 
                             <EditText
@@ -165,7 +165,7 @@
                                 android:paddingBottom="@dimen/dimension5dp"
                                 android:paddingTop="@dimen/dimension5dp"
                                 android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension18dp" />
+                                android:textSize="@dimen/dimension16dp" />
 
                             <View
                                 android:id="@+id/view1"
@@ -556,7 +556,7 @@
                                 android:padding="@null"
                                 android:text="Note"
                                 android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension20dp"
+                                android:textSize="@dimen/dimension16dp"
                                 android:textStyle="normal" />
 
                             <EditText
@@ -572,7 +572,7 @@
                                 android:paddingBottom="@dimen/dimension5dp"
                                 android:paddingTop="@dimen/dimension5dp"
                                 android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension18dp" />
+                                android:textSize="@dimen/dimension16dp" />
 
                             <View
                                 android:id="@+id/viewPre"
@@ -819,7 +819,7 @@
                             android:padding="@null"
                             android:text="Note"
                             android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension18dp"
+                            android:textSize="@dimen/dimension16dp"
                             android:textStyle="normal" />
 
                         <EditText
@@ -835,7 +835,7 @@
                             android:paddingBottom="@dimen/dimension5dp"
                             android:paddingTop="@dimen/dimension5dp"
                             android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
+                            android:textSize="@dimen/dimension16dp" />
 
                         <!--<EditText-->
                         <!--android:id="@+id/etVisionNote"-->
@@ -1070,7 +1070,7 @@
                                 android:padding="@null"
                                 android:text="Note"
                                 android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension18dp"
+                                android:textSize="@dimen/dimension16dp"
                                 android:textStyle="normal" />
 
                             <EditText
@@ -1085,7 +1085,7 @@
                                 android:paddingBottom="@dimen/dimension5dp"
                                 android:paddingTop="@dimen/dimension8dp"
                                 android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension20dp" />
+                                android:textSize="@dimen/dimension16dp" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -1257,7 +1257,7 @@
                             android:padding="@null"
                             android:text="Note"
                             android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension18dp"
+                            android:textSize="@dimen/dimension16dp"
                             android:textStyle="normal" />
 
                         <EditText
@@ -1273,7 +1273,7 @@
                             android:paddingBottom="@dimen/dimension5dp"
                             android:paddingTop="@dimen/dimension5dp"
                             android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
+                            android:textSize="@dimen/dimension16dp" />
 
                         <!--<EditText-->
                         <!--android:id="@+id/etAideNote"-->
@@ -2426,7 +2426,7 @@
                             android:padding="@null"
                             android:text="Note"
                             android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension18dp"
+                            android:textSize="@dimen/dimension16dp"
                             android:textStyle="normal" />
 
                         <EditText
@@ -2442,7 +2442,7 @@
                             android:paddingBottom="@dimen/dimension5dp"
                             android:paddingTop="@dimen/dimension5dp"
                             android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension18dp" />
+                            android:textSize="@dimen/dimension16dp" />
 
 
                         <!--<EditText-->
