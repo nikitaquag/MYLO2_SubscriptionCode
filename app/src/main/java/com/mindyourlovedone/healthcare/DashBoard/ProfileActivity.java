@@ -1087,6 +1087,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 if (imgFile.exists()) {
                     //Shradha
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgEdit.setVisibility(View.VISIBLE);
                     //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                 } else {
                     Toast.makeText(context, "File Not Found", Toast.LENGTH_SHORT).show();
@@ -1095,6 +1096,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 //                Toast.makeText(context, "You have done wrong", Toast.LENGTH_SHORT).show();
 
                 imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                imgEdit.setVisibility(View.GONE);
             }
               /*  byte[] photo=personalInfo.getPhoto();
             Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -2078,6 +2080,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (from.equals("Profile")) {
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    imgEdit.setVisibility(View.GONE);
                     imagepath = "";
                     ProfileMap = null;
                 } else if (from.equals("Card")) {
@@ -2143,6 +2146,19 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     }
 
     private boolean validateConnection() {
+
+        for (int i=0;i<phonelist.size();i++)
+        {
+            if (phonelist.get(i).getValue()==""&&phonelist.get(i).getContactType()=="")
+            {
+                phonelist.remove(phonelist.get(i));
+            }else if (phonelist.get(i).getValue()==""||phonelist.get(i).getContactType()=="")
+            {
+                DialogManager.showAlert("Please Select Phone number with Type", context);
+                return false;
+            }
+        }
+
         storeImage(ProfileMap, "Profile");
         storeImage(CardMap, "Card");
         name = txtName.getText().toString().trim();
@@ -2543,6 +2559,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
+                imgEdit.setVisibility(View.GONE);
 //                ProfileMap = selectedImage;
                 ProfileMap = scaled;
                 storeImage(ProfileMap, "Profile");
@@ -2565,7 +2582,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
-
+                imgEdit.setVisibility(View.GONE);
 
                 // imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
                 // profileImage.setImageBitmap(bitmap);

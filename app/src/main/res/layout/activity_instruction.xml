@@ -145,11 +145,11 @@
 
                     <ImageView
                         android:id="@+id/img61"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy61"
@@ -157,7 +157,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img61"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -170,11 +171,11 @@
 
                     <ImageView
                         android:id="@+id/img62"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy62"
@@ -182,7 +183,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img62"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
                 <RelativeLayout
@@ -194,11 +196,11 @@
 
                     <ImageView
                         android:id="@+id/img622"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy622"
@@ -206,7 +208,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img622"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -220,11 +223,11 @@
 
                     <ImageView
                         android:id="@+id/img63"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy63"
@@ -232,7 +235,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img63"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -245,11 +249,11 @@
 
                     <ImageView
                         android:id="@+id/img64"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy64"
@@ -257,7 +261,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img64"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -270,11 +275,11 @@
 
                     <ImageView
                         android:id="@+id/img65"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy65"
@@ -282,7 +287,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img65"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -295,11 +301,11 @@
 
                     <ImageView
                         android:id="@+id/img66"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy66"
@@ -307,7 +313,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img66"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -320,11 +327,11 @@
 
                     <ImageView
                         android:id="@+id/img67"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy67"
@@ -332,7 +339,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img67"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
@@ -345,11 +353,11 @@
 
                     <ImageView
                         android:id="@+id/img68"
-                        android:layout_width="@dimen/dimension20dp"
-                        android:layout_height="@dimen/dimension20dp"
-                        android:layout_marginTop="@dimen/dimension2dp"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension10dp"
-                        android:src="@drawable/bullet4" />
+                        android:src="@drawable/dot_bullet" />
 
                     <TextView
                         android:id="@+id/txtPolicy68"
@@ -357,7 +365,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img68"
                         android:text=""
-                        android:textColor="@color/colorGuide"
+                        android:fontFamily="@font/lato"
+                        android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 

@@ -68,7 +68,8 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
     EmergencyAdapter emergencyAdapter;
     RelativeLayout rlGuide;
     String finalText = "";
-    FloatingActionButton floatProfile, floatOptions, floatAdd;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override
@@ -528,11 +529,11 @@ emergencyList=new ArrayList<>();
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Work in progress",Toast.LENGTH_SHORT).show();
-               /* preferences.putString(PrefConstants.SOURCE, "Emergency");
+               // Toast.makeText(getActivity(),"Work in progress",Toast.LENGTH_SHORT).show();
+                preferences.putString(PrefConstants.SOURCE, "Emergency");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 i.putExtra("TAB","Contact");
-                startActivity(i);*/
+                startActivity(i);
                 dialog.dismiss();
             }
         });

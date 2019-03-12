@@ -94,6 +94,7 @@
                     android:layout_toRightOf="@+id/imgHome"
                     android:gravity="center_vertical"
                     android:text="@string/Home"
+
                     android:fontFamily="@font/lato"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension16dp" />

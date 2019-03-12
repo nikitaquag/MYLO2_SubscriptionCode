@@ -20,8 +20,9 @@
             android:layout_width="@dimen/dimension60dp"
             android:layout_height="@dimen/dimension60dp"
             android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/dimension5dp"
             android:background="@color/colorLightBlue"
-            android:src="@drawable/ic_profile_defaults" />
+            android:src="@drawable/all_profile" />
 
         <TextView
             android:id="@+id/txtConName"

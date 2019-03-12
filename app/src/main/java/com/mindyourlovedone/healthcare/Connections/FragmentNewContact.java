@@ -33,6 +33,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -63,6 +64,7 @@ import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.Insurance;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.Phone;
 import com.mindyourlovedone.healthcare.model.Proxy;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
@@ -123,15 +125,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     static String CHPhone = "";
     static String CWPhone = "";
     Emergency rel;
+    TextView txtsave;
     Specialist specialist, specialistDoctor;
     Hospital hospital;
     Pharmacy pharmacy;
     Insurance insurance;
+
     Finance finance;
     RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz, txtDelete;
     ImageView txtCard;
     LayoutInflater layoutInflater;
+    String rela="";
     //TextView btnShowMore,btnShowLess,btnSon;
     TextView txtOtherInsurance, txtOtherCategory, txtOtherRelation, txtName, txtEmail, txtMobile, txtHomePhone, txtWorkPhone, txtAdd, txtInsuaranceName, txtInsuarancePhone, txtId, txtGroup, txtMember, txtAddress;
     String contactName = "";
@@ -152,6 +157,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Preferences preferences;
     String source = "";
     TextInputLayout tilOtherCategoryHospital, tilPriority;
+    ImageView  imgprio;
+    FrameLayout flPr;
     String has_card = "NO";
     String location = "";
     String name = "", Email = "", email = "", mobile = "", speciality = "", phone = "", address = "", workphone = "", note = "", member = "", group = "", subscriber = "", type = "";
@@ -225,8 +232,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         initUI();
         initListener();
         initVariables();
+
+        txtsave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                savedata();
+            }
+        });
         return rootview;
     }
+
 
     @Override
     public void onAttachFragment(Fragment childFragment) {
@@ -1075,6 +1090,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             CAddress = bundle.getString("Address");
             CHPhone = bundle.getString("HPhone");
             CWPhone = bundle.getString("WPhone");
+
+
             byte[] image = bundle.getByteArray("Photo");
           /*  Bitmap photo = BitmapFactory.decodeByteArray(image, 0, image.length);
             imgProfile.setImageBitmap(photo);*/
@@ -1088,6 +1105,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                         //Shradha
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        imgEdit.setVisibility(View.VISIBLE);
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
@@ -1101,6 +1119,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (imgFile.exists()) {
                         //Shradha
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                        imgEdit.setVisibility(View.VISIBLE);
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                 } else {
@@ -1258,6 +1277,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 rlDoctor.setVisibility(View.GONE);
                 rlInsurance.setVisibility(View.GONE);
                 rlAids.setVisibility(View.GONE);
+                flPr.setVisibility(View.GONE);
+                tilPriority.setVisibility(View.GONE);
+                imgprio.setVisibility(View.GONE);
                 rlProxy.setVisibility(View.GONE);
                 rlFinance.setVisibility(View.GONE);
                 txtAdd.setText("Create New Profile");
@@ -1334,15 +1356,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgEdit.setVisibility(View.VISIBLE);
 
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                  //  imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
@@ -1405,12 +1432,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imagepath = specialist.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
 
@@ -1524,7 +1555,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                        imgEdit.setVisibility(View.VISIBLE);
                         //imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -1630,7 +1661,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                        imgEdit.setVisibility(View.VISIBLE);
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -1665,8 +1696,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 visiEmergency();
                 // spinnerPriority.setVisibility(View.VISIBLE);
+                flPr.setVisibility(View.VISIBLE);
                 tilPriority.setVisibility(View.VISIBLE);
-
+                imgprio.setVisibility(View.VISIBLE);
                 txtAdd.setText("Add Emergency Contact & Proxy Agent");
                 txtTitle.setText("Add Emergency Contact");
                 tilName.setHint("Name");
@@ -1699,12 +1731,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                            imgEdit.setVisibility(View.GONE);
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
                         }
                     }
 
@@ -1747,7 +1781,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilName.setHintEnabled(true);
                 // spinnerPriority.setVisibility(View.VISIBLE);
                 //spinnerPriority.setFloatingLabelText("Priority");
+                flPr.setVisibility(View.VISIBLE);
                 tilPriority.setVisibility(View.VISIBLE);
+                imgprio.setVisibility(View.VISIBLE);
                 txtPriority.setVisibility(View.VISIBLE);
                 txtDelete.setVisibility(View.VISIBLE);
                 txtAdd.setText("Update Emergency Contact & Proxy Agent");
@@ -1834,17 +1870,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgEdit.setVisibility(View.VISIBLE);
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                            imgEdit.setVisibility(View.GONE);
 
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
                         }
 
-                    } else
+                    } else {
                         imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                        imgEdit.setVisibility(View.GONE);
+                    }
 
 
                     //Change Class Name
@@ -1894,7 +1935,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilName.setHintEnabled(true);
                 // spinnerPriority.setVisibility(View.VISIBLE);
                 // spinnerPriority.setFloatingLabelText("Priority");
+                flPr.setVisibility(View.VISIBLE);
                 tilPriority.setVisibility(View.VISIBLE);
+                imgprio.setVisibility(View.VISIBLE);
                 txtTitle.setVisibility(View.VISIBLE);
                 txtTitle.setText("Emergency Contact and \nHealth Care Proxy Agent");
                 Intent EmergencyIntentss = getActivity().getIntent();
@@ -1933,13 +1976,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imagepath = rel.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgEdit.setVisibility(View.VISIBLE);
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                            imgEdit.setVisibility(View.GONE);
 
                         } else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
                         }
                     }
 
@@ -2068,16 +2114,23 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgEdit.setVisibility(View.VISIBLE);
 
                     if (imgFile.exists()) {
                         if (imgProfile.getDrawable() == null)
+                        {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                            imgEdit.setVisibility(View.GONE);
+                        }
                         else
+                        {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-
+                    imgEdit.setVisibility(View.VISIBLE);
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
@@ -2195,15 +2248,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    imgEdit.setVisibility(View.GONE);
                     ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
                     setListPh(listDrPhone);
@@ -2302,12 +2360,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imagepath = specialist.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     //Change Class Name
@@ -2374,12 +2436,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imagepath = specialist.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
 
@@ -2486,15 +2552,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                    imgEdit.setVisibility(View.GONE);
 
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -2568,12 +2639,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imagepath = insurance.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     //Change Class Name
@@ -2666,7 +2741,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                        /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                        imgEdit.setVisibility(View.VISIBLE);
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -2725,7 +2800,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                       /*  Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                         imgProfile.setImageBitmap(myBitmap);*/
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                        imgEdit.setVisibility(View.VISIBLE);
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgProfile, displayImageOptionsProfile);
                     }
                   /*  Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -2849,12 +2924,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
@@ -2944,12 +3023,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     String photo = specialist.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
@@ -3073,16 +3156,20 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-
+                    imgEdit.setVisibility(View.GONE);
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
                     if (!specialist.getPhotoCard().equals("")) {
@@ -3169,12 +3256,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     String photo = specialist.getPhoto();
                     File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
                     imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
+                    imgEdit.setVisibility(View.VISIBLE);
                     if (imgFile.exists()) {
-                        if (imgProfile.getDrawable() == null)
+                        if (imgProfile.getDrawable() == null) {
                             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                        else
+                            imgEdit.setVisibility(View.GONE);
+                        }
+                        else {
                             imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                            imgEdit.setVisibility(View.VISIBLE);
+                        }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                     //Change Class Name
@@ -3208,6 +3299,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
     private void changeIcon(String source) {
+        imgEdit.setVisibility(View.GONE);
         if (source.equals("Emergency")) {
             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
         } else if (source.equals("EmergencyView")) {
@@ -3361,26 +3453,25 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorName.setText(Cname);
         txtDoctorAddress.setText(CAddress);
         try {
-            String mobile = "";
-            mobile = Cphone;
-            if (!mobile.isEmpty()) {//nikita
-                mobile = getMobile(mobile);
-                txtDoctorOfficePhone.setText(mobile);
+            if (!Cphone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(Cphone);
+                phone.setContactType("Mobile");
+                phonelist.add(phone);
+            }
+            if (!CHPhone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(CHPhone);
+                phone.setContactType("Home");
+                phonelist.add(phone);
+            }
+            if (!CWPhone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(CWPhone);
+                phone.setContactType("Work");
+                phonelist.add(phone);
             }
 
-            String hphone = "";
-            hphone = CHPhone;
-            if (!hphone.isEmpty()) {//nikita
-                hphone = getMobile(hphone);
-                txtDoctorHourOfficePhone.setText(hphone);
-            }
-
-            String wphone = "";
-            wphone = CWPhone;
-            if (!wphone.isEmpty()) {//nikita
-                wphone = getMobile(wphone);
-                txtDoctorOtherPhone.setText(wphone);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -3390,7 +3481,26 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtName.setText(Cname);
         txtEmail.setText(Cemail);
         txtAddress.setText(CAddress);
-        txtHomePhone.setText(CHPhone);
+        if (!Cphone.isEmpty()) {
+            ContactData phone = new ContactData();
+            phone.setValue(Cphone);
+            phone.setContactType("Mobile");
+            phonelist.add(phone);
+        }
+        if (!CHPhone.isEmpty()) {
+            ContactData phone = new ContactData();
+            phone.setValue(CHPhone);
+            phone.setContactType("Home");
+            phonelist.add(phone);
+        }
+        if (!CWPhone.isEmpty()) {
+            ContactData phone = new ContactData();
+            phone.setValue(CWPhone);
+            phone.setContactType("Work");
+            phonelist.add(phone);
+        }
+
+       /* txtHomePhone.setText(CHPhone);
         txtWorkPhone.setText(CWPhone);
         try {
             String mobile = "";
@@ -3415,7 +3525,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private String getMobile(String mobile) {
@@ -3746,7 +3856,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private void initListener() {
         llAddConn.setOnClickListener(this);
         txtAdd.setOnClickListener(this);
-        imgEdit.setOnClickListener(this);
+        imgProfile.setOnClickListener(this);
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
@@ -3769,7 +3879,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         listPharmPhone = rootview.findViewById(R.id.listPharmPhone);
         listFinPhone = rootview.findViewById(R.id.listFinPhone);
         listInsuPhone = rootview.findViewById(R.id.listInsuPhone);
-
+        txtsave = getActivity().findViewById(R.id.txtsave);
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
         RlPhone = rootview.findViewById(R.id.RlPhone);
@@ -3783,6 +3893,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtPriority = rootview.findViewById(R.id.txtPriority);
         txtPriority.setFocusable(false);
         tilPriority = rootview.findViewById(R.id.tilPriority);
+        flPr= rootview.findViewById(R.id.flPr);
+        imgprio= rootview.findViewById(R.id.imgprio);
         imgProfile = rootview.findViewById(R.id.imgProfile);
         if (source.equals("Emergency")) {
             imgProfile.setImageResource(R.drawable.ic_profile_defaults);
@@ -4538,6 +4650,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "Relation");
+                i.putExtra("Selected",txtRelation.getText().toString());
                 startActivityForResult(i, RESULT_RELATION);
             }
         });
@@ -4546,6 +4659,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "Specialty");
+                i.putExtra("Selected",txtSpecialty.getText().toString());
                 startActivityForResult(i, RESULT_SPECIALTY);
             }
         });
@@ -4554,6 +4668,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "Category");
+                i.putExtra("Selected",txtHCategory.getText().toString());
                 startActivityForResult(i, RESULT_CATEGORY);
             }
         });
@@ -4563,6 +4678,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "finance");
+                i.putExtra("Selected",txtFCategory.getText().toString());
                 startActivityForResult(i, RESULT_FINANCECAT);
             }
         });
@@ -4571,6 +4687,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "Insurance");
+                i.putExtra("Selected",txtInsuType.getText().toString());
                 startActivityForResult(i, RESULT_INSURANCE);
             }
         });
@@ -4580,6 +4697,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
                 i.putExtra("Category", "Priority");
+                i.putExtra("Selected",txtPriority.getText().toString());
                 startActivityForResult(i, RESULT_PRIORITY);
             }
         });
@@ -4814,7 +4932,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 addNewPhone(llAddInsuPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.imgEdit:
+            case R.id.imgProfile:
                 ShowCameraDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, "Profile");
 
                 break;
@@ -4991,6 +5109,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imagepath = "";
                     ProfileMap = null;
+                    imgEdit.setVisibility(View.GONE);
                 } else if (profile.equals("Card")) {
                     cardPath = "";
                     imgCard.setVisibility(View.GONE);
@@ -5032,14 +5151,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             storeImage(CardMap, "Card");
         }
 
-        if (fromDevice) {
+       /* if (fromDevice) {
             name = Cname;
             email = Cemail;
-            mobile = Cphone;
+
+           *//* mobile = Cphone;
             phone = CHPhone;
-            workphone = CWPhone;
+            workphone = CWPhone;*//*
             address = CAddress;
-        } else {
+
+        } else {*/
 
 
             name = txtName.getText().toString().trim();
@@ -5048,14 +5169,28 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             phone = txtHomePhone.getText().toString().trim();
             workphone = txtWorkPhone.getText().toString().trim();
             address = txtAddress.getText().toString().trim();
-            relation = txtRelation.getText().toString().trim();
-        }
+
+
+        //}
         int indexValue = spinnerRelation.getSelectedItemPosition();
+
+        for (int i=0;i<phonelist.size();i++)
+        {
+            if (phonelist.get(i).getValue()==""&&phonelist.get(i).getContactType()=="")
+            {
+                phonelist.remove(phonelist.get(i));
+            }else if (phonelist.get(i).getValue()==""||phonelist.get(i).getContactType()=="")
+            {
+                DialogManager.showAlert("Please Select Phone number with Type", context);
+                return false;
+            }
+        }
 
         if (screen.equals("Connection")) {
            /*   if (indexValue != 0) {
                 relation = Relationship[indexValue - 1];
             }*/
+            relation = txtRelation.getText().toString();
             otherRelation = txtOtherRelation.getText().toString();
             if (name.equals("")) {
                 txtName.setError("Please Enter Name");
@@ -5204,13 +5339,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 showAlert("Please Enter Address", context);
             }*/
         } else if (screen.equals("Physician")) {
-            if (!fromDevice) {
+          //  if (!fromDevice) {
                 name = txtDoctorName.getText().toString();
                 mobile = txtDoctorOfficePhone.getText().toString();
                 phone = txtDoctorHourOfficePhone.getText().toString();
                 workphone = txtDoctorOtherPhone.getText().toString();
                 address = txtDoctorAddress.getText().toString();
-            }
+          //  }
 
             fax = txtDoctorFax.getText().toString();
 
@@ -5262,11 +5397,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }*/
 
         } else if (screen.equals("Pharmacy")) {
-            if (!fromDevice) {
+          //  if (!fromDevice) {
                 name = txtPharmacyName.getText().toString();
                 phone = txtPharmacyPhone.getText().toString();
                 address = txtPharmacyAddress.getText().toString();
-            }
+           // }
 
             fax = txtPharmacyFax.getText().toString();
 
@@ -5286,14 +5421,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }*/
             else return true;
         } else if (screen.equals("Aides")) {
-            if (!fromDevice) {
+           // if (!fromDevice) {
                 name = txtAideCompName.getText().toString();
                 mobile = txtAideOfficePhone.getText().toString();
                 phone = txtHourOfficePhone.getText().toString();
                 workphone = txtOtherPhone.getText().toString();
                 email = txtAideEmail.getText().toString();
                 address = txtAideAddress.getText().toString();
-            }
+           // }
             website = txtAideWebsite.getText().toString();
             note = txtAideNote.getText().toString();
 
@@ -5327,12 +5462,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }*/
 
         } else if (screen.equals("Hospital")) {
-            if (!fromDevice) {
+          //  if (!fromDevice) {
                 name = txtFNameHospital.getText().toString();
                 mobile = txtHospitalOfficePhone.getText().toString();
                 workphone = txtHospitalOtherPhone.getText().toString();
                 address = txtHospitalAddress.getText().toString();
-            }
+          //  }
 
             email = "";
             location = txtHospitalLocation.getText().toString();
@@ -5389,14 +5524,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
         } else if (screen.equals("Finance")) {
-            if (!fromDevice) {
+          //  if (!fromDevice) {
                 name = txtFName.getText().toString();
                 email = txtFinanceEmail.getText().toString();
                 mobile = txtFinanceOfficePhone.getText().toString();
                 phone = txtFinanceMobilePhone.getText().toString();
                 workphone = txtFinanceOtherPhone.getText().toString();
                 address = txtFinanceAddress.getText().toString();
-            }
+          //  }
             contactName = txtContactName.getText().toString();
             location = txtFinanceLocation.getText().toString();
 
@@ -5459,12 +5594,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
         } else if (screen.equals("Insurance")) {
-            if (!fromDevice) {
+           // if (!fromDevice) {
                 name = txtInsuaranceName.getText().toString();
                 phone = txtInsuarancePhone.getText().toString();
                 address = txtAddress.getText().toString();
                 email = txtInsuaranceEmail.getText().toString();
-            }
+           // }
             fax = txtInsuaranceFax.getText().toString();
 
             website = txtWebsite.getText().toString();
@@ -5575,6 +5710,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgProfile.setImageBitmap(scaled);
 //                ProfileMap = selectedImage;
                 ProfileMap = scaled;
+                imgEdit.setVisibility(View.VISIBLE);
                 //  storeImage(ProfileMap, "Profile");
                 //  profileImage.setImageBitmap(selectedImage);
 //                imageLoaderProfile.displayImage(String.valueOf(imageUri), imgProfile, displayImageOptionsProfile);
@@ -5594,6 +5730,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
                 ProfileMap = scaled;
+                imgEdit.setVisibility(View.VISIBLE);
                 //new comment
                 // storeImage(scaled, "Profile");
 

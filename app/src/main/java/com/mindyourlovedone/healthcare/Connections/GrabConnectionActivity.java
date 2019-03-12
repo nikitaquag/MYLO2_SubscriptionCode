@@ -75,8 +75,11 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
         if (i.getExtras() != null)//Shradha-intent
         {
             if (i.getStringExtra("TAB")!=null&&i.getStringExtra("TAB").equalsIgnoreCase("Contact")) {
+                callFragment("NEWCONTACT", fragmentNewContact);
                 callFragment("CONTACT", fragmentGrabContact);
-            } else {
+            }
+            else {
+              //  callFragment("CONTACT", fragmentGrabContact);
                 callFragment("NEWCONTACT", fragmentNewContact);
             }
         } else {
@@ -333,13 +336,13 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
                 finish();
                 break;
 
-            case R.id.txtsave:
+           /* case R.id.txtsave:
               //  Toast.makeText(context,"clicked",Toast.LENGTH_SHORT).show();
 //                if (fragmentManager.findFragmentByTag("NEWCONTACT") == null) {
                 fragmentNewContact.savedata();
 //                }
 
-                break;
+                break;*/
 
             case R.id.txtNew:
                 if (fragmentManager.findFragmentByTag("NEWCONTACT") == null) {

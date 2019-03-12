@@ -40,7 +40,7 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
     private void initListener() {
         imgBack.setOnClickListener(this);
         txtEmail.setOnClickListener(this);
-        floatProfile.setOnClickListener(this);
+      //  floatProfile.setOnClickListener(this);
     }
 
     private void initUi() {
