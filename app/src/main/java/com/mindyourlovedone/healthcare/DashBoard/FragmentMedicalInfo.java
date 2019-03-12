@@ -240,8 +240,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         txtBlood.setFocusable(false);
 
         floatProfile = rootview.findViewById(R.id.floatProfile);
-        floatOptions = rootview.findViewById(R.id.floatProfile);
-        imgInfo = rootview.findViewById(R.id.imgInfo);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
+        imgInfo = getActivity().findViewById(R.id.imgHelp);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

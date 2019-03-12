@@ -22,6 +22,7 @@
         tools:targetApi="lollipop" />
 
     <RelativeLayout
+        android:background="@color/colorOnesGray"
         android:id="@+id/rlInfo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -47,7 +48,18 @@
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:src="@drawable/backward_arrow" />
 
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
+
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -65,13 +77,14 @@
                 android:textSize="@dimen/dimension21dp" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginRight="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension15dp"
                 android:gravity="center"
                 android:text="SAVE"
                 android:textColor="@color/colorWhite"
@@ -90,6 +103,7 @@
         </RelativeLayout>
 
         <ScrollView
+            android:layout_marginTop="@dimen/dimension10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
@@ -123,9 +137,8 @@
                         android:layout_below="@+id/rlSpecialist"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
+                        android:fontFamily="@font/lato"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         android:layout_marginLeft="@dimen/dimension10dp"
@@ -134,6 +147,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtMedical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -164,8 +178,9 @@
                             android:id="@+id/spinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/dimension35dp"
-                            android:layout_marginRight="@dimen/dimension35dp"
+                            android:fontFamily="@font/lato"
+                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginRight="@dimen/dimension15dp"
                             android:imeOptions="actionNext"
                             android:visibility="gone"
                             app:ms_arrowColor="@color/colorBlue"
@@ -176,22 +191,20 @@
                             custom:ms_hintColor="@color/colorDarkGray" />
 
                         <android.support.design.widget.TextInputLayout
+                            android:fontFamily="@font/lato"
                             android:id="@+id/tilOtherVaccine"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/spinner"
-                            android:paddingLeft="@dimen/dimension30dp"
-                            android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
-                            android:paddingBottom="@dimen/dimension8dp"
+                            android:padding="@dimen/dimension10dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherVaccine"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:imeOptions="actionNext"
-                                android:paddingLeft="@dimen/dimension15dp"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -203,15 +216,16 @@
 
 
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -219,6 +233,7 @@
 
 
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -250,9 +265,10 @@
                             <com.mindyourlovedone.healthcare.customview.MySpinner
                                 android:id="@+id/spinnerReaction"
                                 android:layout_width="match_parent"
+                                android:fontFamily="@font/lato"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension35dp"
-                                android:layout_marginRight="@dimen/dimension35dp"
+                                android:layout_marginLeft="@dimen/dimension15dp"
+                                android:layout_marginRight="@dimen/dimension15dp"
                                 android:imeOptions="actionNext"
                                 android:visibility="gone"
                                 app:ms_arrowColor="@color/colorBlue"
@@ -264,17 +280,19 @@
                                 custom:ms_hintColor="@color/colorDarkGray" />
 
                             <android.support.design.widget.TextInputLayout
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/tilOtherReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/spinnerReaction"
-                                android:paddingLeft="@dimen/dimension30dp"
+                                android:paddingLeft="@dimen/dimension8dp"
                                 android:paddingTop="@dimen/dimension8dp"
-                                android:paddingRight="@dimen/dimension30dp"
+                                android:paddingRight="@dimen/dimension8dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtOtherReaction"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -289,19 +307,21 @@
                         </RelativeLayout>
 
                         <android.support.design.widget.TextInputLayout
+                            android:fontFamily="@font/lato"
                             android:id="@+id/tilReaction"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:hint="Reaction"
-                            android:paddingLeft="@dimen/dimension30dp"
+                            android:paddingLeft="@dimen/dimension8dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension30dp"
+                            android:paddingRight="@dimen/dimension8dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:fontFamily="@font/lato"
                                 android:id="@+id/txtReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -314,6 +334,7 @@
                     </RelativeLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilTreatment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -321,9 +342,9 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -331,6 +352,7 @@
 
 
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtTreatment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -342,15 +364,16 @@
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Date"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -358,6 +381,7 @@
 
 
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtDate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -378,17 +402,17 @@
                         android:layout_below="@+id/tilDate"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
+                        android:fontFamily="@font/lato"
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtLocation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -408,15 +432,14 @@
 
                     <!--Details-->
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilLocation"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         android:layout_marginLeft="@dimen/dimension10dp"
@@ -425,6 +448,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -434,7 +458,7 @@
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
 
                         <requestFocus />
@@ -445,23 +469,22 @@
 
                     <!--Implant sub Note-->
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDetails"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginLeft="@dimen/dimension10dp"                       android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="false"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -471,7 +494,7 @@
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension2dp"
                             android:singleLine="true"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
 
                         <requestFocus />
@@ -480,6 +503,7 @@
                     <!--Note ends here-->
                     <!---->
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilDoctor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -487,9 +511,9 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Name of Doctor"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -497,17 +521,19 @@
 
 
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
 
                     </android.support.design.widget.TextInputLayout>
 
                     <android.support.design.widget.TextInputLayout
+                        android:fontFamily="@font/lato"
                         android:id="@+id/tilDone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -515,9 +541,9 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment Location &amp; Other Details"
-                        android:paddingLeft="@dimen/dimension30dp"
+                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension30dp"
+                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -525,12 +551,13 @@
 
 
                         <AutoCompleteTextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtDone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
-                            android:textColor="@color/colorPrimaryDark"
+                            android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
 
                     </android.support.design.widget.TextInputLayout>
