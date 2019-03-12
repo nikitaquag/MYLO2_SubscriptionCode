@@ -123,7 +123,7 @@ public class ContactAdapter extends BaseAdapter implements Filterable {
                 holder.imgConPhoto.setImageBitmap(getImagedata(contactList.get(position).getImage()));
             } else {
                 Resources res = context.getResources();
-                Drawable drawable = res.getDrawable(R.drawable.ic_profile_defaults);
+                Drawable drawable = res.getDrawable(R.drawable.all_profile);
                 Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);

@@ -105,8 +105,8 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
 
     private void initUI() {
         txtTitle = getActivity().findViewById(R.id.txtTitle);
-      //  txtsave = getActivity().findViewById(R.id.txtSave);
-        //txtsave.setVisibility(View.GONE);
+      txtsave = getActivity().findViewById(R.id.txtsave);
+        txtsave.setVisibility(View.GONE);
         txtTitle.setText("Select From Contacts");
         lvContact = rootview.findViewById(R.id.lvContact);
         etSearch = rootview.findViewById(R.id.etSearch);

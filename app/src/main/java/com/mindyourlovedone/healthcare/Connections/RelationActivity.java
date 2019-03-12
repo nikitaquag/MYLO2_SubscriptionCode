@@ -71,22 +71,27 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Category")) {
+                txtTitles.setText("Select Category");
                 String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Insurance")) {
+                txtTitles.setText("Select Insurance Type");
                 String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Wholelife or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental", "Umbrella", "Vision", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, insuaranceType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("finance")) {
+                txtTitles.setText("Select Finance Type");
                 String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, financeType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Advance")) {
+                txtTitles.setText("Select Advance Directive Category ");
                 String[] ADList = {"HIPAA Authorization", "Health Care Proxy", "Living Will", "Living Will/Health Care Proxy", "MOLST", "Non-Hospital DNR Order", "POLST", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, ADList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Other")) {
+                txtTitles.setText("Select Other Document Category");
                 String[] OtherList = {"Financial", "Insurance", "Legal", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, OtherList, selected);
                 listRelation.setAdapter(rd);

@@ -46,7 +46,9 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="@dimen/dimension10dp"
-                    android:src="@drawable/edit_n" />
+                    android:src="@drawable/edit_n"
+                    android:visibility="gone"
+                    />
 
             </RelativeLayout>
 
@@ -1414,7 +1416,7 @@ android:fontFamily="@font/lato"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/dimension35dp"
                             android:layout_marginRight="@dimen/dimension35dp"
-                            android:visibility="gone"
+android:visibility="gone"
                             app:ms_arrowColor="@color/colorBlue"
                             app:ms_arrowSize="16dp"
                             app:ms_floatingLabelText="Relationship"
@@ -1430,6 +1432,7 @@ android:fontFamily="@font/lato"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
+
                             android:paddingBottom="@dimen/dimension8dp"
                             android:layout_marginTop="@dimen/dimension5dp"
                             app:hintEnabled="true"
