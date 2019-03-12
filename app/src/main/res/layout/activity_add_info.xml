@@ -182,7 +182,7 @@
                             android:layout_marginLeft="@dimen/dimension15dp"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:imeOptions="actionNext"
-                            android:visibility="gone"
+                            android:visibility="visible"
                             app:ms_arrowColor="@color/colorBlue"
                             app:ms_arrowSize="16dp"
                             app:ms_hint="hint"
