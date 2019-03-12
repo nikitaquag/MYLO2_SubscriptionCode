@@ -65,7 +65,13 @@
                         android:gravity="center"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headAllergy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgAllergy"
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -77,9 +83,9 @@
                             android:id="@+id/txtAllergyHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
-                            android:layout_toLeftOf="@+id/imgAddAllergy"
+                            android:layout_toLeftOf="@+id/txtAddAllergy"
                             android:layout_toRightOf="@+id/imgAllergy"
                             android:fontFamily="@font/lato"
                             android:text="Allergies"
@@ -101,23 +107,47 @@
                             android:textStyle="bold"
                             android:visibility="gone" />
 
+                            <TextView
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/imgAddAllergy"
+                                android:id="@+id/txtAddAllergy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border_edit_note"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:paddingRight="@dimen/dimension12dp"
+                                android:paddingLeft="@dimen/dimension12dp"
+                                android:text="Add new"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/dimension10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
                         <ImageView
                             android:id="@+id/imgAddAllergy"
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+                        </RelativeLayout>
+
                         <LinearLayout
                             android:id="@+id/llSubAllergis"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgAllergy"
+                            android:layout_below="@+id/headAllergy"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -143,7 +173,7 @@
                                 android:layout_below="@+id/ListAllergy"
                                 android:layout_marginLeft="@dimen/dimension15dp"
                                 android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension0dp"
+                                android:layout_marginTop="@dimen/dimension10dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="top"
                                 android:padding="@null"
@@ -181,24 +211,6 @@
                         </LinearLayout>
 
                     </RelativeLayout>
-
-                    <TextView
-                        android:id="@+id/txtAddAllergy"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlAllergis"
-
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="gone" />
-
 
                     <View
                         android:id="@+id/viewAllergyBottom"
@@ -483,7 +495,13 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headPre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgPre"
                             android:layout_width="@dimen/dimension45dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -495,9 +513,9 @@
                             android:id="@+id/txtPreHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
-                            android:layout_toLeftOf="@+id/imgAddCondition"
+                            android:layout_toLeftOf="@+id/txtAddCondition"
                             android:layout_toRightOf="@+id/imgPre"
                             android:fontFamily="@font/lato"
                             android:text="Pre-existing Medical Conditions"
@@ -510,20 +528,42 @@
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                        <!---->
+                            <TextView
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/imgAddCondition"
+                                android:id="@+id/txtAddCondition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/border_edit_note"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:paddingRight="@dimen/dimension12dp"
+                                android:paddingLeft="@dimen/dimension12dp"
+                                android:text="Add new"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/dimension10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
+                        <!---->
+                        </RelativeLayout>
                         <LinearLayout
                             android:id="@+id/llSubPre"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgPre"
+                            android:layout_below="@+id/headPre"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -550,7 +590,7 @@
                                 android:layout_below="@+id/ListCondtion"
                                 android:layout_marginLeft="@dimen/dimension15dp"
                                 android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension0dp"
+                                android:layout_marginTop="@dimen/dimension10dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="top"
                                 android:padding="@null"
@@ -591,23 +631,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtAddCondition"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/rlPre"
 
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="gone" />
 
                     <View
                         android:id="@+id/viewPreBottom"
@@ -650,7 +674,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headVision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgEyes"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -659,6 +689,7 @@
                         android:src="@drawable/eyes" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:id="@+id/txtEyesHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -675,18 +706,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:id="@+id/llVision"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtEyesHeader"
+                        android:layout_below="@+id/headVision"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:orientation="vertical"
                         android:visibility="gone">
@@ -813,7 +845,7 @@
                             android:layout_below="@+id/ListAllergy"
                             android:layout_marginLeft="@dimen/dimension8dp"
                             android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:fontFamily="@font/lato"
                             android:gravity="top"
                             android:padding="@null"
@@ -883,7 +915,13 @@
                         android:background="@drawable/border_row_white_app"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headTeeath"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgTeeth"
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -895,7 +933,7 @@
                             android:id="@+id/txtTeethHeader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:layout_toLeftOf="@+id/imgTeethDrop"
                             android:layout_toRightOf="@+id/imgTeeth"
@@ -909,18 +947,19 @@
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+                        </RelativeLayout>
                         <LinearLayout
                             android:id="@+id/llSubTeeth"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgTeeth"
+                            android:layout_below="@+id/headTeeath"
                             android:layout_marginTop="@dimen/dimension5dp"
                             android:orientation="vertical"
                             android:visibility="gone">
@@ -1123,7 +1162,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headAids"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgAides"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -1135,7 +1180,7 @@
                         android:id="@+id/txtAidesHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/imgAides"
+                        android:layout_centerVertical="true"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:layout_toEndOf="@+id/imgAides"
                         android:layout_toRightOf="@+id/imgAides"
@@ -1149,18 +1194,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
 
+                    </RelativeLayout>
                     <LinearLayout
                         android:id="@+id/llAidsDiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtAidesHeader"
+                        android:layout_below="@+id/headAids"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:orientation="vertical"
                         android:visibility="gone">
@@ -1251,7 +1297,7 @@
                             android:layout_below="@+id/ListAllergy"
                             android:layout_marginLeft="@dimen/dimension8dp"
                             android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:fontFamily="@font/lato"
                             android:gravity="top"
                             android:padding="@null"
@@ -1664,7 +1710,12 @@
                     android:layout_margin="@dimen/dimension10dp"
                     android:background="@drawable/border_row_white_app">
 
+                    <RelativeLayout
+                        android:id="@+id/headVaccine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgVaccine"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -1676,11 +1727,12 @@
                         android:src="@drawable/syringe" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:id="@+id/txtVaccinesHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp"
-                        android:layout_toLeftOf="@+id/imgVaccineDrop"
+                        android:layout_toLeftOf="@+id/txtAddVaccine"
                         android:layout_toRightOf="@+id/imgVaccine"
                         android:fontFamily="@font/lato"
                         android:text="Immunizations/Vaccines"
@@ -1688,16 +1740,41 @@
                         android:textSize="@dimen/dimension18dp" />
 
                     <ImageView
+                        android:layout_marginLeft="@dimen/dimension10dp"
                         android:id="@+id/imgVaccineDrop"
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension15dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
+
+                        <TextView
+                            android:layout_marginLeft="@dimen/dimension5dp"
+                            android:layout_centerVertical="true"
+                            android:id="@+id/txtAddVaccine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/imgVaccineDrop"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:background="@drawable/border_edit_note"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/dimension10dp"
+                            android:paddingTop="@dimen/dimension10dp"
+                            android:paddingRight="@dimen/dimension12dp"
+                            android:paddingLeft="@dimen/dimension12dp"
+                            android:text="Add new"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension10dp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
+
+                    </RelativeLayout>
 
                     <!--<TextView-->
                     <!--android:id="@+id/txtAddVaccine"-->
@@ -1728,7 +1805,7 @@
                         android:id="@+id/linVaccine"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtVaccinesHeader"
+                        android:layout_below="@+id/headVaccine"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -1739,7 +1816,7 @@
 
                             android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension10dp"
-                            android:layout_marginTop="@dimen/dimension20dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
@@ -1750,23 +1827,7 @@
                             android:layout_margin="@dimen/dimension20dp"
                             android:divider="@null" />
 
-                        <TextView
-                            android:id="@+id/txtAddVaccine"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_below="@+id/ListVaccine"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:background="@drawable/border_edit_note"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center"
-                            android:padding="@dimen/dimension15dp"
-                            android:text="Add new"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension18dp"
-                            android:textStyle="normal"
-                            android:visibility="visible" />
+
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -2365,7 +2426,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headDiet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgDiet"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -2373,10 +2440,10 @@
                         android:src="@drawable/diet" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:id="@+id/txtDietHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignTop="@+id/imgDietDrop"
                         android:layout_toEndOf="@+id/imgDiet"
                         android:layout_toRightOf="@+id/imgDiet"
                         android:fontFamily="@font/lato"
@@ -2389,18 +2456,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
 
+                    </RelativeLayout>
                     <LinearLayout
                         android:id="@+id/llSubDiet"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imgDiet"
+                        android:layout_below="@+id/headDiet"
                         android:layout_marginTop="@dimen/dimension5dp"
                         android:orientation="vertical"
                         android:visibility="gone">
@@ -2420,7 +2488,7 @@
                             android:layout_below="@+id/ListAllergy"
                             android:layout_marginLeft="@dimen/dimension8dp"
                             android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:fontFamily="@font/lato"
                             android:gravity="top"
                             android:padding="@null"
@@ -2497,7 +2565,13 @@
                         android:layout_height="wrap_content"
                        android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headImplants"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgImplants"
                             android:layout_width="@dimen/dimension45dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -2509,9 +2583,9 @@
                             android:id="@+id/txtImplantsHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
-                            android:layout_toLeftOf="@+id/imgAddImplants"
+                            android:layout_toLeftOf="@+id/txtAddImplants"
                             android:layout_toRightOf="@+id/imgImplants"
                             android:fontFamily="@font/lato"
                             android:text="Medical Implants"
@@ -2520,23 +2594,46 @@
 
 
                         <ImageView
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:id="@+id/imgAddImplants"
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+                            <TextView
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/txtAddImplants"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/imgAddImplants"
+                                android:background="@drawable/border_edit_note"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:paddingRight="@dimen/dimension12dp"
+                                android:paddingLeft="@dimen/dimension12dp"
+                                android:text="Add new"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/dimension10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
+
+                        </RelativeLayout>
                         <!---->
                         <LinearLayout
                             android:id="@+id/llSubImplants"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgImplants"
+                            android:layout_below="@+id/headImplants"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -2560,23 +2657,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtAddImplants"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/rlImplants"
 
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="gone" />
 
                     <View
                         android:id="@+id/viewImplantsBottom"
@@ -2617,7 +2698,12 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headHospital"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgHospital"
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -2629,9 +2715,9 @@
                             android:id="@+id/txtHospitalHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
-                            android:layout_toLeftOf="@+id/imgAddHospital"
+                            android:layout_toLeftOf="@+id/txtAddHospital"
                             android:layout_toRightOf="@+id/imgHospital"
                             android:fontFamily="@font/lato"
                             android:text="Preferred Hospitals"
@@ -2639,23 +2725,45 @@
                             android:textSize="@dimen/dimension18dp" />
 
                         <ImageView
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:id="@+id/imgAddHospital"
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+                        <TextView
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimension5dp"
+                            android:id="@+id/txtAddHospital"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toLeftOf="@+id/imgAddHospital"
+                            android:background="@drawable/border_edit_note"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/dimension10dp"
+                            android:paddingTop="@dimen/dimension10dp"
+                            android:paddingRight="@dimen/dimension12dp"
+                            android:paddingLeft="@dimen/dimension12dp"
+                            android:text="Add new"
+                            android:textAllCaps="true"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension10dp"
+                            android:textStyle="bold"
+                            android:visibility="gone" />
 
+                        </RelativeLayout>
                         <LinearLayout
                             android:id="@+id/llSubHospital"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgHospital"
+                            android:layout_below="@+id/headHospital"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -2680,22 +2788,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtAddHospital"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/rlHospital"
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="gone" />
+
 
                     <View
                         android:id="@+id/viewHospitalBottom"
@@ -2737,19 +2830,27 @@
                         android:background="@drawable/border_row_white_app"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headBlood"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
                             android:id="@+id/imgBloodDrop"
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension15dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgBlood"
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -2759,23 +2860,24 @@
                             android:src="@drawable/drops" />
 
                         <TextView
+                            android:layout_centerVertical="true"
                             android:id="@+id/txtBloodHeader"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
-                            android:layout_marginTop="@dimen/dimension15dp"
-                            android:layout_toLeftOf="@+id/imgBloodDrop"
+                            android:layout_toEndOf="@+id/imgBlood"
                             android:layout_toRightOf="@+id/imgBlood"
                             android:fontFamily="@font/lato"
                             android:text="Blood Type"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension18dp" />
 
+                        </RelativeLayout>
+
                         <LinearLayout
                             android:id="@+id/llSubBlood"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtBloodHeader"
+                            android:layout_below="@+id/headBlood"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -2876,7 +2978,13 @@
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dimension5dp">
 
+                        <RelativeLayout
+                            android:id="@+id/headHistory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
                         <ImageView
+                            android:layout_centerVertical="true"
                             android:id="@+id/imgHistory"
                             android:layout_width="@dimen/dimension50dp"
                             android:layout_height="@dimen/dimension50dp"
@@ -2888,9 +2996,9 @@
                             android:id="@+id/txtHistoryHeader"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/dimension10dp"
-                            android:layout_toLeftOf="@+id/imgAddHistory"
+                            android:layout_toLeftOf="@+id/txtAddHistory"
                             android:layout_toRightOf="@+id/imgHistory"
                             android:fontFamily="@font/lato"
                             android:text="Surgical History"
@@ -2903,19 +3011,41 @@
                             android:layout_width="@dimen/dimension25dp"
                             android:layout_height="@dimen/dimension25dp"
                             android:layout_alignParentRight="true"
-                            android:layout_centerVertical="false"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension10dp"
                             android:layout_marginTop="@dimen/dimension10dp"
                             android:padding="@dimen/dimension5dp"
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
+                            <TextView
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/txtAddHistory"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toLeftOf="@+id/imgAddHistory"
+                                android:background="@drawable/border_edit_note"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:paddingRight="@dimen/dimension12dp"
+                                android:paddingLeft="@dimen/dimension12dp"
+                                android:text="Add new"
+                                android:textAllCaps="true"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/dimension10dp"
+                                android:textStyle="bold"
+                                android:visibility="gone" />
 
+                        </RelativeLayout>
                         <LinearLayout
                             android:id="@+id/llSubHistory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/imgHistory"
+                            android:layout_below="@+id/headHistory"
                             android:orientation="vertical"
                             android:visibility="gone">
 
@@ -2941,23 +3071,7 @@
 
                     </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/txtAddHistory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@+id/rlHistory"
 
-                        android:background="@drawable/border_edit_note"
-                        android:fontFamily="@font/lato"
-                        android:gravity="center"
-                        android:padding="@dimen/dimension15dp"
-                        android:text="Add new"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="@dimen/dimension18dp"
-                        android:textStyle="normal"
-                        android:visibility="gone" />
 
                     <View
                         android:id="@+id/viewHistoryBottom"
@@ -2990,19 +3104,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
-                    <ImageView
-                        android:id="@+id/imgDonor"
-                        android:layout_width="@dimen/dimension50dp"
-                        android:layout_height="@dimen/dimension50dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
-                        android:padding="@dimen/dimension6dp"
-                        android:src="@drawable/lungs" />
+
 
                     <LinearLayout
                         android:id="@+id/linorgan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imgDonor"
+                        android:layout_below="@+id/headOrgan"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -3170,7 +3278,22 @@
 
                     </LinearLayout>
 
+                    <RelativeLayout
+                        android:id="@+id/headOrgan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_centerVertical="true"
+                            android:id="@+id/imgDonor"
+                            android:layout_width="@dimen/dimension50dp"
+                            android:layout_height="@dimen/dimension50dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:padding="@dimen/dimension6dp"
+                            android:src="@drawable/lungs" />
+
                     <TextView
+                        android:layout_centerVertical="true"
                         android:id="@+id/txtDonorHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -3187,12 +3310,14 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
+
+                    </RelativeLayout>
                 </RelativeLayout>
 
                 <View
@@ -3261,7 +3386,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headTobaco"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgTobaco"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -3270,6 +3401,7 @@
                         android:src="@drawable/cigarette" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:id="@+id/txtTobacoHeader"
@@ -3286,18 +3418,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:id="@+id/lintobaco"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imgTobaco"
+                        android:layout_below="@+id/headTobaco"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -3369,6 +3502,7 @@
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilTobacoType"
+                                android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimension10dp"
@@ -3376,6 +3510,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3386,7 +3521,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3404,11 +3539,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/vwll5"
+                                android:fontFamily="@font/lato"
                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3419,7 +3556,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3437,10 +3574,12 @@
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/vwll6"
                                 android:layout_marginTop="@dimen/dimension5dp"
+                                android:fontFamily="@font/lato"
                                 android:gravity="bottom"
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3451,7 +3590,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3487,7 +3626,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headDrug"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgDrug"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -3496,6 +3641,7 @@
                         android:src="@drawable/drugs" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:layout_toLeftOf="@+id/imgDrugDrop"
@@ -3512,18 +3658,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
 
+                    </RelativeLayout>
                     <LinearLayout
                         android:id="@+id/lindrug"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imgDrug"
+                        android:layout_below="@+id/headDrug"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -3596,6 +3743,7 @@
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilDrugType"
+                                android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimension10dp"
@@ -3603,6 +3751,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrugType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3613,7 +3762,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3632,6 +3781,7 @@
                                 android:layout_below="@+id/vwll12"
                                 android:layout_marginTop="@dimen/dimension10dp"
                                 android:gravity="bottom"
+                                android:fontFamily="@font/lato"
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
@@ -3644,8 +3794,9 @@
                                     android:paddingBottom="@dimen/dimension10dp"
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
+                                    android:fontFamily="@font/lato"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3659,6 +3810,7 @@
 
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilDrugYear"
+                                android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/vwll13"
@@ -3667,6 +3819,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrugYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3677,7 +3830,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3721,7 +3874,13 @@
                     android:background="@drawable/border_row_white_app"
                     android:padding="@dimen/dimension5dp">
 
+                    <RelativeLayout
+                        android:id="@+id/headDrink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
                     <ImageView
+                        android:layout_centerVertical="true"
                         android:id="@+id/imgDrink"
                         android:layout_width="@dimen/dimension50dp"
                         android:layout_height="@dimen/dimension50dp"
@@ -3730,6 +3889,7 @@
                         android:src="@drawable/alcohol" />
 
                     <TextView
+                        android:layout_centerVertical="true"
                         android:id="@+id/txtDrinkHeader"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp"
@@ -3746,18 +3906,19 @@
                         android:layout_width="@dimen/dimension25dp"
                         android:layout_height="@dimen/dimension25dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="false"
+                        android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:padding="@dimen/dimension5dp"
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:id="@+id/lindrink"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/imgDrink"
+                        android:layout_below="@+id/headDrink"
                         android:orientation="vertical"
                         android:visibility="gone">
 
@@ -3834,9 +3995,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/dimension10dp"
                                 android:gravity="bottom"
+                                android:fontFamily="@font/lato"
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrinkAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3847,7 +4010,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
@@ -3866,9 +4029,11 @@
                                 android:layout_below="@+id/vwll9"
                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
+                                android:fontFamily="@font/lato"
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                                    android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrinkYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3879,7 +4044,7 @@
                                     android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="@dimen/dimension20dp" />
+                                    android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
                             <View
