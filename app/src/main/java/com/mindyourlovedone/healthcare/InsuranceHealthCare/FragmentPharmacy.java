@@ -62,7 +62,8 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
     RelativeLayout rlGuide;
     DBHelper dbHelper;
     TextView txtMsg, txtFTU;
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override

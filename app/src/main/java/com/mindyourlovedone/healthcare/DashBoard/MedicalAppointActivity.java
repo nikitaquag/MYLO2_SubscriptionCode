@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -61,7 +60,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     boolean flag = false;
     TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
-    FloatingActionButton floatProfile, floatAdd;
+   // FloatingActionButton floatProfile, floatAdd;
+    ImageView floatProfile, floatAdd;
 
     public static String getFormattedDate(Date date) {
         Calendar cal = Calendar.getInstance();

@@ -62,7 +62,8 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatOptions,floatAdd;
 
     @Nullable
     @Override

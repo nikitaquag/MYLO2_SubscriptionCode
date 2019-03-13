@@ -56,7 +56,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
 
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override

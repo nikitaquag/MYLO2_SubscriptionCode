@@ -108,7 +108,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     TextView txtName;
     Preferences preferences;
     DBHelper dbHelper;
-    FloatingActionButton floatOptions, floatAdd;
+    FloatingActionButton  floatAdd,floatOptions;
+  //  ImageView floatOptions;
     public static final int REQUEST_PRES = 100;
 
     @Override

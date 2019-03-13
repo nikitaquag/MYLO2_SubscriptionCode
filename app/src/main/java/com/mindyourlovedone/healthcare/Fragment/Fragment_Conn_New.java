@@ -3,16 +3,14 @@ package com.mindyourlovedone.healthcare.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
-
-
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,18 +23,11 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mindyourlovedone.healthcare.Activity.TransparentActivity;
 import com.mindyourlovedone.healthcare.ConnectionNew.Conn;
 import com.mindyourlovedone.healthcare.ConnectionNew.ConnAdapter;
-import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
-import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
-import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.utility.PrefConstants;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -44,7 +35,8 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
     View rootView;
     ArrayList<Conn> connList;
     ListView lvSelf;
-    FloatingActionButton floatAdd;
+   // FloatingActionButton floatAdd;
+    ImageView floatAdd;
     LinearLayout llSelf;
     ImageView imgSelfFolder, imgHelp, imgProfile;
     TextView txtSelf, txtName;

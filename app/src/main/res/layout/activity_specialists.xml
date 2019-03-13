@@ -101,6 +101,17 @@
         android:visibility="gone"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
+<!--
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension12dp"
+        />
+-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatOptions"

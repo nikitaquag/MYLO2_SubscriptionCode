@@ -56,7 +56,8 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     ToggleButton tbAlert, tbComputer, tbRemote, tbFinances, tbPreparing, tbShopping, tbUsing, tbBathing, tbContinence, tbDressing, tbfeed, tbToileting, tbTranfering, tbTransport, tbPets, tbDriving, tbKeeping, tbMedication;
     String alert = "NO", computer = "NO", remote = "NO", eating = "NO", finance = "NO", prepare = "NO", shop = "NO", use = "NO", bath = "NO", continence = "NO", dress = "NO", feed = "NO", toileting = "NO", transfer = "NO", transport = "NO", pets = "NO", drive = "NO", keep = "NO", medication = "NO";
     String functionnote = "", fouctionOther = "", instaOther = "", instaNote = "";
-    FloatingActionButton floatOptions;
+   // FloatingActionButton floatOptions;
+    ImageView floatOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
