@@ -799,8 +799,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     private void setHospitalData() {
         HospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (HospitalList.size() != 0) {
-            if(flagHistory) {
-                llSubHistory.setVisibility(View.VISIBLE);
+            if(flagHospital) {
+                llSubHospital.setVisibility(View.VISIBLE);
             }
             MedAdapter md = new MedAdapter(getActivity(), HospitalList, "hospital", FragmentMedicalInfo.this);
             ListHospital.setAdapter(md);
