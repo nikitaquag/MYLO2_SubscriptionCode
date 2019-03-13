@@ -69,7 +69,7 @@
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_toLeftOf="@+id/txtSave"
-                android:layout_toRightOf="@+id/imgBack"
+                android:layout_toRightOf="@+id/imgHome"
                 android:gravity="center"
                 android:text="Emergency Info"
                 android:textAllCaps="false"
@@ -103,6 +103,7 @@
         </RelativeLayout>
 
         <ScrollView
+            android:padding="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -141,12 +142,11 @@
                         android:fontFamily="@font/lato"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtMedical"
                             android:layout_width="match_parent"
@@ -179,10 +179,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
-                            android:layout_marginLeft="@dimen/dimension15dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
                             android:imeOptions="actionNext"
-                            android:visibility="visible"
+                            android:visibility="gone"
+
                             app:ms_arrowColor="@color/colorBlue"
                             app:ms_arrowSize="16dp"
                             app:ms_hint="hint"
@@ -200,6 +199,7 @@
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherVaccine"
                                 android:layout_width="match_parent"
@@ -223,9 +223,7 @@
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -233,11 +231,11 @@
 
 
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -267,8 +265,6 @@
                                 android:layout_width="match_parent"
                                 android:fontFamily="@font/lato"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
                                 android:imeOptions="actionNext"
                                 android:visibility="gone"
                                 app:ms_arrowColor="@color/colorBlue"
@@ -285,19 +281,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/spinnerReaction"
-                                android:paddingLeft="@dimen/dimension8dp"
                                 android:paddingTop="@dimen/dimension8dp"
-                                android:paddingRight="@dimen/dimension8dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                 <AutoCompleteTextView
+                                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtOtherReaction"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:imeOptions="actionNext"
-                                    android:paddingLeft="@dimen/dimension15dp"
                                     android:paddingTop="@dimen/dimension2dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -314,18 +308,16 @@
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
                             android:hint="Reaction"
-                            android:paddingLeft="@dimen/dimension8dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension8dp"
                             android:paddingBottom="@dimen/dimension8dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:paddingLeft="@dimen/dimension15dp"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -342,9 +334,7 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment"
-                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -352,11 +342,11 @@
 
 
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtTreatment"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -371,9 +361,7 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Date"
-                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -381,11 +369,11 @@
 
 
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtDate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -406,12 +394,11 @@
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         android:fontFamily="@font/lato"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtLocation"
                             android:layout_width="match_parent"
@@ -442,12 +429,11 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        android:layout_marginLeft="@dimen/dimension10dp"
-                        android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtDetails"
                             android:layout_width="match_parent"
@@ -479,11 +465,11 @@
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
-                        android:layout_marginLeft="@dimen/dimension10dp"                       android:layout_marginRight="@dimen/dimension10dp"
                         app:hintEnabled="false"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtNote"
                             android:layout_width="match_parent"
@@ -511,9 +497,7 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Name of Doctor"
-                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -521,11 +505,11 @@
 
 
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -541,9 +525,7 @@
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
                         android:hint="Treatment Location &amp; Other Details"
-                        android:paddingLeft="@dimen/dimension8dp"
                         android:paddingTop="@dimen/dimension8dp"
-                        android:paddingRight="@dimen/dimension8dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone">
 
@@ -551,11 +533,11 @@
 
 
                         <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
                             android:id="@+id/txtDone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="@dimen/dimension15dp"
                             android:paddingTop="@dimen/dimension2dp"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -568,9 +550,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension60dp"
                     android:layout_below="@+id/rlextra"
-                    android:layout_marginLeft="@dimen/dimension15dp"
                     android:layout_marginTop="@dimen/dimension15dp"
-                    android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@color/colorGreen"
                     android:visibility="gone">
 
@@ -599,9 +579,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/llAddConn"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
                     android:layout_marginTop="@dimen/dimension40dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
                     android:layout_marginBottom="@dimen/dimension30dp"
                     android:background="@drawable/darkgray_white_border"
                     android:padding="@dimen/dimension10dp"
@@ -609,10 +587,10 @@
                     >
 
                     <TextView
+                        android:fontFamily="@font/lato"
                         android:id="@+id/txtHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/dimension10dp"
                         android:layout_marginTop="@dimen/dimension10dp"
                         android:gravity="center_vertical"
                         android:text="Pdf For Reference"
@@ -621,11 +599,11 @@
                         android:textStyle="italic|bold"></TextView>
 
                     <TextView
+                        android:fontFamily="@font/lato"
                         android:id="@+id/txtInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txtHeader"
-                        android:layout_marginLeft="@dimen/dimension10dp"
                         android:text="Pdf For Reference"
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension18dp"
