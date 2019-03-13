@@ -5,23 +5,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.ContactData;
-import com.mindyourlovedone.healthcare.model.Phone;
-import com.mindyourlovedone.healthcare.utility.AppConstants;
 
 import java.util.ArrayList;
 
@@ -31,9 +25,10 @@ public class PhoneAdapter extends BaseAdapter {
     LayoutInflater lf;
     int count;
     View previousView;
-    ViewHolder holder;
+//    ViewHolder holder;
    int val;
-
+    TextView txtRel,txtPhoNum,txtType;
+    ImageView imgdeletePhone;
 
 
     public PhoneAdapter(Context context, ArrayList<ContactData> phonelist) {
@@ -63,35 +58,35 @@ public class PhoneAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view;
 
-        if (convertView == null) {
+//        if (convertView == null) {
             convertView = lf.inflate(R.layout.row_phone, parent, false);
-            holder = new ViewHolder();
+//            holder = new ViewHolder();
 
-           // holder.txtRel=  convertView.findViewById(R.id.txtRel);
-            holder.imgdeletePhone=  convertView.findViewById(R.id.imgdeletePhone);
-            holder.txtPhoNum=convertView.findViewById(R.id.txtPhoNum);
-            holder.txtType=convertView.findViewById(R.id.txtType);
+           // txtRel=  convertView.findViewById(R.id.txtRel);
+            imgdeletePhone=  convertView.findViewById(R.id.imgdeletePhone);
+            txtPhoNum=convertView.findViewById(R.id.txtPhoNum);
+            txtType=convertView.findViewById(R.id.txtType);
 
-            convertView.setTag(holder);
+//            convertView.setTag(holder);
             view = convertView;
-        } else {
-            view = convertView;
-            holder = (ViewHolder) convertView.getTag();
-        }
-       /* CustomWatcher oldWatcher = (CustomWatcher)holder.txtPhoNum.getTag();
+//        } else {
+//            view = convertView;
+//            holder = (ViewHolder) convertView.getTag();
+//        }
+       /* CustomWatcher oldWatcher = (CustomWatcher)txtPhoNum.getTag();
         if(oldWatcher != null)
-            holder.txtPhoNum.removeTextChangedListener(oldWatcher);
+            txtPhoNum.removeTextChangedListener(oldWatcher);
         */
-        holder.txtType.setText(phonelist.get(position).getContactType());
-        holder.txtPhoNum.setText(phonelist.get(position).getValue());
+        txtType.setText(phonelist.get(position).getContactType());
+        txtPhoNum.setText(phonelist.get(position).getValue());
 
         /*CustomWatcher newWatcher = new CustomWatcher(phonelist.get(position),context);
-        holder.txtPhoNum.setTag(newWatcher);
-        holder.txtPhoNum.addTextChangedListener(newWatcher);*/
+        txtPhoNum.setTag(newWatcher);
+        txtPhoNum.addTextChangedListener(newWatcher);*/
 
 
 
-        holder.txtPhoNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        txtPhoNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus)
@@ -101,20 +96,22 @@ public class PhoneAdapter extends BaseAdapter {
                     final TextView Caption = (TextView) v;
                     phonelist.get(position).setValue(Caption.getText().toString());
 
-                   /* phonelist.get(position).setContactType(holder.txtType.getText().toString());
-                    holder.txtType.setText(phonelist.get(position).getContactType());
-                    holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                   /* phonelist.get(position).setContactType(txtType.getText().toString());
+                    txtType.setText(phonelist.get(position).getContactType());
+                    txtPhoNum.setText(phonelist.get(position).getValue());
                     notifyDataSetChanged();*/
                 }
             }
         });
 
-    holder.txtPhoNum.addTextChangedListener(new TextWatcher() {
+        txtPhoNum.setTag(position);
+
+    txtPhoNum.addTextChangedListener(new TextWatcher() {
             int prevL = 0;
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                prevL =  holder.txtPhoNum.getText().toString().length();
+                prevL =  txtPhoNum.getText().toString().length();
             }
 
             @Override
@@ -128,13 +125,15 @@ public class PhoneAdapter extends BaseAdapter {
 
                 if ((prevL < length) && (length == 3 || length == 7)) {
                     editable.append("-");
-                    holder.txtPhoNum.setText(editable);
+//                    txtPhoNum.setText(editable.toString());
+//                    phonelist.get((Integer) txtPhoNum.getTag()).setValue(editable.toString()+"-");
+//                    notifyDataSetChanged();
                     Toast.makeText(context,""+length,Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-        holder.txtType.setOnClickListener(new View.OnClickListener() {
+        txtType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               AlertDialog.Builder b = new AlertDialog.Builder(context);
@@ -146,14 +145,14 @@ public class PhoneAdapter extends BaseAdapter {
                         if (types[which].equalsIgnoreCase("None")) {
                             phonelist.get(position).setValue(phonelist.get(position).getValue());
                             phonelist.get(position).setContactType("");
-                            holder.txtType.setText(phonelist.get(position).getContactType());
-                            holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                            txtType.setText(phonelist.get(position).getContactType());
+                            txtPhoNum.setText(phonelist.get(position).getValue());
 
                         }else{
                             phonelist.get(position).setValue(phonelist.get(position).getValue());
                             phonelist.get(position).setContactType(types[which]);
-                            holder.txtType.setText(phonelist.get(position).getContactType());
-                            holder.txtPhoNum.setText(phonelist.get(position).getValue());
+                            txtType.setText(phonelist.get(position).getContactType());
+                            txtPhoNum.setText(phonelist.get(position).getValue());
                         }
                         notifyDataSetChanged();
                         dialog.dismiss();
@@ -191,7 +190,7 @@ public class PhoneAdapter extends BaseAdapter {
 
             }
         });
-        holder.imgdeletePhone.setOnClickListener(new View.OnClickListener() {
+        imgdeletePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               //  Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
@@ -203,15 +202,15 @@ public class PhoneAdapter extends BaseAdapter {
                 }
             }
         });
-       // holder.txtRel.setText(relationship[position]);
-        //  holder.txtName.setText(student.getName());
-        // holder.txtCity.setText(student.getCity());
+       // txtRel.setText(relationship[position]);
+        //  txtName.setText(student.getName());
+        // txtCity.setText(student.getCity());
 
         if (position==0)
         {
-            holder.imgdeletePhone.setImageResource(R.drawable.add_n);
+            imgdeletePhone.setImageResource(R.drawable.add_n);
         }else{
-            holder.imgdeletePhone.setImageResource(R.drawable.delete_n);
+            imgdeletePhone.setImageResource(R.drawable.delete_n);
         }
 
         return convertView;
@@ -237,7 +236,7 @@ public class PhoneAdapter extends BaseAdapter {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
         {
-            prevL = holder.txtPhoNum.getText().toString().length();
+            prevL = txtPhoNum.getText().toString().length();
         }
 
         @Override

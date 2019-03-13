@@ -8,7 +8,8 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/txtDelete"
+        android:layout_above="@+id/reld"
+        android:isScrollContainer="false"
         android:orientation="vertical">
 
         <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -653,6 +654,7 @@
         </RelativeLayout>
     </ScrollView>
     <RelativeLayout
+        android:id="@+id/reld"
         android:padding="@dimen/dimension20dp"
         android:layout_gravity="bottom"
         android:background="@color/colorOnesGray"

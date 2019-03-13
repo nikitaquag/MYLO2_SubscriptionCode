@@ -2893,7 +2893,7 @@
 
                             <FrameLayout
                                 android:id="@+id/fltypeReaction"
-                                android:visibility="gone"
+                                android:visibility="visible"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
 
@@ -2905,8 +2905,8 @@
                                     android:layout_height="@dimen/dimension25dp"
                                     android:layout_alignParentRight="true"
                                     android:layout_gravity="bottom|right"
-                                    android:layout_marginBottom="@dimen/dimension10dp"
-                                    android:layout_marginRight="@dimen/dimension2dp"
+                                    android:layout_marginTop="@dimen/dimension10dp"
+                                    android:layout_marginRight="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension8dp"
                                     android:src="@drawable/drg"></ImageView>
 
@@ -2923,6 +2923,7 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView
+                                        android:paddingTop="@dimen/dimension10dp"
                                         android:backgroundTint="@color/colordivideGray"
                                         android:background="@null"
                                         android:id="@+id/txtBlood"
