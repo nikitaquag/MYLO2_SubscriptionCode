@@ -25,6 +25,7 @@ android:paddingTop="@dimen/dimension3dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:focusable="true"
+                android:backgroundTint="@color/colorOnesGray"
                 android:inputType="number"
                 android:focusableInTouchMode="true"
                 app:hintTextAppearance="@style/TextInputLayoutHintText"
@@ -33,6 +34,7 @@ android:paddingTop="@dimen/dimension3dp"
 
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colorOnesGray"
                     android:id="@+id/txtPhoNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -76,12 +78,13 @@ android:paddingTop="@dimen/dimension3dp"
                 android:id="@+id/tilType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:backgroundTint="@color/colorOnesGray"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
             >
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colorOnesGray"
                     android:id="@+id/txtType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

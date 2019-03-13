@@ -114,6 +114,7 @@
                     custom:ms_floatingLabelColor="@color/colorBlue">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -144,6 +145,7 @@
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtRelation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -175,6 +177,7 @@
 
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -226,6 +229,7 @@
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtFrequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -258,6 +262,7 @@
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherFrequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -289,6 +294,7 @@
 
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtNote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -363,6 +369,7 @@
 
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -154,6 +154,7 @@
                 >
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -182,6 +183,7 @@
                 android:paddingRight="@dimen/dimension30dp">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -209,6 +211,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -242,6 +245,7 @@
                 android:visibility="gone">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -272,6 +276,7 @@
                 android:paddingRight="@dimen/dimension30dp">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -301,6 +306,7 @@
                 android:paddingRight="@dimen/dimension30dp">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtHomePhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -331,6 +337,7 @@
                 android:visibility="gone">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtWorkPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -382,6 +389,7 @@
                     android:visibility="gone">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -415,6 +423,7 @@
                     app:hintEnabled="false">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -445,6 +454,7 @@
                      app:hintEnabled="false">
                      &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                      <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                          android:id="@+id/txtOtherRelation"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
@@ -492,6 +502,7 @@
                 android:paddingRight="@dimen/dimension30dp">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtGender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -524,6 +535,7 @@
                 android:visibility="gone">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtBdate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -554,6 +566,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtHeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -581,6 +594,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -729,6 +743,7 @@
                     android:visibility="gone">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOther"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -764,6 +779,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtProfession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -789,6 +805,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtEmployedBy"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -814,6 +831,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txttelephone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -872,6 +890,7 @@
                     android:visibility="gone">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherLanguage"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -967,6 +986,7 @@
                 android:paddingRight="@dimen/dimension30dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtReligion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1045,6 +1065,7 @@
                 android:visibility="gone">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -1070,6 +1091,7 @@
                 android:visibility="gone">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/corner_gray_white_border"

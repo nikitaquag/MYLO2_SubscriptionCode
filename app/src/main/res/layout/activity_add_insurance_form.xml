@@ -182,6 +182,7 @@
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

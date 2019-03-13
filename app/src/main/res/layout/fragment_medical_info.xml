@@ -2904,6 +2904,7 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:background="@null"
                                     android:id="@+id/txtBlood"
                                     android:layout_width="match_parent"
@@ -3510,6 +3511,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoType"
                                     android:layout_width="match_parent"
@@ -3545,6 +3547,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoAmt"
                                     android:layout_width="match_parent"
@@ -3579,6 +3582,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtTobacoYear"
                                     android:layout_width="match_parent"
@@ -3751,6 +3755,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrugType"
                                     android:layout_width="match_parent"
@@ -3785,6 +3790,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:id="@+id/txtDrugAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3819,6 +3825,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrugYear"
                                     android:layout_width="match_parent"
@@ -3999,6 +4006,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrinkAmt"
                                     android:layout_width="match_parent"
@@ -4033,6 +4041,7 @@
                                 android:paddingBottom="@dimen/dimension8dp">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                     android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrinkYear"
                                     android:layout_width="match_parent"

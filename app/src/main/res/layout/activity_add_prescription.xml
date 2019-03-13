@@ -92,6 +92,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtMedicine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -123,6 +124,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtDose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,6 +155,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -183,6 +186,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtRX"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,6 +217,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -323,6 +328,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -358,6 +364,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtPurpose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -389,6 +396,7 @@
 
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                 android:id="@+id/txtRX1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -510,6 +518,7 @@
                 android:visibility="gone">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Notes"

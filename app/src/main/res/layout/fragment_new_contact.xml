@@ -116,6 +116,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                                 android:id="@+id/txtSpecialty"
@@ -167,6 +168,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                                 android:id="@+id/txtOtherCategoryDoctor"
@@ -228,6 +230,7 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                                         android:id="@+id/txtFCategory"
@@ -279,6 +282,7 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                                     android:id="@+id/txtOtherCategory"
@@ -316,6 +320,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                                 android:id="@+id/txtFName"
@@ -349,6 +354,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtContactName"
@@ -382,6 +388,7 @@
                             >
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceEmail"
@@ -432,6 +439,7 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                         android:id="@+id/txtFinPhoNum"
@@ -461,6 +469,7 @@
                                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                         android:id="@+id/txtFinType"
@@ -508,6 +517,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceOfficePhone"
@@ -541,6 +551,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceMobilePhone"
@@ -574,6 +585,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceOtherPhone"
@@ -607,6 +619,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceLocation"
@@ -636,6 +649,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceFax"
@@ -668,6 +682,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceAddress"
@@ -696,6 +711,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceWebsite"
@@ -728,6 +744,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinancePracticeName"
@@ -756,6 +773,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtLastSeen"
@@ -785,6 +803,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtFinanceNote"
@@ -846,6 +865,7 @@
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtHCategory"
@@ -899,6 +919,7 @@
                             >
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherCategoryHospital"
@@ -933,6 +954,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtFNameHospital"
@@ -983,6 +1005,7 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtHospPhoNum"
@@ -1012,6 +1035,7 @@
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtHospType"
@@ -1060,6 +1084,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalOfficePhone"
@@ -1093,6 +1118,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalOtherPhone"
@@ -1126,6 +1152,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalFax"
@@ -1158,6 +1185,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalAddress"
@@ -1186,6 +1214,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalWebsite"
@@ -1217,6 +1246,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLocation"
@@ -1245,6 +1275,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalPracticeName"
@@ -1273,6 +1304,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLastSeen"
@@ -1303,6 +1335,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalLocator"
@@ -1331,6 +1364,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHospitalNote"
@@ -1370,6 +1404,7 @@
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                             android:id="@+id/txtName"
                             android:layout_width="match_parent"
@@ -1439,6 +1474,7 @@ android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:id="@+id/txtRelation"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1475,6 +1511,7 @@ android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:id="@+id/txtOtherRelation"
                                 android:layout_width="match_parent"
@@ -1544,6 +1581,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
 
                             android:id="@+id/txtPriority"
@@ -1597,6 +1635,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtPhoNum"
@@ -1626,6 +1665,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtType"
@@ -1688,6 +1728,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtMobile"
@@ -1721,6 +1762,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPhone"
@@ -1754,6 +1796,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtOfficePhone"
@@ -1786,6 +1829,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtEmail"
@@ -1818,6 +1862,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                             android:id="@+id/txtAddress"
                             android:layout_width="match_parent"
@@ -1876,6 +1921,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
 
                             android:id="@+id/txtEmergencyNote"
@@ -1974,6 +2020,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorName"
@@ -2025,6 +2072,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrPhoNum"
@@ -2054,6 +2102,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtDrType"
@@ -2103,6 +2152,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorOfficePhone"
@@ -2136,6 +2186,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorHourOfficePhone"
@@ -2169,6 +2220,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorOtherPhone"
@@ -2202,6 +2254,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorFax"
@@ -2234,6 +2287,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:layout_width="match_parent"
@@ -2263,6 +2317,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorWebsite"
@@ -2294,6 +2349,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorAddress"
@@ -2323,6 +2379,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPracticeName"
@@ -2353,6 +2410,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorLastSeen"
@@ -2381,6 +2439,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                             android:id="@+id/txtNetwork"
@@ -2412,6 +2471,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAffiliation"
@@ -2440,6 +2500,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorLocator"
@@ -2474,6 +2535,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtDoctorNote"
@@ -2512,6 +2574,7 @@ android:visibility="gone"
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceName"
@@ -2569,6 +2632,7 @@ android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtInsuType"
@@ -2620,6 +2684,7 @@ android:visibility="gone"
                             app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                             <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/txtOtherInsurance"
@@ -2656,6 +2721,7 @@ android:visibility="gone"
                         >
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtId"
@@ -2689,6 +2755,7 @@ android:visibility="gone"
                         >
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtGroup"
@@ -2720,6 +2787,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtSubscribe"
@@ -2770,6 +2838,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtInsPhoNum"
@@ -2799,6 +2868,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtInsType"
@@ -2845,6 +2915,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuarancePhone"
@@ -2877,6 +2948,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceFax"
@@ -2909,6 +2981,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceEmail"
@@ -2939,6 +3012,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtWebsite"
@@ -2969,6 +3043,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAgent"
@@ -2996,6 +3071,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtInsuaranceNote"
@@ -3024,6 +3100,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtMember"
@@ -3067,6 +3144,7 @@ android:visibility="gone"
                         >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideCompName"
@@ -3098,6 +3176,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideOfficePhone"
@@ -3130,6 +3209,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtHourOfficePhone"
@@ -3162,6 +3242,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtOtherPhone"
@@ -3194,6 +3275,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideFax"
@@ -3226,6 +3308,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideEmail"
@@ -3256,6 +3339,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideAddress"
@@ -3284,6 +3368,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAideWebsite"
@@ -3314,6 +3399,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
 
                             android:id="@+id/txtAideNote"
@@ -3342,6 +3428,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtAids"
@@ -3374,6 +3461,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtSchedule"
@@ -3405,6 +3493,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtOther"
@@ -3470,6 +3559,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyName"
@@ -3503,6 +3593,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyAddress"
@@ -3550,6 +3641,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtPharmPhoNum"
@@ -3579,6 +3671,7 @@ android:visibility="gone"
                                 app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                                     android:id="@+id/txtPharmType"
@@ -3626,6 +3719,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyPhone"
                             android:layout_width="match_parent"
@@ -3658,6 +3752,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyFax"
@@ -3690,6 +3785,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyWebsite"
@@ -3721,6 +3817,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyLocator"
@@ -3749,6 +3846,7 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
 
                                 android:fontFamily="@font/lato"
                             android:id="@+id/txtPharmacyNote"
@@ -3777,8 +3875,9 @@ android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                                 android:fontFamily="@font/lato"
-                       
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"

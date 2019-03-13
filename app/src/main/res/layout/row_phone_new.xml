@@ -33,6 +33,7 @@
 
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtPhoNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -82,6 +83,7 @@
                     >
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
