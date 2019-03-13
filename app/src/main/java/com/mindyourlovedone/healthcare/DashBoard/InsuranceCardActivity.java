@@ -23,6 +23,7 @@ public class InsuranceCardActivity extends AppCompatActivity implements View.OnC
     ImageView imgBack, imgRight;
     ArrayList<Card> CardList;
     RelativeLayout llAddCard;
+    ImageView floatAdd;
     TextView txtView;
 
     @Override
@@ -55,7 +56,7 @@ public class InsuranceCardActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initListener() {
-        llAddCard.setOnClickListener(this);
+        floatAdd.setOnClickListener(this);
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
     }
@@ -66,6 +67,7 @@ public class InsuranceCardActivity extends AppCompatActivity implements View.OnC
         llAddCard = findViewById(R.id.llAddCard);
         lvCard = findViewById(R.id.lvCard);
         txtView = findViewById(R.id.txtView);
+        floatAdd=findViewById(R.id.floatAdd);
     }
 
     private void setCardData() {
@@ -123,7 +125,7 @@ public class InsuranceCardActivity extends AppCompatActivity implements View.OnC
             case R.id.imgBack:
                 finish();
                 break;
-            case R.id.llAddCard:
+            case R.id.floatAdd:
                 // preferences.putString(PrefConstants.SOURCE,"Card");
                 Intent i = new Intent(context, AddCardActivity.class);
                 startActivityForResult(i, REQUEST_PRES);

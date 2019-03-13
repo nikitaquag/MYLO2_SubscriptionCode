@@ -89,6 +89,7 @@
         android:background="@color/colorLightBlue"
         android:divider="@null"></ListView>
 
+<!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatAdd"
         android:layout_width="wrap_content"
@@ -101,6 +102,7 @@
         android:visibility="gone"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
+-->
     <ImageView
         android:id="@+id/floatOptions"
         android:layout_width="@dimen/dimension70dp"
@@ -110,20 +112,43 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension12dp"
         />
-
-<!--
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatOptions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/floatAdd"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/plusnew"
+        android:visibility="gone"
+        android:layout_above="@+id/llAddConn"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension16dp"
-        android:src="@drawable/ic_more"
-        android:tint="@android:color/white"
-        app:backgroundTint="@color/colorRegisteredGreen"
-        app:fabSize="normal" />
--->
+
+        />
+    <ImageView
+        android:id="@+id/floatOptions2"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:visibility="gone"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension12dp"
+        />
+
+
+    <!--
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
+            android:src="@drawable/ic_more"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+    -->
 
     <TextView
         android:id="@+id/txtUser"

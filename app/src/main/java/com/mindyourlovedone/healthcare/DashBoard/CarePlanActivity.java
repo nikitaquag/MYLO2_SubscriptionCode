@@ -66,7 +66,8 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
 
     RelativeLayout rlAD, rlHome, rlMedical, rlInsurance, rlOther, rlLegal, rlMedicalRecord;
     TextView txtOne, txtTwo, txtUserName, txtClick;
-    FloatingActionButton floatOptions;
+   // FloatingActionButton floatOptions;
+    ImageView floatOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

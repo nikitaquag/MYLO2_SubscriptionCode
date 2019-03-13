@@ -37,7 +37,6 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
-import com.mindyourlovedone.healthcare.Activity.TransparentActivity;
 import com.mindyourlovedone.healthcare.Connections.MedAdapter;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -115,7 +114,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     String[] BloodList = {"", "A - negative", "A - positive", "AB - negative", "AB - positive", "B - negative", "B - positive", "O - negative", "O - positive", "I don't know"};
     Preferences preferences;
     DBHelper dbHelper;
-    FloatingActionButton floatProfile,floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatOptions;
 
     TextView txtBlood;
     ImageView imgBloodDrop;
