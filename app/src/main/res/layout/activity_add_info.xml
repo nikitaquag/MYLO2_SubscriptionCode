@@ -113,7 +113,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
             android:background="@color/colorWhite"
-            android:layout_marginBottom="@dimen/dimension10dp">
+            android:layout_marginBottom="@dimen/dimension100dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -247,7 +247,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/fltype"
-                            android:padding="@dimen/dimension10dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
@@ -380,7 +379,7 @@
                                 android:id="@+id/tilOtherReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/fltype"
+                                android:layout_below="@+id/fltypeReaction"
                                 android:paddingTop="@dimen/dimension8dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">

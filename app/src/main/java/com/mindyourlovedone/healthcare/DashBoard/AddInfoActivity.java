@@ -149,8 +149,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         b.setItems(vaccineList, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                txttype.setText(reactionList[which]);
-                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                txttype.setText(vaccineList[which]);
+                                if (vaccineList[which].equals("Other") || vaccineList[which].equals("Joint Replacements (specify)")) {
                                     tilOtherVaccine.setVisibility(View.VISIBLE);
                                 } else {
                                     tilOtherVaccine.setVisibility(View.GONE);
@@ -167,9 +167,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         b.setItems(surgeryList, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                txttype.setText(reactionList[which]);
+                                txttype.setText(surgeryList[which]);
 
-                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                if (surgeryList[which].equals("Other") || surgeryList[which].equals("Joint Replacements (specify)")) {
                                     tilOtherVaccine.setVisibility(View.VISIBLE);
                                 } else {
                                     tilOtherVaccine.setVisibility(View.GONE);
