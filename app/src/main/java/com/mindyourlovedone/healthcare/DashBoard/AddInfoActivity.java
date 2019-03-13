@@ -58,7 +58,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     private static final int RESULT_CONDITION = 500;
     private static final int RESULT_VACCINE = 700;
     Context context = this;
-    ImageView imgBack, imgInfo;
+    ImageView imgBack, imgInfo,imgHome;
     RelativeLayout llAddConn, rlInfo, rlPdf;
     TextView txtSave, txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
     TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction;
@@ -748,6 +748,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     private void initListener() {
         floatProfile.setOnClickListener(this);
         imgBack.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
         imgInfo.setOnClickListener(this);
         llAddConn.setOnClickListener(this);
         txtDate.setOnClickListener(this);
@@ -758,6 +759,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     private void initUi() {
         floatProfile = findViewById(R.id.floatProfile);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
         imgInfo = findViewById(R.id.imgInfo);
         llAddConn = findViewById(R.id.llAddConn);
         txtSave = findViewById(R.id.txtSave);
@@ -839,6 +841,17 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.imgBack:
                 hideSoftKeyboard();
+                finish();
+                break;
+
+            case R.id.imgHome:
+                hideSoftKeyboard();
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+               /* intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/
+                startActivity(intentHome);
                 finish();
                 break;
 

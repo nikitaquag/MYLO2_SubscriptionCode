@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -14,6 +15,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -34,6 +37,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.Activity.TransparentActivity;
 import com.mindyourlovedone.healthcare.Connections.MedAdapter;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -111,7 +115,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     String[] BloodList = {"", "A - negative", "A - positive", "AB - negative", "AB - positive", "B - negative", "B - positive", "O - negative", "O - positive", "I don't know"};
     Preferences preferences;
     DBHelper dbHelper;
-    FloatingActionButton floatProfile;
+    FloatingActionButton floatProfile,floatOptions;
 
     TextView txtBlood;
     ImageView imgBloodDrop;
@@ -146,6 +150,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
     private void initListener() {
         floatProfile.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
         txtSave.setOnClickListener(this);
 
         imgDone.setOnClickListener(this);
@@ -238,7 +243,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         txtBlood.setFocusable(false);
 
         floatProfile = rootview.findViewById(R.id.floatProfile);
-        imgInfo = rootview.findViewById(R.id.imgInfo);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
+        imgInfo = getActivity().findViewById(R.id.imgHelp);
         imgInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -683,6 +689,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         final ArrayList allergyList = new ArrayList();
         ImplantsLists = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (ImplantsLists.size() != 0) {
+            if(flagImplants) {
+                llSubImplants.setVisibility(View.VISIBLE);
+            }
             ListImplants.setVisibility(View.VISIBLE);
             for (int i = 0; i < ImplantsLists.size(); i++) {
                 Implant a = ImplantsLists.get(i);
@@ -703,6 +712,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 ListImplants.setVisibility(View.VISIBLE);
             }
         } else {
+            llSubImplants.setVisibility(View.GONE);
             ListImplants.setVisibility(View.GONE);
         }
     }
@@ -736,6 +746,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         final ArrayList allergyList = new ArrayList();
         HistoryLists = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (HistoryLists.size() != 0) {
+            if(flagHistory) {
+                llSubHistory.setVisibility(View.VISIBLE);
+            }
             ListHistory.setVisibility(View.VISIBLE);
             for (int i = 0; i < HistoryLists.size(); i++) {
                 History a = HistoryLists.get(i);
@@ -755,6 +768,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             }
         } else {
             ListHistory.setVisibility(View.GONE);
+            llSubHistory.setVisibility(View.GONE);
         }
     }
 
@@ -785,12 +799,15 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     private void setHospitalData() {
         HospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (HospitalList.size() != 0) {
-            //shradha
+            if(flagHistory) {
+                llSubHistory.setVisibility(View.VISIBLE);
+            }
             MedAdapter md = new MedAdapter(getActivity(), HospitalList, "hospital", FragmentMedicalInfo.this);
             ListHospital.setAdapter(md);
             ListHospital.setVisibility(View.VISIBLE);
         } else {
             ListHospital.setVisibility(View.GONE);
+            llSubHospital.setVisibility(View.GONE);
         }
     }
 
@@ -822,6 +839,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         final ArrayList allergyList = new ArrayList();
         VaccineLists = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         if (VaccineLists.size() != 0) {
+            if(flagVaccine) {
+                linVaccine.setVisibility(View.VISIBLE);
+            }
             ListVaccine.setVisibility(View.VISIBLE);
             for (int i = 0; i < VaccineLists.size(); i++) {
                 Vaccine a = VaccineLists.get(i);
@@ -840,6 +860,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 ListVaccine.setVisibility(View.VISIBLE);
             }
         } else {
+            linVaccine.setVisibility(View.GONE);
             ListVaccine.setVisibility(View.GONE);
         }
     }
@@ -916,6 +937,64 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 ListAllergy.requestFocus();
             }
         }
+    }
+
+    private void showFloatDialog() {
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.eyee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+
+
+        });
+
+
     }
 
     @Override
@@ -1105,10 +1184,16 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
             case R.id.imgVaccineDrop:
                 if (flagVaccine == false) {
-                    linVaccine.setVisibility(View.VISIBLE);
+                    if(!VaccineLists.isEmpty()){
+                        linVaccine.setVisibility(View.VISIBLE);
+                    }else{
+                        linVaccine.setVisibility(View.GONE);
+                    }
+                    txtAddVaccine.setVisibility(View.VISIBLE);
                     imgVaccineDrop.setImageResource(R.drawable.dropup);
                     flagVaccine = true;
                 } else if (flagVaccine == true) {
+                    txtAddVaccine.setVisibility(View.GONE);
                     linVaccine.setVisibility(View.GONE);
                     imgVaccineDrop.setImageResource(R.drawable.drop_down);
                     flagVaccine = false;
@@ -1184,7 +1269,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
             case R.id.imgAddImplants:
                 if (flagImplants == false) {
-                    llSubImplants.setVisibility(View.VISIBLE);
+                    if(!ImplantsLists.isEmpty()){
+                        llSubImplants.setVisibility(View.VISIBLE);
+                    }else{
+                        llSubImplants.setVisibility(View.GONE);
+                    }
                     imgAddImplants.setImageResource(R.drawable.dropup);
                     txtAddImplants.setVisibility(View.VISIBLE);
 //                    viewImplantsBottom.setVisibility(View.GONE);
@@ -1200,7 +1289,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
             case R.id.imgAddHistory:
                 if (flagHistory == false) {
-                    llSubHistory.setVisibility(View.VISIBLE);
+                    if(!HistoryLists.isEmpty()){
+                        llSubHistory.setVisibility(View.VISIBLE);
+                    }else{
+                        llSubHistory.setVisibility(View.GONE);
+                    }
                     imgAddHistory.setImageResource(R.drawable.dropup);
                     txtAddHistory.setVisibility(View.VISIBLE);
 //                    viewHistoryBottom.setVisibility(View.GONE);
@@ -1215,7 +1308,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
             case R.id.imgAddHospital:
                 if (flagHospital == false) {
-                    llSubHospital.setVisibility(View.VISIBLE);
+                    if(!HospitalList.isEmpty()){
+                        llSubHospital.setVisibility(View.VISIBLE);
+                    }else{
+                        llSubHospital.setVisibility(View.GONE);
+                    }
                     imgAddHospital.setImageResource(R.drawable.dropup);
                     txtAddHospital.setVisibility(View.VISIBLE);
 //                    viewHospitalBottom.setVisibility(View.GONE);
@@ -1303,6 +1400,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 //  intentDashboard.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentDashboard);
+                break;
+
+            case R.id.floatOptions:
+                showFloatDialog();
                 break;
 
             case R.id.imgBack:

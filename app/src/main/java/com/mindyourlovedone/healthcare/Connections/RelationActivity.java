@@ -10,13 +10,14 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
 public class RelationActivity extends AppCompatActivity implements View.OnClickListener {
     ListView listRelation;
     TextView txtTitles;
     Context context = this;
-    ImageView imgBack;
+    ImageView imgBack,imgHome;
     String category = "";
     String selected = "";
     private static int RESULT_RELATION = 10;
@@ -49,6 +50,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
         txtTitles = findViewById(R.id.txtTitles);
         listRelation = findViewById(R.id.listRelation);
         imgBack = findViewById(R.id.imgBack);
+        imgHome = findViewById(R.id.imgHome);
         Intent i = getIntent();
         if (i.getExtras() != null) {
             category = i.getStringExtra("Category");
@@ -196,6 +198,19 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
+            }
+        });
+
+        imgHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+               /* intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);*/
+                startActivity(intentHome);
                 finish();
             }
         });
