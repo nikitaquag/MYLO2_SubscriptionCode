@@ -1,8 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -19,12 +20,13 @@ import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -33,6 +35,7 @@ import com.mindyourlovedone.healthcare.database.AllergyQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HistoryQuery;
 import com.mindyourlovedone.healthcare.database.HospitalQuery;
+import com.mindyourlovedone.healthcare.database.MedInfoQuery;
 import com.mindyourlovedone.healthcare.database.MedicalConditionQuery;
 import com.mindyourlovedone.healthcare.database.MedicalImplantsQuery;
 import com.mindyourlovedone.healthcare.database.VaccineQuery;
@@ -60,12 +63,13 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     Context context = this;
     ImageView imgBack, imgInfo,imgHome;
     RelativeLayout llAddConn, rlInfo, rlPdf;
-    TextView txtSave, txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
+    TextView txttype,txttypeReaction, txtSave, txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
     TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction;
     String from, name, title;
     Boolean isAllergy, isHistory, isImplant;
     Preferences preferences;
     DBHelper dbHelper;
+    Button btn_delete;
     int id;
     String data = "";
     String header = "";
@@ -73,11 +77,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     TextView txtHeader, txtInfo, txtMedical;
     TextInputLayout tilMedical, tilLocation, tilDetails, tilNote;
     RelativeLayout rlName, rlReactionSpinner;
-    MySpinner spinner, spinnerReaction;
+//    MySpinner spinner;// spinnerReaction;
     FloatingActionButton floatProfile;
     private static int RESULT_MEDICAL = 2;
     TextView txtLocation, txtDetails, txtNote;
-
+    FrameLayout fltypeReaction,fltype;
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
     String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
@@ -88,6 +92,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_info);
+        initComponent2();
         initUi();
         initListener();
         InitComponent();
@@ -118,84 +123,161 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }
             });*/
             if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, vaccineList);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter1);
+//                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, vaccineList);
+//                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                spinner.setAdapter(adapter1);
+
 
             } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
                /* ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, implantList);
                 adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(adapter1);*/
             } else if (from.equals("HistoryUpdate") || from.equals("History")) {
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, surgeryList);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinner.setAdapter(adapter1);
+//                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, surgeryList);
+//                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                spinner.setAdapter(adapter1);
 
             }
 
-
-            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            txttype.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (parent.getItemAtPosition(position).toString().equals("Other") || parent.getItemAtPosition(position).toString().equals("Joint Replacements (specify)")) {
-                        tilOtherVaccine.setVisibility(View.VISIBLE);
-                    } else {
-                        tilOtherVaccine.setVisibility(View.GONE);
+                public void onClick(View view) {
+                    if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
+                        AlertDialog.Builder b = new AlertDialog.Builder(context);
+                        b.setTitle("Type");
+
+                        b.setItems(vaccineList, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                txttype.setText(reactionList[which]);
+                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                    tilOtherVaccine.setVisibility(View.VISIBLE);
+                                } else {
+                                    tilOtherVaccine.setVisibility(View.GONE);
+                                }
+                                dialog.dismiss();
+                            }
+
+                        });
+                        b.show();
+                    }else if (from.equals("HistoryUpdate") || from.equals("History")){
+                        AlertDialog.Builder b = new AlertDialog.Builder(context);
+                        b.setTitle("Type");
+
+                        b.setItems(surgeryList, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                txttype.setText(reactionList[which]);
+
+                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                    tilOtherVaccine.setVisibility(View.VISIBLE);
+                                } else {
+                                    tilOtherVaccine.setVisibility(View.GONE);
+                                }
+
+                                dialog.dismiss();
+                            }
+
+                        });
+                        b.show();
                     }
-                }
 
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
+
                 }
             });
+
+
+//            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    if (parent.getItemAtPosition(position).toString().equals("Other") || parent.getItemAtPosition(position).toString().equals("Joint Replacements (specify)")) {
+//                        tilOtherVaccine.setVisibility(View.VISIBLE);
+//                    } else {
+//                        tilOtherVaccine.setVisibility(View.GONE);
+//                    }
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> parent) {
+//                }
+//            });
 
             if (from.equals("AllergyUpdate") || from.equals("Allergy")) {
-                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, reactionList);
-                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                spinnerReaction.setAdapter(adapter1);
+//                ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, reactionList);
+//                adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//                spinnerReaction.setAdapter(adapter1);
+
+                txttypeReaction.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder b = new AlertDialog.Builder(context);
+                        b.setTitle("Type");
+
+                        b.setItems(reactionList, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                txttypeReaction.setText(reactionList[which]);
+                                if (reactionList[which].equalsIgnoreCase("Other")) {
+                                    tilOtherReaction.setVisibility(View.VISIBLE);
+                                } else {
+                                    tilOtherReaction.setVisibility(View.GONE);
+                                    reactions = "";
+                                    txtOtherReaction.setText("");
+                                }
+                                dialog.dismiss();
+                            }
+
+                        });
+                        b.show();
+
+                    }
+                });
             }
 
-            spinnerReaction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                @Override
-                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if (parent.getItemAtPosition(position).toString().equals("Other")) {
-                        tilOtherReaction.setVisibility(View.VISIBLE);
-
-                    } else {
-                        tilOtherReaction.setVisibility(View.GONE);
-                        reactions = "";
-                        txtOtherReaction.setText("");
-                    }
-                }
-
-                @Override
-                public void onNothingSelected(AdapterView<?> parent) {
-                }
-            });
+//            spinnerReaction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//                @Override
+//                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                    if (parent.getItemAtPosition(position).toString().equals("Other")) {
+//                        tilOtherReaction.setVisibility(View.VISIBLE);
+//
+//                    } else {
+//                        tilOtherReaction.setVisibility(View.GONE);
+//                        reactions = "";
+//                        txtOtherReaction.setText("");
+//                    }
+//                }
+//
+//                @Override
+//                public void onNothingSelected(AdapterView<?> parent) {
+//                }
+//            });
             switch (from) {
                 case "Allergy":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.VISIBLE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
                     tilOtherReaction.setHint("Other Reaction");
-                    spinnerReaction.setHint("Reaction");
+                    txttypeReaction.setHint("Reaction");
                     break;
 
                 case "AllergyUpdate":
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.VISIBLE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
                     tilOtherReaction.setHint("Other Reaction");
-                    spinnerReaction.setHint("Reaction");
+                    txttypeReaction.setHint("Reaction");
                     break;
 
                 case "Implants":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     tilMedical.setVisibility(View.VISIBLE);
@@ -206,14 +288,15 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
                     tilMedical.setHint("Medical Implants");
-                    spinner.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
-                    spinner.setHint("Medical Implants");
-                    spinnerReaction.setVisibility(View.GONE);
+                    txttype.setHint("Medical Implants");
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "ImplantUpdate":
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     tilMedical.setVisibility(View.VISIBLE);
@@ -225,90 +308,99 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     tilDetails.setVisibility(View.VISIBLE);
                     tilNote.setVisibility(View.VISIBLE);
 
-                    spinner.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
                     tilOtherVaccine.setHint("Other Implants");
-                    spinner.setHint("Medical Implants");
-                    spinnerReaction.setVisibility(View.GONE);
+                    txttype.setHint("Medical Implants");
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "Condition":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "ConditionUpdate":
+
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "Hospital":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "HospitalUpdate":
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
-                    spinner.setVisibility(View.GONE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.GONE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
 
                     break;
                 case "History":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     txtMedical.setVisibility(View.VISIBLE);
-                    spinner.setVisibility(View.VISIBLE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.VISIBLE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other History");
-                    spinner.setHint("Surgical History");
+                    txttype.setHint("Surgical History");
                     break;
 
                 case "HistoryUpdate":
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     txtMedical.setVisibility(View.VISIBLE);
-                    spinner.setVisibility(View.VISIBLE);
-                    spinnerReaction.setVisibility(View.GONE);
+                    fltype.setVisibility(View.VISIBLE);
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other History");
-                    spinner.setHint("Surgical History");
+                    txttype.setHint("Surgical History");
                     break;
 
                 case "Vaccine":
+                    btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     txtMedical.setVisibility(View.VISIBLE);
-                    spinner.setVisibility(View.VISIBLE);
+                    fltype.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
-                    spinner.setHint("Immunizations/Vaccines");
-                    spinnerReaction.setVisibility(View.GONE);
+                    txttype.setHint("Immunizations/Vaccines");
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
 
                 case "VaccineUpdate":
+                    btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     txtMedical.setVisibility(View.VISIBLE);
-                    spinner.setVisibility(View.VISIBLE);
+                    fltype.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
-                    spinner.setHint("Immunizations/Vaccines");
-                    spinnerReaction.setVisibility(View.GONE);
+                    txttype.setHint("Immunizations/Vaccines");
+                    fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
             }
@@ -567,11 +659,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             if (isAllergy == true) {
                 tilTreatment.setVisibility(View.VISIBLE);
                 tilReaction.setVisibility(View.GONE);
-                spinnerReaction.setVisibility(View.VISIBLE);
+                fltypeReaction.setVisibility(View.VISIBLE);
             } else {
                 tilTreatment.setVisibility(View.GONE);
                 tilReaction.setVisibility(View.GONE);
-                spinnerReaction.setVisibility(View.GONE);
+                fltypeReaction.setVisibility(View.GONE);
             }
 
             if (isHistory == true) {
@@ -613,8 +705,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         }
                     }
 
-
-                    spinnerReaction.setSelection(indexd + 1);
+                    txttypeReaction.setText(allergy.getReaction());
+//                    spinnerReaction.setSelection(indexd + 1);
                     break;
 
                 case "ImplantUpdate":
@@ -654,7 +746,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             indexs = j;
                         }
                     }
-                    spinner.setSelection(indexs + 1);
+                    txttype.setText(vaccine.getName());
+//                    spinner.setSelection(indexs + 1);
                     break;
 
                 case "ConditionUpdate":
@@ -683,7 +776,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             indexH = j;
                         }
                     }
-                    spinner.setSelection(indexH + 1);
+                    txttype.setText(history.getName());
+//                    spinner.setSelection(indexH + 1);
                     break;
 
             }
@@ -754,9 +848,16 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         txtMedical.setOnClickListener(this);
+        btn_delete.setOnClickListener(this);
     }
 
     private void initUi() {
+        fltype = findViewById(R.id.fltype);
+        txttype = findViewById(R.id.txttype);
+        fltypeReaction = findViewById(R.id.fltypeReaction);
+        txttypeReaction = findViewById(R.id.txttypeReaction);
+        btn_delete = findViewById(R.id.btn_delete);
+        btn_delete.setVisibility(View.GONE);
         floatProfile = findViewById(R.id.floatProfile);
         imgBack = findViewById(R.id.imgBack);
         imgHome = findViewById(R.id.imgHome);
@@ -798,8 +899,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         tilDoctor = findViewById(R.id.tilDoctor);
         tilDone = findViewById(R.id.tilDone);
 
-        spinner = findViewById(R.id.spinner);
-        spinnerReaction = findViewById(R.id.spinnerReaction);
+//        spinner = findViewById(R.id.spinner);
+//        spinnerReaction = findViewById(R.id.spinnerReaction);
 
         rlName = findViewById(R.id.rlName);
         rlReactionSpinner = findViewById(R.id.rlReactionSpinner);
@@ -828,6 +929,18 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 txtOtherVaccine.setVisibility(View.GONE);
             }
         }
+    }
+
+    private void initComponent2() {
+        preferences = new Preferences(this);
+        dbHelper = new DBHelper(this, preferences.getString(PrefConstants.CONNECTED_USERDB));
+        MedInfoQuery p = new MedInfoQuery(this, dbHelper);
+        AllergyQuery a = new AllergyQuery(this, dbHelper);
+        MedicalImplantsQuery m = new MedicalImplantsQuery(this, dbHelper);
+        MedicalConditionQuery f = new MedicalConditionQuery(this, dbHelper);
+        HospitalQuery h = new HospitalQuery(this, dbHelper);
+        HistoryQuery hi = new HistoryQuery(this, dbHelper);
+        VaccineQuery v = new VaccineQuery(this, dbHelper);
     }
 
     @Override
@@ -1022,15 +1135,61 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 startActivityForResult(intentType, RESULT_MEDICAL);
                 break;
 
+            case R.id.btn_delete:
+                boolean flagsr = false;
+                Intent intentdelete = new Intent();
+                String idss = getIntent().getExtras().getString("ID");
+                switch (from) {
+
+                    case "AllergyUpdate":
+                        flagsr = AllergyQuery.deleteRecord(Integer.parseInt(idss));
+                        setResult(RESULT_ALLERGY, intentdelete);
+                        break;
+
+
+                    case "ImplantUpdate":
+                        flagsr = MedicalImplantsQuery.deleteRecord(Integer.parseInt(idss));
+                        setResult(RESULT_IMPLANTS, intentdelete);
+                        break;
+
+
+                    case "ConditionUpdate":
+                        flagsr = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), idss);
+                        setResult(RESULT_CONDITION, intentdelete);
+                        break;
+
+                    case "HospitalUpdate":
+                        flagsr = HospitalQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), idss);
+                        setResult(RESULT_HOSPITAL, intentdelete);
+                        break;
+
+                    case "HistoryUpdate":
+                        flagsr = HistoryQuery.deleteRecord(Integer.parseInt(idss));
+                        setResult(RESULT_HISTORY, intentdelete);
+                        break;
+
+                    case "VaccineUpdate":
+                        flagsr = VaccineQuery.deleteRecord(Integer.parseInt(idss));
+                        setResult(RESULT_VACCINE, intentdelete);
+                        break;
+                }
+
+                if (flagsr) {
+                    finish();
+                }
+
+                break;
+
             case R.id.txtSave:
                 String value = txtMedical.getText().toString().trim();
 
                 // String medical = txtMedical.getText().toString().trim();
                 if (from.equals("VaccineUpdate") || from.equals("Vaccine")) {
-                    int indexValue = spinner.getSelectedItemPosition();
-                    if (indexValue != 0) {
-                        value = vaccineList[indexValue - 1];
-                    }
+//                    int indexValue = spinner.getSelectedItemPosition();
+//                    if (indexValue != 0) {
+//                        value = vaccineList[indexValue - 1];
+//                    }
+                    value = txttype.getText().toString();
                 } else if (from.equals("ImplantUpdate") || from.equals("Implants")) {
                     txtMedical.setText(value);
 
@@ -1039,10 +1198,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         value = implantList[indexValue - 1];
                     }*/
                 } else if (from.equals("HistoryUpdate") || from.equals("History")) {
-                    int indexValue = spinner.getSelectedItemPosition();
-                    if (indexValue != 0) {
-                        value = surgeryList[indexValue - 1];
-                    }
+//                    int indexValue = spinner.getSelectedItemPosition();
+//                    if (indexValue != 0) {
+//                        value = surgeryList[indexValue - 1];
+//                    }
+                    value = txttype.getText().toString();
                 } else {
                     value = txtName.getText().toString().trim();
                 }
@@ -1055,10 +1215,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             String treatment = txtTreatment.getText().toString();
 
                             String otherReaction = txtOtherReaction.getText().toString();
-                            int indexValue = spinnerReaction.getSelectedItemPosition();
-                            if (indexValue != 0) {
-                                reactions = reactionList[indexValue - 1];
-                            }
+//                            int indexValue = spinnerReaction.getSelectedItemPosition();
+//                            if (indexValue != 0) {
+//                                reactions = reactionList[indexValue - 1];
+//                            }
+                            reactions = txttypeReaction.getText().toString();
                             Boolean flag = AllergyQuery.insertAllergyData(preferences.getInt(PrefConstants.CONNECTED_USERID), value, reactions, treatment, otherReaction);
                             if (flag == true) {
                                 Toast.makeText(context, "Allergy Added Succesfully", Toast.LENGTH_SHORT).show();
@@ -1079,10 +1240,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                             String treatments = txtTreatment.getText().toString();
 
                             String otherReactions = txtOtherReaction.getText().toString();
-                            int indexValues = spinnerReaction.getSelectedItemPosition();
-                            if (indexValues != 0) {
-                                reactions = reactionList[indexValues - 1];
-                            }
+//                            int indexValues = spinnerReaction.getSelectedItemPosition();
+//                            if (indexValues != 0) {
+//                                reactions = reactionList[indexValues - 1];
+//                            }
+                            reactions = txttypeReaction.getText().toString();
                             Boolean flags = AllergyQuery.updateAllergyData(id, value, reactions, treatments, otherReactions);
                             if (flags == true) {
                                 Toast.makeText(context, "Allergy updated Succesfully", Toast.LENGTH_SHORT).show();

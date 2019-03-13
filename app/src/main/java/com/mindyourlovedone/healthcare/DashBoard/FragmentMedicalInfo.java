@@ -523,6 +523,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Medical Condition");
             allergyIntent.putExtra("Name", "Add Medical Condition");
             allergyIntent.putExtra("ConditionObject", value);
+            allergyIntent.putExtra("ID", value);
             startActivityForResult(allergyIntent, REQUEST_CONDITION);
         } else {
             boolean flag = MedicalConditionQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), ConditionList.get(position));
@@ -728,6 +729,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Medical Implant");
             allergyIntent.putExtra("Name", "Update Medical Implant");
             allergyIntent.putExtra("ImplantObject", a);
+            allergyIntent.putExtra("ID", a.getId()+"");
             startActivityForResult(allergyIntent, REQUEST_IMPLANTS);
         } else {
             Implant a = ImplantsLists.get(position);
@@ -783,6 +785,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Surgical History");
             allergyIntent.putExtra("Name", "Add Surgical History");
             allergyIntent.putExtra("HistoryObject", value);
+            allergyIntent.putExtra("ID", HistoryLists.get(position).getId()+"");
             startActivityForResult(allergyIntent, REQUEST_HISTORY);
         } else {
             boolean flag = HistoryQuery.deleteRecord(HistoryLists.get(position).getId());
@@ -822,6 +825,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Hospital");
             allergyIntent.putExtra("Name", "Add Hospital");
             allergyIntent.putExtra("HospitalObject", value);
+            allergyIntent.putExtra("ID", HospitalList.get(position));
             startActivityForResult(allergyIntent, REQUEST_HOSPITAL);
         } else {
             boolean flag = HospitalQuery.deleteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(position));
@@ -876,6 +880,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Immunizations/Vaccines ");
             allergyIntent.putExtra("Name", "Update Immunizations/Vaccines ");
             allergyIntent.putExtra("VaccineObject", a);
+            allergyIntent.putExtra("ID", a.getId()+"");
             startActivityForResult(allergyIntent, REQUEST_VACCINE);
         } else {
             Vaccine a = VaccineLists.get(position);
@@ -927,6 +932,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("Title", "Update Allergy and Medication Reaction");
             allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
             allergyIntent.putExtra("AllergyObject", a);
+            allergyIntent.putExtra("ID", a.getId()+"");
             startActivityForResult(allergyIntent, REQUEST_ALLERGY);
         } else {
             Allergy a = AllargyLists.get(position);

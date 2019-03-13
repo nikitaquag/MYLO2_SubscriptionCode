@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -178,28 +177,76 @@
                         android:layout_below="@+id/tilMedical"
                     >
 
-
-                        <com.mindyourlovedone.healthcare.customview.MySpinner
-                            android:id="@+id/spinner"
+                        <FrameLayout
+                            android:id="@+id/fltype"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/lato"
-                            android:imeOptions="actionNext"
                             android:visibility="gone"
 
-                            app:ms_arrowColor="@color/colorBlue"
-                            app:ms_arrowSize="16dp"
-                            app:ms_hint="hint"
-                            app:ms_multiline="true"
-                            custom:ms_floatingLabelColor="@color/colorBlue"
-                            custom:ms_hintColor="@color/colorDarkGray" />
+                            >
+
+                            <ImageView
+                                android:id="@+id/imgtype22"
+                                android:layout_width="@dimen/dimension20dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="@dimen/dimension10dp"
+                                android:layout_marginRight="@dimen/dimension2dp"
+                                android:paddingTop="@dimen/dimension8dp"
+                                android:src="@drawable/drg"></ImageView>
+
+                            <android.support.design.widget.TextInputLayout
+                                android:id="@+id/tilType22"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/colorOnesGray"
+                                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                                >
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/txttype"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/colorOnesGray"
+                                    android:focusable="false"
+                                    android:fontFamily="@font/lato"
+                                    android:hint=""
+                                    android:imeOptions="actionNext"
+                                    android:includeFontPadding="true"
+                                    android:paddingBottom="@dimen/dimension18dp"
+                                    android:paddingTop="@dimen/dimension8dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension20dp" />
+
+                                <requestFocus />
+                            </android.support.design.widget.TextInputLayout>
+                        </FrameLayout>
+
+
+                        <!--<com.mindyourlovedone.healthcare.customview.MySpinner-->
+                        <!--android:id="@+id/spinner"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:fontFamily="@font/lato"-->
+                        <!--android:imeOptions="actionNext"-->
+                        <!--android:visibility="visible"-->
+
+                        <!--app:ms_arrowColor="@color/colorBlue"-->
+                        <!--app:ms_arrowSize="16dp"-->
+                        <!--app:ms_hint="hint"-->
+                        <!--app:ms_multiline="true"-->
+                        <!--custom:ms_floatingLabelColor="@color/colorBlue"-->
+                        <!--custom:ms_hintColor="@color/colorDarkGray" />-->
 
                         <android.support.design.widget.TextInputLayout
                             android:fontFamily="@font/lato"
                             android:id="@+id/tilOtherVaccine"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/spinner"
+                            android:layout_below="@+id/fltype"
                             android:padding="@dimen/dimension10dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -265,27 +312,75 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <com.mindyourlovedone.healthcare.customview.MySpinner
-                                android:id="@+id/spinnerReaction"
-                                android:layout_width="match_parent"
-                                android:fontFamily="@font/lato"
-                                android:layout_height="wrap_content"
-                                android:imeOptions="actionNext"
+                            <FrameLayout
+                                android:id="@+id/fltypeReaction"
                                 android:visibility="gone"
-                                app:ms_arrowColor="@color/colorBlue"
-                                app:ms_arrowSize="16dp"
-                                app:ms_floatingLabelText="Reaction"
-                                app:ms_hint="hint"
-                                app:ms_multiline="true"
-                                custom:ms_floatingLabelColor="@color/colorBlue"
-                                custom:ms_hintColor="@color/colorDarkGray" />
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                >
+
+                                <ImageView
+                                    android:id="@+id/imgtype"
+                                    android:layout_width="@dimen/dimension20dp"
+                                    android:layout_height="@dimen/dimension25dp"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_gravity="bottom|right"
+                                    android:layout_marginBottom="@dimen/dimension10dp"
+                                    android:layout_marginRight="@dimen/dimension2dp"
+                                    android:paddingTop="@dimen/dimension8dp"
+                                    android:src="@drawable/drg"></ImageView>
+
+                                <android.support.design.widget.TextInputLayout
+                                    android:id="@+id/tilType"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:backgroundTint="@color/colorOnesGray"
+                                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                                    >
+
+                                    <AutoCompleteTextView
+                                        android:id="@+id/txttypeReaction"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:backgroundTint="@color/colorOnesGray"
+                                        android:focusable="false"
+                                        android:fontFamily="@font/lato"
+                                        android:hint="Reaction"
+                                        android:imeOptions="actionNext"
+                                        android:includeFontPadding="true"
+                                        android:paddingBottom="@dimen/dimension18dp"
+                                        android:paddingTop="@dimen/dimension8dp"
+                                        android:singleLine="true"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="@dimen/dimension20dp" />
+
+                                    <requestFocus />
+                                </android.support.design.widget.TextInputLayout>
+                            </FrameLayout>
+
+                            <!--<com.mindyourlovedone.healthcare.customview.MySpinner-->
+                            <!--android:id="@+id/spinnerReaction"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:fontFamily="@font/lato"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:imeOptions="actionNext"-->
+                            <!--android:visibility="visible"-->
+                            <!--app:ms_arrowColor="@color/colorBlue"-->
+                            <!--app:ms_arrowSize="16dp"-->
+                            <!--app:ms_floatingLabelText="Reaction"-->
+                            <!--app:ms_hint="hint"-->
+                            <!--app:ms_multiline="true"-->
+                            <!--custom:ms_floatingLabelColor="@color/colorBlue"-->
+                            <!--custom:ms_hintColor="@color/colorDarkGray" />-->
 
                             <android.support.design.widget.TextInputLayout
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/tilOtherReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/spinnerReaction"
+                                android:layout_below="@+id/fltype"
                                 android:paddingTop="@dimen/dimension8dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
@@ -625,6 +720,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
+                    android:id="@+id/btn_delete"
                     android:textAllCaps="false"
                     android:fontFamily="@font/lato"
                     android:layout_centerHorizontal="true"
