@@ -108,8 +108,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     TextView txtName;
     Preferences preferences;
     DBHelper dbHelper;
-    FloatingActionButton  floatAdd,floatOptions;
-  //  ImageView floatOptions;
+   // FloatingActionButton  floatAdd,floatOptions;
+    ImageView floatOptions,floatAdd,floatOptions2;
     public static final int REQUEST_PRES = 100;
 
     @Override
@@ -125,6 +125,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         databases();
         Intent i = getIntent();
         floatAdd = findViewById(R.id.floatAdd);
+        floatOptions= findViewById(R.id.floatOptions);
+        floatOptions2=findViewById(R.id.floatOptions2);
         txtTitle = findViewById(R.id.txtTitle);
         txtUser = findViewById(R.id.txtUser);
         header = findViewById(R.id.header);
@@ -188,6 +190,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isInsurance = false;
             } else if (from.equals("Prescription")) {
                 floatAdd.setVisibility(View.VISIBLE);
+                floatOptions.setVisibility(View.GONE);
+                floatOptions2.setVisibility(View.VISIBLE);
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);

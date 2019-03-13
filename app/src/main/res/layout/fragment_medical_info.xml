@@ -4129,7 +4129,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:padding="@dimen/dimension10dp">
+        <ImageView
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/threedots"
+            android:layout_above="@+id/llAddConn"
 
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            />
+<!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatOptions"
             android:layout_width="wrap_content"
@@ -4141,6 +4151,6 @@
             android:src="@drawable/ic_more"
             android:tint="@android:color/white"
             app:backgroundTint="@color/colorRegisteredGreen"
-            app:fabSize="normal" />
+            app:fabSize="normal" />-->
     </RelativeLayout>
 </FrameLayout>

@@ -66,7 +66,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd,floatOptions;
 
     @Nullable
     @Override

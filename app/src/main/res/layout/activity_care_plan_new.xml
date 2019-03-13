@@ -6,6 +6,7 @@
     android:background="@color/colorOnesGray"
     android:orientation="vertical">
 
+<!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatOptions"
         android:layout_width="wrap_content"
@@ -17,6 +18,7 @@
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
+-->
 
     <RelativeLayout
         android:id="@+id/rlAD"
@@ -497,5 +499,15 @@
                     android:textSize="@dimen/dimension18dp"></TextView>
             </RelativeLayout>
         </RelativeLayout>
+        <ImageView
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/threedots"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
+            />
+
     </RelativeLayout>
 </RelativeLayout>
