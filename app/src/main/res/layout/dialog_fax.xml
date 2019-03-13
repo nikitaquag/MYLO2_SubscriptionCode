@@ -42,6 +42,7 @@
                     android:paddingBottom="@dimen/dimension8dp">
                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/etFaxnumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

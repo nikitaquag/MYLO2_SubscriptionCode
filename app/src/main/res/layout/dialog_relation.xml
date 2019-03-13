@@ -83,6 +83,7 @@
                     android:visibility="gone">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtOtherRelation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

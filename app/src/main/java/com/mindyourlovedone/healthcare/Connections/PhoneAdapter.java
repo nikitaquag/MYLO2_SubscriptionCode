@@ -109,7 +109,7 @@ public class PhoneAdapter extends BaseAdapter {
             }
         });
 
-   /*  holder.txtPhoNum.addTextChangedListener(new TextWatcher() {
+    holder.txtPhoNum.addTextChangedListener(new TextWatcher() {
             int prevL = 0;
 
             @Override
@@ -128,10 +128,11 @@ public class PhoneAdapter extends BaseAdapter {
 
                 if ((prevL < length) && (length == 3 || length == 7)) {
                     editable.append("-");
+                    holder.txtPhoNum.setText(editable);
                     Toast.makeText(context,""+length,Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
 
         holder.txtType.setOnClickListener(new View.OnClickListener() {
             @Override

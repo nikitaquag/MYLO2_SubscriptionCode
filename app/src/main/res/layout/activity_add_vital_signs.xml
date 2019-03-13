@@ -94,6 +94,7 @@
                 app:hintEnabled="true">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,6 +119,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -143,6 +145,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -168,6 +171,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtBP"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -193,6 +197,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtHeart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -216,6 +221,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtTemperature"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -239,6 +245,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtPulseRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -264,6 +271,7 @@
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtRespRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -289,6 +297,7 @@
                 app:hintEnabled="true">
 
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtNote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

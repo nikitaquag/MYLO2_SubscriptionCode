@@ -51,6 +51,7 @@
         app:hintTextAppearance="@style/TextLabel">
         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
             android:fontFamily="@font/lato"
             android:id="@+id/txtName"
             android:layout_width="match_parent"
@@ -78,6 +79,7 @@
         app:hintTextAppearance="@style/TextLabel">
         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
         <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -441,6 +443,7 @@
                     app:hintEnabled="false">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -465,6 +468,7 @@
                     >
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -489,6 +493,7 @@
                     android:visibility="gone">
 
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -511,6 +516,7 @@
                     android:visibility="gone">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtCountry"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -553,6 +559,7 @@
                     android:visibility="gone">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -579,6 +586,7 @@
                     android:paddingRight="@dimen/dimension30dp">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtBdate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -605,6 +613,7 @@
                     app:passwordToggleEnabled="true">
                     &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                     <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                         android:id="@+id/txtPassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -637,6 +646,7 @@
                      >
                      &lt;!&ndash;app:hintTextAppearance="@style/CustomTextAppearance"&ndash;&gt;
                      <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                          android:id="@+id/txtPassword"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"

@@ -52,6 +52,7 @@
                 app:hintTextAppearance="@style/TextLabel">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:fontFamily="@font/lato"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
@@ -80,6 +81,7 @@
                 app:hintTextAppearance="@style/TextLabel">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:id="@+id/txtUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -108,6 +110,7 @@
                 android:visibility="gone">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
                     android:fontFamily="@font/lato"
                     android:id="@+id/txtPassword"
                     android:layout_width="match_parent"
