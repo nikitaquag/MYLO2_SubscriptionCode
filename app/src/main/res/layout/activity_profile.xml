@@ -324,8 +324,10 @@
                     <View
                         android:id="@+id/vs"
                         android:layout_width="match_parent"
-                        android:layout_height="2dp"
+                        android:layout_height="1dp"
                         android:layout_below="@+id/txtCardz"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_margin="@dimen/dimension10dp"
                         android:background="@color/colorLightGray"></View>
 
@@ -399,7 +401,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-
+                        android:backgroundTint="@color/colordivideGray"
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
                         android:paddingBottom="@dimen/dimension15dp"
@@ -429,6 +431,7 @@
                         android:hint="Email"
                         android:imeOptions="actionNext"
                         android:maxLines="2"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
@@ -479,6 +482,7 @@
                                 android:inputType="phone"
                                 android:maxLength="12"
                                 android:maxLines="1"
+                                android:backgroundTint="@color/colordivideGray"
 
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
@@ -502,6 +506,8 @@
                                 android:drawableRight="@drawable/dropd"
                                 android:fontFamily="@font/lato"
                                 android:hint="Type"
+                                android:backgroundTint="@color/colordivideGray"
+
                                 android:imeOptions="actionNext"
                                 android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
@@ -547,6 +553,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato"
                         android:hint="Address"
+                        android:backgroundTint="@color/colordivideGray"
                         android:imeOptions="actionNext"
                         android:textColor="@color/colorPrimaryDark"
                         android:includeFontPadding="true"
@@ -587,6 +594,7 @@
                         android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
@@ -619,6 +627,7 @@
                         android:inputType="phone"
                         android:maxLength="12"
                         android:maxLines="1"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:paddingTop="@dimen/dimension10dp"
                         android:paddingBottom="@dimen/dimension10dp"
@@ -753,6 +762,7 @@
                             android:maxLength="30"
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension8dp"
+                            android:backgroundTint="@color/colordivideGray"
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
@@ -829,6 +839,7 @@
                         android:layout_marginLeft="@dimen/dimension5dp"
                         android:fontFamily="@font/lato"
                         android:imeOptions="actionNext"
+
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension10dp"
@@ -887,9 +898,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension1dp"
                     android:layout_below="@+id/rlGender"
+                    android:backgroundTint="@color/colordivideGray"
+
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_marginTop="@dimen/dimension3dp"
                     android:layout_marginRight="@dimen/dimension20dp"
+
                     android:layout_marginBottom="@dimen/dimension3dp"
                     android:background="@color/colorGray">
 
@@ -919,6 +933,8 @@
                         android:hint="Gender"
                         android:imeOptions="actionNext"
                         android:maxLength="30"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
@@ -950,6 +966,8 @@
                         android:drawablePadding="@dimen/dimension10dp"
                         android:focusable="false"
                         android:fontFamily="@font/lato"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:hint="Birthdate"
                         android:imeOptions="actionNext"
                         android:maxLength="30"
@@ -995,6 +1013,8 @@
                             android:inputType="phone"
                             android:nextFocusDown="@+id/txtWeight"
                             android:paddingTop="@dimen/dimension8dp"
+                            android:backgroundTint="@color/colordivideGray"
+
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
@@ -1025,6 +1045,8 @@
                             android:inputType="number"
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"
+                            android:backgroundTint="@color/colordivideGray"
+
                             android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1076,6 +1098,8 @@
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingBottom="@dimen/dimension8dp"
                     app:hintEnabled="true"
+                    android:backgroundTint="@color/colordivideGray"
+
                     app:hintTextAppearance="@style/TextInputLayoutHintText"
                     android:layout_toLeftOf="@+id/img"
 
@@ -1091,6 +1115,8 @@
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:includeFontPadding="true"
                         android:paddingBottom="@dimen/dimension18dp"
                         android:singleLine="true"
@@ -1119,6 +1145,8 @@
                     android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
+                    android:backgroundTint="@color/colordivideGray"
+
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
@@ -1194,6 +1222,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_marginTop="@dimen/dimension10dp"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginBottom="@dimen/dimension5dp"
                         android:background="@color/colorGray"></View>
 
@@ -1214,6 +1244,8 @@
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkChild"
                         android:layout_marginTop="@dimen/dimension8dp"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginBottom="@dimen/dimension8dp"
                         android:background="@color/colorGray"></View>
 
@@ -1233,6 +1265,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkFriend"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginTop="@dimen/dimension8dp"
                         android:layout_marginBottom="@dimen/dimension8dp"
                         android:background="@color/colorGray"></View>
@@ -1253,6 +1287,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkGrandParent"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginTop="@dimen/dimension8dp"
                         android:layout_marginBottom="@dimen/dimension8dp"
                         android:background="@color/colorGray"></View>
@@ -1262,6 +1298,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/vw2"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:button="@drawable/radiocheck"
                         android:fontFamily="@font/lato"
                         android:paddingLeft="@dimen/dimension8dp"
@@ -1273,6 +1311,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkParent"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginTop="@dimen/dimension8dp"
                         android:layout_marginBottom="@dimen/dimension8dp"
                         android:background="@color/colorGray"></View>
@@ -1293,6 +1333,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
                         android:layout_below="@+id/chkSpouse"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_marginTop="@dimen/dimension8dp"
                         android:layout_marginBottom="@dimen/dimension8dp"
                         android:background="@color/colorGray"></View>
@@ -1312,6 +1354,7 @@
                         android:id="@+id/vw6"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension1dp"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:layout_below="@+id/chkSibling"
                         android:layout_marginTop="@dimen/dimension8dp"
@@ -1354,6 +1397,8 @@
                             android:imeOptions="actionNext"
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"
+                            android:backgroundTint="@color/colordivideGray"
+
                             android:paddingBottom="@dimen/dimension18dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -1389,6 +1434,7 @@
                         android:fontFamily="@font/lato"
                         android:hint="Profession"
                         android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
@@ -1417,6 +1463,7 @@
                         android:fontFamily="@font/lato"
                         android:hint="Employed by and Name of Manager "
                         android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colordivideGray"
 
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
@@ -1446,6 +1493,8 @@
                         android:hint="Telephone # of Manager"
                         android:imeOptions="actionNext"
                         android:inputType="phone"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:maxLength="12"
                         android:maxLines="2"
                         android:paddingTop="@dimen/dimension8dp"
@@ -1498,6 +1547,8 @@
                         app:ms_arrowColor="@color/colorBlue"
                         app:ms_arrowSize="16dp"
                         app:ms_floatingLabelText="Language Spoken"
+                        android:backgroundTint="@color/colordivideGray"
+
                         app:ms_hint="hint"
                         app:ms_multiline="true"
                         custom:ms_floatingLabelColor="@color/colorBlue"
@@ -1529,6 +1580,8 @@
                             android:maxLines="1"
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"
+                            android:backgroundTint="@color/colordivideGray"
+
                             android:paddingBottom="@dimen/dimension18dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
@@ -1557,6 +1610,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
+                            android:backgroundTint="@color/colordivideGray"
 
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"
@@ -1693,6 +1747,8 @@
                        android:fontFamily="@font/lato"
                         android:hint="Marital Status"
                         android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:maxLength="30"
                         android:maxLines="1"
                         android:paddingTop="@dimen/dimension8dp"
@@ -1724,6 +1780,8 @@
                         android:hint="Religion - Notes"
                         android:imeOptions="actionNext"
                         android:maxLines="3"
+                        android:backgroundTint="@color/colordivideGray"
+
 
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
@@ -1825,6 +1883,8 @@
                         android:imeOptions="actionNext"
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:paddingBottom="@dimen/dimension18dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
@@ -1850,6 +1910,8 @@
                         android:fontFamily="@font/lato"
                         android:hint="ID Number"
                         android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:paddingTop="@dimen/dimension8dp"
                         android:includeFontPadding="true"
                         android:paddingBottom="@dimen/dimension18dp"
@@ -1981,6 +2043,8 @@
                         android:id="@+id/viewBar"
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
+                        android:backgroundTint="@color/colordivideGray"
+
                         android:layout_below="@+id/txtPetHeader"
                         android:layout_margin="@dimen/dimension5dp"
                         android:background="@color/colorLightGray"></View>
