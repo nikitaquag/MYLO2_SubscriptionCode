@@ -102,6 +102,11 @@
                 android:visibility="gone" />
         </RelativeLayout>
 
+        <FrameLayout
+            android:layout_below="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <ScrollView
             android:padding="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
@@ -613,6 +618,28 @@
                 </RelativeLayout>
             </RelativeLayout>
         </ScrollView>
-
+            <RelativeLayout
+                android:padding="@dimen/dimension20dp"
+                android:layout_gravity="bottom"
+                android:background="@color/colorOnesGray"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:textAllCaps="false"
+                    android:fontFamily="@font/lato"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="@dimen/dimension30dp"
+                    android:paddingRight="@dimen/dimension30dp"
+                    android:background="@drawable/border_red_corner"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/dimension20dp"
+                    android:drawableTint="@color/colorWhite"
+                    android:drawablePadding="@dimen/dimension5dp"
+                    android:drawableLeft="@drawable/delete_icon"
+                    android:text="Delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
+        </FrameLayout>
     </RelativeLayout>
 </RelativeLayout>
