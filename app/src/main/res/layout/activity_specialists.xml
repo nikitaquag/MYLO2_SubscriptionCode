@@ -101,7 +101,6 @@
         android:visibility="gone"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
-<!--
     <ImageView
         android:id="@+id/floatOptions"
         android:layout_width="@dimen/dimension70dp"
@@ -111,8 +110,8 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension12dp"
         />
--->
 
+<!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatOptions"
         android:layout_width="wrap_content"
@@ -124,6 +123,7 @@
         android:tint="@android:color/white"
         app:backgroundTint="@color/colorRegisteredGreen"
         app:fabSize="normal" />
+-->
 
     <TextView
         android:id="@+id/txtUser"
