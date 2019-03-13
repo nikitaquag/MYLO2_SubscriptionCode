@@ -17,6 +17,7 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +34,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
@@ -72,13 +74,12 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     TextView txtHeader, txtHeader2, txtMsg, txtFTU;
     DBHelper dbHelper;
     ScrollView scroll;
-    FloatingActionButton floatProfile;
-    ImageView  floatOptions,floatAdd;
+    ImageView floatProfile, floatOptions, floatAdd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_care_plan);
+        setContentView(R.layout.fragment_careplan);
         initComponent();
         initUI();
         initListener();
@@ -101,11 +102,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             lvDoc.setAdapter(documentAdapter);
             lvDoc.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
-            scroll.setVisibility(View.GONE);
+         //   scroll.setVisibility(View.GONE);
         } else {
             lvDoc.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
-            scroll.setVisibility(View.GONE);
+         //   scroll.setVisibility(View.GONE);
         }
     }
 
@@ -165,11 +166,11 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 }*/
 //                txtMsg.setVisibility(View.VISIBLE);
                 rlGuide.setVisibility(View.GONE);//nikita
-                scroll.setVisibility(View.VISIBLE);//nikita
+            //    scroll.setVisibility(View.VISIBLE);//nikita
                 relMsg.setVisibility(View.VISIBLE);//nikita
             }
         });
-        scroll = findViewById(R.id.scrollvw);
+      //  scroll = findViewById(R.id.scrollvw);
         imgRight = findViewById(R.id.imgRight);
 
         //Changes done by nikita on 20/6/18

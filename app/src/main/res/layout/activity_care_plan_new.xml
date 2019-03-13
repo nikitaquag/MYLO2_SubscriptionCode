@@ -280,7 +280,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_margin="@dimen/dimension10dp"
-            android:background="@drawable/border_sub_forward"
+            android:background="@drawable/next_n"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/next" />
     </RelativeLayout>
@@ -414,6 +414,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/rlMedicalRecord"
         android:background="@color/colorOnesGray">
+
+
 
         <TextView
             android:id="@+id/txtClick"
