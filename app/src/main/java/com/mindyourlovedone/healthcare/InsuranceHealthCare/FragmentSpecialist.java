@@ -62,7 +62,8 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
     DBHelper dbHelper;
     RelativeLayout rlGuide, relMsg;
     TextView txtMsg, txtFTU;
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView  floatAdd, floatOptions;
 
     @Nullable
     @Override
