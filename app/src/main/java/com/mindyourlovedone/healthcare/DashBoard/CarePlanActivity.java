@@ -15,6 +15,7 @@ import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
@@ -115,7 +116,8 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         txtClick = findViewById(R.id.txtClick);
         txtUserName = findViewById(R.id.txtUserName);
         txtUserName.setBackgroundColor(getResources().getColor(R.color.colorDirectiveSubRed));
-        txtUserName.setText(preferences.getString(PrefConstants.CONNECTED_NAME)+"-"+preferences.getString(PrefConstants.CONNECTED_RELATION));
+       String rel ="<b>"+preferences.getString(PrefConstants.CONNECTED_NAME)+"</b>-"+preferences.getString(PrefConstants.CONNECTED_RELATION);
+        txtUserName.setText(Html.fromHtml(rel));
         imgBack = findViewById(R.id.imgBack);
         imgRight = findViewById(R.id.imgRight);
         imgHomes = findViewById(R.id.imgHomes);

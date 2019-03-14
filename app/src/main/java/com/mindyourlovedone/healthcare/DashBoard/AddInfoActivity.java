@@ -81,7 +81,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     FloatingActionButton floatProfile;
     private static int RESULT_MEDICAL = 2;
     TextView txtLocation, txtDetails, txtNote;
-    FrameLayout fltypeReaction,fltype;
+    FrameLayout fltypeReaction,fltype,fltype222;
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
     String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
@@ -149,8 +149,8 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         b.setItems(vaccineList, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                txttype.setText(reactionList[which]);
-                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                txttype.setText(vaccineList[which]);
+                                if (vaccineList[which].equals("Other") || vaccineList[which].equals("Joint Replacements (specify)")) {
                                     tilOtherVaccine.setVisibility(View.VISIBLE);
                                 } else {
                                     tilOtherVaccine.setVisibility(View.GONE);
@@ -167,9 +167,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         b.setItems(surgeryList, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                txttype.setText(reactionList[which]);
+                                txttype.setText(surgeryList[which]);
 
-                                if (reactionList[which].equals("Other") || reactionList[which].equals("Joint Replacements (specify)")) {
+                                if (surgeryList[which].equals("Other") || surgeryList[which].equals("Joint Replacements (specify)")) {
                                     tilOtherVaccine.setVisibility(View.VISIBLE);
                                 } else {
                                     tilOtherVaccine.setVisibility(View.GONE);
@@ -281,6 +281,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
                     tilMedical.setVisibility(View.VISIBLE);
+                    fltype222.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.VISIBLE);
                     tilLocation.setVisibility(View.VISIBLE);
                     tilDetails.setVisibility(View.VISIBLE);
@@ -299,6 +300,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
+                    fltype222.setVisibility(View.VISIBLE);
                     tilMedical.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
@@ -874,6 +876,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         txtInfo = findViewById(R.id.txtInfo);
         txtMedical = findViewById(R.id.txtMedical);
         tilMedical = findViewById(R.id.tilMedical);
+        fltype222 = findViewById(R.id.fltype222);
         tilLocation = findViewById(R.id.tilLocation);
         tilDetails = findViewById(R.id.tilDetails);
         tilNote = findViewById(R.id.tilNote);

@@ -107,13 +107,14 @@
             android:layout_height="match_parent">
 
         <ScrollView
+            android:isScrollContainer="false"
             android:padding="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
             android:background="@color/colorWhite"
-            android:layout_marginBottom="@dimen/dimension10dp">
+            android:layout_marginBottom="@dimen/dimension100dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -134,7 +135,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/imgInfo">
+                    <FrameLayout
+                        android:id="@+id/fltype222"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"
 
+                        >
+
+                    <ImageView
+                        android:id="@+id/imgtype222"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="@dimen/dimension18dp"
+                        android:layout_marginRight="@dimen/dimension3dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:src="@drawable/drg"></ImageView>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilMedical"
                         android:layout_width="match_parent"
@@ -155,7 +173,6 @@
                             android:id="@+id/txtMedical"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableRight="@drawable/dropd"
                             android:hint="Relationship"
                             android:imeOptions="actionNext"
                             android:maxLength="300"
@@ -167,14 +184,14 @@
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
-
+                    </FrameLayout>
 
 
                     <RelativeLayout
                         android:id="@+id/rlSpinner"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilMedical"
+                        android:layout_below="@+id/fltype222"
                     >
 
                         <FrameLayout
@@ -247,7 +264,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/fltype"
-                            android:padding="@dimen/dimension10dp"
                             android:visibility="gone">
                             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                             <AutoCompleteTextView
@@ -380,7 +396,7 @@
                                 android:id="@+id/tilOtherReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/fltype"
+                                android:layout_below="@+id/fltypeReaction"
                                 android:paddingTop="@dimen/dimension8dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
