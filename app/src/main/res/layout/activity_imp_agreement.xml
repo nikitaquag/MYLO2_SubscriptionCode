@@ -30,6 +30,7 @@
             android:layout_centerInParent="true"
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
+            android:fontFamily="@font/lato"
             android:text="@string/ImpAgreement"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension18dp"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+<!--
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -61,41 +63,79 @@
                 android:textSize="@dimen/dimension18dp"
                 tools:ignore="RtlCompat"
                 android:lineSpacingExtra="2dp"/>
+-->
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension20dp"
                 android:padding="@dimen/dimension10dp">
 
-                <CheckBox
-                    android:id="@+id/chk1"
+                <ImageView
                     android:layout_width="@dimen/dimension30dp"
                     android:layout_height="@dimen/dimension30dp"
-                    android:layout_alignParentLeft="true"
-                    android:button="@drawable/radiocheck"
-                    android:checked="true" />
+                    android:id="@+id/checkedIcon1"
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+
+                    android:src="@drawable/checked"/>
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:id="@+id/uncheckedIcon1"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+
+                    android:visibility="visible"
+                    android:src="@drawable/unchecked"/>
+
+                <!--
+                                <CheckBox
+                                    android:id="@+id/chk1"
+                                    android:layout_width="@dimen/dimension30dp"
+                                    android:layout_height="@dimen/dimension30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:button="@drawable/radiocheck"
+                                    android:checked="true" />
+                -->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_toRightOf="@+id/chk1"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:gravity="center"
+                    android:fontFamily="@font/lato"
                     android:text="@string/Check1"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
                     tools:ignore="RtlCompat" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:padding="@dimen/dimension10dp">
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:id="@+id/checkedIcon2"
+                    android:layout_marginLeft="@dimen/dimension5dp"
 
+                    android:visibility="gone"
+
+                    android:src="@drawable/checked"/>
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:id="@+id/uncheckedIcon2"
+                    android:visibility="visible"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+
+                    android:src="@drawable/unchecked"/>
+
+<!--
                 <CheckBox
                     android:id="@+id/chk2"
                     android:layout_width="@dimen/dimension30dp"
@@ -103,27 +143,46 @@
                     android:layout_alignParentLeft="true"
                     android:button="@drawable/radiocheck"
                     android:checked="true" />
+-->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_toRightOf="@+id/chk2"
                     android:gravity="center"
-                    android:text="@string/Check1"
+                    android:fontFamily="@font/lato"
+
+                    android:text="@string/Check2"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
                     tools:ignore="RtlCompat" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:padding="@dimen/dimension10dp">
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:id="@+id/checkedIcon3"
+                    android:visibility="gone"
+                    android:layout_marginLeft="@dimen/dimension5dp"
 
+                    android:src="@drawable/checked"/>
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:id="@+id/uncheckedIcon3"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+
+                    android:visibility="visible"
+                    android:src="@drawable/unchecked"/>
+<!--
                 <CheckBox
                     android:id="@+id/chk3"
                     android:layout_width="@dimen/dimension30dp"
@@ -131,27 +190,46 @@
                     android:layout_alignParentLeft="true"
                     android:button="@drawable/radiocheck"
                     android:checked="false" />
+-->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_toRightOf="@+id/chk3"
                     android:gravity="center"
-                    android:text="@string/Check1"
+                    android:fontFamily="@font/lato"
+
+                    android:text="@string/Check3"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
                     tools:ignore="RtlCompat" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:padding="@dimen/dimension10dp">
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:id="@+id/checkedIcon4"
+                    android:visibility="gone"
+                    android:src="@drawable/checked"/>
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
 
+                    android:id="@+id/uncheckedIcon4"
+                    android:visibility="visible"
+                    android:src="@drawable/unchecked"/>
+
+<!--
                 <CheckBox
                     android:id="@+id/chk4"
                     android:layout_width="@dimen/dimension30dp"
@@ -159,20 +237,22 @@
                     android:layout_alignParentLeft="true"
                     android:button="@drawable/radiocheck"
                     android:checked="false" />
+-->
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_toRightOf="@+id/chk4"
                     android:gravity="center"
-                    android:text="@string/Check1"
+                    android:fontFamily="@font/lato"
+                    android:text="@string/Check4"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
                     tools:ignore="RtlCompat" />
-            </RelativeLayout>
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
