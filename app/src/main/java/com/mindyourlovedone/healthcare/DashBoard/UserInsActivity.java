@@ -21,9 +21,9 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.utility.UIEmails;
 
 public class UserInsActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView imgBack;
+    ImageView imgBack,txtEmail;
 
-    TextView txtEmail, txtStep1, txtStep2, txtStep22, txtStep222, txtStep3, txtStep4, txtStep5, txtStep55, txtStep555, txtStep6, txtStep7, txtStep8;
+    TextView  txtStep1, txtStep2, txtStep22, txtStep222, txtStep3, txtStep4, txtStep5, txtStep55, txtStep555, txtStep6, txtStep7, txtStep8;
     Context context = this;
     FloatingActionButton floatProfile;
 

@@ -25,8 +25,8 @@ import com.mindyourlovedone.healthcare.utility.UIEmails;
 
 public class InstructionActivity extends AppCompatActivity implements View.OnClickListener {
     RelativeLayout header;
-    ImageView imgBack, imgPicture;
-    TextView txtHeader, txtTitle, txtMsg, txtEmail;
+    ImageView imgBack, imgPicture,txtEmail;
+    TextView txtHeader, txtTitle, txtMsg;
     String From;
     ImageView imgDot;
     Context context = this;
@@ -624,7 +624,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add an Event Note");
+                txtHeader.setText("Event Note");
                 break;
             case "PharmacyInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
@@ -666,7 +666,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Pharmacies and Home Medical Equipment");
+                txtHeader.setText("Pharmacies and Home Medical Equipment");
                 break;
 
             case "FinanceInstruction":
@@ -710,7 +710,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Finance, Legal, Other");
+                txtHeader.setText("Finance, Legal, Other");
                 break;
             case "HospitalInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
@@ -753,7 +753,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
+                txtHeader.setText("Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
                 break;
 
             case "DoctorInstruction":
@@ -797,7 +797,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Doctors & Other Health Care Professionals");
+                txtHeader.setText("Doctors & Other Health Care Professionals");
                 break;
 
             case "PhysicianInstruction":
@@ -841,7 +841,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Primary Physician");
+                txtHeader.setText("Primary Physician");
                 break;
             case "EmergencyInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
@@ -883,7 +883,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Emergency Contacts and Health Care Proxy Agent");
+                txtHeader.setText("Emergency Contacts and Health Care Proxy Agent");
                 break;
             case "ConnectionInstuction":
                 imgPicture.setVisibility(View.GONE);
@@ -927,7 +927,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Add Profile");
+                txtHeader.setText("Profile");
                 break;
             case "Personal":
                 imgPicture.setVisibility(View.GONE);

@@ -114,6 +114,125 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
         rlSearch = rootview.findViewById(R.id.rlSearch);
         imgRefresh.setVisibility(View.GONE);
         rlSearch.setVisibility(View.GONE);
+
+        switch (GrabConnectionActivity.source) {
+            case "Connection":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorBlue));
+                break;
+
+            case "Pharmacy":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "PharmacyData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "PharmacyDataView":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "Proxy":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                break;
+
+            case "ProxyUpdate":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                break;
+
+            case "ProxyUpdateView":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorOne));
+                break;
+
+            case "Emergency":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
+                break;
+
+            case "EmergencyUpdate":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
+
+                break;
+
+            case "EmergencyView":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
+                break;
+
+            case "Speciality":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "Physician":
+                rlSearch.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
+                break;
+
+            case "PhysicianData":
+                rlSearch.setBackgroundResource(R.color.colorEmerMainGreen);
+                break;
+
+            case "PhysicianViewData":
+                rlSearch.setBackgroundResource(R.color.colorEmerMainGreen);
+                break;
+            case "SpecialistData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "SpecialistViewData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "Insurance":
+                rlSearch.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
+                break;
+
+            case "InsuranceData":
+                rlSearch.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
+                break;
+
+            case "InsuranceViewData":
+                rlSearch.setBackgroundResource(R.color.colorInsuaranceSkyBlue);
+                break;
+
+            case "Aides":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "AidesData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "AidesViewData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "Finance":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "Hospital":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "PrescriptionInfo":
+                rlSearch.setBackgroundResource(R.color.colorPrescriptionGray);
+                break;
+
+            case "HospitalData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+            case "HospitalViewData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+
+            case "FinanceData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+
+            case "FinanceViewData":
+                rlSearch.setBackgroundResource(R.color.colorSpecialityYellow);
+                break;
+        }
+        
         etSearch.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

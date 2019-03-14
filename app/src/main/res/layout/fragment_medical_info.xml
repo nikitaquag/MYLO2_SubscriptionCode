@@ -3877,7 +3877,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension100dp"
+                    android:layout_height="@dimen/dimension80dp"
                     android:layout_below="@+id/rlDrug"
                     android:background="@color/colorWhite">
 

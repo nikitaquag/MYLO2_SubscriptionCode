@@ -165,7 +165,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     TextInputLayout tilBdate, tilName, tilWorkPhone;
     String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
     String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
-    String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
+    String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Other", "Separated", "Single", "Widowed"};
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
@@ -1026,7 +1026,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
                     AlertDialog.Builder b = new AlertDialog.Builder(context);
                     b.setTitle("Type");
-                    final String[] types = {"Mobile", "Office", "Home", "Fax", "None"};
+                    final String[] types = {"Fax", "Home", "Mobile", "None", "Office"};
                     b.setItems(types, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

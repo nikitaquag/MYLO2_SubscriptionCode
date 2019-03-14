@@ -114,7 +114,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
             android:background="@color/colorWhite"
-            android:layout_marginBottom="@dimen/dimension100dp">
+            android:layout_marginBottom="@dimen/dimension20dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -730,7 +730,9 @@
             </RelativeLayout>
         </ScrollView>
             <RelativeLayout
-                android:padding="@dimen/dimension20dp"
+                android:id="@+id/relbtm"
+                android:visibility="gone"
+                android:padding="@dimen/dimension10dp"
                 android:layout_gravity="bottom"
                 android:background="@color/colorOnesGray"
                 android:layout_width="match_parent"

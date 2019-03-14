@@ -50,10 +50,11 @@
             android:textSize="@dimen/dimension22dp"
             android:textStyle="bold" />
 
-        <TextView
+        <ImageView
+            android:src="@drawable/upload"
             android:id="@+id/txtEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
@@ -102,7 +103,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:gravity="center"
-                android:text="Add Profile"
+                android:text="Profile"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
                 android:textStyle="bold" />

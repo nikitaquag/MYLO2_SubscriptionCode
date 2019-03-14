@@ -36,7 +36,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     FragmentGrabContact fragmentGrabContact = null;
     TextView txtNew, txtTitle, txtsave, txtContact,txtDelete;
     ImageView imgContact, imgFb, imgGoogle, imgBack, imgRefresh;
-    String source = "";
+    public static String source = "";
     LinearLayout llGrab;
     RelativeLayout header;
     ProgressDialog pd;//nikita
