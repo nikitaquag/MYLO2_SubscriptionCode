@@ -29,7 +29,7 @@ public class AddPetActivity extends AppCompatActivity {
     public static final int REQUEST_PET = 400;
     Context context = this;
     TextView txtTitle, txtAdd,txtSave;
-    Button txtDelete;
+    TextView txtDelete;
     TextView txtName, txtBreed, txtColor, txtChip, txtVeterian, txtCare, txtPetBirthDate, txtPetNotes;
     String name = "", breed = "", color = "", veterain = "", care = "", chip = "", bdate = "", notes = "",veterain_add="",veterain_ph="",care_add="",care_ph="";
     ImageView imgBack, imgDone,imgHome;
