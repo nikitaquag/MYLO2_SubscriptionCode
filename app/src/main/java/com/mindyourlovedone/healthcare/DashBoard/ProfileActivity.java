@@ -23,7 +23,6 @@ import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,8 +38,10 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -158,7 +159,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //   PersonalInfo personalInfo;
     RadioGroup rgGender;
     RadioButton rbMale,rbFemale,rbTrans;
-    
+    LinearLayout llAddPhone;
     ToggleButton tbLive,tbEnglish,tbVeteran,tbPet,tbCard;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
@@ -275,6 +276,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initUI() {
+        llAddPhone = findViewById(R.id.llAddPhone);
         floatProfile = findViewById(R.id.floatProfile);
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
@@ -901,21 +903,175 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     }
 
 
+    //Nikita - PH format code ends here
+    ArrayList<EditText> mTextViewListValue = new ArrayList<>();
+    ArrayList<TextView> mTextViewListType = new ArrayList<>();
+    ArrayList<ImageView> mImageViewType = new ArrayList<>();
 
-    public void addNewPhone() {
-        ContactData c=new ContactData();
-        phonelist.add(c);
-        pd.notifyDataSetChanged();
-    }
-    public void setListPh() {
-       // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
-        if (phonelist.size()==0) {
-            ContactData c=new ContactData();
-            phonelist.add(c);
+    public class CustomTextWatcher implements TextWatcher {
+        EditText et = null;
+
+        CustomTextWatcher(EditText et) {
+            this.et = et;
         }
-         pd = new PhoneAdapter(context, phonelist);
-        listPhone.setAdapter(pd);
+
+        int prevL = 0;
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            prevL = et.getText().toString().length();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int length = editable.length();
+
+            if ((prevL < length) && (length == 3 || length == 7)) {
+                et.setText(editable.toString() + "-");
+                int poss = Integer.parseInt(et.getTag().toString());
+                et.setSelection(et.getText().length());
+                phonelist.get(poss).setValue(et.getText().toString());
+            }
+        }
+
     }
+
+    public void deletePhone(int position) {// Tricky code to delete required item
+        try {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
+                    phonelist.remove(phonelist.get(i));
+                }
+            }
+            if (llAddPhone.getChildCount() == 2) {// Linearlayout child count code handled to delete 1st item after add button
+                llAddPhone.removeViewAt(1);
+            } else if (llAddPhone.getChildCount() == position) {// Linearlayout child count code handled to delete last item
+                llAddPhone.removeViewAt(llAddPhone.getChildCount() - 1);
+            } else {// Linearlayout child count code handled to delete all item in between
+                llAddPhone.removeViewAt(position);
+            }
+            llAddPhone.notify();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void addNewPhone(final int pos) {
+        try {
+
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.row_phone, null);
+
+            ImageView imgdeletePhone;
+            TextView txtType;
+            EditText txtPhoNum;
+
+            imgdeletePhone = view.findViewById(R.id.imgdeletePhone);
+            txtPhoNum = view.findViewById(R.id.txtPhoNum);
+            txtType = view.findViewById(R.id.txtType);
+
+            //Add the instance to the ArrayList -  to maintian separate tags of views
+            mTextViewListValue.add(pos, txtPhoNum);
+            mTextViewListType.add(pos, txtType);
+            mImageViewType.add(pos, imgdeletePhone);
+
+            if (pos == 0) {
+                imgdeletePhone.setImageResource(R.drawable.add_n);
+            } else {
+                imgdeletePhone.setImageResource(R.drawable.delete_n);
+            }
+
+            mImageViewType.get(pos).setTag("" + pos);
+            mTextViewListType.get(pos).setTag("" + pos);
+            mTextViewListValue.get(pos).setTag("" + pos);
+
+            mTextViewListType.get(pos).setText("" + phonelist.get(pos).getContactType());
+            mTextViewListValue.get(pos).setText("" + phonelist.get(pos).getValue());
+
+            mTextViewListValue.get(pos).addTextChangedListener(new CustomTextWatcher(mTextViewListValue.get(pos)));
+
+            mTextViewListValue.get(pos).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        int poss = Integer.parseInt(mTextViewListValue.get(pos).getTag().toString());
+                        final TextView Caption = (TextView) view;
+                        phonelist.get(poss).setValue(Caption.getText().toString());
+                    }
+                }
+            });
+
+            mImageViewType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int poss = Integer.parseInt(mImageViewType.get(pos).getTag().toString());
+                    if (poss == 0) {
+                        ContactData c = new ContactData();
+                        c.setId(phonelist.size());
+                        phonelist.add(c);
+                        addNewPhone(c.getId());
+                    } else {
+                        deletePhone(poss);
+                    }
+                }
+            });
+
+            mTextViewListType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
+                    AlertDialog.Builder b = new AlertDialog.Builder(context);
+                    b.setTitle("Type");
+                    final String[] types = {"Mobile", "Office", "Home", "Fax", "None"};
+                    b.setItems(types, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (types[which].equalsIgnoreCase("None")) {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType("");
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            } else {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType(types[which]);
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            }
+                            dialog.dismiss();
+                        }
+
+                    });
+                    b.show();
+                }
+            });
+
+            llAddPhone.addView(view, pos);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void setListPh() {
+
+        if (phonelist.isEmpty()) {
+            ContactData c=new ContactData();
+            c.setId(0);
+            phonelist.add(c);
+            addNewPhone(0);
+        } else {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i) != null && phonelist.get(i).getValue() != null) {
+                    addNewPhone(i);
+                }
+            }
+        }
+
+    }
+
+    //Nikita - PH Format code ends here
 
     private void hideSoftKeyboard() {
         if (getCurrentFocus() != null) {
@@ -3063,11 +3219,6 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             return "Exception";
         }
 
-    }
-
-    public void deletePhone(int position) {
-        phonelist.remove(phonelist.get(position));
-        setListPh();
     }
 
 

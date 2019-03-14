@@ -452,6 +452,7 @@
 
                     <com.mindyourlovedone.healthcare.customview.NonScrollListView
                         android:id="@+id/listPhone"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:divider="@null"
@@ -518,6 +519,7 @@
                         </android.support.design.widget.TextInputLayout>
 
                         <ImageView
+
                             android:id="@+id/imgAddPhone"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension35dp"
@@ -527,6 +529,8 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:id="@+id/llAddPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
