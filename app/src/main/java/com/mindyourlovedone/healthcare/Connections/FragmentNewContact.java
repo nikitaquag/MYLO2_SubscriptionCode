@@ -406,6 +406,32 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             for (int i = 0; i < phonelist.size(); i++) {
                 if (phonelist.get(i) != null && phonelist.get(i).getValue() != null) {
                     phonelist.get(i).setId(i);
+                    String input = phonelist.get(i).getValue();
+
+                    if(!input.contains("-")) {
+                        if(input.contains("(")){
+                            input = input.replace("(","");
+                        }
+
+                        if(input.contains(")")){
+                            input = input.replace(")","");
+                        }
+
+                        if(input.contains("+")) {
+                            if (input.length() == 13) {
+                                String str_getMOBILE = input.substring(3);
+
+                                input = str_getMOBILE;
+                            } else if (input.length() == 12) {
+                                String str_getMOBILE = input.substring(2);
+                                input = str_getMOBILE;
+                            }
+                        }
+                        String number = input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
+                        phonelist.get(i).setValue(number);
+                        System.out.println(number);
+                    }
+
                     addNewPhone(i, layout);
                 }
             }
