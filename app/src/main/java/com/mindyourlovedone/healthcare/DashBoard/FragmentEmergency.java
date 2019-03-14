@@ -510,12 +510,12 @@ emergencyList=new ArrayList<>();
         Header.addEmptyLine(1);
 /*
                 new Header().createPdfHeader(file.getAbsolutePath(),
+
                         "Emergency Contacts");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(2);*/
 
-
-        ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+         ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
         new Individual("Emergency", emergencyList);
         Header.document.close();
 
