@@ -193,12 +193,32 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         viewHolder.txtName.setText(emergencyList.get(position).getName());
        // viewHolder.txtOfficePhone.setText(emergencyList.get(position).getWorkPhone());
        //viewHolder.txtPhone.setText(emergencyList.get(position).getMobile());
-        if (emergencyList.get(position).getRelationType().equals("") && emergencyList.get(position).getIsPrimary() == 4) {
+
+        if (emergencyList.get(position).getIsPrimary() == 0) {
+            String priority = "Primary - Emergency Contact";
+            viewHolder.txtType.setText(priority);
+        } else if (emergencyList.get(position).getIsPrimary() == 1) {
+
+            String priority = "Primary - Health Care Proxy Agent";
+            viewHolder.txtType.setText(priority);
+        } else if (emergencyList.get(position).getIsPrimary() == 2) {
+
+            String priority = "Secondary - Emergency Contact";
+            viewHolder.txtType.setText(priority);
+        } else if (emergencyList.get(position).getIsPrimary() == 3) {
+
+            String  priority = "Secondary - Health Care Proxy Agent";
+            viewHolder.txtType.setText(priority);
+        } else {
+            String priority = "";
+            viewHolder.txtType.setText(priority);
+        }
+       /* if (emergencyList.get(position).getRelationType().equals("") && emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtType.setVisibility(View.GONE);
         } else {
             viewHolder.txtType.setVisibility(View.VISIBLE);
             viewHolder.txtType.setText(emergencyList.get(position).getRelationType());
-        }
+        }*/
         //Commented as to match screen as invision-shradha
        // viewHolder.txtTelePhone.setText(emergencyList.get(position).getPhone());
 
