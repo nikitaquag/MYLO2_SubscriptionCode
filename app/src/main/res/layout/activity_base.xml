@@ -71,7 +71,9 @@
                     android:layout_marginTop="@dimen/dimension2dp"
                     android:layout_marginBottom="@dimen/dimension2dp"
                     android:layout_marginLeft="@dimen/dimension20dp"
-                    android:src="@drawable/ic_profiles" />
+                    android:src="@drawable/ic_profiles"
+
+                    android:visibility="invisible"/>
 
                 <TextView
                     android:fontFamily="@font/lato_bold"

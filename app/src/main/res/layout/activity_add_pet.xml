@@ -8,7 +8,7 @@
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/reld"
+        android:layout_above="@+id/txtDelete"
         android:isScrollContainer="false"
         android:orientation="vertical">
 
@@ -653,7 +653,7 @@
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
-    <RelativeLayout
+   <!-- <RelativeLayout
         android:id="@+id/reld"
         android:padding="@dimen/dimension20dp"
         android:layout_gravity="bottom"
@@ -678,9 +678,9 @@
             android:text="Delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </RelativeLayout>
+    </RelativeLayout>-->
 
-<!--
+
     <TextView
         android:id="@+id/txtDelete"
         android:layout_width="wrap_content"
@@ -702,5 +702,5 @@
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension18dp"
         android:textStyle="bold" />
--->
+
 </RelativeLayout>

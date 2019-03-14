@@ -1399,7 +1399,6 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
-
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -1412,7 +1411,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-android:fontFamily="@font/lato"
+                            android:fontFamily="@font/lato"
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:paddingTop="@dimen/dimension8dp"
@@ -1428,7 +1427,7 @@ android:fontFamily="@font/lato"
                         android:id="@+id/rlRelations"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilName">
+                        android:layout_below="@+id/flPr">
                         <FrameLayout
                             android:id="@+id/flrel"
                             android:layout_width="match_parent"
@@ -1536,7 +1535,7 @@ android:visibility="gone"
                         android:id="@+id/spinnerPriority"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilEmail"
+                        android:layout_below="@+id/tilName"
                         android:layout_marginLeft="@dimen/dimension25dp"
                         android:layout_marginRight="@dimen/dimension25dp"
                         android:visibility="gone"
@@ -1552,7 +1551,7 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/dimension22dp"
-                        android:layout_below="@+id/tilEmail"
+                        android:layout_below="@+id/tilName"
                         >
                     <ImageView
                         android:id="@+id/imgprio"
@@ -1608,7 +1607,7 @@ android:visibility="gone"
                         android:id="@+id/llPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/flPr"
+                        android:layout_below="@+id/tilEmail"
                        >
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
                             android:id="@+id/listPrPhone"

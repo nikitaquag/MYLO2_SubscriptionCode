@@ -10,56 +10,70 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
        >
-    <RelativeLayout
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimension70dp"
-        android:background="@color/colorDirectiveRed">
+        <RelativeLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension70dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorDirectiveRed">
 
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension50dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension0dp"
-            android:src="@drawable/backward_arrow" />
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/dimension40dp"
+                android:layout_height="@dimen/dimension50dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:src="@drawable/backward_arrow" />
 
-        <ImageView
-            android:id="@+id/imgHome"
-            android:layout_width="@dimen/dimension35dp"
-            android:layout_height="@dimen/dimension30dp"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension5dp"
-            android:layout_toRightOf="@+id/imgBack"
-            android:src="@drawable/homes" />
+            <ImageView
+                android:id="@+id/imgHome"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dimension5dp"
+                android:layout_toRightOf="@+id/imgBack"
+                android:src="@drawable/homes" />
 
-        <TextView
-            android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension20dp"
-            android:layout_toLeftOf="@+id/imgRight"
-            android:layout_toRightOf="@+id/imgHome"
-            android:gravity="center"
-            android:text="Advance Directives"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension22dp" />
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+               android:layout_centerInParent="true"
 
-        <ImageView
-            android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension25dp"
-            android:layout_height="@dimen/dimension30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dimension15dp"
-            android:src="@drawable/information"
-            android:tint="@color/colorWhite" />
-    </RelativeLayout>
+                android:textStyle="bold"
+                android:fontFamily="@font/lato"
+               android:layout_toLeftOf="@+id/imgRight"
+                android:layout_toRightOf="@+id/imgHome"
+                android:gravity="center"
+                android:text="Advance Directives"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="@dimen/dimension20dp" />
+
+            <ImageView
+                android:id="@+id/imgDone"
+                android:layout_width="@dimen/dimension30dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/check_mark"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imgRight"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:src="@drawable/information"
+                android:tint="@color/colorWhite" />
+        </RelativeLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lvDoc"
             android:layout_below="@+id/header"
@@ -139,14 +153,14 @@
         >
 
         <TextView
+            android:id="@+id/txtHelp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
             android:textSize="@dimen/dimension17dp"
             android:layout_above="@+id/imghelp"
-            android:textStyle="italic"
             android:fontFamily="@font/bold_lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new File!"
+            android:text="Add a new Advance Directives!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

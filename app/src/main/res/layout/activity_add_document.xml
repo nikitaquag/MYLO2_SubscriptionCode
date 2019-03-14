@@ -55,6 +55,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_weight="80"
+                    android:fontFamily="@font/lato_bold"
                     android:gravity="center|center_vertical"
                     android:text="Documents"
                     android:textAllCaps="false"
@@ -74,6 +75,8 @@
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingRight="@dimen/dimension5dp"
                     android:text="Save"
+
+                    android:fontFamily="@font/lato_bold"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension20dp"
@@ -170,6 +173,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dimension10dp"
                         android:text="Select File"
+                        android:fontFamily="@font/lato"
                         android:textColor="@color/colorBlue"
                         android:textSize="@dimen/dimension18dp"
                         android:visibility="gone" />
@@ -201,7 +205,7 @@
                     android:imeOptions="actionNext"
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
-
+                    android:fontFamily="@font/lato"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
 
@@ -213,7 +217,7 @@
                 <View
                     android:id="@+id/view1"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_height="@dimen/dimension15dp"
                     android:layout_below="@+id/txtFName"
                     android:layout_marginTop="@dimen/dimension20dp"
                     android:background="@color/colorOnesGray" />
@@ -231,7 +235,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dimension10dp">
-
+                        <FrameLayout
+                            android:id="@+id/flType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/dimension22dp"
+                            >
+                        <ImageView
+                            android:id="@+id/imgType"
+                            android:layout_width="@dimen/dimension20dp"
+                            android:layout_height="@dimen/dimension25dp"
+                            android:src="@drawable/drg"
+                            android:layout_alignParentRight="true"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:layout_gravity="bottom|right"
+                            android:layout_marginBottom="@dimen/dimension17dp"
+                            ></ImageView>
                         <android.support.design.widget.TextInputLayout
                             android:id="@+id/tilDocuType"
                             android:layout_width="match_parent"
@@ -240,7 +259,7 @@
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension20dp"
+
                             android:paddingBottom="@dimen/dimension8dp"
                             app:hintEnabled="true"
                             app:hintTextAppearance="@style/TextInputLayoutHintText"
@@ -252,19 +271,23 @@
                                 android:id="@+id/txtDocuType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/dropd"
+
                                 android:hint="Document Category"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:fontFamily="@font/lato"
+                                android:includeFontPadding="true"
+                                android:paddingBottom="@dimen/dimension18dp"
+                                android:paddingTop="@dimen/dimension8dp"
+
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
 
                             <requestFocus />
                         </android.support.design.widget.TextInputLayout>
-
+                        </FrameLayout>
                         <com.mindyourlovedone.healthcare.customview.MySpinner
                             android:id="@+id/spinnerType"
                             android:layout_width="match_parent"
@@ -282,7 +305,7 @@
                             android:id="@+id/tilOther"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/tilDocuType"
+                            android:layout_below="@+id/flType"
                             android:layout_alignParentStart="true"
                             android:layout_alignParentLeft="true"
 
@@ -297,8 +320,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="Other Category"
+                                android:fontFamily="@font/lato"
+                                android:includeFontPadding="true"
+                                android:paddingBottom="@dimen/dimension18dp"
+                                android:paddingTop="@dimen/dimension8dp"
 
-                                android:paddingTop="@dimen/dimension2dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -316,7 +342,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:visibility="gone">
-
+                            <FrameLayout
+                                android:id="@+id/flDocType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dimension22dp"
+                                >
+                            <ImageView
+                                android:id="@+id/imgDocType"
+                                android:layout_width="@dimen/dimension20dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:src="@drawable/drg"
+                                android:layout_alignParentRight="true"
+                                android:paddingTop="@dimen/dimension8dp"
+                                android:layout_gravity="bottom|right"
+                                android:layout_marginBottom="@dimen/dimension17dp"
+                                ></ImageView>
                             <android.support.design.widget.TextInputLayout
                                 android:id="@+id/tilSpinDoc"
                                 android:layout_width="match_parent"
@@ -325,7 +366,7 @@
                                 android:focusableInTouchMode="true"
                                 android:paddingLeft="@dimen/dimension20dp"
                                 android:paddingTop="@dimen/dimension8dp"
-                                android:paddingRight="@dimen/dimension20dp"
+
                                 android:paddingBottom="@dimen/dimension8dp"
                                 app:hintEnabled="true"
                                app:hintTextAppearance="@style/TextInputLayoutHintText">
@@ -335,19 +376,22 @@
                                     android:id="@+id/txtSpinDoc"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:drawableRight="@drawable/dropd"
+
                                     android:hint="Document Type"
                                     android:imeOptions="actionNext"
                                     android:maxLength="30"
                                     android:maxLines="1"
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:fontFamily="@font/lato"
+                                    android:includeFontPadding="true"
+                                    android:paddingBottom="@dimen/dimension18dp"
+                                    android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
 
                                 <requestFocus />
                             </android.support.design.widget.TextInputLayout>
-
+                            </FrameLayout>
                             <com.mindyourlovedone.healthcare.customview.MySpinner
                                 android:id="@+id/spinnerDoc"
                                 android:layout_width="match_parent"
@@ -366,7 +410,7 @@
                                 android:id="@+id/tilOtherDocType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/tilSpinDoc"
+                                android:layout_below="@+id/flDocType"
                                 android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
                                 android:descendantFocusability="beforeDescendants"
@@ -384,7 +428,10 @@
                                     android:layout_height="wrap_content"
                                     android:hint="Other Document Type"
 
-                                    android:paddingTop="@dimen/dimension2dp"
+                                    android:fontFamily="@font/lato"
+                                    android:includeFontPadding="true"
+                                    android:paddingBottom="@dimen/dimension18dp"
+                                    android:paddingTop="@dimen/dimension8dp"
                                     android:singleLine="true"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension20dp" />
@@ -413,7 +460,10 @@
                                 android:layout_height="wrap_content"
                                 android:hint="Document Type"
 
-                                android:paddingTop="@dimen/dimension2dp"
+                                android:fontFamily="@font/lato"
+                                android:includeFontPadding="true"
+                                android:paddingBottom="@dimen/dimension18dp"
+                                android:paddingTop="@dimen/dimension8dp"
                                 android:singleLine="true"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="@dimen/dimension20dp" />
@@ -444,8 +494,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -483,7 +535,10 @@
                             android:hint="Date Signed"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -517,8 +572,10 @@
                             android:layout_height="wrap_content"
                             android:hint="Associated Dr. or Hospital"
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp"
                             android:visibility="gone" />
@@ -553,8 +610,10 @@
                             android:layout_height="wrap_content"
                             android:hint="Electronic Protected Health Information Record Locator (if applicable)"
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp"
                             android:visibility="gone" />
@@ -589,8 +648,10 @@
                             android:hint="Name of Principal"
 
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -621,8 +682,10 @@
                             android:layout_height="wrap_content"
                             android:hint="Distributed to"
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -656,8 +719,10 @@
 
 
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:singleLine="true"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
@@ -690,8 +755,10 @@
                             android:layout_height="wrap_content"
                             android:hint="Location of Original"
                             android:imeOptions="actionNext"
-
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -716,7 +783,10 @@
                             android:hint="Notes"
                             android:imeOptions="actionNext"
 
-                            android:paddingTop="@dimen/dimension2dp"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:textSize="@dimen/dimension20dp" />
 
@@ -752,6 +822,7 @@
                     android:paddingTop="@dimen/dimension11dp"
                     android:paddingRight="@dimen/dimension60dp"
                     android:paddingBottom="@dimen/dimension11dp"
+                    android:fontFamily="@font/lato"
                     android:text="Delete"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
@@ -760,4 +831,13 @@
                      />
         </FrameLayout>
     </RelativeLayout>
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension16dp"
+        />
 </RelativeLayout>

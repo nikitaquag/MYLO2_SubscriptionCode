@@ -71,7 +71,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     Preferences preferences;
     RelativeLayout rlGuide;
     ImageView imgPicture, imgPicture2, imgHome;
-    TextView txtHeader, txtHeader2, txtMsg, txtFTU;
+    TextView txtHeader, txtHeader2, txtMsg, txtFTU,txtHelp;
     DBHelper dbHelper;
     ScrollView scroll;
     ImageView floatProfile, floatOptions, floatAdd;
@@ -132,7 +132,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         floatAdd = findViewById(R.id.floatAdd);
         floatOptions = findViewById(R.id.floatOptions);
         imgHome = findViewById(R.id.imgHome);
-
+        txtHelp=findViewById(R.id.txtHelp);
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
@@ -198,6 +198,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         switch (From) {
             case "AD":
                 imgPicture.setImageResource(R.drawable.dir_one);
+                txtHelp.setText("Add a new Advance Directives!");
                 header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Advance Directives");
                 txtAdd.setText("Add Advance Directives");
@@ -233,6 +234,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Medical Records");
                 txtAdd.setText("Add Medical Records");
+                txtHelp.setText("Add a new File!");
                 txtFTU.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -265,6 +267,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 imgPicture.setImageResource(R.drawable.dir_two);
                 header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Other Documents");
+                txtHelp.setText("Add a new File!");
                 txtAdd.setText("Add Other Documents");
                 txtFTU.setOnClickListener(new View.OnClickListener() {
                     @Override
