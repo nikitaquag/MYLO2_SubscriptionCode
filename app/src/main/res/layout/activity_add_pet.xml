@@ -344,7 +344,7 @@
                     android:imeOptions="actionNext"
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
-
+android:inputType="number"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -452,7 +452,7 @@
                     android:imeOptions="actionNext"
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
-
+android:inputType="number"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
