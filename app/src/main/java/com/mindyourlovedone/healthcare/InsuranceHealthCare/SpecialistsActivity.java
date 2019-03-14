@@ -40,6 +40,7 @@ import com.mindyourlovedone.healthcare.database.AideQuery;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
 import com.mindyourlovedone.healthcare.database.CardQuery;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
@@ -61,6 +62,7 @@ import com.mindyourlovedone.healthcare.database.VaccineQuery;
 import com.mindyourlovedone.healthcare.model.Allergy;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Card;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Form;
@@ -72,6 +74,7 @@ import com.mindyourlovedone.healthcare.model.Living;
 import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
@@ -207,6 +210,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
 
     private void databases() {
         preferences = new Preferences(context);
+
+
         dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
 
         //PersonalInfoQuery p=new PersonalInfoQuery(context,dbHelper);
@@ -230,6 +235,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         MedicalConditionQuery mu = new MedicalConditionQuery(context, dbHelper);
         VaccineQuery v = new VaccineQuery(context, dbHelper);
         FormQuery fo = new FormQuery(context, dbHelper);
+        ContactDataQuery cd=new ContactDataQuery(context,dbHelper);
     }
 
     private void initListener() {
@@ -340,8 +346,12 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                         new Individual((PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))),PetLists);
                     }
                     else{*/
+
                     final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList);
+                    final RelativeConnection con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+
+                    new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist);
                     // }
                     // new MessageString().getProfileProfile(connection);
                     final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -911,7 +921,11 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                     }
                     else{*/
             final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-            new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList);
+            final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+            final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),personalInfoList.getId(),"Connection");
+
+            new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist);
             // }
             // new MessageString().getProfileProfile(connection);
             final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));

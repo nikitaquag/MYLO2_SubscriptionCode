@@ -2075,7 +2075,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
                 final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                new Individual(personalInfoList, PetList);
+                final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+
+                new Individual(personalInfoList, PetList,phonelist);
                 // }
 
                 Header.document.close();
@@ -2229,7 +2231,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Individual(personalInfoList, PetList);
+        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+
+        new Individual(personalInfoList, PetList, phonelist);
         // }
 
         Header.document.close();

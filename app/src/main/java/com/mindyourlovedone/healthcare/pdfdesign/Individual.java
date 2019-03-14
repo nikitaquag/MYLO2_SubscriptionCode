@@ -9,6 +9,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.mindyourlovedone.healthcare.model.Allergy;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.History;
 import com.mindyourlovedone.healthcare.model.Implant;
@@ -61,7 +62,7 @@ public class Individual {
     String notes = "";
 
 
-    public Individual(RelativeConnection connection, ArrayList<Pet> Petlist) {
+    public Individual(RelativeConnection connection, ArrayList<Pet> Petlist, ArrayList<ContactData> phonelist) {
         try {
             // Header.addEmptyLine(1);
             Header.addChank("Personal Profile");
@@ -109,7 +110,29 @@ public class Individual {
             messageInfo.add("Relationship :");
             messageInfo.add(realtion);
 
-            if (connection.getMobile() != null) {
+            for (int t=0;t<phonelist.size();t++)
+            {
+                ContactData c=phonelist.get(t);
+                 String num="";
+                String type="";
+                if (c.getValue() != null) {
+                    num =c.getValue();
+                }
+
+                if (c.getContactType() != null) {
+                    type =c.getContactType();
+                }
+                cell1 = new PdfPCell(new Phrase(type+" : " + num));
+                cell1.setBorder(Rectangle.BOTTOM);
+                cell1.setUseBorderPadding(true);
+                cell1.setBorderWidthBottom(5);
+                cell1.setBorderColorBottom(BaseColor.WHITE);
+                table1.addCell(cell1);
+
+                messageInfo2.add(type+" : ");
+                messageInfo2.add(num);
+            }
+            /*if (connection.getMobile() != null) {
                 mPhone = connection.getMobile();
             }
             cell1 = new PdfPCell(new Phrase("Mobile : " + mPhone));
@@ -148,7 +171,7 @@ public class Individual {
             table1.addCell(cell1);
             messageInfo2.add("Work Phone :");
             messageInfo2.add(workph);
-
+*/
             String email = "";
             if (connection.getEmail() != null) {
                 email = connection.getEmail();
