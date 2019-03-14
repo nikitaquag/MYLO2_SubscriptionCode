@@ -102,10 +102,10 @@ public class PetQuery {
                     allergy.setBreed(c.getString(c.getColumnIndex(COL_BREED)));
                     allergy.setBdate(c.getString(c.getColumnIndex(COL_Bdate)));
                     allergy.setNotes(c.getString(c.getColumnIndex(COL_NOTES)));
-                    allergy.setVeterian_add(c.getString(c.getColumnIndex(COL_NOTES)));
-                    allergy.setVeterian_ph(c.getString(c.getColumnIndex(COL_NOTES)));
-                    allergy.setCare_add(c.getString(c.getColumnIndex(COL_NOTES)));
-                    allergy.setCare_ph(c.getString(c.getColumnIndex(COL_NOTES)));
+                    allergy.setVeterian_add(c.getString(c.getColumnIndex(COL_VETERIAN_AD)));
+                    allergy.setVeterian_ph(c.getString(c.getColumnIndex(COL_VETERIAN_PH)));
+                    allergy.setCare_add(c.getString(c.getColumnIndex(COL_GUARD_AD)));
+                    allergy.setCare_ph(c.getString(c.getColumnIndex(COL_GUARD_PH)));
                     allergyList.add(allergy);
                 } while (c.moveToNext());
             }

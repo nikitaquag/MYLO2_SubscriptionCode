@@ -1875,6 +1875,7 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:visibility="gone"
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
@@ -2067,12 +2068,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlPet"
-                    android:layout_marginBottom="@dimen/dimension10dp"
-                    android:background="@color/colorLightGray"
+                    android:background="#F6f6f6"
                     android:fontFamily="@font/lato"
                     android:gravity="center"
                     android:paddingTop="@dimen/dimension12dp"
                     android:paddingBottom="@dimen/dimension12dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:text="ADD NEW"
                     android:textColor="@color/colorTabDotsBlueColor"
                     android:textSize="@dimen/dimension20dp"
@@ -2083,10 +2084,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension15dp"
                     android:layout_below="@+id/txtAddPet"
-                    android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:background="@color/colorLightGray" />
             </RelativeLayout>
+
         </RelativeLayout>
     </ScrollView>
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimension16dp"
+        android:layout_marginBottom="@dimen/dimension16dp"
+        />
 </RelativeLayout>

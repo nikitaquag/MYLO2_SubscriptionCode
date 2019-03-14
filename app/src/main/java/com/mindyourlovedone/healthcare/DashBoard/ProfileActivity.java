@@ -172,7 +172,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     boolean checkSave = false;
     boolean isOnActivityResult = false;
     String cardImgPath = "";
-    FloatingActionButton floatProfile;;
+    FloatingActionButton floatProfile;
+    ImageView floatOptions;;
     NonScrollListView listPhone;
     ContactData contactData;
      RelativeConnection con;
@@ -266,6 +267,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgAddpet.setOnClickListener(this);
         txtAddPet.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
         chkChild.setOnCheckedChangeListener(this);
         chkSibling.setOnCheckedChangeListener(this);
         chkFriend.setOnCheckedChangeListener(this);
@@ -278,6 +280,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private void initUI() {
         llAddPhone = findViewById(R.id.llAddPhone);
         floatProfile = findViewById(R.id.floatProfile);
+        floatOptions = findViewById(R.id.floatOptions);
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);*/
@@ -1850,6 +1853,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 startActivityForResult(intent, REQUEST_PET);
                 break;
 
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
+
             case R.id.txtSave:
                 for (int i = 0; i < phonelist.size(); i++) {
                     ContactData c = phonelist.get(i);
@@ -2179,6 +2186,127 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
                 break;*/
         }
+    }
+
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "PersonalProfile.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", context);
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Personal Profile");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                    final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    final PersonalInfo personalInfoList =  PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    new Individual(personalInfoList,PetLists);
+                }
+                else{*/
+        final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new Individual(personalInfoList, PetList);
+        // }
+
+        Header.document.close();
+
+        //------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf"
+                        + "/PersonalProfile.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Personal Profile");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf"
+                        + "/PersonalProfile.pdf";
+                StringBuffer result = new StringBuffer();
+                               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                                    result.append(new MessageString().getProfileUser());
+                                }else {*/
+                result.append(new MessageString().getProfileProfile());
+                // }
+
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
     }
 
     private void showCardDialog(final int resultCameraImage, final int resultSelectPhoto, final ImageView imgProfile, final String from) {
