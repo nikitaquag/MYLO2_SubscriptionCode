@@ -374,8 +374,8 @@ emergencyList=new ArrayList<>();
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.floatOptions:
-                Toast.makeText(getActivity(), "Yet to come..!!", Toast.LENGTH_SHORT).show();
-                //  showFloatDialog();
+              //  Toast.makeText(getActivity(), "Yet to come..!!", Toast.LENGTH_SHORT).show();
+                  showFloatPdfDialog();
                 break;
 
             case R.id.floatProfile:
@@ -475,6 +475,120 @@ emergencyList=new ArrayList<>();
                 builder.create().show();
                 break;
         }
+    }
+
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Emergency.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Emergency Contacts & \nHealth Care Proxy Agent");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+/*
+                new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Emergency Contacts");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+
+
+        ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+        new Individual("Emergency", emergencyList);
+        Header.document.close();
+
+
+        //--------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Emergency.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Emergency Contact");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Emergency.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getEmergencyInfo());
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
     }
 
     private void showFloatDialog() {

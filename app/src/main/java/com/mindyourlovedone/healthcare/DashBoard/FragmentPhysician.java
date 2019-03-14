@@ -280,6 +280,9 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);*/
                 break;
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 //   intentDashboard.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -389,6 +392,130 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 builder.create().show();
                 break;
         }
+    }
+
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Physician.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Primary Physician");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Primary Physician");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+
+
+        ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
+        new Individual(specialistsList, "Physician");
+        Header.document.close();
+
+        //--------------------------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Physician.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Primary Physician");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Physician.pdf";
+
+                        if (preferences.getInt(PrefConstants.CONNECTED_USERID) == (preferences.getInt(PrefConstants.USER_ID))) {
+                            StringBuffer result = new StringBuffer();
+                            result.append(new MessageString().getPhysicianInfo());
+
+                            new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+                                    + "/mylopdf/"
+                                    + "/Physician.pdf",
+                                    getActivity(), result);
+
+                            System.out.println("\n" + result + "\n");
+                        } else {
+                            StringBuffer result = new StringBuffer();
+                            result.append(new MessageString().getPhysicianInfo());
+
+                            new PDFDocumentProcess(path,
+                                    getActivity(), result);
+
+                            System.out.println("\n" + result + "\n");
+                        }
+                dialog.dismiss();
+            }
+        });
+
     }
 
     private void showFloatDialog() {
