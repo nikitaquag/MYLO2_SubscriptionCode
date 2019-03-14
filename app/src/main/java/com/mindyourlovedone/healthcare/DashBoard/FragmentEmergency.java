@@ -33,8 +33,10 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -86,6 +88,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         preferences = new Preferences(getActivity());
         dbHelper = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
+        ContactDataQuery c=new ContactDataQuery(getActivity(),dbHelper);
     }
 
     private void setListData() {
@@ -432,7 +435,9 @@ emergencyList=new ArrayList<>();
 
 
                 ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-                new Individual("Emergency", emergencyList);
+             final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
+
+                new Individual("Emergency", emergencyList, phonelist);
                 Header.document.close();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -510,13 +515,14 @@ emergencyList=new ArrayList<>();
         Header.addEmptyLine(1);
 /*
                 new Header().createPdfHeader(file.getAbsolutePath(),
-
                         "Emergency Contacts");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(2);*/
 
-         ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-        new Individual("Emergency", emergencyList);
+
+        ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+        final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
+        new Individual("Emergency", emergencyList,phonelist);
         Header.document.close();
 
 

@@ -236,6 +236,8 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         VaccineQuery v = new VaccineQuery(context, dbHelper);
         FormQuery fo = new FormQuery(context, dbHelper);
         ContactDataQuery cd=new ContactDataQuery(context,dbHelper);
+        final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+preferences.putInt(PrefConstants.ID,personalInfoList.getId());
     }
 
     private void initListener() {
@@ -368,7 +370,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                     ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
                     ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
                     // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
-                    new Individual("Emergency", emergencyList);
+                    new Individual("Emergency", emergencyList, phonelist);
                     new Individual(specialistsList, "Physician");
                     //   new Individual(proxyList);
 
@@ -942,7 +944,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
             ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
             ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
             // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
-            new Individual("Emergency", emergencyList);
+            new Individual("Emergency", emergencyList, phonelist);
             new Individual(specialistsList, "Physician");
             //   new Individual(proxyList);
 

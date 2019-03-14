@@ -1658,7 +1658,7 @@ public class Individual {
     }
 
 
-    public Individual(String emergency, ArrayList<Emergency> emergencyList) {
+    public Individual(String emergency, ArrayList<Emergency> emergencyList, ArrayList<ContactData> phonelist) {
         try {
             // Header.addEmptyLine(1);
             Header.addChank("Emergency Contacts & Health Care Proxy Agent");
@@ -1764,7 +1764,7 @@ public class Individual {
                 messageEmergency.add(relationOther);*/
 
 
-                String officePhone = "";
+                /*String officePhone = "";
                 if (e.getWorkPhone() != null) {
                     officePhone = e.getWorkPhone();
                 }
@@ -1804,6 +1804,29 @@ public class Individual {
 
                 messageEmergency.add("Home Phone :");
                 messageEmergency.add(hPhone);
+*/
+                for (int t=0;t<phonelist.size();t++)
+                {
+                    ContactData c=phonelist.get(t);
+                    String num="";
+                    String type="";
+                    if (c.getValue() != null) {
+                        num =c.getValue();
+                    }
+
+                    if (c.getContactType() != null) {
+                        type =c.getContactType();
+                    }
+                    cell = new PdfPCell(new Phrase(type+" : " + num));
+                    cell.setBorder(Rectangle.BOTTOM);
+                    cell.setUseBorderPadding(true);
+                    cell.setBorderWidthBottom(5);
+                    cell.setBorderColorBottom(BaseColor.WHITE);
+                    table1.addCell(cell);
+
+                    messageEmergency.add(type+" : ");
+                    messageEmergency.add(num);
+                }
 
                 String email = "";
                 if (e.getEmail() != null) {
