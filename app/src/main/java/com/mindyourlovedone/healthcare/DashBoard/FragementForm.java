@@ -62,7 +62,8 @@ public class FragementForm extends Fragment implements View.OnClickListener {
     Preferences preferences;
     DBHelper dbHelper;
     RelativeLayout rlGuide;
-    FloatingActionButton floatProfile, floatAdd, floatOptions;
+    FloatingActionButton floatProfile;
+    ImageView floatAdd, floatOptions;
 
     @Nullable
     @Override

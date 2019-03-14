@@ -37,13 +37,15 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImpAgreementActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView imgBack;
+    ImageView imgBack,checkedIcon1,uncheckedIcon1,checkedIcon2,uncheckedIcon2,checkedIcon3,uncheckedIcon3,checkedIcon4,uncheckedIcon4;
     TextView txtSignup;
     Context context = this;
     String name="", email="";
     private static final int REQUEST_CALL_PERMISSION = 100;
     Preferences preferences;
     DBHelper dbHelper;
+
+    boolean ck=false,ck2=false,ck3=false,Ck4=false;
     String has_card="NO";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,11 +86,36 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
     private void initListener() {
         imgBack.setOnClickListener(this);
         txtSignup.setOnClickListener(this);
+
+        checkedIcon1.setOnClickListener(this);
+        uncheckedIcon1.setOnClickListener(this);
+
+        checkedIcon2.setOnClickListener(this);
+        uncheckedIcon2.setOnClickListener(this);
+
+        checkedIcon3.setOnClickListener(this);
+        uncheckedIcon3.setOnClickListener(this);
+
+        checkedIcon4.setOnClickListener(this);
+        uncheckedIcon4.setOnClickListener(this);
+
+
+
     }
 
     private void initUi() {
         imgBack = findViewById(R.id.imgBack);
         txtSignup = findViewById(R.id.txtSignup);
+        checkedIcon1= findViewById(R.id.checkedIcon1);
+        uncheckedIcon1=findViewById(R.id.uncheckedIcon1);
+
+        checkedIcon2= findViewById(R.id.checkedIcon2);
+        uncheckedIcon2=findViewById(R.id.uncheckedIcon2);
+        checkedIcon3= findViewById(R.id.checkedIcon3);
+        uncheckedIcon3=findViewById(R.id.uncheckedIcon3);
+        checkedIcon4= findViewById(R.id.checkedIcon4);
+        uncheckedIcon4=findViewById(R.id.uncheckedIcon4);
+
     }
 
     @Override
@@ -101,12 +128,79 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
             case R.id.txtSignup:
               //  if (validate()) {
                     //CallWebservice get user profile
-                    accessPermission();
+
+
+                    if ( validation())
+                    {
+                        accessPermission();
+                    }
+                   else
+                        Toast.makeText(context, "Please select all check mark", Toast.LENGTH_SHORT).show();
               //  }
                /* Intent intentBase = new Intent(context, BaseActivity.class);
                 startActivity(intentBase);*/
                 break;
+
+
+            case R.id.checkedIcon1:
+                checkedIcon1.setVisibility(View.GONE);
+                ck=false;
+                uncheckedIcon1.setVisibility(View.VISIBLE);
+                break;
+            case R.id.uncheckedIcon1:
+                uncheckedIcon1.setVisibility(View.GONE);
+                ck=true;
+                checkedIcon1.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.checkedIcon2:
+                checkedIcon2.setVisibility(View.GONE);
+                ck2=false;
+                uncheckedIcon2.setVisibility(View.VISIBLE);
+
+                break;
+            case R.id.uncheckedIcon2:
+                uncheckedIcon2.setVisibility(View.GONE);
+                ck2=true;
+                checkedIcon2.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.checkedIcon3:
+                checkedIcon3.setVisibility(View.GONE);
+                ck3=false;
+                uncheckedIcon3.setVisibility(View.VISIBLE);
+                break;
+            case R.id.uncheckedIcon3:
+                uncheckedIcon3.setVisibility(View.GONE);
+                ck3=true;
+                checkedIcon3.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.checkedIcon4:
+                checkedIcon4.setVisibility(View.GONE);
+                Ck4=false;
+                uncheckedIcon4.setVisibility(View.VISIBLE);
+                break;
+            case R.id.uncheckedIcon4:
+                uncheckedIcon4.setVisibility(View.GONE);
+                Ck4=true;
+                checkedIcon4.setVisibility(View.VISIBLE);
+                break;
+
         }
+    }
+
+    private boolean validation() {
+        boolean f=false;
+
+         if (ck==true&&ck2==true&&ck3==true&&Ck4==true)
+         {
+             f=true; }
+         else {
+             Toast.makeText(context, "Please click on check mark", Toast.LENGTH_SHORT).show();
+         }
+
+     return f;
     }
 
 

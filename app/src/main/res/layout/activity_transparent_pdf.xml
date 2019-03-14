@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rlView"
+    android:alpha="0.8"
+    android:background="#80000000"
+    tools:context="com.mindyourlovedone.healthcare.Activity.TransparentActivity">
+
+
+   <!-- <ImageView
+        android:id="@+id/floatCancel"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension16dp"
+        android:src="@drawable/cross_n"
+
+         />-->
+
+
+    <TextView
+        android:layout_margin="@dimen/dimension10dp"
+        android:textSize="@dimen/dimension20dp"
+        android:layout_above="@+id/imghelp"
+        android:textStyle="italic"
+        android:fontFamily="@font/bold_lato"
+        android:textColor="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        android:text="Select the option as your need"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/imghelp"
+        android:layout_margin="@dimen/dimension10dp"
+        android:layout_above="@+id/rlFloatContact"
+        android:src="@drawable/helparrowpopup"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/dimension160dp"
+        android:layout_height="@dimen/dimension210dp"
+        android:rotation="70"
+        />
+
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension16dp"
+        android:src="@drawable/cross_n"
+        app:backgroundTint="@color/colorBlueTrans"
+        app:fabSize="normal" />
+
+    <RelativeLayout
+        android:id="@+id/rlFloatContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rlFloatNew"
+        android:layout_marginBottom="@dimen/dimension5dp"
+        android:gravity="center_vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/eyee"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+
+        <TextView
+            android:fontFamily="@font/lato_bold"
+            android:id="@+id/txtContact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/floatContact"
+            android:text="View Reports"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="@dimen/dimension20dp"
+
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlFloatNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/floatCancel"
+        android:gravity="center_vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/closee"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+
+        <TextView
+            android:id="@+id/txtNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/floatNew"
+            android:text="Email Reports"
+android:fontFamily="@font/lato_bold"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp" />
+
+    </RelativeLayout>
+</RelativeLayout>

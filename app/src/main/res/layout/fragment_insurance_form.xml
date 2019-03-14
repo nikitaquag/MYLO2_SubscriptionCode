@@ -317,7 +317,18 @@
 
             </RelativeLayout>
         </ScrollView>
+        <ImageView
+            android:id="@+id/floatAdd"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/plusnew"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
 
+            />
+
+<!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatAdd"
             android:layout_width="wrap_content"
@@ -331,7 +342,19 @@
             android:visibility="visible"
             app:backgroundTint="@color/colorRegisteredGreen"
             app:fabSize="normal" />
+-->
 
+        <ImageView
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/threedots"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
+            />
+
+<!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatOptions"
             android:layout_width="wrap_content"
@@ -344,6 +367,7 @@
             android:tint="@android:color/white"
             app:backgroundTint="@color/colorRegisteredGreen"
             app:fabSize="normal" />
+-->
     </RelativeLayout>
 
     <RelativeLayout

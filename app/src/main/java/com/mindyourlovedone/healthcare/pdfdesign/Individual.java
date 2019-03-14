@@ -1751,6 +1751,22 @@ public class Individual {
                 messageEmergency.add("Home Address :");
                 messageEmergency.add(address);
 
+
+
+                String ascard = "";
+                if (e.getHas_card() != null) {
+                    ascard = e.getHas_card();
+                }
+                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+
+                messageEmergency.add("Do you have business card?");
+                messageEmergency.add(ascard);
+
                 String note = "";
                 if (e.getNote() != null) {
                     note = e.getNote();
@@ -1764,16 +1780,6 @@ public class Individual {
 
                 messageEmergency.add("Notes :");
                 messageEmergency.add(note);
-
-                cell = new PdfPCell(new Phrase(""));
-                cell.setBorder(Rectangle.BOTTOM);
-                cell.setUseBorderPadding(true);
-                cell.setBorderWidthBottom(5);
-                cell.setBorderColorBottom(BaseColor.WHITE);
-                table.addCell(cell);
-
-                messageEmergency.add("");
-                messageEmergency.add("");
 
                 Header.document.add(table);
                 Paragraph p = new Paragraph(" ");
@@ -2026,15 +2032,30 @@ public class Individual {
                 messagePhysician.add("Notes :");
                 messagePhysician.add(note);
 
+                String ascard = "";
+                if (s.getHas_card() != null) {
+                    ascard = s.getHas_card();
+                }
+                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+
+                messagePhysician.add("Do you have business card?");
+                messagePhysician.add(ascard);
+
+
                 cell = new PdfPCell(new Phrase(""));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePhysician.add("");
-                messagePhysician.add(note);
 
+                messagePhysician.add("");
+                messagePhysician.add("");
 
                 Header.document.add(table);
                 Paragraph p = new Paragraph(" ");
