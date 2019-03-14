@@ -930,13 +930,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         @Override
         public void afterTextChanged(Editable editable) {
             int length = editable.length();
-
+            int poss = Integer.parseInt(et.getTag().toString());
             if ((prevL < length) && (length == 3 || length == 7)) {
                 et.setText(editable.toString() + "-");
-                int poss = Integer.parseInt(et.getTag().toString());
                 et.setSelection(et.getText().length());
-                phonelist.get(poss).setValue(et.getText().toString());
             }
+            phonelist.get(poss).setValue(et.getText().toString());
         }
 
     }
@@ -949,13 +948,20 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 }
             }
             if (llAddPhone.getChildCount() == 2) {// Linearlayout child count code handled to delete 1st item after add button
-                llAddPhone.removeViewAt(1);
+                llAddPhone.removeAllViews();
+                mImageViewType.clear();
+                mTextViewListType.clear();
+                mTextViewListValue.clear();
+
+                setListPh();
             } else if (llAddPhone.getChildCount() == position) {// Linearlayout child count code handled to delete last item
                 llAddPhone.removeViewAt(llAddPhone.getChildCount() - 1);
+                llAddPhone.notify();
             } else {// Linearlayout child count code handled to delete all item in between
                 llAddPhone.removeViewAt(position);
+                llAddPhone.notify();
             }
-            llAddPhone.notify();
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
