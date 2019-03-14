@@ -69,7 +69,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
     final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
     Context context = this;
-    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgHome;
+    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgHome,imgType;
     MySpinner spinnerDoc, spinnerType, spinnerPro;
     TextView txtDelete, txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
@@ -172,6 +172,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     private void initUi() {
 
         tilDocuType = findViewById(R.id.tilDocuType);
+        imgType=findViewById(R.id.imgType);
         txtDocuType = findViewById(R.id.txtDocuType);
         txtDocuType.setFocusable(false);
 
@@ -317,6 +318,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             tilSpinDoc.setVisibility(View.GONE);
             spinnerType.setVisibility(View.GONE);
             tilDocuType.setVisibility(View.GONE);
+            imgType.setVisibility(View.GONE);
             tilDocType.setVisibility(View.VISIBLE);
             /*txtHolderName.setVisibility(View.GONE);
             txtLocation.setVisibility(View.GONE);*/
@@ -334,11 +336,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             case "AD":
                 //  spinnerType.setVisibility(View.GONE);
                 tilDocuType.setVisibility(View.GONE);
+                imgType.setVisibility(View.GONE);
                 break;
 
             case "Other":
                 // spinnerType.setVisibility(View.VISIBLE);
                 tilDocuType.setVisibility(View.VISIBLE);
+                imgType.setVisibility(View.VISIBLE);
                 break;
         }
 //intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -450,6 +454,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 tilSpinDoc.setVisibility(View.GONE);
                 //spinnerType.setVisibility(View.GONE);
                 tilDocuType.setVisibility(View.GONE);
+                imgType.setVisibility(View.GONE);
                 tilDocType.setVisibility(View.VISIBLE);
                /* txtHolderName.setVisibility(View.GONE);
                 txtLocation.setVisibility(View.GONE);*/

@@ -360,14 +360,14 @@
 
         <TextView
             android:id="@+id/txtTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension20dp"
             android:textStyle="bold"
             android:fontFamily="@font/lato"
             android:layout_toRightOf="@+id/imgHomes"
+            android:layout_toLeftOf="@+id/imgRight"
             android:gravity="center"
             android:text="Advance Directives\n&amp; Documents"
             android:textAllCaps="false"

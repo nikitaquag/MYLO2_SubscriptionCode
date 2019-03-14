@@ -1399,7 +1399,6 @@
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
-
                         app:hintEnabled="true"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -1412,7 +1411,7 @@
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
-android:fontFamily="@font/lato"
+                            android:fontFamily="@font/lato"
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
                             android:paddingTop="@dimen/dimension8dp"
