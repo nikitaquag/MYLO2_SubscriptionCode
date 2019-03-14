@@ -420,6 +420,7 @@
                                 android:layout_height="match_parent"
                                 android:paddingLeft="@dimen/dimension20dp"
                                 android:paddingRight="@dimen/dimension20dp"
+                                android:visibility="gone"
                                 android:divider="@null"
                                 ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
@@ -498,6 +499,9 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:visibility="visible"
+                                android:paddingLeft="@dimen/dimension20dp"
+                                android:paddingRight="@dimen/dimension20dp"
                                 android:id="@+id/llAddFinPhone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -985,6 +989,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
+                            android:visibility="gone"
                             android:paddingRight="@dimen/dimension20dp"
                             android:divider="@null"
                             ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
@@ -1064,6 +1069,9 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:visibility="visible"
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:id="@+id/llAddHospPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -1615,6 +1623,7 @@ android:visibility="gone"
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
+                            android:visibility="gone"
                             android:divider="@null"
                             ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
@@ -1693,6 +1702,9 @@ android:visibility="gone"
                         </LinearLayout>
 
                         <LinearLayout
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:visibility="visible"
                             android:id="@+id/llAddPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2048,6 +2060,7 @@ android:visibility="gone"
                        >
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
                             android:id="@+id/listDrPhone"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
@@ -2130,6 +2143,9 @@ android:visibility="gone"
                         </LinearLayout>
 
                         <LinearLayout
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:visibility="visible"
                             android:id="@+id/llAddDrPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -2818,6 +2834,7 @@ android:visibility="gone"
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingRight="@dimen/dimension20dp"
+                            android:visibility="gone"
                             android:divider="@null"
                             ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
 
@@ -2896,6 +2913,9 @@ android:visibility="gone"
                         </LinearLayout>
 
                         <LinearLayout
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
+                            android:visibility="visible"
                             android:id="@+id/llAddInsPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3620,6 +3640,7 @@ android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingLeft="@dimen/dimension20dp"
+                            android:visibility="gone"
                             android:paddingRight="@dimen/dimension20dp"
                             android:divider="@null"
                             ></com.mindyourlovedone.healthcare.customview.NonScrollListView>
@@ -3699,6 +3720,8 @@ android:visibility="gone"
                         </LinearLayout>
 
                         <LinearLayout
+                            android:paddingLeft="@dimen/dimension20dp"
+                            android:paddingRight="@dimen/dimension20dp"
                             android:id="@+id/llAddPharmPhone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

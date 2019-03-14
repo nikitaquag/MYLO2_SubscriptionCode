@@ -33,6 +33,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,14 +46,12 @@ import android.widget.ToggleButton;
 import com.mindyourlovedone.healthcare.DashBoard.AddFormActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
-import com.mindyourlovedone.healthcare.customview.NonScrollListView;
 import com.mindyourlovedone.healthcare.database.AideQuery;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DoctorQuery;
 import com.mindyourlovedone.healthcare.database.FinanceQuery;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
-import com.mindyourlovedone.healthcare.database.HospitalQuery;
 import com.mindyourlovedone.healthcare.database.InsuranceQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PharmacyQuery;
@@ -64,7 +63,6 @@ import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.Insurance;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
-import com.mindyourlovedone.healthcare.model.Phone;
 import com.mindyourlovedone.healthcare.model.Proxy;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
@@ -218,7 +216,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     ImageView imgAddPhone, imgAddDrPhone, imgAddHospPhone, imgAddPharmPhone, imgAddFinPhone, imgAddInsuPhone;
     TextView txtType, txtDrType;
 
-    NonScrollListView listPrPhone,listDrPhone,listHospPhone,listPharmPhone,listFinPhone,listInsuPhone;
+    //    NonScrollListView listPrPhone,listDrPhone,listHospPhone,listPharmPhone,listFinPhone,listInsuPhone;
     public ArrayList<ContactData> phonelist = new ArrayList<>();
     SpecialPhoneAdapter pd;
 
@@ -250,15 +248,182 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
 
-    public void setListPh(NonScrollListView listv) {
-        // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
-        if (phonelist.size() == 0) {
-            ContactData c = new ContactData();
-            phonelist.add(c);
+    //Nikita - PH format code ends here
+    ArrayList<EditText> mTextViewListValue = new ArrayList<>();
+    ArrayList<TextView> mTextViewListType = new ArrayList<>();
+    ArrayList<ImageView> mImageViewType = new ArrayList<>();
+
+    public class CustomTextWatcher implements TextWatcher {
+        EditText et = null;
+
+        CustomTextWatcher(EditText et) {
+            this.et = et;
         }
-        pd = new SpecialPhoneAdapter(getActivity(), phonelist);
-      listv.setAdapter(pd);
+
+        int prevL = 0;
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            prevL = et.getText().toString().length();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int length = editable.length();
+//            int poss = Integer.parseInt(et.getTag().toString());
+            if ((prevL < length) && (length == 3 || length == 7)) {
+                et.setText(editable.toString() + "-");
+                et.setSelection(et.getText().length());
+            }
+//            phonelist.get(poss).setValue(et.getText().toString());
+        }
+
     }
+
+    public void deletePhone(int position, LinearLayout layout) {// Tricky code to delete required item
+        try {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
+                    phonelist.remove(phonelist.get(i));
+                    layout.removeAllViews();
+                    mTextViewListValue.clear();
+                    mTextViewListType.clear();
+                    mImageViewType.clear();
+                    setListPh(layout);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void addNewPhone(final int pos, final LinearLayout layout) {
+        try {
+
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+            View view = inflater.inflate(R.layout.row_phone, null);
+
+            ImageView imgdeletePhone;
+            TextView txtType;
+            EditText txtPhoNum;
+
+            imgdeletePhone = view.findViewById(R.id.imgdeletePhone);
+            txtPhoNum = view.findViewById(R.id.txtPhoNum);
+            txtType = view.findViewById(R.id.txtType);
+
+            //Add the instance to the ArrayList -  to maintian separate tags of views
+            mTextViewListValue.add(pos, txtPhoNum);
+            mTextViewListType.add(pos, txtType);
+            mImageViewType.add(pos, imgdeletePhone);
+
+            if (pos == 0) {
+                imgdeletePhone.setImageResource(R.drawable.add_n);
+            } else {
+                imgdeletePhone.setImageResource(R.drawable.delete_n);
+            }
+
+            mImageViewType.get(pos).setTag("" + pos);
+            mTextViewListType.get(pos).setTag("" + pos);
+            mTextViewListValue.get(pos).setTag("" + pos);
+
+            mTextViewListType.get(pos).setText("" + phonelist.get(pos).getContactType());
+            mTextViewListValue.get(pos).setText("" + phonelist.get(pos).getValue());
+
+            mTextViewListValue.get(pos).addTextChangedListener(new CustomTextWatcher(mTextViewListValue.get(pos)));
+
+            mTextViewListValue.get(pos).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        int poss = Integer.parseInt(mTextViewListValue.get(pos).getTag().toString());
+                        final TextView Caption = (TextView) view;
+                        phonelist.get(poss).setValue(Caption.getText().toString());
+                    }
+                }
+            });
+
+            mImageViewType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int poss = Integer.parseInt(mImageViewType.get(pos).getTag().toString());
+                    if (poss == 0) {
+                        ContactData c = new ContactData();
+                        c.setId(phonelist.size());
+                        phonelist.add(c);
+                        addNewPhone(c.getId(), layout);
+                    } else {
+                        deletePhone(poss, layout);
+                    }
+                }
+            });
+
+            mTextViewListType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
+                    AlertDialog.Builder b = new AlertDialog.Builder(context);
+                    b.setTitle("Type");
+                    final String[] types = {"Mobile", "Office", "Home", "Fax", "None"};
+                    b.setItems(types, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (types[which].equalsIgnoreCase("None")) {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType("");
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            } else {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType(types[which]);
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            }
+                            dialog.dismiss();
+                        }
+
+                    });
+                    b.show();
+                }
+            });
+
+            layout.addView(view, pos);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void setListPh(LinearLayout layout) {
+
+        if (phonelist.isEmpty()) {
+            ContactData c = new ContactData();
+            c.setId(0);
+            phonelist.add(c);
+            addNewPhone(0, layout);
+        } else {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i) != null && phonelist.get(i).getValue() != null) {
+                    phonelist.get(i).setId(i);
+                    addNewPhone(i, layout);
+                }
+            }
+        }
+
+    }
+
+    //Nikita - PH Format code ends here
+
+//    public void setListPh(NonScrollListView listv) {
+//        // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
+//        if (phonelist.size() == 0) {
+//            ContactData c = new ContactData();
+//            phonelist.add(c);
+//        }
+//        pd = new SpecialPhoneAdapter(getActivity(), phonelist);
+//      listv.setAdapter(pd);
+//    }
 
     /*public void addNewPhone(Context context) {
         ContactData c = new ContactData();
@@ -277,6 +442,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         }
         //  Preferences preferences=new Preferences(context);
         //String source=preferences.getString(PrefConstants.SOURCE);
+
+        for (int i = 0; i < phonelist.size(); i++) {
+            ContactData c = phonelist.get(i);
+            for (int k = 0; k < mTextViewListValue.size(); k++) {
+                if (Integer.parseInt(mTextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                    phonelist.get(i).setValue(mTextViewListValue.get(k).getText().toString());
+                }
+            }
+        }
+
         switch (source) {
             case "Connection":
                 if (validate("Connection")) {
@@ -1299,7 +1474,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 tilEmergencyNote.setVisibility(View.GONE);
                 rlPharmacy.setVisibility(View.GONE);
-               setListPh(listPrPhone);
+//               setListPh(listPrPhone);
+                setListPh(llAddPhone);
                 break;
 
             case "Pharmacy":
@@ -1307,7 +1483,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiPharmacy();
                 txtAdd.setText("Add Pharmacies &\nHome Medical Equipment");
                 txtTitle.setText("Add Pharmacies &\nHome Medical Equipment");
-                setListPh(listPharmPhone);
+//                setListPh(listPharmPhone);
+                setListPh(llAddPharmPhone);
                 break;
 
             case "PharmacyData":
@@ -1345,7 +1522,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = specialist.getId();
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Pharmacy");
-                    setListPh(listPharmPhone);
+//                    setListPh(listPharmPhone);
+                    setListPh(llAddPharmPhone);
                     String photo;
                     if (imagepath.isEmpty()) {
                         photo = specialist.getPhoto();//nikita
@@ -1522,7 +1700,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = rel.getId();
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Emergency");
-                    setListPh(listPharmPhone);
+//                    setListPh(listPharmPhone);
+                    setListPh(llAddPharmPhone);
                     if (!rel.getRelationType().equals("")) {
                         int index = 0;
                         for (int i = 0; i < Relationship.length; i++) {
@@ -1770,8 +1949,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                 }
 
-                setListPh(listPrPhone);
-
+//                setListPh(listPrPhone);
+                setListPh(llAddPhone);
                 break;
 
             case "EmergencyUpdate":
@@ -1824,7 +2003,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), rel.getId(), "Emergency");
-                    setListPh(listPrPhone);
+//                    setListPh(listPrPhone);
+                    setListPh(llAddPhone);
                     txtEmergencyNote.setText(rel.getNote());
                     id = rel.getId();
                     if (!rel.getRelationType().equals("")) {
@@ -2024,7 +2204,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiSpecialist();
                 txtAdd.setText("Add Doctors & Other\n Health Professional");
                 txtTitle.setText("Add Doctors & Other\n Health Professional");
-                setListPh(listDrPhone);
+//                setListPh(listDrPhone);
+                setListPh(llAddDrPhone);
                 break;
 
             case "Physician":
@@ -2032,7 +2213,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiSpecialist();
                 txtAdd.setText("Add Primary Physician");
                 txtTitle.setText("Add Primary Physician");
-                setListPh(listDrPhone);
+//                setListPh(listDrPhone);
+                setListPh(llAddDrPhone);
                 break;
 
             case "SpecialistData":
@@ -2096,7 +2278,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Doctor");
-                    setListPh(listDrPhone);
+//                    setListPh(listDrPhone);
+                    setListPh(llAddDrPhone);
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -2231,7 +2414,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }*/
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
-                    setListPh(listDrPhone);
+//                    setListPh(listDrPhone);
+                    setListPh(llAddDrPhone);
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -2264,7 +2448,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imgEdit.setVisibility(View.GONE);
                     ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
-                    setListPh(listDrPhone);
+//                    setListPh(listDrPhone);
+                    setListPh(llAddDrPhone);
                     /*
                     if (imgFile.exists()) {
                        */
@@ -2481,7 +2666,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiInsurance();
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
-                setListPh(listInsuPhone);
+//                setListPh(listInsuPhone);
+                setListPh(llAddInsuPhone);
                 break;
 
             case "InsuranceData":
@@ -2540,7 +2726,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     id = insurance.getId();
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Insurance");
-                    setListPh(listInsuPhone);
+//                    setListPh(listInsuPhone);
+                    setListPh(llAddInsuPhone);
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -2838,7 +3025,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiFinance();
                 txtAdd.setText("Add Finance & Legal");
                 txtTitle.setText("Add Finance & Legal");
-                setListPh(listFinPhone);
+//                setListPh(listFinPhone);
+                setListPh(llAddFinPhone);
                 break;
 
             case "Hospital":
@@ -2847,8 +3035,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiHospital();
                 txtAdd.setText("Add Hospitals & Rehabilitation Centers");
                 txtTitle.setText("Add Hospitals & Rehabilitation Centers");
-                setListPh(listHospPhone);
-
+//                setListPh(listHospPhone);
+                setListPh(llAddHospPhone);
                 break;
 
             case "HospitalData":
@@ -2897,7 +3085,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Hospital");
-                    setListPh(listHospPhone);
+//                    setListPh(listHospPhone);
+                    setListPh(llAddHospPhone);
                    /* if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < HospitalType.length; i++) {
@@ -3135,7 +3324,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Finance");
-                    setListPh(listFinPhone);
+//                    setListPh(listFinPhone);
+                    setListPh(llAddFinPhone);
                 /*    if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < financeType.length; i++) {
@@ -3873,15 +4063,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private void initUI() {
         layoutInflater = (LayoutInflater) getActivity().getSystemService(context.LAYOUT_INFLATER_SERVICE);
 
-        listPrPhone = rootview.findViewById(R.id.listPrPhone);
-        listDrPhone = rootview.findViewById(R.id.listDrPhone);
-        listHospPhone = rootview.findViewById(R.id.listHospPhone);
-        listPharmPhone = rootview.findViewById(R.id.listPharmPhone);
-        listFinPhone = rootview.findViewById(R.id.listFinPhone);
-        listInsuPhone = rootview.findViewById(R.id.listInsuPhone);
+//        listPrPhone = rootview.findViewById(R.id.listPrPhone);
+//        listDrPhone = rootview.findViewById(R.id.listDrPhone);
+//        listHospPhone = rootview.findViewById(R.id.listHospPhone);
+//        listPharmPhone = rootview.findViewById(R.id.listPharmPhone);
+//        listFinPhone = rootview.findViewById(R.id.listFinPhone);
+//        listInsuPhone = rootview.findViewById(R.id.listInsuPhone);
         txtsave = getActivity().findViewById(R.id.txtsave);
+
         llAddPhone = rootview.findViewById(R.id.llAddPhone);
+        llAddHospPhone = rootview.findViewById(R.id.llAddHospPhone);
+        llAddPharmPhone = rootview.findViewById(R.id.llAddPharmPhone);
+        llAddFinPhone = rootview.findViewById(R.id.llAddFinPhone);
+        llAddInsuPhone = rootview.findViewById(R.id.llAddInsPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
+
         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
         imgAddDrPhone = rootview.findViewById(R.id.imgAddDrPhone);
@@ -4909,27 +5105,27 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 break;
 
             case R.id.imgAddDrPhone:
-                addNewPhone(llAddDrPhone);
+//                addNewPhone(llAddDrPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.imgAddHospPhone:
-                addNewPhone(llAddHospPhone);
+//                addNewPhone(llAddHospPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.imgAddPharmPhone:
-                addNewPhone(llAddPharmPhone);
+//                addNewPhone(llAddPharmPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.imgAddFinPhone:
-                addNewPhone(llAddFinPhone);
+//                addNewPhone(llAddFinPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.imgAddInsPhone:
-                addNewPhone(llAddInsuPhone);
+//                addNewPhone(llAddInsuPhone);
                 Toast.makeText(getActivity(), "Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.imgProfile:
@@ -5000,48 +5196,48 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     }
 
-    private void addNewPhone(final LinearLayout layout) {
-      /*  ArrayList phonelist=new ArrayList();
-
-        PhoneAdapter pd=new PhoneAdapter(context,phonelist,val);
-        listPhone.setAdapter(pd);*/
-        final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
-        layout.addView(helperview);//jobt
-
-        TextView txtPhoNum = helperview.findViewById(R.id.txtPhoNum);
-        TextView txtType = helperview.findViewById(R.id.txtType);
-        ImageView imgdeletePhone = helperview.findViewById(R.id.imgdeletePhone);
-        txtType.setFocusable(false);
-        txtType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder b = new AlertDialog.Builder(context);
-                b.setTitle("Type");
-                final String[] types = {"Mobile", "Office", "Home", "Fax"};
-                b.setItems(types, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        TextView txtType = helperview.findViewById(R.id.txtType);
-                        txtType.setText(types[which]);
-                        dialog.dismiss();
-                    }
-
-                });
-
-                b.show();
-                //  Intent i=new Intent(getActivity(),PhoneActivity.class);
-                //  startActivityForResult(i,RESULT_TYPE);
-            }
-        });
-        imgdeletePhone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                layout.removeView(helperview);
-            }
-        });
-
-    }
+//    private void addNewPhone(final LinearLayout layout) {
+//      /*  ArrayList phonelist=new ArrayList();
+//
+//        PhoneAdapter pd=new PhoneAdapter(context,phonelist,val);
+//        listPhone.setAdapter(pd);*/
+//        final View helperview = layoutInflater.inflate(R.layout.row_phone, null);
+//        layout.addView(helperview);//jobt
+//
+//        TextView txtPhoNum = helperview.findViewById(R.id.txtPhoNum);
+//        TextView txtType = helperview.findViewById(R.id.txtType);
+//        ImageView imgdeletePhone = helperview.findViewById(R.id.imgdeletePhone);
+//        txtType.setFocusable(false);
+//        txtType.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                AlertDialog.Builder b = new AlertDialog.Builder(context);
+//                b.setTitle("Type");
+//                final String[] types = {"Mobile", "Office", "Home", "Fax"};
+//                b.setItems(types, new DialogInterface.OnClickListener() {
+//
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        TextView txtType = helperview.findViewById(R.id.txtType);
+//                        txtType.setText(types[which]);
+//                        dialog.dismiss();
+//                    }
+//
+//                });
+//
+//                b.show();
+//                //  Intent i=new Intent(getActivity(),PhoneActivity.class);
+//                //  startActivityForResult(i,RESULT_TYPE);
+//            }
+//        });
+//        imgdeletePhone.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                layout.removeView(helperview);
+//            }
+//        });
+//
+//    }
 
     private void ShowCameraDialog(final int resultCameraImageCard, final int resultSelectPhotoCard, final String profile) {
         final Dialog dialog = new Dialog(getActivity());
