@@ -12,10 +12,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -733,10 +730,10 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.rlHome:
-                Drawable mDrawable = context.getResources().getDrawable(R.drawable.drawer_home);
+              /*  Drawable mDrawable = context.getResources().getDrawable(R.drawable.drawer_home);
                 mDrawable.setColorFilter(new
                         PorterDuffColorFilter(context.getResources().getColor(R.color.colorMaroon),PorterDuff.Mode.MULTIPLY));
-
+*/
 
                 Intent intentHome = new Intent(context, SplashNewActivity.class);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
