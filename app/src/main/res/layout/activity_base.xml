@@ -18,7 +18,7 @@
             <RelativeLayout
                 android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension80dp"
+                android:layout_height="@dimen/dimension70dp"
                >
 
                 <ImageView
@@ -73,7 +73,7 @@
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:src="@drawable/ic_profiles"
 
-                    android:visibility="invisible"/>
+                    android:visibility="gone"/>
 
                 <TextView
                     android:fontFamily="@font/lato_bold"
@@ -81,8 +81,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/imgProfile"
-                    android:layout_marginLeft="@dimen/dimension20dp"
-                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
                     android:text="Name"
                     android:textColor="#FFFFFF"
                     android:textStyle="bold"
@@ -94,7 +94,7 @@
                     android:id="@+id/txtRel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginLeft="@dimen/dimension8dp"
                     android:text="rel"
                     android:layout_toRightOf="@+id/imgProfile"
                     android:layout_below="@+id/txtName"

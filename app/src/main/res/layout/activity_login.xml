@@ -48,6 +48,7 @@
                 android:paddingTop="@dimen/dimension8dp"
                 android:paddingRight="@dimen/dimension18dp"
                 android:paddingBottom="@dimen/dimension8dp"
+                android:textSize="@dimen/dimension20dp"
                 app:hintEnabled="false"
                 app:hintTextAppearance="@style/TextLabel">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -77,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tilName"
                 android:paddingLeft="@dimen/dimension18dp"
+                android:textSize="@dimen/dimension20dp"
                 android:paddingRight="@dimen/dimension18dp"
                 app:hintTextAppearance="@style/TextLabel">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -134,7 +136,7 @@
             android:fontFamily="@font/lato_bold"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/dimension15dp"
+            android:layout_marginTop="@dimen/dimension30dp"
             android:layout_marginBottom="@dimen/dimension15dp"
             android:background="@drawable/border_registered"
             android:paddingLeft="@dimen/dimension60dp"

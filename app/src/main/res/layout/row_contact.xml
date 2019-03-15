@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/txtConName"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension40dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_toLeftOf="@+id/imgForword"
             android:layout_toRightOf="@+id/imgConPhoto"

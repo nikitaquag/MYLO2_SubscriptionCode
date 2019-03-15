@@ -150,7 +150,7 @@ RelativeLayout rlTops;
                     if (txtName.isFocused()) {
                         Rect outRect = new Rect();
                         txtName.getGlobalVisibleRect(outRect);
-                        txtName.setHintTextColor(R.color.colorGray);
+//                        txtName.setHintTextColor(R.color.colorGray);
                         if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
                             txtName.clearFocus();
                             InputMethodManager imm = (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);

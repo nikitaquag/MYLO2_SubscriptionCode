@@ -26,7 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
             android:layout_toLeftOf="@+id/imgSelfFolder"
             android:layout_toRightOf="@+id/imgSelf"
@@ -94,7 +93,6 @@
         ></ListView>
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/imghelp"
@@ -103,7 +101,7 @@
         android:fontFamily="@font/bold_lato"
         android:text="Add a new Profiles!"
         android:textColor="@color/colorLightGrays"
-        android:textSize="@dimen/dimension17dp"
+        android:textSize="@dimen/dimension22dp"
         android:textStyle="italic" />
 
     <ImageView

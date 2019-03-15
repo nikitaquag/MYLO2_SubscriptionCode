@@ -21,7 +21,6 @@
             android:layout_margin="@dimen/dimension8dp"
             android:background="@color/colorWhite"
             android:src="@drawable/lightblue"
-            android:padding="@dimen/dimension5dp"
             />
 <RelativeLayout
     android:id="@+id/rlProf"
@@ -30,7 +29,6 @@
     android:layout_toRightOf="@+id/imgConPhoto"
     android:gravity="center_vertical"
     android:layout_centerVertical="true"
-    android:layout_marginLeft="@dimen/dimension10dp"
     android:layout_toLeftOf="@+id/imgSelfFolder"
     android:layout_marginRight="@dimen/dimension10dp"
     >
