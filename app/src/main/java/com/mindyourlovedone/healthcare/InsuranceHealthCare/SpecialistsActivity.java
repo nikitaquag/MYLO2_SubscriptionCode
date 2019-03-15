@@ -254,399 +254,400 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
         imgRight.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                if (from.equals("Speciality")) {
-                    final String RESULT = Environment.getExternalStorageDirectory()
-                            + "/mylopdf/";
-                    File dirfile = new File(RESULT);
-                    dirfile.mkdirs();
-                    File file = new File(dirfile, "Specialty.pdf");
-                    if (file.exists()) {
-                        file.delete();
-                    }
-
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                    copyFile("ic_launcher.png");
-                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
-                    Header.addEmptyLine(1);
-                    Header.addusereNameChank("Specialty Contacts");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(1);
-
-                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Paragraph p = new Paragraph(" ");
-                    LineSeparator line = new LineSeparator();
-                    line.setOffset(-4);
-                    line.setLineColor(BaseColor.LIGHT_GRAY);
-                    p.add(line);
-                    try {
-                        Header.document.add(p);
-                    } catch (DocumentException e) {
-                        e.printStackTrace();
-                    }
-                    Header.addEmptyLine(1);
-
-                  /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Specialty");*/
-
-                    // Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    //  Header.addEmptyLine(2);
-
-                    ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-                    ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    // ArrayList<Aides> AidesList= AideQuery.fetchAllAideRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-
-                    new Specialty(specialistsList, "Doctors");
-                    new Specialty("Hospital", HospitalList);
-                    new Specialty(PharmacyList);
-                    //   new Specialty(AidesList,1);
-                    new Specialty(1, financeList);
-
-                    Header.document.close();
-
-                } else if (from.equals("Emergency")) {
-                    final String RESULT = Environment.getExternalStorageDirectory()
-                            + "/mylopdf/";
-                    File dirfile = new File(RESULT);
-                    dirfile.mkdirs();
-                    File file = new File(dirfile, "Profile.pdf");
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                    copyFile("ic_launcher.png");
-                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
-                    Header.addEmptyLine(1);
-                    Header.addusereNameChank("Personal & Medical Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(1);
-                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Paragraph p = new Paragraph(" ");
-                    LineSeparator line = new LineSeparator();
-                    line.setOffset(-4);
-                    line.setLineColor(BaseColor.LIGHT_GRAY);
-                    p.add(line);
-                    try {
-                        Header.document.add(p);
-                    } catch (DocumentException e) {
-                        e.printStackTrace();
-                    }
-                    Header.addEmptyLine(1);
-/*
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Personal & Medical Profile");
-
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(2);*/
-
-                  /*  if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
-                        final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-
-                        new Individual((PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))),PetLists);
-                    }
-                    else{*/
-
-                    final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final RelativeConnection con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
-
-                    new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist);
-                    // }
-                    // new MessageString().getProfileProfile(connection);
-                    final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<Implant> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<History> historList = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<String> hospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<String> conditionList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final ArrayList<Vaccine> vaccineList = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-
-
-                    new Individual(MedInfoQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID)), AllargyLists, implantsList, historList, hospitalList, conditionList, vaccineList);
-
-
-                    ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-                    ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
-                    // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
-                    new Individual("Emergency", emergencyList, phonelist);
-                    new Individual(specialistsList, "Physician");
-                    //   new Individual(proxyList);
-
-
-                    Header.document.close();
-
-                } else if (from.equals("Insurance")) {
-                    final String RESULT = Environment.getExternalStorageDirectory()
-                            + "/mylopdf/";
-                    File dirfile = new File(RESULT);
-                    dirfile.mkdirs();
-                    File file = new File(dirfile, "Insurance.pdf");
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                    copyFile("ic_launcher.png");
-                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
-                    Header.addEmptyLine(1);
-                    Header.addusereNameChank("Insurance");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(1);
-
-                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Paragraph p = new Paragraph(" ");
-                    LineSeparator line = new LineSeparator();
-                    line.setOffset(-4);
-                    line.setLineColor(BaseColor.LIGHT_GRAY);
-                    p.add(line);
-                    try {
-                        Header.document.add(p);
-                    } catch (DocumentException e) {
-                        e.printStackTrace();
-                    }
-                    Header.addEmptyLine(1);
-
-                    /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Insurance");
-
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));*/
-                    // Header.addEmptyLine(2);
-
-                    ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Form> formList = FormQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-
-                    new InsurancePdf(insuranceList);
-                    new InsurancePdf(CardList, 1);
-                    new InsurancePdf(formList, "form");
-
-                    Header.document.close();
-                } else if (from.equals("Event")) {
-                    final String RESULT = Environment.getExternalStorageDirectory()
-                            + "/mylopdf/";
-                    File dirfile = new File(RESULT);
-                    dirfile.mkdirs();
-                    File file = new File(dirfile, "Event.pdf");
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                    copyFile("ic_launcher.png");
-                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
-                    Header.addEmptyLine(1);
-                    Header.addusereNameChank("Event And Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(1);
-
-                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Paragraph p = new Paragraph(" ");
-                    LineSeparator line = new LineSeparator();
-                    line.setOffset(-4);
-                    line.setLineColor(BaseColor.LIGHT_GRAY);
-                    p.add(line);
-                    try {
-                        Header.document.add(p);
-                    } catch (DocumentException e) {
-                        e.printStackTrace();
-                    }
-                    Header.addEmptyLine(1);
-
-                   /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Event And Appointment Checklist");
-
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(2);*/
-
-                    ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    new EventPdf(NoteList, 1);
-                    new EventPdf(AppointList);
-                    Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    ArrayList<Living> LivingList = new ArrayList<Living>();
-                    LivingList.add(Live);
-                    new EventPdf(1, LivingList, 1);
-
-
-                    Header.document.close();
-                }
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-
-                        switch (itemPos) {
-                            /*    case 0: // email
-
-                             *//* emailAttachement(item);
-
-                        ShearedValues.activityID = getApplicationContext();*//*
-                                break;
-                            case 1: // email
-
-                       *//* bluetoothAttachement(new File(item.getAbsolutePath()),
-                                context);
-                        ShearedValues.activityID = getApplicationContext();*//*
-
-                                break;*/
-                            case 0: // view
-                                if (from.equals("Speciality")) {
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getDoctorsInfo());
-                                    result.append(new MessageString().getHospitalInfo());
-                                    result.append(new MessageString().getPharmacyInfo());
-                                    // result.append(new MessageString().getAideInfo());
-                                    result.append(new MessageString().getFinanceInfo());
-
-                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Specialty.pdf",
-                                            context, result);
-
-                                    System.out.println("\n" + result + "\n");
-
-                                } else if (from.equals("Emergency")) {
-                                    /*if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
-                                        StringBuffer result = new StringBuffer();
-                                        result.append(new MessageString().getProfileUser());
-                                        result.append(new MessageString().getMedicalInfo());
-                                        result.append(new MessageString().getEmergencyInfo());
-                                        result.append(new MessageString().getPhysicianInfo());
-                                     //   result.append(new MessageString().getProxyInfo());
-
-
-                                        new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                                + "/mylopdf/" 
-                                                + "/Profile.pdf",
-                                                context, result);
-
-                                        System.out.println("\n" + result + "\n");
-                                    }else{*/
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getProfileProfile());
-                                    result.append(new MessageString().getMedicalInfo());
-                                    result.append(new MessageString().getLivingInfo());
-                                    result.append(new MessageString().getEmergencyInfo());
-                                    result.append(new MessageString().getPhysicianInfo());
-                                    result.append(new MessageString().getProxyInfo());
-
-                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Profile.pdf",
-                                            context, result);
-
-                                    System.out.println("\n" + result + "\n");
-                 /* new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                            + "/mylopdf/" 
-                            + "/Profile.pdf", context,
-                            new MessageString().getProfileProfile(connection));*/
-                                    //  }
-                                } else if (from.equals("Insurance")) {
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getInsuranceInfo());
-                                    result.append(new MessageString().getInsuranceCard());
-                                    result.append(new MessageString().getFormInfo());
-
-                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Insurance.pdf",
-                                            context, result);
-
-                                    System.out.println("\n" + result + "\n");
-                                } else if (from.equals("Event")) {
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getEventInfo());
-                                    result.append(new MessageString().getAppointInfo());
-                                    result.append(new MessageString().getLivingInfo());
-
-
-                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" + "/Event.pdf",
-                                            context, result);
-
-                                    System.out.println("\n" + result + "\n");
-                                }
-                                break;
-
-                            case 1: // email
-                                if (from.equals("Speciality")) {
-                                    File f = new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" + "/Specialty.pdf");
-                                    emailAttachement(f, "Speciality");
-                                } else if (from.equals("Emergency")) {
-                                    File f = new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" + "/Profile.pdf");
-                                    emailAttachement(f, "Profile");
-                                } else if (from.equals("Insurance")) {
-                                    File f = new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Insurance.pdf");
-                                    emailAttachement(f, "Insurance");
-                                } else if (from.equals("Event")) {
-                                    File f = new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Event.pdf");
-                                    emailAttachement(f, "Event");
-                                }
-                                break;
-
-                            case 2://Fax
-                                if (from.equals("Speciality")) {
-                                    showInstructionDialog();
-                                    //Commented by shradha for user instructions
-                                  /*  serverAttachement(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Specialty.pdf");*/
-
-                                  /*  File f =new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" 
-                                            + "/Specialty.pdf");
-                                    emailAttachement(f);*/
-                                } else if (from.equals("Emergency")) {
-                                    showInstructionDialog();
-                                   /* serverAttachement(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Profile.pdf");*/
-
-                                  /*  File f =new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" 
-                                            + "/Profile.pdf");
-                                    emailAttachement(f);*/
-                                } else if (from.equals("Insurance")) {
-                                    showInstructionDialog();
-                                   /* serverAttachement(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Insurance.pdf");*/
-
-                                    /*File f =new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" 
-                                            + "/Insurance.pdf");*/
-                                    // emailAttachement(f);
-                                } else if (from.equals("Event")) {
-                                    showInstructionDialog();
-                                   /* serverAttachement(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Event.pdf");*/
-
-                                  /*  File f =new File(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/" 
-                                            + "/Event.pdf");
-                                    emailAttachement(f);*/
-                                }
-
-                                break;
-
-                        }
-                    }
-                });
-
-                builder.create().show();
-                // ((CarePlanActivity)context).CopyAssets();
-            }
+            public void onClick(View v) { showInstructionDialog();}
+//            {
+//
+//                if (from.equals("Speciality")) {
+//                    final String RESULT = Environment.getExternalStorageDirectory()
+//                            + "/mylopdf/";
+//                    File dirfile = new File(RESULT);
+//                    dirfile.mkdirs();
+//                    File file = new File(dirfile, "Specialty.pdf");
+//                    if (file.exists()) {
+//                        file.delete();
+//                    }
+//
+//                    new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    copyFile("ic_launcher.png");
+//                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+//                    Header.addEmptyLine(1);
+//                    Header.addusereNameChank("Specialty Contacts");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(1);
+//
+//                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Paragraph p = new Paragraph(" ");
+//                    LineSeparator line = new LineSeparator();
+//                    line.setOffset(-4);
+//                    line.setLineColor(BaseColor.LIGHT_GRAY);
+//                    p.add(line);
+//                    try {
+//                        Header.document.add(p);
+//                    } catch (DocumentException e) {
+//                        e.printStackTrace();
+//                    }
+//                    Header.addEmptyLine(1);
+//
+//                  /* new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "Specialty");*/
+//
+//                    // Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    //  Header.addEmptyLine(2);
+//
+//                    ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+//                    ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    // ArrayList<Aides> AidesList= AideQuery.fetchAllAideRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//
+//                    new Specialty(specialistsList, "Doctors");
+//                    new Specialty("Hospital", HospitalList);
+//                    new Specialty(PharmacyList);
+//                    //   new Specialty(AidesList,1);
+//                    new Specialty(1, financeList);
+//
+//                    Header.document.close();
+//
+//                } else if (from.equals("Emergency")) {
+//                    final String RESULT = Environment.getExternalStorageDirectory()
+//                            + "/mylopdf/";
+//                    File dirfile = new File(RESULT);
+//                    dirfile.mkdirs();
+//                    File file = new File(dirfile, "Profile.pdf");
+//                    if (file.exists()) {
+//                        file.delete();
+//                    }
+//                    new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    copyFile("ic_launcher.png");
+//                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+//                    Header.addEmptyLine(1);
+//                    Header.addusereNameChank("Personal & Medical Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(1);
+//                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Paragraph p = new Paragraph(" ");
+//                    LineSeparator line = new LineSeparator();
+//                    line.setOffset(-4);
+//                    line.setLineColor(BaseColor.LIGHT_GRAY);
+//                    p.add(line);
+//                    try {
+//                        Header.document.add(p);
+//                    } catch (DocumentException e) {
+//                        e.printStackTrace();
+//                    }
+//                    Header.addEmptyLine(1);
+///*
+//                    new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "Personal & Medical Profile");
+//
+//                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(2);*/
+//
+//                  /*  if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+//                        final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//
+//                        new Individual((PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))),PetLists);
+//                    }
+//                    else{*/
+//
+//                    final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final RelativeConnection con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+//
+//                    new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist);
+//                    // }
+//                    // new MessageString().getProfileProfile(connection);
+//                    final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<Implant> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<History> historList = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<String> hospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<String> conditionList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    final ArrayList<Vaccine> vaccineList = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//
+//
+//                    new Individual(MedInfoQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID)), AllargyLists, implantsList, historList, hospitalList, conditionList, vaccineList);
+//
+//
+//                    ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+//                    ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
+//                    // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
+//                    new Individual("Emergency", emergencyList, phonelist);
+//                    new Individual(specialistsList, "Physician");
+//                    //   new Individual(proxyList);
+//
+//
+//                    Header.document.close();
+//
+//                } else if (from.equals("Insurance")) {
+//                    final String RESULT = Environment.getExternalStorageDirectory()
+//                            + "/mylopdf/";
+//                    File dirfile = new File(RESULT);
+//                    dirfile.mkdirs();
+//                    File file = new File(dirfile, "Insurance.pdf");
+//                    if (file.exists()) {
+//                        file.delete();
+//                    }
+//                    new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    copyFile("ic_launcher.png");
+//                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+//                    Header.addEmptyLine(1);
+//                    Header.addusereNameChank("Insurance");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(1);
+//
+//                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Paragraph p = new Paragraph(" ");
+//                    LineSeparator line = new LineSeparator();
+//                    line.setOffset(-4);
+//                    line.setLineColor(BaseColor.LIGHT_GRAY);
+//                    p.add(line);
+//                    try {
+//                        Header.document.add(p);
+//                    } catch (DocumentException e) {
+//                        e.printStackTrace();
+//                    }
+//                    Header.addEmptyLine(1);
+//
+//                    /* new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "Insurance");
+//
+//                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));*/
+//                    // Header.addEmptyLine(2);
+//
+//                    ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Form> formList = FormQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//
+//                    new InsurancePdf(insuranceList);
+//                    new InsurancePdf(CardList, 1);
+//                    new InsurancePdf(formList, "form");
+//
+//                    Header.document.close();
+//                } else if (from.equals("Event")) {
+//                    final String RESULT = Environment.getExternalStorageDirectory()
+//                            + "/mylopdf/";
+//                    File dirfile = new File(RESULT);
+//                    dirfile.mkdirs();
+//                    File file = new File(dirfile, "Event.pdf");
+//                    if (file.exists()) {
+//                        file.delete();
+//                    }
+//                    new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    copyFile("ic_launcher.png");
+//                    Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+//                    Header.addEmptyLine(1);
+//                    Header.addusereNameChank("Event And Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(1);
+//
+//                    Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Paragraph p = new Paragraph(" ");
+//                    LineSeparator line = new LineSeparator();
+//                    line.setOffset(-4);
+//                    line.setLineColor(BaseColor.LIGHT_GRAY);
+//                    p.add(line);
+//                    try {
+//                        Header.document.add(p);
+//                    } catch (DocumentException e) {
+//                        e.printStackTrace();
+//                    }
+//                    Header.addEmptyLine(1);
+//
+//                   /* new Header().createPdfHeader(file.getAbsolutePath(),
+//                            "Event And Appointment Checklist");
+//
+//                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                    Header.addEmptyLine(2);*/
+//
+//                    ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    new EventPdf(NoteList, 1);
+//                    new EventPdf(AppointList);
+//                    Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                    ArrayList<Living> LivingList = new ArrayList<Living>();
+//                    LivingList.add(Live);
+//                    new EventPdf(1, LivingList, 1);
+//
+//
+//                    Header.document.close();
+//                }
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//
+//                        switch (itemPos) {
+//                            /*    case 0: // email
+//
+//                             *//* emailAttachement(item);
+//
+//                        ShearedValues.activityID = getApplicationContext();*//*
+//                                break;
+//                            case 1: // email
+//
+//                       *//* bluetoothAttachement(new File(item.getAbsolutePath()),
+//                                context);
+//                        ShearedValues.activityID = getApplicationContext();*//*
+//
+//                                break;*/
+//                            case 0: // view
+//                                if (from.equals("Speciality")) {
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getDoctorsInfo());
+//                                    result.append(new MessageString().getHospitalInfo());
+//                                    result.append(new MessageString().getPharmacyInfo());
+//                                    // result.append(new MessageString().getAideInfo());
+//                                    result.append(new MessageString().getFinanceInfo());
+//
+//                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Specialty.pdf",
+//                                            context, result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//
+//                                } else if (from.equals("Emergency")) {
+//                                    /*if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+//                                        StringBuffer result = new StringBuffer();
+//                                        result.append(new MessageString().getProfileUser());
+//                                        result.append(new MessageString().getMedicalInfo());
+//                                        result.append(new MessageString().getEmergencyInfo());
+//                                        result.append(new MessageString().getPhysicianInfo());
+//                                     //   result.append(new MessageString().getProxyInfo());
+//
+//
+//                                        new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                                + "/mylopdf/"
+//                                                + "/Profile.pdf",
+//                                                context, result);
+//
+//                                        System.out.println("\n" + result + "\n");
+//                                    }else{*/
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getProfileProfile());
+//                                    result.append(new MessageString().getMedicalInfo());
+//                                    result.append(new MessageString().getLivingInfo());
+//                                    result.append(new MessageString().getEmergencyInfo());
+//                                    result.append(new MessageString().getPhysicianInfo());
+//                                    result.append(new MessageString().getProxyInfo());
+//
+//                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Profile.pdf",
+//                                            context, result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//                 /* new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                            + "/mylopdf/"
+//                            + "/Profile.pdf", context,
+//                            new MessageString().getProfileProfile(connection));*/
+//                                    //  }
+//                                } else if (from.equals("Insurance")) {
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getInsuranceInfo());
+//                                    result.append(new MessageString().getInsuranceCard());
+//                                    result.append(new MessageString().getFormInfo());
+//
+//                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Insurance.pdf",
+//                                            context, result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//                                } else if (from.equals("Event")) {
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getEventInfo());
+//                                    result.append(new MessageString().getAppointInfo());
+//                                    result.append(new MessageString().getLivingInfo());
+//
+//
+//                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/" + "/Event.pdf",
+//                                            context, result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//                                }
+//                                break;
+//
+//                            case 1: // email
+//                                if (from.equals("Speciality")) {
+//                                    File f = new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/" + "/Specialty.pdf");
+//                                    emailAttachement(f, "Speciality");
+//                                } else if (from.equals("Emergency")) {
+//                                    File f = new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/" + "/Profile.pdf");
+//                                    emailAttachement(f, "Profile");
+//                                } else if (from.equals("Insurance")) {
+//                                    File f = new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Insurance.pdf");
+//                                    emailAttachement(f, "Insurance");
+//                                } else if (from.equals("Event")) {
+//                                    File f = new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Event.pdf");
+//                                    emailAttachement(f, "Event");
+//                                }
+//                                break;
+//
+//                            case 2://Fax
+//                                if (from.equals("Speciality")) {
+//                                    showInstructionDialog();
+//                                    //Commented by shradha for user instructions
+//                                  /*  serverAttachement(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Specialty.pdf");*/
+//
+//                                  /*  File f =new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Specialty.pdf");
+//                                    emailAttachement(f);*/
+//                                } else if (from.equals("Emergency")) {
+//                                    showInstructionDialog();
+//                                   /* serverAttachement(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Profile.pdf");*/
+//
+//                                  /*  File f =new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Profile.pdf");
+//                                    emailAttachement(f);*/
+//                                } else if (from.equals("Insurance")) {
+//                                    showInstructionDialog();
+//                                   /* serverAttachement(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Insurance.pdf");*/
+//
+//                                    /*File f =new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Insurance.pdf");*/
+//                                    // emailAttachement(f);
+//                                } else if (from.equals("Event")) {
+//                                    showInstructionDialog();
+//                                   /* serverAttachement(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Event.pdf");*/
+//
+//                                  /*  File f =new File(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Event.pdf");
+//                                    emailAttachement(f);*/
+//                                }
+//
+//                                break;
+//
+//                        }
+//                    }
+//                });
+//
+//                builder.create().show();
+//                // ((CarePlanActivity)context).CopyAssets();
+//            }
         });
     }
 
