@@ -336,7 +336,7 @@
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/txtVeteranPh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -345,6 +345,8 @@
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
 android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="12"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -444,7 +446,7 @@ android:inputType="number"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintTextAppearance="@style/TextInputLayoutHintText">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/txtCarePh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -453,6 +455,8 @@ android:inputType="number"
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
 android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="12"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"

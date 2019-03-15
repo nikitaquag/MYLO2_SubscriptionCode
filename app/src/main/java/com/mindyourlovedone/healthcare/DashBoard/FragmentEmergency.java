@@ -525,8 +525,13 @@ emergencyList=new ArrayList<>();
 
 
         ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-        final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
-        new Individual("Emergency", emergencyList,phonelist);
+        for(int i=0;i<emergencyList.size();i++) {
+            final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), emergencyList.get(i).getId(),"Emergency");
+            new Individual("Emergency", emergencyList.get(i), phonelist,i);
+        }
+
+     //  final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
+      // new Individual("Emergency", emergencyList,phonelist);
         Header.document.close();
 
 
