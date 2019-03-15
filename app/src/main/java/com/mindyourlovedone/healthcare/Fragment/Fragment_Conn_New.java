@@ -40,6 +40,7 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
     LinearLayout llSelf;
     ImageView imgSelfFolder, imgHelp, imgProfile;
     TextView txtSelf, txtName;
+    RelativeLayout rlSelf;
 
     @Nullable
     @Override
@@ -94,6 +95,7 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
         llSelf.setOnClickListener(this);
         imgSelfFolder.setOnClickListener(this);
         imgHelp.setOnClickListener(this);
+        rlSelf.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -106,7 +108,7 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
         txtName = getActivity().findViewById(R.id.txtName);
         txtName.setVisibility(View.VISIBLE);
         txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);
-
+        rlSelf=rootView.findViewById(R.id.rlSelf);
         lvSelf = rootView.findViewById(R.id.lvSelf);
         floatAdd = rootView.findViewById(R.id.floatAdd);
         llSelf = rootView.findViewById(R.id.llSelf);
@@ -130,6 +132,10 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
                 break;
             case R.id.imgSelfFolder:
                 callFragment(new FragmentDashboardNew());
+                break;
+            case R.id.rlSelf:
+                Intent intentP= new Intent(getActivity(),ProfileActivity.class);
+                startActivity(intentP);
                 break;
 
         }
