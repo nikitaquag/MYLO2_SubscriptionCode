@@ -233,7 +233,7 @@
                 <View
                     android:id="@+id/vbot"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/llProfile"
                     android:layout_marginTop="@dimen/dimension20dp"
                     android:background="@color/colorLightGray"></View>
@@ -576,7 +576,7 @@
                 <View
                     android:id="@+id/view2"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/tilAddres"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1140,7 +1140,7 @@
                 <View
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/rlEyess"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1463,7 +1463,7 @@
                 <View
                     android:id="@+id/view12"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/rlLive"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1562,7 +1562,7 @@
                 <View
                     android:id="@+id/view4"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/tiltelephone"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1740,7 +1740,7 @@
                 <View
                     android:id="@+id/view7"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/rgUnderstand"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1818,7 +1818,7 @@
                 <View
                     android:id="@+id/view58"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/flMar"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:layout_marginTop="@dimen/dimension15dp"
@@ -1857,7 +1857,7 @@
                 <View
                     android:id="@+id/view5"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/tilReligion"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
@@ -1987,7 +1987,7 @@
                 <View
                     android:id="@+id/view6"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension12dp"
                     android:layout_below="@+id/tilId"
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
