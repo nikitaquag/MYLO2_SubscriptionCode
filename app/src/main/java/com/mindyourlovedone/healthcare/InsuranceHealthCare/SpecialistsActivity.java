@@ -940,15 +940,25 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             new Individual(MedInfoQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID)), AllargyLists, implantsList, historList, hospitalList, conditionList, vaccineList);
 
-
             ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+            for(int i=0;i<emergencyList.size();i++) {
+                final ArrayList<ContactData> phonelistd= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), emergencyList.get(i).getId(),"Emergency");
+                new Individual("Emergency", emergencyList.get(i), phonelistd,i);
+            }
+            ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
+            for(int i=0;i<specialistsList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Physician");
+                new Individual("Physician", specialistsList.get(i), phonelists,i);
+            }
+
+           /* ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
             ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
             // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
             new Individual("Emergency", emergencyList, phonelist);
             new Individual(specialistsList, "Physician");
             //   new Individual(proxyList);
 
-
+*/
             Header.document.close();
 
         } else if (from.equals("Insurance")) {
