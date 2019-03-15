@@ -1171,7 +1171,6 @@
                     android:layout_below="@+id/view58"
                     android:layout_alignParentRight="true"
 
-                    android:layout_marginTop="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
@@ -1698,7 +1697,6 @@
                     android:layout_below="@+id/rlLangauge"
                     android:layout_alignParentRight="true"
 
-                    android:layout_marginTop="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
@@ -1884,8 +1882,7 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_below="@+id/view5"
                     android:layout_alignParentRight="true"
-
-                    android:layout_marginTop="@dimen/dimension10dp"
+                   android:layout_marginBottom="@dimen/dimension5dp"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
@@ -2003,7 +2000,7 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:paddingBottom="@dimen/dimension8dp"
+                    android:paddingBottom="@dimen/dimension20dp"
                     android:text="Pet(s)"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension20dp" />
@@ -2014,10 +2011,10 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_below="@+id/view6"
                     android:layout_alignParentRight="true"
-                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension20dp"
                     android:layout_alignTop="@+id/txtPet"
                     android:layout_marginRight="@dimen/dimension15dp"
-                    android:paddingBottom="@dimen/dimension10dp"
+                    android:paddingBottom="@dimen/dimension20dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
                     android:gravity="center_vertical"
