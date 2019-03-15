@@ -371,6 +371,11 @@
                             android:src="@drawable/edit_n" />
                     </RelativeLayout>
 
+                    <View
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/rlCard"
+                        android:layout_height="@dimen/dimension50dp"/>
 
                 </RelativeLayout>
 
@@ -452,6 +457,7 @@
 
                     <com.mindyourlovedone.healthcare.customview.NonScrollListView
                         android:id="@+id/listPhone"
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:divider="@null"
@@ -518,6 +524,7 @@
                         </android.support.design.widget.TextInputLayout>
 
                         <ImageView
+
                             android:id="@+id/imgAddPhone"
                             android:layout_width="@dimen/dimension0dp"
                             android:layout_height="@dimen/dimension35dp"
@@ -527,6 +534,8 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
                         android:id="@+id/llAddPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1141,7 +1150,7 @@
                     android:id="@+id/txtLiving"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/view3"
+                    android:layout_below="@+id/view58"
                     android:layout_marginLeft="@dimen/dimension5dp"
                     android:fontFamily="@font/lato"
                     android:paddingLeft="@dimen/dimension20dp"
@@ -1159,7 +1168,7 @@
                     android:id="@+id/tbLive"
                     android:layout_width="@dimen/dimension70dp"
                     android:layout_height="@dimen/dimension35dp"
-                    android:layout_below="@+id/view3"
+                    android:layout_below="@+id/view58"
                     android:layout_alignParentRight="true"
 
                     android:layout_marginTop="@dimen/dimension10dp"
@@ -1394,6 +1403,50 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
                             android:hint="Other(Specify)"
+                            android:imeOptions="actionNext"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:backgroundTint="@color/colordivideGray"
+
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/vw63"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:backgroundTint="@color/colordivideGray"
+
+                        android:layout_below="@+id/tilOther"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilpeople"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw63"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:gravity="bottom"
+
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="visible"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
+
+                        >
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtpeople"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Names of People"
                             android:imeOptions="actionNext"
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"
@@ -1697,7 +1750,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/dimension22dp"
-                    android:layout_below="@+id/view7"
+                    android:layout_below="@+id/view3"
                     >
                 <ImageView
                     android:id="@+id/imgMr"
@@ -1761,11 +1814,20 @@
                     <requestFocus />
                 </android.support.design.widget.TextInputLayout>
                 </FrameLayout>
+
+                <View
+                    android:id="@+id/view58"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_below="@+id/flMar"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilReligion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/flMar"
+                    android:layout_below="@+id/view7"
                     android:gravity="bottom"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
@@ -1777,7 +1839,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/lato"
-                        android:hint="Religion - Notes"
+                        android:hint="Religious Affiliation &amp; Notes"
                         android:imeOptions="actionNext"
                         android:maxLines="3"
                         android:backgroundTint="@color/colordivideGray"
@@ -1871,6 +1933,7 @@
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingRight="@dimen/dimension20dp"
                     android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:visibility="gone"
                     app:hintTextAppearance="@style/TextInputLayoutHintText">
 
@@ -1951,9 +2014,10 @@
                     android:layout_height="@dimen/dimension35dp"
                     android:layout_below="@+id/view6"
                     android:layout_alignParentRight="true"
-
-                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:layout_alignTop="@+id/txtPet"
                     android:layout_marginRight="@dimen/dimension15dp"
+                    android:paddingBottom="@dimen/dimension10dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
                     android:gravity="center_vertical"
@@ -2063,12 +2127,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlPet"
-                    android:layout_marginBottom="@dimen/dimension10dp"
-                    android:background="@color/colorLightGray"
+                    android:background="#F6f6f6"
                     android:fontFamily="@font/lato"
                     android:gravity="center"
                     android:paddingTop="@dimen/dimension12dp"
                     android:paddingBottom="@dimen/dimension12dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
                     android:text="ADD NEW"
                     android:textColor="@color/colorTabDotsBlueColor"
                     android:textSize="@dimen/dimension20dp"
@@ -2079,10 +2143,20 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension15dp"
                     android:layout_below="@+id/txtAddPet"
-                    android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:background="@color/colorLightGray" />
             </RelativeLayout>
+
         </RelativeLayout>
     </ScrollView>
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimension16dp"
+        android:layout_marginBottom="@dimen/dimension16dp"
+        />
 </RelativeLayout>

@@ -163,7 +163,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setText("Primary Physician");
         rlGuide = rootview.findViewById(R.id.rlGuide);
-        imgRight = getActivity().findViewById(R.id.imgRight);
+        imgRight = getActivity().findViewById(R.id.imgHelp);
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         llAddSpecialist = rootview.findViewById(R.id.llAddSpecialist);
         llAddSpecialist.setVisibility(View.INVISIBLE);
@@ -298,98 +298,100 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 // DialogManager dialogManager=new DialogManager(new FragmentSpecialist());
                 // dialogManager.showCommonDialog("Add?","Do you want to add new specialist?",getActivity(),"ADD_SPECIALIST",null);
                 break;*/
-            case R.id.imgRight:
+            case R.id.imgHelp:
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "PhysicianInstruction");
+                startActivity(i);
 
-
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "Physician.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
-
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", getActivity());
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Primary Physician");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Primary Physician");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-
-
-                ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
-                new Individual(specialistsList, "Physician");
-                Header.document.close();
-
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/Physician.pdf";
-                        switch (itemPos) {
-                            case 0: //View
-                                if (preferences.getInt(PrefConstants.CONNECTED_USERID) == (preferences.getInt(PrefConstants.USER_ID))) {
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getPhysicianInfo());
-
-                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
-                                            + "/mylopdf/"
-                                            + "/Physician.pdf",
-                                            getActivity(), result);
-
-                                    System.out.println("\n" + result + "\n");
-                                } else {
-                                    StringBuffer result = new StringBuffer();
-                                    result.append(new MessageString().getPhysicianInfo());
-
-                                    new PDFDocumentProcess(path,
-                                            getActivity(), result);
-
-                                    System.out.println("\n" + result + "\n");
-                                }
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, getActivity(), "Primary Physician");
-                                break;
-                          /*  case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
-                            case 2://FTU
-                                Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "PhysicianInstruction");
-                                startActivity(i);
-                                break;
-                        }
-                    }
-
-                });
-                builder.create().show();
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "Physician.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", getActivity());
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Primary Physician");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+//              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Primary Physician");
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//
+//
+//                ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
+//                new Individual(specialistsList, "Physician");
+//                Header.document.close();
+//
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/Physician.pdf";
+//                        switch (itemPos) {
+//                            case 0: //View
+//                                if (preferences.getInt(PrefConstants.CONNECTED_USERID) == (preferences.getInt(PrefConstants.USER_ID))) {
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getPhysicianInfo());
+//
+//                                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+//                                            + "/mylopdf/"
+//                                            + "/Physician.pdf",
+//                                            getActivity(), result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//                                } else {
+//                                    StringBuffer result = new StringBuffer();
+//                                    result.append(new MessageString().getPhysicianInfo());
+//
+//                                    new PDFDocumentProcess(path,
+//                                            getActivity(), result);
+//
+//                                    System.out.println("\n" + result + "\n");
+//                                }
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, getActivity(), "Primary Physician");
+//                                break;
+//                          /*  case 2://fax
+//                                new FaxCustomDialog(getActivity(), path).show();
+//                                break;*/
+//                            case 2://FTU
+//                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+//                                i.putExtra("From", "PhysicianInstruction");
+//                                startActivity(i);
+//                                break;
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
         }
     }

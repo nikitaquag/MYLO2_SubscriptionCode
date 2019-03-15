@@ -33,8 +33,10 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -86,6 +88,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         preferences = new Preferences(getActivity());
         dbHelper = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
+        ContactDataQuery c=new ContactDataQuery(getActivity(),dbHelper);
     }
 
     private void setListData() {
@@ -163,7 +166,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("Emergency Contacts &\nHealth Care Proxy Agent");
         rlGuide = rootview.findViewById(R.id.rlGuide);
-        imgRight = getActivity().findViewById(R.id.imgRight);
+        imgRight = getActivity().findViewById(R.id.imgHelp);
         /*imgNoti = (ImageView) getActivity().findViewById(R.id.imgNoti);
         imgNoti.setVisibility(View.GONE);*/
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
@@ -392,87 +395,93 @@ emergencyList=new ArrayList<>();
                 startActivity(i);*/
                 break;
 
-            case R.id.imgRight:
+            case R.id.imgHelp:
 
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "Emergency.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "EmergencyInstruction");
+                startActivity(i);
 
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", getActivity());
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Emergency Contacts & \nHealth Care Proxy Agent");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-/*
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Emergency Contacts");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-
-
-                ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-                new Individual("Emergency", emergencyList);
-                Header.document.close();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/Emergency.pdf";
-                        switch (itemPos) {
-                            case 0: //View
-                                StringBuffer result = new StringBuffer();
-                                result.append(new MessageString().getEmergencyInfo());
-
-                                new PDFDocumentProcess(path,
-                                        getActivity(), result);
-
-                                System.out.println("\n" + result + "\n");
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, getActivity(), "Emergency Contact");
-                                break;
-                           /* case 2://Fax
-
-                               // new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
-                            case 2://FTU
-                                Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "EmergencyInstuction");
-                                startActivity(i);
-                                break;
-                        }
-                    }
-
-                });
-                builder.create().show();
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "Emergency.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", getActivity());
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Emergency Contacts & \nHealth Care Proxy Agent");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+///*
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Emergency Contacts");
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//
+//
+//                ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+//             final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
+//
+//                new Individual("Emergency", emergencyList, phonelist);
+//                Header.document.close();
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/Emergency.pdf";
+//                        switch (itemPos) {
+//                            case 0: //View
+//                                StringBuffer result = new StringBuffer();
+//                                result.append(new MessageString().getEmergencyInfo());
+//
+//                                new PDFDocumentProcess(path,
+//                                        getActivity(), result);
+//
+//                                System.out.println("\n" + result + "\n");
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, getActivity(), "Emergency Contact");
+//                                break;
+//                           /* case 2://Fax
+//
+//                               // new FaxCustomDialog(getActivity(), path).show();
+//                                break;*/
+//                            case 2://FTU
+//                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+//                                i.putExtra("From", "EmergencyInstuction");
+//                                startActivity(i);
+//                                break;
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
         }
     }
@@ -510,13 +519,14 @@ emergencyList=new ArrayList<>();
         Header.addEmptyLine(1);
 /*
                 new Header().createPdfHeader(file.getAbsolutePath(),
-
                         "Emergency Contacts");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(2);*/
 
-         ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-        new Individual("Emergency", emergencyList);
+
+        ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+        final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),preferences.getInt(PrefConstants.ID),"Emergency");
+        new Individual("Emergency", emergencyList,phonelist);
         Header.document.close();
 
 

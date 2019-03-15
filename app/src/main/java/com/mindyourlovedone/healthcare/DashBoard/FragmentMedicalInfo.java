@@ -930,7 +930,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("IsImplant", false);
             allergyIntent.putExtra("ADD", "AllergyUpdate");
             allergyIntent.putExtra("Title", "Update Allergy and Medication Reaction");
-            allergyIntent.putExtra("Name", "Add Allergy(food, medication, tape, latex)");
+            allergyIntent.putExtra("Name", "Add Allergy (e.g. food, medication, latex)");
             allergyIntent.putExtra("AllergyObject", a);
             allergyIntent.putExtra("ID", a.getId()+"");
             startActivityForResult(allergyIntent, REQUEST_ALLERGY);
@@ -1483,8 +1483,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyIntent.putExtra("IsHistory", false);
                 allergyIntent.putExtra("IsImplant", false);
                 allergyIntent.putExtra("ADD", "Allergy");
-                allergyIntent.putExtra("Title", "Add Allergy");
-                allergyIntent.putExtra("Name", "Add Allergy (food, medication, tape, latex)");
+                allergyIntent.putExtra("Title", "Add Allergy and Medication Reaction");
+                allergyIntent.putExtra("Name", "Add Allergy (e.g. food, medication, latex) ");
                 startActivityForResult(allergyIntent, REQUEST_ALLERGY);
                 break;
 

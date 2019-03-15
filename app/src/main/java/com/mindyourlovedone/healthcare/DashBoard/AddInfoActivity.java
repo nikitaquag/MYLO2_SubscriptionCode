@@ -76,7 +76,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     String msg = "";
     TextView txtHeader, txtInfo, txtMedical;
     TextInputLayout tilMedical, tilLocation, tilDetails, tilNote;
-    RelativeLayout rlName, rlReactionSpinner;
+    RelativeLayout rlName, rlReactionSpinner,relbtm;
 //    MySpinner spinner;// spinnerReaction;
     FloatingActionButton floatProfile;
     private static int RESULT_MEDICAL = 2;
@@ -254,6 +254,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             switch (from) {
                 case "Allergy":
                     btn_delete.setVisibility(View.GONE);
+                    relbtm.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
                     txtMedical.setVisibility(View.GONE);
@@ -265,6 +266,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "AllergyUpdate":
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -277,6 +279,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "Implants":
+                    relbtm.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -297,6 +300,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "ImplantUpdate":
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -318,6 +322,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "Condition":
+                    relbtm.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -328,7 +333,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "ConditionUpdate":
-
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.VISIBLE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -339,6 +344,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "Hospital":
+                    relbtm.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -349,6 +355,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "HospitalUpdate":
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.VISIBLE);
@@ -359,6 +366,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
                     break;
                 case "History":
+                    relbtm.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -371,6 +379,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "HistoryUpdate":
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -383,6 +392,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "Vaccine":
+                    relbtm.setVisibility(View.GONE);
                     btn_delete.setVisibility(View.GONE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -395,6 +405,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "VaccineUpdate":
+                    relbtm.setVisibility(View.VISIBLE);
                     btn_delete.setVisibility(View.VISIBLE);
                     rlPdf.setVisibility(View.GONE);
                     tilTitle.setVisibility(View.GONE);
@@ -859,7 +870,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         fltypeReaction = findViewById(R.id.fltypeReaction);
         txttypeReaction = findViewById(R.id.txttypeReaction);
         btn_delete = findViewById(R.id.btn_delete);
+        relbtm = findViewById(R.id.relbtm);
         btn_delete.setVisibility(View.GONE);
+        relbtm.setVisibility(View.GONE);
         floatProfile = findViewById(R.id.floatProfile);
         imgBack = findViewById(R.id.imgBack);
         imgHome = findViewById(R.id.imgHome);

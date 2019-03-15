@@ -23,7 +23,6 @@ import android.provider.MediaStore;
 import android.support.annotation.IdRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -39,8 +38,10 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -158,20 +159,21 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     //   PersonalInfo personalInfo;
     RadioGroup rgGender;
     RadioButton rbMale,rbFemale,rbTrans;
-    
+    LinearLayout llAddPhone;
     ToggleButton tbLive,tbEnglish,tbVeteran,tbPet,tbCard;
 
     TextInputLayout tilBdate, tilName, tilWorkPhone;
     String[] Relationship = {"Aunt", "Brother", "Brother-in-law", "Client", "Cousin", "Dad", "Daughter", "Father-in-law", "Friend", "GrandDaughter", "GrandMother", "GrandFather", "GrandSon", "Husband", "Mom", "Mother-in-law", "Neighbor", "Nephew", "Niece", "Patient", "Roommate", "Significant Other", "Sister", "Sister-in-law", "Son", "Uncle", "Wife", "Other"};
     String[] EyesList = {"Blue", "Green", "Hazel", "Brown"};
-    String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed"};
+    String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Other", "Separated", "Single", "Widowed"};
     String[] LangList = {"Arabic", "Chinese", "English", "French", "German", "Greek", "Hebrew", "Hindi", "Italian", "Japanese", "Korean", "Russian", "Spanish", "Other"};
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
     boolean checkSave = false;
     boolean isOnActivityResult = false;
     String cardImgPath = "";
-    FloatingActionButton floatProfile;;
+    FloatingActionButton floatProfile;
+    ImageView floatOptions;;
     NonScrollListView listPhone;
     ContactData contactData;
      RelativeConnection con;
@@ -256,6 +258,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgBack.setOnClickListener(this);
         txtBdate.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
+        imgProfile.setOnClickListener(this);
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
@@ -265,6 +268,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgAddpet.setOnClickListener(this);
         txtAddPet.setOnClickListener(this);
         imgRight.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
         chkChild.setOnCheckedChangeListener(this);
         chkSibling.setOnCheckedChangeListener(this);
         chkFriend.setOnCheckedChangeListener(this);
@@ -275,7 +279,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initUI() {
+        llAddPhone = findViewById(R.id.llAddPhone);
         floatProfile = findViewById(R.id.floatProfile);
+        floatOptions = findViewById(R.id.floatOptions);
         int user = preferences.getInt(PrefConstants.CONNECTED_USERID);
       /*  imgR = findViewById(R.id.imgR);
         imgR.setVisibility(View.VISIBLE);*/
@@ -901,21 +907,198 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     }
 
 
+    //Nikita - PH format code ends here
+    ArrayList<EditText> mTextViewListValue = new ArrayList<>();
+    ArrayList<TextView> mTextViewListType = new ArrayList<>();
+    ArrayList<ImageView> mImageViewType = new ArrayList<>();
 
-    public void addNewPhone() {
-        ContactData c=new ContactData();
-        phonelist.add(c);
-        pd.notifyDataSetChanged();
-    }
-    public void setListPh() {
-       // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
-        if (phonelist.size()==0) {
-            ContactData c=new ContactData();
-            phonelist.add(c);
+    public class CustomTextWatcher implements TextWatcher {
+        EditText et = null;
+
+        CustomTextWatcher(EditText et) {
+            this.et = et;
         }
-         pd = new PhoneAdapter(context, phonelist);
-        listPhone.setAdapter(pd);
+
+        int prevL = 0;
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            prevL = et.getText().toString().length();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int length = editable.length();
+//            int poss = Integer.parseInt(et.getTag().toString());
+            if ((prevL < length) && (length == 3 || length == 7)) {
+                et.setText(editable.toString() + "-");
+                et.setSelection(et.getText().length());
+            }
+//            phonelist.get(poss).setValue(et.getText().toString());
+        }
+
     }
+
+    public void deletePhone(int position) {// Tricky code to delete required item
+        try {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
+                    phonelist.remove(phonelist.get(i));
+                    llAddPhone.removeAllViews();
+                    mTextViewListValue.clear();
+                    mTextViewListType.clear();
+                    mImageViewType.clear();
+                    setListPh();
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void addNewPhone(final int pos) {
+        try {
+
+            LayoutInflater inflater = getLayoutInflater();
+            View view = inflater.inflate(R.layout.row_phone, null);
+
+            ImageView imgdeletePhone;
+            TextView txtType;
+            EditText txtPhoNum;
+
+            imgdeletePhone = view.findViewById(R.id.imgdeletePhone);
+            txtPhoNum = view.findViewById(R.id.txtPhoNum);
+            txtType = view.findViewById(R.id.txtType);
+
+            //Add the instance to the ArrayList -  to maintian separate tags of views
+            mTextViewListValue.add(pos, txtPhoNum);
+            mTextViewListType.add(pos, txtType);
+            mImageViewType.add(pos, imgdeletePhone);
+
+            if (pos == 0) {
+                imgdeletePhone.setImageResource(R.drawable.add_n);
+            } else {
+                imgdeletePhone.setImageResource(R.drawable.delete_n);
+            }
+
+            mImageViewType.get(pos).setTag("" + pos);
+            mTextViewListType.get(pos).setTag("" + pos);
+            mTextViewListValue.get(pos).setTag("" + pos);
+
+            mTextViewListType.get(pos).setText("" + phonelist.get(pos).getContactType());
+            mTextViewListValue.get(pos).setText("" + phonelist.get(pos).getValue());
+
+            mTextViewListValue.get(pos).addTextChangedListener(new CustomTextWatcher(mTextViewListValue.get(pos)));
+
+            mTextViewListValue.get(pos).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        int poss = Integer.parseInt(mTextViewListValue.get(pos).getTag().toString());
+                        final TextView Caption = (TextView) view;
+                        phonelist.get(poss).setValue(Caption.getText().toString());
+                    }
+                }
+            });
+
+            mImageViewType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int poss = Integer.parseInt(mImageViewType.get(pos).getTag().toString());
+                    if (poss == 0) {
+                        ContactData c = new ContactData();
+                        c.setId(phonelist.size());
+                        phonelist.add(c);
+                        addNewPhone(c.getId());
+                    } else {
+                        deletePhone(poss);
+                    }
+                }
+            });
+
+            mTextViewListType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
+                    AlertDialog.Builder b = new AlertDialog.Builder(context);
+                    b.setTitle("Type");
+                    final String[] types = {"Fax", "Home", "Mobile", "None", "Office"};
+                    b.setItems(types, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (types[which].equalsIgnoreCase("None")) {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType("");
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            } else {
+                                phonelist.get(position).setValue(phonelist.get(position).getValue());
+                                phonelist.get(position).setContactType(types[which]);
+                                mTextViewListType.get(pos).setText(phonelist.get(position).getContactType());
+                            }
+                            dialog.dismiss();
+                        }
+
+                    });
+                    b.show();
+                }
+            });
+
+            llAddPhone.addView(view, pos);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void setListPh() {
+
+        if (phonelist.isEmpty()) {
+            ContactData c=new ContactData();
+            c.setId(0);
+            phonelist.add(c);
+            addNewPhone(0);
+        } else {
+            for (int i = 0; i < phonelist.size(); i++) {
+                if (phonelist.get(i) != null && phonelist.get(i).getValue() != null) {
+                    phonelist.get(i).setId(i);
+                    String input = phonelist.get(i).getValue();
+
+                    if(!input.contains("-")) {
+                        if (input.contains("(")) {
+                            input = input.replace("(", "");
+                        }
+
+                        if (input.contains(")")) {
+                            input = input.replace(")", "");
+                        }
+
+                        if(input.contains("+")) {
+                            if (input.length() == 13) {
+                                String str_getMOBILE = input.substring(3);
+
+                                input = str_getMOBILE;
+                            } else if (input.length() == 12) {
+                                String str_getMOBILE = input.substring(2);
+                                input = str_getMOBILE;
+                            }
+                        }
+
+                        String number = input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
+                        phonelist.get(i).setValue(number);
+                        System.out.println(number);
+                    }
+                    addNewPhone(i);
+                }
+            }
+        }
+
+    }
+
+    //Nikita - PH Format code ends here
 
     private void hideSoftKeyboard() {
         if (getCurrentFocus() != null) {
@@ -1697,7 +1880,20 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 startActivityForResult(intent, REQUEST_PET);
                 break;
 
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
+
             case R.id.txtSave:
+                for (int i = 0; i < phonelist.size(); i++) {
+                    ContactData c = phonelist.get(i);
+                    for (int k = 0; k < mTextViewListValue.size(); k++) {
+                        if (Integer.parseInt(mTextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                            phonelist.get(i).setValue(mTextViewListValue.get(k).getText().toString());
+                        }
+                    }
+                }
+
                 for (int i=0;i<phonelist.size();i++)
                 {
                     if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
@@ -1906,7 +2102,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
                 final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                new Individual(personalInfoList, PetList);
+                final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+
+                new Individual(personalInfoList, PetList,phonelist);
                 // }
 
                 Header.document.close();
@@ -1964,6 +2162,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 showCardDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, imgProfile, "Profile");
 
                 break;
+            case R.id.imgProfile:
+                showCardDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, imgProfile, "Profile");
+
+                break;
             case R.id.imgEditCard:
                 showCardDialog(RESULT_CAMERA_IMAGE_CARD, RESULT_SELECT_PHOTO_CARD, imgCard, "Card");
 
@@ -2017,6 +2219,129 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
                 break;*/
         }
+    }
+
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "PersonalProfile.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", context);
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Personal Profile");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                    final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    final PersonalInfo personalInfoList =  PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+                    new Individual(personalInfoList,PetLists);
+                }
+                else{*/
+        final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+
+        new Individual(personalInfoList, PetList, phonelist);
+        // }
+
+        Header.document.close();
+
+        //------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(context);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf"
+                        + "/PersonalProfile.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Personal Profile");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf"
+                        + "/PersonalProfile.pdf";
+                StringBuffer result = new StringBuffer();
+                               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                                    result.append(new MessageString().getProfileUser());
+                                }else {*/
+                result.append(new MessageString().getProfileProfile());
+                // }
+
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
     }
 
     private void showCardDialog(final int resultCameraImage, final int resultSelectPhoto, final ImageView imgProfile, final String from) {
@@ -3063,11 +3388,6 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             return "Exception";
         }
 
-    }
-
-    public void deletePhone(int position) {
-        phonelist.remove(phonelist.get(position));
-        setListPh();
     }
 
 

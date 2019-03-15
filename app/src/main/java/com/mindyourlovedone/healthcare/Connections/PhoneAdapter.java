@@ -196,7 +196,7 @@ public class PhoneAdapter extends BaseAdapter {
               //  Toast.makeText(context,"CLicked",Toast.LENGTH_SHORT).show();
                 if (position==0)
                 {
-                    ((ProfileActivity)context).addNewPhone();
+                    ((ProfileActivity)context).addNewPhone(position);
                 }else{
                     ((ProfileActivity)context).deletePhone(position);
                 }

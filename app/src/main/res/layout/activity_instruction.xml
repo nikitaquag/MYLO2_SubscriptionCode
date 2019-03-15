@@ -47,6 +47,7 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension22dp" />
         <ImageView
+            android:visibility="gone"
             android:id="@+id/imgHelp"
             android:layout_width="@dimen/dimension25dp"
             android:layout_height="@dimen/dimension30dp"
@@ -56,10 +57,11 @@
             android:src="@drawable/information"
             android:tint="@color/colorWhite" />
 
-        <TextView
+        <ImageView
+           android:src="@drawable/upload"
             android:id="@+id/txtEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
@@ -68,7 +70,7 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp"
             android:textStyle="bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/imgDot"

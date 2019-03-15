@@ -101,7 +101,7 @@
         android:id="@+id/rlFloatNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/floatCancel"
+        android:layout_above="@+id/rlFloatfax"
         android:gravity="center_vertical">
 
         <android.support.design.widget.FloatingActionButton
@@ -126,6 +126,42 @@
             android:layout_toRightOf="@+id/floatNew"
             android:text="Email Reports"
 android:fontFamily="@font/lato_bold"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rlFloatfax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/floatCancel"
+        android:gravity="center_vertical">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatfax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:src="@drawable/fax"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/colorRegisteredGreen"
+            app:fabSize="normal" />
+
+        <TextView
+            android:id="@+id/txtfax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/floatfax"
+            android:text="Fax Reports"
+            android:fontFamily="@font/lato_bold"
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />
