@@ -47,6 +47,7 @@
         android:paddingTop="@dimen/dimension8dp"
         android:paddingRight="@dimen/dimension18dp"
         android:paddingBottom="@dimen/dimension8dp"
+        android:textSize="@dimen/dimension20dp"
         app:hintEnabled="false"
         app:hintTextAppearance="@style/TextLabel">
         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -76,6 +77,7 @@
         android:layout_below="@+id/tilName"
         android:paddingLeft="@dimen/dimension18dp"
         android:paddingRight="@dimen/dimension18dp"
+        android:textSize="@dimen/dimension20dp"
         app:hintTextAppearance="@style/TextLabel">
         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
         <AutoCompleteTextView
@@ -91,6 +93,7 @@
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/dimension20dp"
+
 
             />
     </android.support.design.widget.TextInputLayout>
@@ -194,7 +197,7 @@
         android:layout_below="@+id/rlcheck"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/dimension15dp"
+        android:layout_marginTop="@dimen/dimension30dp"
         android:layout_marginBottom="@dimen/dimension15dp"
         android:background="@drawable/border_registered"
         android:paddingLeft="@dimen/dimension60dp"

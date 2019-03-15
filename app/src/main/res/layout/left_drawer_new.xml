@@ -50,7 +50,7 @@
                     android:layout_below="@+id/txtDrawerName"
                     android:layout_centerHorizontal="true"
                     android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
                     android:layout_marginBottom="@dimen/dimension15dp"
                     android:text="Self"
                     android:fontFamily="@font/lato"

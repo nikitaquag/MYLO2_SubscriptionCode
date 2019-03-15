@@ -34,7 +34,7 @@
             android:fontFamily="@font/lato"
             android:text="@string/ImpAgreement"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/dimension18dp"
+            android:textSize="@dimen/dimension22dp"
             android:textStyle="bold"
             />
     </RelativeLayout>

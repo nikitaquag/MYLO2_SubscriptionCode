@@ -86,6 +86,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtName"
         android:layout_marginTop="@dimen/dimension15dp"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension15dp"
         android:background="@color/colorLightBlue"
         android:divider="@null"></ListView>
 

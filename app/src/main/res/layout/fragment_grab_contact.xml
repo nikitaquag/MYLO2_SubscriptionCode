@@ -23,7 +23,7 @@
 
             android:hint="Search"
             android:padding="@dimen/dimension10dp"
-            android:textSize="@dimen/dimension20dp" />
+            android:textSize="@dimen/dimension22dp" />
     </RelativeLayout>
 
     <ListView
