@@ -2694,7 +2694,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         if (flags == true) {
                             Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                            boolean flagf = ContactDataQuery.deleteRecord("Connection", con.getId());
                             if (flagf == true) {
                                 //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
@@ -2747,7 +2747,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                             preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                        boolean flagf = ContactDataQuery.deleteRecord("Connection", con.getId());
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {

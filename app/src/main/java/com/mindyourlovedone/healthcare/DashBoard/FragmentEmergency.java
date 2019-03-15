@@ -214,16 +214,22 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
     }
 
     public void callUser(Emergency item) {
-        String mobile = item.getMobile();
-        String hphone = item.getPhone();
-        String wPhone = item.getWorkPhone();
+      ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Emergency");
 
-        if (mobile.length() != 0 || hphone.length() != 0 || wPhone.length() != 0) {
+
+if (phonelist.size()>0)
+{
+    CallDialog c = new CallDialog();
+    c.showCallDialogs(getActivity(), phonelist);
+}else {
+    Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
+}
+       /* if (mobile.length() != 0 || hphone.length() != 0 || wPhone.length() != 0) {
             CallDialog c = new CallDialog();
             c.showCallDialog(getActivity(), mobile, hphone, wPhone);
         } else {
             Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
    /* private void showCallDialog(final Context context, String mobile, String hphone, String wphone) {
         //   String text=mobile;
