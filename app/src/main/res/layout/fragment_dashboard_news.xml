@@ -84,6 +84,7 @@
                             android:background="@drawable/border_ec_forward">
 
                             <ImageView
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:layout_gravity="center"
                                 android:id="@+id/imgECForward"
                                 android:layout_width="@dimen/dimension25dp"
@@ -163,7 +164,7 @@
                                 android:id="@+id/imgCPForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:src="@drawable/next_1" />
                         </FrameLayout>
 
@@ -253,6 +254,7 @@
                             android:background="@drawable/border_ec_forward">
 
                             <ImageView
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:layout_gravity="center"
                                 android:id="@+id/imgSPForward"
                                 android:layout_width="@dimen/dimension25dp"
@@ -327,6 +329,7 @@
                             android:background="@drawable/border_ec_forward">
 
                             <ImageView
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:layout_gravity="center"
                                 android:id="@+id/imgICForward"
                                 android:layout_width="@dimen/dimension25dp"
@@ -412,6 +415,7 @@
                             android:background="@drawable/border_ec_forward">
 
                             <ImageView
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:layout_gravity="center"
                                 android:id="@+id/imgEVForward"
                                 android:layout_width="@dimen/dimension25dp"
@@ -489,6 +493,7 @@
                             android:background="@drawable/border_ec_forward">
 
                             <ImageView
+                                android:layout_marginLeft="@dimen/dimension2dp"
                                 android:layout_gravity="center"
                                 android:id="@+id/imgPresForward"
                                 android:layout_width="@dimen/dimension25dp"
