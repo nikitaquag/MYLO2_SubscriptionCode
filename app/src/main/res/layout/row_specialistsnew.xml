@@ -31,7 +31,7 @@
             android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
-            android:layout_toLeftOf="@+id/imgForword"
+            android:layout_toLeftOf="@+id/fl"
             android:layout_toRightOf="@+id/imgLogo"
             android:gravity="center_vertical"
             android:padding="@dimen/dimension15dp"
@@ -41,15 +41,34 @@
             android:textSize="@dimen/dimension20dp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imgForword"
-            android:layout_width="@dimen/dimension30dp"
-            android:layout_height="@dimen/dimension30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
+        <FrameLayout
             android:layout_marginRight="@dimen/dimension15dp"
-            android:background="@drawable/next_n"
-            android:src="@drawable/next" />
+            android:id="@+id/fl"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension35dp"
+            android:layout_below="@+id/txtPrescription"
+            android:layout_centerVertical="true"
+            android:background="@drawable/border_ec_green">
+
+            <ImageView
+                android:layout_marginLeft="@dimen/dimension2dp"
+                android:layout_gravity="center"
+                android:id="@+id/imgForword"
+                android:layout_width="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension20dp"
+                android:src="@drawable/next_1" />
+        </FrameLayout>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgForword"-->
+            <!--android:layout_width="@dimen/dimension30dp"-->
+            <!--android:layout_height="@dimen/dimension30dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+            <!--android:background="@drawable/next_n"-->
+            <!--android:src="@drawable/next" />-->
     </RelativeLayout>
 
     <View
