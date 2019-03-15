@@ -42,6 +42,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
+
             android:text="HELP INSTRUCTIONS"
             android:textStyle="bold"
             android:textColor="#FFFFFF"
@@ -159,6 +160,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img61"
                         android:text=""
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:fontFamily="@font/lato"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
@@ -185,6 +188,8 @@
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@+id/img62"
                         android:text=""
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:fontFamily="@font/lato"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
@@ -211,6 +216,8 @@
                         android:layout_toRightOf="@+id/img622"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -238,6 +245,8 @@
                         android:layout_toRightOf="@+id/img63"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -264,6 +273,8 @@
                         android:layout_toRightOf="@+id/img64"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -290,6 +301,8 @@
                         android:layout_toRightOf="@+id/img65"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -316,6 +329,8 @@
                         android:layout_toRightOf="@+id/img66"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -342,6 +357,8 @@
                         android:layout_toRightOf="@+id/img67"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
@@ -368,6 +385,8 @@
                         android:layout_toRightOf="@+id/img68"
                         android:text=""
                         android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
