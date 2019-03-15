@@ -201,24 +201,120 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     callFragmentData(new FragmentDashboard());
                     txtTitle.setVisibility(View.GONE);
                     p = 1;
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 3) {
                     callFragmentData(new FragmentConnectionNew());
                     p = 1;
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 }/*New Changes*/ else if (p == 2) {
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Resources");
                     imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResourcesNew());
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 7) {
                     imgProfile.setVisibility(View.GONE);
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Settings");
                     callFragmentData(new FragmentSetting());
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 8) {
                     imgProfile.setVisibility(View.GONE);
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Contact Us");
                     callFragmentData(new FragmentContactUs());
+
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 5) {
                     imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResources());
@@ -227,6 +323,27 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Sponsor");
                     callFragmentData(new FragmentSponsor());
+
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+
                 }
                 /*Ends here*/
             }
@@ -619,25 +736,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 Drawable mDrawable = context.getResources().getDrawable(R.drawable.drawer_home);
                 mDrawable.setColorFilter(new
                         PorterDuffColorFilter(context.getResources().getColor(R.color.colorMaroon),PorterDuff.Mode.MULTIPLY));
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
 
                 Intent intentHome = new Intent(context, SplashNewActivity.class);
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -652,25 +751,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentProfile);
                 drawerLayout.closeDrawer(leftDrawer);
 
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
 
 
                 break;
@@ -682,25 +763,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentResources);
                 drawerLayout.closeDrawer(leftDrawer);
 
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 break;
             case R.id.rlSponsor:
 
@@ -711,25 +774,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentSponsor);
                 drawerLayout.closeDrawer(leftDrawer);
 
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 break;
             case R.id.rlSettings:
                 Intent intentSettings = new Intent(context, BaseActivity.class);
@@ -739,25 +784,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentSettings);
                 drawerLayout.closeDrawer(leftDrawer);
 
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 break;
             case R.id.rlContactUs:
                 Intent intentContactUs = new Intent(context, BaseActivity.class);
@@ -767,25 +794,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intentContactUs);
                 drawerLayout.closeDrawer(leftDrawer);
 
-                //nikita
-                imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
-
-                txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
-                txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 break;
             case R.id.rlMarketPlace:
                 drawerLayout.closeDrawer(leftDrawer);

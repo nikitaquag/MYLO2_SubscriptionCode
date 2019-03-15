@@ -658,7 +658,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                 ((BaseActivity) getActivity()).callFragment("DASHBOARD", ldf);
                 break;
             case R.id.imgRight:
-                showInstructionDialog();
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                startActivity(intentUserIns);
+//                showInstructionDialog();
                 break;
             case R.id.imgLogo:
                /* Intent intent = new Intent();

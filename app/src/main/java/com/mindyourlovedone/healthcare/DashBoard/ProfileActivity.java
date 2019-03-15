@@ -258,6 +258,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgBack.setOnClickListener(this);
         txtBdate.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
+        imgProfile.setOnClickListener(this);
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
         txtCard.setOnClickListener(this);
@@ -2158,6 +2159,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.imgEdit:
+                showCardDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, imgProfile, "Profile");
+
+                break;
+            case R.id.imgProfile:
                 showCardDialog(RESULT_CAMERA_IMAGE, RESULT_SELECT_PHOTO, imgProfile, "Profile");
 
                 break;

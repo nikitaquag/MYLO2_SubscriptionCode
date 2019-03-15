@@ -117,7 +117,9 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.imgHelp:
-                showInstructionDialog();
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                startActivity(intentUserIns);
+//                showInstructionDialog();
                 break;
             case R.id.floatAdd:
                 showContactDialog();
