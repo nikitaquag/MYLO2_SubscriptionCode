@@ -2378,6 +2378,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 if (from.equals("Profile")) {
                     imageUriProfile = getContentResolver().insert(
                             MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+
                     //  intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriProfile);
                 } else if (from.equals("Card")) {
@@ -2397,6 +2399,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, resultSelectPhoto);
+
                 dialog.dismiss();
             }
         });
@@ -2884,7 +2887,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
-                imgEdit.setVisibility(View.GONE);
+                imgEdit.setVisibility(View.VISIBLE);
 //                ProfileMap = selectedImage;
                 ProfileMap = scaled;
                 storeImage(ProfileMap, "Profile");
@@ -2907,7 +2910,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgProfile.setImageBitmap(scaled);
-                imgEdit.setVisibility(View.GONE);
+                imgEdit.setVisibility(View.VISIBLE);
 
                 // imageLoaderProfile.displayImage(String.valueOf(imageUriProfile), imgProfile, displayImageOptionsProfile);
                 // profileImage.setImageBitmap(bitmap);

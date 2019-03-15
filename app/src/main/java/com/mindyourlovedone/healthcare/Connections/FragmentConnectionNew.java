@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
+import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -78,7 +79,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     ConnectionAdapter connectionAdapter;
     Preferences preferences;
     // PersonalInfo personalInfo;
-    RelativeLayout leftDrawer, rlMsg;
+    RelativeLayout leftDrawer, rlMsg,rlSelf;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
@@ -144,10 +145,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         imgRight.setOnClickListener(this);
         fab.setOnClickListener(this);
         imgSelfFolder.setOnClickListener(this);
+        rlSelf.setOnClickListener(this);
     }
 
     private void initUI() {
         lvSelf = rootview.findViewById(R.id.lvSelf);
+        rlSelf= rootview.findViewById(R.id.rlSelf);
+
         fab = rootview.findViewById(R.id.fab);
        // fab.setImageResource(R.drawable.ic_add);
         llSelf = rootview.findViewById(R.id.llSelf);
@@ -637,6 +641,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+
+            case R.id.rlSelf:
+                Intent intentP= new Intent(getActivity(),ProfileActivity.class);
+                startActivity(intentP);
+
+                break;
+
             case R.id.imgSelfFolder:
                 FragmentDashboard ldf = new FragmentDashboard();
                 Bundle args = new Bundle();
