@@ -398,7 +398,7 @@ emergencyList=new ArrayList<>();
             case R.id.imgHelp:
 
                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                i.putExtra("From", "EmergencyInstuction");
+                i.putExtra("From", "EmergencyInstruction");
                 startActivity(i);
 
 //                final String RESULT = Environment.getExternalStorageDirectory()
