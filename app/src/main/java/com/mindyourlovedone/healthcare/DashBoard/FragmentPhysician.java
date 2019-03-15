@@ -33,9 +33,11 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.SpecialistAdapter;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DoctorQuery;
 import com.mindyourlovedone.healthcare.database.SpecialistQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -433,7 +435,10 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
 
 
         ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
-        new Individual(specialistsList, "Physician");
+        for(int i=0;i<specialistsList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Physician");
+            new Individual("Physician", specialistsList.get(i), phonelists,i);
+        }
         Header.document.close();
 
         //--------------------------------------------------------------------

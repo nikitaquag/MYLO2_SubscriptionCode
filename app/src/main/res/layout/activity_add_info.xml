@@ -153,7 +153,7 @@
                         android:layout_marginRight="@dimen/dimension3dp"
                         android:paddingTop="@dimen/dimension8dp"
                         android:src="@drawable/drg"></ImageView>
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:id="@+id/tilMedical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -164,8 +164,9 @@
                         android:fontFamily="@font/lato"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
+                        android:textSize="@dimen/dimension20dp"
                         app:hintEnabled="true"
-                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:backgroundTint="@color/colordivideGray"
@@ -213,12 +214,13 @@
                                 android:paddingTop="@dimen/dimension8dp"
                                 android:src="@drawable/drg"></ImageView>
 
-                            <android.support.design.widget.TextInputLayout
+                              <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilType22"
+                                android:textSize="@dimen/dimension20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:backgroundTint="@color/colorOnesGray"
-                                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                                >
 
                                 >
 
@@ -258,7 +260,7 @@
                         <!--custom:ms_floatingLabelColor="@color/colorBlue"-->
                         <!--custom:ms_hintColor="@color/colorDarkGray" />-->
 
-                        <android.support.design.widget.TextInputLayout
+                          <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:fontFamily="@font/lato"
                             android:id="@+id/tilOtherVaccine"
                             android:layout_width="match_parent"
@@ -283,7 +285,8 @@
 
 
 
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textSize="@dimen/dimension20dp"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilTitle"
                         android:layout_width="match_parent"
@@ -347,13 +350,13 @@
                                     android:paddingTop="@dimen/dimension8dp"
                                     android:src="@drawable/drg"></ImageView>
 
-                                <android.support.design.widget.TextInputLayout
+                                  <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                     android:id="@+id/tilType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/colorOnesGray"
-                                    app:hintTextAppearance="@style/TextInputLayoutHintText">
-
+                                    
+                                    android:textSize="@dimen/dimension20dp"
                                     >
 
                                     <AutoCompleteTextView
@@ -391,13 +394,14 @@
                             <!--custom:ms_floatingLabelColor="@color/colorBlue"-->
                             <!--custom:ms_hintColor="@color/colorDarkGray" />-->
 
-                            <android.support.design.widget.TextInputLayout
+                              <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:fontFamily="@font/lato"
                                 android:id="@+id/tilOtherReaction"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/fltypeReaction"
                                 android:paddingTop="@dimen/dimension8dp"
+                                android:textSize="@dimen/dimension20dp"
                                 android:paddingBottom="@dimen/dimension8dp"
                                 android:visibility="gone">
                                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -416,10 +420,11 @@
                             </android.support.design.widget.TextInputLayout>
                         </RelativeLayout>
 
-                        <android.support.design.widget.TextInputLayout
+                          <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:fontFamily="@font/lato"
                             android:id="@+id/tilReaction"
                             android:layout_width="match_parent"
+                            android:textSize="@dimen/dimension20dp"
                             android:layout_height="wrap_content"
                             android:descendantFocusability="beforeDescendants"
                             android:focusableInTouchMode="true"
@@ -441,9 +446,10 @@
                         </android.support.design.widget.TextInputLayout>
                     </RelativeLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilTreatment"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rlReaction"
@@ -469,9 +475,10 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilDate"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:descendantFocusability="beforeDescendants"
@@ -499,8 +506,9 @@
 
                     <!---->
                     <!--Implant New fields-Location-->
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:id="@+id/tilLocation"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDate"
@@ -511,7 +519,7 @@
                         android:visibility="gone"
                         android:fontFamily="@font/lato"
                         app:hintEnabled="true"
-                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:backgroundTint="@color/colordivideGray"
@@ -534,9 +542,10 @@
                     <!--Location ends here-->
 
                     <!--Details-->
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilDetails"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilLocation"
@@ -546,7 +555,7 @@
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         app:hintEnabled="true"
-                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:backgroundTint="@color/colordivideGray"
@@ -570,9 +579,10 @@
 
 
                     <!--Implant sub Note-->
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilNote"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDetails"
@@ -582,7 +592,7 @@
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
                         app:hintEnabled="false"
-                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        >
                         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                         <AutoCompleteTextView
                             android:backgroundTint="@color/colordivideGray"
@@ -604,9 +614,10 @@
 
                     <!--Note ends here-->
                     <!---->
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilDoctor"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilNote"
@@ -632,9 +643,10 @@
 
                     </android.support.design.widget.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                      <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:fontFamily="@font/lato"
                         android:id="@+id/tilDone"
+                        android:textSize="@dimen/dimension20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilDoctor"

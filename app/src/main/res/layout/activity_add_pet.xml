@@ -95,7 +95,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtName"
@@ -139,7 +139,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtBreed"
@@ -172,7 +172,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtColor"
@@ -205,7 +205,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtChip"
@@ -238,7 +238,7 @@
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 android:visibility="gone"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
@@ -268,7 +268,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtVeteran"
@@ -301,7 +301,7 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtVeteranAd"
@@ -334,9 +334,9 @@
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/txtVeteranPh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -345,6 +345,8 @@
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
 android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="12"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -376,7 +378,7 @@ android:inputType="number"
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtCare"
@@ -409,7 +411,7 @@ android:inputType="number"
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtCareAd"
@@ -442,9 +444,9 @@ android:inputType="number"
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-                <AutoCompleteTextView
+                <EditText
                     android:id="@+id/txtCarePh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -453,6 +455,8 @@ android:inputType="number"
                     android:paddingTop="@dimen/dimension5dp"
                     android:backgroundTint="@color/colordivideGray"
 android:inputType="number"
+                    android:maxLines="1"
+                    android:maxLength="12"
                     android:includeFontPadding="true"
                     android:paddingBottom="@dimen/dimension18dp"
                     android:textColor="@color/colorPrimaryDark"
@@ -493,7 +497,7 @@ android:inputType="number"
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtPetBirthDate"
@@ -529,7 +533,7 @@ android:inputType="number"
                 android:paddingTop="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:id="@+id/txtPetNote"
@@ -563,7 +567,7 @@ android:inputType="number"
                 android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 android:visibility="gone"
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:layout_width="match_parent"

@@ -5,9 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.PetQuery;
 import com.mindyourlovedone.healthcare.model.Pet;
+import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -39,7 +43,8 @@ public class AddPetActivity extends AppCompatActivity {
     DBHelper dbHelper;
     Pet p;
     Pet pet;
-   TextView txtVeteranAd,txtVeteranPh,txtCareAd,txtCarePh;
+   TextView txtVeteranAd,txtCareAd;
+   EditText txtCarePh,txtVeteranPh;
 
 
     @Override
@@ -89,6 +94,9 @@ public class AddPetActivity extends AppCompatActivity {
                 startActivity(intentHome);
             }
         });
+        txtVeteranPh.addTextChangedListener(new CustomTextWatcher(txtVeteranPh));
+
+        txtCarePh.addTextChangedListener(new CustomTextWatcher(txtCarePh));
 
 
         Intent i = getIntent();
@@ -113,10 +121,10 @@ public class AddPetActivity extends AppCompatActivity {
                     txtVeterian.setText(p.getVeterian());
                 }
                 if (p.getVeterian_add() != null) {
-                    txtVeteranAd.setText(p.getVeterian());
+                    txtVeteranAd.setText(p.getVeterian_add());
                 }
                 if (p.getVeterian_ph() != null) {
-                    txtVeteranPh.setText(p.getVeterian());
+                    txtVeteranPh.setText(p.getVeterian_ph());
                 }
                 if (p.getChip() != null) {
                     txtChip.setText(p.getChip());
@@ -125,10 +133,10 @@ public class AddPetActivity extends AppCompatActivity {
                     txtCare.setText(p.getGuard());
                 }
                 if (p.getCare_add() != null) {
-                    txtCareAd.setText(p.getGuard());
+                    txtCareAd.setText(p.getCare_add());
                 }
                 if (p.getCare_ph() != null) {
-                    txtCarePh.setText(p.getGuard());
+                    txtCarePh.setText(p.getCare_ph());
                 }
                 if (p.getBdate() != null) {
                     txtPetBirthDate.setText(p.getBdate());
@@ -194,43 +202,88 @@ txtDelete.setOnClickListener(new View.OnClickListener() {
         txtSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = txtName.getText().toString();
-                breed = txtBreed.getText().toString();
-                color = txtColor.getText().toString();
-                chip = txtChip.getText().toString();
-                veterain = txtVeterian.getText().toString();
-                veterain_add = txtVeteranAd.getText().toString();
-                veterain_ph = txtVeteranPh.getText().toString();
-                care = txtCare.getText().toString();
-                care_add = txtCareAd.getText().toString();
-                care_ph = txtCarePh.getText().toString();
-                bdate = txtPetBirthDate.getText().toString();
-                notes = txtPetNotes.getText().toString();
-                if (isUpdate == false) {
-                    Boolean flag = PetQuery.insertPetData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, breed, color, chip, veterain, care, bdate, notes,veterain_add,veterain_ph,care_add,care_ph);
-                    if (flag == true) {
-                        Toast.makeText(context, "Pet Added Succesfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                    }
-                } else if (isUpdate == true) {
-                    Boolean flag = PetQuery.updatePetData(pet.getId(), name, breed, color, chip, veterain, care, bdate, notes,veterain_add,veterain_ph,care_add,care_ph);
-                    if (flag == true) {
-                        Toast.makeText(context, "Pet updated Succesfully", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
-                    }
+                if (validate()) {
 
-                }
+                    if (isUpdate == false) {
+                        Boolean flag = PetQuery.insertPetData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, breed, color, chip, veterain, care, bdate, notes, veterain_add, veterain_ph, care_add, care_ph);
+                        if (flag == true) {
+                            Toast.makeText(context, "Pet Added Succesfully", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    } else if (isUpdate == true) {
+                        Boolean flag = PetQuery.updatePetData(pet.getId(), name, breed, color, chip, veterain, care, bdate, notes, veterain_add, veterain_ph, care_add, care_ph);
+                        if (flag == true) {
+                            Toast.makeText(context, "Pet updated Succesfully", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
 
-                Intent intentAllergy = new Intent();
+                    }
+                    Intent intentAllergy = new Intent();
                            /* intentAllergy.putExtra("Value", value);
                             intentAllergy.putExtra("Reaction", reaction);
                             intentAllergy.putExtra("Treatment", treatment);*/
-                setResult(AddInfoActivity.RESULT_ALLERGY, intentAllergy);
-                finish();
+                    setResult(AddInfoActivity.RESULT_ALLERGY, intentAllergy);
+                    finish();
+                }
+
 
             }
         });
+    }
+
+    private boolean validate() {
+        name = txtName.getText().toString();
+        breed = txtBreed.getText().toString();
+        color = txtColor.getText().toString();
+        chip = txtChip.getText().toString();
+        veterain = txtVeterian.getText().toString();
+        veterain_add = txtVeteranAd.getText().toString();
+        veterain_ph = txtVeteranPh.getText().toString();
+        care = txtCare.getText().toString();
+        care_add = txtCareAd.getText().toString();
+        care_ph = txtCarePh.getText().toString();
+        bdate = txtPetBirthDate.getText().toString();
+        notes = txtPetNotes.getText().toString();
+        if (name.equals("")) {
+            txtName.setError("Please Enter Name");
+            DialogManager.showAlert("Please Enter Name", context);
+        } else if (breed.equals("")) {
+            txtBreed.setError("Please Select Type of Pet");
+            DialogManager.showAlert("Please Type of Pet", context);
+        }  else return true;
+        return false;
+    }
+    public class CustomTextWatcher implements TextWatcher {
+        EditText et = null;
+
+        CustomTextWatcher(EditText et) {
+            this.et = et;
+        }
+
+        int prevL = 0;
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            prevL = et.getText().toString().length();
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            int length = editable.length();
+//            int poss = Integer.parseInt(et.getTag().toString());
+            if ((prevL < length) && (length == 3 || length == 7)) {
+                et.setText(editable.toString() + "-");
+                et.setSelection(et.getText().length());
+            }
+//            phonelist.get(poss).setValue(et.getText().toString());
+        }
+
     }
 }

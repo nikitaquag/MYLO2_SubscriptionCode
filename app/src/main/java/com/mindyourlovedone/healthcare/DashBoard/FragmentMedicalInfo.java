@@ -1002,9 +1002,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
-        floatContact.setImageResource(R.drawable.closee);
+        floatContact.setImageResource(R.drawable.eyee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
-        floatNew.setImageResource(R.drawable.eyee);
+        floatNew.setImageResource(R.drawable.closee);
 
         TextView txtNew = dialogview.findViewById(R.id.txtNew);
         txtNew.setText(getResources().getString(R.string.EmailReports));
