@@ -117,10 +117,10 @@
                                 android:background="@drawable/border_edit_note"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:paddingRight="@dimen/dimension12dp"
-                                android:paddingLeft="@dimen/dimension12dp"
+                                android:paddingBottom="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension5dp"
+                                android:paddingRight="@dimen/dimension6dp"
+                                android:paddingLeft="@dimen/dimension6dp"
                                 android:text="Add new"
                                 android:textAllCaps="true"
                                 android:textColor="@color/colorWhite"
@@ -546,10 +546,10 @@
                                 android:background="@drawable/border_edit_note"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:paddingRight="@dimen/dimension12dp"
-                                android:paddingLeft="@dimen/dimension12dp"
+                                android:paddingBottom="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension5dp"
+                                android:paddingRight="@dimen/dimension6dp"
+                                android:paddingLeft="@dimen/dimension6dp"
                                 android:text="Add new"
                                 android:textAllCaps="true"
                                 android:textColor="@color/colorWhite"
@@ -726,7 +726,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <RelativeLayout
@@ -762,7 +762,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <RelativeLayout
@@ -798,7 +798,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <RelativeLayout
@@ -834,7 +834,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
 
@@ -859,7 +859,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@null"
                             android:gravity="start"
@@ -1214,7 +1214,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
 
@@ -1252,7 +1252,7 @@
 
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <RelativeLayout
@@ -1287,7 +1287,7 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
                         <TextView
@@ -1311,7 +1311,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@null"
                             android:gravity="start"
@@ -1763,10 +1763,10 @@
                             android:background="@drawable/border_edit_note"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:paddingBottom="@dimen/dimension10dp"
-                            android:paddingTop="@dimen/dimension10dp"
-                            android:paddingRight="@dimen/dimension12dp"
-                            android:paddingLeft="@dimen/dimension12dp"
+                            android:paddingBottom="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension5dp"
+                            android:paddingRight="@dimen/dimension6dp"
+                            android:paddingLeft="@dimen/dimension6dp"
                             android:text="Add new"
                             android:textAllCaps="true"
                             android:textColor="@color/colorWhite"
@@ -2502,7 +2502,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension15dp"
+                            android:layout_marginLeft="@dimen/dimension10dp"
                             android:layout_marginRight="@dimen/dimension15dp"
                             android:background="@null"
                             android:gravity="start"
@@ -2616,10 +2616,10 @@
                                 android:background="@drawable/border_edit_note"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:paddingRight="@dimen/dimension12dp"
-                                android:paddingLeft="@dimen/dimension12dp"
+                                android:paddingBottom="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension5dp"
+                                android:paddingRight="@dimen/dimension6dp"
+                                android:paddingLeft="@dimen/dimension6dp"
                                 android:text="Add new"
                                 android:textAllCaps="true"
                                 android:textColor="@color/colorWhite"
@@ -2747,10 +2747,10 @@
                             android:background="@drawable/border_edit_note"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:paddingBottom="@dimen/dimension10dp"
-                            android:paddingTop="@dimen/dimension10dp"
-                            android:paddingRight="@dimen/dimension12dp"
-                            android:paddingLeft="@dimen/dimension12dp"
+                            android:paddingBottom="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension5dp"
+                            android:paddingRight="@dimen/dimension6dp"
+                            android:paddingLeft="@dimen/dimension6dp"
                             android:text="Add new"
                             android:textAllCaps="true"
                             android:textColor="@color/colorWhite"
@@ -3052,10 +3052,10 @@
                                 android:background="@drawable/border_edit_note"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension10dp"
-                                android:paddingTop="@dimen/dimension10dp"
-                                android:paddingRight="@dimen/dimension12dp"
-                                android:paddingLeft="@dimen/dimension12dp"
+                                android:paddingBottom="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension5dp"
+                                android:paddingRight="@dimen/dimension6dp"
+                                android:paddingLeft="@dimen/dimension6dp"
                                 android:text="Add new"
                                 android:textAllCaps="true"
                                 android:textColor="@color/colorWhite"
@@ -3142,7 +3142,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/dimension1dp"
 
-                            android:layout_marginBottom="@dimen/dimension5dp"
+                            android:layout_marginBottom="@dimen/dimension10dp"
                             android:layout_marginLeft="@dimen/dimension5dp"
                             android:layout_marginRight="@dimen/dimension5dp"
                             android:background="@color/colordivideGray" />
@@ -3188,7 +3188,7 @@
                             android:layout_below="@+id/relorgan"
                             android:layout_marginLeft="@dimen/dimension5dp"
                             android:layout_marginRight="@dimen/dimension5dp"
-                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
 
