@@ -88,7 +88,7 @@
                                 android:id="@+id/imgECForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
                     </RelativeLayout>
                 </RelativeLayout>
@@ -164,7 +164,7 @@
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
 
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
 
 
@@ -257,7 +257,7 @@
                                 android:id="@+id/imgSPForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
 
                     </RelativeLayout>
@@ -331,7 +331,7 @@
                                 android:id="@+id/imgICForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
 
                     </RelativeLayout>
@@ -416,7 +416,7 @@
                                 android:id="@+id/imgEVForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
 
                     </RelativeLayout>
@@ -493,7 +493,7 @@
                                 android:id="@+id/imgPresForward"
                                 android:layout_width="@dimen/dimension25dp"
                                 android:layout_height="@dimen/dimension25dp"
-                                android:src="@drawable/next" />
+                                android:src="@drawable/next_1" />
                         </FrameLayout>
 
                     </RelativeLayout>
