@@ -15,6 +15,8 @@
     android:orientation="vertical"
     >
 
+
+
     <ImageView
         android:id="@+id/imgSplash"
         android:layout_width="match_parent"
@@ -195,7 +197,7 @@
         android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorSponsorBlue"
-        android:layout_weight="1.5"
+        android:layout_weight="2"
         >
 
         <TextView
@@ -211,12 +213,27 @@
             android:textStyle="normal" />
 
         <ImageView
+            android:layout_above="@+id/txtcourtesy"
             android:id="@+id/imgAbaa"
             android:layout_width="@dimen/dimension200dp"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/r_new" />
+
+        <TextView
+            android:gravity="center_horizontal"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/lato"
+            android:id="@+id/txtcourtesy"
+            android:layout_width="match_parent"
+            android:padding="@dimen/dimension5dp"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:text=" Courtesy of Barbara keller"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension18dp"
+            android:textStyle="normal" />
 
     </RelativeLayout>
 
