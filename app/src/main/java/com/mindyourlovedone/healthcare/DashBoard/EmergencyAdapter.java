@@ -239,11 +239,10 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         if (!emergencyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), emergencyList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-                viewHolder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
-                //imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), viewHolder.imgForword, displayImageOptionsCard);
-            } else {
-                viewHolder.imgForword.setImageResource(R.drawable.busi_card);
+                if (viewHolder.imgForword.getDrawable() == null)
+                    viewHolder.imgForword.setImageResource(R.drawable.busi_card);
+                else
+                    viewHolder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
             }
 
             viewHolder.imgForword.setVisibility(View.VISIBLE);

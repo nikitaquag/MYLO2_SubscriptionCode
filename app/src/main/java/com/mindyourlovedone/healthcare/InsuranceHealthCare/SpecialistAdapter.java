@@ -299,7 +299,7 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
         //  holder.imgProfile.setImageResource(specialistList.get(position).getImage());
 
 //  Card code for Speciality Adapter
-        if (!specialistList.get(position).getPhotoCard().equals("")) {
+        /*if (!specialistList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
                 // holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -308,6 +308,21 @@ public class SpecialistAdapter extends RecyclerSwipeAdapter<SpecialistAdapter.Vi
             }
             //Commented as to match screen as invision-shradha
            // holder.imgForword.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgForword.setVisibility(View.GONE);
+        }
+*/
+// Varsha 15 march
+        if (!specialistList.get(position).getPhotoCard().equals("")) {
+            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), specialistList.get(position).getPhotoCard());
+            if (imgFile1.exists()) {
+                if (holder.imgForword.getDrawable() == null)
+                    holder.imgForword.setImageResource(R.drawable.busi_card);
+                else
+                    holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+            }
+
+            holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
         }
