@@ -100,7 +100,7 @@ public class SpecialPhoneAdapter extends BaseAdapter {
             public void onClick(View v) {
                 AlertDialog.Builder b = new AlertDialog.Builder(context);
                 b.setTitle("Type");
-                final String[] types = {"Mobile", "Office", "Home", "Fax","None"};
+                final String[] types = {"Mobile", "Office", "Home", "Fax"};
                 b.setItems(types, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

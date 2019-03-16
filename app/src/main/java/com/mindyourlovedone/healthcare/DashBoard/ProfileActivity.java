@@ -1027,7 +1027,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
                     AlertDialog.Builder b = new AlertDialog.Builder(context);
                     b.setTitle("Type");
-                    final String[] types = {"Fax", "Home", "Mobile", "Office", "None"};
+                    final String[] types = {"Fax", "Home", "Mobile", "Office"};
                     b.setItems(types, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
