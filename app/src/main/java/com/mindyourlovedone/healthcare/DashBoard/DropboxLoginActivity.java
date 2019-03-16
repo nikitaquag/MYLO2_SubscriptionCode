@@ -345,7 +345,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
         if (from.equals("Document")) {
             preferences.putString(PrefConstants.STORE, "Document");
-            Fun_Type = 0;
+            Fun_Type = 5;
 
             SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
             if (prefs.contains("access-token")) {
@@ -571,19 +571,23 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     preferences.putString(PrefConstants.STORE, "Backup");
                     preferences.putString(PrefConstants.TODO, todo);
                     startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                } else {
-                    if (Fun_Type == 2) {
-                        Fun_Type = 4;
-                        preferences.putString(PrefConstants.STORE, "Restore");
-                        preferences.putString(PrefConstants.TODO, todo);
-                        preferences.putString(PrefConstants.TODOWHAT, todoWhat);
+                } else if (Fun_Type == 2) {
+                    Fun_Type = 4;
+                    preferences.putString(PrefConstants.STORE, "Restore");
+                    preferences.putString(PrefConstants.TODO, todo);
+                    preferences.putString(PrefConstants.TODOWHAT, todoWhat);
 //                    startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                        loadDropboxData();
-                    } else {
-                        Fun_Type = 4;
-                    }
-                }
+                    loadDropboxData();
 
+                }
+                else if(Fun_Type == 5) {
+                    Fun_Type = 4;
+                    loadDropboxData();
+
+                }
+                else  {
+                    Fun_Type = 4;
+                }
 
                 String value = "You are logged in DropBox as " + result.getName().getDisplayName() /*+ " in dropbox."*/;
                 txtName.setText(value);
@@ -614,7 +618,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         new ListFolderTask(DropboxClientFactory.getClient(), new ListFolderTask.Callback() {
             @Override
             public void onDataLoaded(ListFolderResult result) {
-                dialog.dismiss();
+
                 ArrayList<Metadata> resultList = new ArrayList<Metadata>();
                 for (int i = 0; i < result.getEntries().size(); i++) {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
@@ -644,6 +648,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 if (resultList.size() != 0) {
                     Fun_Type = 4;
                     startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
+                    finish();
                 } else {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
                         DialogNodata("There is no PDF files in your Dropbox account.");
@@ -656,6 +661,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     }
 //                    Toast.makeText(DropboxLoginActivity.this, "No Document or Backup File available in your dropbox", Toast.LENGTH_SHORT).show();
                 }
+              //  dialog.dismiss();
             }
 
             @Override
@@ -664,6 +670,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
             }
         }).execute("");
+
     }
 
 

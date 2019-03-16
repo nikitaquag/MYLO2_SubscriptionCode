@@ -595,11 +595,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
             txtFName.setText(name);
             imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -1220,24 +1222,28 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         if (requestCode == RESULTCODE && data != null) {
             name = data.getExtras().getString("Name");
             originPath = data.getExtras().getString("URI");
-            txtFName.setText(name);
-            imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            //  txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")) {
+                txtFName.setText(name);
+                imgDoc.setClickable(false);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                //  txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
 
             name = preferences.getString(PrefConstants.RESULT);//data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
-            txtFName.setText(name);
-            imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            //  txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")) {
+                txtFName.setText(name);
+                imgDoc.setClickable(false);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                //  txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } else if (requestCode == RESULT_ADVANCE && data != null) {
             docType = data.getStringExtra("Category");
             txtSpinDoc.setText(docType);
@@ -1343,5 +1349,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         finally {
             in.close();
         }*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

@@ -799,12 +799,14 @@
 
         <FrameLayout
             android:id="@+id/flDelete"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:visibility="gone"
             android:layout_marginBottom="@dimen/dimension10dp"
+            android:background="@color/colorLightGray"
+
             >
 
                 <TextView
@@ -817,7 +819,8 @@
                     android:background="@drawable/border_dir_delete"
                     android:drawableLeft="@drawable/deletebox"
                     android:drawablePadding="@dimen/dimension10dp"
-                    android:gravity="center_vertical"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
                     android:paddingLeft="@dimen/dimension60dp"
                     android:paddingTop="@dimen/dimension11dp"
                     android:paddingRight="@dimen/dimension60dp"
