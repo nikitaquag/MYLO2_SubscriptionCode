@@ -361,7 +361,55 @@
                             android:adjustViewBounds="true"
                             android:background="@android:color/transparent"
                             android:scaleType="fitXY"
-                            android:src="@drawable/busicard" />
+                           />
+
+                        <FrameLayout
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:id="@+id/flFront"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension200dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/insu_border">
+
+                            <ImageView
+                                android:id="@+id/imgFrontCard"
+                                android:layout_width="250dp"
+                                android:layout_height="@dimen/dimension160dp"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY" />
+
+                            <LinearLayout
+                                android:id="@+id/llFrontCam"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imgFrontCard1"
+                                    android:layout_width="@dimen/dimension40dp"
+                                    android:layout_height="@dimen/dimension40dp"
+                                    android:src="@drawable/cam_front"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/txtFrontText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="profile photo"
+                                    android:textAllCaps="true" />
+
+                            </LinearLayout>
+
+
+                        </FrameLayout>
+
 
                         <ImageView
                             android:id="@+id/imgEditCard"
@@ -1171,7 +1219,6 @@
                     android:layout_height="@dimen/dimension40dp"
                     android:layout_below="@+id/view58"
                     android:layout_alignParentRight="true"
-
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"

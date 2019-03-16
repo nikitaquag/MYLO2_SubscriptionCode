@@ -3946,10 +3946,10 @@ android:visibility="gone"
 
                 <ToggleButton
                     android:id="@+id/tbCard"
-                    android:layout_width="@dimen/dimension70dp"
-                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/toggle_selector"
                     android:checked="false"
@@ -3999,7 +3999,54 @@ android:visibility="gone"
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/busicard" />
+                         />
+
+                    <FrameLayout
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:id="@+id/flFront"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension200dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/insu_border">
+
+                        <ImageView
+                            android:id="@+id/imgFrontCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension200dp"
+                            android:layout_gravity="center"
+                            android:scaleType="fitXY" />
+
+                        <LinearLayout
+                            android:id="@+id/llFrontCam"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imgFrontCard1"
+                                android:layout_width="@dimen/dimension40dp"
+                                android:layout_height="@dimen/dimension40dp"
+                                android:src="@drawable/cam_front"
+                                android:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/txtFrontText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:text="Add Card"
+                                android:textAllCaps="true" />
+
+                        </LinearLayout>
+
+
+                    </FrameLayout>
 
                     <ImageView
                         android:id="@+id/imgEditCard"

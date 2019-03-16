@@ -219,7 +219,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     //    NonScrollListView listPrPhone,listDrPhone,listHospPhone,listPharmPhone,listFinPhone,listInsuPhone;
     public ArrayList<ContactData> phonelist = new ArrayList<>();
     SpecialPhoneAdapter pd;
-
+    FrameLayout flFront;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_new_contact, null);
@@ -1601,11 +1601,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -1675,11 +1675,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
                 }
                 break;
@@ -1792,11 +1792,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                 }
                 break;
@@ -1897,11 +1897,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -1975,11 +1975,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                       
                             imgCard.setVisibility(View.VISIBLE);
                             rlCard.setVisibility(View.VISIBLE);
-                            txtCard.setVisibility(View.GONE);
+                             flFront.setVisibility(View.GONE);
                         } else {
                             imgCard.setVisibility(View.GONE);
                             rlCard.setVisibility(View.GONE);
-                            txtCard.setVisibility(View.VISIBLE);
+                             flFront.setVisibility(View.VISIBLE);
 
                         }
                     }
@@ -2120,11 +2120,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
 
                     }
                     if (rel.getHas_card() != null) {
@@ -2225,11 +2225,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
 
                 }
@@ -2369,11 +2369,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
 
                 }
@@ -2516,11 +2516,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
 
                 }
@@ -2609,11 +2609,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
 
                 }
@@ -2686,11 +2686,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
 
                 }
@@ -2810,11 +2810,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                 }
                 break;
@@ -2890,11 +2890,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
                 }
                 break;
@@ -2986,11 +2986,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -3046,11 +3046,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
                 }
 
@@ -3183,11 +3183,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -3280,11 +3280,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
                 }
                 break;
@@ -3413,11 +3413,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.VISIBLE);
+                         flFront.setVisibility(View.VISIBLE);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -3511,11 +3511,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setImageBitmap(bmpCard);*/
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
-                        txtCard.setVisibility(View.GONE);
+                         flFront.setVisibility(View.GONE);
                     }
                 }
                 break;
@@ -3667,7 +3667,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         llAddConn.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
 
     }
 
@@ -3805,7 +3805,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtPharmacyNote.setEnabled(false);
 
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         llAddConn.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
     }
@@ -3821,7 +3821,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         spinnerRelation.setClickable(false);
 
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
         llAddConn.setVisibility(View.GONE);
     }
@@ -3840,7 +3840,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         spinnerRelation.setFocusable(false);
         //  spinnerPriority.setFocusable(false);
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
         llAddConn.setVisibility(View.GONE);
     }
@@ -3930,7 +3930,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         spinnerFinance.setClickable(false);
         llAddConn.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
 
     }
@@ -3948,7 +3948,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtAideNote.setEnabled(false);
         llAddConn.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
 
     }
@@ -3967,7 +3967,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         spinnerInsuarance.setClickable(false);
         llAddConn.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
 
     }
@@ -3991,7 +3991,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         llAddConn.setVisibility(View.GONE);
         imgEdit.setVisibility(View.GONE);
-        txtCard.setVisibility(View.GONE);
+         flFront.setVisibility(View.GONE);
         imgEditCard.setVisibility(View.GONE);
 
     }
@@ -4112,7 +4112,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgProfile.setOnClickListener(this);
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
-        txtCard.setOnClickListener(this);
+         flFront.setOnClickListener(this);
         imgAddPhone.setOnClickListener(this);
         imgAddDrPhone.setOnClickListener(this);
         imgAddHospPhone.setOnClickListener(this);
@@ -4125,7 +4125,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     private void initUI() {
         layoutInflater = (LayoutInflater) getActivity().getSystemService(context.LAYOUT_INFLATER_SERVICE);
-
+        flFront = rootview.findViewById(R.id.flFront);
 //        listPrPhone = rootview.findViewById(R.id.listPrPhone);
 //        listDrPhone = rootview.findViewById(R.id.listDrPhone);
 //        listHospPhone = rootview.findViewById(R.id.listHospPhone);
@@ -4202,7 +4202,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 else{
                     has_card="NO";
                     // imgCard.setImageResource(R.drawable.busi_card);
-                    txtCard.setVisibility(View.VISIBLE);
+                     flFront.setVisibility(View.VISIBLE);
                     imgCard.setVisibility(View.GONE);
                     cardPath = "";
                     CardMap = null;
@@ -5199,7 +5199,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 ShowCameraDialog(RESULT_CAMERA_IMAGE_CARD, RESULT_SELECT_PHOTO_CARD, "Card");
                 break;
 
-            case R.id.txtCard:
+            case R.id. flFront:
                 ShowCameraDialog(RESULT_CAMERA_IMAGE_CARD, RESULT_SELECT_PHOTO_CARD, "Card");
                 break;
 
@@ -5375,7 +5375,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     imgCard.setVisibility(View.VISIBLE);
                     rlCard.setVisibility(View.VISIBLE);
-                    txtCard.setVisibility(View.VISIBLE);
+                     flFront.setVisibility(View.VISIBLE);
                     CardMap = null;
                 }
                 dialog.dismiss();
@@ -5406,6 +5406,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         } else if (imgCard.getVisibility() == View.GONE) {
             photoCard = null;
         }*/
+
+        if(tbCard.isChecked() && CardMap==null){
+            DialogManager.showAlert("Please Add Business Card.", context);
+            return false;
+        }
 
         if (!screen.equals("Connection")) {
             storeImage(ProfileMap, "Profile");
@@ -5440,7 +5445,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             if (phonelist.get(i).getValue()==""&&phonelist.get(i).getContactType()=="")
             {
                 phonelist.remove(phonelist.get(i));
-            }else if (phonelist.get(i).getValue()==""||phonelist.get(i).getContactType()=="")
+            }else if (phonelist.get(i).getValue()==""&& !phonelist.get(i).getContactType().isEmpty())
+            {
+                DialogManager.showAlert("Please Select Phone number with Type", context);
+                return false;
+            }else if (!phonelist.get(i).getValue().isEmpty()&& phonelist.get(i).getContactType().isEmpty())
             {
                 DialogManager.showAlert("Please Select Phone number with Type", context);
                 return false;
@@ -5958,7 +5967,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         if (requestCode == REQUEST_CARD && null != data) {
             rlCard.setVisibility(View.GONE);
             imgCard.setVisibility(View.GONE);
-            txtCard.setVisibility(View.VISIBLE);
+             flFront.setVisibility(View.VISIBLE);
             cardPath = "";
             //  photoCard = null;
         } else if (requestCode == RESULT_SELECT_PHOTO && null != data) {
@@ -6014,7 +6023,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgCard.setImageBitmap(scaled);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
-                txtCard.setVisibility(View.GONE);
+                 flFront.setVisibility(View.GONE);
                 CardMap = scaled;
                 //new comment
                 // storeImage(scaled, "Card");
@@ -6024,14 +6033,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 imgCard.setImageBitmap(scaled);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
-                txtCard.setVisibility(View.GONE);
+                 flFront.setVisibility(View.GONE);
                 CardMap = scaled;
                 storeImage(scaled, "Card");
 //                imageLoaderCard.displayImage(String.valueOf(imageUri), imgCard, displayImageOptionsCard);
                 // profileCard.setImageBitmap(selectedImage);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
-                txtCard.setVisibility(View.GONE);*/
+                 flFront.setVisibility(View.GONE);*/
 //                isOnActivityResult = true;
 //                cardImgPath = String.valueOf(imageUri);
                 // storeImage(selectedImage,"Card");
@@ -6053,7 +6062,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
-                txtCard.setVisibility(View.GONE);
+                 flFront.setVisibility(View.GONE);
                 CardMap = selectedImage;
                 //new
                 isOnActivityResult = true;
