@@ -116,7 +116,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     DBHelper dbHelper;
     FloatingActionButton floatProfile;
     ImageView floatOptions;
-
+    ToggleButton tbOrgan;
     TextView txtBlood;
     ImageView imgBloodDrop;
     LinearLayout linorgan,llVision, llAidsDiet, llSubDiet, linVaccine, lintobaco, lindrug, lindrink, llSubAllergis, llSubPre, llSubImplants, llSubHistory, llSubHospital, llSubBlood, llSubTeeth;
@@ -353,7 +353,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         rbYes = rootview.findViewById(R.id.rbYes);
         rbNo = rootview.findViewById(R.id.rbNo);
-        rgDonor = rootview.findViewById(R.id.rgDonor);
+        tbOrgan = rootview.findViewById(R.id.tbOrgan);
 
         txtTobacoType = rootview.findViewById(R.id.txtTobacoType);
         txtTobacoAmt = rootview.findViewById(R.id.txtTobacoAmt);
@@ -406,15 +406,26 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         spinnerBlood.setPrompt("Select Blood Type");*/
 
 
-        rgDonor.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//        tbOrgan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+//                if (checkedId == R.id.rbYes) {
+//                    donor = "YES";
+//                } else if (checkedId == R.id.rbNo) {
+//                    donor = "NO";
+//                }
+//            }
+//        });
+
+        tbOrgan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (checkedId == R.id.rbYes) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
                     donor = "YES";
-                } else if (checkedId == R.id.rbNo) {
+                }
                     donor = "NO";
                 }
-            }
+
         });
 
         rgDrug.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
