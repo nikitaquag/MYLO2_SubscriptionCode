@@ -1301,6 +1301,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 imgCard.setVisibility(View.VISIBLE);
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
+
             } else {
                 imgCard.setVisibility(View.GONE);
                 rlCard.setVisibility(View.VISIBLE);
