@@ -705,12 +705,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Physician", con.getId());
                         if (flagf == true) {
-                           Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                           //Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
                                     if (flagc == true) {
-                                       Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                      // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -750,12 +750,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Doctor", con.getId());
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Doctor");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                     //   Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -902,12 +902,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Pharmacy", con.getId());
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Pharmacy");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                     //   Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -1013,12 +1013,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Hospital", con.getId());
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Hospital");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                     //   Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -1081,12 +1081,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Finance", con.getId());
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Finance");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                //        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -1148,12 +1148,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Insurance", con.getId());
                         if (flagf == true) {
-                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                          //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Insurance");
                                     if (flagc == true) {
-                                        Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    //    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -1348,6 +1348,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     getSContact();
                     break;
                 case "Hospital":
+                    getSContact();
                     txtFNameHospital.setText(Cname);
                     txtHospitalAddress.setText(CAddress);
                     // txtEmail.setText(email);
@@ -1373,7 +1374,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     break;
                 case "Pharmacy":
+
                     txtPharmacyName.setText(Cname);
+                    txtPharmacyAddress.setText(CAddress);
+
+                   getCommonContact();
+                  /*   txtPharmacyName.setText(Cname);
                     txtPharmacyAddress.setText(CAddress);
                     // txtEmail.setText(email);
                     try {
@@ -1391,7 +1397,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
+                    }*/
                     break;
                 case "Aides":
                     txtAideCompName.setText(Cname);
@@ -1404,10 +1410,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                     break;
                 case "Finance":
-                    txtFName.setText(Cname);
+
+                    txtContactName.setText(Cname);
                     txtFinanceEmail.setText(Cemail);
                     txtFinanceAddress.setText(CAddress);
-                    try {
+                    getCommonContact();
+                   /* try {
                         String mobile = "";
                         mobile = Cphone;
                         if (!mobile.isEmpty()) {//nikita
@@ -1431,12 +1439,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
+                    }*/
                     break;
                 case "Insurance":
+                    getSContact();
                     txtInsuaranceName.setText(Cname);
                     txtInsuaranceEmail.setText(Cemail);
-                    try {
+                    getCommonContact();
+                  /*  try {
                         String mobile = "";
                         mobile = CWPhone;
                         if (!mobile.equals("")) {
@@ -1450,7 +1460,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
-                    }
+                    }*/
                     break;
             }
 
@@ -2339,7 +2349,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.VISIBLE);
+                 //   imgEdit.setVisibility(View.VISIBLE);
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
@@ -2471,11 +2481,11 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
-                    ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
-                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
+                   // imgEdit.setVisibility(View.GONE);
+                   // ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
+                   // phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
 //                    setListPh(listDrPhone);
-                    setListPh(llAddDrPhone);
+                  //  setListPh(llAddDrPhone);
                     /*
                     if (imgFile.exists()) {
                        */
@@ -2778,7 +2788,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
+                //    imgEdit.setVisibility(View.GONE);
 
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -3063,6 +3073,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtTitle.setText("Add Hospitals & Rehabilitation Centers");
 //                setListPh(listHospPhone);
                 setListPh(llAddHospPhone);
+
                 break;
 
             case "HospitalData":
@@ -3385,7 +3396,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                 //    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
+                   // imgEdit.setVisibility(View.GONE);
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
                     if (!specialist.getPhotoCard().equals("")) {
@@ -3512,6 +3523,32 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
         }
 
+    }
+
+    private void getCommonContact() {
+        try {
+            if (!Cphone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(Cphone);
+                phone.setContactType("Mobile");
+                phonelist.add(phone);
+            }
+            if (!CHPhone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(CHPhone);
+                phone.setContactType("Home");
+                phonelist.add(phone);
+            }
+            if (!CWPhone.isEmpty()) {
+                ContactData phone = new ContactData();
+                phone.setValue(CWPhone);
+                phone.setContactType("Work");
+                phonelist.add(phone);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void changeIcon(String source) {
@@ -5334,8 +5371,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imgEdit.setVisibility(View.GONE);
                 } else if (profile.equals("Card")) {
                     cardPath = "";
-                    imgCard.setVisibility(View.GONE);
-                    rlCard.setVisibility(View.GONE);
+                    imgCard.setImageResource(R.drawable.busi_card);
+
+                    imgCard.setVisibility(View.VISIBLE);
+                    rlCard.setVisibility(View.VISIBLE);
                     txtCard.setVisibility(View.VISIBLE);
                     CardMap = null;
                 }
@@ -6325,7 +6364,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 boolean flag = PharmacyQuery.deleteRecord(item.getId());
                 if (flag == true) {
-                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                     getActivity().finish();
                 }
                 dialog.dismiss();
@@ -6352,7 +6391,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 boolean flag = FinanceQuery.deleteRecord(item.getId());
                 if (flag == true) {
-                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                  //  Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                     getActivity().finish();
                 }
                 dialog.dismiss();
@@ -6379,7 +6418,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             public void onClick(DialogInterface dialog, int which) {
                 boolean flag = InsuranceQuery.deleteRecord(item.getId());
                 if (flag == true) {
-                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
                     getActivity().finish();
                 }
                 dialog.dismiss();

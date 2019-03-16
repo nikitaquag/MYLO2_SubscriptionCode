@@ -178,7 +178,7 @@ public class ContactDataQuery {
 //
 //                noteList.add(notes);
 
-                db.execSQL("delete from " + TABLE_NAME + " where " + COL_FROMTABLE + "='" + connection + "';");
+                db.execSQL("delete from " + TABLE_NAME + " where " + COL_FROMTABLE + "='" + connection + "' and " + COL_ID_FROMTABLE + "='" + id + "';");
             } while (c.moveToNext());
         }
 
