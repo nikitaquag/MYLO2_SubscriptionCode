@@ -690,11 +690,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
             }
             if (isImplant == true || isHistory == true) {
                 tilDate.setVisibility(View.VISIBLE);
-                if (isImplant == true) {
-                    tilDate.setHint("Note (Date, Location, Details)");
-                } else {
+//                if (isImplant == true) {
+//                    tilDate.setHint("Note (Date, Location, Details)");
+//                } else {
                     tilDate.setHint("Date");
-                }
+//                }
             } else {
                 tilDate.setVisibility(View.GONE);
             }
