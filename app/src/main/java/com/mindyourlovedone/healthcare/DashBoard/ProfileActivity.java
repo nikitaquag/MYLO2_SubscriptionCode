@@ -1027,7 +1027,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     final int position = Integer.parseInt(mTextViewListType.get(pos).getTag().toString());
                     AlertDialog.Builder b = new AlertDialog.Builder(context);
                     b.setTitle("Type");
-                    final String[] types = {"Fax", "Home", "Mobile", "None", "Office"};
+                    final String[] types = {"Fax", "Home", "Mobile", "Office"};
                     b.setItems(types, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -2480,7 +2480,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             if (phonelist.get(i).getValue()==""&&phonelist.get(i).getContactType()=="")
             {
                 phonelist.remove(phonelist.get(i));
-            }else if (phonelist.get(i).getValue()==""||phonelist.get(i).getContactType()=="")
+            }else if (phonelist.get(i).getValue()==""&& !phonelist.get(i).getContactType().isEmpty())
+            {
+                DialogManager.showAlert("Please Select Phone number with Type", context);
+                return false;
+            }else if (!phonelist.get(i).getValue().isEmpty()&& phonelist.get(i).getContactType().isEmpty())
             {
                 DialogManager.showAlert("Please Select Phone number with Type", context);
                 return false;

@@ -189,15 +189,29 @@ public class FinanceAdapter extends RecyclerSwipeAdapter<FinanceAdapter.ViewHold
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
-        holder.imgProfile.setImageResource(R.drawable.all_profile);
+       // holder.imgProfile.setImageResource(R.drawable.all_profile);
 
-        if (!FinanceList.get(position).getPhotoCard().equals("")) {
+        /*if (!FinanceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForward, displayImageOptionsCard);
             }
             //Commented as to match screen as invision-shradha
             //   holder.imgForward.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgForward.setVisibility(View.GONE);
+        }*/
+
+        if (!FinanceList.get(position).getPhotoCard().equals("")) {
+            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), FinanceList.get(position).getPhotoCard());
+            if (imgFile1.exists()) {
+                if (holder.imgForward.getDrawable() == null)
+                    holder.imgForward.setImageResource(R.drawable.busi_card);
+                else
+                    holder.imgForward.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+            }
+
+            holder.imgForward.setVisibility(View.VISIBLE);
         } else {
             holder.imgForward.setVisibility(View.GONE);
         }

@@ -163,9 +163,9 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
-        holder.imgProfile.setImageResource(R.drawable.all_profile);
+     //   holder.imgProfile.setImageResource(R.drawable.all_profile);
 
-        if (!pharmacyList.get(position).getPhotoCard().equals("")) {
+        /*if (!pharmacyList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
                 imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
@@ -174,8 +174,20 @@ class PharmacyAdapter extends RecyclerSwipeAdapter<PharmacyAdapter.ViewHolder> {
           //  holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
-        }
+        }*/
+        if (!pharmacyList.get(position).getPhotoCard().equals("")) {
+            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), pharmacyList.get(position).getPhotoCard());
+            if (imgFile1.exists()) {
+                if (holder.imgForword.getDrawable() == null)
+                    holder.imgForword.setImageResource(R.drawable.busi_card);
+                else
+                    holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+            }
 
+            holder.imgForword.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgForword.setVisibility(View.GONE);
+        }
 
         holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
