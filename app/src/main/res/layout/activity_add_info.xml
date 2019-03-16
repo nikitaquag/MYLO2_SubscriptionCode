@@ -107,7 +107,7 @@
             android:layout_height="match_parent">
 
         <ScrollView
-            android:isScrollContainer="false"
+
             android:padding="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:layout_width="match_parent"

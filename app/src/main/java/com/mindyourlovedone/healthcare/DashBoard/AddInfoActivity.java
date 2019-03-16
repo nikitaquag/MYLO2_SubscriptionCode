@@ -699,6 +699,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 tilDate.setVisibility(View.GONE);
             }
 
+            if(i.getExtras().getBoolean("IsImplant2")){
+                tilDate.setVisibility(View.VISIBLE);
+                tilDate.setHint("Date");
+            }
+
             switch (from) {
                 case "AllergyUpdate":
                     Allergy allergy = (Allergy) i.getExtras().getSerializable("AllergyObject");

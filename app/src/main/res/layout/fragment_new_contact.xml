@@ -21,7 +21,7 @@
             <View
                 android:id="@+id/vtop"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension15dp"
+                android:layout_height="@dimen/dimension10dp"
                 android:background="@color/colorLightGray"></View>
 
             <RelativeLayout
@@ -53,11 +53,12 @@
             </RelativeLayout>
 
             <View
+
                 android:id="@+id/vbot"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension15dp"
+                android:layout_height="@dimen/dimension10dp"
                 android:layout_below="@+id/llProfile"
-                android:layout_marginTop="@dimen/dimension20dp"
+                android:layout_marginTop="@dimen/dimension10dp"
                 android:background="@color/colorLightGray"></View>
             <!--<view
                 android:id="@+id/view"
@@ -1915,7 +1916,7 @@ android:visibility="gone"
                     <View
                         android:id="@+id/vEmNote"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension10dp"
                         android:background="@color/colorLightGray"
 
                         ></View>
@@ -2536,7 +2537,7 @@ android:visibility="gone"
                     <View
                         android:id="@+id/vDrNote"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension10dp"
                         android:layout_below="@+id/tilDoctorLocator"
                         android:background="@color/colorLightGray"></View>
 
