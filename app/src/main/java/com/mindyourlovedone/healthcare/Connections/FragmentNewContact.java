@@ -2472,10 +2472,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imgEdit.setVisibility(View.GONE);
-                    ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
-                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
+                   // ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
+                   // phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
 //                    setListPh(listDrPhone);
-                    setListPh(llAddDrPhone);
+                  //  setListPh(llAddDrPhone);
                     /*
                     if (imgFile.exists()) {
                        */
