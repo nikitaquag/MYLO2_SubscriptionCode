@@ -739,6 +739,12 @@
                         ></TextView>
 
                 </RelativeLayout>
+
+                <View
+                    android:layout_below="@+id/rlPdf"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorWhite"
+                    android:layout_height="@dimen/dimension100dp"/>
             </RelativeLayout>
         </ScrollView>
             <RelativeLayout
