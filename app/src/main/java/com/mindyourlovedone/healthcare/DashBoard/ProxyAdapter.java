@@ -34,7 +34,6 @@ public class ProxyAdapter extends RecyclerSwipeAdapter<ProxyAdapter.ViewHolder> 
     Context context;
     ArrayList<Proxy> proxyList;
     LayoutInflater lf;
-
     Preferences preferences;
     FragmentProxy fr;
 
