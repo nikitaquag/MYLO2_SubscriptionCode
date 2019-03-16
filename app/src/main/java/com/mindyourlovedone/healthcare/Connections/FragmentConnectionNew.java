@@ -643,7 +643,17 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         switch (v.getId()) {
 
             case R.id.rlSelf:
+                getProfile();
                 Intent intentP= new Intent(getActivity(),ProfileActivity.class);
+                preferences.putInt(PrefConstants.USER_ID, connection.getUserid());
+                preferences.putString(PrefConstants.USER_NAME, connection.getName());
+                preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
+                preferences.putString(PrefConstants.USER_EMAIL,connection.getEmail());
+                String mail1 = preferences.getString(PrefConstants.USER_EMAIL);
+                mail1 = mail1.replace(".", "_");
+                mail1 = mail1.replace("@", "_");
+                preferences.putString(PrefConstants.CONNECTED_USERDB, mail1);
+                preferences.putInt(PrefConstants.CONNECTED_USERID, connection.getId());
                 startActivity(intentP);
 
                 break;

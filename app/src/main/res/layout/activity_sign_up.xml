@@ -33,6 +33,13 @@
             android:scaleType="fitXY"
             android:src="@drawable/new_splash" />
 
+        <ImageView
+            android:background="@drawable/border_whitecorner"
+            android:layout_gravity="center_horizontal|bottom"
+            android:src="@mipmap/ic_launcher_logo"
+            android:layout_width="@dimen/dimension100dp"
+            android:layout_height="@dimen/dimension100dp" />
+
     </FrameLayout>
 
     <android.support.design.widget.TextInputLayout

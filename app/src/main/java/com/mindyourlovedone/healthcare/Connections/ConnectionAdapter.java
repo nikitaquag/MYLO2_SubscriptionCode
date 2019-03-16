@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -26,6 +25,7 @@ import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
+import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -119,6 +119,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
             holder.txtConRelation = (TextView) convertView.findViewById(R.id.txtConRelation);
             //   holder.txtAddress= (TextView) convertView.findViewById(R.id.txtAddress);
             holder.imgConPhoto = (ImageView) convertView.findViewById(R.id.imgConPhoto);
+            holder.imgSelfFolder = (ImageView) convertView.findViewById(R.id.imgSelfFolder);
             //   holder.imgForword= (ImageView) convertView.findViewById(R.id.imgForword);
 
             convertView.setTag(holder);
@@ -160,10 +161,24 @@ else {
 }
 */
 
-
-
-
         convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentP= new Intent(context,ProfileActivity.class);
+                String mail1 = connectionList.get(position).getEmail();
+                mail1 = mail1.replace(".", "_");
+                mail1 = mail1.replace("@", "_");
+                preferences.putString(PrefConstants.USER_IMAGE, connectionList.get(position).getPhoto());
+                preferences.putString(PrefConstants.CONNECTED_NAME, connectionList.get(position).getName());
+                preferences.putString(PrefConstants.CONNECTED_USEREMAIL, connectionList.get(position).getEmail());
+                preferences.putInt(PrefConstants.CONNECTED_USERID, connectionList.get(position).getId());
+                preferences.putString(PrefConstants.CONNECTED_USERDB, mail1);
+                context.startActivity(intentP);
+            }
+        });
+
+
+        holder.imgSelfFolder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (position==connectionList.size())
@@ -493,7 +508,7 @@ else {
 
     public class ViewHolder {
         TextView txtConName, txtConRelation, txtAddress;
-        ImageView imgConPhoto, imgConPhoto1, imgForword;
+        ImageView imgConPhoto, imgSelfFolder, imgConPhoto1, imgForword;
     }
 
    /* @Override

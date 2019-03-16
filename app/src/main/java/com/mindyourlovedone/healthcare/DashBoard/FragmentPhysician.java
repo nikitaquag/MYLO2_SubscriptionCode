@@ -191,7 +191,17 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     }
 
     public void callUser(Specialist item) {
-        String mobile = item.getOfficePhone();
+        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Physician");
+
+
+        if (phonelist.size()>0)
+        {
+            CallDialog c = new CallDialog();
+            c.showCallDialogs(getActivity(), phonelist);
+        }else {
+            Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
+        }
+        /*String mobile = item.getOfficePhone();
         String hphone = item.getHourPhone();
         String wPhone = item.getOtherPhone();
 
@@ -200,7 +210,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
             c.showCallDialog(getActivity(), mobile, hphone, wPhone);
         } else {
             Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void deleteSpecialist(final Specialist item) {

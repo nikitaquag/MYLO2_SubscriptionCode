@@ -7,11 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
-import com.mindyourlovedone.healthcare.model.Specialist;
-import com.mindyourlovedone.healthcare.utility.PrefConstants;
-import com.mindyourlovedone.healthcare.utility.Preferences;
 
-import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -160,10 +156,10 @@ public class ContactDataQuery {
         return contactList;
     }
 
-    public static boolean deleteRecord(String connection) {
+    public static boolean deleteRecord(String connection, int id) {
         ArrayList<Pharmacy> noteList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_FROMTABLE + "='" + connection + "';", null);
+        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_FROMTABLE + "='" + connection + "' and " + COL_ID_FROMTABLE + "='" + id + "';", null);
 
         if (c.moveToFirst()) {
             do {

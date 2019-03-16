@@ -534,7 +534,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                                 Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
                                 RelativeConnection con = MyConnectionsQuery.fetchConnectionRecordforImport(email);
                                 ContactDataQuery c = new ContactDataQuery(context, dbHelper1);
-                                boolean flagf = ContactDataQuery.deleteRecord("Connection");
+                                boolean flagf = ContactDataQuery.deleteRecord("Connection", con.getId());
                                 if (flagf == true) {
                                  //   Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                     for (int i = 0; i < phonelist.size(); i++) {
@@ -580,7 +580,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Toast.makeText(getActivity(), "You have added emergency contact successfully", Toast.LENGTH_SHORT).show();
 
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Emergency");
+                        boolean flagf = ContactDataQuery.deleteRecord("Emergency",con.getId());
                         if (flagf == true) {
                            // Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -619,7 +619,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Emergency");
+                        boolean flagf = ContactDataQuery.deleteRecord("Emergency", id);
                         if (flagf == true) {
                           //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -703,7 +703,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             con=connectionList.get(i);
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Physician");
+                        boolean flagf = ContactDataQuery.deleteRecord("Physician", con.getId());
                         if (flagf == true) {
                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -748,7 +748,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                                 con=connectionList.get(i);
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Doctor");
+                        boolean flagf = ContactDataQuery.deleteRecord("Doctor", con.getId());
                         if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -782,7 +782,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Physician");
+                            boolean flagf = ContactDataQuery.deleteRecord("Physician", id);
                             if (flagf == true) {
                                 //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
@@ -804,7 +804,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated doctor successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Doctor");
+                            boolean flagf = ContactDataQuery.deleteRecord("Doctor", id);
                             if (flagf == true) {
                                 //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
@@ -844,7 +844,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Physician");
+                            boolean flagf = ContactDataQuery.deleteRecord("Physician", id);
                             if (flagf == true) {
                            //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
@@ -865,7 +865,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Boolean flag = SpecialistQuery.updatePhysicianData(id, name, website, address, mobile, phone, workphone, speciality, imagepath, fax, practice_name, network, affil, note, 2, lastseen, cardPath, otherDoctor, locator,has_card);
                         if (flag == true) {
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Doctor");
+                            boolean flagf = ContactDataQuery.deleteRecord("Doctor", id);
                             if (flagf == true) {
                                 //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
@@ -900,7 +900,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Pharmacy con=new Pharmacy();
                         con= getLastPharmacy();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Pharmacy");
+                        boolean flagf = ContactDataQuery.deleteRecord("Pharmacy", con.getId());
                         if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -937,7 +937,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated pharmacy successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Pharmacy");
+                        boolean flagf = ContactDataQuery.deleteRecord("Pharmacy",id);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1011,7 +1011,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         con=HospitalHealthQuery.getLastHopital();
 
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Hospital");
+                        boolean flagf = ContactDataQuery.deleteRecord("Hospital", con.getId());
                         if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1047,7 +1047,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Hospital");
+                        boolean flagf = ContactDataQuery.deleteRecord("Hospital", id);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1079,7 +1079,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Finance con=new Finance();
                         con=FinanceQuery.getLastFinance();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Finance");
+                        boolean flagf = ContactDataQuery.deleteRecord("Finance", con.getId());
                         if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1114,7 +1114,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Finance");
+                        boolean flagf = ContactDataQuery.deleteRecord("Finance", id);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1146,7 +1146,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         Insurance con=new Insurance();
                         con= getLastInsurance();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Insurance");
+                        boolean flagf = ContactDataQuery.deleteRecord("Insurance", con.getId());
                         if (flagf == true) {
                             Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1183,7 +1183,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Insurance");
+                        boolean flagf = ContactDataQuery.deleteRecord("Insurance", id);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -2338,7 +2338,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                   // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imgEdit.setVisibility(View.VISIBLE);
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -2470,7 +2470,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                   // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imgEdit.setVisibility(View.GONE);
                     ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
@@ -2777,7 +2777,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                   // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imgEdit.setVisibility(View.GONE);
 
                    /* if (imgFile.exists()) {
@@ -3151,7 +3151,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                  //  imgProfile.setImageResource(R.drawable.ic_profile_defaults);
 
                     /*Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
                     imgProfile.setImageBitmap(bmp);*/
@@ -3384,7 +3384,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         }
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
-                    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
+                //    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
                     imgEdit.setVisibility(View.GONE);
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();

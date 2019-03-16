@@ -28,6 +28,8 @@ import com.mindyourlovedone.healthcare.ConnectionNew.ConnAdapter;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.utility.PrefConstants;
+import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.util.ArrayList;
 
@@ -127,15 +129,23 @@ public class Fragment_Conn_New extends Fragment implements View.OnClickListener 
                 showContactDialog();
                 break;
             case R.id.llSelf:
-                Intent intentProfile = new Intent(getActivity(), ProfileActivity.class);
-                startActivity(intentProfile);
+                Intent intentP= new Intent(getActivity(),ProfileActivity.class);
+                String mail1 = new Preferences(getActivity()).getString(PrefConstants.USER_EMAIL);
+                mail1 = mail1.replace(".", "_");
+                mail1 = mail1.replace("@", "_");
+                new Preferences(getActivity()).putString(PrefConstants.CONNECTED_USERDB, mail1);
+                startActivity(intentP);
                 break;
             case R.id.imgSelfFolder:
                 callFragment(new FragmentDashboardNew());
                 break;
             case R.id.rlSelf:
-                Intent intentP= new Intent(getActivity(),ProfileActivity.class);
-                startActivity(intentP);
+                Intent intentP1= new Intent(getActivity(),ProfileActivity.class);
+                String mail11 = new Preferences(getActivity()).getString(PrefConstants.USER_EMAIL);
+                mail1 = mail11.replace(".", "_");
+                mail1 = mail11.replace("@", "_");
+                new Preferences(getActivity()).putString(PrefConstants.CONNECTED_USERDB, mail11);
+                startActivity(intentP1);
                 break;
 
         }
