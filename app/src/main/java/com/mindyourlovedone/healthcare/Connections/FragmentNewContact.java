@@ -2339,7 +2339,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.VISIBLE);
+                 //   imgEdit.setVisibility(View.VISIBLE);
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
@@ -2471,7 +2471,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
+                   // imgEdit.setVisibility(View.GONE);
                    // ContactDataQuery cc = new ContactDataQuery(context, dbHelper);
                    // phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
 //                    setListPh(listDrPhone);
@@ -2778,7 +2778,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                    // imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
+                //    imgEdit.setVisibility(View.GONE);
 
                    /* if (imgFile.exists()) {
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
@@ -3385,7 +3385,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                     }
                 //    imgProfile.setImageResource(R.drawable.ic_profile_defaults);
-                    imgEdit.setVisibility(View.GONE);
+                   // imgEdit.setVisibility(View.GONE);
                     //Change Class Name
                     cardPath = specialist.getPhotoCard();
                     if (!specialist.getPhotoCard().equals("")) {
@@ -5334,8 +5334,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     imgEdit.setVisibility(View.GONE);
                 } else if (profile.equals("Card")) {
                     cardPath = "";
-                    imgCard.setVisibility(View.GONE);
-                    rlCard.setVisibility(View.GONE);
+                    imgCard.setImageResource(R.drawable.busi_card);
+
+                    imgCard.setVisibility(View.VISIBLE);
+                    rlCard.setVisibility(View.VISIBLE);
                     txtCard.setVisibility(View.VISIBLE);
                     CardMap = null;
                 }
