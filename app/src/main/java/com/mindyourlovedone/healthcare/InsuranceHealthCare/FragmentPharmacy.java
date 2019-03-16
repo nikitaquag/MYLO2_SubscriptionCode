@@ -33,8 +33,10 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.PharmacyQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -177,9 +179,131 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
             setListData();
         }
     }
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Pharmacy.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
 
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Pharmacies and home medical equipment");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+
+
+        ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new Specialty(PharmacyList);
+        Header.document.close();
+        //------------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Pharmacy.pdf";
+
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Pharmacies And Home Medical Equipment");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Pharmacy.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getDoctorsInfo());
+                result.append(new MessageString().getHospitalInfo());
+                result.append(new MessageString().getPharmacyInfo());
+                result.append(new MessageString().getAideInfo());
+                result.append(new MessageString().getFinanceInfo());
+
+                new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Pharmacy.pdf",
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
+    }
     public void callUser(Pharmacy item) {
-        String mobile = item.getPhone();
+        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Pharmacy");
+
+
+        if (phonelist.size()>0)
+        {
+            CallDialog c = new CallDialog();
+            c.showCallDialogs(getActivity(), phonelist);
+        }else {
+            Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
+        }
+        /*String mobile = item.getPhone();
         String hphone = "";
         String wPhone = "";
 
@@ -188,7 +312,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
             c.showCallDialog(getActivity(), mobile, hphone, wPhone);
         } else {
             Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void deletePharmacy(final Pharmacy item) {
@@ -255,13 +379,21 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
             case R.id.floatAdd:
                 showFloatDialog();
                 break;
+
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
            /* case R.id.llAddPharmacy:
                 preferences.putString(PrefConstants.SOURCE, "Pharmacy");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
                 break;*/
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "PharmacyInstruction");
+                startActivity(i);
+                break;
+             /*   final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -290,11 +422,11 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-                /*new Header().createPdfHeader(file.getAbsolutePath(),
+                *//*new Header().createPdfHeader(file.getAbsolutePath(),
                         "Pharmacies and home medical equipment");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
                 ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 new Specialty(PharmacyList);
@@ -312,6 +444,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
                                 + "/Pharmacy.pdf";
                         switch (itemPos) {
                             case 0: // view
+
                                 StringBuffer result = new StringBuffer();
                                 result.append(new MessageString().getDoctorsInfo());
                                 result.append(new MessageString().getHospitalInfo());
@@ -335,14 +468,14 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
                                 i.putExtra("From", "PharmacyInstruction");
                                 startActivity(i);
                                 break;
-                           /* case 2://fax
+                           *//* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
                         }
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
         }
     }
 

@@ -526,11 +526,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 {
                     has_card="YES";
                     rlCard.setVisibility(View.VISIBLE);
+                    imgEditCard.setVisibility(View.GONE);
                 }
                 else{
                     has_card="NO";
                    // imgCard.setImageResource(R.drawable.busi_card);
                     txtCard.setVisibility(View.VISIBLE);
+                    imgEditCard.setVisibility(View.GONE);
                     imgCard.setVisibility(View.GONE);
                     cardpath = "";
                     CardMap = null;
@@ -1299,12 +1301,15 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 Bitmap bmps = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);*/
                 // imgCard.setImageBitmap(bmps);
                 imgCard.setVisibility(View.VISIBLE);
+                imgEditCard.setVisibility(View.VISIBLE);
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
+
             } else {
                 imgCard.setVisibility(View.GONE);
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.VISIBLE);
+                imgEditCard.setVisibility(View.GONE);
             }
 
             txtHeight.setText(connection.getHeight());
@@ -2413,6 +2418,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     ProfileMap = null;
                 } else if (from.equals("Card")) {
                     imgCard.setImageResource(R.drawable.busi_card);
+                    imgEditCard.setVisibility(View.GONE);
                     imgCard.setVisibility(View.GONE);
                     rlCard.setVisibility(View.VISIBLE);
                     txtCard.setVisibility(View.VISIBLE);
@@ -2971,7 +2977,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 imgCard.setImageBitmap(scaled);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
+
                 txtCard.setVisibility(View.GONE);
+                imgEditCard.setVisibility(View.VISIBLE);
                 CardMap = scaled;
                 storeImage(scaled, "Card");
             } catch (FileNotFoundException e) {
@@ -3046,6 +3054,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
+                imgEditCard.setVisibility(View.VISIBLE);
                 //  storeImage(bitmap,"Card");
                 CardMap = selectedImage;
 
@@ -3060,6 +3069,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 rlCard.setVisibility(View.GONE);
                 imgCard.setVisibility(View.GONE);
                 txtCard.setVisibility(View.VISIBLE);
+                imgEditCard.setVisibility(View.GONE);
                 cardpath = "";
             }
             //photoCard=null;
