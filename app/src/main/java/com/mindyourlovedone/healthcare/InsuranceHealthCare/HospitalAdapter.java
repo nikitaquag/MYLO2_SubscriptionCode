@@ -190,7 +190,7 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
-        holder.imgProfile.setImageResource(R.drawable.all_profile); //new change for default image display
+       else holder.imgProfile.setImageResource(R.drawable.all_profile); //new change for default image display
 
        /* if (imgFile.exists()) {
            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
@@ -200,21 +200,20 @@ public class HospitalAdapter extends RecyclerSwipeAdapter<HospitalAdapter.ViewHo
             holder.imgProfile.setImageResource(R.drawable.yellow);
         }*/
 
+       //Varsa 16 marc cardx
         if (!hospitalList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), hospitalList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForward.setImageBitmap(myBitmap);*/
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForward, displayImageOptionsCard);
+                if (holder.imgForward.getDrawable() == null)
+                    holder.imgForward.setImageResource(R.drawable.busi_card);
+                else
+                    holder.imgForward.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
             }
-          /*  byte[] photoCard = hospitalList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForward.setImageBitmap(bmpCard);*/
-           // holder.imgForward.setVisibility(View.VISIBLE);
+
+            holder.imgForward.setVisibility(View.VISIBLE);
         } else {
             holder.imgForward.setVisibility(View.GONE);
         }
-
 
         holder.imgForward.setOnClickListener(new View.OnClickListener() {
             @Override
