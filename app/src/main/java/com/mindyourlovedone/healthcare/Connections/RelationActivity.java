@@ -109,7 +109,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Marital")) {
                 txtTitles.setText("Select Marital Status");
-                String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Other","Separated", "Single", "Widowed"};
+                String[] MaritalList = {"Divorced", "Domestic Partner", "Married", "Separated", "Single", "Widowed","Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, MaritalList, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("language")) {
