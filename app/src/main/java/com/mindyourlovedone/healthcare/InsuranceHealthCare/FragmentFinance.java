@@ -33,8 +33,10 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.FinanceQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -101,12 +103,14 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUI() {
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -170,9 +174,127 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
         //...
         setListData();
     }
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Finance.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Finance,Insurance,Legal");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Finance,Insurance,Legal");
+
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+
+        ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new Specialty(1, financeList);
+
+        Header.document.close();
+        //-------------------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Finance.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Finance & Legal");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Finance.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getFinanceInfo());
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
+    }
     public void callUser(Finance item) {
-        String mobile = item.getOfficePhone();
+        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Finance");
+
+
+        if (phonelist.size()>0)
+        {
+            CallDialog c = new CallDialog();
+            c.showCallDialogs(getActivity(), phonelist);
+        }else {
+            Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
+        }
+        /*String mobile = item.getOfficePhone();
         String hphone = item.getMobile();
         String wPhone = item.getOtherPhone();
 
@@ -181,7 +303,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
             c.showCallDialog(getActivity(), mobile, hphone, wPhone);
         } else {
             Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void deleteFinance(final Finance item) {
@@ -260,13 +382,19 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
             case R.id.floatAdd:
                 showFloatDialog();
                 break;
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
           /*  case R.id.llAddFinance:
                 preferences.putString(PrefConstants.SOURCE, "Finance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
                 break;*/
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "FinanceInstruction");
+                startActivity(i);
+                /*final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -294,11 +422,11 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
                         "Finance,Insurance,Legal");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
                 ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 new Specialty(1, financeList);
@@ -317,6 +445,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                                 + "/Finance.pdf";
                         switch (itemPos) {
                             case 0: // view
+
                                 StringBuffer result = new StringBuffer();
                                 result.append(new MessageString().getFinanceInfo());
 
@@ -334,14 +463,14 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                                 i.putExtra("From", "FinanceInstruction");
                                 startActivity(i);
                                 break;
-                           /* case 2://fax
+                           *//* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
                         }
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
         }
     }

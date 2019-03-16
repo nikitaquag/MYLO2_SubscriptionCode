@@ -28,13 +28,16 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.FragmentPhysician;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -101,14 +104,14 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
-
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUI() {
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
-
+        floatOptions= rootview.findViewById(R.id.floatOptions);
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
@@ -178,9 +181,126 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 new DividerItemDecoration(getActivity(), R.drawable.divider));
         //...
     }
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Hospital.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
 
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+
+
+        ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new Specialty("Hospital", HospitalList);
+        Header.document.close();
+
+        //----------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Hospital.pdf";
+
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Hospital.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getHospitalInfo());
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
+    }
     public void callUser(Hospital item) {
-        String mobile = item.getOfficePhone();
+        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Hospital");
+
+
+        if (phonelist.size()>0)
+        {
+            CallDialog c = new CallDialog();
+            c.showCallDialogs(getActivity(), phonelist);
+        }else {
+            Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
+        }
+       /* String mobile = item.getOfficePhone();
         String hphone = item.getMobile();
         String wPhone = item.getOtherPhone();
 
@@ -189,7 +309,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             c.showCallDialog(getActivity(), mobile, hphone, wPhone);
         } else {
             Toast.makeText(getActivity(), "You have not added phone number for call", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     public void deleteHospital(final Hospital item) {
@@ -237,13 +357,20 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             case R.id.floatAdd:
                 showFloatDialog();
                 break;
+
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
            /* case R.id.llAddHospital:
                 preferences.putString(PrefConstants.SOURCE, "Hospital");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
                 break;*/
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "HospitalInstruction");
+                startActivity(i);
+              /*  final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -273,11 +400,11 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 }
                 Header.addEmptyLine(1);
 
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
                         "Hospitals and other health professionals");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
                 ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 new Specialty("Hospital", HospitalList);
@@ -296,6 +423,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                         switch (itemPos) {
 
                             case 0: // view
+
                                 StringBuffer result = new StringBuffer();
                                 result.append(new MessageString().getHospitalInfo());
 
@@ -314,14 +442,14 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                                 i.putExtra("From", "HospitalInstruction");
                                 startActivity(i);
                                 break;
-                           /* case 2://fax
+                           *//* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
                         }
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
         }
     }

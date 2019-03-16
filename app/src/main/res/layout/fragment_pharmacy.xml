@@ -372,7 +372,6 @@ By the way you may need a completed HIPAA form before they will speak to you.  C
             android:id="@+id/llAddPharmacy"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension0dp"
-            android:layout_marginBottom="@dimen/dimension10dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
