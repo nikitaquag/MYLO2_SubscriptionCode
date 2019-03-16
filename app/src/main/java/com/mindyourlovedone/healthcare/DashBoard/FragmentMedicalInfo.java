@@ -724,7 +724,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
             allergyIntent.putExtra("IsAllergy", false);
             allergyIntent.putExtra("IsHistory", false);
-            allergyIntent.putExtra("IsImplant", true);
+            allergyIntent.putExtra("IsImplant", false);
             allergyIntent.putExtra("ADD", "ImplantUpdate");
             allergyIntent.putExtra("Title", "Update Medical Implant");
             allergyIntent.putExtra("Name", "Update Medical Implant");
@@ -1503,7 +1503,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Intent implantsIntent = new Intent(getActivity(), AddInfoActivity.class);
                 implantsIntent.putExtra("IsAllergy", false);
                 implantsIntent.putExtra("IsHistory", false);
-                implantsIntent.putExtra("IsImplant", true);
+                implantsIntent.putExtra("IsImplant", false);
                 implantsIntent.putExtra("ADD", "Implants");
                 implantsIntent.putExtra("Title", "Add Medical Implants");
                 implantsIntent.putExtra("Name", "Add Medical Implant");
