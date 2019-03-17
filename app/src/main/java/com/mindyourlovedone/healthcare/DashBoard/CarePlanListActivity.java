@@ -383,7 +383,10 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             case R.id.imgRight:
                 switch (From) {
                     case "AD":
-                        final String RESULT1 = Environment.getExternalStorageDirectory()
+                        Intent iN = new Intent(context, InstructionActivity.class);
+                        iN.putExtra("From", "AdvanceInstruction");
+                        startActivity(iN);
+                       /* final String RESULT1 = Environment.getExternalStorageDirectory()
                                 + "/mylopdf/";
                         File dirfile1 = new File(RESULT1);
                         dirfile1.mkdirs();
@@ -438,6 +441,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         System.out.println("\n" + result + "\n");
                                         break;
                                     case 1://Email
+
                                         File f = new File(path);
                                         preferences.emailAttachement(f, context, "Advance Directives");
                                         break;
@@ -446,17 +450,20 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         i.putExtra("From", "AdvanceInstruction");
                                         startActivity(i);
                                         break;
-                                   /* case 2://fax
+                                   *//* case 2://fax
                                         new FaxCustomDialog(context, path).show();
-                                        break;*/
+                                        break;*//*
                                 }
                             }
 
                         });
-                        builder.create().show();
+                        builder.create().show();*/
                         break;
                     case "Record":
-                        final String RESULT2 = Environment.getExternalStorageDirectory()
+                        Intent ir = new Intent(context, InstructionActivity.class);
+                        ir.putExtra("From", "MedicalInfoInstruction");
+                        startActivity(ir);
+                       /* final String RESULT2 = Environment.getExternalStorageDirectory()
                                 + "/mylopdf/";
                         File dirfile2 = new File(RESULT2);
                         dirfile2.mkdirs();
@@ -524,10 +531,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                             }
 
                         });
-                        builder1.create().show();
+                        builder1.create().show();*/
                         break;
                     case "Other":
-                        final String RESULT3 = Environment.getExternalStorageDirectory()
+                        Intent iS = new Intent(context, InstructionActivity.class);
+                        iS.putExtra("From", "OtherInstruction");
+                        startActivity(iS);
+                       /* final String RESULT3 = Environment.getExternalStorageDirectory()
                                 + "/mylopdf/";
                         File dirfile3 = new File(RESULT3);
                         dirfile3.mkdirs();
@@ -580,6 +590,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                                         System.out.println("\n" + result + "\n");
                                         break;
                                     case 1://Email
+
                                         File f = new File(path);
                                         preferences.emailAttachement(f, context, "Other Documents");
                                         break;
@@ -594,7 +605,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                             }
 
                         });
-                        builder2.create().show();
+                        builder2.create().show();*/
                         break;
                 }
                 break;
@@ -604,18 +615,127 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     }
 
     private void showFloatDialog() {
+        switch (From) {
+            case "AD":
+                final String RESULT1 = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/";
+                File dirfile1 = new File(RESULT1);
+                dirfile1.mkdirs();
+                File file1 = new File(dirfile1, "AdvanceDirectives.pdf");
+                if (file1.exists()) {
+                    file1.delete();
+                }
+
+                new Header().createPdfHeader(file1.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+                preferences.copyFile("ic_launcher.png", context);
+                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+                Header.addEmptyLine(1);
+                Header.addusereNameChank("Advance Directives");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(1);
+                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+                Paragraph p = new Paragraph(" ");
+                LineSeparator line = new LineSeparator();
+                line.setOffset(-4);
+                line.setLineColor(BaseColor.LIGHT_GRAY);
+                p.add(line);
+                try {
+                    Header.document.add(p);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                }
+                Header.addEmptyLine(1);
+
+                ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
+                new DocumentPdf(AdList);
+                Header.document.close();
+                break;
+            case "Other":
+                final String RESULT3 = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/";
+                File dirfile3 = new File(RESULT3);
+                dirfile3.mkdirs();
+                File file3 = new File(dirfile3, "OtherDocuments.pdf");
+                if (file3.exists()) {
+                    file3.delete();
+                }
+
+                new Header().createPdfHeader(file3.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+                preferences.copyFile("ic_launcher.png", context);
+                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+                Header.addEmptyLine(1);
+                Header.addusereNameChank("Other Documents");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(1);
+                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+                Paragraph p2 = new Paragraph(" ");
+                LineSeparator line2 = new LineSeparator();
+                line2.setOffset(-4);
+                line2.setLineColor(BaseColor.LIGHT_GRAY);
+                p2.add(line2);
+                try {
+                    Header.document.add(p2);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                }
+                Header.addEmptyLine(1);
+
+                ArrayList<Document> OtherList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Other");
+                new DocumentPdf(OtherList, 1);
+                Header.document.close();
+                break;
+
+            case "Record":
+                final String RESULT2 = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/";
+                File dirfile2 = new File(RESULT2);
+                dirfile2.mkdirs();
+                File file2 = new File(dirfile2, "MedicalRecords.pdf");
+                if (file2.exists()) {
+                    file2.delete();
+                }
+
+                new Header().createPdfHeader(file2.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+                preferences.copyFile("ic_launcher.png", context);
+                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+                Header.addEmptyLine(1);
+                Header.addusereNameChank("Medical Records");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(1);
+                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+                Paragraph p1 = new Paragraph(" ");
+                LineSeparator line1 = new LineSeparator();
+                line1.setOffset(-4);
+                line1.setLineColor(BaseColor.LIGHT_GRAY);
+                p1.add(line1);
+                try {
+                    Header.document.add(p1);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                }
+                Header.addEmptyLine(1);
+
+                ArrayList<Document> RecordList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Record");
+                new DocumentPdf(RecordList, "Record");
+                Header.document.close();
+                break;
+        }
+                //----------------------------------------
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         LayoutInflater lf = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
-        floatContact.setImageResource(R.drawable.closee);
+        floatContact.setImageResource(R.drawable.eyee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
-        floatNew.setImageResource(R.drawable.eyee);
+        floatNew.setImageResource(R.drawable.closee);
 
         TextView txtNew = dialogview.findViewById(R.id.txtNew);
         txtNew.setText(getResources().getString(R.string.EmailReports));
@@ -637,6 +757,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         floatCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialog.dismiss();
             }
         });
@@ -644,7 +765,34 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+
+                switch (From) {
+                    case "AD":
+                        String path = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/AdvanceDirectives.pdf";
+                        File f = new File(path);
+                        preferences.emailAttachement(f, context, "Advance Directives");
+                        break;
+                    case "Other":
+                        String path1 = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/OtherDocuments.pdf";
+                        File f1 = new File(path1);
+                        preferences.emailAttachement(f1, context, "Other Documents");
+                        break;
+                    case "Record":
+                        String path3 = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/MedicalRecords.pdf";
+
+
+                        File f3 = new File(path3);
+                        preferences.emailAttachement(f3, context, "Medical Records");
+                        break;
+
+                }
+                               dialog.dismiss();
             }
 
         });
@@ -652,7 +800,51 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                switch (From) {
+                    case "AD":
+                        String path = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/AdvanceDirectives.pdf";
+                        StringBuffer result = new StringBuffer();
+                        result.append(new MessageString().getAdvanceDocuments());
+
+                        new PDFDocumentProcess(path,
+                                context, result);
+
+                        System.out.println("\n" + result + "\n");
+
+
+                        break;
+                    case "Other":
+                        String path1 = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/OtherDocuments.pdf";
+
+                        StringBuffer result1 = new StringBuffer();
+                        result1.append(new MessageString().getOtherDocuments());
+                        new PDFDocumentProcess(path1,
+                                context, result1);
+
+                        System.out.println("\n" + result1 + "\n");
+                        break;
+                    case "Record":
+                        String path2 = Environment.getExternalStorageDirectory()
+                                + "/mylopdf/"
+                                + "/MedicalRecords.pdf";
+                        StringBuffer result2 = new StringBuffer();
+                        result2.append(new MessageString().getRecordDocuments());
+
+
+                        new PDFDocumentProcess(path2,
+                                context, result2);
+
+                        System.out.println("\n" + result2 + "\n");
+
+                        break;
+
+                }
+
+                    dialog.dismiss();
             }
 
 
