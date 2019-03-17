@@ -128,7 +128,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Hospital hospital;
     Pharmacy pharmacy;
     Insurance insurance;
-
+    LinearLayout PhoneLayout;
     Finance finance;
     RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz, txtDelete;
@@ -285,24 +285,30 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     }
 
-    public void deletePhone(int position, LinearLayout layout) {// Tricky code to delete required item
+    public void deletePhone(int position) {// Tricky code to delete required item
         try {
             for (int i = 0; i < phonelist.size(); i++) {
                 if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
-                    phonelist.remove(phonelist.get(i));
-                    layout.removeAllViews();
+                    ContactData cc = phonelist.get(i);
+                    phonelist.remove(cc);
+                    PhoneLayout.removeAllViews();
                     mTextViewListValue.clear();
                     mTextViewListType.clear();
                     mImageViewType.clear();
-                    setListPh(layout);
+                    setListPh();
                 }
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+            PhoneLayout.removeAllViews();
+            mTextViewListValue.clear();
+            mTextViewListType.clear();
+            mImageViewType.clear();
+            setListPh();
         }
     }
 
-    public void addNewPhone(final int pos, final LinearLayout layout) {
+    public void addNewPhone(final int pos) {
         try {
 
             LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -355,9 +361,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         ContactData c = new ContactData();
                         c.setId(phonelist.size());
                         phonelist.add(c);
-                        addNewPhone(c.getId(), layout);
+                        addNewPhone(c.getId());
                     } else {
-                        deletePhone(poss, layout);
+                        deletePhone(poss);
                     }
                 }
             });
@@ -389,19 +395,19 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
             });
 
-            layout.addView(view, pos);
+            PhoneLayout.addView(view, pos);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    public void setListPh(LinearLayout layout) {
+    public void setListPh() {
 
         if (phonelist.isEmpty()) {
             ContactData c = new ContactData();
             c.setId(0);
             phonelist.add(c);
-            addNewPhone(0, layout);
+            addNewPhone(0);
         } else {
             for (int i = 0; i < phonelist.size(); i++) {
                 if (phonelist.get(i) != null && phonelist.get(i).getValue() != null) {
@@ -432,7 +438,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         System.out.println(number);
                     }
 
-                    addNewPhone(i, layout);
+                    addNewPhone(i);
                 }
             }
         }
@@ -1511,7 +1517,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilEmergencyNote.setVisibility(View.GONE);
                 rlPharmacy.setVisibility(View.GONE);
 //               setListPh(listPrPhone);
-                setListPh(llAddPhone);
+                PhoneLayout = llAddPhone;
+                setListPh();
                 break;
 
             case "Pharmacy":
@@ -1520,7 +1527,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Pharmacies &\nHome Medical Equipment");
                 txtTitle.setText("Add Pharmacies &\nHome Medical Equipment");
 //                setListPh(listPharmPhone);
-                setListPh(llAddPharmPhone);
+                PhoneLayout = llAddPharmPhone;
+                setListPh();
                 break;
 
             case "PharmacyData":
@@ -1559,7 +1567,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Pharmacy");
 //                    setListPh(listPharmPhone);
-                    setListPh(llAddPharmPhone);
+                    PhoneLayout = llAddPharmPhone;
+                    setListPh();
                     String photo;
                     if (imagepath.isEmpty()) {
                         photo = specialist.getPhoto();//nikita
@@ -1737,7 +1746,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Emergency");
 //                    setListPh(listPharmPhone);
-                    setListPh(llAddPharmPhone);
+                    PhoneLayout = llAddPharmPhone;
+                    setListPh();
                     if (!rel.getRelationType().equals("")) {
                         int index = 0;
                         for (int i = 0; i < Relationship.length; i++) {
@@ -1986,7 +1996,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
 
 //                setListPh(listPrPhone);
-                setListPh(llAddPhone);
+                PhoneLayout = llAddPhone;
+                setListPh();
                 break;
 
             case "EmergencyUpdate":
@@ -2040,7 +2051,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), rel.getId(), "Emergency");
 //                    setListPh(listPrPhone);
-                    setListPh(llAddPhone);
+                    PhoneLayout = llAddPhone;
+                    setListPh();
                     txtEmergencyNote.setText(rel.getNote());
                     id = rel.getId();
                     if (!rel.getRelationType().equals("")) {
@@ -2241,7 +2253,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Doctors & Other\n Health Professional");
                 txtTitle.setText("Add Doctors & Other\n Health Professional");
 //                setListPh(listDrPhone);
-                setListPh(llAddDrPhone);
+                PhoneLayout = llAddDrPhone;
+                setListPh();
                 break;
 
             case "Physician":
@@ -2250,7 +2263,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Primary Physician");
                 txtTitle.setText("Add Primary Physician");
 //                setListPh(listDrPhone);
-                setListPh(llAddDrPhone);
+                PhoneLayout = llAddDrPhone;
+                setListPh();
                 break;
 
             case "SpecialistData":
@@ -2315,7 +2329,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Doctor");
 //                    setListPh(listDrPhone);
-                    setListPh(llAddDrPhone);
+                    PhoneLayout = llAddDrPhone;
+                    setListPh();
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -2451,7 +2466,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
 //                    setListPh(listDrPhone);
-                    setListPh(llAddDrPhone);
+                    PhoneLayout = llAddDrPhone;
+                    setListPh();
                     txtSpecialty.setText(specialist.getType());
                     if (specialist.getType().equals("Other")) {
                         tilOtherCategoryDoctor.setVisibility(View.VISIBLE);
@@ -2703,7 +2719,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
 //                setListPh(listInsuPhone);
-                setListPh(llAddInsuPhone);
+                PhoneLayout = llAddInsuPhone;
+                setListPh();
                 break;
 
             case "InsuranceData":
@@ -2763,7 +2780,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Insurance");
 //                    setListPh(listInsuPhone);
-                    setListPh(llAddInsuPhone);
+                    PhoneLayout = llAddInsuPhone;
+                    setListPh();
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -3062,7 +3080,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Finance & Legal");
                 txtTitle.setText("Add Finance & Legal");
 //                setListPh(listFinPhone);
-                setListPh(llAddFinPhone);
+                PhoneLayout = llAddFinPhone;
+                setListPh();
                 break;
 
             case "Hospital":
@@ -3072,7 +3091,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtAdd.setText("Add Hospitals & Rehabilitation Centers");
                 txtTitle.setText("Add Hospitals & Rehabilitation Centers");
 //                setListPh(listHospPhone);
-                setListPh(llAddHospPhone);
+                PhoneLayout = llAddHospPhone;
+                setListPh();
 
                 break;
 
@@ -3123,7 +3143,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Hospital");
 //                    setListPh(listHospPhone);
-                    setListPh(llAddHospPhone);
+                    PhoneLayout = llAddHospPhone;
+                    setListPh();
                    /* if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < HospitalType.length; i++) {
@@ -3362,7 +3383,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Finance");
 //                    setListPh(listFinPhone);
-                    setListPh(llAddFinPhone);
+                    PhoneLayout = llAddFinPhone;
+                    setListPh();
                 /*    if (!specialist.getCategory().equals("")) {
                         int index = 0;
                         for (int i = 0; i < financeType.length; i++) {
@@ -5208,13 +5230,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 ByteArrayOutputStream baoss = new ByteArrayOutputStream();
                 bitmaps.compress(Bitmap.CompressFormat.JPEG, 100, baoss);
                 byte[]  photoCard = baoss.toByteArray();*/
-                Intent i = new Intent(getActivity(), AddFormActivity.class);
-                i.putExtra("Image", cardPath);
-                i.putExtra("IsDelete", true);
-                //new
-                i.putExtra("isOnActivityResult", isOnActivityResult);
-                i.putExtra("cardImgPath", cardImgPath);
-                startActivityForResult(i, REQUEST_CARD);
+                if (cardPath != "") {
+                    Intent i = new Intent(getActivity(), AddFormActivity.class);
+                    i.putExtra("Image", cardPath);
+                    i.putExtra("IsDelete", true);
+                    //new
+                    i.putExtra("isOnActivityResult", isOnActivityResult);
+                    i.putExtra("cardImgPath", cardImgPath);
+                    startActivityForResult(i, REQUEST_CARD);
+                }
                 break;
 
 

@@ -107,25 +107,16 @@
                             android:textStyle="bold"
                             android:visibility="gone" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toLeftOf="@+id/imgAddAllergy"
                                 android:id="@+id/txtAddAllergy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/border_edit_note"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
 
                         <ImageView
@@ -563,26 +554,37 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toLeftOf="@+id/imgAddCondition"
                                 android:id="@+id/txtAddCondition"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/border_edit_note"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+                            <!--<TextView-->
+                                <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:layout_toLeftOf="@+id/imgAddCondition"-->
+                                <!--android:id="@+id/txtAddCondition"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:background="@drawable/border_edit_note"-->
+                                <!--android:fontFamily="@font/lato"-->
+                                <!--android:gravity="center"-->
+                                <!--android:paddingBottom="@dimen/dimension5dp"-->
+                                <!--android:paddingTop="@dimen/dimension5dp"-->
+                                <!--android:paddingRight="@dimen/dimension6dp"-->
+                                <!--android:paddingLeft="@dimen/dimension6dp"-->
+                                <!--android:text="Add new"-->
+                                <!--android:textAllCaps="true"-->
+                                <!--android:textColor="@color/colorWhite"-->
+                                <!--android:textSize="@dimen/dimension10dp"-->
+                                <!--android:textStyle="bold"-->
+                                <!--android:visibility="gone" />-->
 
                         <!---->
                         </RelativeLayout>
@@ -1886,27 +1888,19 @@
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
 
-                        <TextView
+                        <ImageView
+                            android:src="@drawable/plusicon"
                             android:layout_marginLeft="@dimen/dimension5dp"
                             android:layout_centerVertical="true"
-                            android:id="@+id/txtAddVaccine"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/imgVaccineDrop"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:background="@drawable/border_edit_note"
+                            android:id="@+id/txtAddVaccine"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:paddingRight="@dimen/dimension6dp"
-                            android:paddingLeft="@dimen/dimension6dp"
-                            android:text="Add new"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension10dp"
-                            android:textStyle="bold"
                             android:visibility="gone" />
+
+
 
                     </RelativeLayout>
 
@@ -2765,26 +2759,19 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
-                                android:id="@+id/txtAddImplants"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_toLeftOf="@+id/imgAddImplants"
-                                android:background="@drawable/border_edit_note"
+                                android:id="@+id/txtAddImplants"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+
+
 
                         </RelativeLayout>
                         <!---->
@@ -2896,26 +2883,18 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/dimension5dp"
-                            android:id="@+id/txtAddHospital"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toLeftOf="@+id/imgAddHospital"
-                            android:background="@drawable/border_edit_note"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:paddingRight="@dimen/dimension6dp"
-                            android:paddingLeft="@dimen/dimension6dp"
-                            android:text="Add new"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension10dp"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
+                            <ImageView
+                                android:src="@drawable/plusicon"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/imgAddHospital"
+                                android:id="@+id/txtAddHospital"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:visibility="gone" />
+
 
                         </RelativeLayout>
                         <LinearLayout
@@ -3201,26 +3180,18 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
-                                android:id="@+id/txtAddHistory"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_toLeftOf="@+id/imgAddHistory"
-                                android:background="@drawable/border_edit_note"
+                                android:id="@+id/txtAddHistory"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+
 
                         </RelativeLayout>
                         <LinearLayout

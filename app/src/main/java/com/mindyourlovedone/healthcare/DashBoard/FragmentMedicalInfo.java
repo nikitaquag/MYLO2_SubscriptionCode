@@ -98,7 +98,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     RadioGroup rgDonor, rgDrug, rgDrink, rgTobaco;
     TextView txtName;
     Spinner spinnerEyes, spinnerBlood, spinnerLang;
-    TextView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
+    ImageView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
     ImageView imgDonnerDrop,imgVisionDrop, imgAidsDrop, imgDietDrop, imgVaccineDrop, imgTobacoDrop, imgDrugDrop, imgDrinkDrop, imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine, imgTeethDrop;
     ListView ListHistory, ListAllergy, ListImplants, ListHospital, ListCondition, ListVaccine;
     String note = "", allergynote = "";
@@ -422,8 +422,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     donor = "YES";
-                }
+                }else {
                     donor = "NO";
+                }
                 }
 
         });
@@ -642,10 +643,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             }
 
             if (medInfo.getDonor().equals("YES")) {
-                rbYes.setChecked(true);
+                tbOrgan.setChecked(true);
                 donor = "YES";
             } else if (medInfo.getDonor().equals("NO")) {
-                rbNo.setChecked(true);
+                tbOrgan.setChecked(false);
                 donor = "NO";
             }
 

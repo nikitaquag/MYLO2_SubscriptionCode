@@ -952,7 +952,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         try {
             for (int i = 0; i < phonelist.size(); i++) {
                 if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
-                    phonelist.remove(phonelist.get(i));
+                    ContactData cc = phonelist.get(i);
+                    phonelist.remove(cc);
                     llAddPhone.removeAllViews();
                     mTextViewListValue.clear();
                     mTextViewListType.clear();
@@ -962,6 +963,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+            llAddPhone.removeAllViews();
+            mTextViewListValue.clear();
+            mTextViewListType.clear();
+            mImageViewType.clear();
+            setListPh();
         }
     }
 
@@ -2186,12 +2192,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 ByteArrayOutputStream bao = new ByteArrayOutputStream();
                 bitma.compress(Bitmap.CompressFormat.JPEG, 100, bao);
                 byte[] photoCard = bao.toByteArray();*/
-                Intent i = new Intent(context, AddFormActivity.class);
-                i.putExtra("Image", cardpath);
-                i.putExtra("IsDelete", true);
-                i.putExtra("isOnActivityResult", isOnActivityResult);
-                i.putExtra("cardImgPath", cardImgPath);
-                startActivityForResult(i, REQUEST_CARD);
+                if (cardpath != "") {
+                    Intent i = new Intent(context, AddFormActivity.class);
+                    i.putExtra("Image", cardpath);
+                    i.putExtra("IsDelete", true);
+                    i.putExtra("isOnActivityResult", isOnActivityResult);
+                    i.putExtra("cardImgPath", cardImgPath);
+                    startActivityForResult(i, REQUEST_CARD);
+                }
                 break;
 
             case R.id.txtBdate:
