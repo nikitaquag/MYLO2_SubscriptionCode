@@ -167,14 +167,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                     txtdatetime.get(i).setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            if (context instanceof MedicalAppointActivity) {
-                                DateClass dd = (DateClass) txtdatetime.get(i).getTag();//shradha
-                                if (dd != null) {
-                                    ((MedicalAppointActivity) context).deleteDateNote(dd);
-                                } else {
-                                    Toast.makeText(context, "Null DATA", Toast.LENGTH_SHORT).show();
-                                }
-                            }
+//                            if (context instanceof MedicalAppointActivity) {
+//                                DateClass dd = (DateClass) txtdatetime.get(i).getTag();//shradha
+//                                if (dd != null) {
+//                                    ((MedicalAppointActivity) context).deleteDateNote(dd);
+//                                } else {
+                                    Toast.makeText(context, "Under development...", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
                         }
                     });
 
