@@ -125,34 +125,36 @@
                 <RelativeLayout
                     android:id="@+id/rlDocument"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension120dp"
-                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:layout_height="wrap_content"
                     android:gravity="center">
 
                     <FrameLayout
                         android:id="@+id/flProfile"
-                        android:layout_width="@dimen/dimension110dp"
-                        android:layout_height="@dimen/dimension110dp"
+                        android:layout_width="@dimen/dimension160dp"
+                        android:layout_height="@dimen/dimension160dp"
                         android:layout_alignParentTop="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="17dp">
 
                         <ImageView
                             android:id="@+id/imgDoc"
-                            android:layout_width="@dimen/dimension100dp"
-                            android:layout_height="@dimen/dimension100dp"
-                            android:src="@drawable/imd_doc" />
+                            android:layout_width="@dimen/dimension150dp"
+                            android:layout_height="@dimen/dimension150dp"
+                            android:src="@drawable/pdfs"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            />
 
 
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:id="@+id/imgAdd"
-                            android:layout_width="@dimen/dimension50dp"
-                            android:layout_height="@dimen/dimension25dp"
+                            android:layout_width="@dimen/dimension60dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_centerVertical="true"
                             android:layout_gravity="top|right"
-                            android:layout_marginLeft="@dimen/dimension15dp"
-                            android:layout_toRightOf="@+id/imgDoc"
-                            android:src="@drawable/pencil_photo" />
+                            android:src="@drawable/pencil_photo"
+                            android:visibility="gone"
+                            />
 
                     </FrameLayout>
 
@@ -200,7 +202,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlDocument"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:gravity="center"
                     android:imeOptions="actionNext"
                     android:paddingTop="@dimen/dimension8dp"
@@ -216,9 +218,9 @@
                 <View
                     android:id="@+id/view1"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dimension15dp"
+                    android:layout_height="@dimen/dimension10dp"
                     android:layout_below="@+id/txtFName"
-                    android:layout_marginTop="@dimen/dimension20dp"
+android:layout_marginTop="@dimen/dimension10dp"
                     android:background="@color/colorOnesGray" />
 
 

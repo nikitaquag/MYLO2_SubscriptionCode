@@ -160,6 +160,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgDone.setOnClickListener(this);
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
+        txtFName.setOnClickListener(this);
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         imgHome.setOnClickListener(this);
@@ -376,7 +377,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
             imgDot.setVisibility(View.GONE);
-            imgAdd.setVisibility(View.VISIBLE);
+            imgAdd.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
             imgDoc.setClickable(true);
            // rlDelete.setVisibility(View.VISIBLE);
@@ -386,17 +387,17 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtSave.setVisibility(View.VISIBLE);
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
-            imgAdd.setVisibility(View.VISIBLE);
+            imgAdd.setVisibility(View.GONE);
            // rlDelete.setVisibility(View.VISIBLE);
             flDelete.setVisibility(View.VISIBLE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Edit File");
-            imgDoc.setClickable(false);
+         //   imgDoc.setClickable(false);
         } else {
             txtSave.setVisibility(View.VISIBLE);
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
-            imgAdd.setVisibility(View.VISIBLE);
+            imgAdd.setVisibility(View.GONE);
           //  rlDelete.setVisibility(View.GONE);
             flDelete.setVisibility(View.GONE);
             // txtAdd.setVisibility(View.VISIBLE);
@@ -485,6 +486,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             documentPath = document.getDocument();
 
             imgDoc.setImageResource(R.drawable.pdf);//document.getImage()
+            imgAdd.setVisibility(View.VISIBLE);
             if (document.getType().equals("Other")) {
                 tilOtherDocType.setVisibility(View.VISIBLE);
             } else {
@@ -594,13 +596,14 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             name = f.getName();
             preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
             txtFName.setText(name);
-            imgDoc.setClickable(false);
+           // imgDoc.setClickable(false);
             if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 txtAdd.setText("Edit File");
                 imgDoc.setImageResource(R.drawable.pdf);
+                imgAdd.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -608,7 +611,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void disableView() {
-        txtDate.setEnabled(false);
+        /*txtDate.setEnabled(false);
         txtHolderName.setEnabled(false);
         txtLocation.setEnabled(false);
         txtFName.setEnabled(false);
@@ -617,7 +620,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtOther.setEnabled(false);
         txtHosp.setEnabled(false);
         txtLocator.setEnabled(false);
-        txtDocTYpe.setEnabled(false);
+        txtDocTYpe.setEnabled(false);*/
     }
 
     @Override
@@ -649,7 +652,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 finish();
                 break;
 
-            case R.id.imgDoc:
+           case R.id.txtFName:
                 if (getIntent().hasExtra("PDF_EXT")) {
 
                 } else {
@@ -735,29 +738,11 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
                 break;
 
-            case R.id.imgAdd:
+           case R.id.imgDoc:
 
                 DirectiveDialog();
 
-               /* AlertDialog.Builder builder = new AlertDialog.Builder(AddDocumentActivity.this);
-                builder.setTitle("");
-                builder.setItems(alert_items, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        switch (itemPos) {
-                            case 0:
-                                Intent i = new Intent(context, DocumentSdCardList.class);
-                                startActivityForResult(i, RESULTCODE);
-                                break;
-                            case 1:
-                                Intent intent = new Intent(context, DropboxLoginActivity.class);
-                                intent.putExtra("FROM", "Document");
-                                startActivityForResult(intent, RQUESTCODE);
-                                break;
-                        }
-                    }
-                });
-                builder.create().show();
-*/
+
                 break;
 
             case R.id.floatOptions:
@@ -1357,12 +1342,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             originPath = data.getExtras().getString("URI");
             if (!name.equalsIgnoreCase("")) {
                 txtFName.setText(name);
-                imgDoc.setClickable(false);
+              //  imgDoc.setClickable(false);
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
                 imgDoc.setImageResource(R.drawable.pdf);
+                imgAdd.setVisibility(View.VISIBLE);
             }
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
 
@@ -1370,12 +1356,17 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
             if (!name.equalsIgnoreCase("")) {
                 txtFName.setText(name);
-                imgDoc.setClickable(false);
+             //   imgDoc.setClickable(false);
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
                 imgDoc.setImageResource(R.drawable.pdf);
+                imgAdd.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                imgAdd.setVisibility(View.GONE);
             }
         } else if (requestCode == RESULT_ADVANCE && data != null) {
             docType = data.getStringExtra("Category");
