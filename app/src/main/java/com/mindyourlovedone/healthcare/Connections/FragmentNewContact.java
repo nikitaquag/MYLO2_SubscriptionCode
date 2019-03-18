@@ -5492,7 +5492,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             photoCard = null;
         }*/
 
-        if(tbCard.isChecked() && (CardMap==null || imgEditCard.getVisibility()!=View.VISIBLE)){
+        if(tbCard.isChecked() && (CardMap==null && imgEditCard.getVisibility()!=View.VISIBLE)){
             DialogManager.showAlert("Please Add Business Card.", context);
             return false;
         }

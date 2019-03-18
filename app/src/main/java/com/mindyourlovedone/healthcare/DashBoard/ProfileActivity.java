@@ -528,7 +528,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 {
                     has_card="YES";
                     rlCard.setVisibility(View.VISIBLE);
-                    imgEditCard.setVisibility(View.GONE);
+                    imgEditCard.setVisibility(View.VISIBLE);
                 }
                 else{
                     has_card="NO";
@@ -2519,7 +2519,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
         }
 
-        if(tbCard.isChecked() && (CardMap==null || imgEditCard.getVisibility()!=View.VISIBLE)){
+        if(tbCard.isChecked() && (CardMap==null && imgEditCard.getVisibility()!=View.VISIBLE)){
             DialogManager.showAlert("Please Add Business Card.", context);
             return false;
         }
