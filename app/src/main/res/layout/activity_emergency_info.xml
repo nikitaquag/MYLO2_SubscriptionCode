@@ -10,8 +10,8 @@
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
-        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorOne">
 
@@ -27,26 +27,26 @@
             android:id="@+id/imgHome"
             android:layout_width="@dimen/dimension25dp"
             android:layout_height="@dimen/dimension25dp"
-            android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension5dp"
             android:layout_toRightOf="@+id/imgBack"
             android:src="@drawable/homes" />
 
         <TextView
-            android:fontFamily="@font/lato"
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension5dp"
+            android:fontFamily="@font/lato"
             android:gravity="center"
-            android:textStyle="bold"
             android:text="Emergency Info"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension22dp"
+            android:textStyle="bold"
 
 
             />
@@ -56,19 +56,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dimension15dp"
+            android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
-            android:layout_toLeftOf="@+id/imgHelp"
+            android:layout_toLeftOf="@+id/imgRight"
+            android:layout_toRightOf="@+id/txtTitle"
+            android:fontFamily="@font/lato_bold"
             android:paddingLeft="@dimen/dimension3dp"
+            android:gravity="center"
             android:paddingRight="@dimen/dimension3dp"
             android:text="Save"
             android:textAllCaps="true"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="bold"
-            android:visibility="gone"
-            android:fontFamily="@font/lato_bold"
-            />
+            android:visibility="gone" />
 
         <ImageView
             android:id="@+id/imgDone"
@@ -90,8 +91,7 @@
             android:layout_marginRight="@dimen/dimension15dp"
             android:src="@drawable/information"
             android:tint="@color/colorWhite"
-            android:visibility="gone"
-            />
+            android:visibility="gone" />
 
         <ImageView
 
@@ -101,9 +101,8 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:tint="@color/colorWhite"
             android:src="@drawable/information"
-        />
+            android:tint="@color/colorWhite" />
     </RelativeLayout>
     <!-- <Spinner
          android:id="@+id/spinner"

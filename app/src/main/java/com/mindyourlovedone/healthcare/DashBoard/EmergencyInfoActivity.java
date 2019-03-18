@@ -1,12 +1,11 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
-
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,9 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.mindyourlovedone.healthcare.Fragment.FragmentDashboardNew;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 
 
@@ -32,7 +29,7 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
     FragmentPhysician fragmentPhysician = null;
     FragmentLiving fragmentLiving = null;
     ImageView imgBack, imgRight, imgHome;
-    TextView txtTitle;
+    TextView txtTitle, txtsave;
     RelativeLayout header;
 
     @Override
@@ -58,17 +55,18 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
                     break;
                 case "Information":
                     callFragment("INFORMATION", fragmentMedicalInfo);
-                    imgRight.setVisibility(View.GONE);
+                    imgRight.setVisibility(View.VISIBLE);
+//                    txtsave.setVisibility(View.VISIBLE);
                     break;
                 case "Emergency":
                     header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
                     callFragment("EMERGENCY", fragmentEmergency);
-                    imgRight.setVisibility(View.GONE);
+                    imgRight.setVisibility(View.VISIBLE);
                     break;
                 case "Physician":
                     header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
                     callFragment("PHYSICIAN", fragmentPhysician);
-                    imgRight.setVisibility(View.GONE);
+                    imgRight.setVisibility(View.VISIBLE);
                     break;
                 case "Functional":
                     callFragment("FUNCTIONAL", fragmentLiving);
@@ -105,6 +103,7 @@ public class EmergencyInfoActivity extends AppCompatActivity implements View.OnC
     }
 
     private void initUI() {
+        txtsave = findViewById(R.id.txtsave);
         header = findViewById(R.id.header);
         header.setBackgroundResource(R.color.colorOne);
         imgRight = findViewById(R.id.imgRight);
