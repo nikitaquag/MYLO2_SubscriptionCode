@@ -308,7 +308,10 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.floatAdd:
-                showInputDialog(context);
+                Intent intent = new Intent(context, ViewEventActivity.class);
+                intent.putExtra("NEW", true);
+                context.startActivity(intent);
+//                showInputDialog(context);
                 break;
 
             case R.id.imgBack:

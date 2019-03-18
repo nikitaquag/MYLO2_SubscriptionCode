@@ -4280,6 +4280,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     has_card="YES";
                     rlCard.setVisibility(View.VISIBLE);
                     imgEditCard.setVisibility(View.VISIBLE);
+                    if(flFront.getVisibility()==View.VISIBLE){
+                        imgEditCard.setVisibility(View.GONE);
+                    }
                 }
                 else{
                     has_card="NO";
