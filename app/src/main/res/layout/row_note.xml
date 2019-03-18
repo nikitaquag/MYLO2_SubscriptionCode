@@ -52,6 +52,7 @@
             android:paddingRight="@dimen/dimension5dp">
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,6 +65,7 @@
                 android:visibility="visible" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtDateTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,6 +140,7 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtNoteData"
                     style="@style/EmergencyCategory"
                     android:layout_width="match_parent"
@@ -149,6 +152,7 @@
             </RelativeLayout>
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtEditNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

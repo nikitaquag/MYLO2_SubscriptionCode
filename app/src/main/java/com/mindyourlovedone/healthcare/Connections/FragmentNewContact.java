@@ -1448,7 +1448,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }*/
                     break;
                 case "Insurance":
-                    getSContact();
+                    //getSContact();
                     txtInsuaranceName.setText(Cname);
                     txtInsuaranceEmail.setText(Cemail);
                     getCommonContact();
@@ -1541,8 +1541,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (specialistIntents.getExtras() != null) {
                     Pharmacy specialist = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
                     pharmacy = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
-
-                    if (Cname.isEmpty()) {//nikita
+                    txtPharmacyName.setText(specialist.getName());
+                    txtPharmacyAddress.setText(CAddress);
+                    /*if (Cname.isEmpty()) {//nikita
                         txtPharmacyName.setText(specialist.getName());
                     } else {
                         txtPharmacyName.setText(Cname);
@@ -1557,7 +1558,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     } else {
                         txtPharmacyAddress.setText(CAddress);
                     }
-
+*/
                     txtPharmacyWebsite.setText(specialist.getWebsite());
                     txtPharmacyLocator.setText(specialist.getLocator());
                     txtPharmacyFax.setText(specialist.getFax());
@@ -2017,8 +2018,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent EmergencyIntents = getActivity().getIntent();
                 if (EmergencyIntents.getExtras() != null) {
                     rel = (Emergency) EmergencyIntents.getExtras().getSerializable("EmergencyObject");
+                    txtName.setText(rel.getName());
+                    txtEmail.setText(rel.getEmail());
+                    txtMobile.setText(rel.getMobile());
+                    txtHomePhone.setText(rel.getPhone());
+                    txtWorkPhone.setText(rel.getWorkPhone());
+                    txtAddress.setText(rel.getAddress());
 
-                    if (Cname.isEmpty()) {//nikita
+                  /*  if (Cname.isEmpty()) {//nikita
                         txtName.setText(rel.getName());
                     } else {
                         txtName.setText(Cname);
@@ -2047,7 +2054,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtAddress.setText(rel.getAddress());
                     } else {
                         txtAddress.setText(CAddress);
-                    }
+                    }*/
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                     phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), rel.getId(), "Emergency");
 //                    setListPh(listPrPhone);
@@ -2277,8 +2284,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (specialistIntent.getExtras() != null) {
                     specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
                     specialistDoctor = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
+                    txtDoctorName.setText(specialist.getName());
+                    txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+                    txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
+                    txtDoctorOfficePhone.setText(specialist.getOfficePhone());
+                    txtDoctorAddress.setText(specialist.getAddress());
 
-                    if (Cname.isEmpty()) {//nikita
+                    /*if (Cname.isEmpty()) {//nikita
                         txtDoctorName.setText(specialist.getName());
                     } else {
                         txtDoctorName.setText(Cname);
@@ -2302,7 +2314,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtDoctorAddress.setText(specialist.getAddress());
                     } else {
                         txtDoctorAddress.setText(CAddress);
-                    }
+                    }*/
 
                     txtDoctorLastSeen.setText(specialist.getLastseen());
                     txtDoctorLocator.setText(specialist.getLocator());
@@ -2415,8 +2427,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 Intent specialistIntent1 = getActivity().getIntent();
                 if (specialistIntent1.getExtras() != null) {
                     specialist = (Specialist) specialistIntent1.getExtras().getSerializable("SpecialistObject");
-
-                    if (Cname.isEmpty()) {//nikita
+                    txtDoctorName.setText(specialist.getName());
+                    txtDoctorOtherPhone.setText(specialist.getOtherPhone());
+                    txtDoctorHourOfficePhone.setText(specialist.getHourPhone());
+                    txtDoctorOfficePhone.setText(specialist.getOfficePhone());
+                    txtDoctorAddress.setText(specialist.getAddress());
+                   /* if (Cname.isEmpty()) {//nikita
                         txtDoctorName.setText(specialist.getName());
                     } else {
                         txtDoctorName.setText(Cname);
@@ -2441,7 +2457,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     } else {
                         txtDoctorAddress.setText(CAddress);
                     }
-
+*/
                     txtDoctorLastSeen.setText(specialist.getLastseen());
                     txtDoctorLocator.setText(specialist.getLocator());
                     txtDoctorWebsite.setText(specialist.getWebsite());
@@ -2749,12 +2765,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     } else {
                         tilOtherInsurance.setVisibility(View.GONE);
                     }
-                    if (Cname.isEmpty()) {//nikita
+                    txtInsuaranceName.setText(insurance.getName());
+                   /* if (Cname.isEmpty()) {//nikita
                         txtInsuaranceName.setText(insurance.getName());
                     } else {
                         txtInsuaranceName.setText(Cname);
-                    }
-                    if (Cemail.isEmpty()) {//nikita
+                    }*/
+                    txtInsuaranceEmail.setText(insurance.getEmail());
+                   /* if (Cemail.isEmpty()) {//nikita
                         txtInsuaranceEmail.setText(insurance.getEmail());
                     } else {
                         txtInsuaranceEmail.setText(Cemail);
@@ -2763,7 +2781,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtInsuarancePhone.setText(insurance.getPhone());
                     } else {
                         txtInsuarancePhone.setText(Cphone);
-                    }
+                    }*/
 
                     spinnerInsuarance.setDisabledColor(getActivity().getResources().getColor(R.color.colorBlack));
 
@@ -3108,7 +3126,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
                     hospital = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
-                    if (Cname.isEmpty()) {//nikita
+                    txtFNameHospital.setText(specialist.getName());
+                    txtHospitalAddress.setText(specialist.getAddress());
+                   /* if (Cname.isEmpty()) {//nikita
                         txtFNameHospital.setText(specialist.getName());
                     } else {
                         txtFNameHospital.setText(Cname);
@@ -3127,7 +3147,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtHospitalAddress.setText(specialist.getAddress());
                     } else {
                         txtHospitalAddress.setText(CAddress);
-                    }
+                    }*/
 
                     txtHospitalLastSeen.setText(specialist.getLastseen());
                     txtHospitalLocator.setText(specialist.getLocator());
@@ -3324,7 +3344,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 if (financeIntent.getExtras() != null) {
                     Finance specialist = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");
                     finance = (Finance) financeIntent.getExtras().getSerializable("FinanceObject");
-                    if (Cname.isEmpty()) {//nikita
+                    txtContactName.setText(specialist.getContactName());
+                    txtFinanceEmail.setText(specialist.getEmail());
+                    txtFinanceAddress.setText(specialist.getAddress());
+                   /* if (Cname.isEmpty()) {//nikita
                         txtContactName.setText(specialist.getContactName());
                     } else {
                         txtContactName.setText(Cname);
@@ -3353,7 +3376,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         txtFinanceAddress.setText(specialist.getAddress());
                     } else {
                         txtFinanceAddress.setText(CAddress);
-                    }
+                    }*/
 
                     txtFinanceLocation.setText(specialist.getLocation());
                     txtFName.setText(specialist.getName());

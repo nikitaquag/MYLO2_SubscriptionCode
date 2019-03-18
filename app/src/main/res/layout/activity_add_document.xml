@@ -55,7 +55,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:layout_weight="80"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:gravity="center|center_vertical"
                     android:text="Documents"
                     android:textAllCaps="false"
@@ -76,7 +76,7 @@
                     android:paddingRight="@dimen/dimension5dp"
                     android:text="Save"
 
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension20dp"

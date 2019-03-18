@@ -17,18 +17,62 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite">
-
             <View
                 android:id="@+id/vtop"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension10dp"
                 android:background="@color/colorLightGray"></View>
+            <RelativeLayout
+                android:id="@+id/rlInsured"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/vtop"
+                android:visibility="gone"
+                >
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilSubscriben"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingRight="@dimen/dimension20dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
+
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/txtSubscriben"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Name of Insured"
+                    android:imeOptions="actionNext"
+                    android:maxLength="30"
+                    android:maxLines="1"
+
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+                <View
+                    android:id="@+id/vline"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:background="@color/colorLightGray"
+                    android:layout_below="@+id/tilSubscriben"></View>
+            </RelativeLayout>
+
 
             <RelativeLayout
                 android:id="@+id/llProfile"
                 android:layout_width="@dimen/dimension150dp"
                 android:layout_height="@dimen/dimension150dp"
-                android:layout_below="@+id/vtop"
+                android:layout_below="@+id/rlInsured"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension20dp">
 
@@ -2641,7 +2685,7 @@ android:visibility="gone"
                             android:focusableInTouchMode="true"
                             android:paddingLeft="@dimen/dimension20dp"
                             android:paddingTop="@dimen/dimension8dp"
-                            android:paddingRight="@dimen/dimension20dp"
+
                             android:paddingBottom="@dimen/dimension8dp"
                             app:hintEnabled="true"
 
@@ -2654,8 +2698,8 @@ android:visibility="gone"
                                 android:id="@+id/txtInsuType"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:drawableRight="@drawable/dropd"
-                                android:hint="Insurance Type"
+
+                                android:hint="Type Of Insurance"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
@@ -2743,7 +2787,7 @@ android:visibility="gone"
                             android:id="@+id/txtId"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Member ID # (Policy Number)"
+                            android:hint="Member ID(Policy Number)"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -2777,7 +2821,7 @@ android:visibility="gone"
                             android:id="@+id/txtGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Group #"
+                            android:hint="Group"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -2800,6 +2844,7 @@ android:visibility="gone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -2932,7 +2977,8 @@ android:visibility="gone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
+                        android:visibility="gone">
 
                         <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -2965,6 +3011,7 @@ android:visibility="gone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                   android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -2998,6 +3045,7 @@ android:visibility="gone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -3051,15 +3099,23 @@ android:visibility="gone"
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
+                    <View
 
+                        android:id="@+id/vaent"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension10dp"
+                        android:layout_below="@+id/tilWebsite"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:background="@color/colorLightGray"></View>
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilAgent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilWebsite"
+                        android:layout_below="@+id/vaent"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView

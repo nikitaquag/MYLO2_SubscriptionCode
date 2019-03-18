@@ -90,6 +90,7 @@
 
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,6 +114,7 @@
             -->
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -172,6 +174,7 @@
                 />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -185,6 +188,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtFTU"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -206,6 +210,7 @@
                 android:visibility="visible" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -245,6 +250,7 @@
                     />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtHeader2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -257,6 +263,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtFTU2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -271,6 +278,7 @@
                     android:textSize="@dimen/dimension18dp" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtMsg2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -309,6 +317,7 @@
                             android:src="@drawable/bullet4" />
 
                         <TextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtPolicy61"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -334,6 +343,7 @@
                             android:src="@drawable/bullet4" />
 
                         <TextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtPolicy62"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -359,6 +369,7 @@
                             android:src="@drawable/bullet4" />
 
                         <TextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtPolicy63"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -385,6 +396,7 @@
                             android:src="@drawable/bullet4" />
 
                         <TextView
+                            android:fontFamily="@font/lato"
                             android:id="@+id/txtPolicy64"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

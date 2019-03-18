@@ -280,42 +280,7 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
 
             </RelativeLayout>
         </ScrollView>
-        <ImageView
-            android:id="@+id/floatAdd"
-            android:layout_width="@dimen/dimension70dp"
-            android:layout_height="@dimen/dimension70dp"
-            android:src="@drawable/plusnew"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension15dp"
-            />
 
-<!--
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginRight="@dimen/dimension20dp"
-            android:layout_marginBottom="@dimen/dimension20dp"
-            android:src="@drawable/ic_add"
-            android:tint="@android:color/white"
-            android:visibility="visible"
-            app:backgroundTint="@color/colorRegisteredGreen"
-            app:fabSize="normal" />
--->
-        <ImageView
-            android:id="@+id/floatOptions"
-            android:layout_width="@dimen/dimension70dp"
-            android:layout_height="@dimen/dimension70dp"
-            android:src="@drawable/threedots"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/dimension15dp"
-            android:layout_marginLeft="@dimen/dimension15dp"
-            />
 
 <!--
         <android.support.design.widget.FloatingActionButton
@@ -338,30 +303,72 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dimension15dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/imghelp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension60dp"
+            android:fontFamily="@font/bold_lato"
+            android:text="Add a new Insurance Information!"
+            android:textColor="@color/colorLightGrays"
+            android:textSize="@dimen/dimension17dp"
+            android:textStyle="italic" />
+
+        <ImageView
+            android:id="@+id/imghelp"
+            android:layout_width="@dimen/dimension110dp"
+            android:layout_height="@dimen/dimension150dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/dimension5dp"
+            android:layout_toLeftOf="@+id/floatAdd"
+            android:src="@drawable/helparrow"
+            android:tint="@color/colorLightGrays" />
+
+        <ImageView
+            android:id="@+id/floatAdd"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="@dimen/dimension16dp"
+            android:layout_marginBottom="@dimen/dimension16dp"
+            android:src="@drawable/plusnew" />
+
+        <ImageView
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dimension16dp"
+            android:layout_marginBottom="@dimen/dimension16dp"
+            android:src="@drawable/threedots" />
+
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatProfile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/llAddInsurance"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension16dp"
             android:src="@drawable/ic_box"
             android:tint="@color/colorWhite"
+            android:visibility="gone"
             app:backgroundTint="@color/colorFloatRed"
             app:fabSize="normal"
-            tools:targetApi="lollipop"
-            android:visibility="gone"/>
+            tools:targetApi="lollipop" />
 
         <RelativeLayout
-            android:visibility="invisible"
             android:id="@+id/llAddInsurance"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimension0dp"
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_marginTop="@dimen/dimension15dp"
             android:layout_marginRight="@dimen/dimension15dp"
-            android:background="@color/colorFive">
+            android:background="@color/colorFive"
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/imgAdd"
