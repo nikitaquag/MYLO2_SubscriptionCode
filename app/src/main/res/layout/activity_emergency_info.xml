@@ -66,7 +66,9 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="bold"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:fontFamily="@font/lato_bold"
+            />
 
         <ImageView
             android:id="@+id/imgDone"
@@ -87,17 +89,21 @@
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dimension15dp"
             android:src="@drawable/information"
-            android:tint="@color/colorWhite" />
+            android:tint="@color/colorWhite"
+            android:visibility="gone"
+            />
 
         <ImageView
 
             android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/menudot"
-            android:visibility="gone" />
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:tint="@color/colorWhite"
+            android:src="@drawable/information"
+        />
     </RelativeLayout>
     <!-- <Spinner
          android:id="@+id/spinner"

@@ -166,12 +166,51 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         //...
     }
     private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "InsuranceInformation.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Insurance Information");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Insurance Information");
+
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                // Header.addEmptyLine(2);*/
+
+        ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new InsurancePdf(insuranceList);
+        Header.document.close();
+        //----------------------------------
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         LayoutInflater lf = (LayoutInflater) getActivity()
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dialogview = lf.inflate(R.layout.activity_transparent, null);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
 //   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
@@ -207,6 +246,12 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         floatEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/InsuranceInformation.pdf";
+
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Insurance Information");
                 dialog.dismiss();
 
             }
@@ -215,6 +260,17 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         floatViewPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/InsuranceInformation.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
         });
@@ -345,13 +401,20 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             case R.id.floatAdd:
                 showFloatDialog();
                 break;
+
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
            /* case R.id.llAddInsurance:
                 preferences.putString(PrefConstants.SOURCE, "Insurance");
                 Intent i = new Intent(getActivity(), GrabConnectionActivity.class);
                 startActivity(i);
                 break;*/
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "InsuranceInstruction");
+                startActivity(i);
+               /* final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -380,11 +443,11 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Insurance Information");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                // Header.addEmptyLine(2);*/
+                // Header.addEmptyLine(2);*//*
 
                 ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 new InsurancePdf(insuranceList);
@@ -412,6 +475,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                                 System.out.println("\n" + result + "\n");
                                 break;
                             case 1://Email
+
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Insurance Information");
                                 break;
@@ -420,14 +484,14 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                                 i.putExtra("From", "InsuranceInstruction");
                                 startActivity(i);
                                 break;
-                          /*  case 2://fax
+                          *//*  case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
                         }
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
         }
     }
