@@ -1323,7 +1323,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 imgEditCard.setVisibility(View.VISIBLE);
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
-
+                flFront.setVisibility(View.GONE);
             } else {
                 imgCard.setVisibility(View.GONE);
                 rlCard.setVisibility(View.VISIBLE);
@@ -2519,7 +2519,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
         }
 
-        if(tbCard.isChecked() && CardMap==null){
+        if(tbCard.isChecked() && (CardMap==null || imgEditCard.getVisibility()!=View.VISIBLE)){
             DialogManager.showAlert("Please Add Business Card.", context);
             return false;
         }
