@@ -150,22 +150,23 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
 
         String name = insuranceList.get(position).getName();
         String type = insuranceList.get(position).getType();
+        holder.txtName.setText(name);
         if (!type.equals("")) {
             if (type.equals("Other")) {
-                holder.txtName.setText(name + " - " + insuranceList.get(position).getOtherInsurance());
+                holder.txtPhone.setText(type+" - "+insuranceList.get(position).getOtherInsurance());
             } else {
-                holder.txtName.setText(name + " - " + type);
+                holder.txtPhone.setText(type);
             }
         } else {
-            holder.txtName.setText(name);
+
         }
 
-        if (insuranceList.get(position).getPhone().equals("")) {
+       /* if (insuranceList.get(position).getPhone().equals("")) {
             holder.txtPhone.setVisibility(View.GONE);
         } else {
             holder.txtPhone.setVisibility(View.VISIBLE);
         }
-        holder.txtPhone.setText(insuranceList.get(position).getPhone());
+        holder.txtPhone.setText(insuranceList.get(position).getPhone());*/
         //  holder.imgProfile.setImageResource(insuranceList.get(position).getImage());
 
         File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhoto());
@@ -173,28 +174,28 @@ public class InsuranceAdapter extends RecyclerSwipeAdapter<InsuranceAdapter.View
 
         if (imgFile.exists()) {
             if (holder.imgProfile.getDrawable() == null)
-                holder.imgProfile.setImageResource(R.drawable.lightblue);
+                holder.imgProfile.setImageResource(R.drawable.all_profile);
             else
                 holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
         }
+        //else holder.imgProfile.setImageResource(R.drawable.all_profile); //new change for default image display
 
-        holder.imgProfile.setImageResource(R.drawable.lightblue);
 
         if (!insuranceList.get(position).getPhotoCard().equals("")) {
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), insuranceList.get(position).getPhotoCard());
             if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForword.setImageBitmap(myBitmap);*/
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForword, displayImageOptionsCard);
+                if (holder.imgForword.getDrawable() == null)
+                    holder.imgForword.setImageResource(R.drawable.busi_card);
+                else
+                    holder.imgForword.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
             }
-          /*  byte[] photoCard = insuranceList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);*/
-            // holder.imgForword.setImageBitmap(bmpCard);
+
             holder.imgForword.setVisibility(View.VISIBLE);
         } else {
             holder.imgForword.setVisibility(View.GONE);
         }
+
 
 
         holder.imgForword.setOnClickListener(new View.OnClickListener() {
