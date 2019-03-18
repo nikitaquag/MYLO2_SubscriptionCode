@@ -1287,7 +1287,7 @@ android:layout_marginTop="@dimen/dimension5dp"
                         <AutoCompleteTextView
                             android:backgroundTint="@color/colordivideGray"
                             android:fontFamily="@font/lato"
-                            android:id="@+id/EmergencyDesc"
+                            android:id="@+id/etOtherInstrument"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Other - Specify"

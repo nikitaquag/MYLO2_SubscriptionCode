@@ -47,6 +47,8 @@
                     />
 
                 <TextView
+                    android:fontFamily="@font/lato"
+
                     android:id="@+id/txtHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,6 +62,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtFTU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,6 +84,7 @@
                     android:visibility="visible"/>
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtMsg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -375,6 +379,7 @@
                 android:src="@drawable/addss" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtAdd"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension60dp"

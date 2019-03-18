@@ -85,6 +85,7 @@
                 android:layout_marginLeft="@dimen/dimension10dp">
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtBP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,6 +100,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtBpValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -114,6 +116,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtHR"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -130,6 +133,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtHRValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -144,6 +148,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtTemp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -159,6 +164,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtTempValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -182,6 +188,7 @@
                 android:gravity="center">
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -201,6 +208,7 @@
                     android:background="@color/colorBlackDark" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -245,6 +253,7 @@
                     android:visibility="visible"></View>
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtPulse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -256,6 +265,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtPulseData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -276,6 +286,7 @@
                     android:visibility="visible"></View>
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtResp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -287,6 +298,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtRespData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -308,6 +320,7 @@
                     android:visibility="visible"></View>
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtLoc"
                     style="@style/EmergencyDesc"
                     android:layout_width="wrap_content"
@@ -320,6 +333,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtLocData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -340,6 +354,7 @@
                     android:visibility="visible"></View>
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtNote"
                     style="@style/EmergencyDesc"
                     android:layout_width="wrap_content"
@@ -352,6 +367,7 @@
                     android:visibility="visible" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtNoteData"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -399,6 +415,7 @@
             android:visibility="visible"></View>
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -413,7 +430,7 @@
             android:textAllCaps="true"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/dimension16dp"
-            android:textStyle="normal"
+            android:textStyle="bold"
             android:visibility="gone" />
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>
