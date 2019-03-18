@@ -12,6 +12,7 @@
         android:padding="@dimen/dimension10dp">
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

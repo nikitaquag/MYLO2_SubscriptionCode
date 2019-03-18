@@ -92,6 +92,7 @@
             </LinearLayout>
 
             <TextView
+                android:layout_marginBottom="@dimen/dimension5dp"
                 android:fontFamily="@font/lato"
                 android:id="@+id/txtFrequency"
                 android:layout_width="wrap_content"
@@ -143,26 +144,37 @@
                         android:paddingBottom="@dimen/dimension0dp"
                         android:text="Completion Date "
                         android:textColor="@color/colorBlackDark"
-                        android:textSize="@dimen/dimension20dp"
+                        android:textSize="@dimen/dimension18dp"
                         android:textStyle="bold" />
 
+                    <RelativeLayout
+                        android:layout_alignParentRight="true"
+                        android:layout_width="@dimen/dimension85dp"
+                        android:layout_height="wrap_content">
 
                     <TextView
                         android:fontFamily="@font/lato"
                         android:id="@+id/txtDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerHorizontal="true"
                         android:clickable="false"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
                         android:gravity="center_vertical"
                         android:padding="@dimen/dimension0dp"
                         android:text="@string/AddNews"
+                        android:textStyle="bold"
                         android:textAllCaps="true"
                         android:textColor="@color/colorBlue"
                         android:textSize="@dimen/dimension16dp" />
+
+                        <View
+
+                            android:background="@color/colorBlue"
+                            android:layout_below="@+id/txtDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                    </RelativeLayout>
                 </RelativeLayout>
                 <!--Date comment ends here-->
 
@@ -273,8 +285,8 @@
             android:layout_below="@+id/rlMain"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginRight="@dimen/dimension10dp"
-            android:background="@drawable/border_row_white_one"
-            android:visibility="visible"></View>
+            android:background="#E5E5E5"
+            android:visibility="gone"></View>
 
         <TextView
             android:fontFamily="@font/lato"
@@ -290,7 +302,7 @@
             android:padding="@dimen/dimension10dp"
             android:text="Edit Appointment"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlue"
             android:textSize="@dimen/dimension16dp"
             android:textStyle="normal"
             android:visibility="gone" />

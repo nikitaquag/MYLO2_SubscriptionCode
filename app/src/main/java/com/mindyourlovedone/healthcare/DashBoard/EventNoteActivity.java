@@ -8,12 +8,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -61,7 +64,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
    // FloatingActionButton floatAdd;
-    ImageView floatAdd;
+   ImageView floatAdd, floatOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +82,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         imgBack.setOnClickListener(this);
         imgRight.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
         //txtDateTime.setOnClickListener(this);
 
     }
@@ -86,6 +90,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     private void initUI() {
         scrollvw = findViewById(R.id.scrollvw);
         floatAdd = findViewById(R.id.floatAdd);
+        floatOptions = findViewById(R.id.floatOptions);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To add a note click plus box " +
 //                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
@@ -304,6 +309,120 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         EventNoteQuery e = new EventNoteQuery(context, dbHelper);
     }
 
+    private void showFloatDialog() {
+
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "EventNote.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", context);
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Event Note");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Event Note");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+        // ArrayList<Appoint> AppointList= AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdf(NoteList, 1);
+        //new EventPdf(AppointList);
+
+        Header.document.close();
+//--------------------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/EventNote.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getEventInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
+
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/EventNote.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Event Note");
+                dialog.dismiss();
+            }
+
+
+        });
+
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -331,84 +450,93 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 showInputDialog(context);
                 break;
 
+            case R.id.floatOptions:
+                showFloatDialog();
+                break;
+
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "EventNote.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", context);
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Event Note");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Event Note");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-                // ArrayList<Appoint> AppointList= AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                new EventPdf(NoteList, 1);
-                //new EventPdf(AppointList);
+                Intent i = new Intent(context, InstructionActivity.class);
+                i.putExtra("From", "EventNotesInstruction");
+                startActivity(i);
 
-                Header.document.close();
-
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/EventNote.pdf";
-                        switch (itemPos) {
-                            case 0: //View
-                                StringBuffer result = new StringBuffer();
-                                result.append(new MessageString().getEventInfo());
-                                new PDFDocumentProcess(path,
-                                        context, result);
-
-                                System.out.println("\n" + result + "\n");
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, context, "Event Note");
-                                break;
-                            case 2://FTU
-                                Intent i = new Intent(context, InstructionActivity.class);
-                                i.putExtra("From", "EventNotesInstruction");
-                                startActivity(i);
-                                break;
-                           /* case 2://fax
-                                new FaxCustomDialog(context, path).show();
-                                break;*/
-
-                        }
-                    }
-
-                });
-                builder.create().show();
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "EventNote.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", context);
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Event Note");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+//              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Event Note");
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//                // ArrayList<Appoint> AppointList= AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                new EventPdf(NoteList, 1);
+//                //new EventPdf(AppointList);
+//
+//                Header.document.close();
+//
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/EventNote.pdf";
+//                        switch (itemPos) {
+//                            case 0: //View
+//                                StringBuffer result = new StringBuffer();
+//                                result.append(new MessageString().getEventInfo());
+//                                new PDFDocumentProcess(path,
+//                                        context, result);
+//
+//                                System.out.println("\n" + result + "\n");
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, context, "Event Note");
+//                                break;
+//                            case 2://FTU
+//                                Intent i = new Intent(context, InstructionActivity.class);
+//                                i.putExtra("From", "EventNotesInstruction");
+//                                startActivity(i);
+//                                break;
+//                           /* case 2://fax
+//                                new FaxCustomDialog(context, path).show();
+//                                break;*/
+//
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
             /*case R.id.txtDateTime:
 
@@ -468,6 +596,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         super.onResume();
         getData();
         setNoteData();
+        hideSoftKeyboard();
     }
 
     /* public static void closeKeyboard(Activity context) {

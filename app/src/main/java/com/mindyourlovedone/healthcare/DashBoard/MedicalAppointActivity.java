@@ -2,16 +2,21 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -30,7 +35,9 @@ import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
+import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.model.Appoint;
+import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -61,7 +68,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     TextView txtMsg, txtFTU, txtAdd;
     ScrollView scrollvw;
    // FloatingActionButton floatProfile, floatAdd;
-    ImageView floatProfile, floatAdd;
+    ImageView floatProfile, floatAdd,floatOptions;
 
     public static String getFormattedDate(Date date) {
         Calendar cal = Calendar.getInstance();
@@ -92,6 +99,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     }
 
     private void initListener() {
+        floatOptions.setOnClickListener(this);
         txtAdd.setOnClickListener(this);
         //imgAdd.setOnClickListener(this);
         imgHome.setOnClickListener(this);
@@ -102,6 +110,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     }
 
     private void initUI() {
+        floatOptions = findViewById(R.id.floatOptions);
         floatProfile = findViewById(R.id.floatProfile);
         floatAdd = findViewById(R.id.floatAdd);
         scrollvw = findViewById(R.id.scrollvw);
@@ -364,9 +373,129 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         //      EventNoteQuery e=new EventNoteQuery(context,dbHelper);
     }
 
+    private void showFloatDialog() {
+
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Appointment.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", context);
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Medical Appointment");
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+        ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        //  ArrayList<Note> NoteList= EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        // new EventPdf(NoteList,1);
+        new EventPdf(AppointList);
+
+        Header.document.close();
+
+//--------------------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Appointment.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getAppointInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
+
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Appointment.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Appointment Checklist");
+                dialog.dismiss();
+            }
+
+
+        });
+
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatOptions:
+                showFloatDialog();
+                break;
+
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(context, BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
@@ -399,84 +528,88 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 
             case R.id.imgRight:
 
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "Appointment.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
+                Intent ih = new Intent(context, InstructionActivity.class);
+                ih.putExtra("From", "CheckListInstruction");
+                startActivity(ih);
 
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", context);
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Medical Appointment");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-                ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                //  ArrayList<Note> NoteList= EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                // new EventPdf(NoteList,1);
-                new EventPdf(AppointList);
-
-                Header.document.close();
-
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/Appointment.pdf";
-                        switch (itemPos) {
-                            case 0: //View
-                                StringBuffer result = new StringBuffer();
-                                result.append(new MessageString().getAppointInfo());
-                                new PDFDocumentProcess(path,
-                                        context, result);
-
-                                System.out.println("\n" + result + "\n");
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, context, "Appointment Checklist");
-                                break;
-                            case 2://FTU
-                                Intent i = new Intent(context, InstructionActivity.class);
-                                i.putExtra("From", "CheckListInstruction");
-                                startActivity(i);
-                                break;
-                           /* case 2://fax
-                                new FaxCustomDialog(context, path).show();
-                                break;*/
-
-                        }
-                    }
-
-                });
-                builder.create().show();
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "Appointment.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", context);
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+//               /* new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Medical Appointment");
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//                ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                //  ArrayList<Note> NoteList= EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                // new EventPdf(NoteList,1);
+//                new EventPdf(AppointList);
+//
+//                Header.document.close();
+//
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/Appointment.pdf";
+//                        switch (itemPos) {
+//                            case 0: //View
+//                                StringBuffer result = new StringBuffer();
+//                                result.append(new MessageString().getAppointInfo());
+//                                new PDFDocumentProcess(path,
+//                                        context, result);
+//
+//                                System.out.println("\n" + result + "\n");
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, context, "Appointment Checklist");
+//                                break;
+//                            case 2://FTU
+//                                Intent i = new Intent(context, InstructionActivity.class);
+//                                i.putExtra("From", "CheckListInstruction");
+//                                startActivity(i);
+//                                break;
+//                           /* case 2://fax
+//                                new FaxCustomDialog(context, path).show();
+//                                break;*/
+//
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
         }
     }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorOnesGray"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.ViewEventActivity">
 
     <RelativeLayout
@@ -19,7 +20,18 @@
             android:layout_marginLeft="@dimen/dimension0dp"
             android:src="@drawable/backward_arrow" />
 
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
+
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -33,6 +45,7 @@
             />
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,6 +74,7 @@
     </RelativeLayout>
 
     <TextView
+        android:fontFamily="@font/lato"
         android:id="@+id/txtDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,6 +87,8 @@
         android:textSize="@dimen/dimension18dp" />
 
     <RelativeLayout
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/rlBottom"
@@ -80,6 +96,7 @@
         android:background="@color/colorWhite">
 
         <EditText
+            android:fontFamily="@font/lato"
             android:id="@+id/etNote"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -93,6 +110,7 @@
 
 
     <RelativeLayout
+        android:background="@color/colorOnesGray"
         android:id="@+id/rlBottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,6 +118,7 @@
         android:padding="@dimen/dimension10dp">
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtDelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

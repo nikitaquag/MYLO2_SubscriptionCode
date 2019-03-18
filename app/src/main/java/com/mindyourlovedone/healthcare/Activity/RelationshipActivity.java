@@ -1,24 +1,17 @@
 package com.mindyourlovedone.healthcare.Activity;
 
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mindyourlovedone.healthcare.Fragment.FragmentSpecialist;
-import com.mindyourlovedone.healthcare.Fragment.FragmentType;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.TypeAdapter;
@@ -35,6 +28,7 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
     String Specialist[] = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Eye Doctor", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist / Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
     String category = "";
     private static int RESULT_TYPE = 10;
+    public static String selected = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +65,7 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
 
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
+            selected = intent.getExtras().getString("Selected");
             final String category = intent.getExtras().getString("Category");
             if (category != null) {
                 switch (category) {
@@ -91,6 +86,11 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                 public void onClick(View v) {
                     //  if (category.equalsIgnoreCase("TypeSpecialist")) {
                     txtTitles.setText("Select Specialist");
+                    txtType.setTextColor(getResources().getColor(R.color.colorBlue));
+                    txtType.setBackgroundResource(R.drawable.border_type2);
+
+                    txtSpecialist.setTextColor(getResources().getColor(R.color.colorWhite));
+                    txtSpecialist.setBackgroundResource(R.drawable.border_specialist1);
                     // Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
                     rlType.setVisibility(View.GONE);
                     rlSpecialist.setVisibility(View.VISIBLE);
@@ -105,6 +105,11 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                 public void onClick(View v) {
                     // if (category.equalsIgnoreCase("TypeAppointment")) {
                     txtTitles.setText("Select Type");
+                    txtType.setTextColor(getResources().getColor(R.color.colorWhite));
+                    txtType.setBackgroundResource(R.drawable.border_type);
+
+                    txtSpecialist.setTextColor(getResources().getColor(R.color.colorBlue));
+                    txtSpecialist.setBackgroundResource(R.drawable.border_specialist);
                     //  Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
                     rlType.setVisibility(View.VISIBLE);
                     rlSpecialist.setVisibility(View.GONE);
@@ -119,6 +124,7 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     TextView txtType = view.findViewById(R.id.txtType);
                     Intent i1 = new Intent();
+
                     if (category.equalsIgnoreCase("TypeAppointment")) {
                         i1.putExtra("TypeAppointment", txtType.getText().toString());
                         setResult(RESULT_TYPE, i1);

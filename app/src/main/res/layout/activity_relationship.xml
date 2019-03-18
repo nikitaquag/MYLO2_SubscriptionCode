@@ -33,6 +33,7 @@
             android:src="@drawable/homes" />
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtTitles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             android:textSize="@dimen/dimension22dp" />
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -83,6 +85,7 @@
         android:weightSum="2">
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtType"
             android:layout_width="@dimen/dimension0dp"
             android:layout_height="wrap_content"
@@ -103,6 +106,7 @@
             android:visibility="visible" />
 
         <TextView
+            android:fontFamily="@font/lato"
             android:id="@+id/txtSpecialist"
             android:layout_width="@dimen/dimension0dp"
             android:layout_height="wrap_content"
