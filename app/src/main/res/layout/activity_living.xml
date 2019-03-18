@@ -223,8 +223,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbBathing"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -237,6 +237,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewBathing"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -278,8 +279,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbContinence"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -292,6 +293,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewContinence"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -333,8 +335,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbDressing"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -347,6 +349,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewDressing"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -393,8 +396,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbfeed"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -407,6 +410,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewFeeding"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -451,8 +455,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbToileting"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -465,6 +469,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewToileting"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -508,8 +513,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbTranfering"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -522,6 +527,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewTransferring"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -555,6 +561,7 @@
                         android:textColor="@android:color/black" />
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewOtherFunction"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -589,6 +596,7 @@
                         android:textColor="@android:color/black" />
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewFunctionalNote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -601,6 +609,7 @@
                 </RelativeLayout>
 
                 <View
+android:layout_marginTop="@dimen/dimension5dp"
                     android:id="@+id/view3"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension20dp"
@@ -692,8 +701,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbTransport"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -706,6 +715,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewTransport"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -736,8 +746,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbPets"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -750,6 +760,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewPets"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -780,8 +791,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbDriving"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -794,6 +805,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewDriving"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -824,8 +836,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbKeeping"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -838,6 +850,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewKeeping"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -868,8 +881,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbMedication"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -882,6 +895,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewMedication"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -911,8 +925,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbFinances"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -925,6 +939,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewFinances"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -954,8 +969,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbPreparing"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -968,6 +983,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewPreparing"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -997,8 +1013,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbShopping"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -1011,6 +1027,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewShopping"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1040,8 +1057,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbUsing"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -1054,6 +1071,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewUsing"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1083,8 +1101,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbComputer"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -1097,6 +1115,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewComputer"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1126,8 +1145,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbRemote"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -1140,6 +1159,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewRemote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1169,8 +1189,8 @@
 
                         <ToggleButton
                             android:id="@+id/tbAlert"
-                            android:layout_width="@dimen/dimension60dp"
-                            android:layout_height="@dimen/dimension30dp"
+                            android:layout_width="@dimen/dimension90dp"
+                            android:layout_height="@dimen/dimension40dp"
                             android:layout_alignParentRight="true"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="@dimen/dimension15dp"
@@ -1183,6 +1203,7 @@
                     </RelativeLayout>
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewAlert"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1216,6 +1237,7 @@
                         android:textColor="@android:color/black" />
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewOtherInstrument"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1251,6 +1273,7 @@
                         android:textColor="@android:color/black" />
 
                     <View
+android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewInstrumentalNote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
@@ -1259,6 +1282,12 @@
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:layout_marginBottom="@dimen/dimension10dp"
                         android:background="@color/colorOnesGray" />
+
+                    <View
+                        android:layout_below="@+id/viewInstrumentalNote"
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension80dp"/>
 
                 </RelativeLayout>
 

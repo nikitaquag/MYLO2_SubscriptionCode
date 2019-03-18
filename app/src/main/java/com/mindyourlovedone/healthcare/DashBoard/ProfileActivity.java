@@ -1181,6 +1181,17 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     spinnerRelation.setSelection(index + 1);
                 }
             }*/  txtRelation.setText(connection.getRelationType());
+
+//            String photoCard = connection.getPhotoCard();
+//            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photoCard);
+//            if (imgFile1.exists()) {
+//                           /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
+//                            imgCard.setImageBitmap(myBitmap);*/
+//                imgCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+//
+//                //   imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgCard, displayImageOptionsCard);
+//            }
+
             if (connection.getRelationType().equalsIgnoreCase("Other"))
             {
                 tilOtherRelation.setVisibility(View.VISIBLE);
