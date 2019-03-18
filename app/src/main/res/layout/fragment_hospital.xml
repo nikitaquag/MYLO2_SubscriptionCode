@@ -19,7 +19,6 @@
             android:layout_marginBottom="@dimen/dimension90dp"
             android:divider="@color/colorLightGray"
             android:dividerHeight="@dimen/dimension20dp"
-            android:paddingTop="@dimen/dimension15dp"
             android:scrollbars="none"
 
             ></android.support.v7.widget.RecyclerView>
@@ -318,7 +317,7 @@
             android:textStyle="italic"
             android:fontFamily="@font/bold_lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Contacts!"
+            android:text="Add a new Hospitals!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

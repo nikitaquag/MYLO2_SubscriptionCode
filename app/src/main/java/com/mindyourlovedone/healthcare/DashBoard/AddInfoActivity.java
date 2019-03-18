@@ -18,8 +18,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -30,7 +28,6 @@ import android.widget.Toast;
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HistoryQuery;
@@ -699,6 +696,11 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 tilDate.setVisibility(View.GONE);
             }
 
+            if(i.getExtras().getBoolean("IsImplant2")){
+                tilDate.setVisibility(View.VISIBLE);
+                tilDate.setHint("Date");
+            }
+
             switch (from) {
                 case "AllergyUpdate":
                     Allergy allergy = (Allergy) i.getExtras().getSerializable("AllergyObject");
@@ -893,7 +895,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         tilLocation = findViewById(R.id.tilLocation);
         tilDetails = findViewById(R.id.tilDetails);
         tilNote = findViewById(R.id.tilNote);
-
+        tilNote.setHint("Note");
         txtDate = findViewById(R.id.txtDate);
         txtDoctor = findViewById(R.id.txtDoctor);
         txtDone = findViewById(R.id.txtDone);

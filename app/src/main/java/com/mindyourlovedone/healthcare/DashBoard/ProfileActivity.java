@@ -177,6 +177,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     NonScrollListView listPhone;
     ContactData contactData;
      RelativeConnection con;
+     FrameLayout flFront;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -261,7 +262,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         imgProfile.setOnClickListener(this);
         imgEditCard.setOnClickListener(this);
         imgCard.setOnClickListener(this);
-        txtCard.setOnClickListener(this);
+        flFront.setOnClickListener(this);
         imgDone.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         txtGender.setOnClickListener(this);
@@ -389,6 +390,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         imgCard = findViewById(R.id.imgCard);
         imgEditCard = findViewById(R.id.imgEditCard);
+        flFront = findViewById(R.id.flFront);
         imgHome=findViewById(R.id.imgHome);
         imgAddpet = findViewById(R.id.imgAddPet);
         txtAddPet = findViewById(R.id.txtAddPet);
@@ -950,7 +952,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         try {
             for (int i = 0; i < phonelist.size(); i++) {
                 if (phonelist.get(i).getId() == position) {//uses index As it is but matching ids
-                    phonelist.remove(phonelist.get(i));
+                    ContactData cc = phonelist.get(i);
+                    phonelist.remove(cc);
                     llAddPhone.removeAllViews();
                     mTextViewListValue.clear();
                     mTextViewListType.clear();
@@ -960,6 +963,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+            llAddPhone.removeAllViews();
+            mTextViewListValue.clear();
+            mTextViewListType.clear();
+            mImageViewType.clear();
+            setListPh();
         }
     }
 
@@ -2175,7 +2183,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 showCardDialog(RESULT_CAMERA_IMAGE_CARD, RESULT_SELECT_PHOTO_CARD, imgCard, "Card");
 
                 break;
-            case R.id.txtCard:
+            case R.id.flFront:
                 showCardDialog(RESULT_CAMERA_IMAGE_CARD, RESULT_SELECT_PHOTO_CARD, imgCard, "Card");
                 break;
 
@@ -2184,12 +2192,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 ByteArrayOutputStream bao = new ByteArrayOutputStream();
                 bitma.compress(Bitmap.CompressFormat.JPEG, 100, bao);
                 byte[] photoCard = bao.toByteArray();*/
-                Intent i = new Intent(context, AddFormActivity.class);
-                i.putExtra("Image", cardpath);
-                i.putExtra("IsDelete", true);
-                i.putExtra("isOnActivityResult", isOnActivityResult);
-                i.putExtra("cardImgPath", cardImgPath);
-                startActivityForResult(i, REQUEST_CARD);
+                if (cardpath != "") {
+                    Intent i = new Intent(context, AddFormActivity.class);
+                    i.putExtra("Image", cardpath);
+                    i.putExtra("IsDelete", true);
+                    i.putExtra("isOnActivityResult", isOnActivityResult);
+                    i.putExtra("cardImgPath", cardImgPath);
+                    startActivityForResult(i, REQUEST_CARD);
+                }
                 break;
 
             case R.id.txtBdate:
@@ -2417,11 +2427,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     imagepath = "";
                     ProfileMap = null;
                 } else if (from.equals("Card")) {
-                    imgCard.setImageResource(R.drawable.busi_card);
+//                    imgCard.setImageResource(R.drawable.busi_card);
                     imgEditCard.setVisibility(View.GONE);
+                    flFront.setVisibility(View.VISIBLE);
                     imgCard.setVisibility(View.GONE);
                     rlCard.setVisibility(View.VISIBLE);
-                    txtCard.setVisibility(View.VISIBLE);
+                    txtCard.setVisibility(View.GONE);
                     cardpath = "";
                     CardMap = null;
                     //photoCard = null;
@@ -2495,6 +2506,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 DialogManager.showAlert("Please Select Phone number with Type", context);
                 return false;
             }
+        }
+
+        if(tbCard.isChecked() && CardMap==null){
+            DialogManager.showAlert("Please Add Business Card.", context);
+            return false;
         }
 
         storeImage(ProfileMap, "Profile");
@@ -2980,6 +2996,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
                 txtCard.setVisibility(View.GONE);
                 imgEditCard.setVisibility(View.VISIBLE);
+                flFront.setVisibility(View.GONE);
                 CardMap = scaled;
                 storeImage(scaled, "Card");
             } catch (FileNotFoundException e) {
@@ -3054,6 +3071,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
+                flFront.setVisibility(View.GONE);
                 imgEditCard.setVisibility(View.VISIBLE);
                 //  storeImage(bitmap,"Card");
                 CardMap = selectedImage;
@@ -3069,6 +3087,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 rlCard.setVisibility(View.GONE);
                 imgCard.setVisibility(View.GONE);
                 txtCard.setVisibility(View.VISIBLE);
+                flFront.setVisibility(View.VISIBLE);
                 imgEditCard.setVisibility(View.GONE);
                 cardpath = "";
             }

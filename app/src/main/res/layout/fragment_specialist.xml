@@ -291,7 +291,7 @@
             android:textStyle="italic"
             android:fontFamily="@font/bold_lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Contacts!"
+            android:text="Add a new Doctors!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

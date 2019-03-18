@@ -1,6 +1,5 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -12,6 +11,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -33,7 +33,6 @@ import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -53,7 +52,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -104,6 +102,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     boolean external_flag = false;
     List<RelativeConnection> items;
     FrameLayout flDelete;
+    ImageView floatOptions;
 
 
     @Override
@@ -167,6 +166,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtDelete.setOnClickListener(this);
         txtDocuType.setOnClickListener(this);
         txtSpinDoc.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -175,7 +175,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgType=findViewById(R.id.imgType);
         txtDocuType = findViewById(R.id.txtDocuType);
         txtDocuType.setFocusable(false);
-
+        floatOptions= findViewById(R.id.floatOptions);
         tilSpinDoc = findViewById(R.id.tilSpinDoc);
         txtSpinDoc = findViewById(R.id.txtSpinDoc);
         txtSpinDoc.setFocusable(false);
@@ -595,11 +595,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
             txtFName.setText(name);
             imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -756,6 +758,139 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 });
                 builder.create().show();
 */
+                break;
+
+            case R.id.floatOptions:
+                final Dialog dialog = new Dialog(context);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                LayoutInflater lf = (LayoutInflater) context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View dialogview = lf.inflate(R.layout.activity_transparent, null);
+                final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+                final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+                final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+                floatViewPdf.setImageResource(R.drawable.eyee);
+                final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+                floatEmail.setImageResource(R.drawable.closee);
+
+                RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+                rlFloatfax.setVisibility(View.VISIBLE);
+
+                rlFloatfax.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Fax
+                        //File localFile = UriHelpers.getFileForUri(AddDocumentActivity.this, Uri.parse(documentPath));
+                        Uri uris = Uri.parse(documentPath);
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + txtFName.getText().toString();
+/*
+                                File sourceFile = new File(path);
+                                try {
+                                    FileInputStream fileInputStream = new FileInputStream(sourceFile);
+                                    Toast.makeText(AddDocumentActivity.this,"valid",Toast.LENGTH_SHORT).show();
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(AddDocumentActivity.this,e.toString(),Toast.LENGTH_SHORT).show();
+                                }*/
+                        new FaxCustomDialog(AddDocumentActivity.this, preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath).show();
+
+                                /*if (path.equals("No"))
+                                {
+                                    File file=new File(getExternalFilesDir(null),documentPath);
+                                    Uri urifile=null;
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                        urifile = FileProvider.getUriForFile(context, "com.mindyourelders.healthcare.HomeActivity.fileProvider", file);
+                                    } else {
+                                        urifile = Uri.fromFile(file);
+                                    }
+                                    String path=urifile.getPath();
+                                    serverAttachement(urifile);
+                                   // emailAttachement(urifile);
+                                }
+                                else {
+                                    Uri uris = Uri.parse(documentPath);
+                                    String path=uris.getPath();
+                                    serverAttachement(uris);
+                                 //  emailAttachement(uris);
+                                }*/
+                        dialog.dismiss();
+                    }
+                });
+
+                TextView txtNew = dialogview.findViewById(R.id.txtNew);
+                txtNew.setText(getResources().getString(R.string.EmailReports));
+
+                TextView txtContact = dialogview.findViewById(R.id.txtContact);
+                txtContact.setText(getResources().getString(R.string.ViewReports));
+
+                dialog.setContentView(dialogview);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+                //lp.gravity = Gravity.CENTER;
+                dialog.getWindow().setAttributes(lp);
+                dialog.show();
+
+                rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+                floatCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                floatEmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (path.equals("No")) {
+                            File file = new File(getExternalFilesDir(null), documentPath);
+                            Uri urifile = null;
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                                urifile = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", file);
+                            } else {
+                                urifile = Uri.fromFile(file);
+                            }
+
+                            // emailAttachement(urifile, txtFName.getText().toString());
+                        } else {
+                            // Uri uris = Uri.parse(documentPath);
+                            emailAttachement(documentPath, txtFName.getText().toString());
+                        }
+                        dialog.dismiss();
+
+                    }
+                });
+
+                floatViewPdf.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = null;
+                        if (path.equals("No")) {
+                            CopyReadAssetss(documentPath);
+                        } else {
+                            File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", targetFile);
+                            } else {
+                                uri = Uri.fromFile(targetFile);
+                            }
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, "application/pdf");
+                            context.startActivity(intent);
+
+                        }
+                        dialog.dismiss();
+                    }
+                });
+
                 break;
 
             case R.id.imgDot:
@@ -1220,24 +1355,28 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         if (requestCode == RESULTCODE && data != null) {
             name = data.getExtras().getString("Name");
             originPath = data.getExtras().getString("URI");
-            txtFName.setText(name);
-            imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            //  txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")) {
+                txtFName.setText(name);
+                imgDoc.setClickable(false);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                //  txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
 
             name = preferences.getString(PrefConstants.RESULT);//data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
-            txtFName.setText(name);
-            imgDoc.setClickable(false);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            showDialogWindow(text);
-            //  txtAdd.setText("Edit File");
-            imgDoc.setImageResource(R.drawable.pdf);
+            if (!name.equalsIgnoreCase("")) {
+                txtFName.setText(name);
+                imgDoc.setClickable(false);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                //  txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+            }
         } else if (requestCode == RESULT_ADVANCE && data != null) {
             docType = data.getStringExtra("Category");
             txtSpinDoc.setText(docType);
@@ -1343,5 +1482,10 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         finally {
             in.close();
         }*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 }

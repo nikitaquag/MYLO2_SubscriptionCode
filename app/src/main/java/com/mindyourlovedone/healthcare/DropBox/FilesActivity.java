@@ -396,6 +396,11 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
                     preferences = new Preferences(FilesActivity.this);
                     preferences.putString(PrefConstants.URI, result.getAbsolutePath());
                     preferences.putString(PrefConstants.RESULT, result.getName());
+
+                    Intent i=new Intent();
+                    i.putExtra("URI", result.getAbsolutePath());
+                    i.putExtra("Name",result.getName());
+                    setResult(45,i);
                     finish();
                 }
             }

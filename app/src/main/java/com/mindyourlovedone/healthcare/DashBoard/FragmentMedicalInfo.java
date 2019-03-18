@@ -98,7 +98,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     RadioGroup rgDonor, rgDrug, rgDrink, rgTobaco;
     TextView txtName;
     Spinner spinnerEyes, spinnerBlood, spinnerLang;
-    TextView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
+    ImageView txtAddAllergy, txtAddCondition, txtAddImplants, txtAddHistory, txtAddHospital, txtAddVaccine;
     ImageView imgDonnerDrop,imgVisionDrop, imgAidsDrop, imgDietDrop, imgVaccineDrop, imgTobacoDrop, imgDrugDrop, imgDrinkDrop, imgAddAllergy, imgAddImplants, imgAddHospital, imgAddHistory, imgAddCondition, imgAddVaccine, imgTeethDrop;
     ListView ListHistory, ListAllergy, ListImplants, ListHospital, ListCondition, ListVaccine;
     String note = "", allergynote = "";
@@ -116,7 +116,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     DBHelper dbHelper;
     FloatingActionButton floatProfile;
     ImageView floatOptions;
-
+    ToggleButton tbOrgan;
     TextView txtBlood;
     ImageView imgBloodDrop;
     LinearLayout linorgan,llVision, llAidsDiet, llSubDiet, linVaccine, lintobaco, lindrug, lindrink, llSubAllergis, llSubPre, llSubImplants, llSubHistory, llSubHospital, llSubBlood, llSubTeeth;
@@ -353,7 +353,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         rbYes = rootview.findViewById(R.id.rbYes);
         rbNo = rootview.findViewById(R.id.rbNo);
-        rgDonor = rootview.findViewById(R.id.rgDonor);
+        tbOrgan = rootview.findViewById(R.id.tbOrgan);
 
         txtTobacoType = rootview.findViewById(R.id.txtTobacoType);
         txtTobacoAmt = rootview.findViewById(R.id.txtTobacoAmt);
@@ -406,15 +406,27 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         spinnerBlood.setPrompt("Select Blood Type");*/
 
 
-        rgDonor.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//        tbOrgan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+//                if (checkedId == R.id.rbYes) {
+//                    donor = "YES";
+//                } else if (checkedId == R.id.rbNo) {
+//                    donor = "NO";
+//                }
+//            }
+//        });
+
+        tbOrgan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                if (checkedId == R.id.rbYes) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
                     donor = "YES";
-                } else if (checkedId == R.id.rbNo) {
+                }else {
                     donor = "NO";
                 }
-            }
+                }
+
         });
 
         rgDrug.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -631,10 +643,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             }
 
             if (medInfo.getDonor().equals("YES")) {
-                rbYes.setChecked(true);
+                tbOrgan.setChecked(true);
                 donor = "YES";
             } else if (medInfo.getDonor().equals("NO")) {
-                rbNo.setChecked(true);
+                tbOrgan.setChecked(false);
                 donor = "NO";
             }
 
@@ -724,7 +736,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             Intent allergyIntent = new Intent(getActivity(), AddInfoActivity.class);
             allergyIntent.putExtra("IsAllergy", false);
             allergyIntent.putExtra("IsHistory", false);
-            allergyIntent.putExtra("IsImplant", true);
+            allergyIntent.putExtra("IsImplant", false);
+            allergyIntent.putExtra("IsImplant2", true);
             allergyIntent.putExtra("ADD", "ImplantUpdate");
             allergyIntent.putExtra("Title", "Update Medical Implant");
             allergyIntent.putExtra("Name", "Update Medical Implant");
@@ -1503,7 +1516,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Intent implantsIntent = new Intent(getActivity(), AddInfoActivity.class);
                 implantsIntent.putExtra("IsAllergy", false);
                 implantsIntent.putExtra("IsHistory", false);
-                implantsIntent.putExtra("IsImplant", true);
+                implantsIntent.putExtra("IsImplant", false);
+                implantsIntent.putExtra("IsImplant2", true);
                 implantsIntent.putExtra("ADD", "Implants");
                 implantsIntent.putExtra("Title", "Add Medical Implants");
                 implantsIntent.putExtra("Name", "Add Medical Implant");

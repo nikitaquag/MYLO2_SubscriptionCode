@@ -61,63 +61,69 @@ public class CallDialog {
             }
 
         }
-        if (a.size() == 1) {
+//        if (a.size() == 1) {
             String value = a.get(0);
             new AlertDialog.Builder(context)
-                    .setTitle("Calling Alert")
-                    .setMessage("Do you want to call this number? ")
-                    .setPositiveButton(a.get(0),
+//                    .setTitle("Calling Alert")
+                    .setMessage(a.get(0))
+                    .setPositiveButton("Call",
                             new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface arg0, int arg1) {
                                     onCall(a.get(0));
                                 }
                             })
-                    .setCancelable(true).show();
-        } else if (a.size() == 2) {
-            new AlertDialog.Builder(context)
-                    .setTitle("Calling Alert")
-                    .setMessage("Do you want to call this number? ")
-                    .setPositiveButton(a.get(0),
-                            new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface arg0, int arg1) {
-                                    onCall(a.get(0));
-                                }
-                            })
-
-                    .setNegativeButton(a.get(1),
-                            new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface arg0, int arg1) {
-                                    onCall(a.get(1));
-                                }
-                            }).setCancelable(true).show();
-        } else if (a.size() == 3) {
-            new AlertDialog.Builder(context)
-                    .setTitle("Calling Alert")
-                    .setMessage("Do you want to call this number? ")
-                    .setPositiveButton(a.get(0),
-                            new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface arg0, int arg1) {
-                                    onCall(a.get(0));
-                                }
-                            })
-                    .setNeutralButton(a.get(1), new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            onCall(a.get(1));
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
                         }
                     })
-                    .setNegativeButton(a.get(2),
-                            new DialogInterface.OnClickListener() {
-
-                                public void onClick(DialogInterface arg0, int arg1) {
-                                    onCall(a.get(2));
-                                }
-                            }).setCancelable(true).show();
-        }
+                    .setCancelable(true).show();
+//        } else if (a.size() == 2) {
+//            new AlertDialog.Builder(context)
+//                    .setTitle("Calling Alert")
+//                    .setMessage("Do you want to call this number? ")
+//                    .setPositiveButton(a.get(0),
+//                            new DialogInterface.OnClickListener() {
+//
+//                                public void onClick(DialogInterface arg0, int arg1) {
+//                                    onCall(a.get(0));
+//                                }
+//                            })
+//
+//                    .setNegativeButton(a.get(1),
+//                            new DialogInterface.OnClickListener() {
+//
+//                                public void onClick(DialogInterface arg0, int arg1) {
+//                                    onCall(a.get(1));
+//                                }
+//                            }).setCancelable(true).show();
+//        } else if (a.size() == 3) {
+//            new AlertDialog.Builder(context)
+//                    .setTitle("Calling Alert")
+//                    .setMessage("Do you want to call this number? ")
+//                    .setPositiveButton(a.get(0),
+//                            new DialogInterface.OnClickListener() {
+//
+//                                public void onClick(DialogInterface arg0, int arg1) {
+//                                    onCall(a.get(0));
+//                                }
+//                            })
+//                    .setNeutralButton(a.get(1), new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//                            onCall(a.get(1));
+//                        }
+//                    })
+//                    .setNegativeButton(a.get(2),
+//                            new DialogInterface.OnClickListener() {
+//
+//                                public void onClick(DialogInterface arg0, int arg1) {
+//                                    onCall(a.get(2));
+//                                }
+//                            }).setCancelable(true).show();
+//        }
 
     }
 
@@ -159,26 +165,47 @@ public class CallDialog {
 
         }
 
-        final Dialog dialog = new Dialog(context);
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-       // dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        LayoutInflater lf = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View dialogview = lf.inflate(R.layout.dialog_call, null);
-        dialog.setContentView(dialogview);
+        String value = a.get(0);
+        new AlertDialog.Builder(context)
+//                    .setTitle("Calling Alert")
+                .setMessage(a.get(0))
+                .setPositiveButton("Call",
+                        new DialogInterface.OnClickListener() {
 
-        ListView listCall=dialog.findViewById(R.id.listCall);
-        ArrayAdapter<String> ad=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,android.R.id.text1,a);
-        listCall.setAdapter(ad);
+                            public void onClick(DialogInterface arg0, int arg1) {
+                                onCall(a.get(0));
+                            }
+                        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
-        listCall.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                onCall(a.get(position));
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
+                    }
+                })
+                .setCancelable(true).show();
+
+//        final Dialog dialog = new Dialog(context);
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//       // dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+//        LayoutInflater lf = (LayoutInflater) context
+//                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+//        View dialogview = lf.inflate(R.layout.dialog_call, null);
+//        dialog.setContentView(dialogview);
+//
+//        ListView listCall=dialog.findViewById(R.id.listCall);
+//        ArrayAdapter<String> ad=new ArrayAdapter<String>(context,android.R.layout.simple_list_item_1,android.R.id.text1,a);
+//        listCall.setAdapter(ad);
+//
+//        listCall.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                onCall(a.get(position));
+//                dialog.dismiss();
+//            }
+//        });
+//        dialog.show();
+
+
       /*  if (a.size() == 1) {
             String value = a.get(0);
             new AlertDialog.Builder(context)

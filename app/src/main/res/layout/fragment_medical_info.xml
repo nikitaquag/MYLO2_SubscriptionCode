@@ -107,25 +107,16 @@
                             android:textStyle="bold"
                             android:visibility="gone" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toLeftOf="@+id/imgAddAllergy"
                                 android:id="@+id/txtAddAllergy"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/border_edit_note"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
 
                         <ImageView
@@ -163,50 +154,77 @@
                                 android:id="@+id/ListAllergy"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension10dp"
                                 android:divider="@null" />
 
-                            <TextView
+                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/txtAllergyNote"
-                                android:layout_width="wrap_content"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/ListAllergy"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:textSize="@dimen/dimension18dp"
+                                android:gravity="bottom"
                                 android:fontFamily="@font/lato"
-                                android:gravity="top"
-                                android:padding="@null"
-                                android:text="Note"
-                                android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
+                                >
 
-                            <EditText
-                                android:id="@+id/etAllergyNote"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/txtAllergyNote"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:background="@null"
-                                android:gravity="start"
-                                android:padding="@null"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension16dp" />
+                                <AutoCompleteTextView
+                                    android:backgroundTint="@color/colordivideGray"
+                                    android:id="@+id/etAllergyNote"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
 
-                            <View
-                                android:id="@+id/view1"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/etAllergyNote"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginBottom="@dimen/dimension8dp"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:background="@color/colordivideGray" />
+                                    android:hint="Note"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:fontFamily="@font/lato"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/txtAllergyNote"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/ListAllergy"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                                <!--android:fontFamily="@font/lato"-->
+                                <!--android:gravity="top"-->
+                                <!--android:padding="@null"-->
+                                <!--android:text="Note"-->
+                                <!--android:textColor="@color/colorTextGray"-->
+                                <!--android:textSize="@dimen/dimension16dp"-->
+                                <!--android:textStyle="normal" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/etAllergyNote"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/txtAllergyNote"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!---->
+                                <!--android:gravity="start"-->
+                                <!--android:padding="@null"-->
+                                <!--android:paddingBottom="@dimen/dimension5dp"-->
+                                <!--android:paddingTop="@dimen/dimension5dp"-->
+                                <!--android:textColor="@color/colorBlackDark"-->
+                                <!--android:textSize="@dimen/dimension16dp" />-->
+
+                            <!--<View-->
+                                <!--android:id="@+id/view1"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/txtAllergyNote"-->
+                                <!--android:layout_gravity="center_vertical"-->
+                                <!--android:layout_marginBottom="@dimen/dimension8dp"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
                         </LinearLayout>
 
@@ -536,26 +554,37 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
                                 android:layout_toLeftOf="@+id/imgAddCondition"
                                 android:id="@+id/txtAddCondition"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/border_edit_note"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+                            <!--<TextView-->
+                                <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                                <!--android:layout_centerVertical="true"-->
+                                <!--android:layout_toLeftOf="@+id/imgAddCondition"-->
+                                <!--android:id="@+id/txtAddCondition"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:background="@drawable/border_edit_note"-->
+                                <!--android:fontFamily="@font/lato"-->
+                                <!--android:gravity="center"-->
+                                <!--android:paddingBottom="@dimen/dimension5dp"-->
+                                <!--android:paddingTop="@dimen/dimension5dp"-->
+                                <!--android:paddingRight="@dimen/dimension6dp"-->
+                                <!--android:paddingLeft="@dimen/dimension6dp"-->
+                                <!--android:text="Add new"-->
+                                <!--android:textAllCaps="true"-->
+                                <!--android:textColor="@color/colorWhite"-->
+                                <!--android:textSize="@dimen/dimension10dp"-->
+                                <!--android:textStyle="bold"-->
+                                <!--android:visibility="gone" />-->
 
                         <!---->
                         </RelativeLayout>
@@ -579,51 +608,79 @@
                                 android:id="@+id/ListCondtion"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension10dp"
                                 android:layout_toRightOf="@+id/imgPre"
                                 android:divider="@null" />
 
-                            <TextView
+                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/txtPreNote"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/ListCondtion"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:layout_below="@+id/ListAllergy"
+                                android:textSize="@dimen/dimension18dp"
+                                android:gravity="bottom"
                                 android:fontFamily="@font/lato"
-                                android:gravity="top"
-                                android:padding="@null"
-                                android:text="Note"
-                                android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
+                                >
 
-                            <EditText
-                                android:id="@+id/etNote"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/txtAllergyNote"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:background="@null"
-                                android:gravity="start"
-                                android:padding="@null"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension16dp" />
+                                <AutoCompleteTextView
+                                    android:backgroundTint="@color/colordivideGray"
+                                    android:id="@+id/etNote"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
 
-                            <View
-                                android:id="@+id/viewPre"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/etNote"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginBottom="@dimen/dimension8dp"
-                                android:layout_marginLeft="@dimen/dimension15dp"
-                                android:layout_marginRight="@dimen/dimension15dp"
-                                android:background="@color/colordivideGray" />
+                                    android:hint="Note"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:fontFamily="@font/lato"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+
+                            <!--<TextView-->
+                                <!--android:id="@+id/txtPreNote"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/ListCondtion"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                                <!--android:fontFamily="@font/lato"-->
+                                <!--android:gravity="top"-->
+                                <!--android:padding="@null"-->
+                                <!--android:text="Note"-->
+                                <!--android:textColor="@color/colorTextGray"-->
+                                <!--android:textSize="@dimen/dimension16dp"-->
+                                <!--android:textStyle="normal" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/etNote"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/txtAllergyNote"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!---->
+                                <!--android:gravity="start"-->
+                                <!--android:padding="@null"-->
+                                <!--android:paddingBottom="@dimen/dimension5dp"-->
+                                <!--android:paddingTop="@dimen/dimension5dp"-->
+                                <!--android:textColor="@color/colorBlackDark"-->
+                                <!--android:textSize="@dimen/dimension16dp" />-->
+
+                            <!--<View-->
+                                <!--android:id="@+id/viewPre"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/etNote"-->
+                                <!--android:layout_gravity="center_vertical"-->
+                                <!--android:layout_marginBottom="@dimen/dimension8dp"-->
+                                <!--android:layout_marginLeft="@dimen/dimension15dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
                         </LinearLayout>
 
@@ -837,56 +894,83 @@
                             android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
-
-                        <TextView
+                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:id="@+id/txtVisionNote"
-                            android:layout_width="wrap_content"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ListAllergy"
-                            android:layout_marginLeft="@dimen/dimension8dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:textSize="@dimen/dimension18dp"
+                            android:gravity="bottom"
                             android:fontFamily="@font/lato"
-                            android:gravity="top"
-                            android:padding="@null"
-                            android:text="Note"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            >
 
-                        <EditText
-                            android:id="@+id/etVisionNote"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension10dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@null"
-                            android:gravity="start"
-                            android:padding="@null"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension16dp" />
+                            <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
+                                android:id="@+id/etVisionNote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:hint="Note"
+                                android:imeOptions="actionNext"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension18dp" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/txtVisionNote"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/ListAllergy"-->
+                            <!--android:layout_marginLeft="@dimen/dimension8dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                            <!--android:fontFamily="@font/lato"-->
+                            <!--android:gravity="top"-->
+                            <!--android:padding="@null"-->
+                            <!--android:text="Note"-->
+                            <!--android:textColor="@color/colorTextGray"-->
+                            <!--android:textSize="@dimen/dimension16dp"-->
+                            <!--android:textStyle="normal" />-->
 
                         <!--<EditText-->
-                        <!--android:id="@+id/etVisionNote"-->
-                        <!--style="@style/EmergencyDesc"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!---->
-                        <!--android:layout_margin="@dimen/dimension15dp"-->
-                        <!--android:background="@drawable/darkgray_white_border"-->
-                        <!--android:gravity="top"-->
-                        <!--android:hint="Note"-->
-                        <!--android:padding="@dimen/dimension8dp"-->
-                        <!--android:textColor="@color/colorBlue" />-->
+                            <!--android:id="@+id/etVisionNote"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/txtAllergyNote"-->
+                            <!--android:layout_marginLeft="@dimen/dimension10dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!---->
+                            <!--android:gravity="start"-->
+                            <!--android:padding="@null"-->
+                            <!--android:paddingBottom="@dimen/dimension5dp"-->
+                            <!--android:paddingTop="@dimen/dimension5dp"-->
+                            <!--android:textColor="@color/colorBlackDark"-->
+                            <!--android:textSize="@dimen/dimension16dp" />-->
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
-                            android:background="@color/colordivideGray" />
+                        <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/etVisionNote"&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="@style/EmergencyDesc"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_margin="@dimen/dimension15dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="@drawable/darkgray_white_border"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:gravity="top"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:hint="Note"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:padding="@dimen/dimension8dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:textColor="@color/colorBlue" />&ndash;&gt;-->
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="@dimen/dimension1dp"-->
+                            <!--android:layout_margin="@dimen/dimension5dp"-->
+                            <!--android:background="@color/colordivideGray" />-->
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -1095,46 +1179,72 @@
                                 android:layout_marginRight="@dimen/dimension5dp"
                                 android:background="@color/colordivideGray" />
 
-
-                            <TextView
-
+                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/txtMouthNote"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/ListAllergy"
-                                android:layout_marginLeft="@dimen/dimension5dp"
-                                android:layout_marginTop="@dimen/dimension15dp"
+                                android:textSize="@dimen/dimension18dp"
                                 android:fontFamily="@font/lato"
-                                android:gravity="top"
-                                android:padding="@null"
-                                android:text="Note"
-                                android:textColor="@color/colorTextGray"
-                                android:textSize="@dimen/dimension16dp"
-                                android:textStyle="normal" />
-
-                            <EditText
-                                android:id="@+id/etMouthNote"
                                 android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/rlMouth"
-                                android:layout_marginLeft="@dimen/dimension5dp"
-                                android:layout_toRightOf="@+id/imgTeeth"
-                                android:background="@color/colorWhite"
-                                android:gravity="top"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension8dp"
-                                android:textColor="@color/colorBlackDark"
-                                android:textSize="@dimen/dimension16dp" />
+                                android:gravity="bottom"
+                                >
 
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/etMouthNote"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginBottom="@dimen/dimension8dp"
-                                android:layout_marginLeft="@dimen/dimension5dp"
-                                android:layout_marginRight="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                                <AutoCompleteTextView
+                                    android:dropDownSelector="@color/colordivideGray"
+                                    android:backgroundTint="@color/colordivideGray"
+                                    android:fontFamily="@font/lato"
+                                    android:id="@+id/etMouthNote"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:hint="Note"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </android.support.design.widget.TextInputLayout>
+
+                            <!--<TextView-->
+
+                                <!--android:id="@+id/txtMouthNote"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/ListAllergy"-->
+                                <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                                <!--android:layout_marginTop="@dimen/dimension15dp"-->
+                                <!--android:fontFamily="@font/lato"-->
+                                <!--android:gravity="top"-->
+                                <!--android:padding="@null"-->
+                                <!--android:text="Note"-->
+                                <!--android:textColor="@color/colorTextGray"-->
+                                <!--android:textSize="@dimen/dimension16dp"-->
+                                <!--android:textStyle="normal" />-->
+
+                            <!--<EditText-->
+                                <!--android:id="@+id/etMouthNote"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_below="@+id/rlMouth"-->
+                                <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                                <!--android:layout_toRightOf="@+id/imgTeeth"-->
+                                <!--android:background="@color/colorWhite"-->
+                                <!--android:gravity="top"-->
+                                <!--android:paddingBottom="@dimen/dimension5dp"-->
+                                <!--android:paddingTop="@dimen/dimension8dp"-->
+                                <!--android:textColor="@color/colorBlackDark"-->
+                                <!--android:textSize="@dimen/dimension16dp" />-->
+
+                            <!--<View-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/etMouthNote"-->
+                                <!--android:layout_gravity="center_vertical"-->
+                                <!--android:layout_marginBottom="@dimen/dimension8dp"-->
+                                <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                                <!--android:layout_marginRight="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
 
                         </LinearLayout>
@@ -1290,54 +1400,80 @@
                             android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
-                        <TextView
+                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:id="@+id/txtAidsNote"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="@dimen/dimension5dp"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/ListAllergy"
-                            android:layout_marginLeft="@dimen/dimension8dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:textSize="@dimen/dimension18dp"
+                            android:gravity="bottom"
                             android:fontFamily="@font/lato"
-                            android:gravity="top"
-                            android:padding="@null"
-                            android:text="Note"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
+                            >
 
-                        <EditText
-                            android:id="@+id/etAideNote"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension10dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@null"
-                            android:gravity="start"
-                            android:padding="@null"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension16dp" />
+                            <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
+                                android:id="@+id/etAideNote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:hint="Note"
+                                android:imeOptions="actionNext"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension18dp" />
+                        </android.support.design.widget.TextInputLayout>
+                        <!--<TextView-->
+                            <!--android:id="@+id/txtAidsNote"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/ListAllergy"-->
+                            <!--android:layout_marginLeft="@dimen/dimension8dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                            <!--android:fontFamily="@font/lato"-->
+                            <!--android:gravity="top"-->
+                            <!--android:padding="@null"-->
+                            <!--android:text="Note"-->
+                            <!--android:textColor="@color/colorTextGray"-->
+                            <!--android:textSize="@dimen/dimension16dp"-->
+                            <!--android:textStyle="normal" />-->
 
                         <!--<EditText-->
-                        <!--android:id="@+id/etAideNote"-->
-                        <!--style="@style/EmergencyDesc"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_margin="@dimen/dimension15dp"-->
-                        <!--android:background="@drawable/darkgray_white_border"-->
-                        <!--android:gravity="top"-->
-                        <!--android:hint="Note"-->
-                        <!--android:padding="@dimen/dimension8dp"-->
-                        <!--android:textColor="@color/colorBlue" />-->
+                            <!--android:id="@+id/etAideNote"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/txtAllergyNote"-->
+                            <!--android:layout_marginLeft="@dimen/dimension10dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!---->
+                            <!--android:gravity="start"-->
+                            <!--android:padding="@null"-->
+                            <!--android:paddingBottom="@dimen/dimension5dp"-->
+                            <!--android:paddingTop="@dimen/dimension5dp"-->
+                            <!--android:textColor="@color/colorBlackDark"-->
+                            <!--android:textSize="@dimen/dimension16dp" />-->
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dimension1dp"
-                            android:layout_margin="@dimen/dimension5dp"
-                            android:background="@color/colordivideGray" />
+                        <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/etAideNote"&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="@style/EmergencyDesc"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_margin="@dimen/dimension15dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="@drawable/darkgray_white_border"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:gravity="top"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:hint="Note"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:padding="@dimen/dimension8dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:textColor="@color/colorBlue" />&ndash;&gt;-->
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="@dimen/dimension1dp"-->
+                            <!--android:layout_margin="@dimen/dimension5dp"-->
+                            <!--android:background="@color/colordivideGray" />-->
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -1752,27 +1888,19 @@
                         android:src="@drawable/drop_down"
                         android:visibility="visible" />
 
-                        <TextView
+                        <ImageView
+                            android:src="@drawable/plusicon"
                             android:layout_marginLeft="@dimen/dimension5dp"
                             android:layout_centerVertical="true"
-                            android:id="@+id/txtAddVaccine"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
                             android:layout_toLeftOf="@+id/imgVaccineDrop"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:background="@drawable/border_edit_note"
+                            android:id="@+id/txtAddVaccine"
+                            android:layout_width="@dimen/dimension30dp"
+                            android:layout_height="@dimen/dimension30dp"
                             android:fontFamily="@font/lato"
                             android:gravity="center"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:paddingRight="@dimen/dimension6dp"
-                            android:paddingLeft="@dimen/dimension6dp"
-                            android:text="Add new"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension10dp"
-                            android:textStyle="bold"
                             android:visibility="gone" />
+
+
 
                     </RelativeLayout>
 
@@ -1824,7 +1952,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/vwll"
-                            android:layout_margin="@dimen/dimension20dp"
+                            android:layout_margin="@dimen/dimension10dp"
                             android:divider="@null" />
 
 
@@ -2480,60 +2608,85 @@
                             android:layout_marginRight="@dimen/dimension5dp"
                             android:background="@color/colordivideGray" />
 
-
-                        <TextView
+                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                             android:id="@+id/txtDietNote"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/ListAllergy"
-                            android:layout_marginLeft="@dimen/dimension8dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:layout_marginTop="@dimen/dimension10dp"
-                            android:fontFamily="@font/lato"
-                            android:gravity="top"
-                            android:padding="@null"
-                            android:text="Note"
-                            android:textColor="@color/colorTextGray"
-                            android:textSize="@dimen/dimension16dp"
-                            android:textStyle="normal" />
-
-                        <EditText
-                            android:id="@+id/etDietNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtAllergyNote"
-                            android:layout_marginLeft="@dimen/dimension10dp"
-                            android:layout_marginRight="@dimen/dimension15dp"
-                            android:background="@null"
-                            android:gravity="start"
-                            android:padding="@null"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:textColor="@color/colorBlackDark"
-                            android:textSize="@dimen/dimension16dp" />
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_below="@+id/ListAllergy"
+                            android:textSize="@dimen/dimension18dp"
+                            android:gravity="bottom"
+                            android:fontFamily="@font/lato"
+                            >
 
+                            <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
+                                android:id="@+id/etDietNote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="Note"
+                                android:imeOptions="actionNext"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension18dp" />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <!--<TextView-->
+                            <!--android:id="@+id/txtDietNote"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/ListAllergy"-->
+                            <!--android:layout_marginLeft="@dimen/dimension8dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                            <!--android:fontFamily="@font/lato"-->
+                            <!--android:gravity="top"-->
+                            <!--android:padding="@null"-->
+                            <!--android:text="Note"-->
+                            <!--android:textColor="@color/colorTextGray"-->
+                            <!--android:textSize="@dimen/dimension16dp"-->
+                            <!--android:textStyle="normal" />-->
 
                         <!--<EditText-->
-                        <!--android:id="@+id/etDietNote"-->
-                        <!--style="@style/EmergencyDesc"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:layout_below="@+id/txtDietHeader"-->
-                        <!--android:layout_margin="@dimen/dimension15dp"-->
-                        <!--android:layout_toRightOf="@+id/imgDiet"-->
-                        <!--android:background="@drawable/darkgray_white_border"-->
-                        <!--android:gravity="top"-->
-                        <!--android:hint="Note"-->
-                        <!--android:padding="@dimen/dimension8dp"-->
-                        <!--android:textColor="@color/colorBlue" />-->
+                            <!--android:id="@+id/etDietNote"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:layout_below="@+id/txtAllergyNote"-->
+                            <!--android:layout_marginLeft="@dimen/dimension10dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension15dp"-->
+                            <!---->
+                            <!--android:gravity="start"-->
+                            <!--android:padding="@null"-->
+                            <!--android:paddingBottom="@dimen/dimension5dp"-->
+                            <!--android:paddingTop="@dimen/dimension5dp"-->
+                            <!--android:textColor="@color/colorBlackDark"-->
+                            <!--android:textSize="@dimen/dimension16dp" />-->
 
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/dimension1dp"
-                            android:layout_marginLeft="@dimen/dimension5dp"
-                            android:layout_marginRight="@dimen/dimension5dp"
-                            android:background="@color/colordivideGray" />
+                        <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:id="@+id/etDietNote"&ndash;&gt;-->
+                        <!--&lt;!&ndash;style="@style/EmergencyDesc"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_below="@+id/txtDietHeader"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_margin="@dimen/dimension15dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:layout_toRightOf="@+id/imgDiet"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:background="@drawable/darkgray_white_border"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:gravity="top"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:hint="Note"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:padding="@dimen/dimension8dp"&ndash;&gt;-->
+                        <!--&lt;!&ndash;android:textColor="@color/colorBlue" />&ndash;&gt;-->
+
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="@dimen/dimension1dp"-->
+                            <!--android:layout_marginLeft="@dimen/dimension5dp"-->
+                            <!--android:layout_marginRight="@dimen/dimension5dp"-->
+                            <!--android:background="@color/colordivideGray" />-->
 
 
                     </LinearLayout>
@@ -2606,26 +2759,19 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
-                                android:id="@+id/txtAddImplants"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_toLeftOf="@+id/imgAddImplants"
-                                android:background="@drawable/border_edit_note"
+                                android:id="@+id/txtAddImplants"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+
+
 
                         </RelativeLayout>
                         <!---->
@@ -2650,7 +2796,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtImplantsHeader"
-                                android:layout_margin="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension10dp"
                                 android:layout_toRightOf="@+id/imgImplants"
                                 android:divider="@null" />
                         </LinearLayout>
@@ -2737,26 +2883,18 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                        <TextView
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="@dimen/dimension5dp"
-                            android:id="@+id/txtAddHospital"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_toLeftOf="@+id/imgAddHospital"
-                            android:background="@drawable/border_edit_note"
-                            android:fontFamily="@font/lato"
-                            android:gravity="center"
-                            android:paddingBottom="@dimen/dimension5dp"
-                            android:paddingTop="@dimen/dimension5dp"
-                            android:paddingRight="@dimen/dimension6dp"
-                            android:paddingLeft="@dimen/dimension6dp"
-                            android:text="Add new"
-                            android:textAllCaps="true"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/dimension10dp"
-                            android:textStyle="bold"
-                            android:visibility="gone" />
+                            <ImageView
+                                android:src="@drawable/plusicon"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@+id/imgAddHospital"
+                                android:id="@+id/txtAddHospital"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
+                                android:fontFamily="@font/lato"
+                                android:gravity="center"
+                                android:visibility="gone" />
+
 
                         </RelativeLayout>
                         <LinearLayout
@@ -2779,7 +2917,7 @@
                                 android:id="@+id/ListHospital"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension10dp"
 
                                 android:layout_toRightOf="@+id/imgHospital"
                                 android:divider="@null" />
@@ -2910,7 +3048,7 @@
                                     android:paddingTop="@dimen/dimension8dp"
                                     android:src="@drawable/drg"></ImageView>
 
-                                <android.support.design.widget.TextInputLayout
+                                 <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                     android:id="@+id/tilBlood"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -2920,7 +3058,7 @@
                                     android:descendantFocusability="beforeDescendants"
                                     android:focusableInTouchMode="true"
                                     app:hintEnabled="true"
-                                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                                    >
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView
                                         android:paddingTop="@dimen/dimension10dp"
@@ -3042,26 +3180,18 @@
                             android:src="@drawable/drop_down"
                             android:visibility="visible" />
 
-                            <TextView
+                            <ImageView
+                                android:src="@drawable/plusicon"
                                 android:layout_marginLeft="@dimen/dimension5dp"
                                 android:layout_centerVertical="true"
-                                android:id="@+id/txtAddHistory"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
                                 android:layout_toLeftOf="@+id/imgAddHistory"
-                                android:background="@drawable/border_edit_note"
+                                android:id="@+id/txtAddHistory"
+                                android:layout_width="@dimen/dimension30dp"
+                                android:layout_height="@dimen/dimension30dp"
                                 android:fontFamily="@font/lato"
                                 android:gravity="center"
-                                android:paddingBottom="@dimen/dimension5dp"
-                                android:paddingTop="@dimen/dimension5dp"
-                                android:paddingRight="@dimen/dimension6dp"
-                                android:paddingLeft="@dimen/dimension6dp"
-                                android:text="Add new"
-                                android:textAllCaps="true"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/dimension10dp"
-                                android:textStyle="bold"
                                 android:visibility="gone" />
+
 
                         </RelativeLayout>
                         <LinearLayout
@@ -3085,7 +3215,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/txtHistoryHeader"
-                                android:layout_margin="@dimen/dimension15dp"
+                                android:layout_margin="@dimen/dimension10dp"
                                 android:layout_toRightOf="@+id/imgHistory"
                                 android:divider="@null" />
 
@@ -3523,14 +3653,15 @@
                             android:layout_below="@+id/rlRadios"
                             android:visibility="gone">
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilTobacoType"
-                                android:fontFamily="@font/lato"
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:fontFamily="@font/lato"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dimension10dp"
                                 android:gravity="bottom"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -3538,35 +3669,36 @@
                                     android:id="@+id/txtTobacoType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll5"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilTobacoType"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll5"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilTobacoType"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilTobacoAmt"
-                                android:layout_width="match_parent"
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/vwll5"
+                                 android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_below="@+id/tilTobacoType"
                                 android:fontFamily="@font/lato"
-                                android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -3574,34 +3706,35 @@
                                     android:id="@+id/txtTobacoAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="Amount/Frequency"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll6"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilTobacoAmt"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll6"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilTobacoAmt"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilTobacoYear"
-                                android:layout_width="match_parent"
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/vwll6"
-                                android:layout_marginTop="@dimen/dimension5dp"
+                                 android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_below="@+id/tilTobacoAmt"
                                 android:fontFamily="@font/lato"
                                 android:gravity="bottom"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -3609,24 +3742,24 @@
                                     android:id="@+id/txtTobacoYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="@string/numOfYear"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll7"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilTobacoYear"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll7"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilTobacoYear"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
                         </RelativeLayout>
                     </LinearLayout>
@@ -3767,14 +3900,14 @@
                             android:layout_below="@+id/rlRadioDrug"
                             android:visibility="gone">
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilDrugType"
                                 android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dimension10dp"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
-                                android:paddingBottom="@dimen/dimension8dp">
+                               >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -3782,69 +3915,71 @@
                                     android:id="@+id/txtDrugType"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="Type"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll12"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilDrugType"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll12"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilDrugType"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilDrugAmt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/vwll12"
-                                android:layout_marginTop="@dimen/dimension10dp"
+                                android:layout_below="@+id/tilDrugType"
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
                                 android:fontFamily="@font/lato"
-                                android:paddingBottom="@dimen/dimension8dp">
+                               >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
                                     android:id="@+id/txtDrugAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="Amount/Frequency/Other Notes"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:fontFamily="@font/lato"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll13"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilDrugAmt"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll13"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilDrugAmt"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilDrugYear"
                                 android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/vwll13"
-                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_below="@+id/tilDrugAmt"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:gravity="bottom"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                 android:textSize="@dimen/dimension18dp"
+                                >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -3852,24 +3987,24 @@
                                     android:id="@+id/txtDrugYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+
                                     android:hint="@string/numOfYear"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll14"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilDrugYear"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll14"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilDrugYear"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
                         </RelativeLayout>
                     </LinearLayout>
@@ -4018,14 +4153,15 @@
                             android:layout_below="@+id/rlRadioDrink"
                             android:visibility="gone">
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilDrinkAmt"
                                 android:layout_width="match_parent"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dimension10dp"
                                 android:gravity="bottom"
-                                android:fontFamily="@font/lato"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:fontFamily="@font/lato"
+                               >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -4033,34 +4169,35 @@
                                     android:id="@+id/txtDrinkAmt"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="Amount/Frequency/Other Notes"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll9"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilDrinkAmt"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll9"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilDrinkAmt"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
 
-                            <android.support.design.widget.TextInputLayout
+                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                 android:id="@+id/tilDrinkYear"
                                 android:layout_width="match_parent"
+                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/vwll9"
-                                android:layout_marginTop="@dimen/dimension5dp"
-                                android:gravity="bottom"
+                                android:layout_below="@+id/tilDrinkAmt"
+                                 android:textSize="@dimen/dimension18dp"
+                                 android:gravity="bottom"
                                 android:fontFamily="@font/lato"
-                                android:paddingBottom="@dimen/dimension8dp">
+                                >
 
                                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
@@ -4068,24 +4205,24 @@
                                     android:id="@+id/txtDrinkYear"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:background="@null"
+                                    
                                     android:hint="@string/numOfYear"
                                     android:imeOptions="actionNext"
                                     android:paddingBottom="@dimen/dimension10dp"
-                                    android:paddingLeft="@dimen/dimension15dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
                                     android:paddingTop="@dimen/dimension10dp"
                                     android:textColor="@color/colorPrimaryDark"
                                     android:textSize="@dimen/dimension18dp" />
                             </android.support.design.widget.TextInputLayout>
 
-                            <View
-                                android:id="@+id/vwll10"
-                                android:layout_width="match_parent"
-                                android:layout_height="@dimen/dimension1dp"
-                                android:layout_below="@+id/tilDrinkYear"
-                                android:layout_margin="@dimen/dimension5dp"
-                                android:layout_marginBottom="@dimen/dimension5dp"
-                                android:background="@color/colordivideGray" />
+                            <!--<View-->
+                                <!--android:id="@+id/vwll10"-->
+                                <!--android:layout_width="match_parent"-->
+                                <!--android:layout_height="@dimen/dimension1dp"-->
+                                <!--android:layout_below="@+id/tilDrinkYear"-->
+                                <!--android:layout_margin="@dimen/dimension5dp"-->
+                                <!--android:layout_marginBottom="@dimen/dimension5dp"-->
+                                <!--android:background="@color/colordivideGray" />-->
                         </RelativeLayout>
                     </LinearLayout>
                 </RelativeLayout>
