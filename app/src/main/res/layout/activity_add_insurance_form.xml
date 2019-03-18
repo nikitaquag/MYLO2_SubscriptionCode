@@ -206,38 +206,38 @@
         <FrameLayout
             android:id="@+id/flDelete"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension80dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorOnesGray"
-            android:visibility="gone">
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linbtm"
+            android:layout_centerHorizontal="true"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/dimension10dp"
+            android:background="@color/colorLightGray"
+android:layout_alignParentBottom="true"
+            >
 
-            <RelativeLayout
-                android:id="@+id/rlDelete"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension80dp"
-                android:layout_gravity="center"
-                android:background="@color/colorOnesGray"
+            <TextView
+                android:id="@+id/txtDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:background="@drawable/border_dir_delete"
+                android:drawableLeft="@drawable/deletebox"
+                android:drawablePadding="@dimen/dimension10dp"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center"
-               >
-
-                <TextView
-                    android:id="@+id/txtDelete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:background="@drawable/border_dir_delete"
-                    android:drawableLeft="@drawable/ic_delete"
-                    android:drawablePadding="@dimen/dimension5dp"
-                    android:gravity="center"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingTop="@dimen/dimension10dp"
-                    android:paddingRight="@dimen/dimension30dp"
-                    android:paddingBottom="@dimen/dimension10dp"
-                    android:text="Delete"
-                    android:textColor="@color/colorWhite" />
-
-            </RelativeLayout>
+                android:paddingLeft="@dimen/dimension60dp"
+                android:paddingTop="@dimen/dimension11dp"
+                android:paddingRight="@dimen/dimension60dp"
+                android:paddingBottom="@dimen/dimension11dp"
+                android:fontFamily="@font/lato"
+                android:text="Delete"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/dimension18dp"
+                android:textStyle="bold"
+                />
         </FrameLayout>
-
     </RelativeLayout>
 </RelativeLayout>
