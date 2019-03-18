@@ -18,6 +18,11 @@ import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.model.Note;
+import com.mindyourlovedone.healthcare.utility.PrefConstants;
+import com.mindyourlovedone.healthcare.utility.Preferences;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ViewEventActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
@@ -40,14 +45,19 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
     private void initComponent() {
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
-            Note note = (Note) intent.getExtras().getSerializable("NoteObject");
-            txtTitle.setText("Edit Event Notes");
-            String notes = note.getTxtNote();
-            String dates = note.getTxtDate();
-            id = note.getId();
-            userid = note.getUserid();
-            etNote.setText(notes);
-            txtDate.setText(dates);
+            if(intent.hasExtra("NEW")){
+                txtDelete.setVisibility(View.GONE);
+                txtDate.setVisibility(View.GONE);
+            }else {
+                Note note = (Note) intent.getExtras().getSerializable("NoteObject");
+                txtTitle.setText("Edit Event Notes");
+                String notes = note.getTxtNote();
+                String dates = note.getTxtDate();
+                id = note.getId();
+                userid = note.getUserid();
+                etNote.setText(notes);
+                txtDate.setText(dates);
+            }
         }
     }
 
@@ -76,20 +86,37 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
                 finish();
                 break;
             case R.id.txtSave:
-                String note = etNote.getText().toString();
-                String date = txtDate.getText().toString();
-                Boolean flag = EventNoteQuery.updateEvent(id, note, date);
-                if (flag == true) {
-                    Toast.makeText(context, "You have updated event successfully", Toast.LENGTH_SHORT).show();
-                    try {
-                        InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                        imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                    } catch (Exception e) {
-                        // TODO: handle exception
+                if(!getIntent().hasExtra("NEW")) {
+                    String note = etNote.getText().toString();
+                    String date = txtDate.getText().toString();
+                    Boolean flag = EventNoteQuery.updateEvent(id, note, date);
+                    if (flag == true) {
+                        Toast.makeText(context, "You have updated event successfully", Toast.LENGTH_SHORT).show();
+                        try {
+                            InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                        }
+                        finish();
+                    } else {
+                        Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
-                    finish();
-                } else {
-                    Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                }else{
+                    String note = etNote.getText().toString();
+                    SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
+                    String currentDateandTime = sdf.format(new Date());
+                    if (note.length() != 0) {
+                        Boolean flag = EventNoteQuery.insertNoteData(new Preferences(ViewEventActivity.this).getInt(PrefConstants.CONNECTED_USERID), note, currentDateandTime);
+                        if (flag == true) {
+                            Toast.makeText(context, "Event Note Added Succesfully", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+                            Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(context, "Enter Note", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 break;

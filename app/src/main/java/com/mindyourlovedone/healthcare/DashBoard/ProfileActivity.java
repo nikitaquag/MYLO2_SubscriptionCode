@@ -529,11 +529,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     has_card="YES";
                     rlCard.setVisibility(View.VISIBLE);
                     imgEditCard.setVisibility(View.VISIBLE);
+                    if(flFront.getVisibility()==View.VISIBLE){
+                        imgEditCard.setVisibility(View.GONE);
+                    }
                 }
                 else{
                     has_card="NO";
                    // imgCard.setImageResource(R.drawable.busi_card);
                     txtCard.setVisibility(View.VISIBLE);
+                    flFront.setVisibility(View.VISIBLE);
                     imgEditCard.setVisibility(View.GONE);
                     imgCard.setVisibility(View.GONE);
                     cardpath = "";

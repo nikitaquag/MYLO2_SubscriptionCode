@@ -72,16 +72,16 @@
 
             <ImageView
                 android:id="@+id/imgBack"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension50dp"
+                android:layout_width="@dimen/dimension35dp"
+                android:layout_height="@dimen/dimension45dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension0dp"
                 android:src="@drawable/backward_arrow" />
 
             <ImageView
                 android:id="@+id/imgHome"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
@@ -97,7 +97,7 @@
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:textStyle="bold"
-                android:layout_marginLeft="@dimen/dimension20dp"
+                android:layout_marginLeft="@dimen/dimension22dp"
                 android:text="Event Notes"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension20dp" />
@@ -130,8 +130,8 @@
 
             <ImageView
                 android:id="@+id/imgRight"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="@dimen/dimension10dp"
@@ -145,6 +145,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/header"
+            android:layout_margin="@dimen/dimension5dp"
             android:background="#EFEFEF"
             android:divider="@null"
             android:scrollbars="none"
