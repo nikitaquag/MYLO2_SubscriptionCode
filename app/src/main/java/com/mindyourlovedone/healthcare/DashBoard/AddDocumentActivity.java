@@ -1,6 +1,5 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -28,14 +27,12 @@ import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
@@ -44,8 +41,6 @@ import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
-import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
-import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -57,7 +52,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -780,6 +774,50 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 floatViewPdf.setImageResource(R.drawable.eyee);
                 final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
                 floatEmail.setImageResource(R.drawable.closee);
+
+                RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+                rlFloatfax.setVisibility(View.VISIBLE);
+
+                rlFloatfax.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        // Fax
+                        //File localFile = UriHelpers.getFileForUri(AddDocumentActivity.this, Uri.parse(documentPath));
+                        Uri uris = Uri.parse(documentPath);
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + txtFName.getText().toString();
+/*
+                                File sourceFile = new File(path);
+                                try {
+                                    FileInputStream fileInputStream = new FileInputStream(sourceFile);
+                                    Toast.makeText(AddDocumentActivity.this,"valid",Toast.LENGTH_SHORT).show();
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                    Toast.makeText(AddDocumentActivity.this,e.toString(),Toast.LENGTH_SHORT).show();
+                                }*/
+                        new FaxCustomDialog(AddDocumentActivity.this, preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath).show();
+
+                                /*if (path.equals("No"))
+                                {
+                                    File file=new File(getExternalFilesDir(null),documentPath);
+                                    Uri urifile=null;
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                        urifile = FileProvider.getUriForFile(context, "com.mindyourelders.healthcare.HomeActivity.fileProvider", file);
+                                    } else {
+                                        urifile = Uri.fromFile(file);
+                                    }
+                                    String path=urifile.getPath();
+                                    serverAttachement(urifile);
+                                   // emailAttachement(urifile);
+                                }
+                                else {
+                                    Uri uris = Uri.parse(documentPath);
+                                    String path=uris.getPath();
+                                    serverAttachement(uris);
+                                 //  emailAttachement(uris);
+                                }*/
+                        dialog.dismiss();
+                    }
+                });
 
                 TextView txtNew = dialogview.findViewById(R.id.txtNew);
                 txtNew.setText(getResources().getString(R.string.EmailReports));

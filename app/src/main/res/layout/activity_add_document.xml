@@ -800,7 +800,7 @@
             android:id="@+id/flDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/linbtm"
             android:layout_centerHorizontal="true"
             android:visibility="gone"
             android:layout_marginBottom="@dimen/dimension10dp"
@@ -832,14 +832,23 @@
                 android:textStyle="bold"
                 />
         </FrameLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/linbtm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></LinearLayout>
+
+        <ImageView
+            android:layout_above="@+id/flDelete"
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/threedots"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension16dp"
+            />
     </RelativeLayout>
-    <ImageView
-        android:id="@+id/floatOptions"
-        android:layout_width="@dimen/dimension70dp"
-        android:layout_height="@dimen/dimension70dp"
-        android:src="@drawable/threedots"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/dimension16dp"
-        />
+
 </RelativeLayout>

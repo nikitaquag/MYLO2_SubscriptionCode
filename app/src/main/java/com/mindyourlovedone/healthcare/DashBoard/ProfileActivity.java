@@ -2427,7 +2427,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     imagepath = "";
                     ProfileMap = null;
                 } else if (from.equals("Card")) {
-                    imgCard.setImageResource(R.drawable.busi_card);
+//                    imgCard.setImageResource(R.drawable.busi_card);
                     imgEditCard.setVisibility(View.GONE);
                     flFront.setVisibility(View.VISIBLE);
                     imgCard.setVisibility(View.GONE);

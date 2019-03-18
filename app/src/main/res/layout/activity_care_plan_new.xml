@@ -25,7 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtUserName"
-        android:layout_margin="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension20dp"
+        android:layout_marginLeft="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
         android:background="@drawable/border_row_white">
 
         <ImageView
@@ -244,7 +247,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rlMedical"
-        android:layout_margin="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:layout_marginLeft="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
         android:background="@drawable/border_row_white">
 
         <ImageView
@@ -290,7 +296,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rlOther"
-        android:layout_margin="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:layout_marginLeft="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension20dp"
         android:background="@drawable/border_row_white">
 
         <ImageView
@@ -410,6 +418,8 @@
         android:textSize="@dimen/dimension22dp" />
 
     <RelativeLayout
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:layout_marginLeft="@dimen/dimension10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/rlMedicalRecord"
