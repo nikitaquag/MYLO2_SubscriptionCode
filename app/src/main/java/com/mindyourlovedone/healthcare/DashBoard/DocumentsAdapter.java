@@ -87,7 +87,8 @@ public class DocumentsAdapter extends RecyclerSwipeAdapter<DocumentsAdapter.View
 
         holder.txtDocHeader.setText(documentList.get(position).getName());
         holder.imgDocType.setImageResource(R.drawable.pdf_dir/*documentList.get(position).getImage()*/);
-        holder.txtDocTime.setVisibility(View.GONE);
+        holder.txtDocTime.setText("Last Update : "+documentList.get(position).getDate());
+     //   holder.txtDocTime.setVisibility(View.GONE);
      /*   holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

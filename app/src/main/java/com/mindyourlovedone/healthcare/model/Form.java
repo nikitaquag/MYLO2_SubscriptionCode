@@ -14,6 +14,16 @@ public class Form implements Serializable {
     String Document = "";
     String photo = "";
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    String date = "";
+
     public int getImage() {
         return image;
     }

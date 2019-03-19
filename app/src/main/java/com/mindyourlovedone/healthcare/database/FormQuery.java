@@ -23,6 +23,7 @@ public class FormQuery {
     public static final String COL_PHOTO = "Photo";
     public static final String COL_ID = "Id";
     public static final String COL_DOCUMENT = "Document";
+    public static final String COL_DATE = "Date";
     static Context context;
     static DBHelper dbHelper;
 
@@ -35,8 +36,8 @@ public class FormQuery {
 
     public static String createDocumentTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
-                COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(50)," + COL_DOCUMENT + " VARCHAR(100)," +
-                COL_PHOTO + " INTEGER);";
+                COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(50)," + COL_DOCUMENT + " VARCHAR(100),"  + COL_DATE + " TEXT,"+
+        COL_PHOTO + " INTEGER);";
         return createTableQuery;
     }
 
@@ -61,7 +62,7 @@ public class FormQuery {
                     notes.setName(c.getString(c.getColumnIndex(COL_NAME)));
                     notes.setDocument(c.getString(c.getColumnIndex(COL_DOCUMENT)));
                     notes.setImage(c.getInt(c.getColumnIndex(COL_PHOTO)));
-
+                    notes.setDate(c.getString(c.getColumnIndex(COL_DATE)));
                     noteList.add(notes);
                 } while (c.moveToNext());
             }
@@ -69,7 +70,7 @@ public class FormQuery {
         return noteList;
     }
 
-    public static Boolean insertDocumentData(int userid, String name, int photo, String document) {
+    public static Boolean insertDocumentData(int userid, String name, int photo, String document, String date) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -78,6 +79,7 @@ public class FormQuery {
         cv.put(COL_NAME, name);
         cv.put(COL_DOCUMENT, name);
         cv.put(COL_PHOTO, photo);
+        cv.put(COL_DATE, date);
 
         long rowid = db.insert(TABLE_NAME, null, cv);
 
@@ -100,7 +102,7 @@ public class FormQuery {
                 notes.setName(c.getString(c.getColumnIndex(COL_NAME)));
                 notes.setDocument(c.getString(c.getColumnIndex(COL_DOCUMENT)));
                 notes.setImage(c.getInt(c.getColumnIndex(COL_PHOTO)));
-
+                notes.setDate(c.getString(c.getColumnIndex(COL_DATE)));
                 noteList.add(notes);
 
                 db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
@@ -116,7 +118,7 @@ public class FormQuery {
         return true;
     }
 
-    public static Boolean updateDocumentData(int id, String name, int photo, String documentPath) {
+    public static Boolean updateDocumentData(int id, String name, int photo, String documentPath, String date) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -125,6 +127,7 @@ public class FormQuery {
         cv.put(COL_NAME, name);
         cv.put(COL_DOCUMENT, name);
         cv.put(COL_PHOTO, photo);
+        cv.put(COL_DATE, date);
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;
