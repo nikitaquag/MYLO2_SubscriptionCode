@@ -333,7 +333,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
             android:fontFamily="@font/bold_lato"
-            android:text="Add a new Insurance Forms!"
+            android:text="Add a new Forms!"
             android:textColor="@color/colorLightGrays"
             android:textSize="@dimen/dimension17dp"
             android:textStyle="italic" />
