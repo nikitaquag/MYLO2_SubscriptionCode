@@ -41,6 +41,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class AddInsuranceFormActivity extends AppCompatActivity implements View.OnClickListener {
@@ -64,6 +67,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     String originPath = "";
     int photo;
     String path = "";
+    String date = "";
     String Goto = "";
     int id;
 
@@ -221,7 +225,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 if (validate()) {
                     documentPath = copydb(originPath, name);
                     if (Goto.equals("Edit")) {
-                        Boolean flag = FormQuery.updateDocumentData(id, name, photo, documentPath);
+                        Boolean flag = FormQuery.updateDocumentData(id, name, photo, documentPath,date);
                         if (flag == true) {
                             Toast.makeText(context, "You have updated document successfully", Toast.LENGTH_SHORT).show();
                             finish();
@@ -229,7 +233,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Boolean flag = FormQuery.insertDocumentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, photo, documentPath);
+                        Boolean flag = FormQuery.insertDocumentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, photo, documentPath,date);
                         if (flag == true) {
                             Toast.makeText(context, "You have added form successfully", Toast.LENGTH_SHORT).show();
                             try {
@@ -557,6 +561,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     private boolean validate() {
         photo = R.drawable.pdf;
         name = txtName.getText().toString();
+        DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
+        Date dates = new Date();
+        date=dateFormat.format(dates);
         if (name.length() == 0) {
             Toast.makeText(context, "Add Name of document", Toast.LENGTH_SHORT).show();
         } else {
