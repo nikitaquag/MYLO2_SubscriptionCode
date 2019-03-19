@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe"
+    android:layout_marginTop="@dimen/dimension10dp"
+    android:layout_marginLeft="@dimen/dimension10dp"
+    android:layout_marginRight="@dimen/dimension10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -52,19 +55,17 @@
     <!-- xmlns:android="http://schemas.android.com/apk/res/android"
           -->
     <RelativeLayout
+        android:background="@drawable/border_row_white_app"
         android:id="@+id/rlVital"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOnesGray">
+        >
 
         <RelativeLayout
             android:id="@+id/rlMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginTop="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:background="@drawable/border_row_white_app"
+
             android:gravity="center">
 
             <ImageView
@@ -399,8 +400,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension2dp"
             android:layout_below="@+id/rlMain"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:background="@color/colorOnesGray"
             android:visibility="visible"></View>
 
@@ -409,8 +408,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension10dp"
             android:layout_below="@+id/rlMain"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:background="@drawable/border_row_white_one"
             android:visibility="visible"></View>
 
@@ -420,9 +417,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/viewVital"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:layout_marginBottom="@dimen/dimension5dp"
             android:background="@drawable/border_edit_note"
             android:gravity="center"
             android:padding="@dimen/dimension10dp"

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/swipe"
+    android:layout_marginTop="@dimen/dimension10dp"
+    android:layout_marginLeft="@dimen/dimension10dp"
+    android:layout_marginRight="@dimen/dimension10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -35,17 +38,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorOnesGray"
+        android:background="@drawable/border_row_white_app"
         android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/rlMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginTop="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:background="@drawable/border_row_white_app"
             android:gravity="center"
             android:paddingLeft="@dimen/dimension5dp"
             android:paddingTop="@dimen/dimension5dp"
@@ -273,8 +272,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension2dp"
             android:layout_below="@+id/rlMain"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:background="@color/colorOnesGray"
             android:visibility="visible"></View>
 
@@ -294,9 +291,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/view1"
-            android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
-            android:layout_marginBottom="@dimen/dimension5dp"
+
             android:background="@drawable/border_edit_note"
             android:gravity="center"
             android:padding="@dimen/dimension10dp"
@@ -305,7 +300,7 @@
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/dimension16dp"
             android:textStyle="normal"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

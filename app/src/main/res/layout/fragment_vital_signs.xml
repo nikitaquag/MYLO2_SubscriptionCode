@@ -293,15 +293,20 @@
 
             </RelativeLayout>
         </ScrollView>
+
+        <View
+            android:id="@+id/vwbtm"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorOnesGray"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension15dp"/>
         <ImageView
             android:id="@+id/floatAdd"
             android:layout_width="@dimen/dimension70dp"
             android:layout_height="@dimen/dimension70dp"
             android:src="@drawable/plusnew"
-            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/vwbtm"
             android:layout_alignParentRight="true"
-            android:layout_marginBottom="@dimen/dimension30dp"
-
             android:layout_marginRight="@dimen/dimension15dp"
             />
 
@@ -321,15 +326,13 @@
             app:fabSize="normal" />
 -->
         <ImageView
+            android:layout_above="@+id/vwbtm"
             android:id="@+id/floatOptions"
             android:layout_width="@dimen/dimension70dp"
             android:layout_height="@dimen/dimension70dp"
             android:src="@drawable/threedots"
-            android:layout_alignParentBottom="true"
-
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginBottom="@dimen/dimension30dp"
             />
 
 <!--

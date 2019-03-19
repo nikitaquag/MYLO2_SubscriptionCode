@@ -1,8 +1,6 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,7 +18,6 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
 import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
-import com.mindyourlovedone.healthcare.database.DateQuery;
 import com.mindyourlovedone.healthcare.model.Appoint;
 
 import java.util.ArrayList;
@@ -67,6 +64,28 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
     }
 
     ArrayList<TextView> txtdatetime =new ArrayList<>();
+
+    public class CustomClick implements View.OnClickListener {//nikita
+        TextView et = null;
+
+        CustomClick(TextView et) {
+            this.et = et;
+        }
+
+        int prevL = 0;
+
+        @Override
+        public void onClick(View view) {
+            if (context instanceof MedicalAppointActivity) {
+                DateClass dd = (DateClass) view.getTag();
+                if (dd != null) {
+                    ((MedicalAppointActivity) context).deleteDateNote(dd.getId(), dd.getPreid());
+                } else {
+                    Toast.makeText(context, "Error...", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    }
     @Override
     public void onBindViewHolder(final AppointAdapter.Holder holder, final int position) {
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
@@ -130,73 +149,102 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
 
 //        if (flagd == false) {
 //            flagd = true;
-            LayoutInflater lf;
-            for ( i = 0; i < dates.size() + 1; i++) {
-                lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View helperview = lf.inflate(R.layout.date_row, null);
 
-                final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
+        LayoutInflater lf;
+        //new code starts here- Nikita
+        holder.txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                holder.llDate.addView(helperview);
-                TextView datetime = helperview.findViewById(R.id.txtDateTime);
+                if (context instanceof MedicalAppointActivity) {
+                    ((MedicalAppointActivity) context).SetDate(noteList.get(position), dates.size());
+                }
+            }
+        });
 
-                txtdatetime.add(i,datetime);
-                txtdatetime.get(i).setTag(i);
-                if (i == dates.size()) {
+        for (i = 0; i < dates.size(); i++) {
+            lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View helperview = lf.inflate(R.layout.date_row, null);
+            TextView datetime = helperview.findViewById(R.id.txtDateTime);
 
-                    swipeDate.setSwipeEnabled(false);
+            txtdatetime.add(i, datetime);
 
-                    //  datetime.setText("Add +");
-                    //datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
+            txtdatetime.get(i).setTag(dates.get(i));
 
-                    holder.txtDate.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
+            txtdatetime.get(i).setOnClickListener(new CustomClick(txtdatetime.get(i)));
 
-                            if (context instanceof MedicalAppointActivity) {
-                                ((MedicalAppointActivity) context).SetDate(noteList.get(position), i);
-                            }
-                        }
-                    });
-                } else {
-                    swipeDate.setSwipeEnabled(true);//shradha
-                    final LinearLayout lltrash;
-                    lltrash = helperview.findViewById(R.id.lltrashinner);//shradha
-                    lltrash.setTag(dates.get(i));//shradha
-                    txtdatetime.get(i).setTag(dates.get(i));
-                    txtdatetime.get(i).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
+            txtdatetime.add(i, datetime);
+
+            txtdatetime.get(i).setVisibility(View.VISIBLE);
+
+            txtdatetime.get(i).setText(/*"Completion Date:  " + */dates.get(i).getDate());
+
+            holder.llDate.addView(helperview);
+// New code ends here -Nikita
+
+            //old- useless code below
+//                final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
+//
+//                if (i == dates.size()) {
+//
+////                    swipeDate.setSwipeEnabled(false);
+//
+//                    //  datetime.setText("Add +");
+//                    //datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
+//
+//                    holder.txtDate.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View v) {
+//
 //                            if (context instanceof MedicalAppointActivity) {
-//                                DateClass dd = (DateClass) txtdatetime.get(i).getTag();//shradha
+//                                ((MedicalAppointActivity) context).SetDate(noteList.get(position), dates.size());
+//                            }
+//                        }
+//                    });
+//                } else {
+//                    swipeDate.setSwipeEnabled(true);//shradha
+//                    final LinearLayout lltrash;
+//                    lltrash = helperview.findViewById(R.id.lltrashinner);//shradha
+//                    lltrash.setTag(dates.get(i));//shradha
+//                    txtdatetime.get(i).setTag(dates.get(i));
+//
+//                txtdatetime.get(i).setOnClickListener(new CustomClick(txtdatetime.get(i)));
+//
+//                txtdatetime.get(i).setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            if (context instanceof MedicalAppointActivity) {
+//                                DateClass dd = (DateClass) view.getTag();//shradha
 //                                if (dd != null) {
-//                                    ((MedicalAppointActivity) context).deleteDateNote(dd);
+//                                    ((MedicalAppointActivity) context).deleteDateNote(dd.getId());
 //                                } else {
-                                    Toast.makeText(context, "Under development...", Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(context, "Error...", Toast.LENGTH_SHORT).show();
 //                                }
 //                            }
-                        }
-                    });
-
-                    if (dates.get(i).getDate().equals("08/09/2017  14:00") && dates.get(i).getDate().equals("")) {
-                        datetime.setVisibility(View.GONE);
-                    } else {
-                        datetime.setVisibility(View.VISIBLE);
-                        datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
-                    }
-
-                    if (dates.get(i).getDate().equals("")) {
-                        datetime.setVisibility(View.GONE);
-                    } else {
-                        datetime.setVisibility(View.VISIBLE);
-                    }
-                    datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
-                    if (i % 2 == 0) {
-                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
-                    } else {
-                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
-                    }
-                }
+//                        }
+//                    });
+//
+//                    if (dates.get(i).getDate().equals("08/09/2017  14:00") && dates.get(i).getDate().equals("")) {
+//                        datetime.setVisibility(View.GONE);
+//                    } else {
+//                txtdatetime.get(i).setVisibility(View.VISIBLE);
+//                txtdatetime.get(i).setText(/*"Completion Date:  " + */dates.get(i).getDate());
+//                    }
+//
+//                    if (dates.get(i).getDate().equals("")) {
+//                        datetime.setVisibility(View.GONE);
+//                    } else {
+//                        datetime.setVisibility(View.VISIBLE);
+//                    }
+//                    datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
+//                    if (i % 2 == 0) {
+//                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+//                    } else {
+//                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+//                    }
+//
+//                holder.llDate.addView(helperview);
+//                }
             }
 
 //        } else if (flagd == true) {
@@ -222,6 +270,22 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                 context.startActivity(intent);
             }
         });
+
+        if (a.isOpen()) {
+            holder.llSubApp.setVisibility(View.VISIBLE);
+            holder.imgEdit.setImageResource(R.drawable.dropup);
+            holder.txtEdit.setVisibility(View.VISIBLE);
+            holder.view1.setVisibility(View.VISIBLE);
+//                    holder.view2.setVisibility(View.GONE);
+            flagDrop = true;
+        } else {
+            holder.llSubApp.setVisibility(View.GONE);
+            holder.imgEdit.setImageResource(R.drawable.drop_down);
+            holder.txtEdit.setVisibility(View.GONE);
+            holder.view1.setVisibility(View.GONE);
+//                    holder.view2.setVisibility(View.VISIBLE);
+            flagDrop = false;
+        }
         holder.rlMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -362,33 +426,33 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
 
     }
 
-    public void deleteDateNote(final DateClass items) {
-        AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setTitle("Delete");
-        alert.setMessage("Do you want to Delete this record?");
-        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-//                boolean flag = DateQuery.deleteDateRecord(items.getPreid(), items.getDate());
-                boolean flag = DateQuery.deleteRecords(items.getId());
-                if (flag == true) {
-                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                    ((MedicalAppointActivity) context).deleteDateNote(d);
-                    ((MedicalAppointActivity) context).deleteDateNote(d);
-                }
-                dialog.dismiss();
-            }
-        });
-
-        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                dialog.dismiss();
-            }
-        });
-        alert.show();
-    }
+//    public void deleteDateNote(final DateClass items) {
+//        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+//        alert.setTitle("Delete");
+//        alert.setMessage("Do you want to Delete this record?");
+//        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+////                boolean flag = DateQuery.deleteDateRecord(items.getPreid(), items.getDate());
+//                boolean flag = DateQuery.deleteRecords(items.getId());
+//                if (flag == true) {
+//                    Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+//                    ((MedicalAppointActivity) context).deleteDateNote(d);
+//                    ((MedicalAppointActivity) context).deleteDateNote(d);
+//                }
+//                dialog.dismiss();
+//            }
+//        });
+//
+//        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//
+//                dialog.dismiss();
+//            }
+//        });
+//        alert.show();
+//    }
 
 
     public class Holder extends RecyclerView.ViewHolder {

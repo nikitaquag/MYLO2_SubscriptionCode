@@ -360,6 +360,18 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         lvNote.setAdapter(adapter);
     }
 
+    public void getData(final int index) {
+        noteList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        //   noteList=new ArrayList<>();
+        for(int i=0;i<noteList.size();i++){
+            if(noteList.get(i).getUnique()==index){
+                noteList.get(i).setOpen(true);
+            }else{
+                noteList.get(i).setOpen(false);
+            }
+        }
+    }
+
     public void getData() {
         noteList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         //   noteList=new ArrayList<>();
@@ -714,20 +726,20 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 
                 if (flag == true) {
                     Toast.makeText(context, "You have inserted date successfully", Toast.LENGTH_SHORT).show();
-                    getData();
+                    getData(a.getUnique());
                     setNoteData();
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
 
-                noteList.get(position).setDate(dayOfMonth + "/" + (month + 1) + "/" + year);
+//                noteList.get(position).setDate(dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         }, year, month, day);
         dpd.show();
     }
 
     /*Shradha delete date recor*/
-    public void deleteDateNote(final DateClass items) {
+    public void deleteDateNote(final int items,final int index) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle("Delete");
         alert.setMessage("Do you want to Delete this record?");
@@ -735,10 +747,10 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
 //                boolean flag = DateQuery.deleteDateRecord(items.getPreid(), items.getDate());
-                boolean flag = DateQuery.deleteRecords(items.getId());
+                boolean flag = DateQuery.deleteRecords(items);
                 if (flag == true) {
                     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                    getData();
+                    getData(index);
                     setNoteData();
                 }
                 dialog.dismiss();
