@@ -33,6 +33,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:elevation="@dimen/dimension8dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/border_note"
@@ -126,7 +127,7 @@
                 android:layout_marginRight="@dimen/dimension10dp"
                 android:layout_marginLeft="@dimen/dimension10dp"
                 android:layout_height="@dimen/dimension1dp"
-                android:background="@color/colorOnesGray"/>
+                android:background="#E5E5E5"/>
 
             <RelativeLayout
                 android:id="@+id/rlSubEvent"
@@ -140,7 +141,7 @@
                 android:visibility="gone">
 
                 <TextView
-
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtNoteData"
                     style="@style/EmergencyCategory"
                     android:layout_width="match_parent"
@@ -152,6 +153,7 @@
             </RelativeLayout>
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtEditNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -161,9 +163,10 @@
                 android:background="@drawable/border_edit_note"
                 android:gravity="center"
                 android:padding="@dimen/dimension10dp"
+                android:textStyle="bold"
                 android:text="Edit Note"
                 android:textAllCaps="true"
-                android:textColor="@color/colorWhite"
+                android:textColor="@color/colorBlue"
                 android:textSize="@dimen/dimension16dp" />
         </LinearLayout>
     </RelativeLayout>

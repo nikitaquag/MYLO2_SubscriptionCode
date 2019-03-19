@@ -1542,7 +1542,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     Pharmacy specialist = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
                     pharmacy = (Pharmacy) specialistIntents.getExtras().getSerializable("PharmacyObject");
                     txtPharmacyName.setText(specialist.getName());
-                    txtPharmacyAddress.setText(CAddress);
+                    txtPharmacyAddress.setText(specialist.getAddress());
                     /*if (Cname.isEmpty()) {//nikita
                         txtPharmacyName.setText(specialist.getName());
                     } else {

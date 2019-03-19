@@ -29,8 +29,8 @@
 
             <ImageView
                 android:id="@+id/imgHome"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
@@ -38,6 +38,7 @@
                 android:src="@drawable/homes" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,6 +50,7 @@
                 android:textSize="@dimen/dimension21dp" />
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,6 +76,7 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:padding="@dimen/dimension10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/header"
@@ -114,7 +117,8 @@
                     custom:ms_floatingLabelColor="@color/colorBlue">
 
                     <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                        android:backgroundTint="@color/colordivideGray"
+                        android:fontFamily="@font/lato"
                         android:id="@+id/txtOtherType"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -124,60 +128,79 @@
                         android:paddingLeft="@dimen/dimension15dp"
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
+
+            <FrameLayout
+
+                android:layout_below="@+id/rlSpecialist"
+                android:id="@+id/fltypeReaction"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
+            <ImageView
+                android:id="@+id/imgtype"
+                android:layout_width="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="@dimen/dimension18dp"
+                android:layout_marginRight="@dimen/dimension3dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:src="@drawable/drg"></ImageView>
 
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/tilRelation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rlSpecialist"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension20dp"
                 android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension20dp"
                 android:paddingBottom="@dimen/dimension8dp"
                 app:hintEnabled="true"
 
-                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtRelation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableRight="@drawable/dropd"
-                    android:hint="Relationship"
+                    android:hint="Type Specialist or Test"
                     android:imeOptions="actionNext"
                     android:maxLength="300"
                     android:maxLines="1"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension20dp" />
 
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
-
+            </FrameLayout>
 
             <android.support.design.widget.TextInputLayout
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tilRelation"
+                android:layout_below="@+id/fltypeReaction"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension20dp"
                 android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension20dp"
+
                 android:paddingBottom="@dimen/dimension8dp">
 
 
                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -186,7 +209,7 @@
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension20dp" />
             </android.support.design.widget.TextInputLayout>
 
@@ -212,6 +235,26 @@
                     custom:ms_floatingLabelColor="@color/colorBlue"
                     custom:ms_hintColor="@color/colorDarkGray" />
 
+                <FrameLayout
+
+                    android:layout_below="@+id/spinnerFrequency"
+                    android:id="@+id/fltypeReaction2"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    >
+
+                <ImageView
+                    android:id="@+id/imgtype2"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/dimension18dp"
+                    android:layout_marginRight="@dimen/dimension3dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:src="@drawable/drg"></ImageView>
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilFrequency"
                     android:layout_width="match_parent"
@@ -219,21 +262,20 @@
                     android:layout_below="@+id/spinnerFrequency"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
-                    android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension20dp"
+
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="visible"
                     app:hintEnabled="true"
 
-                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
 
                     <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                        android:backgroundTint="@color/colordivideGray"
+                        android:fontFamily="@font/lato"
                         android:id="@+id/txtFrequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableRight="@drawable/dropd"
                         android:hint="Frequency"
                         android:imeOptions="actionNext"
                         android:maxLength="300"
@@ -241,28 +283,30 @@
                         android:paddingLeft="@dimen/dimension5dp"
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
-
+                </FrameLayout>
+                
                 <android.support.design.widget.TextInputLayout
                     android:id="@+id/tilOtherFrequency"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/tilFrequency"
+                    android:layout_below="@+id/fltypeReaction2"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
                     android:paddingLeft="@dimen/dimension20dp"
                     android:paddingTop="@dimen/dimension8dp"
-                    android:paddingRight="@dimen/dimension20dp"
+                  
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone"
                     app:hintEnabled="true"
 
-                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
 
                     <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                        android:backgroundTint="@color/colordivideGray"
+                        android:fontFamily="@font/lato"
                         android:id="@+id/txtOtherFrequency"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -273,7 +317,7 @@
                         android:paddingLeft="@dimen/dimension5dp"
                         android:paddingTop="@dimen/dimension2dp"
                         android:singleLine="true"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
@@ -285,9 +329,9 @@
                 android:layout_below="@+id/rlFrequency"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                android:paddingLeft="@dimen/dimension20dp"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:paddingTop="@dimen/dimension8dp"
-                android:paddingRight="@dimen/dimension20dp"
+
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -295,6 +339,7 @@
 
                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtNote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -303,12 +348,13 @@
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension20dp"
                     android:visibility="visible" />
             </android.support.design.widget.TextInputLayout>
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtCompleted"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -358,6 +404,7 @@
                 android:layout_below="@+id/rgCompleted"
                 android:descendantFocusability="beforeDescendants"
                 android:focusable="false"
+                android:visibility="gone"
                 android:focusableInTouchMode="true"
                 android:hint="Date Completed"
                 android:paddingLeft="@dimen/dimension30dp"
@@ -370,6 +417,7 @@
 
                 <AutoCompleteTextView
                     android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -378,7 +426,7 @@
                     android:paddingLeft="@dimen/dimension15dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension20dp"
                     android:visibility="gone" />
 
@@ -404,6 +452,7 @@
                     android:src="@drawable/adddoc" />
 
                 <TextView
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtAdd"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension60dp"
@@ -417,6 +466,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:background="@color/colorOnesGray"
             android:id="@+id/rlDelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -425,6 +475,7 @@
             android:visibility="gone">
 
             <TextView
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtDelete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

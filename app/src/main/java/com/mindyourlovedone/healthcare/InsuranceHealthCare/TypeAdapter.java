@@ -1,6 +1,5 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,10 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
+import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-
-import java.util.ArrayList;
 
 public class TypeAdapter extends BaseAdapter {
 
@@ -54,6 +51,11 @@ public class TypeAdapter extends BaseAdapter {
             holder = (Holders) convertView.getTag();
         }
         holder.txtType.setText(relationship[position]);
+        if (relationship[position].equalsIgnoreCase("" + RelationshipActivity.selected)) {
+            holder.imgType.setVisibility(View.VISIBLE);
+        } else {
+            holder.imgType.setVisibility(View.GONE);
+        }
         return convertView;
     }
 

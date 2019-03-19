@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
@@ -26,7 +27,7 @@ import java.util.Date;
 
 public class ViewEventActivity extends AppCompatActivity implements View.OnClickListener {
     Context context = this;
-    ImageView imgBack, imgEdit;
+    ImageView imgBack, imgEdit,imgHome;
     EditText etNote;
     TextView txtDate, txtSave, txtTitle, txtDelete;
     int id, userid;
@@ -46,8 +47,11 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
         Intent intent = getIntent();
         if (intent.getExtras() != null) {
             if(intent.hasExtra("NEW")){
+                txtTitle.setText("Add Event Notes");
                 txtDelete.setVisibility(View.GONE);
-                txtDate.setVisibility(View.GONE);
+                SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
+                String currentDateandTime = sdf.format(new Date());
+                txtDate.setText(currentDateandTime);
             }else {
                 Note note = (Note) intent.getExtras().getSerializable("NoteObject");
                 txtTitle.setText("Edit Event Notes");
@@ -67,9 +71,11 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
         txtDelete.setOnClickListener(this);
         txtSave.setOnClickListener(this);
         txtSave.setOnClickListener(this);
+        imgHome.setOnClickListener(this);
     }
 
     private void initUI() {
+        imgHome = findViewById(R.id.imgHome);
         imgBack = findViewById(R.id.imgBack);
         imgEdit = findViewById(R.id.imgEdit);
         txtDelete = findViewById(R.id.txtDelete);
@@ -82,6 +88,13 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.imgHome:
+                Intent intentHome = new Intent(context, BaseActivity.class);
+                intentHome.putExtra("c", 1);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentHome);
+                break;
             case R.id.imgBack:
                 finish();
                 break;

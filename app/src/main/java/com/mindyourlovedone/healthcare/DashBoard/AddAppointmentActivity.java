@@ -11,8 +11,6 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -32,7 +30,6 @@ import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.TypeSpecialist;
-import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -366,6 +363,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
             case R.id.txtRelation:
                 Intent intentType = new Intent(context, RelationshipActivity.class);
                 intentType.putExtra("Category", "TypeAppointment");
+                intentType.putExtra("Selected", txtRelation.getText().toString());
                 startActivityForResult(intentType, RESULT_TYPE);
                 break;
             case R.id.txtFrequency:

@@ -536,71 +536,129 @@ android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:background="@color/colorOnesGray" />
 
-                    <TextView
-                        android:id="@+id/txtOtherFunction"
-                        style="@style/EmergencyDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/viewTransferring"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:gravity="center_vertical"
-                        android:text="Other - Specify"
-                        android:textColor="@color/colorDarkGray" />
 
-                    <EditText
-                        android:id="@+id/etOtherFunction"
-                        style="@style/EmergencyDesc"
+                    <android.support.design.widget.TextInputLayout
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:id="@+id/txtOtherFunction"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtOtherFunction"
-                        android:layout_toRightOf="@+id/imgFunctional"
+                        android:layout_below="@+id/viewTransferring"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:gravity="top"
-                        android:imeOptions="actionNext"
-                        android:textColor="@android:color/black" />
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp">
+
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/etOtherFunction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Other - Specify"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension20dp" />
+                    </android.support.design.widget.TextInputLayout>
+                    <!--<TextView-->
+                        <!--android:id="@+id/txtOtherFunction"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/viewTransferring"-->
+                        <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="Other - Specify"-->
+                        <!--android:textColor="@color/colorDarkGray" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/etOtherFunction"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/txtOtherFunction"-->
+                        <!--android:layout_toRightOf="@+id/imgFunctional"-->
+                        <!--android:descendantFocusability="beforeDescendants"-->
+                        <!--android:focusableInTouchMode="true"-->
+                        <!--android:gravity="top"-->
+                        <!--android:imeOptions="actionNext"-->
+                        <!--android:textColor="@android:color/black" />-->
 
                     <View
 android:layout_marginTop="@dimen/dimension5dp"
+                        android:visibility="gone"
                         android:id="@+id/viewOtherFunction"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
-                        android:layout_below="@id/etOtherFunction"
+                        android:layout_below="@id/txtOtherFunction"
                         android:layout_marginLeft="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:background="@color/colorOnesGray" />
 
-                    <TextView
-                        android:id="@+id/txtFunctionalNote"
-                        style="@style/EmergencyDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/viewOtherFunction"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/dimension5dp"
-                        android:text="Note"
-                        android:textColor="@color/colorDarkGray" />
 
-                    <EditText
-                        android:id="@+id/etFunctionalNote"
-                        style="@style/EmergencyDesc"
+                    <android.support.design.widget.TextInputLayout
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:id="@+id/txtFunctionalNote"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtFunctionalNote"
+                        android:layout_below="@+id/txtOtherFunction"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:gravity="top"
-                        android:imeOptions="actionNext"
-                        android:paddingLeft="@dimen/dimension5dp"
-                        android:textColor="@android:color/black" />
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp">
+
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/etFunctionalNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Note"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension20dp" />
+                    </android.support.design.widget.TextInputLayout>
+                    <!--<TextView-->
+                        <!--android:id="@+id/txtFunctionalNote"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/viewOtherFunction"-->
+                        <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:paddingLeft="@dimen/dimension5dp"-->
+                        <!--android:text="Note"-->
+                        <!--android:textColor="@color/colorDarkGray" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/etFunctionalNote"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/txtFunctionalNote"-->
+                        <!--android:descendantFocusability="beforeDescendants"-->
+                        <!--android:focusableInTouchMode="true"-->
+                        <!--android:gravity="top"-->
+                        <!--android:imeOptions="actionNext"-->
+                        <!--android:paddingLeft="@dimen/dimension5dp"-->
+                        <!--android:textColor="@android:color/black" />-->
 
                     <View
 android:layout_marginTop="@dimen/dimension5dp"
+                        android:visibility="gone"
                         android:id="@+id/viewFunctionalNote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
-                        android:layout_below="@id/etFunctionalNote"
+                        android:layout_below="@id/txtFunctionalNote"
                         android:layout_marginLeft="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:layout_marginBottom="@dimen/dimension10dp"
@@ -1213,71 +1271,130 @@ android:layout_marginTop="@dimen/dimension5dp"
                         android:layout_marginBottom="@dimen/dimension10dp"
                         android:background="@color/colorOnesGray" />
 
-                    <TextView
+                    <android.support.design.widget.TextInputLayout
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:id="@+id/txtOtherInstrument"
-                        style="@style/EmergencyDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/viewAlert"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:gravity="center_vertical"
-                        android:text="Other - Specify"
-                        android:textColor="@color/colorDarkGray" />
-
-                    <EditText
-                        android:id="@+id/etOtherInstrument"
-                        style="@style/EmergencyDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtOtherInstrument"
+                        android:layout_below="@+id/viewAlert"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:gravity="top"
-                        android:imeOptions="actionNext"
-                        android:textColor="@android:color/black" />
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp">
+
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/EmergencyDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Other - Specify"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension20dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/txtOtherInstrument"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/viewAlert"-->
+                        <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:text="Other - Specify"-->
+                        <!--android:textColor="@color/colorDarkGray" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/etOtherInstrument"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/txtOtherInstrument"-->
+                        <!--android:descendantFocusability="beforeDescendants"-->
+                        <!--android:focusableInTouchMode="true"-->
+                        <!--android:gravity="top"-->
+                        <!--android:imeOptions="actionNext"-->
+                        <!--android:textColor="@android:color/black" />-->
 
                     <View
+                        android:visibility="gone"
 android:layout_marginTop="@dimen/dimension5dp"
                         android:id="@+id/viewOtherInstrument"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
-                        android:layout_below="@id/etOtherInstrument"
+                        android:layout_below="@id/txtOtherInstrument"
                         android:layout_marginLeft="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:layout_marginBottom="@dimen/dimension10dp"
                         android:background="@color/colorOnesGray" />
 
-                    <TextView
+                    <android.support.design.widget.TextInputLayout
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:id="@+id/txtInstrumentNote"
-                        style="@style/EmergencyDesc"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/viewOtherInstrument"
-                        android:layout_marginTop="@dimen/dimension10dp"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="@dimen/dimension5dp"
-                        android:text="Note"
-                        android:textColor="@color/colorDarkGray" />
-
-                    <EditText
-                        android:id="@+id/etInstrumentalNote"
-                        style="@style/EmergencyDesc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/txtInstrumentNote"
+                        android:layout_below="@+id/txtOtherInstrument"
                         android:descendantFocusability="beforeDescendants"
                         android:focusableInTouchMode="true"
-                        android:gravity="top"
-                        android:paddingLeft="@dimen/dimension5dp"
-                        android:imeOptions="actionNext"
-                        android:textColor="@android:color/black" />
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp">
+
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/etInstrumentalNote"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Note"
+                            android:maxLines="1"
+                            android:paddingLeft="@dimen/dimension5dp"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension20dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <!--<TextView-->
+                        <!--android:id="@+id/txtInstrumentNote"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/viewOtherInstrument"-->
+                        <!--android:layout_marginTop="@dimen/dimension10dp"-->
+                        <!--android:gravity="center_vertical"-->
+                        <!--android:paddingLeft="@dimen/dimension5dp"-->
+                        <!--android:text="Note"-->
+                        <!--android:textColor="@color/colorDarkGray" />-->
+
+                    <!--<EditText-->
+                        <!--android:id="@+id/etInstrumentalNote"-->
+                        <!--style="@style/EmergencyDesc"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_below="@+id/txtInstrumentNote"-->
+                        <!--android:descendantFocusability="beforeDescendants"-->
+                        <!--android:focusableInTouchMode="true"-->
+                        <!--android:gravity="top"-->
+                        <!--android:paddingLeft="@dimen/dimension5dp"-->
+                        <!--android:imeOptions="actionNext"-->
+                        <!--android:textColor="@android:color/black" />-->
 
                     <View
 android:layout_marginTop="@dimen/dimension5dp"
+                        android:visibility="gone"
                         android:id="@+id/viewInstrumentalNote"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dimension2dp"
-                        android:layout_below="@id/etInstrumentalNote"
+                        android:layout_below="@id/txtInstrumentNote"
                         android:layout_marginLeft="@dimen/dimension5dp"
                         android:layout_marginRight="@dimen/dimension5dp"
                         android:layout_marginBottom="@dimen/dimension10dp"

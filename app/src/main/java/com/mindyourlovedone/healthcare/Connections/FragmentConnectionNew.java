@@ -645,6 +645,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             case R.id.rlSelf:
                 getProfile();
                 Intent intentP= new Intent(getActivity(),ProfileActivity.class);
+                preferences.putString(PrefConstants.USER_IMAGE, connection.getPhoto());
                 preferences.putInt(PrefConstants.USER_ID, connection.getUserid());
                 preferences.putString(PrefConstants.USER_NAME, connection.getName());
                 preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());

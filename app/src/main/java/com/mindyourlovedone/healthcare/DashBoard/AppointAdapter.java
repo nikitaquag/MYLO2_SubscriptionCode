@@ -37,6 +37,7 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
     boolean flagd = false;
     boolean flagDrop = false;
     DateClass d;
+    int i=0;
 
     public AppointAdapter(Context context, ArrayList noteList) {
         this.context = context;
@@ -65,6 +66,7 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
         return noteList.size();
     }
 
+    ArrayList<TextView> txtdatetime =new ArrayList<>();
     @Override
     public void onBindViewHolder(final AppointAdapter.Holder holder, final int position) {
         holder.swipeLayout.addSwipeListener(new SimpleSwipeListener() {
@@ -97,7 +99,6 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
 
 
         Appoint a = noteList.get(position);
-        final ArrayList<DateClass> dates = a.getDateList();
 
 //Commented for adding static values for checking
 
@@ -121,87 +122,93 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
             holder.txtNoteData.setVisibility(View.VISIBLE);
             holder.txtNoteData.setText(noteList.get(position).getNote());
         }
+
+        final ArrayList<DateClass> dates = a.getDateList();
+        holder.llDate.requestFocus();
+
+        txtdatetime =new ArrayList<>();
+
+//        if (flagd == false) {
+//            flagd = true;
+            LayoutInflater lf;
+            for ( i = 0; i < dates.size() + 1; i++) {
+                lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View helperview = lf.inflate(R.layout.date_row, null);
+
+                final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
+
+                holder.llDate.addView(helperview);
+                TextView datetime = helperview.findViewById(R.id.txtDateTime);
+
+                txtdatetime.add(i,datetime);
+                txtdatetime.get(i).setTag(i);
+                if (i == dates.size()) {
+
+                    swipeDate.setSwipeEnabled(false);
+
+                    //  datetime.setText("Add +");
+                    //datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
+
+                    holder.txtDate.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            if (context instanceof MedicalAppointActivity) {
+                                ((MedicalAppointActivity) context).SetDate(noteList.get(position), i);
+                            }
+                        }
+                    });
+                } else {
+                    swipeDate.setSwipeEnabled(true);//shradha
+                    final LinearLayout lltrash;
+                    lltrash = helperview.findViewById(R.id.lltrashinner);//shradha
+                    lltrash.setTag(dates.get(i));//shradha
+                    txtdatetime.get(i).setTag(dates.get(i));
+                    txtdatetime.get(i).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+//                            if (context instanceof MedicalAppointActivity) {
+//                                DateClass dd = (DateClass) txtdatetime.get(i).getTag();//shradha
+//                                if (dd != null) {
+//                                    ((MedicalAppointActivity) context).deleteDateNote(dd);
+//                                } else {
+                                    Toast.makeText(context, "Under development...", Toast.LENGTH_SHORT).show();
+//                                }
+//                            }
+                        }
+                    });
+
+                    if (dates.get(i).getDate().equals("08/09/2017  14:00") && dates.get(i).getDate().equals("")) {
+                        datetime.setVisibility(View.GONE);
+                    } else {
+                        datetime.setVisibility(View.VISIBLE);
+                        datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
+                    }
+
+                    if (dates.get(i).getDate().equals("")) {
+                        datetime.setVisibility(View.GONE);
+                    } else {
+                        datetime.setVisibility(View.VISIBLE);
+                    }
+                    datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
+                    if (i % 2 == 0) {
+                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+                    } else {
+                        datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+                    }
+                }
+            }
+
+//        } else if (flagd == true) {
+//            holder.llDate.removeAllViews();
+//            flagd = false;
+//        }
+
         holder.llSubApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Appoint a = noteList.get(position);
-                final ArrayList<DateClass> dates = a.getDateList();
-                holder.llDate.requestFocus();
 
-                if (flagd == false) {
-                    flagd = true;
-                    LayoutInflater lf;
-                    for (int i = 0; i < dates.size() + 1; i++) {
-                        lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                        View helperview = lf.inflate(R.layout.date_row, null);
-
-                        final SwipeLayout swipeDate = helperview.findViewById(R.id.swipeDate);
-
-                        holder.llDate.addView(helperview);
-                        TextView datetime = helperview.findViewById(R.id.txtDateTime);
-
-                        if (i == dates.size()) {
-
-                            swipeDate.setSwipeEnabled(false);
-
-                            //  datetime.setText("Add +");
-                            //datetime.setTextColor(context.getResources().getColor(R.color.colorBlue));
-
-                            holder.txtDate.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-
-                                    if (context instanceof MedicalAppointActivity) {
-                                        ((MedicalAppointActivity) context).SetDate(noteList.get(position), position);
-                                    }
-                                }
-                            });
-                        } else {
-                            swipeDate.setSwipeEnabled(true);//shradha
-                            final LinearLayout lltrash;
-                            lltrash = helperview.findViewById(R.id.lltrashinner);//shradha
-                            lltrash.setTag(dates.get(i));//shradha
-
-                            datetime.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View view) {
-                                    if (context instanceof MedicalAppointActivity) {
-                                        DateClass dd = (DateClass) lltrash.getTag();//shradha
-                                        if (dd != null) {
-                                            ((MedicalAppointActivity) context).deleteDateNote(dd);
-                                        } else {
-                                            Toast.makeText(context, "Null DATA", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                }
-                            });
-
-                            if (dates.get(position).getDate().equals("08/09/2017  14:00") && dates.get(position).getDate().equals("")) {
-                                datetime.setVisibility(View.GONE);
-                            } else {
-                                datetime.setVisibility(View.VISIBLE);
-                                datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
-                            }
-
-                            if (dates.get(position).getDate().equals("")) {
-                                datetime.setVisibility(View.GONE);
-                            } else {
-                                datetime.setVisibility(View.VISIBLE);
-                            }
-                            datetime.setText(/*"Completion Date:  " + */dates.get(i).getDate());
-                            if (i % 2 == 0) {
-                                datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
-                            } else {
-                                datetime.setBackgroundColor(context.getResources().getColor(R.color.colorWhite));
-                            }
-                        }
-                    }
-
-                } else if (flagd == true) {
-                    holder.llDate.removeAllViews();
-                    flagd = false;
-                }
             }
         });
 
@@ -223,14 +230,14 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
                     holder.imgEdit.setImageResource(R.drawable.dropup);
                     holder.txtEdit.setVisibility(View.VISIBLE);
                     holder.view1.setVisibility(View.VISIBLE);
-                    holder.view2.setVisibility(View.GONE);
+//                    holder.view2.setVisibility(View.GONE);
                     flagDrop = true;
                 } else if (flagDrop == true) {
                     holder.llSubApp.setVisibility(View.GONE);
                     holder.imgEdit.setImageResource(R.drawable.drop_down);
                     holder.txtEdit.setVisibility(View.GONE);
                     holder.view1.setVisibility(View.GONE);
-                    holder.view2.setVisibility(View.VISIBLE);
+//                    holder.view2.setVisibility(View.VISIBLE);
                     flagDrop = false;
                 }
             }
