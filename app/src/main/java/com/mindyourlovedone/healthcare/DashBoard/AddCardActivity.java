@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.Connections.RelationActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.CardQuery;
@@ -56,6 +57,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     private static int RESULT_SELECT_PHOTO1 = 2;
     private static int RESULT_CAMERA_IMAGE2 = 3;
     private static int RESULT_SELECT_PHOTO2 = 4;
+    private static final int RESULT_INSURANCECard = 269;
     Bitmap PHOTO1 = null, PHOTO2 = null;
     ContentValues values;
     Uri imageUriFront, imageUriBack;
@@ -77,6 +79,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     DisplayImageOptions displayImageOptions;
     LinearLayout llFrontCam, llBackCam;
     boolean frontFlag, backFlag;
+
 
 
     @Override
@@ -121,6 +124,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         imgHome.setOnClickListener(this);
         imgEdit1.setOnClickListener(this);
         imgEdit2.setOnClickListener(this);
+        llBackCam.setOnClickListener(this);
+        llFrontCam.setOnClickListener(this);
         imgfrontCard.setOnClickListener(this);
         imgBackCard.setOnClickListener(this);
     }
@@ -149,9 +154,11 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
         flBack = findViewById(R.id.flBack);
         imgBackCard = findViewById(R.id.imgBackCard);
 
+
         txtSave = findViewById(R.id.txtSave);
         txtName = findViewById(R.id.txtName);
         txttype = findViewById(R.id.txtType);
+        txttype.setFocusable(false);
         tilTitle = findViewById(R.id.tilTitle);
         tilTitle.setHintEnabled(false);
         txtName.setOnTouchListener(new View.OnTouchListener() {
@@ -181,8 +188,31 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
            /* Bitmap bmp = BitmapFactory.decodeByteArray(photo, 0, photo.length);
            imgfrontCard.setImageBitmap(bmp);*/
             File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo);
-            if (imgFile.exists()) {
-               /* BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+
+
+            if (imgFile.exists()&&!photo.equalsIgnoreCase("")) {
+               /* if (imgfrontCard.getDrawable() == null) {
+                  //  imgfrontCard.setImageDrawable(null);
+                    frontFlag = false;
+                    llFrontCam.setVisibility(View.VISIBLE);
+                    imgEdit1.setVisibility(View.GONE);
+                }
+                else {*/
+                    imgfrontCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    backFlag = true;
+                    imgEdit1.setVisibility(View.VISIBLE);
+                //}
+                // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
+            }
+            else {
+                llFrontCam.setVisibility(View.VISIBLE);
+                imgEdit1.setVisibility(View.GONE);
+                frontFlag = false;
+                //llFrontCam.setVisibility(View.VISIBLE);
+            }//new change for default image display
+
+          /*  if (imgFile.exists()) {
+               *//* BitmapFactory.Options bmOptions = new BitmapFactory.Options();
                 Bitmap bitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(),bmOptions);
                 Matrix matrix = new Matrix();
                 if (bitmap.getHeight()>bitmap.getWidth()) {
@@ -194,52 +224,69 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
                 Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap .getWidth(), bitmap .getHeight(), matrix, true);
-                imgfrontCard.setImageBitmap(rotatedBitmap);*/
+                imgfrontCard.setImageBitmap(rotatedBitmap);*//*
                 //bitmap = Bitmap.createScaledBitmap(bitmap,bitmap.getWidth(),bitmap.getHeight(),true);
                 imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgfrontCard, displayImageOptions);
                 frontFlag = true;
             } else {
                 frontFlag = false;
-            }
+                imgfrontCard.setImageDrawable(null);
+                llFrontCam.setVisibility(View.VISIBLE);
+            }*/
             String photo1 = card.getImgBack();
             imagePathBack = photo1;
             llBackCam.setVisibility(View.GONE);
             File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), photo1);
-            if (imgFile1.exists()) {
-//                BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-//                Bitmap bitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath(),bmOptions);
-//                Matrix matrix = new Matrix();
-//                if (bitmap.getHeight()>bitmap.getWidth()) {
-//                    matrix.postRotate(90);
-//                }
-//                else
-//                {
-//                    matrix.postRotate(0);
-//                }
-//                //  Bitmap scaledBitmap = Bitmap.createScaledBitmap(thumbnail,thumbnail.getWidth(),thumbnail.getHeight(),true);
-//                Bitmap rotatedBitmap = Bitmap.createBitmap(bitmap , 0, 0, bitmap .getWidth(), bitmap .getHeight(), matrix, true);
-//                imgBackCard.setImageBitmap(rotatedBitmap);
-                imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile1)), imgBackCard, displayImageOptions);
-                backFlag = true;
-            } else {
-                backFlag = false;
+            if (imgFile1.exists()&&!photo1.equalsIgnoreCase("")) {
+                /*if (imgBackCard.getDrawable() == null) {
+                   // imgBackCard.setImageDrawable(null);
+                    backFlag = false;
+                    llBackCam.setVisibility(View.VISIBLE);
+                    imgEdit2.setVisibility(View.GONE);
+                }
+                else {*/
+                    imgBackCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile1))));
+                    imgEdit2.setVisibility(View.VISIBLE);
+                    backFlag = true;
+               // }
+                // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
             }
+            else {
+                imgBackCard.setImageDrawable(null);
+                imgEdit2.setVisibility(View.GONE);
+                backFlag = false;
+                llBackCam.setVisibility(View.VISIBLE);
+                //imgEdit2.setVisibility(View.VISIBLE);
+            }//new change for default image display
+
            /* Bitmap bmp1 = BitmapFactory.decodeByteArray(photo1, 0, photo1.length);
             imgBackCard.setImageBitmap(bmp1);*/
         }
+
+        txttype.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, RelationActivity.class);
+                i.putExtra("Category", "Insurance");
+                i.putExtra("Selected",txttype.getText().toString());
+                startActivityForResult(i, RESULT_INSURANCECard);
+            }
+        });
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.flFront:
-                if (frontFlag == true) {
+            case R.id.llFrontCam:
+                Toast.makeText(context,"Image",Toast.LENGTH_SHORT).show();
+                imgEdit1.performClick();
+               /* if (frontFlag == true) {
                     Intent i = new Intent(context, AddFormActivity.class);
                     i.putExtra("Image", imagePathFront);
                     i.putExtra("FROM", "Insurance");
                     startActivityForResult(i, REQUEST_CARD);
-                }
+                }*/
                 break;
 
            /* case R.id.imgFrontCard:
@@ -250,13 +297,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                     startActivityForResult(i, REQUEST_CARD);
                 }
                 break;*/
-            case R.id.flBack:
-                if (backFlag == true) {
+            case R.id.llBackCam:
+                imgEdit2.performClick();
+               /* if (backFlag == true) {
                     Intent j = new Intent(context, AddFormActivity.class);
                     j.putExtra("Image", imagePathBack);
                     j.putExtra("FROM", "Insurance");
                     startActivityForResult(j, REQUEST_CARD);
-                }
+                }*/
                 break;
             case R.id.imgHome:
                 Intent intentHome = new Intent(context, BaseActivity.class);
@@ -278,8 +326,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 if (validate()) {
                     type = txttype.getText().toString();
                     name = txtName.getText().toString();
-                    storeImage(PHOTO1, "Front");
-                    storeImage(PHOTO2, "Back");
+                   storeImage(PHOTO1, "Front");
+                  storeImage(PHOTO2, "Back");
 
                     if (isEdit == false) {
                         boolean flag = CardQuery.insertInsuranceCardData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, type, imagePathFront, imagePathBack);
@@ -500,15 +548,20 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             public void onClick(View v) {
                 if (from.equals("Front")) {
                     // flFront.setBackgroundResource(R.drawable.ins_card);
-                    imgfrontCard.setImageResource(R.drawable.ins_card);
+                    imgfrontCard.setImageDrawable(null);
+                    llFrontCam.setVisibility(View.VISIBLE);
+                    imgEdit1.setVisibility(View.GONE);
+
                     imagePathFront = "";
                     frontFlag = false;
                     PHOTO1 = null;
                 } else if (from.equals("Back")) {
                     imagePathBack = "";
                     //flBack.setBackgroundResource(R.drawable.ins_card);
-                    imgBackCard.setImageResource(R.drawable.ins_card);
+                    imgBackCard.setImageDrawable(null);
+                    llBackCam.setVisibility(View.VISIBLE);
                     backFlag = false;
+                    imgEdit2.setVisibility(View.GONE);
                     PHOTO2 = null;
                 }
                 dialog.dismiss();
@@ -603,8 +656,9 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 Bitmap rotatedBitmap = Bitmap.createBitmap(selectedImage, 0, 0, selectedImage.getWidth(), selectedImage.getHeight(), matrix, true);
                 imgfrontCard.setImageBitmap(rotatedBitmap);
                 llFrontCam.setVisibility(View.GONE);
+                imgEdit1.setVisibility(View.VISIBLE);
                 PHOTO1 = rotatedBitmap;
-                // storeImage(rotatedBitmap,"Front");
+                storeImage(rotatedBitmap,"Front");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -642,8 +696,9 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 Bitmap rotatedBitmap = Bitmap.createBitmap(thumbnail, 0, 0, thumbnail.getWidth(), thumbnail.getHeight(), matrix, true);
                 imgfrontCard.setImageBitmap(rotatedBitmap);
                 llFrontCam.setVisibility(View.GONE);
+                imgEdit1.setVisibility(View.VISIBLE);
                 PHOTO1 = rotatedBitmap;
-                // storeImage(rotatedBitmap,"Front");
+                 storeImage(rotatedBitmap,"Front");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -717,9 +772,10 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 Bitmap rotatedBitmap = Bitmap.createBitmap(selectedImage, 0, 0, selectedImage.getWidth(), selectedImage.getHeight(), matrix, true);
                 imgBackCard.setImageBitmap(rotatedBitmap);
                 llBackCam.setVisibility(View.GONE);
+                imgEdit2.setVisibility(View.VISIBLE);
                 PHOTO2 = rotatedBitmap;
                 /*shradha*/
-                storeImage(rotatedBitmap, "Back");
+               storeImage(rotatedBitmap, "Back");
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }
@@ -747,8 +803,9 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 Bitmap rotatedBitmap = Bitmap.createBitmap(thumbnail, 0, 0, thumbnail.getWidth(), thumbnail.getHeight(), matrix, true);
                 imgBackCard.setImageBitmap(rotatedBitmap);
                 llBackCam.setVisibility(View.GONE);
+                imgEdit2.setVisibility(View.VISIBLE);
                 // profileImage.setImageBitmap(bitmap);
-                //storeImage(rotatedBitmap,"Back");
+                storeImage(rotatedBitmap,"Back");
                 PHOTO2 = rotatedBitmap;
             } catch (Exception e) {
                 e.printStackTrace();
@@ -796,6 +853,16 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             }
 
 */
+        }
+       else if (requestCode == RESULT_INSURANCECard && data != null) {
+            type = data.getStringExtra("Category");
+            txttype.setText(type);
+            /*if (type.equals("Other")) {
+                tilOtherInsurance.setVisibility(View.VISIBLE);
+            } else {
+                tilOtherInsurance.setVisibility(View.GONE);
+                txtOtherInsurance.setText("");
+            }*/
         }
 
     }

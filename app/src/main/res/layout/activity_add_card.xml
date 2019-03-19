@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorLightBlue">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -28,8 +29,8 @@
 
             <ImageView
                 android:id="@+id/imgHome"
-                android:layout_width="@dimen/dimension30dp"
-                android:layout_height="@dimen/dimension30dp"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
@@ -45,6 +46,7 @@
                 android:text="Add/Edit Insurance Card"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
+                android:fontFamily="@font/lato"
                 android:textSize="@dimen/dimension20dp" />
 
             <TextView
@@ -58,6 +60,7 @@
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
                 android:text="Save"
+                android:fontFamily="@font/lato"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension20dp"
@@ -74,85 +77,115 @@
                 android:src="@drawable/check_mark"
                 android:visibility="gone" />
         </RelativeLayout>
-
+        <View
+            android:id="@+id/vTop"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:background="@color/colorLightGray"
+            android:layout_below="@+id/header"></View>
         <android.support.design.widget.TextInputLayout
             android:id="@+id/tilTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/header"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="33dp"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            android:paddingLeft="@dimen/dimension30dp"
+            android:paddingLeft="@dimen/dimension20dp"
             android:paddingTop="@dimen/dimension8dp"
-            android:paddingRight="@dimen/dimension30dp"
+            android:paddingRight="@dimen/dimension20dp"
             android:paddingBottom="@dimen/dimension8dp"
-            android:textAllCaps="true">
+            android:layout_below="@+id/vTop"
+            app:hintTextAppearance="@style/TextInputLayoutHintText"
+            android:layout_marginTop="@dimen/dimension10dp"
 
+            >
             <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
             <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                android:backgroundTint="@color/colordivideGray"
+
+                android:fontFamily="@font/lato"
                 android:id="@+id/txtName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Provider Name"
                 android:imeOptions="actionNext"
+                android:inputType="text|none"
+                android:maxLength="200"
                 android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
+
+                android:includeFontPadding="true"
+                android:paddingBottom="@dimen/dimension18dp"
+                android:paddingTop="@dimen/dimension8dp"
                 android:singleLine="true"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="@dimen/dimension20dp" />
 
             <requestFocus />
-
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilType"
+        <FrameLayout
+            android:id="@+id/flInsu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:layout_marginRight="@dimen/dimension22dp"
             android:layout_below="@+id/tilTitle"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingTop="@dimen/dimension8dp"
-            android:paddingRight="@dimen/dimension30dp"
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtType"
+            >
+            <ImageView
+                android:id="@+id/imgInsu"
+                android:layout_width="@dimen/dimension20dp"
+                android:layout_height="@dimen/dimension25dp"
+                android:src="@drawable/drg"
+                android:layout_alignParentRight="true"
+                android:paddingTop="@dimen/dimension8dp"
+                android:layout_gravity="bottom|right"
+                android:layout_marginBottom="@dimen/dimension17dp"
+                ></ImageView>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Type"
-                android:imeOptions="actionNext"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension20dp"
+                android:paddingTop="@dimen/dimension8dp"
 
-            <requestFocus />
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true"
 
-        </android.support.design.widget.TextInputLayout>
+                app:hintTextAppearance="@style/TextInputLayoutHintText">
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:backgroundTint="@color/colordivideGray"
+
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/txtType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:hint="Type Of Insurance"
+                    android:imeOptions="actionNext"
+                    android:maxLength="30"
+                    android:maxLines="1"
+                    android:includeFontPadding="true"
+                    android:paddingBottom="@dimen/dimension18dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <requestFocus />
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tilType"
-            android:paddingLeft="@dimen/dimension30dp"
-            android:paddingRight="@dimen/dimension30dp"
+            android:layout_below="@+id/flInsu"
+            android:paddingLeft="@dimen/dimension20dp"
+            android:paddingRight="@dimen/dimension20dp"
             android:paddingBottom="@dimen/dimension8dp"
             android:visibility="gone">
 
             <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                android:backgroundTint="@color/colordivideGray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Notes"
@@ -167,18 +200,24 @@
 
             <requestFocus />
         </android.support.design.widget.TextInputLayout>
-
+        <View
+            android:id="@+id/vline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimension10dp"
+            android:background="@color/colorLightGray"
+            android:layout_below="@+id/flInsu"></View>
         <TextView
             android:id="@+id/txtCard"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tilType"
+            android:layout_below="@+id/vline"
             android:layout_marginLeft="@dimen/dimension20dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:gravity="center_horizontal"
             android:text="@string/guide"
             android:textColor="@color/colorNewHereBlue"
             android:textSize="@dimen/dimension20dp"
+            android:fontFamily="@font/lato"
             android:textStyle="bold" />
 
         <RelativeLayout
@@ -186,9 +225,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtCard"
-            android:layout_marginLeft="@dimen/dimension30dp"
+            android:layout_marginLeft="@dimen/dimension20dp"
             android:layout_marginTop="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension30dp"
+            android:layout_marginRight="@dimen/dimension10dp"
             android:padding="@dimen/dimension5dp">
 
             <TextView
@@ -196,10 +235,11 @@
                 style="@style/EmergencyCategory"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension40dp"
-                android:layout_marginBottom="@dimen/dimension20dp"
+
                 android:background="@color/colorLightBlue"
                 android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension10dp"
+
+                android:fontFamily="@font/lato"
                 android:text="Card Picture"
                 android:textColor="@color/colorDarkGray" />
 
@@ -207,24 +247,28 @@
 
             <FrameLayout
                 android:id="@+id/flFrontMain"
-                android:layout_width="260dp"
-                android:layout_height="@dimen/dimension165dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension250dp"
                 android:layout_below="@+id/txtFront"
                 android:layout_centerHorizontal="true">
 
                 <FrameLayout
                     android:id="@+id/flFront"
-                    android:layout_width="250dp"
-                    android:layout_height="@dimen/dimension165dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
                     android:background="@drawable/insu_border">
 
                     <ImageView
                         android:id="@+id/imgFrontCard"
-                        android:layout_width="250dp"
-                        android:layout_height="@dimen/dimension160dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:scaleType="fitXY" />
+                        android:scaleType="fitXY"
+                        android:background="@drawable/insu_border"
+                        />
 
                     <LinearLayout
                         android:id="@+id/llFrontCam"
@@ -247,7 +291,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="profile photo"
+                            android:text="Card Photo"
+                            android:textSize="@dimen/dimension15dp"
+                            android:fontFamily="@font/lato"
                             android:textAllCaps="true" />
 
                     </LinearLayout>
@@ -258,9 +304,11 @@
                 <ImageView
                     android:id="@+id/imgEdit1"
                     android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension40dp"
                     android:layout_gravity="top|right"
-                    android:src="@drawable/pencil_photo" />
+                    android:src="@drawable/remove_card"
+                    android:visibility="invisible"
+                    />
 
             </FrameLayout>
 
@@ -276,6 +324,8 @@
                 android:paddingLeft="@dimen/dimension10dp"
                 android:text="Front"
                 android:textAllCaps="true"
+                android:textSize="@dimen/dimension15dp"
+                android:fontFamily="@font/lato"
                 android:textColor="@color/colorDarkGray" />
 
             <View
@@ -285,7 +335,7 @@
                 android:layout_below="@+id/txtFrontNew"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:layout_marginBottom="@dimen/dimension10dp"
-                android:background="@color/colorOnesGray" />
+                android:background="@color/colorDarkGray" />
 
             <TextView
                 android:id="@+id/txtBack"
@@ -301,18 +351,20 @@
 
             <FrameLayout
                 android:id="@+id/flBackMain"
-                android:layout_width="260dp"
-                android:layout_height="@dimen/dimension165dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension250dp"
                 android:layout_below="@+id/txtBack"
                 android:layout_centerHorizontal="true">
 
                 <FrameLayout
                     android:id="@+id/flBack"
-                    android:layout_width="250dp"
-                    android:layout_height="@dimen/dimension165dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_below="@+id/txtBack"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/insu_border">
+                    android:background="@drawable/insu_border"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension15dp">
                     <!-- <ImageView
                          android:id="@+id/imgFrontCard"
                          android:layout_width="250dp"
@@ -321,10 +373,12 @@
                          android:scaleType="fitXY" />-->
                     <ImageView
                         android:id="@+id/imgBackCard"
-                        android:layout_width="250dp"
-                        android:layout_height="@dimen/dimension165dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="bottom"
-                        android:scaleType="fitXY" />
+                        android:scaleType="fitXY"
+
+                        />
 
                     <LinearLayout
                         android:id="@+id/llBackCam"
@@ -348,7 +402,9 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="profile photo"
+                            android:text="Card Photo"
+                            android:textSize="@dimen/dimension15dp"
+                            android:fontFamily="@font/lato"
                             android:textAllCaps="true" />
                     </LinearLayout>
 
@@ -358,9 +414,11 @@
                 <ImageView
                     android:id="@+id/imgEdit2"
                     android:layout_width="@dimen/dimension40dp"
-                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension40dp"
                     android:layout_gravity="top|right"
-                    android:src="@drawable/pencil_photo" />
+                    android:src="@drawable/remove_card"
+                    android:visibility="invisible"
+                    />
             </FrameLayout>
 
             <TextView
@@ -374,7 +432,10 @@
                 android:imeOptions="actionNext"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:text="back"
+                android:textSize="@dimen/dimension15dp"
+                android:fontFamily="@font/lato"
                 android:textAllCaps="true"
+
                 android:textColor="@color/colorDarkGray" />
 
             <View
@@ -382,8 +443,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension1dp"
                 android:layout_below="@+id/txtBackNew"
+                android:layout_marginTop="@dimen/dimension5dp"
                 android:layout_marginBottom="@dimen/dimension20dp"
-                android:background="@color/colorOnesGray" />
+
+                android:background="@color/colorDarkGray" />
 
         </RelativeLayout>
     </RelativeLayout>
