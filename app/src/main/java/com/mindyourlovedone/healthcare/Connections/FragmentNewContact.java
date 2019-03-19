@@ -128,13 +128,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     Hospital hospital;
     Pharmacy pharmacy;
     Insurance insurance;
-    LinearLayout PhoneLayout;
+    LinearLayout PhoneLayout,A_PhoneLayout;
     Finance finance;
     RelativeLayout rlCard, rlContact, RlPhone;
     TextView txtCardz, txtDelete;
     ImageView txtCard;
     LayoutInflater layoutInflater;
-    String rela="";
+    String rela="",aentEmail="";
     //TextView btnShowMore,btnShowLess,btnSon;
     TextView txtOtherInsurance, txtOtherCategory, txtOtherRelation, txtName, txtEmail, txtMobile, txtHomePhone, txtWorkPhone, txtAdd, txtInsuaranceName, txtInsuarancePhone, txtId, txtGroup, txtMember, txtAddress;
     String contactName = "";
@@ -145,7 +145,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     TextView txtPharmacyName, txtPharmacyAddress, txtPharmacyLocator, txtPharmacyPhone, txtPharmacyFax, txtPharmacyWebsite, txtPharmacyNote;
     TextView txtAideAddress, txtAideCompName, txtAideOfficePhone, txtHourOfficePhone, txtOtherPhone, txtAideFax, txtAideEmail, txtAideWebsite, txtAideNote;
     TextView txtTitle, txtRelation, txtPriority;
-    TextView txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
+    TextView txtAentEmail,txtHospitalLocator, txtOtherCategoryDoctor, txtOtherCategoryHospital, txtFNameHospital, txtHospitalOfficePhone, txtHospitalOtherPhone, txtHospitalFax, txtHospitalAddress, txtHospitalWebsite, txtHospitalLocation, txtHospitalPracticeName, txtHospitalLastSeen, txtHospitalNote;
     TextInputLayout tilFNameHospital, tilOtherCategoryDoctor;
     String otherDoctor = "";
     String agent = "";
@@ -212,14 +212,16 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     String cardImgPath = "";
     public static boolean fromDevice = false;
 
-    LinearLayout llAddPhone, llAddDrPhone, llAddHospPhone, llAddPharmPhone, llAddFinPhone, llAddInsuPhone;
-    ImageView imgAddPhone, imgAddDrPhone, imgAddHospPhone, imgAddPharmPhone, imgAddFinPhone, imgAddInsuPhone;
+    LinearLayout llAddPhone, llAddDrPhone, llAddHospPhone, llAddPharmPhone, llAddFinPhone, llAddInsuPhone,llAddAentPhone;
+    ImageView imgAddPhone, imgAddDrPhone, imgAddHospPhone, imgAddPharmPhone, imgAddFinPhone, imgAddInsuPhone,imgAddAentPhone;
     TextView txtType, txtDrType;
 
     //    NonScrollListView listPrPhone,listDrPhone,listHospPhone,listPharmPhone,listFinPhone,listInsuPhone;
     public ArrayList<ContactData> phonelist = new ArrayList<>();
+    public ArrayList<ContactData> Aphonelist = new ArrayList<>();
     SpecialPhoneAdapter pd;
     FrameLayout flFront;
+    RelativeLayout rlInsured;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_new_contact, null);
@@ -253,6 +255,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     ArrayList<TextView> mTextViewListType = new ArrayList<>();
     ArrayList<ImageView> mImageViewType = new ArrayList<>();
 
+    ArrayList<EditText> TextViewListValue = new ArrayList<>();
+    ArrayList<TextView> TextViewListType = new ArrayList<>();
+    ArrayList<ImageView> ImageViewType = new ArrayList<>();
     public class CustomTextWatcher implements TextWatcher {
         EditText et = null;
 
@@ -305,6 +310,29 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             mTextViewListType.clear();
             mImageViewType.clear();
             setListPh();
+        }
+    }
+
+    public void deleteAPhone(int position) {// Tricky code to delete required item
+        try {
+            for (int i = 0; i < Aphonelist.size(); i++) {
+                if (Aphonelist.get(i).getId() == position) {//uses index As it is but matching ids
+                    ContactData cc = Aphonelist.get(i);
+                    Aphonelist.remove(cc);
+                    A_PhoneLayout.removeAllViews();
+                    TextViewListValue.clear();
+                    TextViewListType.clear();
+                    ImageViewType.clear();
+                    setAListPh();
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            A_PhoneLayout.removeAllViews();
+            TextViewListValue.clear();
+            TextViewListType.clear();
+            ImageViewType.clear();
+            setAListPh();
         }
     }
 
@@ -400,6 +428,98 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             ex.printStackTrace();
         }
     }
+    public void addNewAPhone(final int pos) {
+        try {
+
+            LayoutInflater inflater = getActivity().getLayoutInflater();
+            View view = inflater.inflate(R.layout.row_phone, null);
+
+            ImageView imgdeletePhone;
+            TextView txtType;
+            EditText txtPhoNum;
+
+            imgdeletePhone = view.findViewById(R.id.imgdeletePhone);
+            txtPhoNum = view.findViewById(R.id.txtPhoNum);
+            txtType = view.findViewById(R.id.txtType);
+
+            //Add the instance to the ArrayList -  to maintian separate tags of views
+            TextViewListValue.add(pos, txtPhoNum);
+            TextViewListType.add(pos, txtType);
+            ImageViewType.add(pos, imgdeletePhone);
+
+            if (pos == 0) {
+                imgdeletePhone.setImageResource(R.drawable.add_n);
+            } else {
+                imgdeletePhone.setImageResource(R.drawable.delete_n);
+            }
+
+            ImageViewType.get(pos).setTag("" + pos);
+            TextViewListType.get(pos).setTag("" + pos);
+            TextViewListValue.get(pos).setTag("" + pos);
+
+            TextViewListType.get(pos).setText("" + Aphonelist.get(pos).getContactType());
+            TextViewListValue.get(pos).setText("" + Aphonelist.get(pos).getValue());
+
+            TextViewListValue.get(pos).addTextChangedListener(new CustomTextWatcher(TextViewListValue.get(pos)));
+
+            TextViewListValue.get(pos).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+                @Override
+                public void onFocusChange(View view, boolean b) {
+                    if (!b) {
+                        int poss = Integer.parseInt(TextViewListValue.get(pos).getTag().toString());
+                        final TextView Caption = (TextView) view;
+                        Aphonelist.get(poss).setValue(Caption.getText().toString());
+                    }
+                }
+            });
+
+            ImageViewType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int poss = Integer.parseInt(ImageViewType.get(pos).getTag().toString());
+                    if (poss == 0) {
+                        ContactData c = new ContactData();
+                        c.setId(Aphonelist.size());
+                        Aphonelist.add(c);
+                        addNewAPhone(c.getId());
+                    } else {
+                        deleteAPhone(poss);
+                    }
+                }
+            });
+
+            TextViewListType.get(pos).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final int position = Integer.parseInt(TextViewListType.get(pos).getTag().toString());
+                    AlertDialog.Builder b = new AlertDialog.Builder(context);
+                    b.setTitle("Type");
+                    final String[] types = {"Fax", "Home", "Mobile", "Office"};
+                    b.setItems(types, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if (types[which].equalsIgnoreCase("None")) {
+                                Aphonelist.get(position).setValue(Aphonelist.get(position).getValue());
+                                Aphonelist.get(position).setContactType("");
+                                TextViewListType.get(pos).setText(Aphonelist.get(position).getContactType());
+                            } else {
+                                Aphonelist.get(position).setValue(Aphonelist.get(position).getValue());
+                                Aphonelist.get(position).setContactType(types[which]);
+                                TextViewListType.get(pos).setText(Aphonelist.get(position).getContactType());
+                            }
+                            dialog.dismiss();
+                        }
+
+                    });
+                    b.show();
+                }
+            });
+
+            A_PhoneLayout.addView(view, pos);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public void setListPh() {
 
@@ -446,6 +566,50 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     }
 
     //Nikita - PH Format code ends here
+
+    public void setAListPh() {
+
+        if (Aphonelist.isEmpty()) {
+            ContactData c = new ContactData();
+            c.setId(0);
+            Aphonelist.add(c);
+            addNewAPhone(0);
+        } else {
+            for (int i = 0; i < Aphonelist.size(); i++) {
+                if (Aphonelist.get(i) != null && Aphonelist.get(i).getValue() != null) {
+                    Aphonelist.get(i).setId(i);
+                    String input = Aphonelist.get(i).getValue();
+
+                    if(!input.contains("-")) {
+                        if(input.contains("(")){
+                            input = input.replace("(","");
+                        }
+
+                        if(input.contains(")")){
+                            input = input.replace(")","");
+                        }
+
+                        if(input.contains("+")) {
+                            if (input.length() == 13) {
+                                String str_getMOBILE = input.substring(3);
+
+                                input = str_getMOBILE;
+                            } else if (input.length() == 12) {
+                                String str_getMOBILE = input.substring(2);
+                                input = str_getMOBILE;
+                            }
+                        }
+                        String number = input.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "$1-$2-$3");
+                        Aphonelist.get(i).setValue(number);
+                        System.out.println(number);
+                    }
+
+                    addNewAPhone(i);
+                }
+            }
+        }
+
+    }
 
 //    public void setListPh(NonScrollListView listv) {
 //        // listPhone.setDescendantFocusability(ListView.FOCUS_BLOCK_DESCENDANTS);
@@ -1140,19 +1304,27 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "Insurance":
-
+                for (int i = 0; i < Aphonelist.size(); i++) {
+                    ContactData c = Aphonelist.get(i);
+                    for (int k = 0; k < TextViewListValue.size(); k++) {
+                        if (Integer.parseInt(TextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                            Aphonelist.get(i).setValue(TextViewListValue.get(k).getText().toString());
+                        }
+                    }
+                }
                 if (validate("Insurance")) {
                            /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
+                    Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
                         Insurance con=new Insurance();
                         con= getLastInsurance();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Insurance", con.getId());
+                        boolean flagd = ContactDataQuery.deleteRecord("Agent", con.getId());
                         if (flagf == true) {
                           //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
@@ -1160,6 +1332,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                                     Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Insurance");
                                     if (flagc == true) {
                                     //    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        }
+
+                        if (flagd == true) {
+                            //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            for (int i = 0; i < Aphonelist.size(); i++) {
+                                if (!Aphonelist.get(i).getContactType().equalsIgnoreCase("") && !Aphonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), Aphonelist.get(i).getValue(), Aphonelist.get(i).getContactType(), "Agent");
+                                    if (flagc == true) {
+                                        //    Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             }
@@ -1174,9 +1358,24 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 }
                 break;
             case "InsuranceData":
+                for (int i = 0; i < Aphonelist.size(); i++) {
+                    ContactData c = Aphonelist.get(i);
+                    for (int k = 0; k < TextViewListValue.size(); k++) {
+                        if (Integer.parseInt(TextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                            Aphonelist.get(i).setValue(TextViewListValue.get(k).getText().toString());
+                        }
+                    }
+                }
                 for (int i = 0; i < phonelist.size(); i++) {
                     if (phonelist.get(i).getContactType() == "" && phonelist.get(i).getValue() == "") {
                         phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }
+
+                for (int i = 0; i < Aphonelist.size(); i++) {
+                    if (Aphonelist.get(i).getContactType() == "" && Aphonelist.get(i).getValue() == "") {
+                        Aphonelist.remove(Aphonelist.get(i));
                     }
                     // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
                 }
@@ -1185,16 +1384,28 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath);
+                    Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                         boolean flagf = ContactDataQuery.deleteRecord("Insurance", id);
+                        boolean flagd = ContactDataQuery.deleteRecord("Agent", id);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
                                     Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Insurance");
+                                    if (flagc == true) {
+                                        //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
+                        }
+                        if (flagd == true) {
+                            //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            for (int i = 0; i < Aphonelist.size(); i++) {
+                                if (!Aphonelist.get(i).getContactType().equalsIgnoreCase("") && !Aphonelist.get(i).getValue().equalsIgnoreCase("")) {
+                                    Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), Aphonelist.get(i).getValue(), Aphonelist.get(i).getContactType(), "Agent");
                                     if (flagc == true) {
                                         //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
@@ -2751,17 +2962,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "Insurance":
                 changeIcon(source);
+                rlInsured.setVisibility(View.VISIBLE);
                 visiInsurance();
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
 //                setListPh(listInsuPhone);
                 PhoneLayout = llAddInsuPhone;
+                A_PhoneLayout=llAddAentPhone;
                 setListPh();
+                setAListPh();
                 break;
 
             case "InsuranceData":
                 changeIcon(source);
                 visiInsurance();
+                rlInsured.setVisibility(View.VISIBLE);
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
                 txtAdd.setText("Update Insurance");
@@ -2786,6 +3001,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         tilOtherInsurance.setVisibility(View.GONE);
                     }
                     txtInsuaranceName.setText(insurance.getName());
+                    txtAentEmail.setText(insurance.getAgent_email());
                    /* if (Cname.isEmpty()) {//nikita
                         txtInsuaranceName.setText(insurance.getName());
                     } else {
@@ -2820,6 +3036,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 //                    setListPh(listInsuPhone);
                     PhoneLayout = llAddInsuPhone;
                     setListPh();
+
+                    Aphonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),id, "Agent");
+                    A_PhoneLayout = llAddAentPhone;
+                    setAListPh();
 
                     String photo;
                     if (imagepath.isEmpty()) {//nikita
@@ -4200,6 +4420,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgAddPharmPhone.setOnClickListener(this);
         imgAddFinPhone.setOnClickListener(this);
         imgAddInsuPhone.setOnClickListener(this);
+        imgAddAentPhone.setOnClickListener(this);
         txtDelete.setOnClickListener(this);
     }
 
@@ -4207,6 +4428,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     private void initUI() {
         layoutInflater = (LayoutInflater) getActivity().getSystemService(context.LAYOUT_INFLATER_SERVICE);
         flFront = rootview.findViewById(R.id.flFront);
+        rlInsured=rootview.findViewById(R.id.rlInsured);
 //        listPrPhone = rootview.findViewById(R.id.listPrPhone);
 //        listDrPhone = rootview.findViewById(R.id.listDrPhone);
 //        listHospPhone = rootview.findViewById(R.id.listHospPhone);
@@ -4221,6 +4443,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         llAddFinPhone = rootview.findViewById(R.id.llAddFinPhone);
         llAddInsuPhone = rootview.findViewById(R.id.llAddInsPhone);
         llAddDrPhone = rootview.findViewById(R.id.llAddDrPhone);
+        llAddAentPhone = rootview.findViewById(R.id.llAddAentPhone);
 
         RlPhone = rootview.findViewById(R.id.RlPhone);
         imgAddPhone = rootview.findViewById(R.id.imgAddPhone);
@@ -4229,6 +4452,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         imgAddPharmPhone = rootview.findViewById(R.id.imgAddPharmPhone);
         imgAddFinPhone = rootview.findViewById(R.id.imgAddFinPhone);
         imgAddInsuPhone = rootview.findViewById(R.id.imgAddInsPhone);
+        imgAddAentPhone = rootview.findViewById(R.id.imgAddAentPhone);
         txtDelete = rootview.findViewById(R.id.txtDelete);
         txtPriority = rootview.findViewById(R.id.txtPriority);
         txtPriority.setFocusable(false);
@@ -4271,7 +4495,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorHourOfficePhone = rootview.findViewById(R.id.txtDoctorHourOfficePhone);
         txtDoctorOtherPhone = rootview.findViewById(R.id.txtDoctorOtherPhone);
         txtDoctorFax = rootview.findViewById(R.id.txtDoctorFax);
-
+        txtAentEmail= rootview.findViewById(R.id.txtAentEmail);
         tbCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -5957,6 +6181,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 phone = txtInsuarancePhone.getText().toString();
                 address = txtAddress.getText().toString();
                 email = txtInsuaranceEmail.getText().toString();
+                aentEmail=txtAentEmail.getText().toString();
            // }
             fax = txtInsuaranceFax.getText().toString();
 
