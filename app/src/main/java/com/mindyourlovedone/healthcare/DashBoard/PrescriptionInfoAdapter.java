@@ -86,6 +86,7 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
                 .displayer(new SimpleBitmapDisplayer()) // default //for square SimpleBitmapDisplayer()
                 .handler(new Handler()) // default
                 .build();
+
         ImageLoaderConfiguration configs = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(displayImageOptionsCard)
                 .build();
         ImageLoader.getInstance().init(configs);
