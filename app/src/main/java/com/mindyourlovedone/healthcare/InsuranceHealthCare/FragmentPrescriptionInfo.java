@@ -39,6 +39,7 @@ import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
 import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
+import com.mindyourlovedone.healthcare.model.PrescribeImage;
 import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
@@ -56,7 +57,7 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
     ImageView imgRight;
     View rootview;
     RecyclerView lvPrescriptionInfo;
-    ArrayList<Prescription> prescriptonInfoList =new ArrayList<>();
+//    ArrayList<Prescription> prescriptonInfoList =new ArrayList<>();
     RelativeLayout llAddPrescriptionInfo;
     Preferences preferences;
     DBHelper dbHelper;
@@ -85,8 +86,8 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
 //    }
 
     private void setListData() {
-        if (prescriptonInfoList.size() != 0) {
-            PrescriptionInfoAdapter hospitalAdapter = new PrescriptionInfoAdapter(getActivity(), prescriptonInfoList, FragmentPrescriptionInfo.this);
+        if (PrescriptionList.size() != 0) {
+            PrescriptionInfoAdapter hospitalAdapter = new PrescriptionInfoAdapter(getActivity(), PrescriptionList, FragmentPrescriptionInfo.this);
             lvPrescriptionInfo.setAdapter(hospitalAdapter);
             lvPrescriptionInfo.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
@@ -96,6 +97,40 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         }
     }
 
+    public void deletePrescription(final Prescription item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = PrescriptionQuery.deleteRecord(item.getUnique());
+                if (flag == true) {
+                    ArrayList<PrescribeImage> imageList = new ArrayList<>();
+                    imageList = item.getPrescriptionImageList();
+//                    for(int i=0;i<imageList.size();i++){
+//                        File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH) + imageList.get(i).getImage());//nikita
+//                        if (imgFile.exists()) {
+//                            imgFile.delete();
+//                        }
+//                    }
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                    getData();
+                    setListData();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
 
     private void initListener() {
         llAddPrescriptionInfo.setOnClickListener(this);
@@ -110,11 +145,12 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
-        floatOptions = rootview.findViewById(R.id.floatOptions);
+
 
         //nikita
         PrescriptionList = new ArrayList<>();
         scroll = rootview.findViewById(R.id.scroll);
+        floatOptions = rootview.findViewById(R.id.floatOptions);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -177,12 +213,12 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         lvPrescriptionInfo.setLayoutManager(linearLayoutManager);
 
-        //add ItemDecoration
-        lvPrescriptionInfo.addItemDecoration(new VerticalSpaceItemDecoration(48));
-
-        //or
-        lvPrescriptionInfo.addItemDecoration(
-                new DividerItemDecoration(getActivity(), R.drawable.divider));
+//        //add ItemDecoration
+//        lvPrescriptionInfo.addItemDecoration(new VerticalSpaceItemDecoration(48));
+//
+//        //or
+//        lvPrescriptionInfo.addItemDecoration(
+//                new DividerItemDecoration(getActivity(), R.drawable.divider));
         //...
     }
 
@@ -228,7 +264,7 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
     }
 
 
-    ArrayList<Prescription> PrescriptionList;
+    ArrayList<Prescription> PrescriptionList = new ArrayList<>();
 
     private void getData() {
         PrescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));

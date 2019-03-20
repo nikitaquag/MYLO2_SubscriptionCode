@@ -35,38 +35,36 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorWhite"
-        android:orientation="vertical"
-        android:paddingLeft="@dimen/dimension10dp"
-        android:paddingRight="@dimen/dimension10dp"
         android:paddingTop="@dimen/dimension10dp">
 
         <TextView
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgico"
             android:fontFamily="@font/lato"
             android:id="@+id/txtName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dimension10dp"
-            android:drawableLeft="@drawable/pill"
             android:drawablePadding="@dimen/dimension10dp"
-            android:paddingLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension5dp"
             android:text="Cfklj kj ouio "
-            android:textColor="@color/colorDarkBlue"
-            android:textSize="@dimen/dimension20dp"
-            android:drawableRight="@drawable/ic_edit_blue"/>
+            android:textStyle="bold"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension18dp"
+            />
 
         <TextView
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:textColor="@color/colorDarkGray"
+            android:textStyle="normal"
+            android:layout_toRightOf="@+id/imgico"
             android:fontFamily="@font/lato"
             android:id="@+id/txt"
-            style="@style/EmergencyDesc"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtName"
-            android:layout_marginLeft="@dimen/dimension5dp"
-            android:drawableLeft="@drawable/dose"
             android:drawablePadding="@dimen/dimension10dp"
-            android:paddingLeft="@dimen/dimension10dp"
             android:text="kojio" />
 
         <TextView
@@ -139,14 +137,27 @@
         </LinearLayout>
 
         <ImageView
+            android:layout_marginRight="@dimen/dimension2dp"
+            android:layout_marginTop="@dimen/dimension5dp"
+            android:layout_marginBottom="@dimen/dimension5dp"
+            android:id="@+id/imgico"
+            android:layout_width="@dimen/dimension50dp"
+            android:layout_height="@dimen/dimension50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension15dp"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/pres_icon" />
+
+        <ImageView
             android:id="@+id/imgForword"
-            android:layout_width="@dimen/dimension60dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension20dp"
+            android:layout_height="@dimen/dimension20dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="@dimen/dimension5dp"
+            android:layout_margin="@dimen/dimension10dp"
             android:focusableInTouchMode="false"
-            android:padding="@dimen/dimension10dp"
+            android:tint="@color/colorBlue"
             android:src="@drawable/forword_arrow" />
 
         <View
@@ -154,8 +165,8 @@
             android:layout_height="@dimen/dimension1dp"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="@dimen/dimension5dp"
-            android:background="@color/colorBlack"
-            android:visibility="gone"></View>
+            android:background="@color/colordivideGray"
+            android:visibility="visible"></View>
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>
 

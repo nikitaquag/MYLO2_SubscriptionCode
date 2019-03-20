@@ -45,13 +45,14 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
     Preferences preferences;
     ImageLoader imageLoaderProfile, imageLoaderCard;
     DisplayImageOptions displayImageOptionsProfile, displayImageOptionsCard;
-    FragmentHospital fr;
+    FragmentPrescriptionInfo fr;
 
 
     public PrescriptionInfoAdapter(Activity activity, ArrayList<Prescription> PrescriptionList, FragmentPrescriptionInfo fragmentPrescriptionInfo) {
-        preferences = new Preferences(context);
-        this.context = context;
+        preferences = new Preferences(activity);
+        this.context = activity;
         this.prescriptionList = PrescriptionList;
+        this.fr  =fragmentPrescriptionInfo;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         initImageLoader();
     }
@@ -124,9 +125,9 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
         holder.lintrash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (context instanceof PrescriptionActivity) {
-                    ((PrescriptionActivity) context).deletePrescription(prescriptionList.get(position));
-                }
+//                if (context instanceof PrescriptionActivity) {
+                   fr.deletePrescription(prescriptionList.get(position));
+//                }
             }
         });
 

@@ -33,10 +33,13 @@ import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -95,13 +98,16 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
-
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUI() {
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
+
+        //nikita
+        floatOptions = rootview.findViewById(R.id.floatOptions);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -250,6 +256,123 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
 
     }
 
+    private void showFloatOption() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "Prescription.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Prescription Tracker");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Prescription");
+
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*/
+
+        ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+        //     ArrayList<Dosage> DosageList= DosageQuery.fetchAllDosageRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),);
+
+        new PrescriptionPdf(prescriptionList);
+
+        Header.document.close();
+
+//--------------------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Prescription.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+                System.out.println("\n" + result + "\n");
+
+
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Prescription.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Prescription");
+
+                dialog.dismiss();
+            }
+
+
+        });
+    }
+
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -261,7 +384,12 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivity(intentDashboard);
                 break;
             case R.id.floatAdd:
-                showFloatDialog();
+//                Intent is = new Intent(getActivity(), AddPrescriptionActivity.class);
+//                is.putExtra("IsEdit", false);
+//                startActivityForResult(is, 100);
+                break;
+            case R.id.floatOptions:
+                showFloatOption();
                 break;
            /* case R.id.llAddHospital:
                 preferences.putString(PrefConstants.SOURCE, "Hospital");
@@ -269,85 +397,88 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivity(i);
                 break;*/
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "Hospital.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", getActivity());
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Hospitals and other health professionals");
-
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-
-                ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                new Specialty("Hospital", HospitalList);
-                Header.document.close();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/Hospital.pdf";
-                        switch (itemPos) {
-
-                            case 0: // view
-                                StringBuffer result = new StringBuffer();
-                                result.append(new MessageString().getHospitalInfo());
-
-                                new PDFDocumentProcess(path,
-                                        getActivity(), result);
-
-                                System.out.println("\n" + result + "\n");
-
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
-                                break;
-                            case 2://FTU
-                                Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "PrescriptionInstruction");
-                                startActivity(i);
-                                break;
-                           /* case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
-                        }
-                    }
-
-                });
-                builder.create().show();
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "PrescriptionInstruction");
+                startActivity(i);
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "Hospital.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", getActivity());
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+//
+//              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Hospitals and other health professionals");
+//
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//
+//                ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                new Specialty("Hospital", HospitalList);
+//                Header.document.close();
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/Hospital.pdf";
+//                        switch (itemPos) {
+//
+//                            case 0: // view
+//                                StringBuffer result = new StringBuffer();
+//                                result.append(new MessageString().getHospitalInfo());
+//
+//                                new PDFDocumentProcess(path,
+//                                        getActivity(), result);
+//
+//                                System.out.println("\n" + result + "\n");
+//
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+//                                break;
+//                            case 2://FTU
+//                                Intent i = new Intent(getActivity(), InstructionActivity.class);
+//                                i.putExtra("From", "PrescriptionInstruction");
+//                                startActivity(i);
+//                                break;
+//                           /* case 2://fax
+//                                new FaxCustomDialog(getActivity(), path).show();
+//                                break;*/
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
         }
     }
