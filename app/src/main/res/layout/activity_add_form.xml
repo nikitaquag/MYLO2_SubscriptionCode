@@ -29,6 +29,7 @@
             android:layout_marginLeft="@dimen/dimension20dp"
             android:text="Business Card"
             android:textStyle="bold"
+            android:fontFamily="@font/lato"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />

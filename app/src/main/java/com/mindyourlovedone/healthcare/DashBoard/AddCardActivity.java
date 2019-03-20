@@ -176,6 +176,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             txtTitle.setText("Add/Edit Insurance Card");
             if (i.getExtras().getBoolean("IsEdit") == true) {
                 isEdit = true;
+                tilTitle.setHintEnabled(true);
             }
             Card card = (Card) i.getExtras().getSerializable("CardObject");
             txtName.setText(card.getName());

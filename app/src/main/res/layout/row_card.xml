@@ -53,7 +53,7 @@
                 android:layout_height="@dimen/dimension60dp"
                 android:layout_centerVertical="true"
                 android:layout_margin="@dimen/dimension10dp"
-                android:src="@drawable/insu_two" />
+                android:src="@drawable/card" />
 
             <RelativeLayout
                 android:id="@+id/rlProvider"
@@ -63,17 +63,6 @@
                 android:background="@color/colorWhite">
 
                 <TextView
-                    android:id="@+id/txtProvider"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/colorWhite"
-                    android:padding="@dimen/dimension5dp"
-                    android:text="Provider Name :"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp"
-                    android:visibility="gone" />
-
-                <TextView
                     android:id="@+id/txtProviderValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,19 +70,11 @@
                     android:background="@color/colorWhite"
                     android:padding="@dimen/dimension5dp"
                     android:text="Provider Name"
+                    android:fontFamily="@font/lato"
+                    android:textStyle="bold"
                     android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp" />
+                    android:textSize="@dimen/dimension20dp" />
 
-                <TextView
-                    android:id="@+id/txtType"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/txtProvider"
-                    android:padding="@dimen/dimension5dp"
-                    android:text="Type :"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension18dp"
-                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/txtTypeValue"
@@ -102,10 +83,11 @@
                     android:layout_below="@+id/txtProviderValue"
                     android:layout_marginBottom="@dimen/dimension5dp"
                     android:layout_toRightOf="@+id/txtType"
-                    android:padding="@dimen/dimension5dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
                     android:text="Type"
+                    android:fontFamily="@font/lato"
                     android:textColor="@color/colorDarkGray"
-                    android:textSize="@dimen/dimension16dp" />
+                    android:textSize="@dimen/dimension18dp" />
 
                 <ImageView
                     android:id="@+id/imgForword"
