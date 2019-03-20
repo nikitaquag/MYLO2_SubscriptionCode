@@ -24,6 +24,8 @@ import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
 import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
 import com.mindyourlovedone.healthcare.model.Hospital;
+import com.mindyourlovedone.healthcare.model.PrescribeImage;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -38,7 +40,7 @@ import java.util.ArrayList;
 
 public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionInfoAdapter.ViewHolder> {
     Context context;
-    ArrayList<Hospital> hospitalList;
+    ArrayList<Prescription> prescriptionList;
     LayoutInflater lf;
     Preferences preferences;
     ImageLoader imageLoaderProfile, imageLoaderCard;
@@ -46,10 +48,10 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
     FragmentHospital fr;
 
 
-    public PrescriptionInfoAdapter(Activity activity, ArrayList<Hospital> hospitalList, FragmentPrescriptionInfo fragmentPrescriptionInfo) {
+    public PrescriptionInfoAdapter(Activity activity, ArrayList<Prescription> PrescriptionList, FragmentPrescriptionInfo fragmentPrescriptionInfo) {
         preferences = new Preferences(context);
         this.context = context;
-        this.hospitalList = this.hospitalList;
+        this.prescriptionList = PrescriptionList;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         initImageLoader();
     }
@@ -101,13 +103,13 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
 
     @Override
     public PrescriptionInfoAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_pres_info, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_prescription, parent, false);
         return new PrescriptionInfoAdapter.ViewHolder(view);
     }
 
     @Override
     public int getItemCount() {
-        return hospitalList.size();
+        return prescriptionList.size();
     }
 
     @Override
@@ -118,118 +120,107 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
                 YoYo.with(Techniques.Tada).duration(500).delay(100).playOn(layout.findViewById(R.id.trash));
             }
         });
-        holder.lincall.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (fr != null) {
-                    fr.callUser(hospitalList.get(position));
-                }
-            }
-        });
+
         holder.lintrash.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (fr != null) {
-                    fr.deleteHospital(hospitalList.get(position));
+                if (context instanceof PrescriptionActivity) {
+                    ((PrescriptionActivity) context).deletePrescription(prescriptionList.get(position));
                 }
             }
         });
 
 
-        if (hospitalList.get(position).getOfficePhone().equals("")) {
-            holder.txtPhone.setVisibility(View.GONE);
+        ArrayList<PrescribeImage> PrescriptionImageList;
+          /* if (prescriptionList.get(position).getPrescriptionImageList()!=null) {
+                PrescriptionImageList = prescriptionList.get(position).getPrescriptionImageList();
+                for (int i=0;i<PrescriptionImageList.size();i++)
+                {
+                    LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    View v = vi.inflate(R.layout.row_img, null);
+                    ImageView imgView = (ImageView) v.findViewById(R.id.img);
+                    byte[] bytea=PrescriptionImageList.get(i).getImage();
+                    Bitmap bmp = BitmapFactory.decodeByteArray(bytea, 0, bytea.length);
+                    imgView.setImageBitmap(bmp);
+                    holder.llImg.addView(v);
+                }
+            }*/
+      /*      if (prescriptionList.get(position).getDosageList()!=null)
+            {
+                ArrayList<Dosage> DosageList = prescriptionList.get(position).getDosageList();
+                for (int i = 0; i<DosageList.size(); i++)
+                {
+                    LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                    View v = vi.inflate(R.layout.row_txt, null);
+
+                    TextView textView = (TextView) v.findViewById(txt);
+                    TextView textViewName = (TextView) v.findViewById(R.id.txtName);
+                    textViewName.setText(DosageList.get(i).getMedicine());
+                    textView.setText(DosageList.get(i).getDose()+", "+DosageList.get(i).getFrequency());
+                    *//*if (i%2==0)
+                    {*//*
+                      *//*  v.setBackgroundResource(R.color.colorLightGray);
+                        textViewName.setBackgroundResource(R.color.colorLightGray);
+                        textView.setBackgroundResource(R.color.colorLightGray);*//*
+                  *//*  }else{
+                        v.setBackgroundResource(R.color.colorWhite);
+                        textViewName.setBackgroundResource(R.color.colorWhite);
+                        textView.setBackgroundResource(R.color.colorWhite);
+                    }*//*
+                    holder.llPrescription.addView(v);
+                }
+            }*/
+
+        holder.txtDoctor.setText(prescriptionList.get(position).getDoctor());
+        holder.txtDate.setText(prescriptionList.get(position).getDates());
+        if (prescriptionList.get(position).getDose().equals("") && prescriptionList.get(position).getFrequency().equals("")) {
+            holder.txt.setVisibility(View.GONE);
         } else {
-            holder.txtPhone.setVisibility(View.VISIBLE);
-        }
-
-        if (hospitalList.get(position).getAddress().equals("")) {
-            holder.txtAddress.setVisibility(View.GONE);
-        } else {
-            holder.txtAddress.setVisibility(View.VISIBLE);
-        }
-
-        if (hospitalList.get(position).getCategory().equals("")) {
-            holder.txtCategory.setVisibility(View.GONE);
-        } else {
-            holder.txtCategory.setVisibility(View.VISIBLE);
-        }
-        holder.txtName.setText(hospitalList.get(position).getName());
-        holder.txtAddress.setText(hospitalList.get(position).getAddress());
-        holder.txtPhone.setText(hospitalList.get(position).getOfficePhone());
-        holder.txtType.setText(hospitalList.get(position).getName());
-        if (hospitalList.get(position).getCategory().equals("Other")) {
-            holder.txtCategory.setText(hospitalList.get(position).getCategory() + " - " + hospitalList.get(position).getOtherCategory());
-        } else {
-            holder.txtCategory.setText(hospitalList.get(position).getCategory());
-        }
-        //holder.imgProfile.setImageResource(FinanceList.get(position).getImage());
-        File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), hospitalList.get(position).getPhoto());
-        holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
-        if (imgFile.exists()) {
-            if (holder.imgProfile.getDrawable() == null)
-                holder.imgProfile.setImageResource(R.drawable.all_profile);
-            else
-                holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-            // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
-        }
-
-       /* if (imgFile.exists()) {
-           // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgProfile, displayImageOptionsProfile);
-            holder.imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-          //  holder.imgProfile.setImageResource(R.drawable.yellow);
-        }else {
-            holder.imgProfile.setImageResource(R.drawable.yellow);
-        }*/
-
-        if (!hospitalList.get(position).getPhotoCard().equals("")) {
-            File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), hospitalList.get(position).getPhotoCard());
-            if (imgFile1.exists()) {
-               /* Bitmap myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
-                holder.imgForward.setImageBitmap(myBitmap);*/
-                imageLoaderCard.displayImage(String.valueOf(Uri.fromFile(imgFile1)), holder.imgForward, displayImageOptionsCard);
+            holder.txt.setVisibility(View.VISIBLE);
+            String dose = "", freq = "";
+            if (prescriptionList.get(position).getFrequency().equals("") && !prescriptionList.get(position).getDose().equals("")) {
+                freq = prescriptionList.get(position).getDose();
+                holder.txt.setText(freq);
             }
-          /*  byte[] photoCard = hospitalList.get(position).getPhotoCard();
-            Bitmap bmpCard = BitmapFactory.decodeByteArray(photoCard, 0, photoCard.length);
-            holder.imgForward.setImageBitmap(bmpCard);*/
-            holder.imgForward.setVisibility(View.VISIBLE);
-        } else {
-            holder.imgForward.setVisibility(View.GONE);
+            if (!prescriptionList.get(position).getFrequency().equals("") && prescriptionList.get(position).getDose().equals("")) {
+                freq = prescriptionList.get(position).getFrequency();
+                holder.txt.setText(freq);
+            }
+            if (!prescriptionList.get(position).getFrequency().equals("") && !prescriptionList.get(position).getDose().equals("")) {
+                freq = prescriptionList.get(position).getDose() + "," + prescriptionList.get(position).getFrequency();
+                holder.txt.setText(freq);
+            }
+
+
         }
 
-
-        holder.imgForward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(context, AddFormActivity.class);
-                i.putExtra("Image", hospitalList.get(position).getPhotoCard());
-                context.startActivity(i);
-            }
-        });
-
-
+        holder.txtName.setText(prescriptionList.get(position).getMedicine());
+        /*Shradha  edit added for prescription*/
         holder.txtName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "HospitalData");
-                Hospital hospital = hospitalList.get(position);
-                i.putExtra("HospitalObject", hospital);
-                context.startActivity(i);
+                Intent intent = new Intent(context, AddPrescriptionActivity.class);
+                intent.putExtra("PrescriptionObject", prescriptionList.get(position));
+                intent.putExtra("IsEdit", true);
+                context.startActivity(intent);
             }
         });
-        holder.imgNext.setOnClickListener(new View.OnClickListener() {
+
+        holder.imgForward.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(context, GrabConnectionActivity.class);
-                preferences.putString(PrefConstants.SOURCE, "HospitalViewData");
-                Hospital hospital = hospitalList.get(position);
-                i.putExtra("HospitalObject", hospital);
+            public void onClick(View view) {
+                Intent i = new Intent(context, AddPrescriptionActivity.class);
+                //   preferences.putString(PrefConstants.SOURCE, "PrescriptionViewData");
+                Prescription prescription = prescriptionList.get(position);
+                i.putExtra("PrescriptionObject", prescription);
+                i.putExtra("IsView", true);
                 context.startActivity(i);
             }
         });
-
+        /*holder.txtNote.setText(prescriptionList.get(position).getTxtNote());
+        holder.txtDateTime.setText(prescriptionList.get(position).getTxtDate());
+        //holder.imgProfile.setImageResource(student.getImgid());
+       */
     }
 
     @Override
@@ -238,29 +229,24 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtName, txtAddress, txtPhone, txtType, txtCategory;
-        ImageView imgProfile, imgForward, imgEdit;
-        ImageView imgNext;
-
+        TextView txtDoctor, txtDate, txtTime, txt, txtName;
+        LinearLayout llImg, llPrescription;
+        ImageView imgForward;
         SwipeLayout swipeLayout;
-        LinearLayout lincall, lintrash;
-        // SwipeRevealLayout swipeLayout;
+        LinearLayout lintrash;
 
         public ViewHolder(View convertView) {
             super(convertView);
-            lincall = itemView.findViewById(R.id.lincall);
             lintrash = itemView.findViewById(R.id.lintrash);
             swipeLayout = itemView.findViewById(R.id.swipe);
 
+            txtDoctor = convertView.findViewById(R.id.txtDoctor);
+            txtDate = convertView.findViewById(R.id.txtDate);
+            txt = convertView.findViewById(R.id.txt);
             txtName = convertView.findViewById(R.id.txtName);
-            txtAddress = convertView.findViewById(R.id.txtAddress);
-            txtPhone = convertView.findViewById(R.id.txtPhone);
-            txtType = convertView.findViewById(R.id.txtType);
-            txtCategory = convertView.findViewById(R.id.txtCategory);
-            imgProfile = convertView.findViewById(R.id.imgProfile);
+            llImg = convertView.findViewById(R.id.llImg);
+            llPrescription = convertView.findViewById(R.id.llPrescription);
             imgForward = convertView.findViewById(R.id.imgForword);
-            imgEdit = convertView.findViewById(R.id.imgEdit);
-            imgNext = convertView.findViewById(R.id.imgNext);
         }
     }
 

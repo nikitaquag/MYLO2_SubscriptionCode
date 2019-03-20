@@ -192,7 +192,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Create Prescription Tracker");
+                txtHeader.setText("Prescription Tracker");
                 break;
 
             case "VitalInstruction":

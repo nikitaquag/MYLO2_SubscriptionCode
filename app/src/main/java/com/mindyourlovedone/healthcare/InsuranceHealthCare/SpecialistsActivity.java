@@ -192,9 +192,9 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isEmergency = false;
                 isInsurance = false;
             } else if (from.equals("Prescription")) {
-                floatAdd.setVisibility(View.VISIBLE);
-                floatOptions.setVisibility(View.GONE);
-                floatOptions2.setVisibility(View.VISIBLE);
+                floatAdd.setVisibility(View.GONE);
+                floatOptions.setVisibility(View.VISIBLE);
+                floatOptions2.setVisibility(View.GONE);
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
