@@ -47,6 +47,7 @@ import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -766,11 +767,16 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 rlFloatfax.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        // Fax
-                        //File localFile = UriHelpers.getFileForUri(AddDocumentActivity.this, Uri.parse(documentPath));
                         Uri uris = Uri.parse(documentPath);
                         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + txtFName.getText().toString();
+Intent i=new Intent(context,FaxActivity.class);
+i.putExtra("PATH",preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath);
+startActivity(i);
+                      //  new FaxCustomDialog(AddDocumentActivity.this, preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath).show();
 /*
+                        // Fax
+                        //File localFile = UriHelpers.getFileForUri(AddDocumentActivity.this, Uri.parse(documentPath));
+
                                 File sourceFile = new File(path);
                                 try {
                                     FileInputStream fileInputStream = new FileInputStream(sourceFile);
@@ -779,7 +785,6 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                     e.printStackTrace();
                                     Toast.makeText(AddDocumentActivity.this,e.toString(),Toast.LENGTH_SHORT).show();
                                 }*/
-                        new FaxCustomDialog(AddDocumentActivity.this, preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath).show();
 
                                 /*if (path.equals("No"))
                                 {
