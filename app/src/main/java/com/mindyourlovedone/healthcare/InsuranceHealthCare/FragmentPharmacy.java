@@ -212,7 +212,11 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
 
 
         ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Specialty(PharmacyList);
+      // new Specialty(PharmacyList);
+        for(int i=0;i<PharmacyList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), PharmacyList.get(i).getId(),"Pharmacy");
+            new Specialty(PharmacyList.get(i), "Pharmacy", phonelists,i);
+        }
         Header.document.close();
         //------------------------------------------------------
         final Dialog dialog = new Dialog(getActivity());

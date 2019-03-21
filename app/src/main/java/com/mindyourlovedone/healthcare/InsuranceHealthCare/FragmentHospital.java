@@ -214,7 +214,11 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
 
 
         ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Specialty("Hospital", HospitalList);
+       // new Specialty("Hospital", HospitalList);
+        for(int i=0;i<HospitalList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(i).getId(),"Hospital");
+            new Specialty(HospitalList.get(i), "Hospital", phonelists,i);
+        }
         Header.document.close();
 
         //----------------------------------------------------

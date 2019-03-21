@@ -210,7 +210,12 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                 Header.addEmptyLine(2);*/
 
         ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Specialty(1, financeList);
+      // new Specialty(1, financeList);
+
+        for(int i=0;i<financeList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), financeList.get(i).getId(),"Finance");
+            new Specialty(financeList.get(i), "Finance", phonelists,i);
+        }
 
         Header.document.close();
         //-------------------------------------------------------------
