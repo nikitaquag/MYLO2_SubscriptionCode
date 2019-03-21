@@ -874,11 +874,27 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             // ArrayList<Aides> AidesList= AideQuery.fetchAllAideRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
-            new Specialty(specialistsList, "Doctors");
-            new Specialty("Hospital", HospitalList);
-            new Specialty(PharmacyList);
+           // new Specialty(specialistsList, "Doctors");
+            for(int i=0;i<specialistsList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+                new Specialty(specialistsList.get(i), "Doctors", phonelists,i);
+            }
+           // new Specialty("Hospital", HospitalList);
+            for(int i=0;i<HospitalList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(i).getId(),"Hospital");
+                new Specialty(HospitalList.get(i), "Hospital", phonelists,i);
+            }
+           // new Specialty(PharmacyList);
+            for(int i=0;i<PharmacyList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), PharmacyList.get(i).getId(),"Pharmacy");
+                new Specialty(PharmacyList.get(i), "Pharmacy", phonelists,i);
+            }
             //   new Specialty(AidesList,1);
-            new Specialty(1, financeList);
+           // new Specialty(1, financeList);
+            for(int i=0;i<financeList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), financeList.get(i).getId(),"Finance");
+                new Specialty(financeList.get(i), "Finance", phonelists,i);
+            }
 
             Header.document.close();
 

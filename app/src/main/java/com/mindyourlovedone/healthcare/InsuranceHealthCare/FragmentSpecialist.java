@@ -41,6 +41,7 @@ import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -429,7 +430,12 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                 Header.addEmptyLine(2);*/
 
         ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-        new Specialty(specialistsList, "Doctors");
+
+        for(int i=0;i<specialistsList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+            new Specialty(specialistsList.get(i), "Doctors", phonelists,i);
+        }
+
         Header.document.close();
 
         //--------------------------------------------------------
