@@ -3,16 +3,21 @@ package com.mindyourlovedone.healthcare.DashBoard;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.IdRes;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.FileProvider;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
@@ -25,6 +30,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -33,8 +39,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
+import com.mindyourlovedone.healthcare.customview.TouchImageView;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DosageQuery;
 import com.mindyourlovedone.healthcare.database.PrescribeImageQuery;
@@ -74,7 +82,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     View view1;
     TextView txtPhotoHeader;//Shradha
     ImageView txtAddPhoto, imgBack, imgAddDosage, imgAddPhoto, imgDone;
-    ListView ListDosage, ListPhoto;
+    ListView ListDosage;//ListPhoto;
     ArrayList<Dosage> dosageList = new ArrayList<>();
     ArrayList<PrescribeImage> imageList = new ArrayList<>();
     ArrayList<PrescribeImage> imageListOld = new ArrayList<>();
@@ -96,7 +104,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     int unique;
     boolean isEdit, isView;//Shradha
     int id, colid, dosageid, imageid;
-
+LinearLayout casts_container;
     ImageLoader imageLoader;
     DisplayImageOptions displayImageOptions;
 
@@ -164,7 +172,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     private void initUI() {
 
         view1 = findViewById(R.id.view1);//Shradha
-
+        casts_container= findViewById(R.id.casts_container);//nikita
         txtPhotoHeader = findViewById(R.id.txtPhotoHeader);//Shradha
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
@@ -188,22 +196,22 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
         txtAddPhoto = findViewById(R.id.txtAddPhoto);
         llAddPrescription = findViewById(R.id.llAddPrescription);
         ListDosage = findViewById(R.id.ListDosage);
-        ListPhoto = findViewById(R.id.ListPhoto);
+//        ListPhoto = findViewById(R.id.ListPhoto);
         imgDone = findViewById(R.id.imgDone);
         etNote = findViewById(R.id.etNote);
         txtNote = findViewById(R.id.txtNote);
         txtSave = findViewById(R.id.txtSave);
 
-        ListPhoto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(context, ViewImageActivity.class);
-                i.putExtra("Image", imageList.get(position).getImage());
-                currentImage = imageList.get(position).getImage();
-                startActivityForResult(i, REQUEST_CARD);
-                Log.v("@shradha", imageList.get(position).getImage());
-            }
-        });
+//        ListPhoto.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent i = new Intent(context, ViewImageActivity.class);
+//                i.putExtra("Image", imageList.get(position).getImage());
+//                currentImage = imageList.get(position).getImage();
+//                startActivityForResult(i, REQUEST_CARD);
+//                Log.v("@shradha", imageList.get(position).getImage());
+//            }
+//        });
 
         tbPre.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -272,7 +280,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
 
             isEdit = i.getExtras().getBoolean("IsEdit");
             if (isEdit == true) {
-                txtTitle.setText("Update Prescription");
+                txtTitle.setText("Edit Prescription");
                 id = p.getUnique();
                 uniqID = p.getUnique();
                 userid = p.getUserid();
@@ -297,9 +305,9 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 imageListOld = imageList;
                 setDosageData();
                 setImageListData();
-            } /*else {
+            }else {
                 txtTitle.setText("Add Prescription");
-            }*/
+            }
         }
 
         ListDosage.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -450,6 +458,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                 textOption1.setText("Take Picture");
                 textOption2.setText("Gallery");
                 textOption3.setText("Remove Picture");
+                textOption3.setVisibility(View.GONE);
                 dialog.setContentView(dialogview);
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
@@ -500,7 +509,7 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
                                 Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 imageList.remove(a);
                                 setImageListData();
-                                ListPhoto.requestFocus();
+//                                ListPhoto.requestFocus();
                             } else {
                                 Toast.makeText(context, "Record not found", Toast.LENGTH_SHORT).show();
                             }
@@ -806,9 +815,177 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     }
 
     private void setImageListData() {
-        ImageAdapter adapter = new ImageAdapter(context, imageList);
-        ListPhoto.setAdapter(adapter);
+
+        casts_container.removeAllViews();
+        //create LayoutInflator class
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        int size = imageList.size();
+        for (int i = 0; i < size; i++) {
+            PrescribeImage cast = imageList.get(i);
+// create dynamic LinearLayout and set Image on it.
+            if (cast != null) {
+                LinearLayout clickableColumn = (LinearLayout) inflater.inflate(
+                        R.layout.img_presc, null);
+                ImageView thumbnailImage = (ImageView) clickableColumn
+                        .findViewById(R.id.img);
+                ImageView imgdelete = (ImageView) clickableColumn
+                        .findViewById(R.id.imgdelete);
+
+                if (!cast.getImage().equals("")) {
+                    File imgFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH) + cast.getImage());
+                    imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), thumbnailImage, displayImageOptions);
+                }
+                thumbnailImage.setTag(cast);
+                imgdelete.setTag(cast);
+                thumbnailImage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        PrescribeImage pp = (PrescribeImage)view.getTag();
+//                        Intent i = new Intent(context, ViewImageActivity.class);
+//                        i.putExtra("Image", pp.getImage());
+//                        currentImage = pp.getImage();
+//                        startActivityForResult(i, REQUEST_CARD);
+                        showFloatDialog(pp.getImage());
+                    }
+                });
+
+                imgdelete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        PrescribeImage pp = (PrescribeImage)view.getTag();
+                        boolean flag = PrescribeImageQuery.deleteImageRecord(pp.getId());
+                        if (flag == true) {
+                            Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
+                            imageList.remove(pp);
+                            setImageListData();
+                        }
+                    }
+                });
+//        ImageAdapter adapter = new ImageAdapter(context, imageList);
+//        ListPhoto.setAdapter(adapter);
+
+                casts_container.addView(clickableColumn);
+            }
+        }
     }
 
+    File imgFile;
+    private void showFloatDialog(String path) {
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater)this
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_add_form, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        //floatContact.setImageResource(R.drawable.closee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        // floatNew.setImageResource(R.drawable.eyee);
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+
+
+        ImageView  imgBack,  imgDot;
+        TextView txtTitle;
+        TouchImageView imgDoc;
+        Preferences preferences;
+        Bitmap myBitmap;
+
+        imgBack = findViewById(R.id.imgBack);
+        imgDoc = findViewById(R.id.imgDoc);
+        txtTitle = findViewById(R.id.txtTitle);
+        imgDot = findViewById(R.id.imgDot);
+        txtTitle.setText("Prescription");
+        preferences = new Preferences(this);
+        File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), path);
+
+        if (imgFile1.exists()) {
+            myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
+            if (myBitmap.getWidth() > myBitmap.getHeight()) {
+                // imgDoc.setRotation(180);
+            } else {
+                imgDoc.setRotation(90);
+            }
+            imgDoc.setImageBitmap(myBitmap);
+
+            imgBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            imgDot.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    AlertDialog.Builder alert = new AlertDialog.Builder(AddPrescriptionActivity.this);
+                    alert.setTitle("Email ?");
+                    alert.setMessage("Do you want to email prescription ?");
+                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            File f = new File(imgFile.getAbsolutePath());
+                            emailAttachement(f, AddPrescriptionActivity.this, "Prescription Photo");
+                            dialog.dismiss();
+                        }
+                    });
+
+                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alert.show();
+                }
+            });
+            dialog.show();
+
+        }
+    }
+    private void emailAttachement(File f, Context context, String s) {
+        Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+
+        emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
+                new String[]{""});
+        String name = preferences.getString(PrefConstants.CONNECTED_NAME);
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, s); // subject
+
+
+        String body = "Hi, \n" +
+                "\n" +
+                "\n" + name +
+                " shared this document with you. Please check the attachment. \n" +
+                "\n" +
+                "Thanks,\n" +
+                name;
+        //"Mind Your Loved Ones - Support";
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
+
+        Uri uri = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            emailIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", f);
+        } else {
+            uri = Uri.fromFile(f);
+        }
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+//emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
+        emailIntent.setType("application/email");
+
+        context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+    }
 
 }

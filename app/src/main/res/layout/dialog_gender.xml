@@ -67,6 +67,7 @@
             android:background="@color/colorGray" />
 
         <TextView
+
             android:id="@+id/txtOption3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="#40000000"
     tools:context="com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity">
 
     <RelativeLayout
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension70dp"
-        android:background="@color/colorBlue">
+        >
 
         <ImageView
             android:id="@+id/imgBack"
@@ -68,6 +68,7 @@
         android:src="@drawable/imd_doc" />
 
     <ImageView
+        android:visibility="gone"
         android:id="@+id/imgDelete"
         android:layout_width="@dimen/dimension40dp"
         android:layout_height="@dimen/dimension40dp"
