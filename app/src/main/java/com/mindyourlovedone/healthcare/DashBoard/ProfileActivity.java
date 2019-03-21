@@ -2541,6 +2541,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         eyes=txtSpinEye.getText().toString();
         marital_status=txtSpinMarital.getText().toString();
         language=txtSpinLang.getText().toString();
+       OtherLang = txtOtherLanguage.getText().toString();
        /* int i = spinnerRelation.getSelectedItemPosition();
         if (i != 0)
             relation = Relationship[i - 1];
