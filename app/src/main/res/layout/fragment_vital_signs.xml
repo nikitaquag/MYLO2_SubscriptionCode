@@ -309,11 +309,9 @@
         <ImageView  android:layout_marginRight="@dimen/dimension5dp"
             android:tint="@color/colorLightGrays"
             android:id="@+id/imghelp"
-            android:layout_alignParentBottom="true"
             android:layout_toLeftOf="@+id/floatAdd"
             android:layout_above="@+id/vwbtm"
             android:src="@drawable/helparrow"
-            android:layout_marginBottom="@dimen/dimension5dp"
             android:layout_width="@dimen/dimension110dp"
             android:layout_height="@dimen/dimension150dp" />
 

@@ -29,11 +29,15 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.InsuranceHealthCare.FragmentPrescriptionInfo;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.DBHelper;
+import com.mindyourlovedone.healthcare.database.FormQuery;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
 import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionUpload;
+import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
@@ -61,6 +65,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
+    ArrayList<Form> documentList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -77,13 +82,23 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
     private void initComponent() {
         preferences = new Preferences(getActivity());
         dbHelper = new DBHelper(getActivity(), preferences.getString(PrefConstants.CONNECTED_USERDB));
-        //  HospitalHealthQuery f = new HospitalHealthQuery(getActivity(), dbHelper);
+        PrescriptionUpload i = new PrescriptionUpload(getActivity(), dbHelper);
     }
 
     private void setListData() {
-        if (prescriptonUploadList.size() != 0) {
-            PrescriptionUploadAdapter presUploadAdapter = new PrescriptionUploadAdapter(getActivity(), prescriptonUploadList, FragmentPrescriptionUpload.this);
-            lvPrescriptionUpload.setAdapter(presUploadAdapter);
+//        if (prescriptonUploadList.size() != 0) {
+//            PrescriptionUploadAdapter presUploadAdapter = new PrescriptionUploadAdapter(getActivity(), prescriptonUploadList, FragmentPrescriptionUpload.this);
+//            lvPrescriptionUpload.setAdapter(presUploadAdapter);
+//            lvPrescriptionUpload.setVisibility(View.VISIBLE);
+//            rlGuide.setVisibility(View.GONE);
+//        } else {
+//            lvPrescriptionUpload.setVisibility(View.GONE);
+//            rlGuide.setVisibility(View.VISIBLE);
+//        }
+
+        if (documentList.size() != 0) {
+            PresDocumentsAdapter insuranceAdapter = new PresDocumentsAdapter(getActivity(), documentList, FragmentPrescriptionUpload.this);
+            lvPrescriptionUpload.setAdapter(insuranceAdapter);
             lvPrescriptionUpload.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
         } else {
@@ -92,6 +107,33 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         }
     }
 
+    public void deleteDocument(final Form item) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle("Delete");
+        alert.setMessage("Do you want to Delete this record?");
+        alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean flag = PrescriptionUpload.deleteRecord(item.getId());
+                if (flag == true) {
+                    Toast.makeText(getActivity(), "Deleted", Toast.LENGTH_SHORT).show();
+                    getData();
+                    setListData();
+                }
+                dialog.dismiss();
+            }
+        });
+
+        alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
 
     private void initListener() {
         llAddPrescriptionUpload.setOnClickListener(this);
@@ -169,12 +211,12 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         lvPrescriptionUpload.setLayoutManager(linearLayoutManager);
 
-        //add ItemDecoration
-        lvPrescriptionUpload.addItemDecoration(new VerticalSpaceItemDecoration(48));
-
-        //or
-        lvPrescriptionUpload.addItemDecoration(
-                new DividerItemDecoration(getActivity(), R.drawable.divider));
+//        //add ItemDecoration
+//        lvPrescriptionUpload.addItemDecoration(new VerticalSpaceItemDecoration(48));
+//
+//        //or
+//        lvPrescriptionUpload.addItemDecoration(
+//                new DividerItemDecoration(getActivity(), R.drawable.divider));
         //...
     }
 
@@ -220,6 +262,8 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
     }
 
     private void getData() {
+        documentList = new ArrayList<>();
+        documentList = PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         // prescriptonUploadList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
        /* FinanceList=new ArrayList<>();
 
@@ -384,9 +428,9 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivity(intentDashboard);
                 break;
             case R.id.floatAdd:
-//                Intent is = new Intent(getActivity(), AddPrescriptionActivity.class);
-//                is.putExtra("IsEdit", false);
-//                startActivityForResult(is, 100);
+                Intent is = new Intent(getActivity(),PrescriptionUploadActivity.class);
+                is.putExtra("GoTo", "Add");
+                startActivityForResult(is, 100);
                 break;
             case R.id.floatOptions:
                 showFloatOption();
@@ -548,7 +592,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
     public void onResume() {
         super.onResume();
         getData();
-        // setListData();
+        setListData();
     }
 }
 

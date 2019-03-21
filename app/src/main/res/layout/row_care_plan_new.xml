@@ -127,7 +127,7 @@
             android:layout_height="@dimen/dimension1dp"
             android:layout_below="@+id/rlFix"
             android:layout_marginBottom="@dimen/dimension5dp"
-            android:background="@color/colorOnesGray" />
+            android:background="@color/colordivideGray" />
 
     </RelativeLayout>
 </com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout>

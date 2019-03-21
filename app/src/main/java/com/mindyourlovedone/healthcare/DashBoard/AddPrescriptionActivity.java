@@ -72,8 +72,8 @@ public class AddPrescriptionActivity extends AppCompatActivity implements View.O
     ContentValues values = null;
     int userid, uniqID;
     View view1;
-    TextView txtPhotoHeader, txtAddPhoto;//Shradha
-    ImageView imgBack, imgAddDosage, imgAddPhoto, imgDone;
+    TextView txtPhotoHeader;//Shradha
+    ImageView txtAddPhoto, imgBack, imgAddDosage, imgAddPhoto, imgDone;
     ListView ListDosage, ListPhoto;
     ArrayList<Dosage> dosageList = new ArrayList<>();
     ArrayList<PrescribeImage> imageList = new ArrayList<>();

@@ -9,10 +9,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorLightBlue"
+        android:background="@color/colorOnesGray"
         tools:context="com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity">
 
         <RelativeLayout
+            android:layout_alignParentTop="true"
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension70dp"
@@ -20,49 +21,51 @@
 
             <ImageView
                 android:id="@+id/imgBack"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension50dp"
+                android:layout_width="@dimen/dimension35dp"
+                android:layout_height="@dimen/dimension40dp"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
                 android:src="@drawable/backward_arrow" />
 
             <ImageView
                 android:id="@+id/imgHome"
-                android:layout_width="@dimen/dimension35dp"
-                android:layout_height="@dimen/dimension30dp"
-                android:layout_centerInParent="true"
+                android:layout_width="@dimen/dimension25dp"
+                android:layout_height="@dimen/dimension25dp"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dimension5dp"
                 android:layout_toRightOf="@+id/imgBack"
                 android:src="@drawable/homes" />
 
             <TextView
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:gravity="center"
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/dimension20dp"
                 android:text="Add/Edit Prescription"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
-
-                android:textSize="@dimen/dimension20dp" />
+                android:fontFamily="@font/lato"
+                android:textSize="@dimen/dimension18dp" />
 
             <TextView
+                android:layout_marginLeft="@dimen/dimension5dp"
                 android:id="@+id/txtSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension10dp"
                 android:paddingLeft="@dimen/dimension5dp"
+                android:fontFamily="@font/lato"
                 android:paddingRight="@dimen/dimension5dp"
                 android:text="Save"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/dimension20dp"
+                android:textSize="@dimen/dimension18dp"
                 android:textStyle="bold" />
 
 
@@ -78,551 +81,660 @@
         </RelativeLayout>
 
         <!---->
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilMedicine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@+id/rlDosage"
-            android:layout_marginTop="@dimen/dimension20dp"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtMedicine"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Name of Medication or Supplement"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp"
-
-                />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilDose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@+id/tilMedicine"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtDose"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Dosage"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilFrequency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@+id/tilDose"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtFrequency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Frequency"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilRX"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@+id/tilFrequency"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtRX"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="RX#"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_below="@+id/viewPres1"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Prescribing Doctor"
-                android:imeOptions="actionNext"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-        <View
-            android:id="@+id/viewPres2"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension10dp"
-            android:layout_below="@+id/tilTitle"
-            android:background="@color/colorOnesGray" />
-
         <RelativeLayout
-            android:id="@+id/rlPre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/viewPres2"
-            android:layout_toRightOf="@+id/imgAides"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
+            android:layout_below="@+id/header"
+            android:layout_marginBottom="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:background="@color/colorWhite">
 
-            <TextView
-                android:id="@+id/txtPre"
-                style="@style/EmergencyDesc"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilMedicine"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension50dp"
-                android:layout_marginLeft="@dimen/dimension5dp"
-                android:layout_toLeftOf="@+id/tbPre"
-                android:gravity="center_vertical"
-                android:padding="@dimen/dimension5dp"
-                android:text="Over-the-counter"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <RadioGroup
-                android:id="@+id/rgCounter"
-                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/dimension5dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPre"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension8dp"
 
-                <RadioButton
-                    android:id="@+id/rbYes"
-                    android:layout_width="wrap_content"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtMedicine"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dimension10dp"
-                    android:layout_marginRight="@dimen/dimension10dp"
-                    android:text="Yes"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Name of Medication or Supplement"
+                    android:imeOptions="actionNext"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
 
                     />
 
-                <RadioButton
-                    android:id="@+id/rbNo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="No"
-                    android:textSize="@dimen/dimension18dp" />
-            </RadioGroup>
+                <requestFocus />
 
-            <ToggleButton
-                android:id="@+id/tbPre"
-                android:layout_width="@dimen/dimension90dp"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimension15dp"
-                android:background="@drawable/toggle_selector"
-                android:checked="false"
-                android:gravity="center_vertical"
-                android:text=""
-                android:textOff=""
-                android:textOn="" />
-        </RelativeLayout>
-        <View
-            android:id="@+id/viewPres3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension10dp"
-            android:layout_below="@+id/rlPre"
-            android:background="@color/colorOnesGray" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilPurpose"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtDate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Date of Prescription"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <View
-            android:id="@+id/viewPres1"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension10dp"
-            android:layout_below="@+id/tilDate"
-            android:background="@color/colorOnesGray" />
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilPurpose"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilRX"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtPurpose"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Treatment For"
-                android:imeOptions="actionNext"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp" />
-
-            <requestFocus />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:id="@+id/tilRX1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilPurpose"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:descendantFocusability="beforeDescendants"
-            android:focusableInTouchMode="true"
-            
-            android:paddingTop="@dimen/dimension8dp"
-            
-            android:paddingBottom="@dimen/dimension8dp"
-            android:visibility="gone">
-
-            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-            <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                android:id="@+id/txtRX1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="RX#"
-                android:maxLines="1"
-                android:paddingLeft="@dimen/dimension15dp"
-                android:paddingTop="@dimen/dimension2dp"
-                android:singleLine="true"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/dimension20dp"
-                android:visibility="gone" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <com.mindyourlovedone.healthcare.customview.MySpinner
-            android:id="@+id/spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tilRX1"
-            android:layout_marginLeft="@dimen/dimension35dp"
-            android:layout_marginRight="@dimen/dimension35dp"
-            android:visibility="gone"
-            app:ms_arrowColor="@color/colorBlue"
-            app:ms_arrowSize="16dp"
-            app:ms_floatingLabelText="Dosage Form"
-            app:ms_hint="hint"
-            app:ms_multiline="true"
-            custom:ms_floatingLabelColor="@color/colorBlue"
-            custom:ms_hintColor="@color/colorDarkGray" />
-
-        <RelativeLayout
-            android:id="@+id/rlDosage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/header"
-            android:layout_marginLeft="@dimen/dimension30dp"
-            android:layout_marginTop="33dp"
-            android:layout_marginRight="@dimen/dimension30dp"
-            android:layout_marginBottom="@dimen/dimension10dp"
-            android:padding="@dimen/dimension5dp"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/txtDosageHeader"
-                style="@style/EmergencyCategory"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_marginLeft="@dimen/dimension5dp"
-                android:background="@color/colorLightBlue"
-                android:text="Medicine and Dosage"
-                android:textColor="@color/colorDarkGray" />
-
-            <ImageView
-                android:id="@+id/imgAddDosage"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_alignParentRight="true"
-                android:padding="@dimen/dimension5dp"
-                android:src="@drawable/add_square" />
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
-                android:layout_below="@+id/txtDosageHeader"
-                android:background="@color/colorDarkGray"></View>
-
-            <com.mindyourlovedone.healthcare.customview.NonScrollListView
-                android:id="@+id/ListDosage"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/view"
-                android:divider="@null" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/rlNote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/viewPres3"
-            android:background="@color/colorLightBlue"
-            android:padding="@dimen/dimension5dp">
-
-            <TextView
-                android:id="@+id/txtPetHeader"
-                style="@style/EmergencyCategory"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_marginLeft="@dimen/dimension10dp"
-                android:background="@color/colorLightBlue"
-                android:paddingLeft="@dimen/dimension10dp"
-                android:text="Notes"
-                android:textColor="@color/colorDarkGray" />
-
-            <EditText
-                android:id="@+id/etNote"
-                style="@style/EmergencyDesc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/txtPetHeader"
-                android:layout_margin="@dimen/dimension8dp"
-                android:background="@drawable/darkgray_white_border"
-                android:gravity="top"
-                android:imeOptions="actionNext"
-                android:padding="@dimen/dimension8dp" />
-
-            <requestFocus />
+            </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                android:id="@+id/tilDose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/etNote"
-                
-                
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilMedicine"
+                android:fontFamily="@font/lato"
                 android:paddingBottom="@dimen/dimension8dp"
-                android:visibility="gone">
 
+                android:paddingTop="@dimen/dimension8dp"
+
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                 <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+                    android:id="@+id/txtDose"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Notes"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Dosage"
                     android:imeOptions="actionNext"
-                    android:maxLength="30"
-                    android:maxLines="3"
-                    android:paddingLeft="@dimen/dimension15dp"
+                    
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/dimension20dp" />
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
 
                 <requestFocus />
+
             </android.support.design.widget.TextInputLayout>
-        </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/rlPhoto"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/rlNote"
-            android:layout_marginTop="@dimen/dimension15dp"
-            android:padding="@dimen/dimension5dp">
-
-            <TextView
-                android:id="@+id/txtPhotoHeader"
-                style="@style/EmergencyCategory"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@+id/imgAddPhoto"
-                android:layout_toLeftOf="@+id/imgAddPhoto"
-                android:background="@color/colorLightBlue"
-                android:text="Add Photo of Prescription"
-                android:textColor="@color/colorDarkGray"
-                android:textStyle="bold" />
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilDose"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
 
-            <TextView
-                android:id="@+id/txtAddPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dimension5dp"
-                android:layout_marginBottom="@dimen/dimension15dp"
-                android:gravity="center_vertical"
-                android:text="Add"
-                android:textColor="#005EB6"
-                android:textSize="@dimen/dimension20dp"
-                android:textStyle="bold"
-                android:visibility="visible" />
+                android:paddingTop="@dimen/dimension8dp"
 
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
 
-            <ImageView
-                android:id="@+id/imgAddPhoto"
-                android:layout_width="@dimen/dimension40dp"
-                android:layout_height="@dimen/dimension40dp"
-                android:layout_alignParentRight="true"
-                android:padding="@dimen/dimension5dp"
-                android:src="@drawable/add_square"
-                android:visibility="gone" />
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtFrequency"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Frequency"
+                    android:imeOptions="actionNext"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <requestFocus />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilFrequency"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                android:paddingTop="@dimen/dimension8dp"
+
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtRX"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="RX#"
+                    android:imeOptions="actionNext"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <requestFocus />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/viewPres1"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                android:paddingTop="@dimen/dimension8dp"
+
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Prescribing Doctor"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <requestFocus />
+
+            </android.support.design.widget.TextInputLayout>
 
             <View
-                android:id="@+id/view1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dimension1dp"
-                android:layout_below="@+id/txtPhotoHeader"
-                android:visibility="gone"
-                android:background="@color/colorDarkGray"></View>
 
-            <com.mindyourlovedone.healthcare.customview.NonScrollListView
-                android:id="@+id/ListPhoto"
+                android:id="@+id/viewPres2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension10dp"
+                android:layout_below="@+id/tilTitle"
+                android:background="@color/colorOnesGray" />
+
+            <RelativeLayout
+                android:id="@+id/rlPre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/view1"
-                android:divider="@null" />
+                android:layout_below="@+id/viewPres2"
+                android:layout_toRightOf="@+id/imgAides"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
 
-        </RelativeLayout>
+                android:paddingBottom="@dimen/dimension8dp"
 
-        <RelativeLayout
-            android:id="@+id/llAddPrescription"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimension60dp"
-            android:layout_below="@+id/rlPhoto"
-            android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_marginTop="@dimen/dimension15dp"
-            android:layout_marginRight="@dimen/dimension15dp"
-            android:background="@color/colorGreen"
-            android:visibility="gone">
+                android:paddingTop="@dimen/dimension8dp">
 
-            <ImageView
-                android:id="@+id/imgAdd"
-                android:layout_width="@dimen/dimension60dp"
-                android:layout_height="@dimen/dimension60dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/adddoc" />
+                <TextView
+                    android:id="@+id/txtPre"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:layout_toLeftOf="@+id/tbPre"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center_vertical"
+                    android:padding="@dimen/dimension5dp"
+                    android:text="Over-the-counter"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
 
-            <TextView
-                android:id="@+id/txtAdd"
+                <RadioGroup
+                    android:id="@+id/rgCounter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtPre"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension10dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:text="Yes"
+                        android:textSize="@dimen/dimension18dp"
+
+                        />
+
+                    <RadioButton
+                        android:id="@+id/rbNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="No"
+                        android:textSize="@dimen/dimension18dp" />
+                </RadioGroup>
+
+                <ToggleButton
+                    android:id="@+id/tbPre"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/viewPres3"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension10dp"
+                android:layout_below="@+id/rlPre"
+                android:background="@color/colorOnesGray" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilPurpose"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                android:paddingTop="@dimen/dimension8dp"
+
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Date of Prescription"
+                    android:imeOptions="actionNext"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <requestFocus />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <View
+                android:id="@+id/viewPres1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimension10dp"
+                android:layout_below="@+id/tilDate"
+                android:background="@color/colorOnesGray" />
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPurpose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilRX"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="Treatment For"
+                    android:imeOptions="actionNext"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp" />
+
+                <requestFocus />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilRX1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tilPurpose"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/lato"
+                android:paddingBottom="@dimen/dimension8dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+
+                android:visibility="gone"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                <AutoCompleteTextView
+                    android:id="@+id/txtRX1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:fontFamily="@font/lato"
+                    android:hint="RX#"
+                    android:maxLines="1"
+                    
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    android:visibility="gone" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <com.mindyourlovedone.healthcare.customview.MySpinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilRX1"
+                android:layout_marginLeft="@dimen/dimension35dp"
+                android:layout_marginRight="@dimen/dimension35dp"
+                android:fontFamily="@font/lato"
+                android:visibility="gone"
+                app:ms_arrowColor="@color/colorBlue"
+                app:ms_arrowSize="16dp"
+                app:ms_floatingLabelText="Dosage Form"
+                app:ms_hint="hint"
+                app:ms_multiline="true"
+                custom:ms_floatingLabelColor="@color/colorBlue"
+                custom:ms_hintColor="@color/colorDarkGray" />
+
+            <RelativeLayout
+                android:id="@+id/rlDosage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:layout_marginLeft="@dimen/dimension30dp"
+                android:layout_marginRight="@dimen/dimension30dp"
+                android:layout_marginTop="33dp"
+                android:fontFamily="@font/lato"
+                android:padding="@dimen/dimension5dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/txtDosageHeader"
+                    style="@style/EmergencyCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:background="@color/colorLightBlue"
+                    android:fontFamily="@font/lato"
+                    android:text="Medicine and Dosage"
+                    android:textColor="@color/colorDarkGray" />
+
+                <ImageView
+                    android:id="@+id/imgAddDosage"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dimension5dp"
+                    android:src="@drawable/add_square" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_below="@+id/txtDosageHeader"
+                    android:background="@color/colorDarkGray"></View>
+
+                <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                    android:id="@+id/ListDosage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:divider="@null" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/viewPres3"
+                android:background="@color/colorLightBlue">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/txtPetHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
+                    android:fontFamily="@font/lato"
+                    android:paddingBottom="@dimen/dimension8dp"
+
+                    android:paddingTop="@dimen/dimension8dp"
+
+                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/etNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colordivideGray"
+                        android:fontFamily="@font/lato"
+                        android:hint="Note"
+                        android:imeOptions="actionNext"
+                        android:maxLines="1"
+                        
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <requestFocus />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <!--<TextView-->
+                <!--android:id="@+id/txtPetHeader"-->
+                <!--style="@style/EmergencyCategory"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/dimension40dp"-->
+                <!--android:layout_marginLeft="@dimen/dimension10dp"-->
+                <!--android:background="@color/colorLightBlue"-->
+                <!--android:fontFamily="@font/lato"-->
+                <!--android:paddingLeft="@dimen/dimension10dp"-->
+                <!--android:text="Notes"-->
+                <!--android:textColor="@color/colorDarkGray" />-->
+
+                <!--<EditText-->
+                <!--android:id="@+id/etNote"-->
+                <!--style="@style/EmergencyDesc"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/txtPetHeader"-->
+                <!--android:layout_margin="@dimen/dimension8dp"-->
+                <!--android:background="@drawable/darkgray_white_border"-->
+                <!--android:fontFamily="@font/lato"-->
+                <!--android:gravity="top"-->
+                <!--android:imeOptions="actionNext"-->
+                <!--android:padding="@dimen/dimension8dp" />-->
+
+                <!--<requestFocus />-->
+
+                <View
+                    android:id="@+id/viewPres31"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/txtPetHeader"
+                    android:background="@color/colorOnesGray" />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewPres31"
+                    android:fontFamily="@font/lato"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colordivideGray"
+                        android:fontFamily="@font/lato"
+                        android:hint="Notes"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="3"
+                        
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlackDark"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginLeft="@dimen/dimension10dp"
+                android:layout_marginRight="@dimen/dimension10dp"
+                android:id="@+id/rlPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlNote"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:padding="@dimen/dimension5dp">
+
+                <RelativeLayout
+                    android:id="@+id/relh"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:id="@+id/txtPhotoHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/colorLightBlue"
+                    android:fontFamily="@font/lato"
+                    android:text="Add Photo of Prescription"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="normal" />
+
+                <ImageView
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/add_n"
+                    android:id="@+id/txtAddPhoto"
+                    android:layout_width="@dimen/dimension35dp"
+                    android:layout_height="@dimen/dimension35dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center_vertical"
+                    android:text="Add"
+                    android:textColor="#005EB6"
+                    android:textSize="@dimen/dimension18dp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:id="@+id/imgAddPhoto"
+                    android:layout_width="@dimen/dimension40dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/dimension5dp"
+                    android:src="@drawable/add_square"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_below="@+id/relh"
+                    android:background="@color/colordivideGray"
+                    android:visibility="visible"></View>
+
+                <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                    android:id="@+id/ListPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view1"
+                    android:divider="@null" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/llAddPrescription"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimension60dp"
-                android:layout_toRightOf="@+id/imgAdd"
-                android:gravity="center"
-                android:text="Add"
-                android:textColor="#FFFFFF"
-                android:textSize="@dimen/dimension24dp" />
-        </RelativeLayout>
+                android:layout_below="@+id/rlPhoto"
+                android:layout_marginLeft="@dimen/dimension15dp"
+                android:layout_marginRight="@dimen/dimension15dp"
+                android:layout_marginTop="@dimen/dimension15dp"
+                android:background="@color/colorGreen"
+                android:visibility="gone">
 
+                <ImageView
+                    android:id="@+id/imgAdd"
+                    android:layout_width="@dimen/dimension60dp"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/adddoc" />
+
+                <TextView
+                    android:id="@+id/txtAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension60dp"
+                    android:layout_toRightOf="@+id/imgAdd"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:text="Add"
+                    android:textColor="#FFFFFF"
+                    android:textSize="@dimen/dimension24dp" />
+            </RelativeLayout>
+        </RelativeLayout>
     </RelativeLayout>
 </ScrollView>
