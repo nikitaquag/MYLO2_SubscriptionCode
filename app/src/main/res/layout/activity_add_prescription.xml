@@ -690,6 +690,8 @@
                     android:visibility="gone" />
 
                 <View
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
                     android:id="@+id/view1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension1dp"

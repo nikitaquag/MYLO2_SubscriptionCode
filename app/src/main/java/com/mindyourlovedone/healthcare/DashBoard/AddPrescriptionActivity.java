@@ -900,14 +900,14 @@ LinearLayout casts_container;
         Preferences preferences;
         Bitmap myBitmap;
 
-        imgBack = findViewById(R.id.imgBack);
-        imgDoc = findViewById(R.id.imgDoc);
-        txtTitle = findViewById(R.id.txtTitle);
-        imgDot = findViewById(R.id.imgDot);
+        imgBack = dialogview.findViewById(R.id.imgBack);
+        imgDoc = dialogview.findViewById(R.id.imgDoc);
+        txtTitle = dialogview.findViewById(R.id.txtTitle);
+        imgDot = dialogview.findViewById(R.id.imgDot);
         txtTitle.setText("Prescription");
         preferences = new Preferences(this);
         File imgFile1 = new File(preferences.getString(PrefConstants.CONNECTED_PATH), path);
-
+        imgFile = new File(path);
         if (imgFile1.exists()) {
             myBitmap = BitmapFactory.decodeFile(imgFile1.getAbsolutePath());
             if (myBitmap.getWidth() > myBitmap.getHeight()) {
