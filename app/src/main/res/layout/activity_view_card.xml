@@ -274,11 +274,14 @@
             android:id="@+id/lldelete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:gravity="center"
+            android:paddingLeft="@dimen/dimension20dp"
+            android:paddingRight="@dimen/dimension20dp"
+            >
 
             <TextView
                 android:id="@+id/txtEdit"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
@@ -295,10 +298,12 @@
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension18dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+
+                android:layout_weight="1"/>
             <TextView
                 android:id="@+id/txtDelete"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
@@ -307,7 +312,7 @@
                 android:drawableLeft="@drawable/deletebox"
                 android:drawablePadding="@dimen/dimension10dp"
                 android:layout_gravity="center"
-
+android:layout_marginRight="@dimen/dimension20dp"
                 android:paddingLeft="@dimen/dimension40dp"
                 android:paddingTop="@dimen/dimension11dp"
                 android:paddingRight="@dimen/dimension40dp"
@@ -318,6 +323,7 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/dimension18dp"
                 android:textStyle="bold"
+                android:layout_weight="1"
                 />
         </LinearLayout>
     </FrameLayout>
