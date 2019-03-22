@@ -381,6 +381,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgAdd.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
             imgDoc.setClickable(true);
+            floatOptions.setVisibility(View.VISIBLE);
            // rlDelete.setVisibility(View.VISIBLE);
             flDelete.setVisibility(View.VISIBLE);
             disableView();
@@ -391,10 +392,12 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgAdd.setVisibility(View.GONE);
            // rlDelete.setVisibility(View.VISIBLE);
             flDelete.setVisibility(View.VISIBLE);
+            floatOptions.setVisibility(View.VISIBLE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Edit File");
          //   imgDoc.setClickable(false);
         } else {
+            floatOptions.setVisibility(View.GONE);
             txtSave.setVisibility(View.VISIBLE);
             //imgDone.setVisibility(View.VISIBLE);
             imgDot.setVisibility(View.GONE);
