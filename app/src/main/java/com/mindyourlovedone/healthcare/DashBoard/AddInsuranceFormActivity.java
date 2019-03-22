@@ -69,6 +69,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     String path = "";
     String date = "";
     String Goto = "";
+     TextView txtTitle;
     int id;
 
     @Override
@@ -110,7 +111,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         rlDocument = findViewById(R.id.rlDocument);
         flDelete = findViewById(R.id.flDelete);
         imgEdit = findViewById(R.id.imgEdit);
-
+        txtTitle = findViewById(R.id.txtTitle);
         txtName.setClickable(false);
         txtName.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -158,6 +159,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             // imgDone.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
+            txtTitle.setText("Update Insurance Form");
             //txtAdd.setText("Edit File");
         } else {
             imgDot.setVisibility(View.GONE);
@@ -169,6 +171,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             // imgDone.setVisibility(View.VISIBLE);
             imgAdd.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
+            txtTitle.setText("Add Insurance Form");
             txtAdd.setText("Select File");
         }
 
