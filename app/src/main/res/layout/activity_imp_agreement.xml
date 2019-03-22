@@ -49,7 +49,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+            <TextView
+            android:id="@+id/txtTop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:fontFamily="@font/lato"
+            android:text="MYLO Important Information"
+            android:textColor="@color/colorBlackDark"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dimension10dp"
+            />
 
+            <TextView
+                android:id="@+id/txtsubTop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:fontFamily="@font/lato"
+                android:paddingLeft="@dimen/dimension5dp"
+                android:paddingRight="@dimen/dimension5dp"
+                android:text="Please click each circle to indicate your understanding."
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/dimension16dp"
+                android:textStyle="bold"
+android:layout_marginTop="@dimen/dimension5dp"
+                />
 <!--
             <TextView
                 android:layout_width="match_parent"
@@ -156,7 +184,6 @@
                     android:gravity="center"
                     android:fontFamily="@font/lato"
                     android:layout_marginRight="@dimen/dimension10dp"
-
                     android:text="@string/Check2"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
@@ -254,6 +281,53 @@
 
                     android:fontFamily="@font/lato"
                     android:text="@string/Check4"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension18dp"
+                    tools:ignore="RtlCompat" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimension10dp"
+                android:padding="@dimen/dimension10dp">
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:id="@+id/checkedIcon5"
+                    android:visibility="gone"
+                    android:src="@drawable/checked"/>
+                <ImageView
+                    android:layout_width="@dimen/dimension30dp"
+                    android:layout_height="@dimen/dimension30dp"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+
+                    android:id="@+id/uncheckedIcon5"
+                    android:visibility="visible"
+                    android:src="@drawable/unchecked"/>
+
+                <!--
+                                <CheckBox
+                                    android:id="@+id/chk4"
+                                    android:layout_width="@dimen/dimension30dp"
+                                    android:layout_height="@dimen/dimension30dp"
+                                    android:layout_alignParentLeft="true"
+                                    android:button="@drawable/radiocheck"
+                                    android:checked="false" />
+                -->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/dimension15dp"
+
+                    android:gravity="center"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
+                    android:fontFamily="@font/lato"
+                    android:text="@string/Check5"
                     android:textAlignment="viewStart"
                     android:textColor="@color/colorBlackDark"
                     android:textSize="@dimen/dimension18dp"
