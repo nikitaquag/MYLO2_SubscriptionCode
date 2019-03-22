@@ -1018,7 +1018,12 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             ArrayList<Form> formList = FormQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
-            new InsurancePdf(insuranceList);
+           // new InsurancePdf(insuranceList);
+            for(int i=0;i<insuranceList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Insurance");
+                final ArrayList<ContactData> aphonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Agent");
+                new InsurancePdf(insuranceList.get(i), "Insurance", phonelists,i,aphonelists);
+            }
             new InsurancePdf(CardList, 1);
             new InsurancePdf(formList, "form");
 

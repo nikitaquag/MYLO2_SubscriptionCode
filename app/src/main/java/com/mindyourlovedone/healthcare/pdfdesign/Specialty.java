@@ -11,6 +11,7 @@ import com.mindyourlovedone.healthcare.model.Aides;
 import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
+import com.mindyourlovedone.healthcare.model.Insurance;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
 import com.mindyourlovedone.healthcare.model.Specialist;
 
@@ -2062,4 +2063,5 @@ public class Specialty {
             e.printStackTrace();
         }
     }
+
 }
