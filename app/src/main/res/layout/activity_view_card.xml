@@ -60,7 +60,7 @@
             android:layout_marginRight="@dimen/dimension10dp"
             android:layout_toLeftOf="@+id/imgRight"
             android:layout_toRightOf="@+id/txtTitle"
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/lato"
             android:paddingLeft="@dimen/dimension3dp"
             android:gravity="center"
             android:paddingRight="@dimen/dimension3dp"

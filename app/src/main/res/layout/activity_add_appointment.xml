@@ -206,6 +206,7 @@
                     android:layout_height="wrap_content"
                     android:hint="Name of Doctor(if applicable)"
                     android:maxLines="1"
+
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"

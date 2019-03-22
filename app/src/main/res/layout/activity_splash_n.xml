@@ -82,7 +82,7 @@
         >
 
         <TextView
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/lato"
             android:id="@+id/txtNew"
             android:layout_width="@dimen/dimension0dp"
             android:layout_height="wrap_content"
@@ -98,7 +98,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/lato"
             android:id="@+id/txtRegistered"
             android:layout_width="@dimen/dimension0dp"
             android:layout_height="wrap_content"
