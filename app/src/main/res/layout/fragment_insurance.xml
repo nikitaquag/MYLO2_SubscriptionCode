@@ -309,11 +309,11 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
             android:layout_above="@+id/imghelp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
-            android:fontFamily="@font/bold_lato"
+            android:fontFamily="@font/lato"
             android:text="Add a new Insurance Information!"
             android:textColor="@color/colorLightGrays"
             android:textSize="@dimen/dimension17dp"
-            android:textStyle="italic" />
+            android:textStyle="italic|bold" />
 
         <ImageView
             android:id="@+id/imghelp"

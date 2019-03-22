@@ -98,11 +98,11 @@
         android:layout_above="@+id/imghelp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="@dimen/dimension60dp"
-        android:fontFamily="@font/bold_lato"
+        android:fontFamily="@font/lato"
         android:text="Add a new Profiles!"
         android:textColor="@color/colorLightGrays"
-        android:textSize="@dimen/dimension22dp"
-        android:textStyle="italic" />
+        android:textSize="@dimen/dimension20dp"
+        android:textStyle="italic|bold" />
 
     <ImageView
         android:id="@+id/imghelp"

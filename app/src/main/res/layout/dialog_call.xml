@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dimension10dp"
         android:text="Calling Alert"
-        android:fontFamily="@font/lato_bold"
+        android:fontFamily="@font/lato"
         android:textColor="@color/colorBlue"
         android:textSize="@dimen/dimension24dp"
         android:textStyle="bold" />
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:padding="@dimen/dimension10dp"
-        android:fontFamily="@font/lato_bold"
+        android:fontFamily="@font/lato"
         android:text="Do you want to call this number?"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/dimension18dp" />

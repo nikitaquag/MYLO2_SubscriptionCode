@@ -1975,6 +1975,7 @@ android:visibility="gone"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -2030,7 +2031,7 @@ android:visibility="gone"
                             android:text="(Select One)"
                             android:textColor="@color/colorGray"
                             android:textSize="@dimen/dimension18dp"
-                            android:textStyle="italic"
+                            android:textStyle="italic|bold"
                             android:visibility="gone" />
 
                         <View

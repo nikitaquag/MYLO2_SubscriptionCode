@@ -89,7 +89,7 @@
                     android:ellipsize="end"
                     android:gravity="start|center_vertical"
                     android:paddingLeft="@dimen/dimension10dp"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:text="Cfklj kj ouio "
                     android:textColor="@color/colorDarkBlue"
                     android:textSize="@dimen/dimension20dp"

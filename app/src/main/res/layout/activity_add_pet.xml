@@ -50,7 +50,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dimension20dp"
                     android:text="Add Pet"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:textStyle="bold"
                     android:textColor="#FFFFFF"
                     android:textSize="@dimen/dimension22dp" />
@@ -63,7 +63,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginRight="@dimen/dimension15dp"
                     android:text="Save"
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/dimension20dp"

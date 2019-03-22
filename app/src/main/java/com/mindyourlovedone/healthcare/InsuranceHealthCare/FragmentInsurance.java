@@ -42,6 +42,7 @@ import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -202,7 +203,13 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                 // Header.addEmptyLine(2);*/
 
         ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new InsurancePdf(insuranceList);
+       //new InsurancePdf(insuranceList);
+        for(int i=0;i<insuranceList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Insurance");
+            final ArrayList<ContactData> aphonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Agent");
+            new InsurancePdf(insuranceList.get(i), "Insurance", phonelists,i,aphonelists);
+        }
+
         Header.document.close();
         //----------------------------------
         final Dialog dialog = new Dialog(getActivity());
