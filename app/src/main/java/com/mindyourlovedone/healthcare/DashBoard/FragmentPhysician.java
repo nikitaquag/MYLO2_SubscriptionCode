@@ -165,7 +165,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         txtTitle = getActivity().findViewById(R.id.txtTitle);
         txtTitle.setText("Primary Physician");
         rlGuide = rootview.findViewById(R.id.rlGuide);
-        imgRight = getActivity().findViewById(R.id.imgHelp);
+        imgRight = getActivity().findViewById(R.id.imgRight);
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
         llAddSpecialist = rootview.findViewById(R.id.llAddSpecialist);
         llAddSpecialist.setVisibility(View.INVISIBLE);
@@ -310,7 +310,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
                 // DialogManager dialogManager=new DialogManager(new FragmentSpecialist());
                 // dialogManager.showCommonDialog("Add?","Do you want to add new specialist?",getActivity(),"ADD_SPECIALIST",null);
                 break;*/
-            case R.id.imgHelp:
+            case R.id.imgRight:
                 Intent i = new Intent(getActivity(), InstructionActivity.class);
                 i.putExtra("From", "PhysicianInstruction");
                 startActivity(i);

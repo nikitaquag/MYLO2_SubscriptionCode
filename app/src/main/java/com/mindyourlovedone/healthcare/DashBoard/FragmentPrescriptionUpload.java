@@ -195,7 +195,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
             @Override
             public void onClick(View v) {
                 Intent intentEmerInstruc = new Intent(getActivity(), InstructionActivity.class);
-                intentEmerInstruc.putExtra("From", "PrescriptionInstruction");
+                intentEmerInstruc.putExtra("From", "PrescriptionUploadInstruction");
                 startActivity(intentEmerInstruc);
                 // relMsg.setVisibility(View.VISIBLE);
             }
@@ -442,7 +442,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 break;*/
             case R.id.imgRight:
                 Intent i = new Intent(getActivity(), InstructionActivity.class);
-                i.putExtra("From", "PrescriptionInstruction");
+                i.putExtra("From", "PrescriptionUploadInstruction");
                 startActivity(i);
 //                final String RESULT = Environment.getExternalStorageDirectory()
 //                        + "/mylopdf/";

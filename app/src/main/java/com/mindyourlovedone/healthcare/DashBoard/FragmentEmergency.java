@@ -166,7 +166,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         txtTitle.setVisibility(View.VISIBLE);
         txtTitle.setText("Emergency Contacts &\nHealth Care Proxy Agent");
         rlGuide = rootview.findViewById(R.id.rlGuide);
-        imgRight = getActivity().findViewById(R.id.imgHelp);
+        imgRight = getActivity().findViewById(R.id.imgRight);
         /*imgNoti = (ImageView) getActivity().findViewById(R.id.imgNoti);
         imgNoti.setVisibility(View.GONE);*/
         // imgADMTick= (ImageView) rootview.findViewById(imgADMTick);
@@ -401,7 +401,7 @@ emergencyList=new ArrayList<>();
                 startActivity(i);*/
                 break;
 
-            case R.id.imgHelp:
+            case R.id.imgRight:
 
                 Intent i = new Intent(getActivity(), InstructionActivity.class);
                 i.putExtra("From", "EmergencyInstruction");

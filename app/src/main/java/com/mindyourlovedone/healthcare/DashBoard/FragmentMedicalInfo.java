@@ -1128,8 +1128,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.imgRight:
-
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "Medical");
+                startActivity(i);
+              /*  final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -1158,10 +1160,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
                         "Medical Profile");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
                 final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Implant> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -1199,9 +1201,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Medical Profile");
                                 break;
-                           /* case 2://fax
+                           *//* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
 
                             case 2://fax
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
@@ -1213,7 +1215,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
 
             case R.id.imgVisionDrop:
