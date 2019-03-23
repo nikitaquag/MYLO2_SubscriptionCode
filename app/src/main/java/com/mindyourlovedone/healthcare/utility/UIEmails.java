@@ -19,8 +19,7 @@ public class UIEmails {
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[]{""});
         String name = preferences.getString(PrefConstants.CONNECTED_NAME);
-        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
-                name + " - " + s); // subject
+        emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, s); // subject
 
 
         String body = "Hi, \n" +
