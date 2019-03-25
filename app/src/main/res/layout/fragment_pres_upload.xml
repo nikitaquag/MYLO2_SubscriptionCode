@@ -294,7 +294,7 @@
             android:textStyle="italic|bold"
             android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Upload a new Prescription!"
+            android:text="Upon a New List of Prescriptions!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

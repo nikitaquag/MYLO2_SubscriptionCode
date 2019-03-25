@@ -141,7 +141,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
             from = i.getExtras().getString("FROM");
             if (from.equals("Speciality")) {
                 floatAdd.setVisibility(View.GONE);
-                txtTitle.setText("Speciality Contacts");
+                txtTitle.setText("Specialty Contacts");
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorSpecialitySub));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);

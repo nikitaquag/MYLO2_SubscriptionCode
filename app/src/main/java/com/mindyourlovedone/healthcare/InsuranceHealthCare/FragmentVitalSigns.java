@@ -288,6 +288,22 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Hospital.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Hospital.pdf";
@@ -299,22 +315,6 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                         getActivity(), result);
 
                 System.out.println("\n" + result + "\n");
-
-
-                dialog.dismiss();
-            }
-
-        });
-
-        floatContact.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String path = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/"
-                        + "/Hospital.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
-
                 dialog.dismiss();
             }
 

@@ -149,7 +149,9 @@
                     <RelativeLayout
                         android:layout_alignParentRight="true"
                         android:layout_width="@dimen/dimension85dp"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dimension10dp"
+                        >
 
                     <TextView
                         android:fontFamily="@font/lato"

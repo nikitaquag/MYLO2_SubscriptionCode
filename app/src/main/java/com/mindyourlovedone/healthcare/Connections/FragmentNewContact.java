@@ -2962,7 +2962,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "Insurance":
                 changeIcon(source);
-                rlInsured.setVisibility(View.VISIBLE);
+              //  rlInsured.setVisibility(View.VISIBLE);
                 visiInsurance();
                 txtAdd.setText("Add Insurance");
                 txtTitle.setText("Add Insurance");
@@ -2976,7 +2976,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "InsuranceData":
                 changeIcon(source);
                 visiInsurance();
-                rlInsured.setVisibility(View.VISIBLE);
+               // rlInsured.setVisibility(View.VISIBLE);
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
                 txtAdd.setText("Update Insurance");

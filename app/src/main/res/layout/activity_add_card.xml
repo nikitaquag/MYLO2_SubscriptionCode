@@ -157,7 +157,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:hint="Type Of Insurance"
+                    android:hint="Type of Insurance"
                     android:imeOptions="actionNext"
                     android:maxLength="30"
                     android:maxLines="1"

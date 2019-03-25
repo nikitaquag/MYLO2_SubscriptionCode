@@ -681,6 +681,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                             context.startActivity(intent);
                         }
                     }
+
                 }
                 break;
 

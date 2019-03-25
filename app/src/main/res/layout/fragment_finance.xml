@@ -295,7 +295,7 @@
             android:textStyle="italic|bold"
             android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Contacts!"
+            android:text="Add a new Contact!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

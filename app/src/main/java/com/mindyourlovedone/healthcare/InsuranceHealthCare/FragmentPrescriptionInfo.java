@@ -484,13 +484,8 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Prescription.pdf";
-
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getInsuranceInfo());
-                new PDFDocumentProcess(path,
-                                        getActivity(), result);
-                System.out.println("\n" + result + "\n");
-
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Prescription");
 
                 dialog.dismiss();
             }
@@ -500,11 +495,17 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Prescription.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Prescription");
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+                System.out.println("\n" + result + "\n");
 
                 dialog.dismiss();
             }

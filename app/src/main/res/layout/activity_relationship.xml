@@ -98,7 +98,7 @@
             android:background="@drawable/border_type"
             android:gravity="center"
             android:padding="@dimen/dimension5dp"
-            android:text="Type"
+            android:text="Test"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension16dp"

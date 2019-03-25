@@ -118,5 +118,5 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="AddContacts">Add From Contacts</string>
     <string name="EmailReports">Email Reports</string>
     <string name="ViewReports">View Reports</string>
-    <string name="ClickDirective"><u><b>Learn more</b></u> about Advance Directives,\nWhy they are important and how to compleet them.</string>
+    <string name="ClickDirective"><u><b>Click here</b></u> to learn more about Advance Care Directives – why they are so important and how to complete them.  </string>
 </resources>

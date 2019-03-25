@@ -58,14 +58,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Appoint> noteList = new ArrayList<>();
-    ImageView imgHome, imgBack, imgAdd, imgEdit, imgRight;
+    ImageView imgHome, imgBack, imgAdd, imgEdit, imgRight,imghelp;
     RelativeLayout rlGuide;
     Preferences preferences;
     ArrayList<DateClass> dateList;
     DBHelper dbHelper;
     RelativeLayout header;
     boolean flag = false;
-    TextView txtMsg, txtFTU, txtAdd;
+    TextView txtMsg, txtFTU, txtAdd,txthelp;
     ScrollView scrollvw;
    // FloatingActionButton floatProfile, floatAdd;
     ImageView floatProfile, floatAdd,floatOptions;
@@ -113,6 +113,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         floatOptions = findViewById(R.id.floatOptions);
         floatProfile = findViewById(R.id.floatProfile);
         floatAdd = findViewById(R.id.floatAdd);
+        txthelp = findViewById(R.id.txthelp);
+        imghelp = findViewById(R.id.imghelp);
         scrollvw = findViewById(R.id.scrollvw);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> an Appointment  click  the <b>plus</b> box " +
@@ -349,10 +351,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     public void setNoteData() {
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.GONE);
+            imghelp.setVisibility(View.GONE);
             rlGuide.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         } else {
             rlGuide.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
+            imghelp.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         }
@@ -715,7 +721,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 long selectedMilli = newDate.getTimeInMillis();
 
                 Date datePickerDate = new Date(selectedMilli);
-                String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+                String reportDate = new SimpleDateFormat("d MMM yyyy").format(datePickerDate);
 
                 DateClass d = new DateClass();
                 d.setDate(reportDate);

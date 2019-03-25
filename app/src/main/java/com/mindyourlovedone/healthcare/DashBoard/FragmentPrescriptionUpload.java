@@ -388,11 +388,8 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                         + "/mylopdf/"
                         + "/Prescription.pdf";
 
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getInsuranceInfo());
-                new PDFDocumentProcess(path,
-                        getActivity(), result);
-                System.out.println("\n" + result + "\n");
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Prescription");
 
 
                 dialog.dismiss();
@@ -406,8 +403,12 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Prescription.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Prescription");
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+                System.out.println("\n" + result + "\n");
+
 
                 dialog.dismiss();
             }
@@ -433,7 +434,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivityForResult(is, 100);
                 break;
             case R.id.floatOptions:
-                showFloatOption();
+               // showFloatOption();
                 break;
            /* case R.id.llAddHospital:
                 preferences.putString(PrefConstants.SOURCE, "Hospital");

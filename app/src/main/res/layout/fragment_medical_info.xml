@@ -88,7 +88,7 @@
                             android:layout_toLeftOf="@+id/txtAddAllergy"
                             android:layout_toRightOf="@+id/imgAllergy"
                             android:fontFamily="@font/lato"
-                            android:text="Allergies"
+                            android:text="Allergies &amp; Medication Reactions"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension18dp" />
 
@@ -3064,13 +3064,14 @@
                                         android:paddingTop="@dimen/dimension10dp"
                                         android:backgroundTint="@color/colordivideGray"
                                         android:background="@null"
+                                        android:fontFamily="@font/lato"
                                         android:id="@+id/txtBlood"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:hint="Blood Type"
                                         android:imeOptions="actionNext"
                                         android:textColor="@color/colorPrimaryDark"
-                                        android:textSize="@dimen/dimension18dp" />
+                                        android:textSize="@dimen/dimension16dp" />
 
                                     <requestFocus />
                                 </android.support.design.widget.TextInputLayout>
@@ -4267,17 +4268,17 @@
         android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:padding="@dimen/dimension10dp">
+
         <ImageView
             android:id="@+id/floatOptions"
             android:layout_width="@dimen/dimension70dp"
             android:layout_height="@dimen/dimension70dp"
-            android:src="@drawable/threedots"
             android:layout_above="@+id/llAddConn"
+            android:layout_alignParentRight="true"
 
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            />
-<!--
+            android:src="@drawable/threedots" />
+        <!--
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatOptions"
             android:layout_width="wrap_content"
