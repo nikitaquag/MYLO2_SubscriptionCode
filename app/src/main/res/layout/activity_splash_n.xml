@@ -196,40 +196,39 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorSponsorBlue"
         android:layout_weight="2"
-        >
+        android:background="@color/colorSponsorBluenew">
 
         <TextView
-            android:fontFamily="@font/lato"
             android:id="@+id/txtSponsor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
+            android:fontFamily="@font/lato"
             android:text="Sponsored by:"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension12dp"
             android:textStyle="normal" />
 
         <ImageView
-            android:layout_above="@+id/txtcourtesy"
             android:id="@+id/imgAbaa"
             android:layout_width="@dimen/dimension200dp"
             android:layout_height="match_parent"
+            android:layout_above="@+id/txtcourtesy"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/r_new" />
+            android:src="@drawable/aba" />
 
         <TextView
-            android:gravity="center_horizontal"
-            android:layout_alignParentBottom="true"
-            android:fontFamily="@font/lato"
             android:id="@+id/txtcourtesy"
             android:layout_width="match_parent"
-            android:padding="@dimen/dimension5dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:background="@color/colorWhite"
+            android:fontFamily="@font/lato"
+            android:gravity="center_horizontal"
+            android:padding="@dimen/dimension5dp"
             android:text=" Courtesy of Barbara keller"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension18dp"

@@ -146,6 +146,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         fab.setOnClickListener(this);
         imgSelfFolder.setOnClickListener(this);
         rlSelf.setOnClickListener(this);
+        imgSelf.setOnClickListener(this);
     }
 
     private void initUI() {
@@ -642,7 +643,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
 
-            case R.id.rlSelf:
+            case R.id.imgSelf:
                 getProfile();
                 Intent intentP= new Intent(getActivity(),ProfileActivity.class);
                 preferences.putString(PrefConstants.USER_IMAGE, connection.getPhoto());
@@ -659,11 +660,14 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
 
                 break;
 
+            case R.id.rlSelf:
+                imgSelfFolder.performClick();
+                break;
             case R.id.imgSelfFolder:
                 FragmentDashboard ldf = new FragmentDashboard();
                 Bundle args = new Bundle();
                 args.putString("Name", preferences.getString(PrefConstants.USER_NAME));
-               // args.putString("Address", connectionList.get(position).getAddress());
+                // args.putString("Address", connectionList.get(position).getAddress());
                 args.putString("Relation","Self");
                 getProfile();
                 //String saveThis = Base64.encodeToString(connectionList.get(position).getPhoto(), Base64.DEFAULT);

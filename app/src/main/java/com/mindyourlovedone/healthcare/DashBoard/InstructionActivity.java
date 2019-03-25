@@ -165,12 +165,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
-                        "The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
-                        "To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
-                        "To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
                 ).toString();
 
                 //shradha
@@ -212,10 +212,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
 
-                UI = Html.fromHtml("To <b>add</b> a Prescription click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
-                "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen..<br>"+
-                "To <b>delete</b> the entry left swipe right to left the cell of your Prescription. This would bring up the delete button.<br>"+
-                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a Prescription click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen..<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your Prescription. This would bring up the delete button.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
 ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -257,10 +257,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"));
                 txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("To add a note click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
-                "To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>"+
-                "To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"+
-                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To add a note click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
                  ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -304,12 +304,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
-                        "The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
-                        "To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
-                        "To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
                 ).toString();
 
                 //shradha
@@ -353,13 +353,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the card.<br>"));
                 txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("To get started click the <b>Plus</b> button at the bottom right corner of the screen.<br>"+
-                "To <b>add</b> information add the <b>Provider name</b> and <b>Type of Insurance</b> and click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                "To take a picture of your insurance card (front and back). Click the <b>ADD CARD</b> button. It is recommended that you hold your phone horizontal when taking a picture of the card.<br>"+
-                "To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                "To <b>edit</b/> information click cell of the added card. To <b>save</b> your edits click the <b>SAVE</b> again.<br>"+
-                "To <b>delete</b> the entry swipe right to left the cell of the card.<br>"+
-                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To get started click the <b>Plus</b> button at the bottom right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information add the <b>Provider name</b> and <b>Type of Insurance</b> and click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To take a picture of your insurance card (front and back). Click the <b>ADD CARD</b> button. It is recommended that you hold your phone horizontal when taking a picture of the card.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b/> information click cell of the added card. To <b>save</b> your edits click the <b>SAVE</b> again.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the card.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
 
                 ).toString();
 
@@ -405,13 +405,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
                 txt67.setText(Html.fromHtml("To <b>add</b> a picture click on the <b>PROFILE PHOTO</b> button and either take a photo or grab one from your gallery. To edit or delete the picture click the pencil. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"+
-                        "To <b>add</b> a picture click on the <b>PROFILE PHOTO</b> button and either take a photo or grab one from your gallery. To edit or delete the picture click the pencil. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a picture click on the <b>PROFILE PHOTO</b> button and either take a photo or grab one from your gallery. To edit or delete the picture click the pencil. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.<br>"
 
                 ).toString();
 
@@ -459,12 +459,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
-                        "The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
-                        "To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
-                        "To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
                 ).toString();
 
                 //shradha
@@ -508,12 +508,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
-                "The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
-                        "To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
-                        "To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
   ).toString();
 
                 //shradha
@@ -559,12 +559,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
-                        "The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
-                        "To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
-                        "To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
                 ).toString();
 
                 //shradha
@@ -647,11 +647,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setText(Html.fromHtml("To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"));
                 txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.<br>"+
-                "To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"+
-                "To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"+
-                "To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"+
-                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
                  ).toString();
 
                 //shradha
@@ -692,10 +692,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your note. This would bring up the delete button.<br>"));
                 txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"+
-                "To edit the note click the the <b>green down arrow</b> on right of the note. This will show the edit button, which can be clicked to edit the note. To save your edits click the SAVE at the top right of the screen.<br>"+
-                "To <b>delete</b> the entry left swipe right to left the cell of your note. This would bring up the delete button.<br>"+
-                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To edit the note click the the <b>green down arrow</b> on right of the note. This will show the edit button, which can be clicked to edit the note. To save your edits click the SAVE at the top right of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your note. This would bring up the delete button.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
                     ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -737,12 +737,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                 ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -785,12 +785,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                 ).toString();
 
                 //shradha
@@ -833,12 +833,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                 ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -881,12 +881,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                 ).toString();
 
 
@@ -931,12 +931,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                        "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                        "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                        "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                        "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                 ).toString();
 
 
@@ -986,12 +986,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
-                                "To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                                "To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
-                                "To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
-                                "To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
-                                "To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
                         ).toString();
 
 
@@ -1179,11 +1179,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setText(Html.fromHtml("To <b>delete</b> the information in a particular section click the garbage can. For sections without the garbage can, simple <b>delete</b> the information.<br>"));
                 txt65.setText(Html.fromHtml("To <b>view</b> or to <b>email</b> a report, click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the green <b>down arrow</b> button for each section. This would bring up the <b>Plus</b> button. Click the <b>Plus</b> button to start adding information for that section. <br>"+
-                        "To store information click <b>save</b> on top right.<br>"+
-                        "To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>, click <b>save</b> to store your changes.<br>"+
-                        "To <b>delete</b> the information in a particular section click the garbage can. For sections without the garbage can, simple delete the information.<br>"+
-                        "To <b>view</b> or to <b>email</b> a report, click the three dots on the bottom right side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the green <b>down arrow</b> button for each section. This would bring up the <b>Plus</b> button. Click the <b>Plus</b> button to start adding information for that section. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To store information click <b>save</b> on top right.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>, click <b>save</b> to store your changes.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the information in a particular section click the garbage can. For sections without the garbage can, simple delete the information.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> or to <b>email</b> a report, click the three dots on the bottom right side of the screen.<br>"
                 ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);

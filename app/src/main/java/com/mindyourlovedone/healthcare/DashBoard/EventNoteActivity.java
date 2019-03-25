@@ -390,17 +390,12 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/EventNote.pdf";
-
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getEventInfo());
-                new PDFDocumentProcess(path,
-                        context, result);
-
-                System.out.println("\n" + result + "\n");
-
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Event Note");
                 dialog.dismiss();
             }
 
@@ -412,8 +407,13 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/EventNote.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, context, "Event Note");
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getEventInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
 

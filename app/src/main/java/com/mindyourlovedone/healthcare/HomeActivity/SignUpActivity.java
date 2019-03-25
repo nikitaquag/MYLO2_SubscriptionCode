@@ -77,7 +77,7 @@ import java.util.Calendar;
 
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
     TextInputLayout tilName;
-    TextView txtName, txtNext,txtEmail;
+    TextView txtName, txtNext,txtEmail ,txtPolicy2, txtPolicy4;
     ImageView imgBack;
     Context context = this;
     String name="",email="";
@@ -86,7 +86,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     private static int RESULT_SELECT_PHOTO = 2;
     Context context = this;
     RelativeLayout llSignUp;
-    TextView txtSignUp, txtLogin, txtForgotPassword, txtPolicy2, txtPolicy4, txtPolicy5;
+    TextView txtSignUp, txtLogin, txtForgotPassword,, txtPolicy5;
     ImageView imgBack, imgEdit, imgProfile;
     TextView txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtBdate, txtPassword, txtGender, txtHomePhone,txtname,txtOnly ,txtPolicy61, txtPolicy62, txtPolicy63;
     TextInputLayout tilName;
@@ -98,7 +98,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     String imagepath = "";//
 
     ImageLoader imageLoader;
-    DisplayImageOptions displayImageOptions;
+    DisplayImageOptions displayImageOptions;txtPolicy2
 
     Preferences preferences;
     DBHelper dbHelper;
@@ -125,6 +125,7 @@ RelativeLayout rlTops;
     private void initListener() {
         imgBack.setOnClickListener(this);
         txtNext.setOnClickListener(this);
+
     }
     private void initUI() {
         tilName = findViewById(R.id.tilName);
@@ -132,6 +133,8 @@ RelativeLayout rlTops;
         txtNext = findViewById(R.id.txtNext);
         txtEmail = findViewById(R.id.txtEmail);
         imgBack = findViewById(R.id.imgBack);
+        txtPolicy2= findViewById(R.id.txtPolicy2);
+        txtPolicy4= findViewById(R.id.txtPolicy4);
        // rlTops= findViewById(R.id.rlTops);
        /* rlTops.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -175,6 +178,23 @@ RelativeLayout rlTops;
             public boolean onTouch(View v, MotionEvent event) {
                 tilName.setHintEnabled(true);
                 txtName.setFocusable(true);
+                return false;
+            }
+        });
+
+        txtPolicy2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                CopyReadAssetss("Privacy Policy.pdf");
+                return false;
+            }
+        });
+
+        txtPolicy4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                CopyReadAssetss("eula.pdf");
                 return false;
             }
         });
@@ -282,7 +302,7 @@ RelativeLayout rlTops;
             }
         });
     }
-
+*/
     public void CopyReadAssetss(String documentPath) {
         AssetManager assetManager = getAssets();
         File outFile = null;
@@ -301,14 +321,14 @@ RelativeLayout rlTops;
             out.flush();
             out.close();
             out = null;
-            *//*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+            /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
 
             copyFiles(in, out);
             in.close();
             in = null;
             out.flush();
             out.close();
-            out = null;*//*
+            out = null;*/
         } catch (Exception e) {
             Log.e("tag", e.getMessage());
         }
@@ -337,7 +357,7 @@ RelativeLayout rlTops;
 
 
     }
-
+/*
     private void initUI() {
         String s = getResources().getString(R.string.signup_appname);
         TextView textlogo = findViewById(R.id.txtPolicy1);
