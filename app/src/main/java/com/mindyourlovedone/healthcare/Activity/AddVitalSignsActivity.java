@@ -279,22 +279,22 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         note = txtNote.getText().toString().trim();
 
 
-        if (Date.equals("")) {
+      /*  if (Date.equals("")) {
             Toast.makeText(context, "Please Enter Date", Toast.LENGTH_SHORT).show();
             txtDate.setError("Please Enter Date");
         } else if (time.equals("")) {
             Toast.makeText(context, "Please Enter Time", Toast.LENGTH_SHORT).show();
             txtTime.setError("Please Enter Time");
-        } else if (bp.equals("")) {
-            Toast.makeText(context, "Please Enter BP", Toast.LENGTH_SHORT).show();
-            txtBP.setError("Please Enter BP");
-        } else if (heart.equals("")) {
+        } else*/ if (bp.equals("")&&heart.equals("")&&temperature.equals("")) {
+            Toast.makeText(context, "Please enter atleast one information among BP, Heart Rate, Temperature", Toast.LENGTH_SHORT).show();
+           // txtBP.setError("Please Enter BP");
+        } /*else if (heart.equals("")) {
             Toast.makeText(context, "Please Enter Heart Rate", Toast.LENGTH_SHORT).show();
             txtHeart.setError("Please Enter Heart Rate");
         } else if (temperature.equals("")) {
             Toast.makeText(context, "Please Enter Temperature", Toast.LENGTH_SHORT).show();
             txtTemperature.setError("Please Enter Temperature");
-        } else {
+        } */else {
             return true;
         }
 

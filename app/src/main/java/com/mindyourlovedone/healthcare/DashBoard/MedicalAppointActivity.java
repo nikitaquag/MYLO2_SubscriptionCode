@@ -721,7 +721,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 long selectedMilli = newDate.getTimeInMillis();
 
                 Date datePickerDate = new Date(selectedMilli);
-                String reportDate = new SimpleDateFormat("d MMM yyyy").format(datePickerDate);
+                String reportDate = new SimpleDateFormat("dd MMM yyyy").format(datePickerDate);
 
                 DateClass d = new DateClass();
                 d.setDate(reportDate);
@@ -741,6 +741,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 //                noteList.get(position).setDate(dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         }, year, month, day);
+        dpd.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         dpd.show();
     }
 

@@ -20,7 +20,14 @@ import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
 import com.mindyourlovedone.healthcare.model.Appoint;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * Created by welcome on 10/12/2017. Changes done by shradha on 18/6/18
@@ -163,6 +170,20 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
         });
 
         for (i = 0; i < dates.size(); i++) {
+
+            Collections.sort(dates, new Comparator<DateClass>() {
+                SimpleDateFormat f = new SimpleDateFormat("dd MMM yyyy");
+                @Override
+                public int compare(DateClass o1, DateClass o2) {
+                    try {
+                        return f.parse(o2.getDate()).compareTo(f.parse(o1.getDate()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+            });
+    holder.txtLatestDate.setText(" - "+dates.get(0).getDate());
             lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View helperview = lf.inflate(R.layout.date_row, null);
             TextView datetime = helperview.findViewById(R.id.txtDateTime);
@@ -364,6 +385,12 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
             holder.txtFrequency.setVisibility(View.VISIBLE);
             holder.txtFrequency.setText(noteList.get(position).getFrequency());
         }
+        /*if (noteList.get(position).getDate().equals("")) {
+            holder.txtLatestDate.setVisibility(View.GONE);
+        } else {
+            holder.txtLatestDate.setVisibility(View.VISIBLE);
+            holder.txtLatestDate.setText(noteList.get(position).getDate());
+        }*/
         /*Comment ends here*/
 
 
@@ -456,7 +483,7 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
 
 
     public class Holder extends RecyclerView.ViewHolder {
-        TextView txtNoteData, txtEdit, txtDoctor, txtDateTime, txtFrequency, txtType, txtDate;
+        TextView txtNoteData, txtEdit, txtDoctor, txtDateTime, txtFrequency, txtType, txtDate,txtLatestDate;
         RelativeLayout rlMain;
         LinearLayout llDate, llSubApp;
         ImageView imgForward, imgEdit;
@@ -477,6 +504,7 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
             txtDoctor = convertView.findViewById(R.id.txtDoctor);
             txtDateTime = convertView.findViewById(R.id.txtDateTime);
             txtFrequency = convertView.findViewById(R.id.txtFrequency);
+            txtLatestDate = convertView.findViewById(R.id.txtLatestDate);
             txtType = convertView.findViewById(R.id.txtType);
             txtDate = convertView.findViewById(R.id.txtDate);
             imgForward = convertView.findViewById(R.id.imgForword);
