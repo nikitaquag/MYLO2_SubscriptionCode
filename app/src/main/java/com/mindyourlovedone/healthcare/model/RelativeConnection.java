@@ -17,6 +17,16 @@ public class RelativeConnection {
     String spouse = "";
     String sign_other = "";
     String other_person = "";
+
+    public String getPeople() {
+        return people;
+    }
+
+    public void setPeople(String people) {
+        this.people = people;
+    }
+
+    String people = "";
     int id;
     String email = "";
     String mobile = "";

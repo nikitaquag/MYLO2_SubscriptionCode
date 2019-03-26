@@ -785,7 +785,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
 
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "",has_card);
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 2, prior, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "",has_card, "");
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated emergency contact successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -837,7 +837,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "", has_card);
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(id, name, email, address, mobile, phone, workphone, relation, imagepath, note, 3, prox, otherRelation, "", "", "", "", "", "", "", "", "", "", "", "", cardPath, "", "", "", "", "", "", "", "", "", "", "", "", "", has_card, "");
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated proxy contact successfully", Toast.LENGTH_SHORT).show();
                         getActivity().finish();

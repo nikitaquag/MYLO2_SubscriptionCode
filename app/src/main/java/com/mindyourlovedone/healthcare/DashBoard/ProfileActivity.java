@@ -122,13 +122,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     RelativeLayout llIndividual;
     String has_card="No";
     //  Button floatingBtn;
-    TextView txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
+    TextView txtPeople,txtAddPet, txtSignUp, txtLogin, txtForgotPassword, txtOther, txtOtherLanguage, txtMsg, txtSave;
     ImageView imgHome,imgEdit, imgProfile, imgDone, imgAddpet, imgEditCard, imgCard;
     TextView txtHeight, txtWeight, txtProfession, txttelephone, txtEmployed, txtReligion, txtIdNumber, txtOtherRelation, txtTitle, txtName, txtEmail, txtAddress, txtCountry, txtPhone, txtHomePhone, txtWorkPhone, txtBdate, txtGender, txtPassword, txtRelation;
     TextInputLayout tilOtherRelation, tilId, tilOther, tilOtherLanguage;
     RelativeLayout rlPet, rlLive;
     String name = "", Email = "", email = "", phone = "", manager_phone = "", country = "", bdate = "", address = "", homePhone = "", workPhone = "", gender = "";
-    String height = "", weight = "", profession = "", employed = "", religion = "", idnumber = "";
+    String height = "", weight = "", profession = "", employed = "", religion = "", idnumber = "",people="";
     String pet = "NO", veteran = "NO", english = "NO", live = "NO";
     String eyes="", language="", marital_status="";
     String otherRelation;
@@ -425,6 +425,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         txtHeight = findViewById(R.id.txtHeight);
         txtWeight = findViewById(R.id.txtWeight);
         txtProfession = findViewById(R.id.txtProfession);
+        txtPeople= findViewById(R.id.txtPeople);
         txtEmployed = findViewById(R.id.txtEmployedBy);
         txttelephone = findViewById(R.id.txttelephone);
         txtReligion = findViewById(R.id.txtReligion);
@@ -1338,6 +1339,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtHeight.setText(connection.getHeight());
             txtWeight.setText(connection.getWeight());
             txtProfession.setText(connection.getProfession());
+            txtPeople.setText(connection.getPeople());
             txtEmployed.setText(connection.getEmployed());
             txttelephone.setText(connection.getManager_phone());
             txtReligion.setText(connection.getReligion());
@@ -2574,6 +2576,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         height = txtHeight.getText().toString();
         weight = txtWeight.getText().toString();
         profession = txtProfession.getText().toString();
+        people = txtPeople.getText().toString();
         employed = txtEmployed.getText().toString();
         manager_phone = txttelephone.getText().toString();
         religion = txtReligion.getText().toString();
@@ -2652,6 +2655,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         height = txtHeight.getText().toString();
         weight = txtWeight.getText().toString();
         profession = txtProfession.getText().toString();
+        people=txtPeople.getText().toString();
         employed = txtEmployed.getText().toString();
         manager_phone = txttelephone.getText().toString();
         religion = txtReligion.getText().toString();
@@ -2731,11 +2735,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
             if (connection.getRelationType().equals("Self")) {
                 if (connection.getName().equals(name) && connection.getEmail().equals(email)) {
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card,people);
                     if (flag == true) {
                         DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                        Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                        Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                         if (flags == true) {
                             Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -2772,11 +2776,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             } else {
                 DBHelper dbHelpers = new DBHelper(context, "MASTER");
                 MyConnectionsQuery ms = new MyConnectionsQuery(context, dbHelpers);
-                Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                 if (flag == true) {
                     DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                     MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                    Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                    Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                     if (flags == true) {
                         Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
                         preferences.putString(PrefConstants.CONNECTED_NAME, name);
@@ -3506,11 +3510,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     //
                     if (errorCode.equals("0")) {
 
-                        Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                        Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                         if (flag == true) {
                             DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                             MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                            Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card);
+                            Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                             if (flags == true) {
                                 Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
 

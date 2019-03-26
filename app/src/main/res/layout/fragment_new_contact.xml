@@ -1395,7 +1395,7 @@
                             android:id="@+id/txtHospitalLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Protected Health Information Record Locator (if applicable)"
+                            android:hint="Electronic Health Record Link (if applicable)"
                             android:imeOptions="actionNext"
 
 

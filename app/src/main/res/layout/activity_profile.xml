@@ -1489,7 +1489,7 @@
 
 
                         <AutoCompleteTextView
-                            android:id="@+id/txtpeople"
+                            android:id="@+id/txtPeople"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"

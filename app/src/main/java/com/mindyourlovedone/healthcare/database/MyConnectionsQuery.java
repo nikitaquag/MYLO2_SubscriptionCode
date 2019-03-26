@@ -61,6 +61,7 @@ public class MyConnectionsQuery {
     public static final String COL_GENDER = "Gender";
     public static final String COL_DOB = "DOB";
     public static final String COL_HASCARD= "Has_Card";
+    public static final String COL_PEOPLE= "People";
     static Context context;
     static DBHelper dbHelper;
 
@@ -71,7 +72,7 @@ public class MyConnectionsQuery {
 
     public static String createMyConnectionsTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(50)," + COL_EMAIL + " VARCHAR(50)," + COL_HOME_PHONE + " VARCHAR(20)," +
-                COL_GENDER + " VARCHAR(20)," + COL_DOB + " VARCHAR(20)," + COL_WORK_PHONE + " VARCHAR(20)," + COL_ADDRESS + " TEXT," + COL_MOBILE + " VARCHAR(20)," + COL_RELATION + " VARCHAR(50)," + COL_OTHER_RELATION + " VARCHAR(50)," + COL_NOTE + " TEXT," +
+                COL_GENDER + " VARCHAR(20)," + COL_DOB + " VARCHAR(20)," + COL_WORK_PHONE + " VARCHAR(20)," + COL_ADDRESS + " TEXT," + COL_MOBILE + " VARCHAR(20)," + COL_RELATION + " VARCHAR(50)," + COL_OTHER_RELATION + " VARCHAR(50)," + COL_NOTE + " TEXT," +COL_PEOPLE + " VARCHAR(50)," +
                 COL_FLAG + " INTEGER," + COL_ISPRIMARY + " INTEGER," +
                 COL_HEIGHT + " VARCHAR(10)," + COL_WEIGHT + " VARCHAR(10)," + COL_PROFESSION + " TEXT," + COL_EMPLOYED + " TEXT," + COL_RELIGION + " TEXT," +
                 COL_EYES + " VARCHAR(10)," + COL_LANG + " VARCHAR(10)," + COL_MARITAL + " VARCHAR(10)," + COL_VETERAN + " VARCHAR(10)," + COL_PET + " VARCHAR(10)," +
@@ -135,6 +136,7 @@ public class MyConnectionsQuery {
         cv.put(COL_OTHER_LANG, "");
         cv.put(COL_DOB, "");
         cv.put(COL_GENDER, "");
+        cv.put(COL_PEOPLE, "");
 
         long rowid = db.insert(TABLE_NAME, null, cv);
 
@@ -195,7 +197,7 @@ public class MyConnectionsQuery {
         cv.put(COL_OTHER_LANG, "" + connection.getOtherLang());
         cv.put(COL_DOB, "" + connection.getDob());
         cv.put(COL_GENDER, "" + connection.getGender());
-
+        cv.put(COL_PEOPLE, ""+connection.getPeople());
         long rowid = db.insert(TABLE_NAME, null, cv);
 
         flag = rowid != -1;
@@ -256,7 +258,7 @@ connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                     connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                     connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                     connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
-
+                    connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
                     connectionList.add(connection);
                 } while (c.moveToNext());
             }
@@ -317,7 +319,7 @@ connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
-
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
                 connectionList.add(connection);
 
                 db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
@@ -392,6 +394,7 @@ connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 
@@ -412,7 +415,7 @@ connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
         return flag;
     }
 
-    public static Boolean updateMyConnectionsData(int id, String name, String email, String address, String mobile, String homephone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String height, String weight, String eyes, String profession, String employed, String language, String marital_status, String religion, String veteran, String idnumber, String pet, String manager_phone, String photoCard, String english, String child, String friend, String grandParent, String parent, String spouse, String other, String liveOther, String live, String otherLang, String bdate, String gender, String sibling, String has_card) {
+    public static Boolean updateMyConnectionsData(int id, String name, String email, String address, String mobile, String homephone, String workphone, String relation, String photo, String note, int connectionflag, int isPrimary, String otherRelation, String height, String weight, String eyes, String profession, String employed, String language, String marital_status, String religion, String veteran, String idnumber, String pet, String manager_phone, String photoCard, String english, String child, String friend, String grandParent, String parent, String spouse, String other, String liveOther, String live, String otherLang, String bdate, String gender, String sibling, String has_card, String people) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -458,7 +461,7 @@ cv.put(COL_HASCARD,has_card);
         cv.put(COL_OTHER_LANG, otherLang + "");
         cv.put(COL_DOB, bdate + "");
         cv.put(COL_GENDER, gender + "");
-
+        cv.put(COL_PEOPLE, people + "");
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;
@@ -492,6 +495,7 @@ cv.put(COL_HASCARD,has_card);
                     connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
                     connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
                     connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
+
                     connectionList.add(connection);
 
 
@@ -585,6 +589,7 @@ cv.put(COL_HASCARD,has_card);
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 
@@ -673,6 +678,7 @@ cv.put(COL_HASCARD,has_card);
                     connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                     connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
                     connection.setUserid(c.getInt(c.getColumnIndex(COL_USER_ID)));
+                    connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
                 } while (c.moveToNext());
             }
             return connection;
@@ -731,6 +737,7 @@ cv.put(COL_HASCARD,has_card);
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 
@@ -803,6 +810,7 @@ cv.put(COL_HASCARD,has_card);
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 
@@ -861,7 +869,7 @@ cv.put(COL_HASCARD,has_card);
                     connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                     connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                     connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
-
+                    connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
                     connectionList.add(connection);
                 } while (c.moveToNext());
             }
@@ -963,7 +971,7 @@ cv.put(COL_HASCARD,has_card);
                     connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                     connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                     connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
-
+                    connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
                     connectionList.add(connection);
                 } while (c.moveToNext());
             }
@@ -1038,6 +1046,7 @@ cv.put(COL_HASCARD,has_card);
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 
