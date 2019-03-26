@@ -67,6 +67,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView floatAdd, floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -92,9 +93,13 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             lvInsurance.setAdapter(insuranceAdapter);
             lvInsurance.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvInsurance.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -113,6 +118,8 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
         floatOptions = rootview.findViewById(R.id.floatOptions);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         txtMsg = rootview.findViewById(R.id.txtMsg);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         //nikita
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);

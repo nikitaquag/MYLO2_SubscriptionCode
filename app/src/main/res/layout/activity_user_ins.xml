@@ -44,10 +44,11 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
-            android:text="User INSTRUCTIONS"
-            android:textAllCaps="true"
+            android:text="User Instructions"
+
             android:textColor="#FFFFFF"
-            android:textSize="@dimen/dimension22dp"
+            android:fontFamily="@font/lato"
+            android:textSize="@dimen/dimension20dp"
             android:textStyle="bold" />
 
         <ImageView
@@ -103,7 +104,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:gravity="center"
-                android:text="Profile"
+                android:fontFamily="@font/lato"
+                android:text="Instructions for Profile"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
                 android:textStyle="bold" />

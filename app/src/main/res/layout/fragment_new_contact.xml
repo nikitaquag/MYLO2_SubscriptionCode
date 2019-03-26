@@ -65,7 +65,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension10dp"
                     android:background="@color/colorLightGray"
-                    android:layout_below="@+id/tilSubscribe"></View>
+                    android:layout_below="@+id/tilSubscribes"></View>
             </RelativeLayout>
 
 
@@ -2823,7 +2823,7 @@ android:visibility="gone"
                             android:id="@+id/txtGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Group#"
+                            android:hint="Group     #"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -4032,7 +4032,7 @@ android:visibility="gone"
                             android:id="@+id/txtPharmacyLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Protected Health Information Record Locator (if applicable)"
+                            android:hint="Electronic Health Record Link (if applicable)"
                             android:imeOptions="actionNext"
 
                             android:includeFontPadding="true"

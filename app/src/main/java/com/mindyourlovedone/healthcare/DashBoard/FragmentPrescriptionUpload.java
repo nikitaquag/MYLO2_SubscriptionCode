@@ -66,7 +66,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
     ArrayList<Form> documentList = new ArrayList<>();
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -101,9 +101,13 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
             lvPrescriptionUpload.setAdapter(insuranceAdapter);
             lvPrescriptionUpload.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvPrescriptionUpload.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -147,7 +151,8 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
-
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
         //nikita
         floatOptions = rootview.findViewById(R.id.floatOptions);
 

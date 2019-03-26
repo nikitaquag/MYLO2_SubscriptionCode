@@ -74,6 +74,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     RelativeLayout rlGuide;
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -149,6 +150,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatOptions = rootview.findViewById(R.id.floatOptions);
         floatAdd = rootview.findViewById(R.id.floatAdd);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>get started</b> click the green bar at the bottom of the screen Add Insurance Card." +
@@ -211,6 +214,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     private void setCardData() {
         if (CardList.size() != 0) {
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
             lvCard.setVisibility(View.VISIBLE);
             CardAdapter adapter = new CardAdapter(getActivity(), CardList, FragementInsuarnceCard.this);
             lvCard.setAdapter(adapter);
@@ -274,6 +279,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         } else {
             lvCard.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
 
 

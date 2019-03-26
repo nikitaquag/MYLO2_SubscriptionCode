@@ -84,7 +84,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     DisplayImageOptions displayImageOptions;
     RelativeLayout rlGuide;
     RelativeConnection connection;
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -130,11 +130,20 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         if (connectionList.size() != 0) {
             connectionAdapter = new ConnectionAdapter(getActivity(), connectionList);
             lvSelf.setAdapter(connectionAdapter);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
             if (connectionList.size() > 1) {
                 rlGuide.setVisibility(View.GONE);
+
             } else {
                 rlGuide.setVisibility(View.VISIBLE);
+
             }
+        }
+        else
+        {
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -152,7 +161,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     private void initUI() {
         lvSelf = rootview.findViewById(R.id.lvSelf);
         rlSelf= rootview.findViewById(R.id.rlSelf);
-
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
         fab = rootview.findViewById(R.id.fab);
        // fab.setImageResource(R.drawable.ic_add);
         llSelf = rootview.findViewById(R.id.llSelf);

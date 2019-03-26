@@ -287,6 +287,7 @@
         </ScrollView>
 
         <TextView
+            android:id="@+id/txthelp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
             android:textSize="@dimen/dimension17dp"
@@ -294,7 +295,7 @@
             android:textStyle="italic|bold"
             android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Upon a New List of Prescriptions!"
+            android:text="Upload a New List of Prescriptions!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

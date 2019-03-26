@@ -70,7 +70,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     RelativeLayout rlGuide;
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -96,9 +96,13 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
             lvSpecialist.setAdapter(specialistAdapter);
             lvSpecialist.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvSpecialist.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -116,6 +120,8 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         floatOptions = rootview.findViewById(R.id.floatOptions);
         floatProfile = rootview.findViewById(R.id.floatProfile);
         txtMsg = rootview.findViewById(R.id.txtMsg);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen.If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen" +
 //                "<br><br>" +
 //                "To <b>save</b> information click the green bar at the bottom of the screen." +

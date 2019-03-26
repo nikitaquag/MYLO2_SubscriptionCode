@@ -66,6 +66,7 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
     FloatingActionButton floatProfile;
     ImageView floatAdd, floatOptions;
     ScrollView scroll;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -91,9 +92,13 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
             lvPrescriptionInfo.setAdapter(hospitalAdapter);
             lvPrescriptionInfo.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvPrescriptionInfo.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -145,7 +150,8 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
-
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         //nikita
         PrescriptionList = new ArrayList<>();

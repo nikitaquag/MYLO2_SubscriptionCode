@@ -313,7 +313,58 @@
 
 
             </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
+                android:id="@+id/tilCol"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlDosage"
+                android:paddingLeft="@dimen/dimension10dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true">
 
+                <AutoCompleteTextView
+                    android:fontFamily="@font/lato"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:id="@+id/txtCol"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Cholesterol"
+                    android:imeOptions="actionDone"
+                    android:paddingLeft="@dimen/dimension0dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
+                android:id="@+id/tilOther"
+                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tilCol"
+                android:paddingLeft="@dimen/dimension10dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true">
+
+                <AutoCompleteTextView
+                    android:fontFamily="@font/lato"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:id="@+id/txtOther"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Other"
+                    android:imeOptions="actionDone"
+                    android:paddingLeft="@dimen/dimension0dp"
+                    android:paddingTop="@dimen/dimension2dp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+            </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:fontFamily="@font/lato"
 
@@ -321,7 +372,7 @@
                 app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rlDosage"
+                android:layout_below="@+id/tilOther"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
                 android:paddingRight="@dimen/dimension10dp"

@@ -238,13 +238,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link (if applicable) : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messageDoctor.add("Electronic Health Record Link (if applicable) :");
                 messageDoctor.add(locator);
 
                 String note = "";

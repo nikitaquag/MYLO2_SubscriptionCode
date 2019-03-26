@@ -160,7 +160,7 @@
             android:layout_above="@+id/imghelp"
             android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Advance Directives!"
+            android:text="Add a new Advance Directive!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

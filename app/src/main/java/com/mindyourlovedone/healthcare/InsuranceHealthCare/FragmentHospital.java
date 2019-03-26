@@ -67,7 +67,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView floatOptions,floatAdd;
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -92,9 +92,13 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             lvHospital.setAdapter(hospitalAdapter);
             lvHospital.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvHospital.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -123,7 +127,8 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         TextView txt68 = rootview.findViewById(R.id.txtPolicy68);
         ImageView img67 = rootview.findViewById(R.id.img67);
         ImageView img68 = rootview.findViewById(R.id.img68);
-
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         //shradha
         txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load the data.\n\n"));

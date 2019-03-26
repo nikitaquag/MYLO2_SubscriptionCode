@@ -1036,6 +1036,16 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt67.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.<br>"));
                 txt68.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.<br>Thanks & Regards"));
 
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.<br>"+
+              "&nbsp;&nbsp;&nbsp;&nbsp;<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.<br>First time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.<br>"+
+                "<br>" +
+               "<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.<br>"+
+               "&nbsp;&nbsp;&nbsp;&nbsp;<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "<br> <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br> <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>To Delete a Profile –</b> Long Press on the Profile Box.<br>").toString();
+
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
@@ -1063,7 +1073,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Profile");
+                txtHeader.setText("Instructions for Profile");
                 break;
             case "Personal":
                 imgPicture.setVisibility(View.GONE);

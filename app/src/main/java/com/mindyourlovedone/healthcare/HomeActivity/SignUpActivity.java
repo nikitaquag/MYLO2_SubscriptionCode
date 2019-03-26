@@ -39,6 +39,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -81,6 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     ImageView imgBack;
     Context context = this;
     String name="",email="";
+    boolean allow=true;
   /*  private static final int REQUEST_CALL_PERMISSION = 100;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
@@ -105,6 +108,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
     int userid = 1;*/
 RelativeLayout rlTops;
+CheckBox rbCheck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -131,10 +135,22 @@ RelativeLayout rlTops;
         tilName = findViewById(R.id.tilName);
         txtName = findViewById(R.id.txtName);
         txtNext = findViewById(R.id.txtNext);
+        rbCheck= findViewById(R.id.rbCheck);
         txtEmail = findViewById(R.id.txtEmail);
         imgBack = findViewById(R.id.imgBack);
         txtPolicy2= findViewById(R.id.txtPolicy2);
         txtPolicy4= findViewById(R.id.txtPolicy4);
+        rbCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                {
+                    allow=true;
+                }else {
+                    allow=false;
+                }
+            }
+        });
        // rlTops= findViewById(R.id.rlTops);
        /* rlTops.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,6 +245,10 @@ RelativeLayout rlTops;
         } else if (!email.trim().matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
             txtEmail.setError("Please enter valid email");
             DialogManager.showAlert("Please enter valid email", context);
+        }
+       else if (allow==false)
+        {
+            Toast.makeText(context, "Please click on check mark", Toast.LENGTH_SHORT).show();
         }
         else {
             return true;

@@ -66,7 +66,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -91,9 +91,13 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
             lvPharmacy.setAdapter(pharmacyAdapter);
             lvPharmacy.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvPharmacy.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -110,6 +114,8 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOptions = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);

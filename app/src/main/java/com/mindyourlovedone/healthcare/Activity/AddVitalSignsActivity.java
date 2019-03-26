@@ -31,11 +31,11 @@ import java.util.Date;
 
 public class AddVitalSignsActivity extends AppCompatActivity implements View.OnClickListener {
     TextInputLayout tilLocation;
-    TextView txtTitle, txtLocation, txtDate, txtTime, txtBP, txtHeart, txtTemperature, txtPulseRate, txtRespRate, txtNote, txtSave;
+    TextView txtTitle, txtLocation, txtDate, txtTime, txtBP, txtHeart, txtTemperature, txtPulseRate, txtRespRate, txtNote,txtOther,txtCol, txtSave;
     ImageView imgHome, imgBack;
     Context context = this;
     boolean isEdit, isView, save = false;
-    String location = "", Date = "", time = "", bp = "", heart = "", temperature = "", pulse = "", respiratory = "", note = "";
+    String location = "", Date = "", time = "", bp = "", heart = "", temperature = "", pulse = "", respiratory = "", note = "",oter = "",col = "";
     Preferences preferences;
     DBHelper dbHelper;
     int id, colid;
@@ -56,7 +56,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 assert date != null;
                 if (date.equalsIgnoreCase("Date")) {
                     Calendar c = Calendar.getInstance();
-                    SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+                    SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy");
                     String formattedDate = df.format(c.getTime());
                     txtDate = findViewById(R.id.txtDate);
                     txtDate.setText(formattedDate);
@@ -122,6 +122,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         txtPulseRate = findViewById(R.id.txtPulseRate);
         txtRespRate = findViewById(R.id.txtRespRate);
         txtNote = findViewById(R.id.txtNote);
+        txtOther = findViewById(R.id.txtOther);
+        txtCol = findViewById(R.id.txtCol);
 
         txtSave = findViewById(R.id.txtSave);
         txtTitle = findViewById(R.id.txtTitle);
@@ -134,8 +136,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 VitalSigns vi = (VitalSigns) intent1.getExtras().getSerializable("VitalEdit");
                 vitalSigns = (VitalSigns) intent1.getExtras().getSerializable("VitalEdit");
 
-                isUpdate = true;
-
+                isUpdate = intent1.getExtras().getBoolean("IsUpdate");
+colid=vi.getId();
                 if (vi.getLocation() != null) {
                     txtLocation.setText(vi.getLocation());
                 }
@@ -163,6 +165,12 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 if (vi.getNote() != null) {
                     txtNote.setText(vi.getNote());
                 }
+                if (vi.getOther() != null) {
+                    txtOther.setText(vi.getOther());
+                }
+                if (vi.getCol() != null) {
+                    txtCol.setText(vi.getCol());
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -185,8 +193,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.txtSave:
                 if (validate()) {
-                    if (isUpdate == true) {
-                        Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    if (isUpdate == false) {
+                        Boolean flag = VitalQuery.insertVitalData(preferences.getInt(PrefConstants.CONNECTED_USERID), location, Date, time, bp, heart, temperature, pulse, respiratory, note,oter,col);
                         if (flag == true) {
                             Toast.makeText(context, "Vital Signs Added Succesfully", Toast.LENGTH_SHORT).show();
                             DialogManager.closeKeyboard(AddVitalSignsActivity.this);
@@ -197,8 +205,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
-                    } else if (isUpdate == false) {
-                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note);
+                    } else if (isUpdate == true) {
+                        Boolean flag = VitalQuery.updateVitalData(colid, location, Date, time, bp, heart, temperature, pulse, respiratory, note,oter,col);
                         if (flag == true) {
                             Toast.makeText(context, "Vital Signs Updated Succesfully", Toast.LENGTH_SHORT).show();
                             DialogManager.closeKeyboard(AddVitalSignsActivity.this);
@@ -272,12 +280,14 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         Date = txtDate.getText().toString().trim();
         time = txtTime.getText().toString().trim();
         bp = txtBP.getText().toString().trim();
+
         heart = txtHeart.getText().toString().trim();
         temperature = txtTemperature.getText().toString().trim();
         pulse = txtPulseRate.getText().toString().trim();
         respiratory = txtRespRate.getText().toString().trim();
         note = txtNote.getText().toString().trim();
-
+        oter = txtOther.getText().toString().trim();
+        col = txtCol.getText().toString().trim();
 
       /*  if (Date.equals("")) {
             Toast.makeText(context, "Please Enter Date", Toast.LENGTH_SHORT).show();
@@ -341,6 +351,8 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         txtRespRate.setText("");
         txtLocation.setText("");
         txtNote.setText("");
+        txtCol.setText("");
+        txtOther.setText("");
     }
 }
 

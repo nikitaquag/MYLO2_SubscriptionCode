@@ -72,6 +72,7 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
     String finalText = "";
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -97,9 +98,13 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         if (emergencyList.size() != 0) {
             emergencyAdapter = new EmergencyAdapter(getActivity(), emergencyList, FragmentEmergency.this);//Changes done by nikita on 18/6/18
             lvEmergency.setAdapter(emergencyAdapter);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
             rlGuide.setVisibility(View.GONE);
             lvEmergency.setVisibility(View.VISIBLE);
         } else {
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.VISIBLE);
             lvEmergency.setVisibility(View.GONE);
         }
@@ -118,7 +123,8 @@ public class FragmentEmergency extends Fragment implements View.OnClickListener 
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOptions = rootview.findViewById(R.id.floatOptions);
-        txtMsg = rootview.findViewById(R.id.txtMsg);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray  bar on the top right side of your screen." +
 //                "<br><br>" +
 //                "To <b>save</b> information click the green bar at the bottom of the screen." +

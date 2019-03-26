@@ -353,14 +353,85 @@
                     android:layout_marginRight="@dimen/dimension10dp"
                     android:background="@color/colorOnesGray"
                     android:visibility="visible"></View>
+                <TextView
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/tilCol"
+                    style="@style/EmergencyDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view"
+                    android:text="Cholesterol"
+                    android:textSize="@dimen/dimension16dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:padding="@dimen/dimension5dp"
+                    android:visibility="visible" />
 
+                <TextView
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/txtCol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilCol"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:paddingLeft="@dimen/dimension5dp"
+                    android:text="Lasik Surgery Frequently Asked Questions"
+                    android:textColor="@color/colorBlackDark"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/viewCol"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/txtCol"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:background="@color/colorOnesGray"
+                    android:visibility="visible"></View>
+                <TextView
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/tilOter"
+                    style="@style/EmergencyDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewCol"
+                    android:text="Other"
+                    android:textSize="@dimen/dimension16dp"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:padding="@dimen/dimension5dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:fontFamily="@font/lato"
+                    android:id="@+id/txtOter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilOter"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:paddingLeft="@dimen/dimension5dp"
+                    android:text="Lasik Surgery Frequently Asked Questions"
+                    android:textColor="@color/colorBlackDark"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/viewOter"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/txtOter"
+                    android:layout_marginLeft="@dimen/dimension10dp"
+                    android:layout_marginTop="@dimen/dimension5dp"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:background="@color/colorOnesGray"
+                    android:visibility="visible"></View>
                 <TextView
                     android:fontFamily="@font/lato"
                     android:id="@+id/txtNote"
                     style="@style/EmergencyDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/view"
+                    android:layout_below="@+id/viewOter"
                     android:text="Note"
                     android:textSize="@dimen/dimension16dp"
                     android:layout_marginLeft="@dimen/dimension10dp"

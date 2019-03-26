@@ -154,6 +154,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 //  relMsg.setVisibility(View.VISIBLE);//nikita
                 // scrollvw.setVisibility(View.VISIBLE);//nikita
                 rlGuide.setVisibility(View.GONE);//nikita
+                imghelp .setVisibility(View.GONE);
+                txthelp.setVisibility(View.GONE);
             }
         });
         header = findViewById(R.id.header);
@@ -478,12 +480,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                         + "/mylopdf/"
                         + "/Appointment.pdf";
 
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getAppointInfo());
-                new PDFDocumentProcess(path,
-                        context, result);
-
-                System.out.println("\n" + result + "\n");
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Appointment Checklist");
 
                 dialog.dismiss();
             }
@@ -496,8 +494,13 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Appointment.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, context, "Appointment Checklist");
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getAppointInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
 

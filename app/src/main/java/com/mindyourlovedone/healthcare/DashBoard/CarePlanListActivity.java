@@ -70,7 +70,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
     RelativeLayout llAddDoc, header;
     Preferences preferences;
     RelativeLayout rlGuide;
-    ImageView imgPicture, imgPicture2, imgHome;
+    ImageView imgPicture, imgPicture2, imgHome,imghelp;
     TextView txtHeader, txtHeader2, txtMsg, txtFTU,txtHelp;
     DBHelper dbHelper;
     ScrollView scroll;
@@ -102,10 +102,14 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
             lvDoc.setAdapter(documentAdapter);
             lvDoc.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txtHelp.setVisibility(View.GONE);
          //   scroll.setVisibility(View.GONE);
         } else {
             lvDoc.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txtHelp.setVisibility(View.VISIBLE);
          //   scroll.setVisibility(View.GONE);
         }
     }
@@ -133,6 +137,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         floatOptions = findViewById(R.id.floatOptions);
         imgHome = findViewById(R.id.imgHome);
         txtHelp=findViewById(R.id.txtHelp);
+        imghelp = findViewById(R.id.imghelp);
+
         final RelativeLayout relMsg = findViewById(R.id.relMsg);
         TextView txt61 = findViewById(R.id.txtPolicy61);
         TextView txt62 = findViewById(R.id.txtPolicy62);
@@ -198,7 +204,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
         switch (From) {
             case "AD":
                 imgPicture.setImageResource(R.drawable.dir_one);
-                txtHelp.setText("Add a new Advance Directives!");
+                txtHelp.setText("Add a new Advance Directive!");
                 header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 txtTitle.setText("Advance Directives");
                 txtAdd.setText("Add Advance Directives");

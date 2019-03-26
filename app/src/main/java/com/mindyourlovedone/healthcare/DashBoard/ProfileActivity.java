@@ -2230,7 +2230,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         long selectedMilli = newDate.getTimeInMillis();
 
                         Date datePickerDate = new Date(selectedMilli);
-                        String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+                        String reportDate = new SimpleDateFormat("dd MMM yyyy").format(datePickerDate);
 
                         DateClass d = new DateClass();
                         d.setDate(reportDate);
@@ -2756,7 +2756,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         //Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                         preferences.putString(PrefConstants.CONNECTED_NAME, name);
                         preferences.putString(PrefConstants.CONNECTED_RELATION, relation);
-                        finish();
+                     //   finish(); //Varsa
                     } else {
                         Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                     }
@@ -2806,7 +2806,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         }
                     }
                     // Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
-                    finish();
+                    //   finish(); //Varsa
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
@@ -3528,7 +3528,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                             //  Toast.makeText(context, "You have edited connection Successfully", Toast.LENGTH_SHORT).show();
                             preferences.putString(PrefConstants.CONNECTED_NAME, name);
                             preferences.putString(PrefConstants.CONNECTED_RELATION,relation);
-                            finish();
+                            //   finish(); //Varsa
                         } else {
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }

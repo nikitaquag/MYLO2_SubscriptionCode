@@ -59,7 +59,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
-
+    TextView txthelp; ImageView imghelp;
     FloatingActionButton floatProfile;
     ImageView floatAdd, floatOption;
 
@@ -87,9 +87,13 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             lvVital.setAdapter(vitalAdapter);
             lvVital.setSystemUiVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvVital.setSystemUiVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -106,6 +110,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOption = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);

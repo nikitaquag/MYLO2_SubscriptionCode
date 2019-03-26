@@ -68,6 +68,7 @@ public class FragementForm extends Fragment implements View.OnClickListener {
     RelativeLayout rlGuide;
     FloatingActionButton floatProfile;
     ImageView floatAdd, floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -93,9 +94,13 @@ public class FragementForm extends Fragment implements View.OnClickListener {
             lvDoc.setAdapter(insuranceAdapter);
             lvDoc.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvDoc.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -113,6 +118,8 @@ public class FragementForm extends Fragment implements View.OnClickListener {
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOptions = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> information click the green bar at the bottom of the screen. Click the plus sign to Select the File." +

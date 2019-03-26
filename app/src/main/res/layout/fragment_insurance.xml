@@ -304,6 +304,7 @@ Don’t just add Medical or Dental – think about Long Term Care, Disability, A
         android:paddingBottom="@dimen/dimension15dp">
 
         <TextView
+            android:id="@+id/txthelp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@+id/imghelp"

@@ -286,6 +286,7 @@ By the way you may need a completed HIPAA form before they will speak to you.  C
         >
 
         <TextView
+            android:id="@+id/txthelp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
             android:textSize="@dimen/dimension17dp"
