@@ -248,18 +248,36 @@
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".SponsorActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.ShareActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.UserInsActivity" />
-        <activity android:name=".ImpAgreementActivity" />
-        <activity android:name=".BaseNewActivity" />
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.ShareActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.UserInsActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".ImpAgreementActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".BaseNewActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name="com.mindyourlovedone.healthcare.Activity.TransparentActivity"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.RelationshipActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.PrivacyActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity" />
-        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.PrescriptionUploadActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.RelationshipActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.PrivacyActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.PrescriptionUploadActivity"
+            android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
+            android:windowSoftInputMode="stateHidden" ></activity>
     </application>
 
 </manifest>

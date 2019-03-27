@@ -157,7 +157,8 @@
                                 android:layout_margin="@dimen/dimension10dp"
                                 android:divider="@null" />
 
-                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                            <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/txtAllergyNote"
                                 android:layout_marginTop="@dimen/dimension5dp"
                                 android:layout_width="match_parent"
@@ -612,7 +613,8 @@
                                 android:layout_toRightOf="@+id/imgPre"
                                 android:divider="@null" />
 
-                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                            <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/txtPreNote"
                                 android:layout_width="match_parent"
                                 android:layout_marginTop="@dimen/dimension5dp"
@@ -894,7 +896,8 @@
                             android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:id="@+id/txtVisionNote"
                             android:layout_marginTop="@dimen/dimension5dp"
                             android:layout_width="match_parent"
@@ -1179,7 +1182,8 @@
                                 android:layout_marginRight="@dimen/dimension5dp"
                                 android:background="@color/colordivideGray" />
 
-                            <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                            <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/txtMouthNote"
                                 android:textSize="@dimen/dimension18dp"
                                 android:fontFamily="@font/lato"
@@ -1400,7 +1404,8 @@
                             android:layout_margin="@dimen/dimension10dp"
                             android:background="@color/colordivideGray" />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:id="@+id/txtAidsNote"
                             android:layout_width="match_parent"
                             android:layout_marginTop="@dimen/dimension5dp"
@@ -2608,7 +2613,8 @@
                             android:layout_marginRight="@dimen/dimension5dp"
                             android:background="@color/colordivideGray" />
 
-                        <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:id="@+id/txtDietNote"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -3048,8 +3054,9 @@
                                     android:paddingTop="@dimen/dimension8dp"
                                     android:src="@drawable/drg"></ImageView>
 
-                                 <android.support.design.widget.TextInputLayout
-                                     app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                                 <android.support.design.widget.TextInputLayout 
+                                    
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                     android:id="@+id/tilBlood"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3059,7 +3066,7 @@
                                     android:descendantFocusability="beforeDescendants"
                                     android:focusableInTouchMode="true"
                                     app:hintEnabled="true"
-
+                                     
                                     >
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView
@@ -3656,7 +3663,8 @@
                             android:layout_below="@+id/rlRadios"
                             android:visibility="gone">
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilTobacoType"
                                  android:textSize="@dimen/dimension18dp"
                                  android:fontFamily="@font/lato"
@@ -3692,7 +3700,8 @@
                                 <!--android:background="@color/colordivideGray" />-->
 
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilTobacoAmt"
                                  android:textSize="@dimen/dimension18dp"
                                  android:layout_width="match_parent"
@@ -3728,7 +3737,8 @@
                                 <!--android:layout_marginBottom="@dimen/dimension5dp"-->
                                 <!--android:background="@color/colordivideGray" />-->
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilTobacoYear"
                                  android:textSize="@dimen/dimension18dp"
                                  android:layout_width="match_parent"
@@ -3903,7 +3913,8 @@
                             android:layout_below="@+id/rlRadioDrug"
                             android:visibility="gone">
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilDrugType"
                                 android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
@@ -3937,7 +3948,8 @@
                                 <!--android:layout_marginBottom="@dimen/dimension5dp"-->
                                 <!--android:background="@color/colordivideGray" />-->
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilDrugAmt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -3973,7 +3985,8 @@
                                 <!--android:layout_marginBottom="@dimen/dimension5dp"-->
                                 <!--android:background="@color/colordivideGray" />-->
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilDrugYear"
                                 android:fontFamily="@font/lato"
                                 android:layout_width="match_parent"
@@ -4156,7 +4169,8 @@
                             android:layout_below="@+id/rlRadioDrink"
                             android:visibility="gone">
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilDrinkAmt"
                                 android:layout_width="match_parent"
                                  android:layout_marginTop="@dimen/dimension5dp"
@@ -4191,7 +4205,8 @@
                                 <!--android:layout_marginBottom="@dimen/dimension5dp"-->
                                 <!--android:background="@color/colordivideGray" />-->
 
-                             <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                             <android.support.design.widget.TextInputLayout
+app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:id="@+id/tilDrinkYear"
                                 android:layout_width="match_parent"
                                  android:layout_marginTop="@dimen/dimension5dp"

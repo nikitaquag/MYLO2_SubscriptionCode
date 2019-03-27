@@ -133,7 +133,7 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
         holder.rlCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, ViewCardActivity.class);
+                Intent i = new Intent(context, AddCardActivity.class);
                 i.putExtra("CardObject", cardList.get(position));
                 i.putExtra("IsEdit", true);
                 context.startActivity(i);
