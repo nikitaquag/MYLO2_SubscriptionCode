@@ -78,6 +78,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     public static final int REQUEST_HOSPITAL = 400;
     private static final int REQUEST_CONDITION = 500;
     private static final int REQUEST_VACCINE = 700;
+    public static final int REQUEST_BLOOD = 1;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     View rootview;
     RelativeLayout rlMedical, rlDrugDesc, rlDrinkDesc, rlTobacoDesc;
@@ -124,6 +125,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     //    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom, viewHistoryBottom, viewHospitalBottom;
     boolean flagOrgan = false,flagVission = false, flagAids = false, flagDiet = false, flagVaccine = false, flagTobaco = false, flagDrug = false, flagDrink = false, flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false, flagHistory = false, flagHospital = false, flagTeeth = false;
     private static int RESULT_BLOOD = 1;
+RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlood,headTeeath,headDiet,headOrgan,headTobaco,headDrug,headDrink;
+    RelativeLayout headVision,headAids,headVaccine;
 
     @Nullable
     @Override
@@ -192,7 +195,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddFlue.setOnClickListener(this);
         imgAddFlueNH.setOnClickListener(this);
         imgAddPneumococcal.setOnClickListener(this);
-
+        imgBloodDrop.setOnClickListener(this);
         tbGlass.setOnCheckedChangeListener(this);
         tbMouth.setOnCheckedChangeListener(this);
         tbLense.setOnCheckedChangeListener(this);
@@ -206,12 +209,42 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         tbToilet.setOnCheckedChangeListener(this);
         tbFeed.setOnCheckedChangeListener(this);
 
-        rlAllergis.setOnClickListener(this);
-        imgBloodDrop.setOnClickListener(this);
-        txtBlood.setOnClickListener(this);
+        headAllergy.setOnClickListener(this);
+        headPre.setOnClickListener(this);
+        headImplants.setOnClickListener(this);
+        headHistory.setOnClickListener(this);
+        headHospital.setOnClickListener(this);
+        headBlood.setOnClickListener(this);
+        headTeeath.setOnClickListener(this);
+        headDiet.setOnClickListener(this);
+        headOrgan.setOnClickListener(this);
+        headTobaco.setOnClickListener(this);
+        headDrug.setOnClickListener(this);
+        headDrink.setOnClickListener(this);
+        headVision.setOnClickListener(this);
+        headAids.setOnClickListener(this);
+        headVaccine.setOnClickListener(this);
+
     }
 
     private void initUI() {
+        headAllergy = rootview.findViewById(R.id.headAllergy);
+        headPre = rootview.findViewById(R.id.headPre);
+        headImplants = rootview.findViewById(R.id.headImplants);
+        headHistory = rootview.findViewById(R.id.headHistory);
+        headHospital = rootview.findViewById(R.id.headHospital);
+
+        headBlood = rootview.findViewById(R.id.headBlood);
+        headTeeath = rootview.findViewById(R.id.headTeeath);
+        headDiet = rootview.findViewById(R.id.headDiet);
+        headOrgan = rootview.findViewById(R.id.headOrgan);
+        headTobaco = rootview.findViewById(R.id.headTobaco);
+
+        headDrug = rootview.findViewById(R.id.headDrug);
+        headDrink = rootview.findViewById(R.id.headDrink);
+        headVision = rootview.findViewById(R.id.headVision);
+        headAids = rootview.findViewById(R.id.headAids);
+        headVaccine = rootview.findViewById(R.id.headVaccine);
 
         rlAllergis = rootview.findViewById(R.id.rlAllergis);
         llSubAllergis = rootview.findViewById(R.id.llSubAllergis);
@@ -416,7 +449,15 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 //                }
 //            }
 //        });
-
+        txtBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "Blood");
+                i.putExtra("Selected",txtBlood.getText().toString());
+                startActivityForResult(i, REQUEST_BLOOD);
+            }
+        });
         tbOrgan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -1331,6 +1372,53 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     flagAllergy = false;
                 }
 
+                break;
+
+            case R.id.headAllergy:
+                imgAddAllergy.performClick();
+                break;
+            case R.id.headPre:
+                imgAddCondition.performClick();
+                break;
+            case R.id.headImplants:
+                imgAddImplants.performClick();
+                break;
+            case R.id.headHistory:
+                imgAddHistory.performClick();
+                break;
+            case R.id.headHospital:
+                imgAddHospital.performClick();
+                break;
+            case R.id.headBlood:
+                imgBloodDrop.performClick();
+                break;
+            case R.id.headTeeath:
+                imgTeethDrop.performClick();
+                break;
+
+            case R.id.headDiet:
+                imgDietDrop.performClick();
+                break;
+            case R.id.headOrgan:
+                imgDonnerDrop.performClick();
+                break;
+            case R.id.headTobaco:
+                imgTobacoDrop.performClick();
+                break;
+            case R.id.headDrug:
+                imgDrugDrop.performClick();
+                break;
+            case R.id.headDrink:
+                imgDrinkDrop.performClick();
+                break;
+            case R.id.headVision:
+                imgVisionDrop.performClick();
+                break;
+            case R.id.headAids:
+                imgAidsDrop.performClick();
+                break;
+            case R.id.headVaccine:
+                imgVaccineDrop.performClick();
                 break;
 
             case R.id.imgAddCondition:

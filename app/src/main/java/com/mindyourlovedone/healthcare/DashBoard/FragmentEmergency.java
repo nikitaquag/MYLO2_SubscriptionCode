@@ -503,7 +503,7 @@ emergencyList=new ArrayList<>();
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Emergency.pdf");
+        File file = new File(dirfile, "EMERGENCYCONTACTS.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -591,7 +591,7 @@ emergencyList=new ArrayList<>();
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Emergency.pdf";
+                        + "/EMERGENCYCONTACTS.pdf";
                 File f = new File(path);
                 preferences.emailAttachement(f, getActivity(), "Emergency Contact");
                 dialog.dismiss();
@@ -604,7 +604,7 @@ emergencyList=new ArrayList<>();
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Emergency.pdf";
+                        + "/EMERGENCYCONTACTS.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getEmergencyInfo());
 

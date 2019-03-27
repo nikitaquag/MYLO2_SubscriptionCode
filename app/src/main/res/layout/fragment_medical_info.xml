@@ -3048,7 +3048,8 @@
                                     android:paddingTop="@dimen/dimension8dp"
                                     android:src="@drawable/drg"></ImageView>
 
-                                 <android.support.design.widget.TextInputLayout app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                                 <android.support.design.widget.TextInputLayout
+                                     app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                                     android:id="@+id/tilBlood"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -3058,6 +3059,7 @@
                                     android:descendantFocusability="beforeDescendants"
                                     android:focusableInTouchMode="true"
                                     app:hintEnabled="true"
+
                                     >
                                     <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
                                     <AutoCompleteTextView

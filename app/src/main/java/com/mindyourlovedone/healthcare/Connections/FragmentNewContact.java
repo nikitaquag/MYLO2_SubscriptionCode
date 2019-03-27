@@ -5641,24 +5641,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 // dispatchTakePictureIntent(resultCameraImageCard, profile);
-
+                if (profile.equals("Profile")) {
                 values = new ContentValues();
                 values.put(MediaStore.Images.Media.TITLE, "New Picture");
                 values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (profile.equals("Profile")) {
+
                     imageUriProfile = getActivity().getContentResolver().insert(
                             MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
                     //  intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriProfile);
+                    startActivityForResult(intent, resultCameraImageCard);
                 } else if (profile.equals("Card")) {
-                    imageUriCard = getActivity().getContentResolver().insert(
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-                    // intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriCard);
+                    dialogCameraFront(resultCameraImageCard);
+
                 }
 
-                startActivityForResult(intent, resultCameraImageCard);
                 dialog.dismiss();
             }
         });
@@ -5700,7 +5698,50 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             }
         });
     }
+    private void dialogCameraFront(final int resultCameraImage) {
+        final Dialog dialogCamera = new Dialog(context);
+        dialogCamera.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogCamera.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_camera_ins, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
+
+        dialogCamera.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogCamera.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogCamera.getWindow().setAttributes(lp);
+        dialogCamera.setCanceledOnTouchOutside(false);
+        dialogCamera.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "New Picture");
+                values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                    imageUriCard = getActivity().getContentResolver().insert(
+                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    // intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriCard);
+
+
+                startActivityForResult(intent, resultCameraImage);
+                dialogCamera.dismiss();
+            }
+        });
+    }
     Context context = getActivity();
 
     @Override

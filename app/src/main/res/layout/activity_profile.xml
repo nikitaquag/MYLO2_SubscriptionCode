@@ -1291,7 +1291,7 @@
                         android:fontFamily="@font/lato"
                         android:button="@drawable/radiocheck"
                         android:paddingLeft="@dimen/dimension8dp"
-                        android:text="Child"
+                        android:text="Children"
                         android:textSize="@dimen/dimension18dp" />
 
                     <View

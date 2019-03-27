@@ -45,7 +45,7 @@
                 android:textStyle="normal"
                 android:text=""
                 android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension15dp" />
+                android:textSize="@dimen/dimension16dp" />
 
             <TextView
                 android:textAllCaps="true"
@@ -74,7 +74,7 @@
                 android:textStyle="normal"
                 android:text=""
                 android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension15dp" />
+                android:textSize="@dimen/dimension16dp" />
 
             <TextView
                 android:textAllCaps="true"
@@ -103,7 +103,7 @@
                 android:textStyle="normal"
                 android:text=""
                 android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension15dp" />
+                android:textSize="@dimen/dimension16dp" />
 
             <TextView
                 android:textAllCaps="true"
@@ -132,7 +132,7 @@
                 android:textStyle="normal"
                 android:text=""
                 android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension15dp" />
+                android:textSize="@dimen/dimension16dp" />
 
             <TextView
                 android:textAllCaps="true"
@@ -161,7 +161,7 @@
                 android:textStyle="normal"
                 android:text=""
                 android:textColor="@color/colorBlackDark"
-                android:textSize="@dimen/dimension15dp" />
+                android:textSize="@dimen/dimension16dp" />
 
         </RelativeLayout>
 

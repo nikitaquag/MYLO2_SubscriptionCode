@@ -406,7 +406,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Doctor.pdf");
+        File file = new File(dirfile, "Doctors&HealthcareProfessionals.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -415,7 +415,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Doctor");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Doctors & Other Health Care Professionals ");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
@@ -489,7 +489,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Doctor.pdf";
+                        + "/Doctors&HealthcareProfessionals.pdf";
 
                 File f = new File(path);
                 preferences.emailAttachement(f, getActivity(), "Doctors");
@@ -503,7 +503,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Doctor.pdf";
+                        + "/Doctors&HealthcareProfessionals.pdf";
 
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getDoctorsInfo());

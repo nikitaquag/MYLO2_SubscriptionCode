@@ -482,13 +482,13 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable) ) : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageHospital.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messageHospital.add("Electronic Health Record (Link if applicable)  :");
                 messageHospital.add(locator);
 
                 String note = "";
@@ -1092,8 +1092,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Doctors");
-                messageDoctor.add("Doctors");
+                Header.addChank("Doctors & Other Health Care Professionals ");
+                messageDoctor.add("Doctors & Other Health Care Professionals ");
                 Header.addEmptyLine(1);
             }
 
@@ -1315,13 +1315,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messageDoctor.add("Electronic Health Record (Link if applicable)  :");
                 messageDoctor.add(locator);
 
                 String note = "";
@@ -1345,6 +1345,28 @@ public class Specialty {
                 table.addCell(cell);
                 messageDoctor.add("");
                 messageDoctor.add(note);
+
+            String card = "";
+            if (s.getHas_card() != null) {
+                card = s.getHas_card();
+            }
+            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageDoctor.add(("Do you have business card? : "));
+            messageDoctor.add(card);
+
+            cell = new PdfPCell(new Phrase(""));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageDoctor.add("");
+            messageDoctor.add(card);
 
 
                 Header.document.add(table);
@@ -1581,13 +1603,13 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageHospital.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messageHospital.add("Electronic Health Record (Link if applicable)  :");
                 messageHospital.add(locator);
 
                 String note = "";
@@ -1612,6 +1634,28 @@ public class Specialty {
                 table.addCell(cell);
                 messageHospital.add("");
                 messageHospital.add(note);
+
+            String card = "";
+            if (h.getHas_card() != null) {
+                card = h.getHas_card();
+            }
+            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageHospital.add(("Do you have business card? : "));
+            messageHospital.add(card);
+
+            cell = new PdfPCell(new Phrase(""));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageHospital.add("");
+            messageHospital.add(card);
 
                 Header.document.add(table);
                 Paragraph p = new Paragraph(" ");
@@ -1755,13 +1799,13 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePharmacy.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messagePharmacy.add("Electronic Health Record (Link if applicable)  :");
                 messagePharmacy.add(locator);
 
                 String note = "";
@@ -1785,6 +1829,28 @@ public class Specialty {
                 table.addCell(cell);
                 messagePharmacy.add("");
                 messagePharmacy.add(note);
+
+            String card = "";
+            if (p.getHas_card() != null) {
+                card = p.getHas_card();
+            }
+            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messagePharmacy.add(("Do you have business card? : "));
+            messagePharmacy.add(card);
+
+            cell = new PdfPCell(new Phrase(""));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageFinance.add("");
+            messageFinance.add(note);
 
                 Header.document.add(table);
                 Paragraph ps = new Paragraph(" ");
@@ -2045,6 +2111,28 @@ public class Specialty {
                 table.addCell(cell);
                 messageFinance.add("");
                 messageFinance.add(note);
+
+            String card = "";
+            if (f.getHas_card() != null) {
+                card = f.getHas_card();
+            }
+            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageFinance.add(("Do you have business card? : "));
+            messageFinance.add(card);
+
+            cell = new PdfPCell(new Phrase(""));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageFinance.add("");
+            messageFinance.add(note);
 
                 Header.document.add(table);
                 Paragraph p = new Paragraph(" ");

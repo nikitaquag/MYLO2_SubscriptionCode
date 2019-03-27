@@ -361,14 +361,14 @@ public class Individual {
             if (connection.getChildren() != null) {
                 children = connection.getChildren();
             }
-            cell2 = new PdfPCell(new Phrase("Child : " + children));
+            cell2 = new PdfPCell(new Phrase("Children : " + children));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
             cell2.setBorderColorBottom(BaseColor.WHITE);
             table2.addCell(cell2);
 
-            messageInfo2.add("Child :");
+            messageInfo2.add("Children :");
             messageInfo2.add(children);
 
             String friend = "";
@@ -462,6 +462,17 @@ public class Individual {
                 other = connection.getOther_person();
             }
             cell2 = new PdfPCell(new Phrase("Other : " + other));
+            cell2.setBorder(Rectangle.BOTTOM);
+            cell2.setUseBorderPadding(true);
+            cell2.setBorderWidthBottom(5);
+            cell2.setBorderColorBottom(BaseColor.WHITE);
+            table2.addCell(cell2);
+
+            String people = "";
+            if (connection.getPeople() != null) {
+                people = connection.getPeople();
+            }
+            cell2 = new PdfPCell(new Phrase("Names of People : " + people));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);

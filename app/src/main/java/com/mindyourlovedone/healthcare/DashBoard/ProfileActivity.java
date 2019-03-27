@@ -512,6 +512,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 } else if (isChecked == false) {
                     tilOther.setVisibility(View.GONE);
                     other = "NO";
+                    liveOther="";
                 }
             }
         });
@@ -1283,6 +1284,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     chkOther.setChecked(true);
                     other = "YES";
                     tilOther.setVisibility(View.VISIBLE);
+
                 } else if (connection.getSign_other().equals("NO")) {
                     chkOther.setChecked(false);
                     other = "NO";
@@ -2403,25 +2405,24 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // dispatchTakePictureIntent(resultCameraImage,from);
+                if (from.equals("Profile")) {
                 values = new ContentValues();
                 values.put(MediaStore.Images.Media.TITLE, "New Picture");
                 values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if (from.equals("Profile")) {
+
                     imageUriProfile = getContentResolver().insert(
                             MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
 
 
                     //  intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriProfile);
+                    startActivityForResult(intent, resultCameraImage);
                 } else if (from.equals("Card")) {
-                    imageUriCard = getContentResolver().insert(
-                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-                    // intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriCard);
+                   dialogCameraFront(resultCameraImage);
                 }
 
-                startActivityForResult(intent, resultCameraImage);
+
                 dialog.dismiss();
             }
         });
@@ -3549,6 +3550,49 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
     }
 
+    private void dialogCameraFront(final int resultCameraImage) {
+        final Dialog dialogCamera = new Dialog(context);
+        dialogCamera.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogCamera.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.dialog_camera_ins, null);
+        final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
+
+        dialogCamera.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialogCamera.getWindow().getAttributes());
+        int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = width;
+        RelativeLayout.LayoutParams buttonLayoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        buttonLayoutParams.setMargins(0, 0, 0, 10);
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialogCamera.getWindow().setAttributes(lp);
+        dialogCamera.setCanceledOnTouchOutside(false);
+        dialogCamera.show();
+
+
+        txtOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                values = new ContentValues();
+                values.put(MediaStore.Images.Media.TITLE, "New Picture");
+                values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                imageUriCard = getContentResolver().insert(
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                // intent.putExtra(MediaStore.EXTRA_SCREEN_ORIENTATION, ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUriCard);
+
+
+                startActivityForResult(intent, resultCameraImage);
+                dialogCamera.dismiss();
+            }
+        });
+    }
 
 }
