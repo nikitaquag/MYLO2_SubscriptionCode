@@ -39,6 +39,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -222,6 +223,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
     SpecialPhoneAdapter pd;
     FrameLayout flFront;
     RelativeLayout rlInsured;
+    ScrollView scroll;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         rootview = inflater.inflate(R.layout.fragment_new_contact, null);
@@ -2480,8 +2482,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "Speciality":
                 changeIcon(source);
                 visiSpecialist();
-                txtAdd.setText("Add Doctors & Other\n Health Professional");
-                txtTitle.setText("Add Doctors & Other\n Health Professional");
+                txtAdd.setText("Add Doctors & Health Care Professionals");
+                txtTitle.setText("Add Doctors & Health Care Professionals");
 //                setListPh(listDrPhone);
                 PhoneLayout = llAddDrPhone;
                 setListPh();
@@ -2501,8 +2503,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 visiSpecialist();
                 txtDelete.setVisibility(View.VISIBLE);
-                txtAdd.setText("Update Doctors & Other\n Health Professional");
-                txtTitle.setText("Update Doctors & Other\n Health Professional");
+                txtAdd.setText("Update Doctors & Health Care Professionals");
+                txtTitle.setText("Update Doctors & Health Care Professionals");
                 Intent specialistIntent = getActivity().getIntent();
                 if (specialistIntent.getExtras() != null) {
                     specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
@@ -3354,8 +3356,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 // visiFinance();
                 visiHospital();
-                txtAdd.setText("Add Hospitals & Rehabilitation Centers");
-                txtTitle.setText("Add Hospitals & Rehabilitation Centers");
+                txtAdd.setText("Add Hospitals, Rehab, Home Care");
+                txtTitle.setText("Add Hospitals, Rehab, Home Care");
 //                setListPh(listHospPhone);
                 PhoneLayout = llAddHospPhone;
                 setListPh();
@@ -3368,8 +3370,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
                 txtDelete.setVisibility(View.VISIBLE);
-                txtAdd.setText("Update Hospitals & Rehabilitation Centers");
-                txtTitle.setText("Update Hospitals & Rehabilitation Centers");
+                txtAdd.setText("Update Hospitals, Rehab, Home Care");
+                txtTitle.setText("Update Hospitals, Rehab, Home Care");
                 Intent hospIntent = getActivity().getIntent();
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
@@ -4367,8 +4369,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlAids.setVisibility(View.GONE);
         rlProxy.setVisibility(View.GONE);
 
-        txtAdd.setText("Add Doctors & Other\n Health Professional");
-        txtTitle.setText("Add Doctors & Other\n Health Professional");
+        txtAdd.setText("Add Doctors & Health Care Professionals");
+        txtTitle.setText("Add Doctors & Health Care Professionals");
         // tilDoctorName.setHintEnabled(false);
 
        /* txtDoctorName.setOnTouchListener(new View.OnTouchListener() {
@@ -4426,6 +4428,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
 
     private void initUI() {
+        scroll= rootview.findViewById(R.id.scroll);
+        scroll.smoothScrollTo(0,rootview.getTop());
         layoutInflater = (LayoutInflater) getActivity().getSystemService(context.LAYOUT_INFLATER_SERVICE);
         flFront = rootview.findViewById(R.id.flFront);
         rlInsured=rootview.findViewById(R.id.rlInsured);

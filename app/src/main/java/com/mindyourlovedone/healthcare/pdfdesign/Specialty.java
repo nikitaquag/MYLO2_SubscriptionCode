@@ -1092,8 +1092,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Doctors & Other Health Care Professionals ");
-                messageDoctor.add("Doctors & Other Health Care Professionals ");
+                Header.addChank("Doctors & Health Care Professionals ");
+                messageDoctor.add("Doctors & Health Care Professionals ");
                 Header.addEmptyLine(1);
             }
 
@@ -1397,8 +1397,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             if (f==0) {
                 // Header.addEmptyLine(1);
-                Header.addChank("Hospitals And Other Health Professionals");
-                messageHospital.add("Hospitals And Other Health Professionals");
+                Header.addChank("Hospitals, Rehab, Home Care ");
+                messageHospital.add("Hospitals, Rehab, Home Care ");
                 Header.addEmptyLine(1);
             }
           //  for (int i = 0; i < hospitalList.size(); i++) {

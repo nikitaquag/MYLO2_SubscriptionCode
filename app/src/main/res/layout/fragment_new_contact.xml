@@ -9,6 +9,7 @@
     android:paddingBottom="@dimen/dimension10dp">
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/txtDelete">
@@ -2823,7 +2824,7 @@ android:visibility="gone"
                             android:id="@+id/txtGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Group     #"
+                            android:hint="Group #"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"

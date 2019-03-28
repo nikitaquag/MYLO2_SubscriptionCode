@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Camera Guidelines"
+            android:text="Taking Pictures of Cards"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension22dp"
             android:textStyle="bold" />

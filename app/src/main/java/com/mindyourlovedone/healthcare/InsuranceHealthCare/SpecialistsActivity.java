@@ -149,7 +149,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 profile = new int[]{R.drawable.sp_one, R.drawable.sp_two, R.drawable.sp_three, R.drawable.sp_four};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"Doctors And Other Health Care Professionals", "Hospitals, Rehabilitation Centers, & Home Health Care Agencies", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
+                specialist = new String[]{"Doctors And Health Care Professionals", "Hospitals, Rehab, Home Care", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
 
                 isEmergency = false;
                 isInsurance = false;

@@ -101,7 +101,7 @@
                     android:gravity="left"
                     android:paddingLeft="@dimen/dimension10dp"
                     android:paddingTop="@dimen/dimension5dp"
-                    android:text="Primary Proxy"
+                    android:text=""
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension17dp" />
 

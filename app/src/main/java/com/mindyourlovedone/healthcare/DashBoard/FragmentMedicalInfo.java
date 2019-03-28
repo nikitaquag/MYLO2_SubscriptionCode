@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.IdRes;
@@ -1115,7 +1116,25 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
 
         });
 
+        RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
 
+        rlFloatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/MedicalProfile.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getMedicalInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+                Intent i = new Intent(getActivity(), FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
+                dialog.dismiss();
+            }
+    });
     }
 
     @Override

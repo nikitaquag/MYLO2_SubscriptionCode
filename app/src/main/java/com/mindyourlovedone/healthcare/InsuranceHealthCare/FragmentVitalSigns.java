@@ -233,7 +233,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -372,7 +372,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 //                preferences.copyFile("ic_launcher.png", getActivity());
 //                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
 //                Header.addEmptyLine(1);
-//                Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
 //                Header.addEmptyLine(1);
 //
 //                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -390,7 +390,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 //                Header.addEmptyLine(1);
 //
 //              /*  new Header().createPdfHeader(file.getAbsolutePath(),
-//                        "Hospitals and other health professionals");
+//                        "Hospitals, Rehab, Home Care");
 //
 //                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
 //                Header.addEmptyLine(2);*/

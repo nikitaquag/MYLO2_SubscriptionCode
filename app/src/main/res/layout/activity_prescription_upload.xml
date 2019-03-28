@@ -187,7 +187,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="Upload New Insurance Form"
+                    android:hint="Upload New Prescription"
                     android:imeOptions="actionNext"
                     android:fontFamily="@font/lato"
                     android:maxLength="30"

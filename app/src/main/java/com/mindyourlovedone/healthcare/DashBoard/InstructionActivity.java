@@ -768,7 +768,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Pharmacies & Home Medical Equipments");
+                txtHeader.setText("Instructions for Pharmacies & Home Medical Equipment");
                 break;
 
             case "FinanceInstruction":
@@ -817,7 +817,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Finance, Legal, Others");
+                txtHeader.setText("Instructions for Finance, Legal, Other");
                 break;
             case "HospitalInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
@@ -864,7 +864,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText( "Instructions for Hospitals, Rehabilitation, & Home Health Care Agencies ");
+                txtHeader.setText( "Instructions for Hospitals, Rehab, Home Care");
                 break;
 
             case "DoctorInstruction":
@@ -914,7 +914,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Doctors And Other Health Care Professionals");
+                txtHeader.setText("Instructions for Doctors And Health Care Professionals");
                 break;
 
             case "PhysicianInstruction":
@@ -1455,13 +1455,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 } else if (From.equals("FormInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Forms", UI);
                 } else if (From.equals("DoctorInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Doctors And Other Health Care Professionals", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Doctors And Health Care Professionals", UI);
                 } else if (From.equals("HospitalInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Hospitals, Rehabilitation, & Home Health Care Agencies ", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Hospitals, Rehab, Home Care", UI);
                 } else if (From.equals("PharmacyInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Pharmacies & Home Medical Equipments", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Pharmacies & Home Medical Equipment", UI);
                 } else if (From.equals("FinanceInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Finance, Legal, Others ", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Finance, Legal, Other ", UI);
                 } else if (From.equals("Personal")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("Medical")) {
