@@ -1327,8 +1327,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(InstructionActivity.this);
-                alert.setTitle("Email ?");
-                alert.setMessage("Do you want to email dropbox instructions ?");
+                alert.setTitle("Share ?");
+                alert.setMessage("Do you want to share dropbox instructions ?");
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

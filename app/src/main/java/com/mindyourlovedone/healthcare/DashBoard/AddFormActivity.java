@@ -163,8 +163,8 @@ public class AddFormActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(AddFormActivity.this);
-                alert.setTitle("Email ?");
-                alert.setMessage("Do you want to email card image ?");
+                alert.setTitle("Share ?");
+                alert.setMessage("Do you want to share card image ?");
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -220,7 +220,7 @@ public class AddFormActivity extends AppCompatActivity {
         }
         emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
 //emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(f));
-        emailIntent.setType("application/email");
+        emailIntent.setType("image/jpeg");
 
         context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));
     }

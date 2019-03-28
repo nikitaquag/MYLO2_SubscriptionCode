@@ -12,8 +12,8 @@ public class UIEmails {
 
 
     public void emailAttachement(Context context, String s, String Data) {
-        Preferences preferences = new Preferences(context);
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+       Preferences preferences = new Preferences(context);
+      /*   Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.setType("message/rfc822");
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[]{""});
@@ -37,10 +37,10 @@ public class UIEmails {
         if (emailIntent.resolveActivity(context.getPackageManager())!=null)
             context.startActivity(emailIntent);
         else
-            Toast.makeText(context,"Gmail App is not installed",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Gmail App is not installed",Toast.LENGTH_SHORT).show();*/
 
 
-      /*  Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+       Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
 
         emailIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -61,9 +61,9 @@ public class UIEmails {
         // "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
 
-        emailIntent.setType("application/email");
+       emailIntent.setType("text/plain");
 
-        context.startActivity(Intent.createChooser(emailIntent, "Send mail..."));*/
+        context.startActivity(Intent.createChooser(emailIntent, "Send Instructions..."));
     }
 
 }
