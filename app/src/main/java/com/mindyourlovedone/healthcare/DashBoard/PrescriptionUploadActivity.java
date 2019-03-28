@@ -91,6 +91,7 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                 rlDocument.setOnClickListener(this);
                 flDelete.setOnClickListener(this);
                 imgEdit.setOnClickListener(this);
+                txtName.setOnClickListener(this);
 
         }
 
@@ -110,15 +111,16 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                 flDelete = findViewById(R.id.flDelete);
                 imgEdit = findViewById(R.id.imgEdit);
 
-                txtName.setClickable(false);
-                txtName.setOnTouchListener(new View.OnTouchListener() {
+                txtName.setClickable(true);
+                txtName.setFocusable(false);
+              /*  txtName.setOnTouchListener(new View.OnTouchListener() {
                         @Override
                         public boolean onTouch(View v, MotionEvent event) {
-                                tilName.setHintEnabled(false);
-                                txtName.setFocusable(false);
-                                return false;
+                                tilName.setHintEnabled(false);*/
+
+                               /* return false;
                         }
-                });
+                });*/
                 Intent i = getIntent();
                 if (i.getExtras() != null) {
                         Goto = i.getExtras().getString("GoTo");
@@ -188,7 +190,7 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                         case R.id.flDelete:
                                 deleteForm(document);
                                 break;
-                        case R.id.imgDoc:
+                        case R.id.txtName:
                                 Uri uri = null;
                                 if (!documentPath.equals("")) {
                                         File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
@@ -254,7 +256,37 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                                 formDialog();
                                 break;
                         case R.id.rlDoc:
-                                formDialog();
+                                Uri uris = null;
+                                if (!documentPath.equals("")) {
+                                        File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                                        Intent intent = new Intent();
+                                        intent.setAction(Intent.ACTION_VIEW);
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                                uris = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", targetFile);
+                                        } else {
+                                                uris = Uri.fromFile(targetFile);
+                                        }
+                                        // Uri uris = Uri.parse(documentPath);
+                                        intent.setDataAndType(uris, "application/pdf");
+                                        context.startActivity(intent);
+                   /* Uri uris = Uri.parse(documentPath);
+                    Intent intent = new Intent();
+                    intent.setAction(Intent.ACTION_VIEW);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        //  uri = FileProvider.getUriForFile(context, "com.mindyourelders.healthcare.HomeActivity.fileProvider", targetFile);
+                    } else {
+                        //  uri = Uri.fromFile(targetFile);
+                    }
+                    intent.setDataAndType(uris, "application/pdf");
+                    context.startActivity(intent);*/
+
+
+                                }
+else {
+                                        formDialog();
+                                }
                                 break;
 
 
@@ -584,6 +616,7 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                         // imgDoc.setImageResource(R.drawable.pdf);
                         rlDoc.setBackgroundResource(R.drawable.pdf);
                         imgDoc.setVisibility(View.GONE);
+                        imgEdit.setVisibility(View.VISIBLE);
                         txtAttach.setVisibility(View.GONE);
                         txtAdd.setText("Edit File");
                         ShowWindowDialog(text);
@@ -599,6 +632,7 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
                         // imgDoc.setImageResource(R.drawable.pdf);
                         rlDoc.setBackgroundResource(R.drawable.pdf);
                         imgDoc.setVisibility(View.GONE);
+                        imgEdit.setVisibility(View.VISIBLE);
                         txtAttach.setVisibility(View.GONE);
                         imgDoc.setClickable(false);
                         txtAdd.setText("Edit File");
