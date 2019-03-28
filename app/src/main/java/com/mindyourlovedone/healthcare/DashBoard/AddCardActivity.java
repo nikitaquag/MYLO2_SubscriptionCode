@@ -280,24 +280,22 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.llFrontCam:
-                Toast.makeText(context,"Image",Toast.LENGTH_SHORT).show();
-                imgEdit1.performClick();
+
+                    imgEdit1.performClick();
+
                /* if (frontFlag == true) {
-                    Intent i = new Intent(context, AddFormActivity.class);
-                    i.putExtra("Image", imagePathFront);
-                    i.putExtra("FROM", "Insurance");
-                    startActivityForResult(i, REQUEST_CARD);
+
                 }*/
                 break;
 
-           /* case R.id.imgFrontCard:
-                if (frontFlag == true) {
+            case R.id.imgFrontCard:
+              //  if (frontFlag == true) {
                     Intent i = new Intent(context, AddFormActivity.class);
                     i.putExtra("Image", imagePathFront);
                     i.putExtra("FROM", "Insurance");
                     startActivityForResult(i, REQUEST_CARD);
-                }
-                break;*/
+              //  }
+                break;
             case R.id.llBackCam:
                 imgEdit2.performClick();
                /* if (backFlag == true) {
@@ -314,14 +312,14 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 intentHome.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentHome);
                 break;
-           /* case R.id.imgBackCard:
-                if (backFlag == true) {
+            case R.id.imgBackCard:
+               // if (backFlag == true) {
                     Intent j = new Intent(context, AddFormActivity.class);
                     j.putExtra("Image", imagePathBack);
                     j.putExtra("FROM", "Insurance");
                     startActivityForResult(j, REQUEST_CARD);
-                }
-                break;*/
+              //  }
+                break;
             case R.id.txtSave:
                 //Shradha
                 if (validate()) {
