@@ -28,6 +28,7 @@ import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,7 +71,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     Context context = this;
     ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgHome,imgType;
     MySpinner spinnerDoc, spinnerType, spinnerPro;
-    TextView txtDelete, txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
+    TextView txtDelete, txtSave, txtTitle, txtOtherDocType, txtName, txtAdd, txtHosp, txtLocator, txtDate,txtNote, txtLocation, txtHolderName, txtDist, txtOther, txtPName, txtFName, txtDocTYpe;
     String From;
     Preferences preferences;
     ArrayAdapter<String> adapter, adapter1, adapterPro;
@@ -79,7 +80,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     Document document;
     DBHelper dbHelper;
     String name = "";
-    String type = "";
+    String type = "",note="";
     String docType = "", otherDocType = "", person = "", principle = "";
     String otherCategory = "";
     String Hosp = "", locator = "";
@@ -99,6 +100,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     TextInputLayout tilDocuType, tilSpinDoc;
     TextView txtDocuType, txtSpinDoc;
+
+    ScrollView scroll;
 
     boolean external_flag = false;
     List<RelativeConnection> items;
@@ -172,7 +175,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void initUi() {
-
+        scroll=findViewById(R.id.scroll);
+        scroll.smoothScrollTo(0,0);
         tilDocuType = findViewById(R.id.tilDocuType);
         imgType=findViewById(R.id.imgType);
         txtDocuType = findViewById(R.id.txtDocuType);
@@ -203,6 +207,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtLocator = findViewById(R.id.txtLocator);
         tilLocator = findViewById(R.id.tilLocator);
         txtLocation = findViewById(R.id.txtLocation);
+        txtNote= findViewById(R.id.txtNote);
         txtHolderName = findViewById(R.id.txtHolderName);
         txtDist = findViewById(R.id.txtDist);
         txtOther = findViewById(R.id.txtOther);
@@ -481,6 +486,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtDate.setText(document.getDate());
             txtHolderName.setText(document.getHolder());
             txtLocation.setText(document.getLocation());
+            txtNote.setText(document.getNote());
             txtFName.setText(document.getName());
             txtPName.setText(document.getPerson());
             txtName.setText(document.getPrinciple());
@@ -718,7 +724,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
                     documentPath = copydb(originPath, name);
                     if (Goto.equals("Edit")) {
-                        Boolean flag = DocumentQuery.updateDocumentData(id, name, category, date, location, holder, photo, documentPath, docType, From, person, principle, otherCategory, Hosp, otherDocType, locator);
+                        Boolean flag = DocumentQuery.updateDocumentData(id, name, category, date, location, holder, photo, documentPath, docType, From, person, principle, otherCategory, Hosp, otherDocType, locator,note);
                         if (flag == true) {
                             Toast.makeText(context, "You have updated document successfully", Toast.LENGTH_SHORT).show();
                             finish();
@@ -726,7 +732,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                             Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Boolean flag = DocumentQuery.insertDocumentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, category, date, location, holder, photo, documentPath, docType, From, person, principle, otherCategory, Hosp, otherDocType, locator);
+                        Boolean flag = DocumentQuery.insertDocumentData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, category, date, location, holder, photo, documentPath, docType, From, person, principle, otherCategory, Hosp, otherDocType, locator,note);
                         if (flag == true) {
                             Toast.makeText(context, "You have added document successfully", Toast.LENGTH_SHORT).show();
                             if (external_flag == true) {
@@ -744,8 +750,37 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 break;
 
            case R.id.imgDoc:
+               if (getIntent().hasExtra("PDF_EXT")) {
 
-                DirectiveDialog();
+               } else {
+                   if (!documentPath.equals("")) {
+                       Uri uri = null;
+                       if (path.equals("No")) {
+
+                           CopyReadAssetss(documentPath);
+
+                       } else {
+                           File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                           Intent intent = new Intent();
+                           intent.setAction(Intent.ACTION_VIEW);
+                           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                               intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                               uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", targetFile);
+                           } else {
+                               uri = Uri.fromFile(targetFile);
+                           }
+                           // Uri uris = Uri.parse(documentPath);
+                           intent.setDataAndType(uri, "application/pdf");
+                           context.startActivity(intent);
+                       }
+                   }
+                   else
+                   {
+                       DirectiveDialog();
+                   }
+
+               }
+
 
 
                 break;
@@ -1323,6 +1358,7 @@ startActivity(i);
         locator = txtLocator.getText().toString();
         name = txtFName.getText().toString();
         location = txtLocation.getText().toString();
+        note=txtNote.getText().toString();
         holder = txtHolderName.getText().toString();
         date = txtDate.getText().toString();
         photo = R.drawable.pdf;

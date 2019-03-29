@@ -57,8 +57,11 @@ import com.mindyourlovedone.healthcare.database.MedicalImplantsQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
 import com.mindyourlovedone.healthcare.database.PharmacyQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionUpload;
 import com.mindyourlovedone.healthcare.database.SpecialistQuery;
 import com.mindyourlovedone.healthcare.database.VaccineQuery;
+import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Allergy;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Card;
@@ -74,15 +77,18 @@ import com.mindyourlovedone.healthcare.model.Living;
 import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
+import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -236,6 +242,9 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         VaccineQuery v = new VaccineQuery(context, dbHelper);
         FormQuery fo = new FormQuery(context, dbHelper);
         ContactDataQuery cd=new ContactDataQuery(context,dbHelper);
+        VitalQuery vc=new VitalQuery(context,dbHelper);
+        PrescriptionUpload pu=new PrescriptionUpload(context,dbHelper);
+        PrescriptionQuery p = new PrescriptionQuery(context, dbHelper);
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 preferences.putInt(PrefConstants.ID,personalInfoList.getId());
     }
@@ -1072,10 +1081,53 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<Living> LivingList = new ArrayList<Living>();
             LivingList.add(Live);
             new EventPdf(1, LivingList, 1);
+            ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new EventPdf("Vital", HospitalList);
 
+            Header.document.close();
+        } else if (from.equals("Prescription")) {
+            final String RESULT = Environment.getExternalStorageDirectory()
+                    + "/mylopdf/";
+            File dirfile = new File(RESULT);
+            dirfile.mkdirs();
+            File file = new File(dirfile, "PrescriptionTracker.pdf");
+            if (file.exists()) {
+                file.delete();
+            }
+            new Header().createPdfHeader(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+            copyFile("ic_launcher.png");
+            Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+            Header.addEmptyLine(1);
+            Header.addusereNameChank("Prescription Tracker");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addEmptyLine(1);
+
+            Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Paragraph p = new Paragraph(" ");
+            LineSeparator line = new LineSeparator();
+            line.setOffset(-4);
+            line.setLineColor(BaseColor.LIGHT_GRAY);
+            p.add(line);
+            try {
+                Header.document.add(p);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+            Header.addEmptyLine(1);
+
+                   /* new Header().createPdfHeader(file.getAbsolutePath(),
+                            "Event And Appointment Checklist");
+
+                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                    Header.addEmptyLine(2);*/
+            ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdf(prescriptionList);
+            ArrayList<Form> prescriptionLists =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdf(prescriptionLists,1);
 
             Header.document.close();
         }
+
 
 
         /*Dialo--------------------------*/
@@ -1138,6 +1190,11 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                             + "/mylopdf/"
                             + "/Event.pdf");
                     emailAttachement(f, "Event");
+                }else if (from.equals("Prescription")) {
+                    File f = new File(Environment.getExternalStorageDirectory()
+                            + "/mylopdf/"
+                            + "/PrescriptionTracker.pdf");
+                    emailAttachement(f, "Prescription Tracker");
                 }
                 dialog.dismiss();
             }
@@ -1219,6 +1276,18 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
                     new PDFDocumentProcess(Environment.getExternalStorageDirectory()
                             + "/mylopdf/" + "/Event.pdf",
+                            context, result);
+
+                    System.out.println("\n" + result + "\n");
+                }else if (from.equals("Prescription")) {
+                    StringBuffer result = new StringBuffer();
+                    result.append(new MessageString().getInsuranceInfo());
+                    result.append(new MessageString().getInsuranceInfo());
+
+
+
+                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+                            + "/mylopdf/" + "/PrescriptionTracker.pdf",
                             context, result);
 
                     System.out.println("\n" + result + "\n");

@@ -38,6 +38,7 @@ import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
 import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
@@ -222,7 +223,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Hospital.pdf");
+        File file = new File(dirfile, "VitalSign.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -233,7 +234,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Vital Signs");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -249,8 +250,8 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-        ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Specialty("Hospital", HospitalList);
+        ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdf("Vital", HospitalList);
         Header.document.close();
 
 //--------------------------------------------------------------------------------------
@@ -297,9 +298,9 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/VitalSign.pdf";
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+                preferences.emailAttachement(f, getActivity(), "Vital Signs");
 
                 dialog.dismiss();
             }
@@ -312,7 +313,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/VitalSign.pdf";
 
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getHospitalInfo());

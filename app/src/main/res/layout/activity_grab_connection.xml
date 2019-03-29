@@ -33,6 +33,7 @@
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
             android:text=""
+            android:visibility="gone"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension22dp" />
 

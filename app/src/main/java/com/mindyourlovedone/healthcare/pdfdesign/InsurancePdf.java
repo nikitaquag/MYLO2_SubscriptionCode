@@ -402,6 +402,28 @@ public class InsurancePdf {
                 messageForm.add("Form Name : ");
                 messageForm.add(name);
 
+               /* cell = new PdfPCell(new Phrase(""));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("");
+                messageForm.add(name);*/
+
+                String date = "";
+                if (s.getDate() != null) {
+                    date = s.getDate();
+                }
+                cell = new PdfPCell(new Phrase("Last Update : " + date));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("Last Update : ");
+                messageForm.add(date);
+
                 cell = new PdfPCell(new Phrase(""));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
@@ -409,7 +431,7 @@ public class InsurancePdf {
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
                 messageForm.add("");
-                messageForm.add(name);
+                messageForm.add(date);
 /*
                 String type = "";
                 if (s.getType() != null) {
@@ -485,18 +507,7 @@ public class InsurancePdf {
                 messageInsurance.add("");
 */
               //  Insurance s = insuranceList.get(i);
-            String nameofInsured = "";
-            if ("" + s.getSubscriber() != null) {
-                nameofInsured = "" + s.getSubscriber();
-            }
-            cell = new PdfPCell(new Phrase("Name of Insured : " + nameofInsured));
-            cell.setBorder(Rectangle.BOTTOM);
-            cell.setUseBorderPadding(true);
-            cell.setBorderWidthBottom(5);
-            cell.setBorderColorBottom(BaseColor.WHITE);
-            table.addCell(cell);
-            messageInsurance.add("Name of Insured :");
-            messageInsurance.add(nameofInsured);
+
                 String name = "";
                 if (s.getName() != null) {
                     name = s.getName();
@@ -526,30 +537,44 @@ public class InsurancePdf {
                 messageInsurance.add("Type of Insurance :");
                 messageInsurance.add(type);
 
+
+            String nameofInsured = "";
+            if ("" + s.getSubscriber() != null) {
+                nameofInsured = "" + s.getSubscriber();
+            }
+            cell = new PdfPCell(new Phrase("Name of Insured : " + nameofInsured));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+            messageInsurance.add("Name of Insured :");
+            messageInsurance.add(nameofInsured);
+
                 String memberId = "";
                 if (s.getMember() != null) {
                     memberId = s.getMember();
                 }
-                cell = new PdfPCell(new Phrase("Member Id(Policy Number) : " + memberId));
+                cell = new PdfPCell(new Phrase("Member Id (Policy Number) : " + memberId));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageInsurance.add("Member Id(Policy Number) :");
+                messageInsurance.add("Member Id (Policy Number) :");
                 messageInsurance.add(memberId);
 
                 String group = "";
                 if ("" + s.getGroup() != null) {
                     group = "" + s.getGroup();
                 }
-                cell = new PdfPCell(new Phrase("Group : " + group));
+                cell = new PdfPCell(new Phrase("Group # : " + group));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageInsurance.add("Group :");
+                messageInsurance.add("Group # :");
                 messageInsurance.add(group);
 
 

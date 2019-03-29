@@ -310,7 +310,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Prescription.pdf");
+        File file = new File(dirfile, "PrescriptionUpload.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -319,7 +319,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Prescription Tracker");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Prescription Upload");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -340,11 +340,11 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(2);*/
 
-        ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        ArrayList<Form> prescriptionList =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
         //     ArrayList<Dosage> DosageList= DosageQuery.fetchAllDosageRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),);
 
-        new PrescriptionPdf(prescriptionList);
+        new PrescriptionPdf(prescriptionList,1);
 
         Header.document.close();
 
@@ -391,10 +391,10 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Prescription.pdf";
+                        + "/PrescriptionUpload.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Prescription");
+                preferences.emailAttachement(f, getActivity(), "Prescription Upload");
 
 
                 dialog.dismiss();
@@ -407,7 +407,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Prescription.pdf";
+                        + "/PrescriptionUpload.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getInsuranceInfo());
                 new PDFDocumentProcess(path,
@@ -439,7 +439,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivityForResult(is, 100);
                 break;
             case R.id.floatOptions:
-               // showFloatOption();
+                showFloatOption();
                 break;
            /* case R.id.llAddHospital:
                 preferences.putString(PrefConstants.SOURCE, "Hospital");

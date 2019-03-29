@@ -864,7 +864,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText( "Instructions for Hospitals, Rehab, Home Care");
+                txtHeader.setText( "Instructions for Hospitals, Rehab, \nHome Care");
                 break;
 
             case "DoctorInstruction":

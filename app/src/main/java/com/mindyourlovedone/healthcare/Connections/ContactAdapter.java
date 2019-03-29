@@ -92,14 +92,14 @@ public class ContactAdapter extends BaseAdapter implements Filterable {
 
         if (!contactList.get(position).getHomePhone().equals("")) {
             holder.txtHPhone.setText(c.getHomePhone());
-            holder.txtHPhone.setVisibility(View.VISIBLE);
+            holder.txtHPhone.setVisibility(View.GONE);
         } else {
             holder.txtHPhone.setVisibility(View.GONE);
         }
 
         if (!contactList.get(position).getWorkPhone().equals("")) {
             holder.txtWPhone.setText(c.getWorkPhone());
-            holder.txtWPhone.setVisibility(View.VISIBLE);
+            holder.txtWPhone.setVisibility(View.GONE);
         } else {
             holder.txtWPhone.setVisibility(View.GONE);
         }
@@ -107,14 +107,14 @@ public class ContactAdapter extends BaseAdapter implements Filterable {
         if (contactList.get(position).getEmail().equals("")) {
             holder.txtEmail.setVisibility(View.GONE);
         } else {
-            holder.txtEmail.setVisibility(View.VISIBLE);
+            holder.txtEmail.setVisibility(View.GONE);
             holder.txtEmail.setText(contactList.get(position).getEmail());
         }
 
         if (contactList.get(position).getAddress().equals("")) {
             holder.txtAddress.setVisibility(View.GONE);
         } else {
-            holder.txtAddress.setVisibility(View.VISIBLE);
+            holder.txtAddress.setVisibility(View.GONE);
             holder.txtAddress.setText(contactList.get(position).getAddress());
         }
 

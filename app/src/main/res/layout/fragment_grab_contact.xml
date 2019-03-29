@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/rlSearch"
         android:layout_marginBottom="@dimen/dimension15dp"
-        android:layout_marginTop="@dimen/dimension15dp"
+
         android:divider="@null"></ListView>
 </RelativeLayout>

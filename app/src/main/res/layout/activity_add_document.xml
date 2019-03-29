@@ -777,16 +777,16 @@ android:visibility="gone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone"
+                       android:id="@+id/tilNote"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
+                            android:id="@+id/txtNote"
                             android:backgroundTint="@color/colordivideGray"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Notes"
                             android:imeOptions="actionNext"
-
                             android:fontFamily="@font/lato"
                             android:includeFontPadding="true"
                             android:paddingBottom="@dimen/dimension18dp"
@@ -796,7 +796,33 @@ android:visibility="gone"
 
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilNote"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
 
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                        <AutoCompleteTextView
+
+                            android:backgroundTint="@color/colordivideGray"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Notes"
+                            android:imeOptions="actionNext"
+                            android:fontFamily="@font/lato"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
             </RelativeLayout>
         </ScrollView>
