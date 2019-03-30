@@ -45,7 +45,7 @@ public class DocumentQuery {
     public static String createDocumentTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
                 COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(100)," + COL_DATE + " VARCHAR(50)," + COL_LOCATOR + " VARCHAR(40),"
-                + COL_OTHER + " VARCHAR(100)," + COL_OTHER_DOC + " VARCHAR(100)," + COL_HOSP + " VARCHAR(100)," + COL_TYPE + " VARCHAR(100)," + COL_HOLDER + " VARCHAR(50)," + COL_LOCATION + " VARCHAR(50)," + COL_NOTE + " VARCHAR(50)," +
+                + COL_OTHER + " VARCHAR(100)," + COL_OTHER_DOC + " VARCHAR(100)," + COL_HOSP + " VARCHAR(100)," + COL_TYPE + " VARCHAR(100)," + COL_HOLDER + " VARCHAR(50)," + COL_LOCATION + " VARCHAR(50)," + COL_NOTE + " TEXT," +
                 COL_CATEGORY + " VARCHAR(50)," + COL_FROM + " VARCHAR(50)," + COL_PERSON + " VARCHAR(100)," + COL_PRINCIPLE + " VARCHAR(100)," +
                 COL_DOCUMENT + " VARCHAR(100)," +
                 COL_PHOTO + " INTEGER);";

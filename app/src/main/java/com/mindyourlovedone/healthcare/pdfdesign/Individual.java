@@ -3524,6 +3524,28 @@ public class Individual {
                 messageInfo3.add("");
             }
 
+            String vacNote= "";
+            if (medInfo.getVaccinenote() != null) {
+                vacNote = medInfo.getVaccinenote();
+            }
+            cell8 = new PdfPCell(new Phrase("Immunization Note : " + vacNote));
+            cell8.setBorder(Rectangle.BOTTOM);
+            cell8.setUseBorderPadding(true);
+            cell8.setBorderWidthBottom(5);
+            cell8.setBorderColorBottom(BaseColor.WHITE);
+            table8.addCell(cell8);
+
+            messageInfo3.add("Immunization Note :");
+            messageInfo3.add(vacNote);
+
+            cell8 = new PdfPCell(new Phrase(""));
+            cell8.setBorder(Rectangle.BOTTOM);
+            cell8.setUseBorderPadding(true);
+            cell8.setBorderWidthBottom(5);
+            cell8.setBorderColorBottom(BaseColor.WHITE);
+            table8.addCell(cell8);
+
+
             Header.document.add(table8);
             Paragraph p8 = new Paragraph(" ");
             DottedLineSeparator line8 = new DottedLineSeparator();

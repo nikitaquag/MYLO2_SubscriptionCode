@@ -620,7 +620,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         dbHelper = new DBHelper(getActivity(), "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
         connection = MyConnectionsQuery.fetchOneRecord("Self");
-        preferences.putInt(PrefConstants.USER_ID, connection.getUserid());
+        preferences.putInt(PrefConstants.USER_ID, connection.getId());
         preferences.putString(PrefConstants.USER_NAME, connection.getName());
         preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
         preferences.putString(PrefConstants.USER_EMAIL,connection.getEmail());
