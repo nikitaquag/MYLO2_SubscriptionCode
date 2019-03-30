@@ -45,6 +45,43 @@ public class MedInfo {
     String bloodType = "";
     String donor = "";
     String pet = "";
+    String vaccinenote = "";
+    String implantnote = "";
+
+    public String getVaccinenote() {
+        return vaccinenote;
+    }
+
+    public void setVaccinenote(String vaccinenote) {
+        this.vaccinenote = vaccinenote;
+    }
+
+    public String getImplantnote() {
+        return implantnote;
+    }
+
+    public void setImplantnote(String implantnote) {
+        this.implantnote = implantnote;
+    }
+
+    public String getHistorynote() {
+        return historynote;
+    }
+
+    public void setHistorynote(String historynote) {
+        this.historynote = historynote;
+    }
+
+    public String getBloodnote() {
+        return bloodnote;
+    }
+
+    public void setBloodnote(String bloodnote) {
+        this.bloodnote = bloodnote;
+    }
+
+    String historynote = "";
+    String bloodnote = "";
 
     public String getTobaco() {
         return tobaco;

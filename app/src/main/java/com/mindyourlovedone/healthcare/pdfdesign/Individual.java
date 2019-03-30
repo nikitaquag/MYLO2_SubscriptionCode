@@ -2689,18 +2689,7 @@ public class Individual {
                 messageInfo3.add("Medical Conditions" + " :");
                 messageInfo3.add(conditionList.get(i));
 
-                cell1 = new PdfPCell(new Phrase(""));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-
-                messageInfo3.add("");
-                messageInfo3.add("");
-
-
-            }
+                          }
 
             if (medInfo.getNote() != null) {
                 preNote = medInfo.getNote();
@@ -2807,14 +2796,44 @@ public class Individual {
                 messageInfo3.add("Date :");
                 messageInfo3.add(date);
 
-                cell7 = new PdfPCell(new Phrase(""));
+                String loc = "";
+                if (a.getLocation() != null) {
+                    loc = a.getLocation();
+                }
+                cell7 = new PdfPCell(new Phrase("Location : " + loc));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
                 cell7.setBorderColorBottom(BaseColor.WHITE);
                 table7.addCell(cell7);
-                messageInfo3.add("");
-                messageInfo3.add("");
+                messageInfo3.add("Location :");
+                messageInfo3.add(loc);
+
+                String details = "";
+                if (a.getDetails() != null) {
+                    details = a.getDetails();
+                }
+                cell7 = new PdfPCell(new Phrase("Details : " + details));
+                cell7.setBorder(Rectangle.BOTTOM);
+                cell7.setUseBorderPadding(true);
+                cell7.setBorderWidthBottom(5);
+                cell7.setBorderColorBottom(BaseColor.WHITE);
+                table7.addCell(cell7);
+                messageInfo3.add("Details :");
+                messageInfo3.add(details);
+
+                String note = "";
+                if (a.getNotes() != null) {
+                    note = a.getNotes();
+                }
+                cell7 = new PdfPCell(new Phrase("Note : " + note));
+                cell7.setBorder(Rectangle.BOTTOM);
+                cell7.setUseBorderPadding(true);
+                cell7.setBorderWidthBottom(5);
+                cell7.setBorderColorBottom(BaseColor.WHITE);
+                table7.addCell(cell7);
+                messageInfo3.add("Note :");
+                messageInfo3.add(note);
 
                 cell7 = new PdfPCell(new Phrase(""));
                 cell7.setBorder(Rectangle.BOTTOM);
@@ -2824,6 +2843,7 @@ public class Individual {
                 table7.addCell(cell7);
                 messageInfo3.add("");
                 messageInfo3.add("");
+
             }
             if ((implantsList.size()) % 2 != 0) {
 
@@ -2837,6 +2857,28 @@ public class Individual {
                 messageInfo3.add("");
                 messageInfo3.add("");
             }
+
+            String impNote= "";
+            if (medInfo.getImplantnote() != null) {
+                impNote = medInfo.getImplantnote();
+            }
+            cell7 = new PdfPCell(new Phrase("Medical Implants Note : " + impNote));
+            cell7.setBorder(Rectangle.BOTTOM);
+            cell7.setUseBorderPadding(true);
+            cell7.setBorderWidthBottom(5);
+            cell7.setBorderColorBottom(BaseColor.WHITE);
+            table7.addCell(cell7);
+
+            messageInfo3.add("Medical Implants Note :");
+            messageInfo3.add(impNote);
+
+            cell7 = new PdfPCell(new Phrase(""));
+            cell7.setBorder(Rectangle.BOTTOM);
+            cell7.setUseBorderPadding(true);
+            cell7.setBorderWidthBottom(5);
+            cell7.setBorderColorBottom(BaseColor.WHITE);
+            table7.addCell(cell7);
+
             Header.document.add(table7);
             Paragraph p7 = new Paragraph(" ");
             DottedLineSeparator line7 = new DottedLineSeparator();
@@ -2951,6 +2993,26 @@ public class Individual {
                 messageInfo3.add("");
             }
 
+            String surNote= "";
+            if (medInfo.getImplantnote() != null) {
+                surNote = medInfo.getImplantnote();
+            }
+            cell10 = new PdfPCell(new Phrase("Surgical History Note : " + surNote));
+            cell10.setBorder(Rectangle.BOTTOM);
+            cell10.setUseBorderPadding(true);
+            cell10.setBorderWidthBottom(5);
+            cell10.setBorderColorBottom(BaseColor.WHITE);
+            table10.addCell(cell10);
+
+            messageInfo3.add("Surgical History Note :");
+            messageInfo3.add(surNote);
+
+            cell10 = new PdfPCell(new Phrase(""));
+            cell10.setBorder(Rectangle.BOTTOM);
+            cell10.setUseBorderPadding(true);
+            cell10.setBorderWidthBottom(5);
+            cell10.setBorderColorBottom(BaseColor.WHITE);
+            table10.addCell(cell10);
 
             Header.document.add(table10);
             Paragraph p10 = new Paragraph(" ");

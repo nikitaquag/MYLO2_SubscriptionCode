@@ -85,7 +85,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     RelativeLayout rlMedical, rlDrugDesc, rlDrinkDesc, rlTobacoDesc;
     ImageView imgBack, imgDone, imgRight, imgInfo;
     TextView txtTitle, imgAddFlueShot, txtSave;
-    EditText etPreNote, etAllergyNote, etMouthNote, etVisionNote, etAideNote, etFunctionalNote, etDietNote;
+    EditText etPreNote, etAllergyNote, etMouthNote, etVisionNote, etAideNote, etFunctionalNote, etDietNote,etVaccineNote,etImplantNote,etHistoryNote,etBloodNote;
     TextView imgAddPneumonia, imgAddHPV, imgAddRubella, imgAddVaricella, imgAddShingles, imgAddTetanus, imgAddHepatitis, imgAddFlue, imgAddFlueNH, imgAddPneumococcal;
     TextView txtFlueShotDate, txtPneumoniaDate, txtHPVDate, txtRubellaDate, txtVaricellaDate, txtShinglesDate, txtTetanusDate, txtHepatitisDate, txtFlueDate, txtFlueNHDate, txtPneumococcalDate;
     EditText etFt, etInch, etWeight, etAdditional, etPet;
@@ -108,7 +108,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     String visionnote = "";
     String Aidenote = "";
     String functionnote = "";
-    String dietnote = "";
+    String dietnote = "",vaccinenote = "",historynote = "",implantsnote = "",bloodnote = "";
     ArrayList historList = new ArrayList();
     ArrayList hospitalList = new ArrayList();
     String[] LangList = {"English", "French", "German", "Greek", "Italian", "Japanese", "Russian", "Spanish"};
@@ -338,6 +338,11 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
         etAideNote = rootview.findViewById(R.id.etAideNote);
         etFunctionalNote = rootview.findViewById(R.id.etFunctionalNote);
         etDietNote = rootview.findViewById(R.id.etDietNote);
+
+        etVaccineNote = rootview.findViewById(R.id.etVaccineNote);
+        etHistoryNote = rootview.findViewById(R.id.etHistoryNote);
+        etBloodNote = rootview.findViewById(R.id.etBloodNote);
+        etImplantNote = rootview.findViewById(R.id.etImplantNote);
         txtName = rootview.findViewById(R.id.txtName);
         //  txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
 
@@ -599,6 +604,11 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
             etDietNote.setText(medInfo.getDietNote());
             etVisionNote.setText(medInfo.getVisionNote());
             etAideNote.setText(medInfo.getAideNote());
+
+            etVaccineNote.setText(medInfo.getVaccinenote());
+            etImplantNote.setText(medInfo.getImplantnote());
+            etHistoryNote.setText(medInfo.getHistorynote());
+          //  etBloodNote.setText(medInfo.getBloodnote());
 
             txtTobacoAmt.setText(medInfo.getT_amt());
             txtTobacoType.setText(medInfo.getT_type());
@@ -1326,11 +1336,12 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 break;
             case R.id.imgVaccineDrop:
                 if (flagVaccine == false) {
-                    if(!VaccineLists.isEmpty()){
+                     /*if(!VaccineLists.isEmpty()){
                         linVaccine.setVisibility(View.VISIBLE);
                     }else{
-                        linVaccine.setVisibility(View.GONE);
-                    }
+                      linVaccine.setVisibility(View.GONE);
+                    } */
+                    linVaccine.setVisibility(View.VISIBLE);
                     txtAddVaccine.setVisibility(View.VISIBLE);
                     imgVaccineDrop.setImageResource(R.drawable.dropup);
                     flagVaccine = true;
@@ -1458,11 +1469,12 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
 
             case R.id.imgAddImplants:
                 if (flagImplants == false) {
-                    if(!ImplantsLists.isEmpty()){
+                   /* if(!ImplantsLists.isEmpty()){
                         llSubImplants.setVisibility(View.VISIBLE);
                     }else{
                         llSubImplants.setVisibility(View.GONE);
-                    }
+                    }*/
+                    llSubImplants.setVisibility(View.VISIBLE);
                     imgAddImplants.setImageResource(R.drawable.dropup);
                     txtAddImplants.setVisibility(View.VISIBLE);
 //                    viewImplantsBottom.setVisibility(View.GONE);
@@ -1478,11 +1490,12 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
 
             case R.id.imgAddHistory:
                 if (flagHistory == false) {
-                    if(!HistoryLists.isEmpty()){
+                   /* if(!HistoryLists.isEmpty()){
                         llSubHistory.setVisibility(View.VISIBLE);
                     }else{
                         llSubHistory.setVisibility(View.GONE);
-                    }
+                    }*/
+                    llSubHistory.setVisibility(View.VISIBLE);
                     imgAddHistory.setImageResource(R.drawable.dropup);
                     txtAddHistory.setVisibility(View.VISIBLE);
 //                    viewHistoryBottom.setVisibility(View.GONE);
@@ -1564,6 +1577,11 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 functionnote = etFunctionalNote.getText().toString().trim();
                 dietnote = etDietNote.getText().toString().trim();
 
+                vaccinenote = etVaccineNote.getText().toString().trim();
+                implantsnote = etImplantNote.getText().toString().trim();
+                historynote = etHistoryNote.getText().toString().trim();
+              //  bloodnote = etBloodNote.getText().toString().trim();
+
                 t_type = txtTobacoType.getText().toString().trim();
                 t_amt = txtTobacoAmt.getText().toString().trim();
                 t_year = txtTobacoYear.getText().toString().trim();
@@ -1573,11 +1591,11 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 drug_amt = txtDrugAmt.getText().toString().trim();
                 drug_year = txtDrugYear.getText().toString().trim();
 
-                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USERID), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote);
+                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USERID), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote,historynote,vaccinenote,implantsnote);
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Medical Profile Saved", Toast.LENGTH_SHORT).show();
                     hideSoftKeyboard();
-                    getActivity().finish();
+                   // getActivity().finish();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }

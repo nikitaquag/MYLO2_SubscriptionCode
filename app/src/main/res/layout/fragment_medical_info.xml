@@ -1960,7 +1960,33 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:layout_margin="@dimen/dimension10dp"
                             android:divider="@null" />
 
+                        <android.support.design.widget.TextInputLayout
+                            app:hintTextAppearance="@style/TextInputLayoutHintText"
+                            android:id="@+id/txtVaccineNote"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ListVaccine"
+                            android:textSize="@dimen/dimension18dp"
+                            android:gravity="bottom"
+                            android:fontFamily="@font/lato"
+                            >
 
+                            <AutoCompleteTextView
+                                android:backgroundTint="@color/colordivideGray"
+                                android:id="@+id/etVaccineNote"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:hint="Note"
+                                android:imeOptions="actionNext"
+                                android:paddingBottom="@dimen/dimension10dp"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:paddingTop="@dimen/dimension10dp"
+                                android:fontFamily="@font/lato"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension18dp" />
+                        </android.support.design.widget.TextInputLayout>
                     </LinearLayout>
                 </RelativeLayout>
 
@@ -2805,6 +2831,34 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:layout_margin="@dimen/dimension10dp"
                                 android:layout_toRightOf="@+id/imgImplants"
                                 android:divider="@null" />
+                            <android.support.design.widget.TextInputLayout
+                                app:hintTextAppearance="@style/TextInputLayoutHintText"
+                                android:id="@+id/txtImplantNote"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/ListAllergy"
+                                android:textSize="@dimen/dimension18dp"
+                                android:gravity="bottom"
+                                android:fontFamily="@font/lato"
+                                >
+
+                                <AutoCompleteTextView
+                                    android:backgroundTint="@color/colordivideGray"
+                                    android:id="@+id/etImplantNote"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:hint="Note"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:fontFamily="@font/lato"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </android.support.design.widget.TextInputLayout>
+
                         </LinearLayout>
 
                     </RelativeLayout>
@@ -3084,6 +3138,34 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
 
                                     <requestFocus />
                                 </android.support.design.widget.TextInputLayout>
+                                <android.support.design.widget.TextInputLayout
+                                    app:hintTextAppearance="@style/TextInputLayoutHintText"
+                                    android:id="@+id/txtBloodNote"
+                                    android:layout_marginTop="@dimen/dimension5dp"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/tilBlood"
+                                    android:textSize="@dimen/dimension18dp"
+                                    android:gravity="bottom"
+                                    android:fontFamily="@font/lato"
+                                    android:visibility="gone"
+                                    >
+
+                                    <AutoCompleteTextView
+                                        android:backgroundTint="@color/colordivideGray"
+                                        android:id="@+id/etBloodNote"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+
+                                        android:hint="Note"
+                                        android:imeOptions="actionNext"
+                                        android:paddingBottom="@dimen/dimension10dp"
+                                        android:layout_marginLeft="@dimen/dimension5dp"
+                                        android:paddingTop="@dimen/dimension10dp"
+                                        android:fontFamily="@font/lato"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="@dimen/dimension18dp" />
+                                </android.support.design.widget.TextInputLayout>
                             </FrameLayout>
 
 
@@ -3228,6 +3310,33 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:layout_margin="@dimen/dimension10dp"
                                 android:layout_toRightOf="@+id/imgHistory"
                                 android:divider="@null" />
+                            <android.support.design.widget.TextInputLayout
+                                app:hintTextAppearance="@style/TextInputLayoutHintText"
+                                android:id="@+id/txtHistoryNote"
+                                android:layout_marginTop="@dimen/dimension5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/ListHistory"
+                                android:textSize="@dimen/dimension18dp"
+                                android:gravity="bottom"
+                                android:fontFamily="@font/lato"
+                                >
+
+                                <AutoCompleteTextView
+                                    android:backgroundTint="@color/colordivideGray"
+                                    android:id="@+id/etHistoryNote"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:hint="Note"
+                                    android:imeOptions="actionNext"
+                                    android:paddingBottom="@dimen/dimension10dp"
+                                    android:layout_marginLeft="@dimen/dimension5dp"
+                                    android:paddingTop="@dimen/dimension10dp"
+                                    android:fontFamily="@font/lato"
+                                    android:textColor="@color/colorPrimaryDark"
+                                    android:textSize="@dimen/dimension18dp" />
+                            </android.support.design.widget.TextInputLayout>
 
                         </LinearLayout>
 
