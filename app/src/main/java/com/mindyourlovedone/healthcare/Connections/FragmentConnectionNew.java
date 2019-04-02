@@ -132,6 +132,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             lvSelf.setAdapter(connectionAdapter);
             imghelp .setVisibility(View.GONE);
             txthelp.setVisibility(View.GONE);
+            lvSelf.setVisibility(View.VISIBLE);
             if (connectionList.size() > 1) {
                 rlGuide.setVisibility(View.GONE);
 
@@ -144,6 +145,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         {
             imghelp .setVisibility(View.VISIBLE);
             txthelp.setVisibility(View.VISIBLE);
+            lvSelf.setVisibility(View.GONE);
         }
     }
 
@@ -256,15 +258,22 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             setListData();
         }*/
 
-
+rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
+    @Override
+    public boolean onLongClick(View v) {
+        ShowOptionDialog("Profiles", -1,preferences.getString(PrefConstants.USER_EMAIL));
+        return true;
+    }
+});
         lvSelf.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+               // ShowOptionDialog("delete", position);
                 //  Toast.makeText(getActivity(),"Long Pressed",Toast.LENGTH_SHORT).show();
                 if (position != 0) {
                     if (position != connectionList.size()) {
 
-                        ShowOptionDialog("delete", position);
+                        ShowOptionDialog("delete", position, connectionList.get(position).getEmail());
 
 //                        //Shradha Custom dialog for delete and share and share ftu
 //                        final Dialog dialogShare = new Dialog(getActivity());
@@ -391,7 +400,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                         builders.create().show();
                     }*/
                 } else {
-                    ShowOptionDialog("share", position);
+                    ShowOptionDialog("share", position,connectionList.get(position).getEmail());
 
 //                    final Dialog dialogShare = new Dialog(getActivity());
 //                    dialogShare.setCanceledOnTouchOutside(false);
@@ -508,7 +517,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
     }
 
 
-    private void ShowOptionDialog(final String Type, final int position) {
+    private void ShowOptionDialog(final String Type, final int position, final String email) {
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -520,12 +529,13 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         final TextView textOption2 = dialogview.findViewById(R.id.txtOption2);
         TextView textCancel = dialogview.findViewById(R.id.txtCancel);
 
-        if (Type.equalsIgnoreCase("delete")) {
-            textOption1.setText("Delete Profile");
-            textOption2.setText("Backup/Share Profile");
+       if (Type.equalsIgnoreCase("Profiles")) {
+           textOption1.setVisibility(View.GONE);
+           textOption2.setText("Backup/Share Profile");
         } else {
-            textOption2.setVisibility(View.GONE);
-            textOption1.setText("Backup/Share Profile");
+           textOption1.setText("Delete Profile");
+           textOption2.setText("Backup/Share Profile");
+
         }
 
         dialog.setContentView(dialogview);
@@ -541,32 +551,32 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         textOption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Type.equalsIgnoreCase("delete")) {
-                    AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
-                    alert.setTitle("Delete");
-                    alert.setMessage("Do you want to Delete " + connectionList.get(position).getName() + "'s profile?");
-                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String mail = connectionList.get(position).getEmail();
-                            mail = mail.replace(".", "_");
-                            mail = mail.replace("@", "_");
-                            preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
-                            preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                            deleteConnection(connectionList.get(position).getId());
-                            dialog.dismiss();
-                        }
-                    });
-                    alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
+                // if (Type.equalsIgnoreCase("delete")) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                alert.setTitle("Delete");
+                alert.setMessage("Do you want to Delete " + connectionList.get(position).getName() + "'s profile?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String mail = connectionList.get(position).getEmail();
+                        mail = mail.replace(".", "_");
+                        mail = mail.replace("@", "_");
+                        preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                        preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                        deleteConnection(connectionList.get(position).getId());
+                        dialog.dismiss();
+                    }
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
-                            dialog.dismiss();
-                        }
-                    });
-                    alert.show();
-                } else {
-                    Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+                        dialog.dismiss();
+                    }
+                });
+                alert.show();
+                //   } else {*/
+                    /*Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
                     i.putExtra("FROM", "Backup");
                     i.putExtra("ToDo", "Individual");
                     i.putExtra("ToDoWhat", "Share");
@@ -575,8 +585,8 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                     mail = mail.replace("@", "_");
                     preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
                     preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
-                    startActivity(i);
-                }
+                    startActivity(i);*/
+                // }
                 dialog.dismiss();
             }
         });
@@ -584,7 +594,17 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         textOption2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Type.equalsIgnoreCase("delete")) {
+                Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
+                i.putExtra("FROM", "Backup");
+                i.putExtra("ToDo", "Individual");
+                i.putExtra("ToDoWhat", "Share");
+                String mail = email;
+                mail = mail.replace(".", "_");
+                mail = mail.replace("@", "_");
+                preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+                startActivity(i);
+               /* if (Type.equalsIgnoreCase("delete")) {
                     Intent i = new Intent(getActivity(), DropboxLoginActivity.class);
                     i.putExtra("FROM", "Backup");
                     i.putExtra("ToDo", "Individual");
@@ -597,7 +617,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
                     startActivity(i);
                 } else {
 
-                }
+                }*/
                 dialog.dismiss();
             }
 
@@ -615,7 +635,6 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
 
 
     }
-
     private void getProfile() {
         dbHelper = new DBHelper(getActivity(), "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(getActivity(), dbHelper);
@@ -757,6 +776,11 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         textOption2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent in=new Intent(getActivity(), DropboxLoginActivity.class);
+                in.putExtra("FROM","Backup");
+                in.putExtra("ToDo","Individual");
+                in.putExtra("ToDoWhat","Import");
+                getActivity().startActivity(in);
                 dialog.dismiss();
             }
 

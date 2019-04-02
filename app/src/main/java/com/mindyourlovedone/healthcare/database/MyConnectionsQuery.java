@@ -1108,4 +1108,64 @@ cv.put(COL_HASCARD,has_card);
     }
 
 
+    public static RelativeConnection fetchEmailRecords(String email) {
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        RelativeConnection connection = new RelativeConnection();
+        Cursor c = db.rawQuery("select * from " + TABLE_NAME + " where " + COL_EMAIL + "='" + email  + "';", null);
+        if (c != null && c.getCount() > 0) {
+            if (c.moveToFirst()) {
+                do {
+
+                    connection.setName(c.getString(c.getColumnIndex(COL_NAME)));
+                    connection.setId(c.getInt(c.getColumnIndex(COL_ID)));
+                    connection.setAddress(c.getString(c.getColumnIndex(COL_ADDRESS)));
+                    connection.setEmail(c.getString(c.getColumnIndex(COL_EMAIL)));
+                    connection.setMobile(c.getString(c.getColumnIndex(COL_MOBILE)));
+                    connection.setPhone(c.getString(c.getColumnIndex(COL_HOME_PHONE)));
+                    connection.setWorkPhone(c.getString(c.getColumnIndex(COL_WORK_PHONE)));
+                    connection.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                    connection.setConnectionFlag(c.getInt(c.getColumnIndex(COL_FLAG)));
+                    connection.setIsPrimary(c.getInt(c.getColumnIndex(COL_ISPRIMARY)));
+                    connection.setRelationType(c.getString(c.getColumnIndex(COL_RELATION)));
+                    connection.setPhoto(c.getString(c.getColumnIndex(COL_PHOTO)));
+                    connection.setOtherRelation(c.getString(c.getColumnIndex(COL_OTHER_RELATION)));
+                    connection.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
+                    connection.setDob(c.getString(c.getColumnIndex(COL_DOB)));
+                    connection.setGender(c.getString(c.getColumnIndex(COL_GENDER)));
+
+                    connection.setHeight(c.getString(c.getColumnIndex(COL_HEIGHT)));
+                    connection.setWeight(c.getString(c.getColumnIndex(COL_WEIGHT)));
+                    connection.setProfession(c.getString(c.getColumnIndex(COL_PROFESSION)));
+                    connection.setEmployed(c.getString(c.getColumnIndex(COL_EMPLOYED)));
+                    connection.setReligion(c.getString(c.getColumnIndex(COL_RELIGION)));
+
+                    connection.setEyes(c.getString(c.getColumnIndex(COL_EYES)));
+                    connection.setLanguage(c.getString(c.getColumnIndex(COL_LANG)));
+                    connection.setMarital_status(c.getString(c.getColumnIndex(COL_MARITAL)));
+                    connection.setVeteran(c.getString(c.getColumnIndex(COL_VETERAN)));
+                    connection.setPet(c.getString(c.getColumnIndex(COL_PET)));
+                    connection.setIdnumber(c.getString(c.getColumnIndex(COL_IDNUMBER)));
+                    connection.setManager_phone(c.getString(c.getColumnIndex(COL_MANGER_PHONE)));
+                    connection.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
+                    connection.setEnglish(c.getString(c.getColumnIndex(COL_ENGLISH)));
+
+                    connection.setChildren(c.getString(c.getColumnIndex(COL_CHILD)));
+                    connection.setSibling(c.getString(c.getColumnIndex(COL_SIBLING)));
+                    connection.setFriend(c.getString(c.getColumnIndex(COL_FRIEND)));
+
+                    connection.setGrand(c.getString(c.getColumnIndex(COL_GRAND)));
+                    connection.setParents(c.getString(c.getColumnIndex(COL_PARENT)));
+                    connection.setSpouse(c.getString(c.getColumnIndex(COL_SPOUSE)));
+                    connection.setSign_other(c.getString(c.getColumnIndex(COL_OTHER_SIGN)));
+                    connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
+                    connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
+                    connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
+                    connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
+                  //  connectionList.add(connection);
+                } while (c.moveToNext());
+            }
+        }
+
+        return connection;
+    }
 }

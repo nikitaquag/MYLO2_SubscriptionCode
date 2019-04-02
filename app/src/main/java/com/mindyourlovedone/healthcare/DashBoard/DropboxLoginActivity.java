@@ -48,6 +48,7 @@ import com.mindyourlovedone.healthcare.DropBox.UnZipTask;
 import com.mindyourlovedone.healthcare.DropBox.ZipListner;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
@@ -861,6 +862,11 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                     if (flags == true) {
                         Toast.makeText(context, "Data save to master db", Toast.LENGTH_SHORT).show();
                         storeImage(connection.getPhoto(), "Profile", backupDBPath);
+                        ContactDataQuery c=new ContactDataQuery(context,dbHelpers);
+                        Boolean flagf = ContactDataQuery.updateUserId(connections.getId());
+                        if (flagf == true) {
+                            Toast.makeText(context, "updated", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             } else {
@@ -871,6 +877,12 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 if (flags == true) {
                     Toast.makeText(context, "Data save to master db", Toast.LENGTH_SHORT).show();
                     storeImage(connection.getPhoto(), "Profile", backupDBPath);
+                   /* RelativeConnection con = MyConnectionsQuery.fetchEmailRecords(connection.getEmail());
+                    ContactDataQuery c=new ContactDataQuery(context,dbHelpers);
+                    Boolean flagf = ContactDataQuery.updateUserId(con.getId());
+                    if (flagf == true) {
+                        Toast.makeText(context, "Insret updated", Toast.LENGTH_SHORT).show();
+                    }*/
                 }
             }
         } else {

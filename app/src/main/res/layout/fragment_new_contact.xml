@@ -3144,6 +3144,7 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAgent"
+                        android:visibility="gone"
                         >
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
                             android:id="@+id/listAentPhone"
@@ -3243,8 +3244,37 @@ android:visibility="gone"
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tilAentPhone"
+                        android:layout_below="@+id/tilAgent"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/txtAentPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Agent Phone"
+                            android:imeOptions="actionNext"
+android:maxLength="12"
+                            android:inputType="phone"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:id="@+id/tilAentEmail"
-                        android:layout_below="@+id/llAentPhone"
+                        android:layout_below="@+id/tilAentPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"

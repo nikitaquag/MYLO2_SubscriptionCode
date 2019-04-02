@@ -136,7 +136,7 @@ public class ContactDataQuery {
                 String fromtable = c.getString(c.getColumnIndex(COL_FROMTABLE));
                 String value = c.getString(c.getColumnIndex(COL_VALUE));
                 String type = c.getString(c.getColumnIndex(COL_CONTACTTYPE));
-               if (userid==userId && idFromtable==id && fromtable.equalsIgnoreCase(fromtables)) {
+               if (idFromtable==id && fromtable.equalsIgnoreCase(fromtables)) {
                    ContactData contact = new ContactData();
                    contact.setId(pid);
                    contact.setValue(value);
@@ -187,4 +187,18 @@ public class ContactDataQuery {
     }
 
 
+    public static Boolean updateUserId(int id) {
+        boolean flag=true;
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor c=db.rawQuery("update " + TABLE_NAME + " set "+COL_USERID+ "="+id, null);
+        c.moveToFirst();
+        c.close();
+       /* ContentValues cv = new ContentValues();
+        cv.put(COL_USERID, id);
+        int rowid = db.update(TABLE_NAME, cv,null, null);
+
+        flag = rowid != 0;*/
+
+        return flag;
+    }
 }

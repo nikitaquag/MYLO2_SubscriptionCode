@@ -17,6 +17,16 @@ public class Insurance implements Serializable {
     String photoCard;
     String agent = "";
 
+    public String getAgentPhone() {
+        return agentPhone;
+    }
+
+    public void setAgentPhone(String agentPhone) {
+        this.agentPhone = agentPhone;
+    }
+
+    String agentPhone = "";
+
     public String getAgent_email() {
         return agent_email;
     }
