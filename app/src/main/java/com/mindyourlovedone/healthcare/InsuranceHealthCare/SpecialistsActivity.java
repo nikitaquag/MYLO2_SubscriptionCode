@@ -34,6 +34,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.AideQuery;
@@ -1291,6 +1292,30 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                             context, result);
 
                     System.out.println("\n" + result + "\n");
+                }
+                dialog.dismiss();
+            }
+        });
+
+        RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
+
+        rlFloatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (from.equals("Emergency")) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Profile.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getMedicalInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+                Intent i = new Intent(context, FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
                 }
                 dialog.dismiss();
             }

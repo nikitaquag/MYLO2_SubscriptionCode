@@ -1396,7 +1396,7 @@
                             android:id="@+id/txtHospitalLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Health Record Link (if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
 
@@ -2569,7 +2569,7 @@ android:visibility="gone"
                             android:id="@+id/txtDoctorLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Health Record (Link if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
                             android:includeFontPadding="true"
@@ -4063,7 +4063,7 @@ android:maxLength="12"
                             android:id="@+id/txtPharmacyLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Health Record Link (if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
                             android:includeFontPadding="true"

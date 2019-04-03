@@ -687,15 +687,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"));
-                txt62.setText(Html.fromHtml("To edit the note click the the <b>green down arrow</b> on right of the note. This will show the edit button, which can be clicked to edit the note. To save your edits click the SAVE at the top right of the screen.<br>"));
-                txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your note. This would bring up the delete button.<br>"));
-                txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
+                txt61.setText(Html.fromHtml("To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note." +
+                        "You will see the EDIT NOTE function.  Click ”EDIT NOTE” and type your changes." +
+                        "To save your edits click SAVE at the top right of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>"));
+                txt64.setText(Html.fromHtml("To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"));
 
-                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"+
-                "&nbsp;&nbsp;&nbsp;&nbsp;To edit the note click the the <b>green down arrow</b> on right of the note. This will show the edit button, which can be clicked to edit the note. To save your edits click the SAVE at the top right of the screen.<br>"+
-                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your note. This would bring up the delete button.<br>"+
-                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note."  +
+                                                      "You will see the EDIT NOTE function.  Click ”EDIT NOTE” and type your changes." +
+                                                      "To save your edits click SAVE at the top right of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"
                     ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
