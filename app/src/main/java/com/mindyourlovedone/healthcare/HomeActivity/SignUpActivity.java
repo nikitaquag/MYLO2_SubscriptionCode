@@ -248,7 +248,7 @@ CheckBox rbCheck;
         }
        else if (allow==false)
         {
-            Toast.makeText(context, "Please click on check mark", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
         }
         else {
             return true;

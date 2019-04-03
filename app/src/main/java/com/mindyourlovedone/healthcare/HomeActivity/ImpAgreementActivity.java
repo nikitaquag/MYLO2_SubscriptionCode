@@ -137,7 +137,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                         accessPermission();
                     }
                    else
-                        Toast.makeText(context, "Please select all check mark", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
               //  }
                /* Intent intentBase = new Intent(context, BaseActivity.class);
                 startActivity(intentBase);*/
@@ -210,7 +210,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
          {
              f=true; }
          else {
-             Toast.makeText(context, "Please click on check mark", Toast.LENGTH_SHORT).show();
+             Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
          }
 
      return f;

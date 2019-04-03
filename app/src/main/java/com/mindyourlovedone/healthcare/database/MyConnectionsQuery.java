@@ -810,7 +810,7 @@ cv.put(COL_HASCARD,has_card);
                 connection.setOther_person(c.getString(c.getColumnIndex(COL_OTHER)));
                 connection.setLive(c.getString(c.getColumnIndex(COL_LIVE)));
                 connection.setOtherLang(c.getString(c.getColumnIndex(COL_OTHER_LANG)));
-                connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
+               connection.setPeople(c.getString(c.getColumnIndex(COL_PEOPLE)));
             } while (c.moveToNext());
         }
 

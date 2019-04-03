@@ -30,7 +30,7 @@
         android:fontFamily="@font/lato"
         android:textColor="@color/colorWhite"
         android:layout_centerHorizontal="true"
-        android:text="Select the option as your need"
+        android:text="Select the option needed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
