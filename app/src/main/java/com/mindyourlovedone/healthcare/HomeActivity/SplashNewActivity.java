@@ -45,7 +45,7 @@ import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
 import io.fabric.sdk.android.Fabric;
-import ss.com.bannerslider.views.BannerSlider;
+
 
 public class SplashNewActivity extends AppCompatActivity implements View.OnClickListener {
     static final String TAG = "TrivialDrive";
@@ -61,7 +61,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     ImageView img1, img2, img3, img4, imgForword;
     RelativeLayout llBottom, llSubscribe;
     LinearLayout llSplash;
-    BannerSlider bannerSlider;
+  //  BannerSlider bannerSlider;
     ViewPager viewPagerLogin;
     RelativeLayout rlBottom;
     int currentPage = 0;

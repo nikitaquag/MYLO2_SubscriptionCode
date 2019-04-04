@@ -98,7 +98,7 @@
             android:name="com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity"
             android:configChanges="keyboard|keyboardHidden|uiMode|screenLayout|orientation|screenSize|smallestScreenSize"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name="com.mindyourlovedone.healthcare.DashBoard.LocationActivity" />
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

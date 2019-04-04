@@ -641,13 +641,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.<br>"));
+                txt61.setText(Html.fromHtml("This sections allows Users to create a master list of routine appointments and jot down when or if the appointment took place.  It gives Users a great summary and helps them figure out if they need to call their doctor. <br>"));
                 txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"));
                 txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"));
                 txt64.setText(Html.fromHtml("To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"));
                 txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.<br>"+
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;This sections allows Users to create a master list of routine appointments and jot down when or if the appointment took place.  It gives Users a great summary and helps them figure out if they need to call their doctor. <br>"+
                 "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"+
                 "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"+
                 "&nbsp;&nbsp;&nbsp;&nbsp;To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"+

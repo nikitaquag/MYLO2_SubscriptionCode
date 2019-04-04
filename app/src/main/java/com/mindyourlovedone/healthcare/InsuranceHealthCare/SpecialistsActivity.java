@@ -856,7 +856,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Specialty Contacts");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Doctors & Health Care Professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
 
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -922,7 +922,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Personal & Medical Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Personal, Medical and  Emergency Info");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Paragraph p = new Paragraph(" ");
@@ -1052,7 +1052,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Event And Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Notes, Appointments, ADLS, & Vital Signs");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
 
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
