@@ -296,7 +296,7 @@
                     android:layout_below="@+id/fltypeReaction2"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
-                    android:paddingLeft="@dimen/dimension20dp"
+
                     android:paddingTop="@dimen/dimension8dp"
                   
                     android:paddingBottom="@dimen/dimension8dp"

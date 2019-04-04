@@ -1319,7 +1319,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail,aentPhone);
+                    Boolean flag = InsuranceQuery.insertInsuranceData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail,aentPhone,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
                         Insurance con=new Insurance();
@@ -1386,7 +1386,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             ByteArrayOutputStream baos = new ByteArrayOutputStream();
                             bitmap.compress(Bitmap.CompressFormat.JPEG, 10, baos);
                             byte[] photo = baos.toByteArray();*/
-                    Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail,aentPhone);
+                    Boolean flag = InsuranceQuery.updateInsuranceData(id, name, website, type, phone, imagepath, fax, note, member, group, subscriber, email, otherInsurance, agent, cardPath,aentEmail,aentPhone,has_card);
                     if (flag == true) {
                         Toast.makeText(getActivity(), "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
@@ -3097,7 +3097,21 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
                     }
+                    if (insurance.getHas_card() != null) {
+                        if (insurance.getHas_card().equals("YES")) {
+                            tbCard.setChecked(true);
+                            has_card="YES";
+                            rlCard.setVisibility(View.VISIBLE);
+                        } else {
+                            tbCard.setChecked(false);
+                            has_card="NO";
+                            rlCard.setVisibility(View.GONE);
+                            cardPath = "";
+                            CardMap = null;
+                        }
+                    }
                 }
+
                 break;
 
             case "InsuranceViewData":

@@ -84,7 +84,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //Contact Table
+      /*  //Contact Table
         db.execSQL(ContactTableQuery.dropTable());
 
         //PersonalInfoQuery Table
@@ -138,6 +138,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ImplantQuery.dropTable());
         db.execSQL(ImageQuery.dropTable());
         db.execSQL(ContactDataQuery.dropTable());
-        onCreate(db);
+        onCreate(db);*/
     }
 }
