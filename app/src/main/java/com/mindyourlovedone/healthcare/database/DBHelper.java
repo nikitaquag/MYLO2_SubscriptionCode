@@ -84,61 +84,63 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //Contact Table
-        db.execSQL(ContactTableQuery.dropTable());
+        if (oldVersion != 1 ) {//need to change this new version will be 3 after
+            //Contact Table
+            db.execSQL(ContactTableQuery.dropTable());
 
-        //PersonalInfoQuery Table
-        db.execSQL(PersonalInfoQuery.dropTable());
+            //PersonalInfoQuery Table
+            db.execSQL(PersonalInfoQuery.dropTable());
 
-        //MyConnectionsQuery Table
-        db.execSQL(MyConnectionsQuery.dropTable());
+            //MyConnectionsQuery Table
+            db.execSQL(MyConnectionsQuery.dropTable());
 
-        //MedInfoQuery Table
-        db.execSQL(MedInfoQuery.dropTable());
+            //MedInfoQuery Table
+            db.execSQL(MedInfoQuery.dropTable());
 
-        //Allergy Table
-        db.execSQL(AllergyQuery.dropTable());
+            //Allergy Table
+            db.execSQL(AllergyQuery.dropTable());
 
-        //Implants Table
-        db.execSQL(MedicalImplantsQuery.dropTable());
-        db.execSQL(MedicalConditionQuery.dropTable());
+            //Implants Table
+            db.execSQL(MedicalImplantsQuery.dropTable());
+            db.execSQL(MedicalConditionQuery.dropTable());
 
-        //Hospital Table
-        db.execSQL(HospitalQuery.dropTable());
+            //Hospital Table
+            db.execSQL(HospitalQuery.dropTable());
 
-        //History Table
-        db.execSQL(HistoryQuery.dropTable());
+            //History Table
+            db.execSQL(HistoryQuery.dropTable());
 
-        //Doctor Table
-        db.execSQL(SpecialistQuery.dropTable());
+            //Doctor Table
+            db.execSQL(SpecialistQuery.dropTable());
 
-        //Event Note
-        db.execSQL(EventNoteQuery.dropTable());
+            //Event Note
+            db.execSQL(EventNoteQuery.dropTable());
 
-        //Vital Table
-        db.execSQL(VitalQuery.dropTable());
+            //Vital Table
+            db.execSQL(VitalQuery.dropTable());
 
-        //Prescription
-        db.execSQL(PrescribeImageQuery.dropTable());
-        db.execSQL(PrescriptionQuery.dropTable());
-        db.execSQL(DosageQuery.dropTable());
-        db.execSQL(PharmacyQuery.dropTable());
-        db.execSQL(AideQuery.dropTable());
-        db.execSQL(FinanceQuery.dropTable());
-        db.execSQL(InsuranceQuery.dropTable());
-        db.execSQL(CardQuery.dropTable());
-        db.execSQL(DocumentQuery.dropTable());
-        db.execSQL(AppointmentQuery.dropTable());
-        db.execSQL(HospitalHealthQuery.dropTable());
-        db.execSQL(DateQuery.dropTable());
-        db.execSQL(PetQuery.dropTable());
-        db.execSQL(FormQuery.dropTable());
-        db.execSQL(VaccineQuery.dropTable());
-        db.execSQL(LivingQuery.dropTable());
-        db.execSQL(ImplantQuery.dropTable());
-        db.execSQL(ImageQuery.dropTable());
-        db.execSQL(ContactDataQuery.dropTable());
-        onCreate(db);
+            //Prescription
+            db.execSQL(PrescribeImageQuery.dropTable());
+            db.execSQL(PrescriptionQuery.dropTable());
+            db.execSQL(DosageQuery.dropTable());
+            db.execSQL(PharmacyQuery.dropTable());
+            db.execSQL(AideQuery.dropTable());
+            db.execSQL(FinanceQuery.dropTable());
+            db.execSQL(InsuranceQuery.dropTable());
+            db.execSQL(CardQuery.dropTable());
+            db.execSQL(DocumentQuery.dropTable());
+            db.execSQL(AppointmentQuery.dropTable());
+            db.execSQL(HospitalHealthQuery.dropTable());
+            db.execSQL(DateQuery.dropTable());
+            db.execSQL(PetQuery.dropTable());
+            db.execSQL(FormQuery.dropTable());
+            db.execSQL(VaccineQuery.dropTable());
+            db.execSQL(LivingQuery.dropTable());
+            db.execSQL(ImplantQuery.dropTable());
+            db.execSQL(ImageQuery.dropTable());
+            db.execSQL(ContactDataQuery.dropTable());
+            onCreate(db);
+        }
         /*  if (oldVersion < 2) {
             db.execSQL(PickupDocLinkQuery.createPickupDocPictureTable());
 
