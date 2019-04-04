@@ -763,9 +763,10 @@ cv.put(COL_HASCARD,has_card);
     public static RelativeConnection fetchConnectionRecordforImport(int id) {
         RelativeConnection connection = new RelativeConnection();
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c;
-        c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';", null);
+        String query = "select * from " + TABLE_NAME + ";";
 
+        //   String query="select * from " + TABLE_NAME +" where " + COL_USER_ID + "=" + id+ ";";
+        Cursor c = db.rawQuery(query, null);
         if (c.moveToFirst()) {
             do {
                 connection.setName(c.getString(c.getColumnIndex(COL_NAME)));

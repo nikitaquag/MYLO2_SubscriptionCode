@@ -689,6 +689,21 @@ public class InsurancePdf {
                 messageInsurance.add(ctype+"Agent "+ctype+" Phone : ");
                 messageInsurance.add(num);
             }
+            String num="";
+            String ctype="";
+            if (s.getAgentPhone() != null) {
+                num =s.getAgentPhone();
+            }
+            cell = new PdfPCell(new Phrase("Agent Phone : " + num));
+            cell.setBorder(Rectangle.BOTTOM);
+            cell.setUseBorderPadding(true);
+            cell.setBorderWidthBottom(5);
+            cell.setBorderColorBottom(BaseColor.WHITE);
+            table.addCell(cell);
+
+            messageInsurance.add(ctype+"Agent Phone : ");
+            messageInsurance.add(num);
+
             String agentemail = "";
             if (s.getAgent_email()!= null) {
                 agentemail = s.getAgent_email();

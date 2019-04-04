@@ -706,12 +706,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                                 Toast.makeText(getActivity(), "You have added profile Successfully", Toast.LENGTH_SHORT).show();
                                 RelativeConnection con = MyConnectionsQuery.fetchConnectionRecordforImport(email);
                                 ContactDataQuery c = new ContactDataQuery(context, dbHelper1);
-                                boolean flagf = ContactDataQuery.deleteRecord("Connection",-1);
+                                boolean flagf = ContactDataQuery.deleteRecord("Personal Profile",-1);
                                 if (flagf == true) {
                                  //   Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                     for (int i = 0; i < phonelist.size(); i++) {
                                         if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                            Boolean flagc = ContactDataQuery.insertContactsData(-1, connection.getId(), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                            Boolean flagc = ContactDataQuery.insertContactsData(-1, connection.getId(), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Personal Profile");
                                             if (flagc == true) {
                                          //       Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                             }
@@ -875,12 +875,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             con=connectionList.get(i);
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Physician", con.getId());
+                        boolean flagf = ContactDataQuery.deleteRecord("Primary", con.getId());
                         if (flagf == true) {
                            //Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
+                                    Boolean flagc = ContactDataQuery.insertContactsData(con.getId(), preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Primary");
                                     if (flagc == true) {
                                       // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
@@ -954,12 +954,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Physician", id);
+                            boolean flagf = ContactDataQuery.deleteRecord("Primary", id);
                             if (flagf == true) {
                                 //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
                                     if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
+                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Primary");
                                         if (flagc == true) {
                                             //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                         }
@@ -1016,12 +1016,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         if (flag == true) {
                             Toast.makeText(getActivity(), "You have updated physician contact successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Physician", id);
+                            boolean flagf = ContactDataQuery.deleteRecord("Primary", id);
                             if (flagf == true) {
                            //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
                                     if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Physician");
+                                        Boolean flagc = ContactDataQuery.insertContactsData(id, preferences.getInt(PrefConstants.CONNECTED_USERID), preferences.getString(PrefConstants.CONNECTED_USEREMAIL), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Primary");
                                         if (flagc == true) {
                                    //         Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                         }

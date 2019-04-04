@@ -248,7 +248,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
          MyConnectionsQuery md = new MyConnectionsQuery(context, dbHelper1);
          con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Connection");
+        phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
         // }
         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
         connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -2134,7 +2134,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
                 final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+                final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Personal Profile");
 
                 new Individual(personalInfoList, PetList,phonelist);
                 // }
@@ -2296,7 +2296,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Connection");
+        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Personal Profile");
 
         new Individual(personalInfoList, PetList, phonelist);
         // }
@@ -2744,12 +2744,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         if (flags == true) {
                             Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                            boolean flagf = ContactDataQuery.deleteRecord("Connection", -1);
+                            boolean flagf = ContactDataQuery.deleteRecord("Personal Profile", -1);
                             if (flagf == true) {
                                 //  Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                                 for (int i = 0; i < phonelist.size(); i++) {
                                     if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                        Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                        Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Personal Profile");
                                         if (flagc == true) {
                                             // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                         }
@@ -2797,12 +2797,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                             preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
                         }
                         ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                        boolean flagf = ContactDataQuery.deleteRecord("Connection", -1);
+                        boolean flagf = ContactDataQuery.deleteRecord("Personal Profile", -1);
                         if (flagf == true) {
                             //     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
                             for (int i = 0; i < phonelist.size(); i++) {
                                 if (!phonelist.get(i).getContactType().equalsIgnoreCase("") && !phonelist.get(i).getValue().equalsIgnoreCase("")) {
-                                    Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Connection");
+                                    Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Personal Profile");
                                     if (flagc == true) {
                                         //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
                                     }
