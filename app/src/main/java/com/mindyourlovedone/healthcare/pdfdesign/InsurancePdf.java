@@ -693,6 +693,7 @@ public class InsurancePdf {
             String ctype="";
             if (s.getAgentPhone() != null) {
                 num =s.getAgentPhone();
+                
             }
             cell = new PdfPCell(new Phrase("Agent Phone : " + num));
             cell.setBorder(Rectangle.BOTTOM);
