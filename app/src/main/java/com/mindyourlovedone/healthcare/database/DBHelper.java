@@ -84,7 +84,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-      /*  //Contact Table
+        //Contact Table
         db.execSQL(ContactTableQuery.dropTable());
 
         //PersonalInfoQuery Table
@@ -138,6 +138,17 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ImplantQuery.dropTable());
         db.execSQL(ImageQuery.dropTable());
         db.execSQL(ContactDataQuery.dropTable());
-        onCreate(db);*/
+        onCreate(db);
+        /*  if (oldVersion < 2) {
+            db.execSQL(PickupDocLinkQuery.createPickupDocPictureTable());
+
+            db.execSQL("ALTER TABLE PickupDocument ADD COLUMN is_image TEXT Default '1'");
+
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN address_OFC VARCHAR(300)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN city_OFC VARCHAR(100)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN state_OFC VARCHAR(100)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN pincode_OFC INTEGER");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN has_link TEXT");
+        }*/
     }
 }
