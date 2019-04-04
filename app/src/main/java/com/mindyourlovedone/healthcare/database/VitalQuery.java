@@ -29,6 +29,8 @@ public class VitalQuery {
     public static final String COL_PULSE_RATE = "PulseRate";
     public static final String COL_RESP_RATE = "RespiratoryRate";
     public static final String COL_NOTE = "Note";
+    public static final String COL_OTHER = "Other";
+    public static final String COL_COLESTEROL = "Cholesterol";
     static DBHelper dbHelper;
     static Context context;
 
@@ -41,7 +43,7 @@ public class VitalQuery {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
                 COL_USERID + " INTEGER," +
                 COL_LOCATION + " TEXT," + COL_DATE + " TEXT," + COL_TIME + " TEXT," + COL_BP + " TEXT," +
-                COL_HEART_RATE + " TEXT," + COL_TEMPERATURE + " TEXT," + COL_PULSE_RATE + " TEXT," +
+                COL_HEART_RATE + " TEXT," + COL_TEMPERATURE + " TEXT," + COL_PULSE_RATE + " TEXT," +COL_COLESTEROL + " VARCHAR(50)," +COL_OTHER + " VARCHAR(50)," +
                 COL_RESP_RATE + " TEXT," +
                 COL_NOTE + " TEXT);";
         return createTableQuery;
@@ -52,7 +54,7 @@ public class VitalQuery {
         return dropTableQuery;
     }
 
-    public static Boolean insertVitalData(int userid, String location, String date, String time, String bp, String heartRate, String temperature, String pulseRate, String respRate, String note) {
+    public static Boolean insertVitalData(int userid, String location, String date, String time, String bp, String heartRate, String temperature, String pulseRate, String respRate, String note, String oter, String col) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -67,6 +69,8 @@ public class VitalQuery {
         cv.put(COL_PULSE_RATE, pulseRate);
         cv.put(COL_RESP_RATE, respRate);
         cv.put(COL_NOTE, note);
+        cv.put(COL_OTHER, oter);
+        cv.put(COL_COLESTEROL, col);
 
         long rowid = db.insert(TABLE_NAME, null, cv);
 
@@ -100,6 +104,8 @@ public class VitalQuery {
                     vital.setPulseRate(c.getString(c.getColumnIndex(COL_PULSE_RATE)));
                     vital.setRespRate(c.getString(c.getColumnIndex(COL_RESP_RATE)));
                     vital.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
+                    vital.setOther(c.getString(c.getColumnIndex(COL_OTHER)));
+                    vital.setCol(c.getString(c.getColumnIndex(COL_COLESTEROL)));
 
                     vitalList.add(vital);
                 } while (c.moveToNext());
@@ -128,7 +134,8 @@ public class VitalQuery {
                 vital.setPulseRate(c.getString(c.getColumnIndex(COL_PULSE_RATE)));
                 vital.setRespRate(c.getString(c.getColumnIndex(COL_RESP_RATE)));
                 vital.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
-
+                vital.setOther(c.getString(c.getColumnIndex(COL_OTHER)));
+                vital.setCol(c.getString(c.getColumnIndex(COL_COLESTEROL)));
                 noteList.add(vital);
 
                 db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
@@ -138,7 +145,7 @@ public class VitalQuery {
         return true;
     }
 
-    public static Boolean updateVitalData(int id, String location, String date, String time, String bp, String heartRate, String temperature, String pulseRate, String respRate, String note) {
+    public static Boolean updateVitalData(int id, String location, String date, String time, String bp, String heartRate, String temperature, String pulseRate, String respRate, String note, String oter, String col) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -153,14 +160,22 @@ public class VitalQuery {
         cv.put(COL_PULSE_RATE, pulseRate);
         cv.put(COL_RESP_RATE, respRate);
         cv.put(COL_NOTE, note);
+        cv.put(COL_OTHER, oter);
+        cv.put(COL_COLESTEROL, col);
+
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
+
+        flag = rowid != 0;
+
+        return flag;
+       /* int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         if (rowid == 0) {
             flag = false;
         } else {
             flag = true;
         }
-        return flag;
+        return flag;*/
     }
 
 

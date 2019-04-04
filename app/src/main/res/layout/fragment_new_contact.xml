@@ -9,6 +9,7 @@
     android:paddingBottom="@dimen/dimension10dp">
 
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/txtDelete">
@@ -31,7 +32,7 @@
 
                 >
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilSubscribe"
+                android:id="@+id/tilSubscribes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/dimension20dp"
@@ -43,7 +44,7 @@
                     android:backgroundTint="@color/colordivideGray"
 
                     android:fontFamily="@font/lato"
-                    android:id="@+id/txtSubscribe"
+                    android:id="@+id/txtSubscribes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name of Insured"
@@ -65,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension10dp"
                     android:background="@color/colorLightGray"
-                    android:layout_below="@+id/tilSubscribe"></View>
+                    android:layout_below="@+id/tilSubscribes"></View>
             </RelativeLayout>
 
 
@@ -1395,7 +1396,7 @@
                             android:id="@+id/txtHospitalLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Protected Health Information Record Locator (if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
 
@@ -1975,6 +1976,7 @@ android:visibility="gone"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
                         android:visibility="gone"
+                        android:layout_marginTop="@dimen/dimension5dp"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -2030,7 +2032,7 @@ android:visibility="gone"
                             android:text="(Select One)"
                             android:textColor="@color/colorGray"
                             android:textSize="@dimen/dimension18dp"
-                            android:textStyle="italic"
+                            android:textStyle="italic|bold"
                             android:visibility="gone" />
 
                         <View
@@ -2567,7 +2569,7 @@ android:visibility="gone"
                             android:id="@+id/txtDoctorLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Protected Health Information Record Locator (if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
                             android:includeFontPadding="true"
@@ -2700,7 +2702,7 @@ android:visibility="gone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
 
-                                android:hint="Type Of Insurance"
+                                android:hint="Type of Insurance"
                                 android:imeOptions="actionNext"
                                 android:maxLength="30"
                                 android:maxLines="1"
@@ -2773,7 +2775,7 @@ android:visibility="gone"
                         android:id="@+id/tilId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/rlInsuranceType"
+                        android:layout_below="@+id/tilSubscribe"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
@@ -2788,7 +2790,7 @@ android:visibility="gone"
                             android:id="@+id/txtId"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Member ID(Policy Number)"
+                            android:hint="Member ID (Policy Number)"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -2822,7 +2824,7 @@ android:visibility="gone"
                             android:id="@+id/txtGroup"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Group"
+                            android:hint="Group #"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -2837,15 +2839,15 @@ android:visibility="gone"
                         <requestFocus />
                     </android.support.design.widget.TextInputLayout>
 
-                    <!--<android.support.design.widget.TextInputLayout
+                    <android.support.design.widget.TextInputLayout
                         android:id="@+id/tilSubscribe"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/tilGroup"
+                        android:layout_below="@+id/rlInsuranceType"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
-                        android:visibility="gone"
+
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                         <AutoCompleteTextView
@@ -2855,7 +2857,7 @@ android:visibility="gone"
                             android:id="@+id/txtSubscribe"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Name of Insured (Primary Subscriber)"
+                            android:hint="Name of Insured"
                             android:imeOptions="actionNext"
                             android:maxLength="30"
                             android:maxLines="1"
@@ -2868,7 +2870,7 @@ android:visibility="gone"
                             android:textSize="@dimen/dimension20dp" />
 
                         <requestFocus />
-                    </android.support.design.widget.TextInputLayout>-->
+                    </android.support.design.widget.TextInputLayout>
                     <RelativeLayout
                         android:id="@+id/llInsPhone"
                         android:layout_width="match_parent"
@@ -3142,6 +3144,7 @@ android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/tilAgent"
+                        android:visibility="gone"
                         >
                         <com.mindyourlovedone.healthcare.customview.NonScrollListView
                             android:id="@+id/listAentPhone"
@@ -3241,8 +3244,37 @@ android:visibility="gone"
                     <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/tilAentPhone"
+                        android:layout_below="@+id/tilAgent"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/txtAentPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Agent Phone"
+                            android:imeOptions="actionNext"
+android:maxLength="12"
+                            android:inputType="phone"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:id="@+id/tilAentEmail"
-                        android:layout_below="@+id/llAentPhone"
+                        android:layout_below="@+id/tilAentPhone"
                         android:paddingLeft="@dimen/dimension20dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
@@ -4031,7 +4063,7 @@ android:visibility="gone"
                             android:id="@+id/txtPharmacyLocator"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Electronic Protected Health Information Record Locator (if applicable)"
+                            android:hint="Electronic Health Record Link"
                             android:imeOptions="actionNext"
 
                             android:includeFontPadding="true"

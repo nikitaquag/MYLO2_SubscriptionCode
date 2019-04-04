@@ -106,7 +106,7 @@
                     android:src="@drawable/emergency_four" />
 
                 <TextView
-                    android:fontFamily="@font/bold_lato"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:fontFamily="@font/bold_lato"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtFTU"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,9 +158,9 @@
             android:layout_marginRight="@dimen/dimension60dp"
             android:textSize="@dimen/dimension17dp"
             android:layout_above="@+id/imghelp"
-            android:fontFamily="@font/bold_lato"
+            android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Advance Directives!"
+            android:text="Add a new Advance Directive!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

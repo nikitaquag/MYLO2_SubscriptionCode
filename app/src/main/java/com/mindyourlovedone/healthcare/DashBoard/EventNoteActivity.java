@@ -48,6 +48,8 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 
 public class EventNoteActivity extends AppCompatActivity implements View.OnClickListener {
@@ -56,11 +58,11 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Note> noteList = new ArrayList<>();
-    ImageView imgBack, imgHome, imgAdd, imgEdit, imgRight;
+    ImageView imgBack, imgHome, imgAdd, imgEdit, imgRight,imghelp;
     RelativeLayout rlGuide;
     Preferences preferences;
     DBHelper dbHelper;
-    TextView txtMsg, txtFTU, txtAdd;
+    TextView txtMsg, txtFTU, txtAdd,txthelp;
     RelativeLayout header, rlEvent;
     ScrollView scrollvw;
    // FloatingActionButton floatAdd;
@@ -92,6 +94,8 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         floatAdd = findViewById(R.id.floatAdd);
         floatOptions = findViewById(R.id.floatOptions);
         txtMsg = findViewById(R.id.txtMsg);
+        txthelp= findViewById(R.id.txthelp);
+        imghelp= findViewById(R.id.imghelp);
 //        String msg = "To add a note click plus box " +
 //                "at the top right of the screen.  Once completed click Add.  The note is automatically saved." +
 //                "<br><br>" +
@@ -200,6 +204,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
 
         rlGuide = findViewById(R.id.rlGuide);
         if (noteList.size() != 0) {
+
             setNoteData();
         }
         //Changes done by nikita on 20/6/18
@@ -288,13 +293,18 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
     private void setNoteData() {
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
+            imghelp.setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
             rlGuide.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         } else {
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         }
+        Collections.reverse(noteList);
         NoteAdapter adapter = new NoteAdapter(context, noteList);
         lvNote.setAdapter(adapter);
     }
@@ -390,17 +400,12 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/EventNote.pdf";
-
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getEventInfo());
-                new PDFDocumentProcess(path,
-                        context, result);
-
-                System.out.println("\n" + result + "\n");
-
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Event Note");
                 dialog.dismiss();
             }
 
@@ -412,8 +417,13 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/EventNote.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, context, "Event Note");
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getEventInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
 

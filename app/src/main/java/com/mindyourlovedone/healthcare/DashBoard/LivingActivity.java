@@ -373,8 +373,10 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 showViewDialog(context, msg, title);
                 break;
             case R.id.imgRight:
-
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(context, InstructionActivity.class);
+                i.putExtra("From", "LivingInstruction");
+                startActivity(i);
+               /* final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -435,9 +437,9 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                                 File f = new File(path);
                                 preferences.emailAttachement(f, context, "Activities of Daily Living");
                                 break;
-                          /*  case 2://fax
+                          *//*  case 2://fax
                                 new FaxCustomDialog(context, path).show();
-                                break;*/
+                                break;*//*
 
                             case 2://fax
                                 Intent i = new Intent(context, InstructionActivity.class);
@@ -448,7 +450,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
             case R.id.txtSave:
                 functionnote = etFunctionalNote.getText().toString().trim();
@@ -480,6 +482,44 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void showFloatDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "ActivityLiving.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", context);
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Activities Of Daily Living");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+
+        Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        ArrayList<Living> LivingList = new ArrayList<Living>();
+        LivingList.add(Live);
+        new EventPdf(1, LivingList, 1);
+
+        Header.document.close();
+
+        //------------------------------------------------
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -489,9 +529,9 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
-        floatContact.setImageResource(R.drawable.closee);
+        floatContact.setImageResource(R.drawable.eyee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
-        floatNew.setImageResource(R.drawable.eyee);
+        floatNew.setImageResource(R.drawable.closee);
 
         TextView txtNew = dialogview.findViewById(R.id.txtNew);
         txtNew.setText(getResources().getString(R.string.EmailReports));
@@ -510,9 +550,11 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         dialog.show();
 
         rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+
         floatCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialog.dismiss();
             }
         });
@@ -521,6 +563,11 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 //  CopyReadAssetss("insu_pdf.pdf");
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/ActivityLiving.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Activities of Daily Living");
                 dialog.dismiss();
             }
 
@@ -529,6 +576,16 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         floatContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/ActivityLiving.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getLivingInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
         });

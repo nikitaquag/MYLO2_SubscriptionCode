@@ -95,25 +95,25 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 //nikita
                 String msgg = "<b>Guidelines:</b>" +
-                        "<br><br>" +
+                        "<br>" +
                         "<b>1) Login: </b>" +
                         "<br>" +
                         "Click on <b>\"Login With DropBox\" </b>button, It will redirect you to dropbox site. Now you can login with your personal dropbox account." +
                         "<br>" +
                         "After logging in, To allow the access to the files and folders from your dropbox, Click the <b>'Allow'</b>  Button.So now you can Access your files." +
-                        "<br><br>" +
+                        "<br>" +
                         "<b>2) Backup: </b>" +
                         "<br>" +
                         "If you have logged in to dropbox from application, It will show you Backup Options." +
                         "<br>" +
                         "On clicking  <b>'BACKUP'</b> button, you need to Click on <b>'Backup your Data'</b> button to store your profile." +
-                        "<br><br>" +
+                        "<br>" +
                         "<b>3) Restore: </b>" +
                         "<br>" +
                         "If you have logged in to dropbox from application, It will show you Restore Options. It will help to restore profiles." +
                         "<br>" +
                         "On clicking  <b>'RESTORE'</b>  button, you will get list of zip files for download. On clicking any of the zip file, It will be downloaded and you will get a popup message  to unzip and restore file." +
-                        "<br><br>" +
+                        "<br>" +
                         "<b>4) Get Files: </b>" +
                         "<br>" +
                         "If you have logged in to dropbox from application, It will show you View Files Options. It will help you to get the documents in Advance Directive section  from dropbox storage." +
@@ -151,21 +151,27 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 txtHeader.setText("Dropbox");
                 break;
-
-            case "PrescriptionInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+            case "PrescriptionUploadInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n"));
-                txt62.setText(Html.fromHtml("To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -173,6 +179,50 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
+                txt66.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
+
+                //shradha
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.VISIBLE);
+                img66.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Instructions for Prescription Upload");
+                break;
+            case "PrescriptionInstruction":
+                header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> a Prescription click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen..<br>"));
+                txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your Prescription. This would bring up the delete button.<br>"));
+                txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
+
+
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a Prescription click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen..<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your Prescription. This would bring up the delete button.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+).toString();
+                //shradha
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
@@ -184,7 +234,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img62.setVisibility(View.VISIBLE);
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
-                img65.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
@@ -192,7 +242,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Create Prescription Tracker");
+                txtHeader.setText("Instructions for Prescription Information");
                 break;
 
             case "VitalInstruction":
@@ -202,20 +252,22 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n"));
-                txt62.setText(Html.fromHtml("To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To add a note click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"));
+                txt62.setText(Html.fromHtml("To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"));
+                txt64.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the grey bar at the bottom of the screen Add Prescription.\n\n To save  information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the arrow symbol on the right side of the screen and make changes.Save by clicking the <b>SAVE</b> again.\n\n To <b>delete</b> the entry, left swipe the arrow symbol on the right side of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data click the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To add a note click on Plus button at the bottom right of the screen. Once completed click SAVE at the top right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                 ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
-                txt65.setVisibility(View.VISIBLE);
+                txt65.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
                 txt66.setVisibility(View.GONE);
                 txt67.setVisibility(View.GONE);
@@ -227,7 +279,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img62.setVisibility(View.VISIBLE);
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
-                img65.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
                 img66.setVisibility(View.GONE);
                 img67.setVisibility(View.GONE);
@@ -235,7 +287,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Vital Signs");
+                txtHeader.setText("Instructions for Vital Signs");
                 break;
 
             case "FormInstruction":
@@ -245,15 +297,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the bar at the bottom of the screen. Click the add sign to Select the File.\n\n"));
-                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.\n\n"));
-                txt63.setText(Html.fromHtml("If Dropbox click on the file, then click the <b>save</b> on upper right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>, open attachment from your email, and click the forward button on upper right side of the screen.Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK. Enter additional data, then  click <b>Save</b>\n\n"));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the bar at the bottom of the screen. Click the add sign to Select the File.\n\n The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.\n\n If Dropbox click on the file, then click the <b>save</b> on upper right side of the screen.\n\n To <b>load an email attachment</b>, open attachment from your email, and click the forward button on upper right side of the screen.Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK. Enter additional data, then  click <b>Save</b>\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -262,7 +319,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
-                txt67.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
                 rel622.setVisibility(View.GONE);
@@ -274,12 +331,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
-                img67.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Insurance Form");
+                txtHeader.setText("Instructions for Insurance Forms");
                 break;
             case "CardInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
@@ -288,15 +345,23 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>get started</b> click the bar at the bottom of the screen Add Insurance Card.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>add</b> information add the Provider name and Type of Insurance and click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>take a picture</b> of your insurance card (front and back). Click the <b>add box</b>. It is recommended that you hold your phone horizontal when taking a picture of the card.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n"));
+                txt61.setText(Html.fromHtml("To get started click the <b>Plus</b> button at the bottom right corner of the screen.<br>"));
+                txt62.setText(Html.fromHtml("To <b>add</b> information add the <b>Provider name</b> and <b>Type of Insurance</b> and click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To take a picture of your insurance card (front and back). Click the <b>ADD CARD</b> button. It is recommended that you hold your phone horizontal when taking a picture of the card.<br>"));
+                txt64.setText(Html.fromHtml("To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b/> information click cell of the added card. To <b>save</b> your edits click the <b>SAVE</b> again.<br>"));
+                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the card.<br>"));
+                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>get started</b> click the bar at the bottom of the screen Add Insurance Card.\n\n To <b>add</b> information add the Provider name and Type of Insurance and click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>take a picture</b> of your insurance card (front and back). Click the <b>add box</b>. It is recommended that you hold your phone horizontal when taking a picture of the card.\n\n To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits click the <b>SAVE</b> again.\n\n To <b>delete</b> the entry swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the upper right side of the screen\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To get started click the <b>Plus</b> button at the bottom right corner of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information add the <b>Provider name</b> and <b>Type of Insurance</b> and click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To take a picture of your insurance card (front and back). Click the <b>ADD CARD</b> button. It is recommended that you hold your phone horizontal when taking a picture of the card.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> your information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b/> information click cell of the added card. To <b>save</b> your edits click the <b>SAVE</b> again.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the card.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -322,7 +387,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Insurance Card");
+                txtHeader.setText("Instructions for Insurance Cards");
                 break;
 
             case "InsuranceInstruction":
@@ -332,14 +397,24 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the SAVE on the top right side of the screen. If the Person or company is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the <b>picture</b> of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the upper right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click on the <b>picture</b> of the <b>pencil</b> and either take a photo or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
+                txt67.setText(Html.fromHtml("To <b>add</b> a picture click on the <b>PROFILE PHOTO</b> button and either take a photo or grab one from your gallery. To edit or delete the picture click the pencil. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the SAVE on the top right side of the screen. If the Person or company is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the <b>picture</b> of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on <b>right side</b> of the screen.\n\n To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the upper right side of the screen.\n\n To <b>add a picture</b> click on the <b>picture</b> of the <b>pencil</b> and either take a photo or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a picture click on the <b>PROFILE PHOTO</b> button and either take a photo or grab one from your gallery. To edit or delete the picture click the pencil. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.<br>"
+
+                ).toString();
+
 
 
                 //shradha
@@ -350,7 +425,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
                 txt622.setVisibility(View.GONE);
-                txt67.setVisibility(View.GONE);
+                txt67.setVisibility(View.VISIBLE);
                 txt68.setVisibility(View.GONE);
                 rel622.setVisibility(View.GONE);
 
@@ -362,11 +437,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
                 img622.setVisibility(View.GONE);
-                img67.setVisibility(View.GONE);
+                img67.setVisibility(View.VISIBLE);
                 img68.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Insurance Information");
+                txtHeader.setText("Instructions for Insurance Information");
                 break;
 
             case "AdvanceInstruction":
@@ -376,16 +451,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
-                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
-                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
-                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -394,9 +474,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
-                txt67.setVisibility(View.VISIBLE);
-                txt622.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
                 rel622.setVisibility(View.GONE);
 
                 //shradha
@@ -406,12 +486,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
-                img67.setVisibility(View.VISIBLE);
-                img622.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Advance Directives");
+                txtHeader.setText("Instructions for Advance Directives");
                 break;
 
             case "OtherInstruction":
@@ -421,16 +501,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
-                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
-                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
-                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+  ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -439,7 +523,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
-                txt67.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
                 rel622.setVisibility(View.GONE);
@@ -451,12 +535,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
-                img67.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Other Documents");
+                txtHeader.setText("Instructions for Other Documents");
 
                 break;
 
@@ -467,15 +551,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n"));
-                txt62.setText(Html.fromHtml("The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n"));
-                txt63.setText(Html.fromHtml("If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n"));
-                txt66.setText(Html.fromHtml("To <b>delete</b> the entry swipe the green arrow from right to left.\n\n"));
-                txt67.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n"));
+                //shradha
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
+                txt62.setText(Html.fromHtml("The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"));
+                txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
+                txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> a document click the red bar at the bottom of the screen. Click the <b>plus</b> symbol to select the file.\n\n The file is either sitting in your File Manager or Dropbox or in your email as an attachment.\n\n If Dropbox click on file, then complete screen. When completed click <b>save</b> on the upper right of the screen.\n\n To <b>load an email attachment</b>,open attachment from your email, and click the forward button on the upper right side of the screen. Scroll through the Apps until you find MYLO. Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click OK.Enter additional data,then click <b>Save</b>.\n\n To <b>edit</b> information click the picture of the pencil. When finished making your changes click <b>save</b>\n\n To <b>delete</b> the entry swipe the green arrow from right to left.\n\n To <b>view</b>a report or to <b>email</b> or to fax the data in each section click on the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;The file is either sitting on your phone or in your Dropbox. Choose the location and click Add.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry swipe right to left the cell of the document.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -484,7 +574,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
                 txt66.setVisibility(View.VISIBLE);
-                txt67.setVisibility(View.VISIBLE);
+                txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
                 rel622.setVisibility(View.GONE);
@@ -496,12 +586,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
                 img66.setVisibility(View.VISIBLE);
-                img67.setVisibility(View.VISIBLE);
+                img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Medical Information");
+                txtHeader.setText("Instructions for Medical Records");
 
                 break;
             case "LivingInstruction":
@@ -510,11 +600,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>edit</b> information simply change the data and then your edits by clicking on the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>view</b> or <b>email</b> the data in each section click on the three dots on the top right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> information simply change the data and then your edits by clicking on the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>view</b> or <b>email</b> the data in each section click on the three dots on the top right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information simply change the data and then your edits by clicking on the <b>SAVE</b> on the top right side of the screen.\n\n To <b>view</b> or <b>email</b> the data in each section click on the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br> To <b>edit</b> information simply change the data and then your edits by clicking on the <b>SAVE</b> on the top right side of the screen.<br> To <b>view</b> or <b>email</b> the data in each section click on the three dots on the top right side of the screen.<br> Thanks & Regards").toString();
 
 
                 //shradha
@@ -551,14 +641,18 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on add button at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed <b>click SAVE</b> on the top right corner of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the picture of the pencil to the right of the screen. To save your edits click the green bar marked Update Appointment. To <b>delete</b> the appointment swipe right to left and click the garbage can.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>add</b> the completed date(s) click Set Completion Date and click Add. \n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, in each section click the three dots on the upper right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("This sections allows Users to create a master list of routine appointments and jot down when or if the appointment took place.  It gives Users a great summary and helps them figure out if they need to call their doctor. <br>"));
+                txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"));
+                txt64.setText(Html.fromHtml("To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"));
+                txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("This <b>section</b> allows the User to create a master list of annual or reoccurring appointments. The purpose is to ensure appointments are made and not overlooked.\n\n To <b>add</b> an Appointment click on add button at the top right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed <b>click SAVE</b> on the top right corner of the screen.\n\n To <b>edit</b> the Appointment click the picture of the pencil to the right of the screen. To save your edits click the green bar marked Update Appointment. To <b>delete</b> the appointment swipe right to left and click the garbage can.\n\n To <b>add</b> the completed date(s) click Set Completion Date and click Add. \n\n To <b>view a report</b> or to <b>email</b> the data, in each section click the three dots on the upper right side of the screen.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;This sections allows Users to create a master list of routine appointments and jot down when or if the appointment took place.  It gives Users a great summary and helps them figure out if they need to call their doctor. <br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Type of Test, add the name of your doctor and frequency of appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen..<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"
+                 ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -584,7 +678,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Maintain an Appointment Checklist");
+                txtHeader.setText("Instructions for Appointment Checklist");
                 break;
             case "EventNotesInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
@@ -593,13 +687,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To add a note click on add button at the top right of the screen. Once completed click Add. The note is automatically saved.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>edit</b> the note click the picture of the pencil to the right of the screen. To save your edits click the <b>SAVE</b> at the top right of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>delete</b> the note click the garbage can at the bottom of the screen or <b>delete</b> the entry , left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"));
+                txt62.setText(Html.fromHtml("To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note." +
+                        "You will see the EDIT NOTE function.  Click ”EDIT NOTE” and type your changes." +
+                        "To save your edits click SAVE at the top right of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>"));
+                txt64.setText(Html.fromHtml("To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"));
 
-                UI = Html.fromHtml("To add a note click on add button at the top right of the screen. Once completed click Add. The note is automatically saved.\n\n To <b>edit</b> the note click the picture of the pencil to the right of the screen. To save your edits click the <b>SAVE</b> at the top right of the screen.\n\n To <b>delete</b> the note click the garbage can at the bottom of the screen or <b>delete</b> the entry , left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n To <b>view a report</b> or to <b>email</b> the data, click the three dots on the upper right side of the summary screen.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note."  +
+                                                      "You will see the EDIT NOTE function.  Click ”EDIT NOTE” and type your changes." +
+                                                      "To save your edits click SAVE at the top right of the screen.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"
+                    ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
@@ -624,7 +725,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Event Note");
+                txtHeader.setText("Instructions for Event Notes");
                 break;
             case "PharmacyInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
@@ -633,15 +734,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
@@ -666,7 +772,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Pharmacies and Home Medical Equipment");
+                txtHeader.setText("Instructions for Pharmacies & Home Medical Equipment");
                 break;
 
             case "FinanceInstruction":
@@ -676,15 +782,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                ).toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -710,7 +821,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Finance, Legal, Other");
+                txtHeader.setText("Instructions for Finance, Legal, Other");
                 break;
             case "HospitalInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
@@ -719,16 +830,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load the data.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load the data.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
-
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
@@ -753,7 +868,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Hospitals, Rehabilitation Centers, and Home Health Care Agencies");
+                txtHeader.setText( "Instructions for Hospitals, Rehab, \nHome Care");
                 break;
 
             case "DoctorInstruction":
@@ -763,14 +878,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the orange bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n  To <b>edit</b> information click the picture of the <b>pencil</b>. To <b>save</b> your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                ).toString();
 
 
                 //shradha
@@ -797,7 +918,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Doctors & Other Health Care Professionals");
+                txtHeader.setText("Instructions for Doctors And Health Care Professionals");
                 break;
 
             case "PhysicianInstruction":
@@ -807,14 +928,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
-                txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the entity is in your <b>Contacts</b> click the gray bar on the top right side of your screen to load data.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits <b>click</b> the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry, left swipe the arrow symbol on the <b>right side</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                ).toString();
 
 
                 //shradha
@@ -841,7 +968,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Primary Physician");
+                txtHeader.setText("Instructions for Primary Physician");
                 break;
             case "EmergencyInstruction":
                 header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
@@ -850,13 +977,26 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>make an automated phone call</b> or <b>delete</b> the entry left <b>swipe right to left</b> the arrow symbol on the right side.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n"));
+               /* txt61.setText(Html.fromHtml("To <b>add</b> information click the green <b>down arrow</b> button for each section. This would bring up the <b>Plus</b> button. Click the <b>Plus</b> button to start adding information for that section. <br>"));
+                txt62.setText(Html.fromHtml("To store information click save on top right.<br>"));
+                txt63.setText(Html.fromHtml("To edit information in a particular section click the picture of the pencil, click save to store your changes.<br>"));
+                txt64.setText(Html.fromHtml("To delete the information in a particular section click the garbage can. For sections without the garbage can, simple delete the information.<br>"));
+                txt65.setText(Html.fromHtml("To view or to email a report, click the three dots on the bottom right side of the screen.<br>"));
+*/
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"));
+                txt62.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
+                txt64.setText(Html.fromHtml("To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"));
+                txt65.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"));
+                txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click the green bar at the bottom of the screen. If the person is in your <b>Contacts</b> click the gray bar on the top right side of your screen.\n\n To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>edit</b> information click the picture of the <b>pencil</b>. To save your edits click the <b>SAVE</b> on the top right side of the screen.\n\n To <b>make an automated phone call</b> or <b>delete</b> the entry left <b>swipe right to left</b> the arrow symbol on the right side.\n\n To <b>view a report</b> or to <b>email</b> the data in each section click the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the <b>Plus</b> button at the bottom right corner of the screen. If the person is in your Contacts click the <b>Add from Contact</b> option.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>save</b> information click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information click the cell of the added contact. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To make an <b>automated phone call</b> click the phone button on the cell of your contact. <br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the entry left swipe right to left the cell of your contact on the right side.<br>"+
+                                "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the Botton left of the screen.<br>"
+                        ).toString();
 
 
                 //shradha
@@ -865,7 +1005,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setVisibility(View.VISIBLE);
                 txt64.setVisibility(View.VISIBLE);
                 txt65.setVisibility(View.VISIBLE);
-                txt66.setVisibility(View.GONE);
+                txt66.setVisibility(View.VISIBLE);
                 txt67.setVisibility(View.GONE);
                 txt68.setVisibility(View.GONE);
                 txt622.setVisibility(View.GONE);
@@ -877,28 +1017,38 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img63.setVisibility(View.VISIBLE);
                 img64.setVisibility(View.VISIBLE);
                 img65.setVisibility(View.VISIBLE);
-                img66.setVisibility(View.GONE);
+                img66.setVisibility(View.VISIBLE);
                 img67.setVisibility(View.GONE);
                 img68.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Emergency Contacts and Health Care Proxy Agent");
+                txtHeader.setText("Instructions for Emergency Contacts and Health Care Proxy Agent");
                 break;
             case "ConnectionInstuction":
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.\n\n"));
-                txt62.setText(Html.fromHtml("<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.\nFirst time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.\n\n"));
-                txt622.setText(Html.fromHtml("\n\n"));
-                txt63.setText(Html.fromHtml("\n\n<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.\n\n"));
-                txt64.setText(Html.fromHtml("<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.\n\n"));
-                txt65.setText(Html.fromHtml("<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "\n\n <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).\n\n"));
-                txt66.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.\n\n"));
-                txt67.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.\n\n"));
-                txt68.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.\n\nThanks & Regards"));
+                txt61.setText(Html.fromHtml("<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.<br>"));
+                txt62.setText(Html.fromHtml("<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.<br>First time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.<br>"));
+                txt622.setText(Html.fromHtml("<br>"));
+                txt63.setText(Html.fromHtml("<br><b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.<br>"));
+                txt64.setText(Html.fromHtml("<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.<br>"));
+                txt65.setText(Html.fromHtml("<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "<br> <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br> <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br>"));
+                txt66.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.<br>"));
+                txt67.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.<br>"));
+                txt68.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.<br>Thanks & Regards"));
+
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;<b>Welcome to MYLO -</b> This App allows you to maintain a digital library of critical documents and medical information for you and your loved ones. There are 6 main sections. The App provides unlimited profiles, pdf reports, email and fax functionality, and the ability to share profiles and eliminate the need to re-enter data.<br>"+
+              "&nbsp;&nbsp;&nbsp;&nbsp;<b>Getting Started -</b> Before you begin we would like to explain the data entry process. Except for this Profiles page, each screen has a top bar which includes the name of the screen, an arrow back button on the top left, three dots on the top right (which allows you to view or email the data), and a save button on data entry screens.<br>First time Users will see First Time User Instructions directly on the screen. After adding information. the User can access User Instructions by clicking on the three buttons. A User Guide is also available from the dropdown Menu located on the top left of the Profiles page.<br>"+
+                "<br>" +
+               "<br>&nbsp;&nbsp;&nbsp;&nbsp;<b>A reminder to all Users -</b> MYLO is a native to your phone. This means that we do not have access to your information. If you forget the name and email address used for this app then the data will be lost. It’s important that you  remember this information and to periodically back up the and or send yourself the pdf reports. Backup instructions are included on the Menu page.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>MYLO Would Like to Access Your Contacts and MYLO Would Like to Access Your Camera -</b>This message does NOT mean that the company has access to your information, it simply allows the APP to utilise the functions of your phone and provide the USER with a better experience.<br>"+
+               "&nbsp;&nbsp;&nbsp;&nbsp;<b>Adding a Profile - </b>click the plus box. You will see two options. Create New and Import from Dropbox." + "<br> <b>Option 1 : Create New.</b> You will be brought to the Add Profile  Screen. You can type in the new profile or if the person is in your Contacts then click the gray bar on the top right side of your screen to load information. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br> <b>Option 2 : Import from Dropbox.</b> Using this feature you can upload a profile from Dropbox. If you click that option, you will be provided additional instructions. Once completed click either Save (top right of screen) or Add Profile (bottom of screen).<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.<br>"+
+                "&nbsp;&nbsp;&nbsp;&nbsp;<b>To Delete a Profile –</b> Long Press on the Profile Box.<br>").toString();
 
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
@@ -927,7 +1077,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Profile");
+                txtHeader.setText("Instructions for Profile");
                 break;
             case "Personal":
                 imgPicture.setVisibility(View.GONE);
@@ -935,9 +1085,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 //                String msgs = "To <b>add</b> information type responses.<br>" +
 //                        "To <b>save</b> information click the check mark" +
-//                        " on the <b>top right</b> side of the screen.<br><br>" +
+//                        " on the <b>top right</b> side of the screen.<br>" +
 //                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
 //
 //                txtMsg.setText(Html.fromHtml(msgs));
@@ -948,7 +1098,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt63.setText(Html.fromHtml("To <b>edit</b> or <b>delete</b> information - make changes then save your edits by clicking <b>SAVE</b> on the <b>top right</b> of the screen."));
                 txt64.setText(Html.fromHtml("To <b>view a report</b> or to <b>email</b> - click the <b>three dots</b> on the top right side of the screen."));
 
-                UI = Html.fromHtml("To <b>add</b> information - type responses or use dropdown.\n\n To <b>save</b> information - click the check mark on the <b>top right</b> side of the screen.\n\n To <b>edit</b> or <b>delete</b> information - make changes then save your edits by clicking <b>SAVE</b> on the <b>top right</b> of the screen.\n\n To <b>view a report</b> or to <b>email</b> - click the <b>three dots</b> on the top right side of the screen.\n\n Thanks & Regards").toString();
+                UI = Html.fromHtml("To <b>add</b> information - type responses or use dropdown.<br> To <b>save</b> information - click the check mark on the <b>top right</b> side of the screen.<br> To <b>edit</b> or <b>delete</b> information - make changes then save your edits by clicking <b>SAVE</b> on the <b>top right</b> of the screen.<br> To <b>view a report</b> or to <b>email</b> - click the <b>three dots</b> on the top right side of the screen.<br> Thanks & Regards").toString();
 
 
                 //nikita
@@ -1024,28 +1174,31 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 //                String msgd = "To <b>add</b> information click the <b>plus box</b> for each section " +
 //                        "and then click the green bar." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>save</b> information click the <b>check mark</b>" +
 //                        " on the top right side of the screen." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>. To save your edits click the green bar at the lower half of the screen." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>delete</b> information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simply delete the data." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
 //
 //                txtMsg.setText(Html.fromHtml(msgd));
 
                 //shradha
-                txt61.setText(Html.fromHtml("To <b>add</b> information click <b>add</b> for each section.\n\n"));
-                txt62.setText(Html.fromHtml("To <b>store</b> information click <b>save</b> on top right.\n\n"));
-                txt63.setText(Html.fromHtml("To <b>edit</b> information in a particular section click the picture of the pencil, click <b>save</b> to store your changes.\n\n"));
-                txt64.setText(Html.fromHtml("To <b>delete</b> the information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simple delete the information.\n\n"));
-                txt65.setText(Html.fromHtml("To <b>view or to email a report</b>, click the three dots on the top right side of the screen.\n\n"));
+                txt61.setText(Html.fromHtml("To <b>add</b> information click the green <b>down arrow</b> button for each section. This would bring up the <b>Plus</b> button. Click the <b>Plus</b> button to start adding information for that section. <br>"));
+                txt62.setText(Html.fromHtml("To store information click <b>save</b> on top right.<br>"));
+                txt63.setText(Html.fromHtml("To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>, click <b>save</b> to store your changes.<br>"));
+                txt64.setText(Html.fromHtml("To <b>delete</b> the information in a particular section click the garbage can. For sections without the garbage can, simple <b>delete</b> the information.<br>"));
+                txt65.setText(Html.fromHtml("To <b>view</b> or to <b>email</b> a report, click the three dots on the bottom right side of the screen.<br>"));
 
-                UI = Html.fromHtml("To <b>add</b> information click <b>add</b> for each section.\n\n To <b>store</b> information click <b>save</b> on top right.\n\n To <b>edit</b> information in a particular section click the picture of the pencil, click <b>save</b> to store your changes.\n\n To <b>delete</b> the information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simple delete the information.\n\n To <b>view or to email a report</b>, click the three dots on the top right side of the screen.\n\n Thanks & Regards").toString();
-
-
+                UI = Html.fromHtml("&nbsp;&nbsp;&nbsp;&nbsp;To <b>add</b> information click the green <b>down arrow</b> button for each section. This would bring up the <b>Plus</b> button. Click the <b>Plus</b> button to start adding information for that section. <br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To store information click <b>save</b> on top right.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>, click <b>save</b> to store your changes.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>delete</b> the information in a particular section click the garbage can. For sections without the garbage can, simple delete the information.<br>"+
+                        "&nbsp;&nbsp;&nbsp;&nbsp;To <b>view</b> or to <b>email</b> a report, click the three dots on the bottom right side of the screen.<br>"
+                ).toString();
                 //shradha
                 txt61.setVisibility(View.VISIBLE);
                 txt62.setVisibility(View.VISIBLE);
@@ -1072,7 +1225,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Medical Profile");
+                txtHeader.setText("Instructions for Medical Profile");
                 break;
 
             case "Living":
@@ -1081,9 +1234,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 //                String msgl = "To <b>save</b> information click the check mark" +
 //                        " on the top right side of the screen." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>edit</b> information simply change the data and then save your edits by clicking on the check mark on the top right side of the screen." +
-//                        "<br><br>" +
+//                        "<br>" +
 //                        "To <b>view</b>, <b>email</b>, or <b>fax</b> the data in each section click on the three dots on the top right side of the screen.";
 //
 //                txtMsg.setText(Html.fromHtml(msgl));
@@ -1125,11 +1278,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
                 String msgc = "You can <b>add</b> the card from both the sides i.e <b>front and back</b>." +
-                        "<br><br>" +
+                        "<br>" +
                         "For adding front and back card, You need to click on the <b>plus</b> icon. Now you can add picture of card either from <b>Camera or Gallery</b>." +
-                        "<br><br>" +
+                        "<br>" +
                         "For adding card through <b>camera</b>, It is <b>recommended</b> that you hold your phone <b>horizontal</b> while taking a picture of a card." +
-                        "<br><br>" +
+                        "<br>" +
                         "To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen.";
 
                 txtMsg.setText(Html.fromHtml(msgc));
@@ -1178,35 +1331,35 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(InstructionActivity.this);
-                alert.setTitle("Email ?");
-                alert.setMessage("Do you want to email dropbox instructions ?");
+                alert.setTitle("Share ?");
+                alert.setMessage("Do you want to share dropbox instructions ?");
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         String msg = "This is a method for personal cloud storage. It is commonly referred to as a method to backup one's files online. In addition to store the files, one can also share them with colleagues and friends, all using Dropbox. To store, retrieve and manage your files, one can use a Dropbox application." +
-                                "<br><br>" +
+                                "<br>" +
                                 "You need to login with your dropbox account. If you don't  have dropbox account, You need to have one. " +
-                                "<br><br>" +
+                                "<br>" +
                                 "<b>Guidelines:</b>" +
-                                "<br><br>" +
+                                "<br>" +
                                 "<b>1) Login: </b>" +
                                 "<br>" +
                                 "Click on <b>\"Login With DropBox\" </b>button, It will redirect you to dropbox site. Now you can login with your personal dropbox account." +
                                 "<br>" +
                                 "After logging in, To allow the access to the files and folders from your dropbox, Click the <b>'Allow'</b>  Button.So now you can Access your files." +
-                                "<br><br>" +
+                                "<br>" +
                                 "<b>2) Backup: </b>" +
                                 "<br>" +
                                 "If you have logged in to dropbox from application, It will show you Backup Options." +
                                 "<br>" +
                                 "On clicking  <b>'BACKUP'</b> button, you need to Click on <b>'Backup your Data'</b> button to store your profile." +
-                                "<br><br>" +
+                                "<br>" +
                                 "<b>3) Restore: </b>" +
                                 "<br>" +
                                 "If you have logged in to dropbox from application, It will show you Restore Options. It will help to restore profiles." +
                                 "<br>" +
                                 "On clicking  <b>'RESTORE'</b>  button, you will get list of zip files for download. On clicking any of the zip file, It will be downloaded and you will get a popup message  to unzip and restore file." +
-                                "<br><br>" +
+                                "<br>" +
                                 "<b>4) Get Files: </b>" +
                                 "<br>" +
                                 "If you have logged in to dropbox from application, It will show you View Files Options. It will help you to get the documents in Advance Directive section  from dropbox storage." +
@@ -1287,41 +1440,46 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
             @Override
             public void onClick(View v) {
                 if (From.equals("PrescriptionInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
-                } else if (From.equals("EventNotesInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription Information", UI);
+                } else if (From.equals("PrescriptionUploadInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription Upload", UI);
+                }
+                else if (From.equals("EventNotesInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Event Notes", UI);
                 } else if (From.equals("CheckListInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
-                } else if (From.equals("LivingInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Appointment Checklist", UI);
+                }else if (From.equals("VitalInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Vital Signs", UI);
+                }  else if (From.equals("LivingInstruction")) {
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Activity of daily living", UI);
                 } else if (From.equals("InsuranceInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Information", UI);
                 } else if (From.equals("CardInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Cards", UI);
                 } else if (From.equals("FormInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Forms", UI);
                 } else if (From.equals("DoctorInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Doctors And Health Care Professionals", UI);
                 } else if (From.equals("HospitalInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Hospitals, Rehab, Home Care", UI);
                 } else if (From.equals("PharmacyInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Pharmacies & Home Medical Equipment", UI);
                 } else if (From.equals("FinanceInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Finance, Legal, Other ", UI);
                 } else if (From.equals("Personal")) {
                     ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
                 } else if (From.equals("Medical")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Medical Profile", UI);
                 } else if (From.equals("PhysicianInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Primary Physician", UI);
                 } else if (From.equals("EmergencyInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Emergency Contacts and Health Care Proxy Agent", UI);
                 } else if (From.equals("OtherInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Other Documents", UI);
                 } else if (From.equals("MedicalInfoInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Medical Records", UI);
                 } else if (From.equals("AdvanceInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "MYLO User Instructions", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Advance Directives", UI);
                 } else {
                     Toast.makeText(context, "Some thing went wrong Dude...!!", Toast.LENGTH_SHORT).show();
                 }

@@ -66,7 +66,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView floatAdd, floatOptions;
-
+    TextView txthelp; ImageView imghelp;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -91,9 +91,13 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
             lvFinance.setAdapter(financeAdapter);
             lvFinance.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvFinance.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -111,6 +115,8 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOptions = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -210,7 +216,12 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                 Header.addEmptyLine(2);*/
 
         ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        new Specialty(1, financeList);
+      // new Specialty(1, financeList);
+
+        for(int i=0;i<financeList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), financeList.get(i).getId(),"Finance");
+            new Specialty(financeList.get(i), "Finance", phonelists,i);
+        }
 
         Header.document.close();
         //-------------------------------------------------------------

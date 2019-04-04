@@ -94,5 +94,23 @@ public class VitalSigns implements Serializable {
         this.note = note;
     }
 
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
+
+    public String getCol() {
+        return col;
+    }
+
+    public void setCol(String col) {
+        this.col = col;
+    }
+
+    String other = "";
+    String col= "";
     String location = "", date = "", time = "", bp = "", heartRate = "", pulseRate = "", temperature = "", respRate = "", note = "";
 }

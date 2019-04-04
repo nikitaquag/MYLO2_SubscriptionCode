@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "525843603466",
-    "firebase_url": "https://mindyourlovedone-b2386.firebaseio.com",
-    "project_id": "mindyourlovedone-b2386",
-    "storage_bucket": "mindyourlovedone-b2386.appspot.com"
+    "project_number": "669162090702",
+    "firebase_url": "https://mylo-fabfe.firebaseio.com",
+    "project_id": "mylo-fabfe",
+    "storage_bucket": "mylo-fabfe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:525843603466:android:c79b7dd015541dd3",
+        "mobilesdk_app_id": "1:669162090702:android:572b6b73b8f0ae00",
         "android_client_info": {
           "package_name": "com.mindyourlovedone.healthcare.HomeActivity"
         }
       },
       "oauth_client": [
         {
-          "client_id": "525843603466-77n0e4ktqimhicrq6ujgqd95uqpti8au.apps.googleusercontent.com",
+          "client_id": "669162090702-jmvqo9ourlv5pa1u4jhge0pme9djog1f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBXwKrkqru4wqMuQmqQMiJlyxtZB1YZcLo"
+          "current_key": "AIzaSyDLCekaFsIK-xbvpZjiHkBr7sgFOgaq7Aw"
         }
       ],
       "services": {

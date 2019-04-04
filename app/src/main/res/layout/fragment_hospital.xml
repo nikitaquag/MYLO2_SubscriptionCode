@@ -310,14 +310,15 @@
         >
 
         <TextView
+            android:id="@+id/txthelp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/dimension60dp"
             android:textSize="@dimen/dimension17dp"
             android:layout_above="@+id/imghelp"
-            android:textStyle="italic"
-            android:fontFamily="@font/bold_lato"
+            android:textStyle="italic|bold"
+            android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Hospitals!"
+            android:text="Add a new Contact!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

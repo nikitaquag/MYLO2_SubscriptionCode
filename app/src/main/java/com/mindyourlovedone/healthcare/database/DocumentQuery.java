@@ -32,6 +32,7 @@ public class DocumentQuery {
     public static final String COL_ID = "Id";
     public static final String COL_OTHER_DOC = "OtherDocType";
     public static final String COL_LOCATOR = "Locator";
+    public static final String COL_NOTE = "Note";
     static DBHelper dbHelper;
     Context context;
 
@@ -44,7 +45,7 @@ public class DocumentQuery {
     public static String createDocumentTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
                 COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(100)," + COL_DATE + " VARCHAR(50)," + COL_LOCATOR + " VARCHAR(40),"
-                + COL_OTHER + " VARCHAR(100)," + COL_OTHER_DOC + " VARCHAR(100)," + COL_HOSP + " VARCHAR(100)," + COL_TYPE + " VARCHAR(100)," + COL_HOLDER + " VARCHAR(50)," + COL_LOCATION + " VARCHAR(50)," +
+                + COL_OTHER + " VARCHAR(100)," + COL_OTHER_DOC + " VARCHAR(100)," + COL_HOSP + " VARCHAR(100)," + COL_TYPE + " VARCHAR(100)," + COL_HOLDER + " VARCHAR(50)," + COL_LOCATION + " VARCHAR(50)," + COL_NOTE + " TEXT," +
                 COL_CATEGORY + " VARCHAR(50)," + COL_FROM + " VARCHAR(50)," + COL_PERSON + " VARCHAR(100)," + COL_PRINCIPLE + " VARCHAR(100)," +
                 COL_DOCUMENT + " VARCHAR(100)," +
                 COL_PHOTO + " INTEGER);";
@@ -84,7 +85,7 @@ public class DocumentQuery {
                     notes.setHospital(c.getString(c.getColumnIndex(COL_HOSP)));
                     notes.setOtherDoc(c.getString(c.getColumnIndex(COL_OTHER_DOC)));
                     notes.setLocator(c.getString(c.getColumnIndex(COL_LOCATOR)));
-
+                    notes.setNote(c.getString(c.getColumnIndex(COL_NOTE)));
                     noteList.add(notes);
                 } while (c.moveToNext());
             }
@@ -92,7 +93,7 @@ public class DocumentQuery {
         return noteList;
     }
 
-    public static Boolean insertDocumentData(int userid, String name, String category, String date, String loacation, String holder, int photo, String document, String type, String from, String person, String principle, String otherCategory, String hosp, String otherDocType, String locator) {
+    public static Boolean insertDocumentData(int userid, String name, String category, String date, String loacation, String holder, int photo, String document, String type, String from, String person, String principle, String otherCategory, String hosp, String otherDocType, String locator, String note) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -113,7 +114,7 @@ public class DocumentQuery {
         cv.put(COL_OTHER, otherCategory);
         cv.put(COL_OTHER_DOC, otherDocType);
         cv.put(COL_LOCATOR, locator);
-
+        cv.put(COL_NOTE, note);
         long rowid = db.insert(TABLE_NAME, null, cv);
 
         flag = rowid != 0;
@@ -134,7 +135,7 @@ public class DocumentQuery {
         return true;
     }
 
-    public static Boolean updateDocumentData(int id, String name, String category, String date, String loacation, String holder, int photo, String document, String type, String from, String person, String principle, String otherCategory, String hosp, String otherDocType, String locator) {
+    public static Boolean updateDocumentData(int id, String name, String category, String date, String loacation, String holder, int photo, String document, String type, String from, String person, String principle, String otherCategory, String hosp, String otherDocType, String locator, String note) {
         boolean flag = false;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -154,7 +155,7 @@ public class DocumentQuery {
         cv.put(COL_OTHER, otherCategory);
         cv.put(COL_OTHER_DOC, otherDocType);
         cv.put(COL_LOCATOR, locator);
-
+        cv.put(COL_NOTE, note);
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;

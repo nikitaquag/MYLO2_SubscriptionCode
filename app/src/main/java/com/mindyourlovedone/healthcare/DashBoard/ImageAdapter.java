@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.PrescribeImage;
+import com.mindyourlovedone.healthcare.util.RoundRectCornerImageView;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;

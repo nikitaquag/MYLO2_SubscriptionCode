@@ -161,7 +161,7 @@ else {
 }
 */
 
-        convertView.setOnClickListener(new View.OnClickListener() {
+        holder.imgConPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentP= new Intent(context,ProfileActivity.class);
@@ -178,7 +178,7 @@ else {
         });
 
 
-        holder.imgSelfFolder.setOnClickListener(new View.OnClickListener() {
+       convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (position==connectionList.size())

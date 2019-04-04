@@ -55,7 +55,7 @@ public class FragmentResourcesNew extends Fragment {
         r2.setResImage(R.drawable.insu_one);
 
         ResourcesNew r3 = new ResourcesNew();
-        r3.setName("Podcasts & videos");
+        r3.setName("Podcasts & Videos");
         r3.setResImage(R.drawable.drawer_videos);
 
         resourcesList.add(r1);

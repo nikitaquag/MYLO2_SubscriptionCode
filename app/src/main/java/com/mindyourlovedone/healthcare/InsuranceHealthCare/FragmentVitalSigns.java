@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,6 +38,7 @@ import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
 import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
@@ -55,9 +60,9 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
     DBHelper dbHelper;
     RelativeLayout rlGuide;
     TextView txtMsg, txtFTU;
-
+    TextView txthelp; ImageView imghelp;
     FloatingActionButton floatProfile;
-    ImageView floatAdd,floatOptions;
+    ImageView floatAdd, floatOption;
 
     @Nullable
     @Override
@@ -83,9 +88,13 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
             lvVital.setAdapter(vitalAdapter);
             lvVital.setSystemUiVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvVital.setSystemUiVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -94,12 +103,16 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         imgRight.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
         floatAdd.setOnClickListener(this);
+        floatOption.setOnClickListener(this);
     }
 
     private void initUI() {
         //shradha
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
+        floatOption = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -204,9 +217,127 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         vitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
     }
 
+    private void showFloatDialog() {
+
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "VitalSign.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Vital Signs");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+        ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdf("Vital", HospitalList);
+        Header.document.close();
+
+//--------------------------------------------------------------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+        final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        floatContact.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
+        floatNew.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/VitalSign.pdf";
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Vital Signs");
+
+                dialog.dismiss();
+            }
+
+        });
+
+        floatContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/VitalSign.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getHospitalInfo());
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+
+
+        });
+
+
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.floatOptions:
+                showFloatDialog();
+                break;
+
             case R.id.floatProfile:
                 Intent intentDashboard = new Intent(getActivity(), BaseActivity.class);
                 intentDashboard.putExtra("c", 1);//Profile Data
@@ -227,87 +358,87 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
                 startActivity(i);
                 break;
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
-                        + "/mylopdf/";
-                File dirfile = new File(RESULT);
-                dirfile.mkdirs();
-                File file = new File(dirfile, "Hospital.pdf");
-                if (file.exists()) {
-                    file.delete();
-                }
-
-
-                new Header().createPdfHeader(file.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
-                preferences.copyFile("ic_launcher.png", getActivity());
-                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-                Header.addEmptyLine(1);
-                Header.addusereNameChank("Hospitals and other health professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(1);
-
-                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
-
-                Paragraph p = new Paragraph(" ");
-                LineSeparator line = new LineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.LIGHT_GRAY);
-                p.add(line);
-                try {
-                    Header.document.add(p);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-                Header.addEmptyLine(1);
-
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Hospitals and other health professionals");
-
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-
-                ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                new Specialty("Hospital", HospitalList);
-                Header.document.close();
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-                builder.setTitle("");
-
-                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int itemPos) {
-                        String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/"
-                                + "/Hospital.pdf";
-                        switch (itemPos) {
-
-                            case 0: // view
-                                StringBuffer result = new StringBuffer();
-                                result.append(new MessageString().getHospitalInfo());
-
-                                new PDFDocumentProcess(path,
-                                        getActivity(), result);
-
-                                System.out.println("\n" + result + "\n");
-
-                                break;
-                            case 1://Email
-                                File f = new File(path);
-                                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
-                                break;
-                            case 2://FTU
-                                Intent i = new Intent(getActivity(), InstructionActivity.class);
-                                i.putExtra("From", "VitalInstruction");
-                                startActivity(i);
-                                break;
-                           /* case 2://fax
-                                new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
-                        }
-                    }
-
-                });
-                builder.create().show();
+//                final String RESULT = Environment.getExternalStorageDirectory()
+//                        + "/mylopdf/";
+//                File dirfile = new File(RESULT);
+//                dirfile.mkdirs();
+//                File file = new File(dirfile, "Hospital.pdf");
+//                if (file.exists()) {
+//                    file.delete();
+//                }
+//
+//
+//                new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+//                preferences.copyFile("ic_launcher.png", getActivity());
+//                Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+//                Header.addEmptyLine(1);
+//                Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(1);
+//
+//                Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+//
+//                Paragraph p = new Paragraph(" ");
+//                LineSeparator line = new LineSeparator();
+//                line.setOffset(-4);
+//                line.setLineColor(BaseColor.LIGHT_GRAY);
+//                p.add(line);
+//                try {
+//                    Header.document.add(p);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//                Header.addEmptyLine(1);
+//
+//              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+//                        "Hospitals, Rehab, Home Care");
+//
+//                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+//                Header.addEmptyLine(2);*/
+//
+//                ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//                new Specialty("Hospital", HospitalList);
+//                Header.document.close();
+//
+//                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+//
+//                builder.setTitle("");
+//
+//                builder.setItems(dialog_items, new DialogInterface.OnClickListener() {
+//
+//                    public void onClick(DialogInterface dialog, int itemPos) {
+//                        String path = Environment.getExternalStorageDirectory()
+//                                + "/mylopdf/"
+//                                + "/Hospital.pdf";
+//                        switch (itemPos) {
+//
+//                            case 0: // view
+//                                StringBuffer result = new StringBuffer();
+//                                result.append(new MessageString().getHospitalInfo());
+//
+//                                new PDFDocumentProcess(path,
+//                                        getActivity(), result);
+//
+//                                System.out.println("\n" + result + "\n");
+//
+//                                break;
+//                            case 1://Email
+//                                File f = new File(path);
+//                                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+//                                break;
+//                            case 2://FTU
+                Intent ifd = new Intent(getActivity(), InstructionActivity.class);
+                ifd.putExtra("From", "VitalInstruction");
+                startActivity(ifd);
+//                                break;
+//                           /* case 2://fax
+//                                new FaxCustomDialog(getActivity(), path).show();
+//                                break;*/
+//                        }
+//                    }
+//
+//                });
+//                builder.create().show();
                 break;
         }
     }

@@ -76,7 +76,7 @@
                     android:visibility="gone"/>
 
                 <TextView
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                     />
 
                 <TextView
-                    android:fontFamily="@font/lato_bold"
+                    android:fontFamily="@font/lato"
                     android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

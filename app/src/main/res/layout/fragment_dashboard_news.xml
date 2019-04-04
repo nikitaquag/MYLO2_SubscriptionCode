@@ -64,7 +64,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtEmergencyContact"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -138,7 +139,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtCarePlan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -233,7 +235,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtSpecialist"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -309,7 +312,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtInsuranceCard"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -395,7 +399,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtEmergencyEvent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -472,7 +477,8 @@
 
                         <TextView
                             android:maxLines="2"
-                            android:fontFamily="@font/lato_bold"
+                            android:fontFamily="@font/lato"
+                            android:textStyle="bold"
                             android:id="@+id/txtPrescription"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<font-family xmlns:app="http://schemas.android.com/apk/res/android">
+<font-family xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res/android"
+    tools:ignore="NamespaceTypo">
     <font
         app:fontStyle="normal"
         app:fontWeight="400"
-        app:font="@font/bold_lato" />
+        app:font="@font/lato" />
     <font
         app:fontStyle="italic"
         app:fontWeight="400"
-        app:font="@font/bold_lato" />
+        app:font="@font/lato" />
 </font-family>

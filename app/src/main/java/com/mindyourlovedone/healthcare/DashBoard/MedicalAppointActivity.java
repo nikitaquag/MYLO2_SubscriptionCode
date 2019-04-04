@@ -58,14 +58,14 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     Context context = this;
     RecyclerView lvNote;
     ArrayList<Appoint> noteList = new ArrayList<>();
-    ImageView imgHome, imgBack, imgAdd, imgEdit, imgRight;
+    ImageView imgHome, imgBack, imgAdd, imgEdit, imgRight,imghelp;
     RelativeLayout rlGuide;
     Preferences preferences;
     ArrayList<DateClass> dateList;
     DBHelper dbHelper;
     RelativeLayout header;
     boolean flag = false;
-    TextView txtMsg, txtFTU, txtAdd;
+    TextView txtMsg, txtFTU, txtAdd,txthelp;
     ScrollView scrollvw;
    // FloatingActionButton floatProfile, floatAdd;
     ImageView floatProfile, floatAdd,floatOptions;
@@ -113,6 +113,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         floatOptions = findViewById(R.id.floatOptions);
         floatProfile = findViewById(R.id.floatProfile);
         floatAdd = findViewById(R.id.floatAdd);
+        txthelp = findViewById(R.id.txthelp);
+        imghelp = findViewById(R.id.imghelp);
         scrollvw = findViewById(R.id.scrollvw);
         txtMsg = findViewById(R.id.txtMsg);
 //        String msg = "To <b>add</b> an Appointment  click  the <b>plus</b> box " +
@@ -152,6 +154,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 //  relMsg.setVisibility(View.VISIBLE);//nikita
                 // scrollvw.setVisibility(View.VISIBLE);//nikita
                 rlGuide.setVisibility(View.GONE);//nikita
+                imghelp .setVisibility(View.GONE);
+                txthelp.setVisibility(View.GONE);
             }
         });
         header = findViewById(R.id.header);
@@ -349,15 +353,31 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
     public void setNoteData() {
         if (noteList.size() != 0) {
             lvNote.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.GONE);
+            imghelp.setVisibility(View.GONE);
             rlGuide.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         } else {
             rlGuide.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
+            imghelp.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
         }
         AppointAdapter adapter = new AppointAdapter(context, noteList);
         lvNote.setAdapter(adapter);
+    }
+
+    public void getData(final int index) {
+        noteList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        //   noteList=new ArrayList<>();
+        for(int i=0;i<noteList.size();i++){
+            if(noteList.get(i).getUnique()==index){
+                noteList.get(i).setOpen(true);
+            }else{
+                noteList.get(i).setOpen(false);
+            }
+        }
     }
 
     public void getData() {
@@ -460,12 +480,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                         + "/mylopdf/"
                         + "/Appointment.pdf";
 
-                StringBuffer result = new StringBuffer();
-                result.append(new MessageString().getAppointInfo());
-                new PDFDocumentProcess(path,
-                        context, result);
-
-                System.out.println("\n" + result + "\n");
+                File f = new File(path);
+                preferences.emailAttachement(f, context, "Appointment Checklist");
 
                 dialog.dismiss();
             }
@@ -478,8 +494,13 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
                         + "/Appointment.pdf";
-                File f = new File(path);
-                preferences.emailAttachement(f, context, "Appointment Checklist");
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getAppointInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+
+                System.out.println("\n" + result + "\n");
                 dialog.dismiss();
             }
 
@@ -703,7 +724,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                 long selectedMilli = newDate.getTimeInMillis();
 
                 Date datePickerDate = new Date(selectedMilli);
-                String reportDate = new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+                String reportDate = new SimpleDateFormat("dd MMM yyyy").format(datePickerDate);
 
                 DateClass d = new DateClass();
                 d.setDate(reportDate);
@@ -714,20 +735,21 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 
                 if (flag == true) {
                     Toast.makeText(context, "You have inserted date successfully", Toast.LENGTH_SHORT).show();
-                    getData();
+                    getData(a.getUnique());
                     setNoteData();
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }
 
-                noteList.get(position).setDate(dayOfMonth + "/" + (month + 1) + "/" + year);
+//                noteList.get(position).setDate(dayOfMonth + "/" + (month + 1) + "/" + year);
             }
         }, year, month, day);
+        dpd.getDatePicker().setMaxDate(calendar.getTimeInMillis());
         dpd.show();
     }
 
     /*Shradha delete date recor*/
-    public void deleteDateNote(final DateClass items) {
+    public void deleteDateNote(final int items,final int index) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
         alert.setTitle("Delete");
         alert.setMessage("Do you want to Delete this record?");
@@ -735,10 +757,10 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
 //                boolean flag = DateQuery.deleteDateRecord(items.getPreid(), items.getDate());
-                boolean flag = DateQuery.deleteRecords(items.getId());
+                boolean flag = DateQuery.deleteRecords(items);
                 if (flag == true) {
                     Toast.makeText(context, "Deleted", Toast.LENGTH_SHORT).show();
-                    getData();
+                    getData(index);
                     setNoteData();
                 }
                 dialog.dismiss();

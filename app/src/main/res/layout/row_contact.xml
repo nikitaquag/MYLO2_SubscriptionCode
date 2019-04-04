@@ -13,7 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
         android:gravity="center_vertical"
-        android:padding="@dimen/dimension5dp">
+        android:paddingTop="@dimen/dimension10dp"
+        android:paddingBottom="@dimen/dimension10dp"
+        android:paddingLeft="@dimen/dimension5dp"
+        android:paddingRight="@dimen/dimension5dp">
 
         <com.mindyourlovedone.healthcare.customview.RoundedImageView
             android:id="@+id/imgConPhoto"
@@ -23,21 +26,27 @@
             android:paddingLeft="@dimen/dimension5dp"
             android:background="@color/colorLightBlue"
             android:src="@drawable/all_profile" />
-
+<RelativeLayout
+    android:id="@+id/rlCont"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_toRightOf="@id/imgConPhoto"
+    android:layout_toLeftOf="@+id/imgForword"
+    android:layout_centerVertical="true"
+    >
         <TextView
             android:id="@+id/txtConName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_toLeftOf="@+id/imgForword"
-            android:layout_toRightOf="@+id/imgConPhoto"
             android:ellipsize="end"
             android:gravity="center_vertical"
             android:singleLine="true"
             android:text="Suzy Jon"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/dimension20dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            />
 
         <TextView
             android:id="@+id/txtPhone"
@@ -45,20 +54,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtConName"
             android:layout_marginLeft="@dimen/dimension15dp"
-            android:layout_toRightOf="@id/imgConPhoto"
-            android:drawableLeft="@drawable/mobile"
-            android:drawablePadding="@dimen/dimension10dp"
+
             android:gravity="top|left"
             android:padding="@dimen/dimension2dp"
             android:text="789564132"
             android:textColor="@color/colorDarkGray"
             android:textSize="@dimen/dimension16dp"></TextView>
+</RelativeLayout>
+       <!-- android:drawableLeft="@drawable/mobile"
+        android:drawablePadding="@dimen/dimension10dp"-->
 
         <TextView
             android:id="@+id/txtWPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txtPhone"
+            android:layout_below="@+id/rlCont"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:layout_toRightOf="@id/imgConPhoto"
             android:drawableLeft="@drawable/tele"
@@ -67,7 +77,9 @@
             android:padding="@dimen/dimension2dp"
             android:text="789564132"
             android:textColor="@color/colorDarkGray"
-            android:textSize="@dimen/dimension16dp"></TextView>
+            android:textSize="@dimen/dimension16dp"
+            android:visibility="gone"
+            ></TextView>
 
         <TextView
             android:id="@+id/txtHPhone"
@@ -80,6 +92,7 @@
             android:drawablePadding="@dimen/dimension10dp"
             android:gravity="top|left"
             android:padding="@dimen/dimension2dp"
+            android:visibility="gone"
             android:text="789564132"
             android:textColor="@color/colorDarkGray"
             android:textSize="@dimen/dimension16dp"></TextView>
@@ -96,6 +109,7 @@
             android:drawablePadding="@dimen/dimension10dp"
             android:gravity="top|left"
             android:padding="@dimen/dimension2dp"
+            android:visibility="gone"
             android:text="suzy.jkd@gmail.com"
             android:textColor="@color/colorDarkGray"
             android:textSize="@dimen/dimension16dp"></TextView>
@@ -112,6 +126,7 @@
             android:drawablePadding="@dimen/dimension10dp"
             android:gravity="top|left"
             android:padding="@dimen/dimension2dp"
+            android:visibility="gone"
             android:textColor="@color/colorDarkGray"
             android:textSize="@dimen/dimension16dp"></TextView>
         <!--  <ImageView

@@ -254,9 +254,10 @@ public class Header {
     }
 
     public static void addusereNameChank(String username) {
-        GreenFont.setColor(0, 153, 153);
-        //   GreenFont.setSize(10);
-        Chunk underline = new Chunk(username, GreenFont);
+        BlackFont.setColor(0, 0, 0);//255, 99, 26);
+       // GreenFont.setColor(0, 153, 153);//varsa
+        BlackFont.setStyle(Font.BOLD);
+        Chunk underline = new Chunk(username, BlackFont);
 //        underline.setUnderline(0.1f, -3f); // 0.1 thick, -2 y-location
         Paragraph p = new Paragraph(underline);
         p.setAlignment(Paragraph.ALIGN_CENTER);

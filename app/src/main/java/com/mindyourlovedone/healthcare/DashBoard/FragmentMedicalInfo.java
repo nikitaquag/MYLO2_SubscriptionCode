@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.IdRes;
@@ -78,12 +79,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     public static final int REQUEST_HOSPITAL = 400;
     private static final int REQUEST_CONDITION = 500;
     private static final int REQUEST_VACCINE = 700;
+    public static final int REQUEST_BLOOD = 1;
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     View rootview;
     RelativeLayout rlMedical, rlDrugDesc, rlDrinkDesc, rlTobacoDesc;
     ImageView imgBack, imgDone, imgRight, imgInfo;
     TextView txtTitle, imgAddFlueShot, txtSave;
-    EditText etPreNote, etAllergyNote, etMouthNote, etVisionNote, etAideNote, etFunctionalNote, etDietNote;
+    EditText etPreNote, etAllergyNote, etMouthNote, etVisionNote, etAideNote, etFunctionalNote, etDietNote,etVaccineNote,etImplantNote,etHistoryNote,etBloodNote;
     TextView imgAddPneumonia, imgAddHPV, imgAddRubella, imgAddVaricella, imgAddShingles, imgAddTetanus, imgAddHepatitis, imgAddFlue, imgAddFlueNH, imgAddPneumococcal;
     TextView txtFlueShotDate, txtPneumoniaDate, txtHPVDate, txtRubellaDate, txtVaricellaDate, txtShinglesDate, txtTetanusDate, txtHepatitisDate, txtFlueDate, txtFlueNHDate, txtPneumococcalDate;
     EditText etFt, etInch, etWeight, etAdditional, etPet;
@@ -106,7 +108,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     String visionnote = "";
     String Aidenote = "";
     String functionnote = "";
-    String dietnote = "";
+    String dietnote = "",vaccinenote = "",historynote = "",implantsnote = "",bloodnote = "";
     ArrayList historList = new ArrayList();
     ArrayList hospitalList = new ArrayList();
     String[] LangList = {"English", "French", "German", "Greek", "Italian", "Japanese", "Russian", "Spanish"};
@@ -124,6 +126,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     //    View viewAllergyBottom, viewBloodBottom, viewPreBottom, viewImplantsBottom, viewHistoryBottom, viewHospitalBottom;
     boolean flagOrgan = false,flagVission = false, flagAids = false, flagDiet = false, flagVaccine = false, flagTobaco = false, flagDrug = false, flagDrink = false, flagAllergy = false, flagBlood = false, flagPre = false, flagImplants = false, flagHistory = false, flagHospital = false, flagTeeth = false;
     private static int RESULT_BLOOD = 1;
+RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlood,headTeeath,headDiet,headOrgan,headTobaco,headDrug,headDrink;
+    RelativeLayout headVision,headAids,headVaccine;
 
     @Nullable
     @Override
@@ -192,7 +196,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         imgAddFlue.setOnClickListener(this);
         imgAddFlueNH.setOnClickListener(this);
         imgAddPneumococcal.setOnClickListener(this);
-
+        imgBloodDrop.setOnClickListener(this);
         tbGlass.setOnCheckedChangeListener(this);
         tbMouth.setOnCheckedChangeListener(this);
         tbLense.setOnCheckedChangeListener(this);
@@ -206,12 +210,42 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         tbToilet.setOnCheckedChangeListener(this);
         tbFeed.setOnCheckedChangeListener(this);
 
-        rlAllergis.setOnClickListener(this);
-        imgBloodDrop.setOnClickListener(this);
-        txtBlood.setOnClickListener(this);
+        headAllergy.setOnClickListener(this);
+        headPre.setOnClickListener(this);
+        headImplants.setOnClickListener(this);
+        headHistory.setOnClickListener(this);
+        headHospital.setOnClickListener(this);
+        headBlood.setOnClickListener(this);
+        headTeeath.setOnClickListener(this);
+        headDiet.setOnClickListener(this);
+        headOrgan.setOnClickListener(this);
+        headTobaco.setOnClickListener(this);
+        headDrug.setOnClickListener(this);
+        headDrink.setOnClickListener(this);
+        headVision.setOnClickListener(this);
+        headAids.setOnClickListener(this);
+        headVaccine.setOnClickListener(this);
+
     }
 
     private void initUI() {
+        headAllergy = rootview.findViewById(R.id.headAllergy);
+        headPre = rootview.findViewById(R.id.headPre);
+        headImplants = rootview.findViewById(R.id.headImplants);
+        headHistory = rootview.findViewById(R.id.headHistory);
+        headHospital = rootview.findViewById(R.id.headHospital);
+
+        headBlood = rootview.findViewById(R.id.headBlood);
+        headTeeath = rootview.findViewById(R.id.headTeeath);
+        headDiet = rootview.findViewById(R.id.headDiet);
+        headOrgan = rootview.findViewById(R.id.headOrgan);
+        headTobaco = rootview.findViewById(R.id.headTobaco);
+
+        headDrug = rootview.findViewById(R.id.headDrug);
+        headDrink = rootview.findViewById(R.id.headDrink);
+        headVision = rootview.findViewById(R.id.headVision);
+        headAids = rootview.findViewById(R.id.headAids);
+        headVaccine = rootview.findViewById(R.id.headVaccine);
 
         rlAllergis = rootview.findViewById(R.id.rlAllergis);
         llSubAllergis = rootview.findViewById(R.id.llSubAllergis);
@@ -304,6 +338,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
         etAideNote = rootview.findViewById(R.id.etAideNote);
         etFunctionalNote = rootview.findViewById(R.id.etFunctionalNote);
         etDietNote = rootview.findViewById(R.id.etDietNote);
+
+        etVaccineNote = rootview.findViewById(R.id.etVaccineNote);
+        etHistoryNote = rootview.findViewById(R.id.etHistoryNote);
+        etBloodNote = rootview.findViewById(R.id.etBloodNote);
+        etImplantNote = rootview.findViewById(R.id.etImplantNote);
         txtName = rootview.findViewById(R.id.txtName);
         //  txtName.setText(preferences.getString(PrefConstants.CONNECTED_NAME));
 
@@ -416,7 +455,15 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 //                }
 //            }
 //        });
-
+        txtBlood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "Blood");
+                i.putExtra("Selected",txtBlood.getText().toString());
+                startActivityForResult(i, REQUEST_BLOOD);
+            }
+        });
         tbOrgan.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -557,6 +604,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             etDietNote.setText(medInfo.getDietNote());
             etVisionNote.setText(medInfo.getVisionNote());
             etAideNote.setText(medInfo.getAideNote());
+
+            etVaccineNote.setText(medInfo.getVaccinenote());
+            etImplantNote.setText(medInfo.getImplantnote());
+            etHistoryNote.setText(medInfo.getHistorynote());
+          //  etBloodNote.setText(medInfo.getBloodnote());
 
             txtTobacoAmt.setText(medInfo.getT_amt());
             txtTobacoType.setText(medInfo.getT_type());
@@ -1074,7 +1126,25 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
         });
 
+        RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
 
+        rlFloatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/MedicalProfile.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getMedicalInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+                Intent i = new Intent(getActivity(), FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
+                dialog.dismiss();
+            }
+    });
     }
 
     @Override
@@ -1128,8 +1198,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
 
             case R.id.imgRight:
-
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent i = new Intent(getActivity(), InstructionActivity.class);
+                i.putExtra("From", "Medical");
+                startActivity(i);
+              /*  final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -1158,10 +1230,10 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
                         "Medical Profile");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
                 final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Implant> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -1199,9 +1271,9 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                                 File f = new File(path);
                                 preferences.emailAttachement(f, getActivity(), "Medical Profile");
                                 break;
-                           /* case 2://fax
+                           *//* case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
 
                             case 2://fax
                                 Intent i = new Intent(getActivity(), InstructionActivity.class);
@@ -1213,7 +1285,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
 
             case R.id.imgVisionDrop:
@@ -1264,11 +1336,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 break;
             case R.id.imgVaccineDrop:
                 if (flagVaccine == false) {
-                    if(!VaccineLists.isEmpty()){
+                     /*if(!VaccineLists.isEmpty()){
                         linVaccine.setVisibility(View.VISIBLE);
                     }else{
-                        linVaccine.setVisibility(View.GONE);
-                    }
+                      linVaccine.setVisibility(View.GONE);
+                    } */
+                    linVaccine.setVisibility(View.VISIBLE);
                     txtAddVaccine.setVisibility(View.VISIBLE);
                     imgVaccineDrop.setImageResource(R.drawable.dropup);
                     flagVaccine = true;
@@ -1331,6 +1404,53 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
                 break;
 
+            case R.id.headAllergy:
+                imgAddAllergy.performClick();
+                break;
+            case R.id.headPre:
+                imgAddCondition.performClick();
+                break;
+            case R.id.headImplants:
+                imgAddImplants.performClick();
+                break;
+            case R.id.headHistory:
+                imgAddHistory.performClick();
+                break;
+            case R.id.headHospital:
+                imgAddHospital.performClick();
+                break;
+            case R.id.headBlood:
+                imgBloodDrop.performClick();
+                break;
+            case R.id.headTeeath:
+                imgTeethDrop.performClick();
+                break;
+
+            case R.id.headDiet:
+                imgDietDrop.performClick();
+                break;
+            case R.id.headOrgan:
+                imgDonnerDrop.performClick();
+                break;
+            case R.id.headTobaco:
+                imgTobacoDrop.performClick();
+                break;
+            case R.id.headDrug:
+                imgDrugDrop.performClick();
+                break;
+            case R.id.headDrink:
+                imgDrinkDrop.performClick();
+                break;
+            case R.id.headVision:
+                imgVisionDrop.performClick();
+                break;
+            case R.id.headAids:
+                imgAidsDrop.performClick();
+                break;
+            case R.id.headVaccine:
+                imgVaccineDrop.performClick();
+                break;
+
             case R.id.imgAddCondition:
                 if (flagPre == false) {
                     llSubPre.setVisibility(View.VISIBLE);
@@ -1349,11 +1469,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
             case R.id.imgAddImplants:
                 if (flagImplants == false) {
-                    if(!ImplantsLists.isEmpty()){
+                   /* if(!ImplantsLists.isEmpty()){
                         llSubImplants.setVisibility(View.VISIBLE);
                     }else{
                         llSubImplants.setVisibility(View.GONE);
-                    }
+                    }*/
+                    llSubImplants.setVisibility(View.VISIBLE);
                     imgAddImplants.setImageResource(R.drawable.dropup);
                     txtAddImplants.setVisibility(View.VISIBLE);
 //                    viewImplantsBottom.setVisibility(View.GONE);
@@ -1369,11 +1490,12 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 
             case R.id.imgAddHistory:
                 if (flagHistory == false) {
-                    if(!HistoryLists.isEmpty()){
+                   /* if(!HistoryLists.isEmpty()){
                         llSubHistory.setVisibility(View.VISIBLE);
                     }else{
                         llSubHistory.setVisibility(View.GONE);
-                    }
+                    }*/
+                    llSubHistory.setVisibility(View.VISIBLE);
                     imgAddHistory.setImageResource(R.drawable.dropup);
                     txtAddHistory.setVisibility(View.VISIBLE);
 //                    viewHistoryBottom.setVisibility(View.GONE);
@@ -1455,6 +1577,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 functionnote = etFunctionalNote.getText().toString().trim();
                 dietnote = etDietNote.getText().toString().trim();
 
+                vaccinenote = etVaccineNote.getText().toString().trim();
+                implantsnote = etImplantNote.getText().toString().trim();
+                historynote = etHistoryNote.getText().toString().trim();
+              //  bloodnote = etBloodNote.getText().toString().trim();
+
                 t_type = txtTobacoType.getText().toString().trim();
                 t_amt = txtTobacoAmt.getText().toString().trim();
                 t_year = txtTobacoYear.getText().toString().trim();
@@ -1464,11 +1591,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 drug_amt = txtDrugAmt.getText().toString().trim();
                 drug_year = txtDrugYear.getText().toString().trim();
 
-                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USERID), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote);
+                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USERID), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote,historynote,vaccinenote,implantsnote);
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Medical Profile Saved", Toast.LENGTH_SHORT).show();
                     hideSoftKeyboard();
-                    getActivity().finish();
+                   // getActivity().finish();
                 } else {
                     Toast.makeText(getActivity(), "Error", Toast.LENGTH_SHORT).show();
                 }
@@ -1530,7 +1657,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 implantsIntents.putExtra("IsImplant", false);
                 implantsIntents.putExtra("ADD", "Condition");
                 implantsIntents.putExtra("Title", "Add Medical Condition");
-                implantsIntents.putExtra("Name", "Add Pre existing Medical Condtion");
+                implantsIntents.putExtra("Name", "Add Pre-existing Medical Condtion");
                 startActivityForResult(implantsIntents, REQUEST_CONDITION);
                 break;
             case R.id.txtAddHospital:

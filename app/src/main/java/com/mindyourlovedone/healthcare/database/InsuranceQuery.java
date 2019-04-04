@@ -34,7 +34,9 @@ public class InsuranceQuery {
     public static final String COL_EMAIL = "Email";
     public static final String COL_AGENT = "Agent";
     public static final String COL_AGENTEMAIl = "AgentEmail";
+    public static final String COL_AGENTPONE= "AgentNumber";
     public static final String COL_PHOTOCARD = "PhotoCard";
+    public static final String COL_HASCARD= "Has_Card";
     static Context context;
     static DBHelper dbHelper;
 
@@ -49,8 +51,8 @@ public class InsuranceQuery {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
                 COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(100)," + COL_WEBSITE + " VARCHAR(50),"
                 + COL_TYPE + " VARCHAR(70)," + COL_AGENT + " TEXT," + COL_OTHER_TYPE + " VARCHAR(70)," + COL_OFFICE_PHONE + " VARCHAR(20)," + COL_FAX +
-                " VARCHAR(20)," + COL_NOTE + " TEXT," + COL_MEMBERID + " VARCHAR(50)," +
-                COL_SUBSCRIBER + " VARCHAR(50)," + COL_GROUP + " VARCHAR(50)," + COL_EMAIL + " VARCHAR(50)," +COL_AGENTEMAIl + " VARCHAR(50)," +
+                " VARCHAR(20)," + COL_NOTE + " TEXT," + COL_MEMBERID + " VARCHAR(50)," +COL_HASCARD + " VARCHAR(10),"+
+                COL_SUBSCRIBER + " VARCHAR(50)," + COL_GROUP + " VARCHAR(50)," + COL_EMAIL + " VARCHAR(50)," +COL_AGENTEMAIl + " VARCHAR(50)," + COL_AGENTPONE + " VARCHAR(20)," +
                 COL_PHOTOCARD + " VARCHAR(50)," +
                 COL_PHOTO + " VARCHAR(50));";
         return createTableQuery;
@@ -87,8 +89,9 @@ public class InsuranceQuery {
                     notes.setOtherInsurance(c.getString(c.getColumnIndex(COL_OTHER_TYPE)));
                     notes.setAgent(c.getString(c.getColumnIndex(COL_AGENT)));
                     notes.setAgent_email(c.getString(c.getColumnIndex(COL_AGENTEMAIl)));
+                    notes.setAgentPhone(c.getString(c.getColumnIndex(COL_AGENTPONE)));
                     notes.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
-
+                    notes.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
 
                     noteList.add(notes);
                 } while (c.moveToNext());
@@ -97,7 +100,7 @@ public class InsuranceQuery {
         return noteList;
     }
 
-    public static Boolean insertInsuranceData(int userid, String name, String website, String type, String phone, String photo, String fax, String note, String member, String group, String subscriber, String email, String otherInsurance, String agent, String photoCard, String aentEmail) {
+    public static Boolean insertInsuranceData(int userid, String name, String website, String type, String phone, String photo, String fax, String note, String member, String group, String subscriber, String email, String otherInsurance, String agent, String photoCard, String aentEmail, String aentPhone, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -118,7 +121,8 @@ public class InsuranceQuery {
         cv.put(COL_AGENT, agent);
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_AGENTEMAIl,aentEmail);
-
+        cv.put(COL_AGENTPONE,aentPhone);
+        cv.put(COL_HASCARD, has_card);
 
         long rowid = db.insert(TABLE_NAME, null, cv);
 
@@ -152,6 +156,9 @@ public class InsuranceQuery {
                 notes.setAgent(c.getString(c.getColumnIndex(COL_AGENT)));
                 notes.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
                 notes.setAgent_email(c.getString(c.getColumnIndex(COL_AGENTEMAIl)));
+                notes.setAgentPhone(c.getString(c.getColumnIndex(COL_AGENTPONE)));
+                notes.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
+
                 noteList.add(notes);
 
                 db.execSQL("delete from " + TABLE_NAME + " where " + COL_ID + "='" + id + "';");
@@ -173,7 +180,7 @@ public class InsuranceQuery {
         return true;
     }
 
-    public static Boolean updateInsuranceData(int id, String name, String website, String type, String phone, String photo, String fax, String note, String member, String group, String subscriber, String email, String otherInsurance, String agent, String photoCard, String aentEmail) {
+    public static Boolean updateInsuranceData(int id, String name, String website, String type, String phone, String photo, String fax, String note, String member, String group, String subscriber, String email, String otherInsurance, String agent, String photoCard, String aentEmail, String aentPhone, String has_card) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
@@ -194,6 +201,8 @@ public class InsuranceQuery {
         cv.put(COL_AGENT, agent);
         cv.put(COL_PHOTOCARD, photoCard);
         cv.put(COL_AGENTEMAIl,aentEmail);
+        cv.put(COL_AGENTPONE,aentPhone);
+        cv.put(COL_HASCARD, has_card);
         int rowid = db.update(TABLE_NAME, cv, COL_ID + "=" + id, null);
 
         flag = rowid != 0;
@@ -229,6 +238,8 @@ public class InsuranceQuery {
                     notes.setAgent(c.getString(c.getColumnIndex(COL_AGENT)));
                     notes.setPhotoCard(c.getString(c.getColumnIndex(COL_PHOTOCARD)));
                     notes.setAgent_email(c.getString(c.getColumnIndex(COL_AGENTEMAIl)));
+                    notes.setAgentPhone(c.getString(c.getColumnIndex(COL_AGENTPONE)));
+                    notes.setHas_card(c.getString(c.getColumnIndex(COL_HASCARD)));
 
 
                    // noteList.add(notes);

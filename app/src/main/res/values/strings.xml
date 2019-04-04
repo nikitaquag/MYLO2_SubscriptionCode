@@ -9,7 +9,7 @@
 
     <string name="TradeMark"> \n  Association, used under license.</string>
     <string name="SendingFax">Sending via FAX should ONLY be\n used for HIPAA purpose and in\n urgent circumstances.</string>
-    <string name="typearea"> Type area code &amp; fax number\n <b>Do not Enter Dashes or Spaces</b></string>
+    <string name="typearea"> Type area code &amp; fax no. <b>Do not enter dashes or spaces</b></string>
 
     <string name="LivingMsg"></string>
     <string name="signup_appname"><![CDATA[ By creating an account, you agree to<br/>Mind Your Loved Ones<sup><small>TM</small></sup> (“MYLO<sup><small>TM</small></sup>”)]]></string>
@@ -90,15 +90,16 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="And">&amp;</string>
     <string name="Next">Next</string>
     <string name="Signup">Sign up</string>
-    <string name="ImpAgreement">Important Agreements</string>
+    <string name="ImpAgreement">MYLO Important Information</string>
     <string name="AgreementText">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry"'"s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
 
-     <!--Important agreement text-->
-    <string name="Check1"><b>PRIVACY</b> - This App is Native to Your Phone. This means all information resides on your smartphone and NOT on our server. We do not transmit or receive data between your phone and our server.</string>
-    <string name="Check2">This App will ask you for permission to access your photos, media and files or to make phone calls. This is simply to provide the User with functionality for a good mobile experience. We do not have access to this information.</string>
-    <string name="Check3">Mind Your Loved Ones only has access to your name and email address.</string>
-    <string name="Check4">USERS must remember their user name and email address and should save data once populated. Instructions are included in app. Fax capability is ONLY to be used for medical emergencies to satisfy HIPAA requirements.</string>
-
+    <!--Important agreement text-->
+    <string name="Check1"><b>PRIVACY</b> - This App is Native to Your Phone. This  means all information resides on your phone and NOT on our server. We do not have access to the information you input into the App. </string>
+    <string name="Check2">This App will ask you for permission to access your contacts, photos, media and files and to make phone calls.  This is simply to provide the User with functionality for a good mobile experience. We do not have access to your information.</string>
+    <string name="Check3">Mind Your Loved Ones only records your name and email address.</string>
+    <string name="Check4">Users must remember their user name and email address and should periodically backup their data. Instructions to do this are included in the App under “Settings”.</string>
+    <string name="Check5">MYLO provides fax capability. It should only be used for medical emergencies to satisfy HIPAA requirements.
+</string>
 
     <string name="Home">Home</string>
     <string name="Profiles">All Profiles</string>
@@ -115,7 +116,7 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="AddNew">Add New</string>
     <string name="AddNews"><u>Add New</u></string>
     <string name="AddContacts">Add From Contacts</string>
-    <string name="EmailReports">Email Reports</string>
-    <string name="ViewReports">View Reports</string>
-    <string name="ClickDirective"><u><b>Learn more</b></u> about Advance Directives,\nWhy they are important and how to compleet them.</string>
+    <string name="EmailReports">Email Report</string>
+    <string name="ViewReports">View Report</string>
+    <string name="ClickDirective"><u><b>Click here</b></u> to learn more about Advance Care Directives – why they are so important and how to complete them.  </string>
 </resources>

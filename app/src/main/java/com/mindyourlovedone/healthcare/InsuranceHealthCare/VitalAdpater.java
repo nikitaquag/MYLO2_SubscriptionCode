@@ -134,6 +134,18 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             holder.txtPulseData.setVisibility(View.VISIBLE);
             holder.txtPulseData.setText(vitalList.get(position).getPulseRate());
         }
+        if (vitalList.get(position).getOther().equals("")) {
+            holder.txtOter.setVisibility(View.GONE);
+        } else {
+            holder.txtOter.setVisibility(View.VISIBLE);
+            holder.txtOter.setText(vitalList.get(position).getOther());
+        }
+        if (vitalList.get(position).getCol().equals("")) {
+            holder.txtCol.setVisibility(View.GONE);
+        } else {
+            holder.txtCol.setVisibility(View.VISIBLE);
+            holder.txtCol.setText(vitalList.get(position).getCol());
+        }
 
         if (vitalList.get(position).getRespRate().equals("")) {
             holder.txtRespData.setVisibility(View.GONE);
@@ -169,6 +181,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
                 VitalSigns vi = vitalList.get(position);
                 Intent i = new Intent(context, AddVitalSignsActivity.class);
                 i.putExtra("VitalEdit", vi);
+                i.putExtra("IsUpdate", true);
                 context.startActivity(i);
             }
         });
@@ -180,7 +193,7 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtEdit, txtBP, txtBPValue, txtHR, txtHRValue, txtTemp, txtTempValue, txtDate, txtTime, txtPulseData, txtRespData, txtLocData, txtNoteData;
+        TextView txtEdit, txtBP, txtBPValue, txtHR, txtHRValue, txtTemp, txtTempValue, txtDate, txtTime,txtOter,txtCol, txtPulseData, txtRespData, txtLocData, txtNoteData;
         ImageView imgDropDown;
 
         SwipeLayout swipeLayout;
@@ -202,6 +215,8 @@ public class VitalAdpater extends RecyclerSwipeAdapter<VitalAdpater.ViewHolder> 
             txtTime = convertView.findViewById(R.id.txtTime);
 
             txtPulseData = convertView.findViewById(R.id.txtPulseData);
+            txtOter = convertView.findViewById(R.id.txtOter);
+            txtCol = convertView.findViewById(R.id.txtCol);
             txtRespData = convertView.findViewById(R.id.txtRespData);
             txtLocData = convertView.findViewById(R.id.txtLocData);
             txtNoteData = convertView.findViewById(R.id.txtNoteData);

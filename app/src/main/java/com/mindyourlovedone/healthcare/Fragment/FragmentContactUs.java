@@ -53,11 +53,11 @@ public class FragmentContactUs extends Fragment {
         s1.setResImage(R.drawable.medical_one);
 
         Setting s2 = new Setting();
-        s2.setName("Mylo Email");
+        s2.setName("MYLO Email");
         s2.setResImage(R.drawable.insu_one);
 
         Setting s3 = new Setting();
-        s3.setName("Mylo Website");
+        s3.setName("MYLO Website");
         s3.setResImage(R.drawable.drawer_videos);
 
         contactList.add(s1);

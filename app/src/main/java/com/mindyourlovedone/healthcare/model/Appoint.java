@@ -10,6 +10,15 @@ import java.util.ArrayList;
  */
 
 public class Appoint implements Serializable {
+    public boolean isOpen() {
+        return isOpen;
+    }
+
+    public void setOpen(boolean open) {
+        isOpen = open;
+    }
+
+    boolean isOpen = false;
     int unique;
     String Pre = "";
     int id;

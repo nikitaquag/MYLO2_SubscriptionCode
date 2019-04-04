@@ -34,6 +34,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.AideQuery;
@@ -57,8 +58,11 @@ import com.mindyourlovedone.healthcare.database.MedicalImplantsQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
 import com.mindyourlovedone.healthcare.database.PharmacyQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionUpload;
 import com.mindyourlovedone.healthcare.database.SpecialistQuery;
 import com.mindyourlovedone.healthcare.database.VaccineQuery;
+import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Allergy;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Card;
@@ -74,15 +78,18 @@ import com.mindyourlovedone.healthcare.model.Living;
 import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.model.Pet;
 import com.mindyourlovedone.healthcare.model.Pharmacy;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
+import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -141,7 +148,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
             from = i.getExtras().getString("FROM");
             if (from.equals("Speciality")) {
                 floatAdd.setVisibility(View.GONE);
-                txtTitle.setText("Speciality Contacts");
+                txtTitle.setText("Specialty Contacts");
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorSpecialitySub));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
@@ -149,7 +156,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 profile = new int[]{R.drawable.sp_one, R.drawable.sp_two, R.drawable.sp_three, R.drawable.sp_four};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"Doctors And Other Health Care Professionals", "Hospitals, Rehabilitation Centers, & Home Health Care Agencies", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
+                specialist = new String[]{"Doctors And Health Care Professionals", "Hospitals, Rehab, Home Care", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
 
                 isEmergency = false;
                 isInsurance = false;
@@ -192,9 +199,9 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isEmergency = false;
                 isInsurance = false;
             } else if (from.equals("Prescription")) {
-                floatAdd.setVisibility(View.VISIBLE);
-                floatOptions.setVisibility(View.GONE);
-                floatOptions2.setVisibility(View.VISIBLE);
+                floatAdd.setVisibility(View.GONE);
+                floatOptions.setVisibility(View.VISIBLE);
+                floatOptions2.setVisibility(View.GONE);
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
@@ -236,6 +243,9 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
         VaccineQuery v = new VaccineQuery(context, dbHelper);
         FormQuery fo = new FormQuery(context, dbHelper);
         ContactDataQuery cd=new ContactDataQuery(context,dbHelper);
+        VitalQuery vc=new VitalQuery(context,dbHelper);
+        PrescriptionUpload pu=new PrescriptionUpload(context,dbHelper);
+        PrescriptionQuery p = new PrescriptionQuery(context, dbHelper);
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 preferences.putInt(PrefConstants.ID,personalInfoList.getId());
     }
@@ -846,7 +856,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Specialty Contacts");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Doctors & Health Care Professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
 
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -874,11 +884,27 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             // ArrayList<Aides> AidesList= AideQuery.fetchAllAideRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
-            new Specialty(specialistsList, "Doctors");
-            new Specialty("Hospital", HospitalList);
-            new Specialty(PharmacyList);
+           // new Specialty(specialistsList, "Doctors");
+            for(int i=0;i<specialistsList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+                new Specialty(specialistsList.get(i), "Doctors", phonelists,i);
+            }
+           // new Specialty("Hospital", HospitalList);
+            for(int i=0;i<HospitalList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(i).getId(),"Hospital");
+                new Specialty(HospitalList.get(i), "Hospital", phonelists,i);
+            }
+           // new Specialty(PharmacyList);
+            for(int i=0;i<PharmacyList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), PharmacyList.get(i).getId(),"Pharmacy");
+                new Specialty(PharmacyList.get(i), "Pharmacy", phonelists,i);
+            }
             //   new Specialty(AidesList,1);
-            new Specialty(1, financeList);
+           // new Specialty(1, financeList);
+            for(int i=0;i<financeList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), financeList.get(i).getId(),"Finance");
+                new Specialty(financeList.get(i), "Finance", phonelists,i);
+            }
 
             Header.document.close();
 
@@ -896,7 +922,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Personal & Medical Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Personal, Medical and  Emergency Info");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Paragraph p = new Paragraph(" ");
@@ -1002,7 +1028,12 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             ArrayList<Form> formList = FormQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
-            new InsurancePdf(insuranceList);
+           // new InsurancePdf(insuranceList);
+            for(int i=0;i<insuranceList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Insurance");
+                final ArrayList<ContactData> aphonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Agent");
+                new InsurancePdf(insuranceList.get(i), "Insurance", phonelists,i,aphonelists);
+            }
             new InsurancePdf(CardList, 1);
             new InsurancePdf(formList, "form");
 
@@ -1021,7 +1052,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Event And Appointment Checklist");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Notes, Appointments, ADLS, & Vital Signs");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
 
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -1051,10 +1082,53 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<Living> LivingList = new ArrayList<Living>();
             LivingList.add(Live);
             new EventPdf(1, LivingList, 1);
+            ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new EventPdf("Vital", HospitalList);
 
+            Header.document.close();
+        } else if (from.equals("Prescription")) {
+            final String RESULT = Environment.getExternalStorageDirectory()
+                    + "/mylopdf/";
+            File dirfile = new File(RESULT);
+            dirfile.mkdirs();
+            File file = new File(dirfile, "PrescriptionTracker.pdf");
+            if (file.exists()) {
+                file.delete();
+            }
+            new Header().createPdfHeader(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+            copyFile("ic_launcher.png");
+            Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
+            Header.addEmptyLine(1);
+            Header.addusereNameChank("Prescription Tracker");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addEmptyLine(1);
+
+            Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Paragraph p = new Paragraph(" ");
+            LineSeparator line = new LineSeparator();
+            line.setOffset(-4);
+            line.setLineColor(BaseColor.LIGHT_GRAY);
+            p.add(line);
+            try {
+                Header.document.add(p);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+            Header.addEmptyLine(1);
+
+                   /* new Header().createPdfHeader(file.getAbsolutePath(),
+                            "Event And Appointment Checklist");
+
+                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                    Header.addEmptyLine(2);*/
+            ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdf(prescriptionList);
+            ArrayList<Form> prescriptionLists =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdf(prescriptionLists,1);
 
             Header.document.close();
         }
+
 
 
         /*Dialo--------------------------*/
@@ -1117,6 +1191,11 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                             + "/mylopdf/"
                             + "/Event.pdf");
                     emailAttachement(f, "Event");
+                }else if (from.equals("Prescription")) {
+                    File f = new File(Environment.getExternalStorageDirectory()
+                            + "/mylopdf/"
+                            + "/PrescriptionTracker.pdf");
+                    emailAttachement(f, "Prescription Tracker");
                 }
                 dialog.dismiss();
             }
@@ -1201,6 +1280,42 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                             context, result);
 
                     System.out.println("\n" + result + "\n");
+                }else if (from.equals("Prescription")) {
+                    StringBuffer result = new StringBuffer();
+                    result.append(new MessageString().getInsuranceInfo());
+                    result.append(new MessageString().getInsuranceInfo());
+
+
+
+                    new PDFDocumentProcess(Environment.getExternalStorageDirectory()
+                            + "/mylopdf/" + "/PrescriptionTracker.pdf",
+                            context, result);
+
+                    System.out.println("\n" + result + "\n");
+                }
+                dialog.dismiss();
+            }
+        });
+
+        RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
+
+        rlFloatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (from.equals("Emergency")) {
+
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Profile.pdf";
+
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getMedicalInfo());
+                new PDFDocumentProcess(path,
+                        context, result);
+                Intent i = new Intent(context, FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
                 }
                 dialog.dismiss();
             }

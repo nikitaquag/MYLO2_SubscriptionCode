@@ -1,7 +1,9 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -16,6 +18,8 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,7 +35,9 @@ import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.CardQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
+import com.mindyourlovedone.healthcare.database.FormQuery;
 import com.mindyourlovedone.healthcare.model.Card;
+import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
@@ -68,6 +74,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     RelativeLayout rlGuide;
     FloatingActionButton floatProfile;
     ImageView floatAdd,floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -143,6 +150,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatOptions = rootview.findViewById(R.id.floatOptions);
         floatAdd = rootview.findViewById(R.id.floatAdd);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         txtMsg = rootview.findViewById(R.id.txtMsg);
 //        String msg = "To <b>get started</b> click the green bar at the bottom of the screen Add Insurance Card." +
@@ -205,6 +214,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
     private void setCardData() {
         if (CardList.size() != 0) {
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
             lvCard.setVisibility(View.VISIBLE);
             CardAdapter adapter = new CardAdapter(getActivity(), CardList, FragementInsuarnceCard.this);
             lvCard.setAdapter(adapter);
@@ -268,6 +279,8 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         } else {
             lvCard.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
         }
 
 
@@ -330,15 +343,16 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
                 Intent i = new Intent(getActivity(), AddCardActivity.class);
                 startActivityForResult(i, REQUEST_PRES);
                 break;
-/*
-            case R.id.llAddCard:
-                // preferences.putString(PrefConstants.SOURCE,"Card");
-                Intent i = new Intent(getActivity(), AddCardActivity.class);
-                startActivityForResult(i, REQUEST_PRES);
-                break;*/
+
+            case R.id.floatOptions:
+                showFloatPdfDialog();
+                break;
 
             case R.id.imgRight:
-                final String RESULT = Environment.getExternalStorageDirectory()
+                Intent ie = new Intent(getActivity(), InstructionActivity.class);
+                ie.putExtra("From", "CardInstruction");
+                startActivity(ie);
+              /*  final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
@@ -367,11 +381,11 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Insurance Information");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                // Header.addEmptyLine(2);*/
+                // Header.addEmptyLine(2);*//*
 
                 ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 new InsurancePdf(CardList, 1);
@@ -408,16 +422,129 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
                                 i.putExtra("From", "CardInstruction");
                                 startActivity(i);
                                 break;
-                            /*case 2://fax
+                            *//*case 2://fax
                                 new FaxCustomDialog(getActivity(), path).show();
-                                break;*/
+                                break;*//*
                         }
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
         }
+    }
+    private void showFloatPdfDialog() {
+        final String RESULT = Environment.getExternalStorageDirectory()
+                + "/mylopdf/";
+        File dirfile = new File(RESULT);
+        dirfile.mkdirs();
+        File file = new File(dirfile, "InsuranceCard.pdf");
+        if (file.exists()) {
+            file.delete();
+        }
+
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
+        preferences.copyFile("ic_launcher.png", getActivity());
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addEmptyLine(1);
+        Header.addusereNameChank("Insurance Card");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+
+        Paragraph p = new Paragraph(" ");
+        LineSeparator line = new LineSeparator();
+        line.setOffset(-4);
+        line.setLineColor(BaseColor.LIGHT_GRAY);
+        p.add(line);
+        try {
+            Header.document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+        Header.addEmptyLine(1);
+               /* new Header().createPdfHeader(file.getAbsolutePath(),
+                        "Insurance Information");
+
+                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                // Header.addEmptyLine(2);*/
+
+        ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new InsurancePdf(CardList, 1);
+
+        Header.document.close();
+
+        //----------------------------------
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        LayoutInflater lf = (LayoutInflater) getActivity()
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
+        final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+        final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+        floatViewPdf.setImageResource(R.drawable.eyee);
+        final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+        floatEmail.setImageResource(R.drawable.closee);
+
+        TextView txtNew = dialogview.findViewById(R.id.txtNew);
+        txtNew.setText(getResources().getString(R.string.EmailReports));
+
+        TextView txtContact = dialogview.findViewById(R.id.txtContact);
+        txtContact.setText(getResources().getString(R.string.ViewReports));
+
+        dialog.setContentView(dialogview);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+        //lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.show();
+
+        rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+        floatCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        floatEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/InsuranceCard.pdf";
+
+                File f = new File(path);
+                preferences.emailAttachement(f, getActivity(), "Insurance Card");
+                dialog.dismiss();
+
+            }
+        });
+
+        floatViewPdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/InsuranceCard.pdf";
+                StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceCard());
+
+
+                new PDFDocumentProcess(path,
+                        getActivity(), result);
+
+                System.out.println("\n" + result + "\n");
+                dialog.dismiss();
+            }
+        });
+
     }
 /*
     protected void onActivityResult(int requ estCode, int resultCode, Intent data) {

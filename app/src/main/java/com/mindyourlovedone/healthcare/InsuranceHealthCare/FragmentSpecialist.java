@@ -41,6 +41,7 @@ import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -66,6 +67,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
     TextView txtMsg, txtFTU;
     FloatingActionButton floatProfile;
     ImageView  floatAdd, floatOptions;
+    TextView txthelp; ImageView imghelp;
 
     @Nullable
     @Override
@@ -91,9 +93,13 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             lvSpecialist.setAdapter(specialistAdapter);
             lvSpecialist.setVisibility(View.VISIBLE);
             rlGuide.setVisibility(View.GONE);
+            imghelp .setVisibility(View.GONE);
+            txthelp.setVisibility(View.GONE);
         } else {
             lvSpecialist.setVisibility(View.GONE);
             rlGuide.setVisibility(View.VISIBLE);
+            txthelp.setVisibility(View.VISIBLE);
+            imghelp .setVisibility(View.VISIBLE);
         }
     }
 
@@ -111,6 +117,8 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         floatProfile = rootview.findViewById(R.id.floatProfile);
         floatAdd = rootview.findViewById(R.id.floatAdd);
         floatOptions = rootview.findViewById(R.id.floatOptions);
+        imghelp = rootview.findViewById(R.id.imghelp);
+        txthelp = rootview.findViewById(R.id.txthelp);
 
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
         TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
@@ -398,7 +406,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Doctor.pdf");
+        File file = new File(dirfile, "Doctors&HealthcareProfessionals.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -407,7 +415,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Doctor");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Doctors & Health Care Professionals ");//pFreferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
@@ -429,7 +437,12 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
                 Header.addEmptyLine(2);*/
 
         ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
-        new Specialty(specialistsList, "Doctors");
+
+        for(int i=0;i<specialistsList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+            new Specialty(specialistsList.get(i), "Doctors", phonelists,i);
+        }
+
         Header.document.close();
 
         //--------------------------------------------------------
@@ -476,7 +489,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Doctor.pdf";
+                        + "/Doctors&HealthcareProfessionals.pdf";
 
                 File f = new File(path);
                 preferences.emailAttachement(f, getActivity(), "Doctors");
@@ -490,7 +503,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Doctor.pdf";
+                        + "/Doctors&HealthcareProfessionals.pdf";
 
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getDoctorsInfo());

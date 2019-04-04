@@ -137,6 +137,7 @@ class CardAdapter extends RecyclerSwipeAdapter<CardAdapter.Holder> {
                 i.putExtra("CardObject", cardList.get(position));
                 i.putExtra("IsEdit", true);
                 context.startActivity(i);
+
             }
         });
         /*holder.imgEdit.setOnClickListener(new View.OnClickListener() {

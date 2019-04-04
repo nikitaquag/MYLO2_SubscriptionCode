@@ -37,7 +37,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class ImpAgreementActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView imgBack,checkedIcon1,uncheckedIcon1,checkedIcon2,uncheckedIcon2,checkedIcon3,uncheckedIcon3,checkedIcon4,uncheckedIcon4;
+    ImageView imgBack,checkedIcon1,uncheckedIcon1,checkedIcon2,uncheckedIcon2,checkedIcon3,uncheckedIcon3,checkedIcon4,uncheckedIcon4,checkedIcon5,uncheckedIcon5;
     TextView txtSignup;
     Context context = this;
     String name="", email="";
@@ -45,7 +45,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
     Preferences preferences;
     DBHelper dbHelper;
 
-    boolean ck=false,ck2=false,ck3=false,Ck4=false;
+    boolean ck=false,ck2=false,ck3=false,Ck4=false,Ck5=false;
     String has_card="NO";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,7 +99,8 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
         checkedIcon4.setOnClickListener(this);
         uncheckedIcon4.setOnClickListener(this);
 
-
+        checkedIcon5.setOnClickListener(this);
+        uncheckedIcon5.setOnClickListener(this);
 
     }
 
@@ -115,7 +116,8 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
         uncheckedIcon3=findViewById(R.id.uncheckedIcon3);
         checkedIcon4= findViewById(R.id.checkedIcon4);
         uncheckedIcon4=findViewById(R.id.uncheckedIcon4);
-
+        checkedIcon5= findViewById(R.id.checkedIcon5);
+        uncheckedIcon5=findViewById(R.id.uncheckedIcon5);
     }
 
     @Override
@@ -135,7 +137,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                         accessPermission();
                     }
                    else
-                        Toast.makeText(context, "Please select all check mark", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
               //  }
                /* Intent intentBase = new Intent(context, BaseActivity.class);
                 startActivity(intentBase);*/
@@ -187,17 +189,28 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                 checkedIcon4.setVisibility(View.VISIBLE);
                 break;
 
+            case R.id.checkedIcon5:
+                checkedIcon5.setVisibility(View.GONE);
+                Ck5=false;
+                uncheckedIcon5.setVisibility(View.VISIBLE);
+                break;
+            case R.id.uncheckedIcon5:
+                uncheckedIcon5.setVisibility(View.GONE);
+                Ck5=true;
+                checkedIcon5.setVisibility(View.VISIBLE);
+                break;
+
         }
     }
 
     private boolean validation() {
         boolean f=false;
 
-         if (ck==true&&ck2==true&&ck3==true&&Ck4==true)
+         if (ck==true&&ck2==true&&ck3==true&&Ck4==true&&Ck5==true)
          {
              f=true; }
          else {
-             Toast.makeText(context, "Please click on check mark", Toast.LENGTH_SHORT).show();
+             Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
          }
 
      return f;

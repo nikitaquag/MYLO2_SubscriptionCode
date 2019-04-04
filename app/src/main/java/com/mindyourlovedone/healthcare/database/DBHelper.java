@@ -79,7 +79,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ImplantQuery.createVaccineTable());
         db.execSQL(ImageQuery.createTable());
         db.execSQL(ContactDataQuery.createContactDataTable());
-
+        db.execSQL(PrescriptionUpload.createDocumentTable());
     }
 
     @Override
@@ -139,5 +139,16 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(ImageQuery.dropTable());
         db.execSQL(ContactDataQuery.dropTable());
         onCreate(db);
+        /*  if (oldVersion < 2) {
+            db.execSQL(PickupDocLinkQuery.createPickupDocPictureTable());
+
+            db.execSQL("ALTER TABLE PickupDocument ADD COLUMN is_image TEXT Default '1'");
+
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN address_OFC VARCHAR(300)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN city_OFC VARCHAR(100)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN state_OFC VARCHAR(100)");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN pincode_OFC INTEGER");
+            db.execSQL("ALTER TABLE Pickups ADD COLUMN has_link TEXT");
+        }*/
     }
 }

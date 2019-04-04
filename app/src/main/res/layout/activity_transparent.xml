@@ -26,11 +26,11 @@
         android:layout_margin="@dimen/dimension10dp"
         android:textSize="@dimen/dimension20dp"
         android:layout_above="@+id/imghelp"
-        android:textStyle="italic"
-        android:fontFamily="@font/bold_lato"
+        android:textStyle="italic|bold"
+        android:fontFamily="@font/lato"
         android:textColor="@color/colorWhite"
         android:layout_centerHorizontal="true"
-        android:text="Select the option as your need"
+        android:text="Select the option needed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -80,7 +80,7 @@
             app:fabSize="normal" />
 
         <TextView
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/lato"
             android:id="@+id/txtContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -123,7 +123,7 @@
             android:layout_centerInParent="true"
             android:layout_toLeftOf="@+id/floatNew"
             android:text="Add New"
-android:fontFamily="@font/lato_bold"
+android:fontFamily="@font/lato"
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />
@@ -158,8 +158,8 @@ android:fontFamily="@font/lato_bold"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_toLeftOf="@+id/floatfax"
-            android:text="Fax Reports"
-            android:fontFamily="@font/lato_bold"
+            android:text="Fax Report"
+            android:fontFamily="@font/lato"
             android:textStyle="bold"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension20dp" />

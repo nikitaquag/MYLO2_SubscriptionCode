@@ -432,6 +432,29 @@ Monitor year over year changes."
             </RelativeLayout>
         </RelativeLayout>
     </ScrollView>
+    <TextView
+        android:id="@+id/txthelp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dimension60dp"
+        android:textSize="@dimen/dimension17dp"
+        android:layout_above="@+id/imghelp"
+        android:textStyle="bold|italic"
+        android:fontFamily="@font/lato"
+        android:textColor="@color/colorLightGrays"
+        android:text="Add a new Appointment!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ImageView  android:layout_marginRight="@dimen/dimension5dp"
+        android:tint="@color/colorLightGrays"
+        android:id="@+id/imghelp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/floatAdd"
+        android:layout_above="@+id/vwbtm"
+        android:src="@drawable/helparrow"
+        android:layout_marginBottom="@dimen/dimension5dp"
+        android:layout_width="@dimen/dimension110dp"
+        android:layout_height="@dimen/dimension150dp" />
     <ImageView
         android:id="@+id/floatAdd"
         android:layout_width="@dimen/dimension70dp"

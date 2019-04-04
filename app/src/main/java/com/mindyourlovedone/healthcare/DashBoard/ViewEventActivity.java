@@ -49,7 +49,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
             if(intent.hasExtra("NEW")){
                 txtTitle.setText("Add Event Notes");
                 txtDelete.setVisibility(View.GONE);
-                SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
+                SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy - hh:mm a");
                 String currentDateandTime = sdf.format(new Date());
                 txtDate.setText(currentDateandTime);
             }else {
@@ -117,7 +117,7 @@ public class ViewEventActivity extends AppCompatActivity implements View.OnClick
                     }
                 }else{
                     String note = etNote.getText().toString();
-                    SimpleDateFormat sdf = new SimpleDateFormat("d-MMM-yyyy - hh:mm a");
+                    SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy - hh:mm a");
                     String currentDateandTime = sdf.format(new Date());
                     if (note.length() != 0) {
                         Boolean flag = EventNoteQuery.insertNoteData(new Preferences(ViewEventActivity.this).getInt(PrefConstants.CONNECTED_USERID), note, currentDateandTime);

@@ -7,6 +7,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
+import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.model.PrescribeImage;
 import com.mindyourlovedone.healthcare.model.Prescription;
 
@@ -19,13 +20,13 @@ import java.util.ArrayList;
 
 public class PrescriptionPdf {
     public static ArrayList<String> messagePrescription = new ArrayList<String>();
-
+    public static ArrayList<String> messageForm = new ArrayList<String>();
 
     public PrescriptionPdf(ArrayList<Prescription> prescriptionList) {
         try {
          //   Header.addEmptyLine(1);
-            Header.addChank("Prescription Tracker");
-            messagePrescription.add("Prescription Tracker");
+            Header.addChank("Prescription Information");
+            messagePrescription.add("Prescription Information");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < prescriptionList.size(); i++) {
@@ -213,6 +214,121 @@ public class PrescriptionPdf {
             }
 
 
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public PrescriptionPdf(ArrayList<Form> prescriptionList, int j) {
+        try {
+            PdfPTable table1;
+            table1 = new PdfPTable(2);
+            PdfPCell cell1;
+            table1.setWidthPercentage(100);
+
+            //  Header.addEmptyLine(1);
+            Header.addChank("Prescription Upload");
+           messageForm.add("Prescription Upload");
+            Header.addEmptyLine(1);
+
+            for (int i = 0; i < prescriptionList.size(); i++) {
+                PdfPTable table;
+                table = new PdfPTable(2);
+                PdfPCell cell;
+                table.setWidthPercentage(100);
+
+               /* int k = i + 1;
+                cell = new PdfPCell(new Phrase("Insurance Form " + k + " :"));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("Insurance Form " + k + " :");
+                messageForm.add("");*/
+
+                Form s = prescriptionList.get(i);
+
+                String name = "";
+                if (s.getName() != null) {
+                    name = s.getName();
+                }
+                cell = new PdfPCell(new Phrase("Prescription Name : " + name));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("Form Name : ");
+                messageForm.add(name);
+
+               /* cell = new PdfPCell(new Phrase(""));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("");
+                messageForm.add(name);*/
+
+                String date = "";
+                if (s.getDate() != null) {
+                    date = s.getDate();
+                }
+                cell = new PdfPCell(new Phrase("Last Update : " + date));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("Last Update : ");
+                messageForm.add(date);
+
+                cell = new PdfPCell(new Phrase(""));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("");
+                messageForm.add(date);
+/*
+                String type = "";
+                if (s.getType() != null) {
+                    type = s.getType();
+                }
+                cell = new PdfPCell(new Phrase("Type: " +type));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("Type :");
+                messageForm.add(type);
+
+                cell = new PdfPCell(new Phrase(""));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageForm.add("");
+                messageForm.add("");
+                */
+                Header.document.add(table);
+                Paragraph p = new Paragraph(" ");
+                DottedLineSeparator line = new DottedLineSeparator();
+                line.setOffset(-4);
+                line.setLineColor(BaseColor.BLACK);
+                p.add(line);
+                Header.document.add(p);
+                Header.addEmptyLine(1);
+            }
+
+
+            Header.document.add(table1);
+            // Header.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

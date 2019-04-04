@@ -25,6 +25,15 @@ public class Document implements Serializable {
     String name = "";
     String desc = "";
     String document = "";
+    String note = "";
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
 
     public String getLocator() {
         return locator;

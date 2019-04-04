@@ -37,6 +37,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedone.healthcare.DashBoard.CustomArrayAdapter;
@@ -172,9 +173,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loadData() {
 
-//                    FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+                   FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 //                    //I'm also creating a log message, which we'll look at in more detail later//
-//                    FirebaseCrash.log("MainActivity started");
+                    FirebaseCrash.log("MainActivity started");
         accessPermission();
         //Crashlytics.getInstance().crash(); // Force a crash
         initImageLoader();

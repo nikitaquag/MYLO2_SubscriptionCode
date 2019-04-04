@@ -28,7 +28,7 @@ public class MedInfoQuery {
     public static final String COL_ORGANDONOR = "OrganDonor";
     public static final String COL_SPEECH = "Speech";
     public static final String COL_BLIND = "Blind";
-    public static final String COL_AIDE_NOTE = "Aide_Note";
+    public static final String COL_AIDE_NOTE = "HearingNote";
     public static final String COL_VISION_NOTE = "VisionNote";
     public static final String COL_DIET_NOTE = "DietNote";
     public static final String COL_ALLERGY_NOTE = "AllergyNote";
@@ -45,6 +45,10 @@ public class MedInfoQuery {
     public static final String COL_DRUG_YEAR = "Drug_Year";
     public static final String COL_Mouth = "Mouth";
     public static final String COL_FunctionNote = "FunctionNote";
+    public static final String COL_HISTORY_NOTE = "SurgicalHistoryNote";
+    public static final String COL_IMPLANTS_NOTE = "ImplantsNote";
+    public static final String COL_VACCINE_NOTE = "ImmunizationNote";
+   // public static final String COL_BLOOD_NOTE = "BloodNote";
     static DBHelper dbHelper;
     Context context;
 
@@ -59,6 +63,8 @@ public class MedInfoQuery {
                 COL_TEETH_FALSE + " VARCHAR(20)," + COL_TEETH_IMPLANTS + " VARCHAR(20)," + COL_HEARING_AIDES + " VARCHAR(20)," +
                 COL_BLOODTYPE + " VARCHAR(20)," + COL_ORGANDONOR + " VARCHAR(20)," + COL_NOTE + " TEXT," +
                 COL_SPEECH + " VARCHAR(20)," + COL_BLIND + " VARCHAR(20)," + COL_AIDE_NOTE + " TEXT," +
+                COL_VACCINE_NOTE + " TEXT," +COL_IMPLANTS_NOTE + " TEXT," +COL_HISTORY_NOTE + " TEXT," +
+
                 COL_VISION_NOTE + " TEXT," + COL_DIET_NOTE + " TEXT," +
                 COL_MOUTH_NOTE + " TEXT," + COL_TEETH_MOUTH + " VARCHAR(20)," + COL_ALLERGY_NOTE + " TEXT," +
                 COL_TOBACO + " VARCHAR(20)," + COL_T_TYPE + " VARCHAR(20)," +
@@ -75,7 +81,7 @@ public class MedInfoQuery {
         return dropTableQuery;
     }
 
-    public static Boolean insertMedInfoData(int userid, String blood, String glass, String lense, String falses, String implants, String aid, String donor, String note, String mouth, String mouthnote, String visionnote, String aidenote, String dietnote, String blind, String speech, String allergynote, String tobaco, String t_type, String t_amt, String t_year, String drink, String drink_amt, String drug, String drug_type, String drug_amt, String drug_year, String drink_year, String func_note) {
+    public static Boolean insertMedInfoData(int userid, String blood, String glass, String lense, String falses, String implants, String aid, String donor, String note, String mouth, String mouthnote, String visionnote, String aidenote, String dietnote, String blind, String speech, String allergynote, String tobaco, String t_type, String t_amt, String t_year, String drink, String drink_amt, String drug, String drug_type, String drug_amt, String drug_year, String drink_year, String func_note, String historynote, String vaccinenote, String implantsnote) {
         boolean flag = false;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -111,6 +117,9 @@ public class MedInfoQuery {
 
         cv.put(COL_FunctionNote, "");
         cv.put(COL_Mouth, "");
+        cv.put(COL_HISTORY_NOTE, historynote);
+        cv.put(COL_VACCINE_NOTE, vaccinenote);
+        cv.put(COL_IMPLANTS_NOTE,implantsnote);
 
         Cursor c = MedInfoQuery.fetchOneRecordCursor(userid);
         if (c.moveToFirst()) {
@@ -177,6 +186,9 @@ public class MedInfoQuery {
                 medInfo.setDrug_amt(c.getString(c.getColumnIndex(COL_DRUG_AMT)));
                 medInfo.setDrug_year(c.getString(c.getColumnIndex(COL_DRUG_YEAR)));
 
+                medInfo.setHistorynote(c.getString(c.getColumnIndex(COL_HISTORY_NOTE)));
+                medInfo.setVaccinenote(c.getString(c.getColumnIndex(COL_VACCINE_NOTE)));
+                medInfo.setImplantnote(c.getString(c.getColumnIndex(COL_IMPLANTS_NOTE)));
 
             } while (c.moveToNext());
         }

@@ -204,8 +204,9 @@
                     android:id="@+id/txtName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Name of Doctor(if applicable)"
+                    android:hint="Name of Doctor (if applicable)"
                     android:maxLines="1"
+
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"
                     android:singleLine="true"
@@ -295,7 +296,7 @@
                     android:layout_below="@+id/fltypeReaction2"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
-                    android:paddingLeft="@dimen/dimension20dp"
+
                     android:paddingTop="@dimen/dimension8dp"
                   
                     android:paddingBottom="@dimen/dimension8dp"
