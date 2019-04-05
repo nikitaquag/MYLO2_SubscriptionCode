@@ -405,6 +405,128 @@ android:fontFamily="@font/lato"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
 
+                <RelativeLayout
+                    android:id="@+id/rel69"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel68"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/dimension20dp">
+
+                    <ImageView
+                        android:id="@+id/img69"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/dot_bullet" />
+
+                    <TextView
+
+                        android:id="@+id/txtPolicy69"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img69"
+                        android:text=""
+                        android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rel71"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel69"
+                    android:layout_marginBottom="@dimen/dimension20dp"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:id="@+id/img71"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/dot_bullet" />
+
+                    <TextView
+
+                        android:id="@+id/txtPolicy71"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img71"
+                        android:text=""
+                        android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rel72"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel71"
+                    android:layout_marginBottom="@dimen/dimension20dp"
+                    android:visibility="gone"
+                    >
+
+                    <ImageView
+                        android:id="@+id/img72"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/dot_bullet" />
+
+                    <TextView
+
+                        android:id="@+id/txtPolicy72"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img72"
+                        android:text=""
+                        android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rel73"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rel72"
+                    android:layout_marginBottom="@dimen/dimension20dp"
+
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/img73"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/dot_bullet" />
+
+                    <TextView
+                        android:id="@+id/txtPolicy73"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img73"
+                        android:text=""
+                        android:fontFamily="@font/lato"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/dimension18dp"
+
+                        />
+                </RelativeLayout>
+
             </RelativeLayout>
 
         </RelativeLayout>

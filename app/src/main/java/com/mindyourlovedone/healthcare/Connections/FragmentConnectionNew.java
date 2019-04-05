@@ -34,6 +34,7 @@ import android.widget.Toast;
 
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
+import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.DashBoard.UserInsActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -133,18 +134,19 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
             imghelp .setVisibility(View.GONE);
             txthelp.setVisibility(View.GONE);
             lvSelf.setVisibility(View.VISIBLE);
-            if (connectionList.size() > 1) {
+          //  if (connectionList.size() > 1) {
                 rlGuide.setVisibility(View.GONE);
 
-            } else {
-                rlGuide.setVisibility(View.VISIBLE);
+         //   } else {
 
-            }
+
+          //  }
         }
         else
         {
             imghelp .setVisibility(View.VISIBLE);
             txthelp.setVisibility(View.VISIBLE);
+            rlGuide.setVisibility(View.VISIBLE);
             lvSelf.setVisibility(View.GONE);
         }
     }
@@ -179,7 +181,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         imgRight.setVisibility(View.VISIBLE);
         // txtMsg = rootview.findViewById(R.id.txtMsg);
         rlMsg = rootview.findViewById(R.id.rlMsg);
-        txtStep1 = rootview.findViewById(R.id.txtStep1);
+       /* txtStep1 = rootview.findViewById(R.id.txtStep1);
         txtStep1.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
         txtStep1.setGravity(Gravity.START | Gravity.END);
 
@@ -209,7 +211,7 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         txtStep6.setText(Html.fromHtml("There are <b>three</b> required elements to create a Profile –  <b>name, relationship</b>, and an <b>email</b> address.\n\n"));
         txtStep7.setText(Html.fromHtml("<b>To Share a Profile –</b> Long press on the Profile Box and you will be able to upload the Profile to your Dropbox account.\n\n"));
         txtStep8.setText(Html.fromHtml("<b>To Delete a Profile –</b> Long Press on the Profile Box.\n\n"));
-
+*/
 
       /*  String msg1 = "" + getRe
       sources().getString(R.string.connection_info);
@@ -224,7 +226,9 @@ public class FragmentConnectionNew extends Fragment implements View.OnClickListe
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rlMsg.setVisibility(View.VISIBLE);
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                intentUserIns.putExtra("From", "Profile");
+                startActivity(intentUserIns);
                 // txtMsg.setVisibility(View.VISIBLE);
             }
         });
@@ -714,6 +718,7 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
                 break;
             case R.id.imgRight:
                 Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                intentUserIns.putExtra("From", "Profile");
                 startActivity(intentUserIns);
 //                showInstructionDialog();
                 break;

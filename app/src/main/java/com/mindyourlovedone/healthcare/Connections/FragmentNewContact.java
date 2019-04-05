@@ -1747,7 +1747,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "PharmacyData":
                 changeIcon(source);
                 visiPharmacy();
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Pharmacies &\nHome Medical Equipment");
                 txtTitle.setText("Update Pharmacies &\nHome Medical Equipment");
                 Intent specialistIntents = getActivity().getIntent();
@@ -1919,7 +1919,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "ProxyUpdate":
                 visiProxy();
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Proxy AGENT & SUCCESSOR(S)");
                 txtTitle.setText("Update Proxy AGENT & SUCCESSOR(S)");
                 Intent ProxyIntent = getActivity().getIntent();
@@ -2233,7 +2233,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilPriority.setVisibility(View.VISIBLE);
                 imgprio.setVisibility(View.VISIBLE);
                 txtPriority.setVisibility(View.VISIBLE);
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Emergency Contact & Proxy Agent");
                 txtTitle.setText("Update Emergency Contact & Proxy Agent");
                 Intent EmergencyIntents = getActivity().getIntent();
@@ -2502,7 +2502,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "SpecialistData":
                 changeIcon(source);
                 visiSpecialist();
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Doctors & Health Care Professionals");
                 txtTitle.setText("Update Doctors & Health Care Professionals");
                 Intent specialistIntent = getActivity().getIntent();
@@ -2648,7 +2648,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "PhysicianData":
                 changeIcon(source);
                 visiSpecialist();
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Primary Physician");
                 txtTitle.setText("Update Primary Physician");
                 Intent specialistIntent1 = getActivity().getIntent();
@@ -2983,7 +2983,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtInsuaranceName.setFocusable(true);
                 txtAdd.setText("Update Insurance");
                 txtTitle.setText("Update Insurance");
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 Intent insuranceIntent = getActivity().getIntent();
                 if (insuranceIntent.getExtras() != null) {
                     insurance = (Insurance) insuranceIntent.getExtras().getSerializable("InsuranceObject");
@@ -3204,7 +3204,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
             case "AidesData":
                 visiAides();
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Health Service");
                 txtTitle.setText("Update Health Service");
                 Intent aidesIntent = getActivity().getIntent();
@@ -3384,7 +3384,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiHospital();
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Hospitals, Rehab, Home Care");
                 txtTitle.setText("Update Hospitals, Rehab, Home Care");
                 Intent hospIntent = getActivity().getIntent();
@@ -3605,7 +3605,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 visiFinance();
                 tilFName.setHintEnabled(true);
                 txtFName.setFocusable(true);
-                txtDelete.setVisibility(View.VISIBLE);
+                txtDelete.setVisibility(View.GONE);
                 txtAdd.setText("Update Finance and Legal");
                 txtTitle.setText("Update Finance and Legal");
 

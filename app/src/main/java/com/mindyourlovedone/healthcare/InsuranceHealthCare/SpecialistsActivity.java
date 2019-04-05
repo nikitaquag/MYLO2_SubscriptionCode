@@ -37,6 +37,7 @@ import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.customview.NonScrollListView;
 import com.mindyourlovedone.healthcare.database.AideQuery;
 import com.mindyourlovedone.healthcare.database.AllergyQuery;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
@@ -109,7 +110,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
     Context context = this;
     String[] specialist;
     int[] profile;
-    ListView listSpeciallist;
+    NonScrollListView listSpeciallist;
     ImageView imgBack, imgRight, imgHome;
     TextView txtTitle, txtUser;
     String from;

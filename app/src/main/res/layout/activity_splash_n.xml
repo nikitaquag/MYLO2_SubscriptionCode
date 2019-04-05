@@ -219,7 +219,16 @@
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dimension5dp"
             android:src="@drawable/aba" />
-
+        <ImageView
+            android:id="@+id/imgcopy"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/imgAbaa"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:src="@drawable/copy_rit"
+            android:tint="@color/colorWhite"
+            />
         <TextView
             android:id="@+id/txtcourtesy"
             android:layout_width="match_parent"

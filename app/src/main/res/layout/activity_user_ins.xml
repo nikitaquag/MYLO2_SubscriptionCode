@@ -105,7 +105,7 @@
                 android:layout_marginTop="@dimen/dimension10dp"
                 android:gravity="center"
                 android:fontFamily="@font/lato"
-                android:text="Instructions for Profile"
+                android:text="@string/prof_inst"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
                 android:textStyle="bold" />
@@ -371,8 +371,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/rlStep5"
-
-                    android:layout_marginTop="@dimen/dimension10dp"
                     android:layout_marginRight="@dimen/dimension5dp">
 
                     <ImageView
