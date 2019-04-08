@@ -70,11 +70,9 @@
             android:id="@+id/txtSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_toLeftOf="@+id/imgRight"
             android:layout_marginRight="10dp"
             android:fontFamily="@font/lato"
             android:text="SAVE"
@@ -98,12 +96,14 @@
 
         <ImageView
             android:id="@+id/imgRight"
-            android:layout_width="@dimen/dimension40dp"
-            android:layout_height="@dimen/dimension60dp"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/menudot"
-            android:visibility="gone" />
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/information"
+            android:visibility="visible"
+            android:tint="@color/colorWhite"/>
     </RelativeLayout>
 
     <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"

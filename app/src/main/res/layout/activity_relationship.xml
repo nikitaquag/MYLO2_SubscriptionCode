@@ -41,7 +41,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="@dimen/dimension20dp"
             android:gravity="center_horizontal"
-            android:text="Select Type"
+            android:text="Select Test or Specialist"
             android:textStyle="bold"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
