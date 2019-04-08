@@ -32,12 +32,10 @@ import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.mindyourlovedone.healthcare.webservice.WebService;
 
-import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int REQUEST_CALL_PERMISSION = 100;
@@ -68,13 +66,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (!f.exists()) {
                 f.mkdirs();
             } else {
-                try {
-                    File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
-                    FileUtils.deleteDirectory(file);
-                    f.mkdirs();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+//                try {
+//                    File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+//                    FileUtils.deleteDirectory(file);
+//                    f.mkdirs();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -313,13 +311,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (!f.exists()) {
                     f.mkdirs();
                 } else {
-                    try {
-                        File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
-                        FileUtils.deleteDirectory(file);
-                        f.mkdirs();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+//                    try {
+//                        File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+//                        FileUtils.deleteDirectory(file);
+//                        f.mkdirs();
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -346,13 +344,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         if (!f.exists()) {
                             f.mkdirs();
                         } else {
-                            try {
-                                File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
-                                FileUtils.deleteDirectory(file);
-                                f.mkdirs();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+//                            try {
+//                                File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+//                                FileUtils.deleteDirectory(file);
+//                                f.mkdirs();
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
                         }
                     } catch (Exception e) {
                         e.printStackTrace();

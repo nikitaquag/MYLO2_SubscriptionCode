@@ -85,7 +85,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {//nikita
         if (oldVersion < 3) {
             //New Tables
             if(!isTableExists("ContactNumber",db)) {
@@ -245,7 +245,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean isTableExists(String tableName,SQLiteDatabase db) {
+    public boolean isTableExists(String tableName,SQLiteDatabase db) {//nikita
 
         Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '"+tableName+"'", null);
         if(cursor!=null) {
@@ -258,7 +258,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return false;
     }
 
-    public static boolean columnExistsInTable(SQLiteDatabase db, String table, String columnToCheck) {
+    public static boolean columnExistsInTable(SQLiteDatabase db, String table, String columnToCheck) {//nikita
         Cursor cursor = null;
         try {
             //query a row. don't acquire db lock
