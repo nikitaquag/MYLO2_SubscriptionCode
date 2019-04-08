@@ -2707,7 +2707,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         spinner.setSelection(index + 1);
                     }*/
                     ContactDataQuery c = new ContactDataQuery(context, dbHelper);
-                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Physician");
+                    phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), id, "Primary");
 //                    setListPh(listDrPhone);
                     PhoneLayout = llAddDrPhone;
                     setListPh();
