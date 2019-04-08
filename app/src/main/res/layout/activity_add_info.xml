@@ -361,7 +361,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:backgroundTint="@color/colorOnesGray"
-                                    
+
                                     android:textSize="@dimen/dimension20dp"
                                     >
 

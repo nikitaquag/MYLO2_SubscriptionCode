@@ -3360,8 +3360,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "Finance":
                 changeIcon(source);
                 visiFinance();
-                txtAdd.setText("Add Finance & Legal");
-                txtTitle.setText("Add Finance & Legal");
+                txtAdd.setText("Add Finance, Legal, Other");
+                txtTitle.setText("Add Finance, Legal, Other");
 //                setListPh(listFinPhone);
                 PhoneLayout = llAddFinPhone;
                 setListPh();
@@ -3606,8 +3606,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilFName.setHintEnabled(true);
                 txtFName.setFocusable(true);
                 txtDelete.setVisibility(View.GONE);
-                txtAdd.setText("Update Finance and Legal");
-                txtTitle.setText("Update Finance and Legal");
+                txtAdd.setText("Update Finance, Legal, Other  ");
+                txtTitle.setText("Update Finance, Legal, Other  ");
 
                 Intent financeIntent = getActivity().getIntent();
                 if (financeIntent.getExtras() != null) {

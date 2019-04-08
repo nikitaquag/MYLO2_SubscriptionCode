@@ -251,7 +251,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_n);
+        setContentView(R.layout.activity_splash_no_courtesy);
         new AsynData().execute("");
     }
 

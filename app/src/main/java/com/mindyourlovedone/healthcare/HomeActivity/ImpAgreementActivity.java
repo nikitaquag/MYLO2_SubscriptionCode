@@ -12,7 +12,9 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
@@ -136,8 +138,11 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                     {
                         accessPermission();
                     }
-                   else
-                        Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
+                   else {
+                        Toast toast = Toast.makeText(context, Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+                    }
               //  }
                /* Intent intentBase = new Intent(context, BaseActivity.class);
                 startActivity(intentBase);*/

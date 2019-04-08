@@ -1657,7 +1657,7 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 implantsIntents.putExtra("IsImplant", false);
                 implantsIntents.putExtra("ADD", "Condition");
                 implantsIntents.putExtra("Title", "Add Medical Condition");
-                implantsIntents.putExtra("Name", "Add Pre-existing Medical Condtion");
+                implantsIntents.putExtra("Name", "Add Pre-existing Medical Condition");
                 startActivityForResult(implantsIntents, REQUEST_CONDITION);
                 break;
             case R.id.txtAddHospital:
