@@ -273,7 +273,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                         + "/Hospital.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Hospitals And Other Health Preofessional");
+                preferences.emailAttachement(f, getActivity(), "Hospitals, Rehab, Home Care");
 
                 dialog.dismiss();
 

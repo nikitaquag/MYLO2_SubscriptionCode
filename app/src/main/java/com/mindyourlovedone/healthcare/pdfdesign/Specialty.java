@@ -850,8 +850,8 @@ public class Specialty {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
 
-            Header.addChank("Finance,Insurance,Legal");
-            messageFinance.add("Finance,Insurance,Legal");
+            Header.addChank("Finance, Legal, Other");
+            messageFinance.add("Finance, Legal, Other");
             Header.addEmptyLine(1);
 
             for (i = 0; i < financeList.size(); i++) {
@@ -1092,8 +1092,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Doctors & Health Care Professionals ");
-                messageDoctor.add("Doctors & Health Care Professionals ");
+                Header.addChank("Doctors & Other Health Care Professionals ");
+                messageDoctor.add("Doctors & Other Health Care Professionals ");
                 Header.addEmptyLine(1);
             }
 
@@ -1315,13 +1315,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Health Record (Link if applicable)  :");
+                messageDoctor.add("Electronic Health Record Link :");
                 messageDoctor.add(locator);
 
                 String note = "";
@@ -1603,13 +1603,13 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageHospital.add("Electronic Health Record (Link if applicable)  :");
+                messageHospital.add("Electronic Health Record Link :");
                 messageHospital.add(locator);
 
                 String note = "";
@@ -1799,13 +1799,13 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable)  : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePharmacy.add("Electronic Health Record (Link if applicable)  :");
+                messagePharmacy.add("Electronic Health Record Link :");
                 messagePharmacy.add(locator);
 
                 String note = "";

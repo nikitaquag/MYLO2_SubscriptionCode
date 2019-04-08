@@ -83,7 +83,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     ImageView imgBack;
     Context context = this;
     String name="",email="";
-    boolean allow=true;
+    boolean allow=false;
   /*  private static final int REQUEST_CALL_PERMISSION = 100;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
@@ -248,7 +248,10 @@ CheckBox rbCheck;
         }
        else if (allow==false)
         {
-            Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
+
+            Toast toast = Toast.makeText(context,Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, 0, 0);
+            toast.show();
         }
         else {
             return true;

@@ -259,7 +259,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     fltypeReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
                     tilOtherReaction.setHint("Other Reaction");
-                    txttypeReaction.setHint("Reaction");
+                  //  txttypeReaction.setHint("Reaction");
                     break;
 
                 case "AllergyUpdate":
@@ -272,7 +272,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     fltypeReaction.setVisibility(View.VISIBLE);
                     tilReaction.setVisibility(View.GONE);
                     tilOtherReaction.setHint("Other Reaction");
-                    txttypeReaction.setHint("Reaction");
+                    //txttypeReaction.setHint("Reaction");
                     break;
 
                 case "Implants":

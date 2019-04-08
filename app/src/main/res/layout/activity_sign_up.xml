@@ -119,7 +119,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
             android:button="@drawable/radiocheck"
-            android:checked="true" />
+             />
         <!-- -->
 
         <TextView

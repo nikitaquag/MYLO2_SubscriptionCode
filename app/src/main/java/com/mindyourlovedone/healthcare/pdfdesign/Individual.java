@@ -2242,13 +2242,13 @@ public class Individual {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link  : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePhysician.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messagePhysician.add("Electronic Health Record Link  :");
                 messagePhysician.add(locator);
 
                 String note = "";
@@ -4769,13 +4769,13 @@ if (i==0) {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePhysician.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messagePhysician.add("Electronic Health Record Link :");
                 messagePhysician.add(locator);
 
                 String note = "";
