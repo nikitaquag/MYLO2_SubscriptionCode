@@ -138,7 +138,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
 
         //nikita
         final RelativeLayout relMsg = rootview.findViewById(R.id.relMsg);
-        TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
+       /* TextView txt61 = rootview.findViewById(R.id.txtPolicy61);
         TextView txt62 = rootview.findViewById(R.id.txtPolicy62);
         TextView txt63 = rootview.findViewById(R.id.txtPolicy63);
         TextView txt64 = rootview.findViewById(R.id.txtPolicy64);
@@ -156,7 +156,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         txt66.setText(Html.fromHtml("To <b>add a picture</b> click the <b>picture</b> of the <b>pencil</b> and either <b>take a photo</b> or grab one from your <b>gallery</b>. To edit or delete the picture click the pencil again. Use the same process to add a business card. It is recommended that you hold your phone horizontal when taking a picture of the business card.\n\n"));
         txt67.setText(Html.fromHtml("\n"));
         img67.setVisibility(View.GONE);
-
+*/
         txtFTU = rootview.findViewById(R.id.txtFTU);
         txtFTU.setOnClickListener(new View.OnClickListener() {
             @Override

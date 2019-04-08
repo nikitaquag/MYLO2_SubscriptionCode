@@ -2093,7 +2093,10 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.imgRight:
-
+                Intent ia = new Intent(context, InstructionActivity.class);
+                ia.putExtra("From", "Personal");
+                startActivity(ia);
+/*
                 final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
@@ -2122,16 +2125,16 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     e.printStackTrace();
                 }
                 Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Personal Profile");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                Header.addEmptyLine(2);*//*
+               *//* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
                     final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                     final PersonalInfo personalInfoList =  PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                     new Individual(personalInfoList,PetLists);
                 }
-                else{*/
+                else{*//*
                 final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                 final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Personal Profile");
@@ -2155,9 +2158,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         switch (itemPos) {
                             case 0: //View
                                 StringBuffer result = new StringBuffer();
-                               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
+                               *//* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
                                     result.append(new MessageString().getProfileUser());
-                                }else {*/
+                                }else {*//*
                                 result.append(new MessageString().getProfileProfile());
                                 // }
 
@@ -2172,9 +2175,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                                 preferences.emailAttachement(f, context, "Personal Profile");
                                 break;
 
-                          /*  case 2://fax
+                          *//*  case 2://fax
                               //  new FaxCustomDialog(context, path).show();
-                                break;*/
+                                break;*//*
 
                             case 2://FTU
                                 Intent i = new Intent(context, InstructionActivity.class);
@@ -2187,7 +2190,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     }
 
                 });
-                builder.create().show();
+                builder.create().show();*/
                 break;
 
             case R.id.imgEdit:

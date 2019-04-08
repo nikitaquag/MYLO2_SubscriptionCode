@@ -78,21 +78,46 @@
         android:gravity="center"
         android:text="XYZ XYZ"
         android:fontFamily="@font/lato"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorBlack"
         android:textSize="@dimen/dimension22dp" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtName">
 
-    <ListView
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <com.mindyourlovedone.healthcare.customview.NonScrollListView
         android:id="@+id/listSpecialist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtName"
         android:layout_marginTop="@dimen/dimension15dp"
         android:layout_marginLeft="@dimen/dimension10dp"
         android:layout_marginRight="@dimen/dimension10dp"
         android:layout_marginBottom="@dimen/dimension15dp"
         android:background="@color/colorLightBlue"
-        android:divider="@null"></ListView>
-
+        android:divider="@null"></com.mindyourlovedone.healthcare.customview.NonScrollListView>
+    <TextView
+        android:id="@+id/txtInstruction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listSpecialist"
+        android:background="#f9f9f9"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:layout_marginRight="@dimen/dimension70dp"
+        android:layout_marginLeft="@dimen/dimension40dp"
+        android:text="User instructions are available within each sub-section. Once opened, click on the question mark located on the upper right corner."
+        android:fontFamily="@font/lato"
+        android:textColor="@color/colorBlackDark"
+        android:padding="@dimen/dimension10dp"
+        android:textSize="@dimen/dimension20dp" />
+    </RelativeLayout>
+    </ScrollView>
 <!--
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatAdd"

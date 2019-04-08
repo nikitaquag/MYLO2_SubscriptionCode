@@ -28,7 +28,7 @@ public class MedInfoQuery {
     public static final String COL_ORGANDONOR = "OrganDonor";
     public static final String COL_SPEECH = "Speech";
     public static final String COL_BLIND = "Blind";
-    public static final String COL_AIDE_NOTE = "HearingNote";
+    public static final String COL_AIDE_NOTE = "Aide_Note";
     public static final String COL_VISION_NOTE = "VisionNote";
     public static final String COL_DIET_NOTE = "DietNote";
     public static final String COL_ALLERGY_NOTE = "AllergyNote";

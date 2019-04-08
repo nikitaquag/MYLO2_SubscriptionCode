@@ -54,7 +54,7 @@ public class UIEmails {
         String body = "Hi, \n" +
                 "\n" +
                 "\n" + name +
-                " shared this "+s+" with you... \n\n" + Data +
+                " shared these "+s+" with you... \n\n" + Data +
                 "\n\n" +
                 "Thanks,\n" +
                 name;

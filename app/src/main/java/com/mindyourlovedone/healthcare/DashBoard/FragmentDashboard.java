@@ -285,6 +285,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
         rlPrescription.setOnClickListener(this);
         imgProfile.setOnClickListener(this);
         imgPdf.setOnClickListener(this);
+        imgRight.setOnClickListener(this);
         //  rlInsurance.setOnClickListener(this);
         //  rlEmergency.setOnClickListener(this);
 //        imgShareLocation.setOnClickListener(this);
@@ -379,6 +380,11 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
                 startActivity(intentPrescription);
                /* Intent intentPrescription = new Intent(getActivity(), PrescriptionActivity.class);
                 startActivity(intentPrescription);*/
+                break;
+            case R.id.imgRight:
+                Intent intentUserIns = new Intent(getActivity(), UserInsActivity.class);
+                intentUserIns.putExtra("From", "Dashboard");
+                startActivity(intentUserIns);
                 break;
 
             case R.id.rlCarePlan:

@@ -68,13 +68,13 @@ public class Specialty {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + speciality));
+                cell = new PdfPCell(new Phrase("Specialty : " + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Speciality :");
+                messageDoctor.add("Specialty :");
                 messageDoctor.add(speciality);
 
               /*  String specialityOther = "";
@@ -94,13 +94,13 @@ public class Specialty {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name of Doctor/Health Professional\n : " + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Name :");
+                messageDoctor.add("Name of Doctor/Health Professional\n :");
                 messageDoctor.add(name);
 
                 String officePhone = "";
@@ -238,13 +238,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Health Record Link (if applicable) :");
+                messageDoctor.add("Electronic Health Record Link :");
                 messageDoctor.add(locator);
 
                 String note = "";
