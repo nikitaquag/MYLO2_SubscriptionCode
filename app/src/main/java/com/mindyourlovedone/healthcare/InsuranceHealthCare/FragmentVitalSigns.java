@@ -48,6 +48,7 @@ import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FragmentVitalSigns extends Fragment implements View.OnClickListener {
     final String dialog_items[] = {"View", "Email", "User Instructions"};
@@ -84,6 +85,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
 
     public void setListData() {
         if (vitalList !=null && !vitalList.isEmpty()) {
+            Collections.reverse(vitalList);
             VitalAdpater vitalAdapter = new VitalAdpater(getActivity(), vitalList, FragmentVitalSigns.this);
             lvVital.setAdapter(vitalAdapter);
             lvVital.setSystemUiVisibility(View.VISIBLE);

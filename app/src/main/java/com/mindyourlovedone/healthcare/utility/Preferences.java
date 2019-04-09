@@ -157,8 +157,8 @@ public class Preferences {
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + username +
-                " shared this document with you. Please check the attachment. \n" +
+               // "\n" + username +
+                "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
                 "Thanks,\n" +
                 username;

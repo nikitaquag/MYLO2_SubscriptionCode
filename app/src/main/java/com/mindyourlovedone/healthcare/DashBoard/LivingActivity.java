@@ -461,7 +461,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 if (flag == true) {
                     Toast.makeText(context, "Activity Living Info Saved", Toast.LENGTH_SHORT).show();
                     hideSoftKeyboard();
-                    finish();
+                  //  finish();
                 } else {
                     Toast.makeText(context, "Error", Toast.LENGTH_SHORT).show();
                 }

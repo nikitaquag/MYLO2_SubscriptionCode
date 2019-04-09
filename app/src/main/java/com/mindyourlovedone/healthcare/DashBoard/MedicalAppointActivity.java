@@ -46,9 +46,12 @@ import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.io.File;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 
@@ -363,6 +366,48 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             imghelp.setVisibility(View.VISIBLE);
             lvNote.setVisibility(View.GONE);
             scrollvw.setVisibility(View.GONE);
+        }
+        ArrayList<DateClass> dates=new ArrayList<>();
+        for (int i=0;i<noteList.size();i++)
+        {
+            dates=noteList.get(i).getDateList();
+            if (dates.size()!=0) {
+                for (int j = 0; j < dates.size(); j++) {
+
+                    Collections.sort(dates, new Comparator<DateClass>() {
+                        SimpleDateFormat f = new SimpleDateFormat("dd MMM yyyy");
+
+                        @Override
+                        public int compare(DateClass o1, DateClass o2) {
+                            try {
+                                return f.parse(o2.getDate()).compareTo(f.parse(o1.getDate()));
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            return 0;
+                        }
+                    });
+                }
+
+                noteList.get(i).setDate(dates.get(0).getDate());
+            }
+        }
+
+        for (int j = 0; j < noteList.size(); j++) {
+
+            Collections.sort(noteList, new Comparator<Appoint>() {
+                SimpleDateFormat f = new SimpleDateFormat("dd MMM yyyy");
+
+                @Override
+                public int compare(Appoint o1, Appoint o2) {
+                    try {
+                        return f.parse(o2.getDate()).compareTo(f.parse(o1.getDate()));
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    return 0;
+                }
+            });
         }
         AppointAdapter adapter = new AppointAdapter(context, noteList);
         lvNote.setAdapter(adapter);

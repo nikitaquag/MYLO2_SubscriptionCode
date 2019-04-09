@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="@dimen/dimension20dp"
-
+                android:layout_marginBottom="@dimen/dimension70dp"
                 >
 
                 <ImageView
@@ -377,7 +377,9 @@
         android:id="@+id/lladd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/dimension15dp">
+        android:paddingBottom="@dimen/dimension15dp"
+
+        >
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatProfile"

@@ -263,13 +263,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("This section allows Users to keep a summary of their vital signs. This way Users will know if things are better, worse or the same. <br>"));
+                txt61.setText(Html.fromHtml("This section allows Users to keep a running record of their vital signs.  Users choose which vital signs they want to store.  The summary page indicates the most popular BP, HR, and TEMP. <br>"));
                 txt62.setText(Html.fromHtml("To add a vital sign click on the Plus button on the bottom right side of the screen. <br>"));
                 txt63.setText(Html.fromHtml("To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>"));
                 txt64.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>"));
                 txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("<br>This section allows Users to keep a summary of their vital signs. This way Users will know if things are better, worse or the same. \n<br>" +
+                UI = Html.fromHtml("<br>This section allows Users to keep a running record of their vital signs.  Users choose which vital signs they want to store.  The summary page indicates the most popular BP, HR, and TEMP. <br>" +
                         "<br>To add a vital sign click on the Plus button on the bottom right side of the screen.<br>" +
                         "<br>To edit the Vital Signs click the the <b>green down arrow</b> on right of the entry. This will show the edit button, which can be clicked to edit the vital sign. To save your edits click the SAVE at the top right of the screen.<br>" +
                         "<br>To <b>delete</b> the entry left swipe right to left the cell of your appointment. This would bring up the delete button.<br>" +
@@ -655,13 +655,13 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("This section allows Users to create a master list of routine appointments and jot down when each appointment took place.  It provides Users a great summary. <br>"));
+                txt61.setText(Html.fromHtml("This section allows Users to create a master list of routine appointments and jot down when each appointment took place. Users can keep a history of their appointments. What’s also nice is that the summary page will show you the last time you saw the doctor or had a particular medical test.   <br>"));
                 txt62.setText(Html.fromHtml("To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Test, add the name of your doctor and frequency of appointment. Once completed click the <b>SAVE</b> button at the top right corner of the screen..<br>"));
                 txt63.setText(Html.fromHtml("To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click the <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>"));
                 txt64.setText(Html.fromHtml("To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.The information will automatically be saved.  Click the up arrow to close the cell. <br>"));
                 txt65.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> the data in each section click the three dots on the bottom left side of the screen.<br>"));
 
-                UI = Html.fromHtml("<br>This section allows Users to create a master list of routine appointments and jot down when each appointment took place.  It provides Users a great summary. <br>" +
+                UI = Html.fromHtml("<br>This section allows Users to create a master list of routine appointments and jot down when each appointment took place. Users can keep a history of their appointments. What’s also nice is that the summary page will show you the last time you saw the doctor or had a particular medical test.   <br>" +
                         "<br>To <b>add</b> an Appointment click on <b>Plus</b> button at the bottom right of the screen. Choose a Specialist or Test, add the name of your doctor and frequency of appointment. Once completed click the <b>SAVE</b> button at the top right corner of the screen..<br>" +
                         "<br>To <b>edit</b> the Appointment click the the <b>green down arrow</b> on right of the appointment. This will show the edit button, which can be clicked to edit the appointment. Once completed click the <b>SAVE</b> button at the top right corner of the screen. To <b>delete</b> the appointment swipe right to left and click the garbage can.<br>" +
                         "<br>To add the completed date(s) click the the <b>green down arrow</b> on right of the appointment and click <b>ADD NEW</b>.The information will automatically be saved.  Click the up arrow to close the cell. <br>" +
@@ -704,14 +704,14 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txt61.setText(Html.fromHtml("To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>"));
                 txt62.setText(Html.fromHtml("To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note." +
                         "You will see the ”EDIT NOTE” function.  Click ”EDIT NOTE” and type your changes." +
-                        "To save your edits click SAVE at the top right of the screen.<br>"));
+                        " To save your edits click SAVE at the top right of the screen.<br>"));
                 txt63.setText(Html.fromHtml("To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>"));
                 txt64.setText(Html.fromHtml("To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"));
 
                 UI = Html.fromHtml("<br>To <b>add</b> a note click on <b>Plus</b> button at the bottom right of the screen. Start typing your note. The date and time of the note will automatically be saved. Once completed click <b>SAVE</b>. The note is automatically saved.<br>" +
                         "<br>To <b>edit</b> the note click the <b>green down arrow</b> on the right of the note." +
                         "You will see the ”EDIT NOTE” function.  Click ”EDIT NOTE” and type your changes." +
-                        "To save your edits click SAVE at the top right of the screen.<br>" +
+                        " To save your edits click SAVE at the top right of the screen.<br>" +
                         "<br>To <b>delete</b> the entry left swipe right to left the cell of your note.  You will see the delete symbol – click it.  You will be asked if you are sure you want to delete the record. <br>" +
                         "<br>To <b>view</b> a report or email the section <b>click the three dots</b> on the bottom left side of the screen. <br>"
                 ).toString();
