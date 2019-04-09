@@ -190,6 +190,13 @@ public class DBHelper extends SQLiteOpenHelper {
             if (!columnExistsInTable(db, "PetInfo", "VeterianAddress")) {
                 db.execSQL("ALTER TABLE PetInfo ADD COLUMN VeterianAddress TEXT");
             }
+//varsha added appointnment and insurance card
+            if (!columnExistsInTable(db, "Appointment", "Note")) {
+                db.execSQL("ALTER TABLE Appointment ADD COLUMN Note TEXT");
+            }
+            if (!columnExistsInTable(db, "InsuranceCard", "OtherInsurance")) {
+                db.execSQL("ALTER TABLE InsuranceCard ADD COLUMN OtherInsurance VARCHAR(50)");
+            }
         }
 
 //        if (oldVersion != 1 ) {//need to change this new version will be 3 after

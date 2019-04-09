@@ -267,14 +267,14 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date Signed : " + date));
+                cell = new PdfPCell(new Phrase("Date of Document : " + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageOther.add("Date Signed :");
+                messageOther.add("Date of Document :");
                 messageOther.add(date);
 
                 String holder = "";
@@ -414,14 +414,14 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date Signed : " + date));
+                cell = new PdfPCell(new Phrase("Date of Document : " + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageRecord.add("Date Signed :");
+                messageRecord.add("Date of Document :");
                 messageRecord.add(date);
 
                 String holder = "";

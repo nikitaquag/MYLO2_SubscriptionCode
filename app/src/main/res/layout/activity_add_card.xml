@@ -171,8 +171,39 @@
                 <requestFocus />
             </android.support.design.widget.TextInputLayout>
         </FrameLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilOther"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flInsu"
+            android:descendantFocusability="beforeDescendants"
+            android:focusableInTouchMode="true"
+            android:paddingLeft="@dimen/dimension20dp"
+            android:paddingTop="@dimen/dimension8dp"
+            android:paddingRight="@dimen/dimension20dp"
+            android:paddingBottom="@dimen/dimension8dp"
+            android:visibility="gone"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/TextInputLayoutHintText">
+            <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+            <AutoCompleteTextView
+                android:id="@+id/txtOther"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato"
+                android:hint="Other Insurance"
+                android:imeOptions="actionNext"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:paddingTop="@dimen/dimension8dp"
+                android:includeFontPadding="true"
+                android:paddingBottom="@dimen/dimension18dp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/dimension20dp" />
 
-
+            <requestFocus />
+        </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -203,7 +234,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension10dp"
             android:background="@color/colorLightGray"
-            android:layout_below="@+id/flInsu"></View>
+            android:layout_below="@+id/tilOther"></View>
         <TextView
             android:id="@+id/txtCard"
             android:layout_width="match_parent"

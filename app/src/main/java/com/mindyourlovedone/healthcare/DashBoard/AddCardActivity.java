@@ -62,13 +62,13 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
     ContentValues values;
     Uri imageUriFront, imageUriBack;
     Context context = this;
-    TextView txtName, txttype, txtTitle, txtCard, txtSave;
-    TextInputLayout tilTitle;
+    TextView txtName, txttype, txtTitle, txtCard, txtSave,txtOther;
+    TextInputLayout tilTitle,tilOther;
     Bitmap bitmap1, bitmap2;
     String imagePathFront = "", imagePathBack = "";
     ImageView imgDone, imgHome, imgBack, imgEdit1, imgEdit2, imgfrontCard, imgBackCard;
     String imagepath = "";//
-    String name = "", type = "";
+    String name = "", type = "", oter = "";
     Boolean isEdit = false;
     FrameLayout flFront, flBack;
     int id;
@@ -132,6 +132,8 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
 
     private void initUI() {
         txtCard = findViewById(R.id.txtCard);
+        tilOther= findViewById(R.id.tilOther);
+        txtOther= findViewById(R.id.txtOther);
         llFrontCam = findViewById(R.id.llFrontCam);
         llBackCam = findViewById(R.id.llBackCam);
 
@@ -181,6 +183,16 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
             Card card = (Card) i.getExtras().getSerializable("CardObject");
             txtName.setText(card.getName());
             txttype.setText(card.getType());
+            txtOther.setText(card.getOtertype());
+            if (card.getType().equalsIgnoreCase("Other"))
+            {
+tilOther.setVisibility(View.VISIBLE);
+            }
+            else
+            {
+                tilOther.setVisibility(View.GONE);
+            }
+
             id = card.getId();
             String photo = card.getImgFront();
             imagePathFront = photo;
@@ -325,11 +337,12 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                 if (validate()) {
                     type = txttype.getText().toString();
                     name = txtName.getText().toString();
+                    oter=txtOther.getText().toString();
                    storeImage(PHOTO1, "Front");
                   storeImage(PHOTO2, "Back");
 
                     if (isEdit == false) {
-                        boolean flag = CardQuery.insertInsuranceCardData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, type, imagePathFront, imagePathBack);
+                        boolean flag = CardQuery.insertInsuranceCardData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, type, imagePathFront, imagePathBack,oter);
                         if (flag) {
                             Toast.makeText(context, "You have added insurance information successfully", Toast.LENGTH_SHORT).show();
                             finish();
@@ -338,7 +351,7 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
                         }
                         Toast.makeText(context, "Success", Toast.LENGTH_SHORT).show();
                     } else if (isEdit == true) {
-                        boolean flag = CardQuery.updateInsuranceCardData(id, name, type, imagePathFront, imagePathBack);
+                        boolean flag = CardQuery.updateInsuranceCardData(id, name, type, imagePathFront, imagePathBack,oter);
                         if (flag) {
                             Toast.makeText(context, "You have updated insurance information successfully", Toast.LENGTH_SHORT).show();
                             finish();
@@ -856,12 +869,12 @@ public class AddCardActivity extends AppCompatActivity implements View.OnClickLi
        else if (requestCode == RESULT_INSURANCECard && data != null) {
             type = data.getStringExtra("Category");
             txttype.setText(type);
-            /*if (type.equals("Other")) {
-                tilOtherInsurance.setVisibility(View.VISIBLE);
+            if (type.equals("Other")) {
+                tilOther.setVisibility(View.VISIBLE);
             } else {
-                tilOtherInsurance.setVisibility(View.GONE);
-                txtOtherInsurance.setText("");
-            }*/
+                tilOther.setVisibility(View.GONE);
+                txtOther.setText("");
+            }
         }
 
     }

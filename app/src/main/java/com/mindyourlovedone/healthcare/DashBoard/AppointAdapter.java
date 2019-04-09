@@ -141,13 +141,16 @@ public class AppointAdapter extends RecyclerSwipeAdapter<AppointAdapter.Holder> 
             holder.txtDoctor.setVisibility(View.VISIBLE);
             holder.txtDoctor.setText(noteList.get(position).getDoctor());
         }
-
-        if (noteList.get(position).getNote().equals("")) {
-            holder.txtNoteData.setVisibility(View.GONE);
-        } else {
-            holder.txtNoteData.setVisibility(View.VISIBLE);
-            holder.txtNoteData.setText(noteList.get(position).getNote());
-        }
+if (noteList.get(position).getNote()!=null) {
+    if (noteList.get(position).getNote().equals("")) {
+        holder.txtNoteData.setVisibility(View.GONE);
+    } else {
+        holder.txtNoteData.setVisibility(View.VISIBLE);
+        holder.txtNoteData.setText(noteList.get(position).getNote());
+    }
+}else {
+    holder.txtNoteData.setVisibility(View.GONE);
+}
 
         final ArrayList<DateClass> dates = a.getDateList();
         holder.llDate.requestFocus();

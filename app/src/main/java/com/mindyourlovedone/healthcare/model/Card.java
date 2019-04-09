@@ -15,6 +15,16 @@ public class Card implements Serializable {
     String name = "";
     String type = "";
 
+    public String getOtertype() {
+        return otertype;
+    }
+
+    public void setOtertype(String otertype) {
+        this.otertype = otertype;
+    }
+
+    String otertype = "";
+
     public int getId() {
         return id;
     }

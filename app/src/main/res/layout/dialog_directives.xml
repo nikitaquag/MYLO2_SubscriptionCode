@@ -10,17 +10,17 @@
         android:background="@drawable/dialog_border"
         android:orientation="vertical">
 
-
         <TextView
-            android:id="@+id/txtPhoneStorage"
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Phone Storage"
+            android:text="Email"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="normal" />
+
 
         <View
             android:id="@+id/view1"
@@ -47,12 +47,12 @@
             android:background="@color/colorLightGray" />
 
         <TextView
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtPhoneStorage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Email"
+            android:text="Phone Storage"
             android:textColor="@color/colorBlue"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="normal" />

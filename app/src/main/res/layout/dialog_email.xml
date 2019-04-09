@@ -15,7 +15,7 @@
             android:id="@+id/txtIns"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="left"
             android:padding="@dimen/dimension15dp"
             android:text="To upload an email attachment, open the attachment from your email and click the forward button on the upper right side of the screen. Scroll through the App until you find MYLO.Click MYLO - then click the Profile you wish to attach the document to, then click the subsection the document pertains to and click Ok. Enter additional data, and then click Save."
             android:textColor="@color/colorBlackDark"

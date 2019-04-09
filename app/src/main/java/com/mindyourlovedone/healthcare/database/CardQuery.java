@@ -21,6 +21,7 @@ public class CardQuery {
     public static final String COL_FRONT = "FrontPhoto";
     public static final String COL_BACK = "BackPhoto";
     public static final String COL_ID = "Id";
+    public static final String COL_Oter = "OtherInsurance";
     static DBHelper dbHelper;
     Context context;
 
@@ -33,7 +34,7 @@ public class CardQuery {
     public static String createCardTable() {
         String createTableQuery = "create table  If Not Exists " + TABLE_NAME + "(" + COL_ID + " INTEGER PRIMARY KEY, " +
                 COL_USER_ID + " INTEGER, " + COL_NAME + " VARCHAR(50),"
-                + COL_TYPE + " VARCHAR(50)," + COL_BACK + " VARCHAR(50)," +
+                + COL_TYPE + " VARCHAR(50)," + COL_BACK + " VARCHAR(50)," +COL_Oter + " VARCHAR(50)," +
                 COL_FRONT + " VARCHAR(50));";
         return createTableQuery;
     }
@@ -43,7 +44,7 @@ public class CardQuery {
         return dropTableQuery;
     }
 
-    public static boolean insertInsuranceCardData(int userid, String name, String type, String photo1, String photo2) {
+    public static boolean insertInsuranceCardData(int userid, String name, String type, String photo1, String photo2, String oter) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         boolean flag = false;
         try {
@@ -54,6 +55,7 @@ public class CardQuery {
             cv.put(COL_TYPE, type);
             cv.put(COL_FRONT, photo1);
             cv.put(COL_BACK, photo2);
+            cv.put(COL_Oter, oter);
 
             long rowid = db.insert(TABLE_NAME, null, cv);
 
@@ -83,6 +85,7 @@ public class CardQuery {
                     notes.setType(c.getString(c.getColumnIndex(COL_TYPE)));
                     notes.setImgFront(c.getString(c.getColumnIndex(COL_FRONT)));
                     notes.setImgBack(c.getString(c.getColumnIndex(COL_BACK)));
+                    notes.setOtertype(c.getString(c.getColumnIndex(COL_Oter)));
 
                     noteList.add(notes);
                 } while (c.moveToNext());
@@ -104,7 +107,7 @@ public class CardQuery {
         return true;
     }
 
-    public static boolean updateInsuranceCardData(int id, String name, String type, String photo1, String photo2) {
+    public static boolean updateInsuranceCardData(int id, String name, String type, String photo1, String photo2, String oter) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         boolean flag = false;
 
@@ -113,6 +116,7 @@ public class CardQuery {
         cv.put(COL_TYPE, type);
         cv.put(COL_FRONT, photo1);
         cv.put(COL_BACK, photo2);
+        cv.put(COL_Oter, oter);
 
         int rowid = db.update(TABLE_NAME,
                 cv,

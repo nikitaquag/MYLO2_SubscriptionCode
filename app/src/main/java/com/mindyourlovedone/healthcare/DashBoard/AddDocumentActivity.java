@@ -105,7 +105,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
     boolean external_flag = false;
     List<RelativeConnection> items;
-    FrameLayout flDelete;
+    FrameLayout flDelete,flProfile;
     ImageView floatOptions;
 
 
@@ -164,6 +164,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         imgDone.setOnClickListener(this);
         imgAdd.setOnClickListener(this);
         imgDoc.setOnClickListener(this);
+        flProfile.setOnClickListener(this);
         txtFName.setOnClickListener(this);
         txtDate.setOnClickListener(this);
         txtSave.setOnClickListener(this);
@@ -182,6 +183,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtDocuType = findViewById(R.id.txtDocuType);
         txtDocuType.setFocusable(false);
         floatOptions= findViewById(R.id.floatOptions);
+        flProfile= findViewById(R.id.flProfile);
         tilSpinDoc = findViewById(R.id.tilSpinDoc);
         txtSpinDoc = findViewById(R.id.txtSpinDoc);
         txtSpinDoc.setFocusable(false);
@@ -318,7 +320,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             tilName.setVisibility(View.GONE);
 
             tilPName.setHint("Name of Person");
-            tilDate.setHint("Date Signed");
+            tilDate.setHint("Date of Document");
             txtTitle.setText("Other Documents");
         } else if (From.equals("Record")) {
             spinnerDoc.setVisibility(View.GONE);
@@ -388,7 +390,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDoc.setClickable(true);
             floatOptions.setVisibility(View.VISIBLE);
            // rlDelete.setVisibility(View.VISIBLE);
-            flDelete.setVisibility(View.VISIBLE);
+            flDelete.setVisibility(View.GONE);
             disableView();
         } else if (Goto.equals("Edit")) {
             txtSave.setVisibility(View.VISIBLE);
@@ -396,7 +398,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             imgDot.setVisibility(View.GONE);
             imgAdd.setVisibility(View.GONE);
            // rlDelete.setVisibility(View.VISIBLE);
-            flDelete.setVisibility(View.VISIBLE);
+            flDelete.setVisibility(View.GONE);
             floatOptions.setVisibility(View.VISIBLE);
             // txtAdd.setVisibility(View.VISIBLE);
             // txtAdd.setText("Edit File");
@@ -784,6 +786,11 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
 
                 break;
+            case R.id.imgAdd:
+                        DirectiveDialog();
+
+
+                break;
 
             case R.id.floatOptions:
                 final Dialog dialog = new Dialog(context);
@@ -802,7 +809,14 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
                 RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
                 rlFloatfax.setVisibility(View.VISIBLE);
+                TextView txtNew = dialogview.findViewById(R.id.txtNew);
+                txtNew.setText("Email Document");
 
+                TextView txtContact = dialogview.findViewById(R.id.txtContact);
+                txtContact.setText("View Document");
+
+                TextView txtFax = dialogview.findViewById(R.id.txtfax);
+                txtFax.setText("Fax Document");
                 rlFloatfax.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -848,11 +862,7 @@ startActivity(i);
                     }
                 });
 
-                TextView txtNew = dialogview.findViewById(R.id.txtNew);
-                txtNew.setText(getResources().getString(R.string.EmailReports));
 
-                TextView txtContact = dialogview.findViewById(R.id.txtContact);
-                txtContact.setText(getResources().getString(R.string.ViewReports));
 
                 dialog.setContentView(dialogview);
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -1145,6 +1155,16 @@ startActivity(i);
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.dialog_email, null);
         final TextView txtIns = dialogview.findViewById(R.id.txtIns);
+
+        String data=Html.fromHtml(
+                "<li> √ To upload an email attachment open the attachment from your email and click the forward button on the upper right side of the screen. \n</li>" +
+                "<li> √ Scroll through the App until you find MYLO.  Click MYLO – then click the Profile you wish to attach the document to, then click the sub-section the document pertains to and click OK. \n</li>" +
+                "<li> √ Enter additional information and then click Save. \n</li>" +
+                "<li> √ Watch this 10 second video to show you how simple it is to load a document from your email. \n</li>"
+
+        ).toString();
+
+        txtIns.setText(data);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
 
