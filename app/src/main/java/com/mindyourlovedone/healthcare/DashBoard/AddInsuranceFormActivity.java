@@ -5,10 +5,12 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +34,7 @@ import com.mindyourlovedone.healthcare.InsuranceHealthCare.FaxCustomDialog;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.FormQuery;
 import com.mindyourlovedone.healthcare.model.Form;
+import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -52,7 +55,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     final CharSequence[] alert_items = {"Phone Storage", "Dropbox"};
     final CharSequence[] dialog_items = {"View", "Email", "Fax"};
     Context context = this;
-    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgEdit;
+    ImageView imgBack, imgDot, imgDone, imgDoc, imgAdd, imgEdit,floatOptions;
     TextView txtName, txtAdd, txtSave, txtAttach;
     TextInputLayout tilName;
     String From;
@@ -94,6 +97,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         flDelete.setOnClickListener(this);
         imgEdit.setOnClickListener(this);
         txtName.setOnClickListener(this);
+        floatOptions.setOnClickListener(this);
     }
 
     private void initUi() {
@@ -107,6 +111,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         tilName = findViewById(R.id.tilName);
         txtAdd = findViewById(R.id.txtAdd);
         txtSave = findViewById(R.id.txtSave);
+        floatOptions= findViewById(R.id.floatOptions);
         rlDoc = findViewById(R.id.rlDoc);
         rlDocument = findViewById(R.id.rlDocument);
         flDelete = findViewById(R.id.flDelete);
@@ -124,8 +129,12 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         });*/
         Intent i = getIntent();
         if (i.getExtras() != null) {
-            Goto = i.getExtras().getString("GoTo");
-            //path=i.getExtras().getString("Path");
+            if (i.hasExtra("GoTo")) {
+                Goto = i.getExtras().getString("GoTo");
+            }
+            if (i.hasExtra("Path")) {
+                path = i.getExtras().getString("Path");
+            }
         }
 
         if (Goto.equals("View")) {
@@ -133,7 +142,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             txtSave.setVisibility(View.GONE);
             imgDone.setVisibility(View.GONE);
             imgAdd.setVisibility(View.GONE);
-
+            floatOptions.setVisibility(View.VISIBLE);
             document = (Form) i.getExtras().getSerializable("FormObject");
             txtName.setText(document.getName());
             documentPath = document.getDocument();
@@ -146,9 +155,10 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
         } else if (Goto.endsWith("Edit")) {
             document = (Form) i.getExtras().getSerializable("FormObject");
-            flDelete.setVisibility(View.VISIBLE);
+            flDelete.setVisibility(View.GONE);
             txtName.setText(document.getName());
             documentPath = document.getDocument();
+            floatOptions.setVisibility(View.VISIBLE);
             // imgDoc.setImageResource(document.getImage());
             rlDoc.setBackgroundResource(document.getImage());
             imgEdit.setVisibility(View.VISIBLE);
@@ -163,6 +173,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             txtTitle.setText("Update Insurance Form");
             //txtAdd.setText("Edit File");
         } else {
+            floatOptions.setVisibility(View.GONE);
             imgDot.setVisibility(View.GONE);
             txtSave.setVisibility(View.VISIBLE);
             imgDoc.setVisibility(View.VISIBLE);
@@ -182,8 +193,67 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         preferences = new Preferences(context);
         dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
         FormQuery d = new FormQuery(context, dbHelper);
-    }
 
+        Intent i = getIntent();
+        Log.v("URI", i.getExtras().toString());
+        if (i.hasExtra("PDF_EXT")) {
+            final Uri audoUri = Uri.parse(i.getStringExtra("PDF_EXT"));
+            if (audoUri != null) {
+                Log.v("URI", audoUri.toString());
+
+                From = i.getStringExtra("FROM");
+                initUi();
+                addfile(audoUri);
+                //  external_flag = true;
+            }
+        }
+    }
+    private void addfile(Uri audoUri) {
+        try {
+            originPath = audoUri.toString();
+            String path = null;
+
+            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                path = FilePath.getPath(context, audoUri);
+            }
+
+            File f;
+            if (path != null) {
+                f = new File(path);
+            } else {
+                f = new File(audoUri.getPath());
+            }
+            originPath = f.getPath();
+            originPath = originPath.replace("/root_path/", "");
+
+            documentPath = f.getName();
+            name = f.getName();
+            //preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
+            txtName.setText(name);
+            // imgDoc.setClickable(false);
+            if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                showDialogWindow(text);
+                txtAdd.setText("Edit File");
+                imgDoc.setImageResource(R.drawable.pdf);
+                imgAdd.setVisibility(View.VISIBLE);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    private void showDialogWindow(String text) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setMessage(Html.fromHtml(text));
+        alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -192,6 +262,114 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 break;
             case R.id.flDelete:
                 deleteForm(document);
+                break;
+
+            case R.id.floatOptions:
+                final Dialog dialog = new Dialog(context);
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                LayoutInflater lf = (LayoutInflater) context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View dialogview = lf.inflate(R.layout.activity_transparent, null);
+                final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+                final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
+//   final ImageView floatCancel = dialogview.findViewById(R.id.floatCancel);  // Rahul
+                final FloatingActionButton floatViewPdf = dialogview.findViewById(R.id.floatContact);
+                floatViewPdf.setImageResource(R.drawable.eyee);
+                final FloatingActionButton floatEmail = dialogview.findViewById(R.id.floatNew);
+                floatEmail.setImageResource(R.drawable.closee);
+
+                RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+                rlFloatfax.setVisibility(View.VISIBLE);
+                TextView txtNew = dialogview.findViewById(R.id.txtNew);
+                txtNew.setText("Email Insurance Form");
+
+                TextView txtContact = dialogview.findViewById(R.id.txtContact);
+                txtContact.setText("View Insurance Form");
+
+                TextView txtFax = dialogview.findViewById(R.id.txtfax);
+                txtFax.setText("\n" +
+                        "Fax Insurance Form");
+                rlFloatfax.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Uri uris = Uri.parse(documentPath);
+                        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/" + txtName.getText().toString();
+                        Intent i=new Intent(context,FaxActivity.class);
+                        i.putExtra("PATH",preferences.getString(PrefConstants.CONNECTED_PATH) + documentPath);
+                        startActivity(i);
+                        dialog.dismiss();
+                    }
+                });
+
+
+
+                dialog.setContentView(dialogview);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                // int width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.95);
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.MATCH_PARENT;
+                //lp.gravity = Gravity.CENTER;
+                dialog.getWindow().setAttributes(lp);
+                dialog.show();
+
+                rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
+                floatCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                floatEmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (path.equals("No")) {
+                            File file = new File(getExternalFilesDir(null), documentPath);
+                            Uri urifile = null;
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+                                urifile = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", file);
+                            } else {
+                                urifile = Uri.fromFile(file);
+                            }
+
+                            // emailAttachement(urifile, txtFName.getText().toString());
+                        } else {
+                            // Uri uris = Uri.parse(documentPath);
+                            emailAttachement(documentPath, txtName.getText().toString());
+                        }
+                        dialog.dismiss();
+
+                    }
+                });
+
+                floatViewPdf.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = null;
+                        if (path.equals("No")) {
+                            CopyReadAssetss(documentPath);
+                        } else {
+                            File targetFile = new File(preferences.getString(PrefConstants.CONNECTED_PATH), documentPath);
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                                uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", targetFile);
+                            } else {
+                                uri = Uri.fromFile(targetFile);
+                            }
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, "application/pdf");
+                            context.startActivity(intent);
+
+                        }
+                        dialog.dismiss();
+                    }
+                });
+
                 break;
             case R.id.txtName:
                 Uri uri = null;
@@ -228,6 +406,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             case R.id.txtSave:
                 if (validate()) {
                     documentPath = copydb(originPath, name);
+                    DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
+                    Date dates = new Date();
+                    date=dateFormat.format(dates);
                     if (Goto.equals("Edit")) {
                         Boolean flag = FormQuery.updateDocumentData(id, name, photo, documentPath,date);
                         if (flag == true) {
@@ -594,9 +775,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     private boolean validate() {
         photo = R.drawable.pdf;
         name = txtName.getText().toString();
-        DateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
-        Date dates = new Date();
-        date=dateFormat.format(dates);
+
         if (name.length() == 0) {
             Toast.makeText(context, "Add Name of document", Toast.LENGTH_SHORT).show();
         } else {
@@ -653,5 +832,55 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         });
         alert.show();
     }
+    public void CopyReadAssetss(String documentPath) {
+        AssetManager assetManager = getAssets();
+        File outFile = null;
+        InputStream in = null;
+        OutputStream out = null;
+        File file = new File(getFilesDir(), documentPath);
+        try {
+            in = assetManager.open(documentPath);
+            outFile = new File(getExternalFilesDir(null), documentPath);
+            out = new FileOutputStream(outFile);
 
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;
+            /*out = openFileOutput(file.getName(), Context.MODE_WORLD_READABLE);
+            copyFiles(in, out);
+            in.close();
+            in = null;
+            out.flush();
+            out.close();
+            out = null;*/
+        } catch (Exception e) {
+            Log.e("tag", e.getMessage());
+        }
+        Uri uri = null;
+        // Uri uri= Uri.parse("file://" + getFilesDir() +"/"+documentPath);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //  intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(context, "com.mindyourlovedone.healthcare.HomeActivity.fileProvider", outFile);
+        } else {
+            uri = Uri.fromFile(outFile);
+        }
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setDataAndType(uri, "application/pdf");
+        context.startActivity(intent);
+
+    }
+    private void copyFiles(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int read;
+        while ((read = in.read(buffer)) != -1) {
+            out.write(buffer, 0, read);
+        }
+
+
+    }
 }

@@ -40,9 +40,11 @@ import android.widget.Toast;
 import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity;
+import com.mindyourlovedone.healthcare.DashBoard.AddInsuranceFormActivity;
 import com.mindyourlovedone.healthcare.DashBoard.CustomArrayAdapter;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentNotification;
+import com.mindyourlovedone.healthcare.DashBoard.PrescriptionUploadActivity;
 import com.mindyourlovedone.healthcare.Fragment.FragmentContactUs;
 import com.mindyourlovedone.healthcare.Fragment.FragmentResourcesNew;
 import com.mindyourlovedone.healthcare.Fragment.FragmentSetting;
@@ -108,7 +110,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     String From;
     Intent i;
-    final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records"};
+    final CharSequence[] dialog_add = {"Add to Advance Directives", "Add to Other Documents", "Add to Medical Records", "Add to Insurance Forms", "Add to Prescription List"};
     ProgressDialog pd;
 
     @Override
@@ -173,9 +175,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     private void loadData() {
 
-                   FirebaseCrash.report(new Exception("My first Android non-fatal error"));
+        FirebaseCrash.report(new Exception("My first Android non-fatal error"));
 //                    //I'm also creating a log message, which we'll look at in more detail later//
-                    FirebaseCrash.log("MainActivity started");
+        FirebaseCrash.log("MainActivity started");
         accessPermission();
         //Crashlytics.getInstance().crash(); // Force a crash
         initImageLoader();
@@ -389,8 +391,11 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         txtOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                preferences.putInt(PrefConstants.CONNECTED_USERID, items.get(spinnerPro.getSelectedItemPosition() - 1).getId());
+                String email = items.get(spinnerPro.getSelectedItemPosition() - 1).getEmail();
+                String mail = email;
+                mail = mail.replace(".", "_");
+                mail = mail.replace("@", "_");
+                preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
                 dialogSharePdf.dismiss();
                 AlertDialog.Builder builders = new AlertDialog.Builder(context);
                 builders.setTitle("");
@@ -416,6 +421,18 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                                 in2.putExtra("FROM", "Record");
                                 in2.putExtra("PDF_EXT", URI);
                                 startActivity(in2);
+                                break;
+                            case 3: // Fax
+                                Intent in3 = new Intent(BaseActivity.this, AddInsuranceFormActivity.class);
+                                in3.putExtra("FROM", "Insurance");
+                                in3.putExtra("PDF_EXT", URI);
+                                startActivity(in3);
+                                break;
+                            case 4: // Fax
+                                Intent in4 = new Intent(BaseActivity.this, PrescriptionUploadActivity.class);
+                                in4.putExtra("FROM", "Prescription");
+                                in4.putExtra("PDF_EXT", URI);
+                                startActivity(in4);
                                 break;
                         }
                     }
@@ -584,7 +601,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlSponsor.setOnClickListener(this);
         rlSettings.setOnClickListener(this);
         rlContactUs.setOnClickListener(this);
-       // flLogout.setOnClickListener(this);
+        // flLogout.setOnClickListener(this);
 
     }
 
@@ -636,7 +653,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         imgPdf = findViewById(R.id.imgPdf);
         imgPdf.setVisibility(View.GONE);
         imgLocationFeed = findViewById(R.id.imgLocationFeed);
-        txtHome=findViewById(R.id.txtHome);
+        txtHome = findViewById(R.id.txtHome);
         txtTitle = findViewById(R.id.txtTitle);
         txtName = findViewById(R.id.txtName);
         txtRel = findViewById(R.id.txtRel);
@@ -748,8 +765,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 intentProfile.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentProfile);
                 drawerLayout.closeDrawer(leftDrawer);
-
-
 
 
                 break;
@@ -1115,9 +1130,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 if (imgDrawerProfile.getDrawable() == null)
                     imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
                 else
-                  imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
 
-              //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
+                //   imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), imgDrawerProfile, displayImageOptions);
 
             }
         } else {
@@ -1188,7 +1203,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 &&
                 ContextCompat.checkSelfPermission(getApplicationContext(),
                         android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                ) {
+        ) {
             requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE,
                     android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
                     android.Manifest.permission.READ_EXTERNAL_STORAGE
