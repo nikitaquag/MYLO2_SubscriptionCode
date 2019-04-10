@@ -15,7 +15,7 @@
             android:layout_marginTop="@dimen/dimension10dp"
             android:gravity="center"
             android:paddingTop="@dimen/dimension5dp"
-            android:text="Share ?"
+            android:text="Share?"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="bold" />
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension10dp"
-            android:text="Do you want to share instructions ?"
+            android:text="Do you want to share instructions?"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/dimension18dp"
             android:textStyle="normal" />

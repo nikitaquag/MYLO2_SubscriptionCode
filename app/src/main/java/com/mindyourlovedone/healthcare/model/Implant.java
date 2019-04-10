@@ -16,9 +16,12 @@ public class Implant implements Serializable {
     String location = "--";
 
     public String getLocation() {
-        if(location.isEmpty()){
-            return "--";
+        if (location!=null) {
+            if (location.isEmpty()) {
+                return "--";
+            }
         }
+        else return "--";
         return location;
     }
 
@@ -27,9 +30,12 @@ public class Implant implements Serializable {
     }
 
     public String getDetails() {
-        if(details.isEmpty()){
-            return "--";
+        if (details!=null) {
+            if (details.isEmpty()) {
+                return "--";
+            }
         }
+        else return "--";
         return details;
     }
 
@@ -38,9 +44,11 @@ public class Implant implements Serializable {
     }
 
     public String getNotes() {
-        if(notes.isEmpty()){
-            return "--";
-        }
+        if (notes!=null) {
+            if (notes.isEmpty()) {
+                return "--";
+            }
+        } else return "--";
         return notes;
     }
 
@@ -52,9 +60,11 @@ public class Implant implements Serializable {
     String notes = "--";
 
     public String getOther() {
-        if(other.isEmpty()){
-            return "--";
-        }
+        if (other!=null) {
+            if (other.isEmpty()) {
+                return "--";
+            }
+        } else return "--";
         return other;
     }
 
@@ -79,9 +89,11 @@ public class Implant implements Serializable {
     }
 
     public String getName() {
-        if(name.isEmpty()){
-            return "--";
-        }
+        if (name!=null) {
+            if (name.isEmpty()) {
+                return "--";
+            }
+        } else return "--";
         return name;
     }
 
@@ -90,9 +102,11 @@ public class Implant implements Serializable {
     }
 
     public String getDate() {
-        if(date.isEmpty()){
-            return "--";
-        }
+        if (date!=null) {
+            if (date.isEmpty()) {
+                return "--";
+            }
+        } else return "--";
         return date;
     }
 

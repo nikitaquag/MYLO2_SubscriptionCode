@@ -695,6 +695,7 @@
                     android:id="@+id/view1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimension1dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
                     android:layout_below="@+id/relh"
                     android:background="@color/colordivideGray"
                     android:visibility="visible"></View>
@@ -705,7 +706,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/view1"
-                    android:divider="@null" />
+                    android:divider="@null"
+                    />
 
                 <HorizontalScrollView
                     android:layout_marginLeft="@dimen/dimension5dp"

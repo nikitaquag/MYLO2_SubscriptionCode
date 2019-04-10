@@ -170,14 +170,14 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 //shradha
                 txt61.setText(Html.fromHtml("To <b>add</b> a prescription click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>"));
-                txt62.setText(Html.fromHtml("The file is sitting in either your phone, Dropbox or as an email attachment.  Choose the location. If email attachment following the instructions. <br>"));
+                txt62.setText(Html.fromHtml("The form is either sitting in your email, on your phone, or in your Dropbox account. Choose the location and click Add.\n" + "<br>"));
                 txt63.setText(Html.fromHtml("To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>"));
                 txt64.setText(Html.fromHtml("To <b>delete</b> the entry swipe right to left the cell of the document.<br>"));
                 txt65.setText(Html.fromHtml("To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>"));
                 txt66.setText(Html.fromHtml("To <b>view</b> a report or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the bottom right side of the screen.<br>"));
 
                 UI = Html.fromHtml("<br>To <b>add</b> a prescription click the <b>Plus</b> button at the bottom right corner of the screen. Click the <b>ATTACH FILE</b> button to Select the File.<br>" +
-                        "<br>The file is sitting in either your phone, Dropbox or as an email attachment.  Choose the location. If email attachment following the instructions. <br>" +
+                        "<br>:   The form is either sitting in your email, on your phone, or in your Dropbox account. Choose the location and click Add." + " <br>" +
                         "<br>To <b>save</b> information click the <b>SAVE</b> button on the upper right side of the screen.<br>" +
                         "<br>To <b>delete</b> the entry swipe right to left the cell of the document.<br>" +
                         "<br>To <b>edit</b> information click on the <b>cell</b> of the document. To <b>save</b> your edits click the <b>SAVE</b> on the top right side of the screen.<br>" +

@@ -145,7 +145,7 @@ public class PrescriptionUploadActivity extends AppCompatActivity implements Vie
 
                 } else if (Goto.endsWith("Edit")) {
                         document = (Form) i.getExtras().getSerializable("FormObject");
-                        flDelete.setVisibility(View.VISIBLE);
+                        flDelete.setVisibility(View.GONE);
                         txtName.setText(document.getName());
                         documentPath = document.getDocument();
                         // imgDoc.setImageResource(document.getImage());
@@ -478,7 +478,15 @@ else {
                 final TextView txtIns = dialogview.findViewById(R.id.txtIns);
                 final TextView txtOk = dialogview.findViewById(R.id.txtOk);
 
+                String data=Html.fromHtml(
+                        "<li> √ To upload an email attachment open the attachment from your email and click the forward button on the upper right side of the screen. \n</li>" +
+                                "<li> √ Scroll through the App until you find MYLO.  Click MYLO – then click the Profile you wish to attach the document to, then click the sub-section the document pertains to and click OK. \n</li>" +
+                                "<li> √ Enter additional information and then click Save. \n</li>" +
+                                "<li> √ Watch this 10 second video to show you how simple it is to load a document from your email. \n</li>"
 
+                ).toString();
+
+                txtIns.setText(data);
                 dialogEmail.setContentView(dialogview);
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialogEmail.getWindow().getAttributes());
