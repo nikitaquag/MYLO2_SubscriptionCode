@@ -606,7 +606,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
 
             documentPath = f.getName();
             name = f.getName();
-            preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
+          //  preferences.putInt(PrefConstants.CONNECTED_USERID, 1);
             txtFName.setText(name);
            // imgDoc.setClickable(false);
             if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {

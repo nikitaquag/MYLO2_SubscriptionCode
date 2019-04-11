@@ -21,7 +21,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/dimension15dp"
-            android:text="Select profile where document should save"
+            android:text="Select profile where the document should be saved"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/dimension18dp" />
 

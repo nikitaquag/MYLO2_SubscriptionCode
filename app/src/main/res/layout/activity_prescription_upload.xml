@@ -201,8 +201,19 @@
                 <requestFocus />
 
             </android.support.design.widget.TextInputLayout>
-        </LinearLayout>
 
+        </LinearLayout>
+        <ImageView
+            android:layout_above="@+id/flDelete"
+            android:id="@+id/floatOptions"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
+            android:src="@drawable/threedots"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dimension16dp"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimension16dp"
+            />
         <FrameLayout
             android:id="@+id/flDelete"
             android:layout_width="match_parent"
