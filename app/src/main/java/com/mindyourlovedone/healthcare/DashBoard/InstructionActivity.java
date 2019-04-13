@@ -1203,21 +1203,28 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 //                txtMsg.setText(Html.fromHtml(msgs));
 
                 //nikita
-                txt61.setText(Html.fromHtml(
-                        "This section consists of a series of questions most often asked by a physician or an emergency room about a particular person.\n<br>"));
-                txt62.setText(Html.fromHtml("<b>Free Text and Dropdown Menus:</b>  Some of the questions are free text and some have dropdown menus. If you see a little grey mark on the right side of the screen – then there is a dropdown menu. Click anywhere on that line to open the dropdown menu. We have included an “other” as the last option on the menu – if you click “other” a text box will open and you can fill in the information you need. \n<br>"));
-                txt63.setText(Html.fromHtml("<b>Save:</b>   Click the <b>SAVE</b> button on the top right side of the screen every few entries. \n<br>"));
-                txt64.setText(Html.fromHtml("<b>Profile Photo:</b> If you want <b>to add a “profile photo”</b> click the photo of the camera in the little circle, a message will appear – “Take Picture or Gallery”.  If you choose gallery your photos will pop up, pick a picture you like and click choose.   If you want to take a picture you camera will open up – take the picture and click use photo.  <b>To delete or edit a photo</b> click the little pencil and follow the instructions. \n<br>"));
-                txt65.setText(Html.fromHtml("<b>To View a Report or Email the report:</b>  Click the green circle on the bottom right of the screen.<br>"));
-                txt66.setText(Html.fromHtml("<b>To Exit the Sub-Section:</b>  Click the arrow back button on the top left side of the screen. If you click the picture of the house you will be brought back to the Dashboard. \n<br>"));
+                txt61.setText(Html.fromHtml("Minimum Info Needed. Name, Relationship, Email. <br>"));
+                txt62.setText(Html.fromHtml("Free Text and Dropdown Menus. Dropdown menus are identified\n" +
+                        "by the little grey arrow to the right of the line. Click anywhere on\n" +
+                        "the line and the dropdown menu will open.<br>"));
+                txt63.setText(Html.fromHtml("Save. Click the SAVE button on the top right corner of the screen.\n" +
+                        "Users should click save after every few entries. <br>"));
+                txt64.setText(Html.fromHtml("Profile Photo. To add a Photo click anywhere in the circle and\n" +
+                        "choose ”take picture” or “gallery” then click SAVE. To edit or\n" +
+                        "delete the photo click the pencil. <br>"));
+                txt65.setText(Html.fromHtml("Reports. Users can view and email reports containing the data input by clicking the green circle with 3 white dots found on the bottom of the screen.  Fax capability has been included for certain sections and is only to be used to meet HIPAA requirements.\n<br>"));
+                txt66.setText(Html.fromHtml("Exiting the subsection. To return to the prior screen click the\n" +
+                        "back arrow button on the top left corner of the screen. To return\n" +
+                        "to the dashboard click the picture of the house on the top left\n" +
+                        "corner of the screen.<br>"));
 
-                UI = Html.fromHtml("<br>This section consists of a series of questions most often asked by a physician or an emergency room about a particular person.\n<br>" +
-                        "<br>Free Text and Dropdown Menus:  Some of the questions are free text and some have dropdown menus. If you see a little grey mark on the right side of the screen – then there is a dropdown menu. Click anywhere on that line to open the dropdown menu. We have included an “other” as the last option on the menu – if you click “other” a text box will open and you can fill in the information you need. \n<br>" +
-                       "<br>Save:   Click the SAVE button on the top right side of the screen every few entries. \n<br>" +
-                        "<br>Profile Photo: If you want to add a “profile photo” click the photo of the camera in the little circle, a message will appear – “Take Picture or Gallery”.  If you choose gallery your photos will pop up, pick a picture you like and click choose.   If you want to take a picture you camera will open up – take the picture and click use photo.  To delete or edit a photo click the little pencil and follow the instructions. \n<br>" +
-                        "<br>To View a Report or Email the report:  Click the green circle on the bottom right of the screen<br>" +
-                        "<br>To Exit the Sub-Section:  Click the arrow back button on the top left side of the screen. If you click the picture of the house you will be brought back to the Dashboard. \n<br>"
-                ).toString();
+                UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
+                        "<br>"+txt62.getText().toString()+"<br>" +
+                                "<br>"+txt63.getText().toString()+"<br>" +
+                                "<br>"+txt64.getText().toString()+"<br>" +
+                                "<br>"+txt65.getText().toString()+"<br>" +
+                                "<br>"+txt66.getText().toString()+"<br>"
+                        ).toString();
 
                 //nikita
                 txt61.setVisibility(View.VISIBLE);

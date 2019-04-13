@@ -6416,6 +6416,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 int nh = (int) (selectedImage.getHeight() * (512.0 / selectedImage.getWidth()));
                 Bitmap scaled = Bitmap.createScaledBitmap(selectedImage, 512, nh, true);
                 imgCard.setImageBitmap(scaled);
+                imgEditCard.setVisibility(View.VISIBLE);
                 rlCard.setVisibility(View.VISIBLE);
                 imgCard.setVisibility(View.VISIBLE);
                  flFront.setVisibility(View.GONE);
@@ -6453,6 +6454,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 //new
                 // profileCard.setImageBitmap(selectedImage);
                 imgCard.setImageBitmap(selectedImage);
+                imgEditCard.setVisibility(View.VISIBLE);
                 //  imageLoaderCard.displayImage(String.valueOf(imageUriCard), imgCard, displayImageOptionsCard);
 
                 rlCard.setVisibility(View.VISIBLE);

@@ -197,7 +197,7 @@
         android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
         android:layout_weight="1.5"
-        android:background="@color/colorSponsorBluenew">
+        android:background="@color/colorSponsorBlue">
 
         <TextView
             android:id="@+id/txtSponsor"
@@ -218,7 +218,7 @@
             android:layout_above="@+id/txtcourtesy"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/aba" />
+            android:src="@drawable/r_new" />
         <ImageView
             android:id="@+id/imgcopy"
             android:layout_width="@dimen/dimension25dp"
@@ -228,6 +228,7 @@
             android:layout_marginTop="@dimen/dimension10dp"
             android:src="@drawable/copy_rit"
             android:tint="@color/colorWhite"
+            android:visibility="gone"
             />
 
     </RelativeLayout>

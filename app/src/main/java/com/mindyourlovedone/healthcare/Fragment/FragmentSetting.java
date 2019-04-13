@@ -63,7 +63,7 @@ public class FragmentSetting extends Fragment {
         s1.setResImage(R.drawable.medical_one);
 
         Setting s2 = new Setting();
-        s2.setName("Change Password");
+        s2.setName("MYLO FAQs");
         s2.setResImage(R.drawable.insu_one);
 
         Setting s3 = new Setting();
@@ -102,37 +102,69 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentContactUs);
                         break;
                     case 1://Change Password-Section
-                        Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
-                        getActivity().startActivity(intentChangePass);
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_VIEW);
+                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intent.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intent.setType(String.valueOf(Uri.parse("application/pdf")));
+                        ((BaseActivity) getActivity()).CopyReadAssetss("FAQ.pdf");
+                        // intent.setDataAndType(uri, "application/pdf");
+                      /*  try {
+                            getActivity().startActivity(intent);
+
+                        } catch (ActivityNotFoundException e) {
+                            // No application to view, ask to download one
+
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("No Application Found");
+                            builder.setMessage("Download Office Tool from Google Play ?");
+                            builder.setPositiveButton("Yes",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,
+                                                            int which) {
+                                            Intent marketIntent = new Intent(
+                                                    Intent.ACTION_VIEW);
+                                            marketIntent.setData(Uri
+                                                    .parse("market://details?id=com.adobe.reader"));
+                                            getActivity().startActivity(marketIntent);
+                                        }
+                                    });
+                            builder.setNegativeButton("No", null);
+                            builder.create().show();
+                        }*/
+                       /* Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
+                        getActivity().startActivity(intentChangePass);*/
                         break;
                     case 2://User Guide-Section
+                        Intent intents = new Intent();
+                        intents.setAction(Intent.ACTION_VIEW);
+                        intents.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intents.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intents.setType(String.valueOf(Uri.parse("application/pdf")));
+                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
+                        /*try {
+                            getActivity().startActivity(intents);
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setTitle("No Application Found");
-                        builder.setMessage("Download Office Tool from Google Play ?");
-                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
+                        } catch (ActivityNotFoundException e) {
+                            // No application to view, ask to download one
 
-                                Intent intent = new Intent();
-                                intent.setAction(Intent.ACTION_VIEW);
-                                intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                                intent.setData(Uri.parse("market://details?id=com.adobe.reader"));
-                                intent.setType(String.valueOf(Uri.parse("application/pdf")));
-                                ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
-                                // intent.setDataAndType(uri, "application/pdf");
-                                getActivity().startActivity(intent);
-
-
-                                /*Intent marketIntent = new Intent(
-                                        Intent.ACTION_VIEW);
-                                marketIntent.setData(Uri
-                                        .parse("market://details?id=com.adobe.reader"));
-                                startActivity(marketIntent);*/
-                            }
-                        });
-                        builder.setNegativeButton("No", null);
-                        builder.create().show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                            builder.setTitle("No Application Found");
+                            builder.setMessage("Download Office Tool from Google Play ?");
+                            builder.setPositiveButton("Yes",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog,
+                                                            int which) {
+                                            Intent marketIntent = new Intent(
+                                                    Intent.ACTION_VIEW);
+                                            marketIntent.setData(Uri
+                                                    .parse("market://details?id=com.adobe.reader"));
+                                            getActivity().startActivity(marketIntent);
+                                        }
+                                    });
+                            builder.setNegativeButton("No", null);
+                            builder.create().show();
+                        }*/
                         break;
                     case 3://Privacy Policy-Section
                         Toast.makeText(getActivity(), "Screen not provided...!!", Toast.LENGTH_SHORT).show();
