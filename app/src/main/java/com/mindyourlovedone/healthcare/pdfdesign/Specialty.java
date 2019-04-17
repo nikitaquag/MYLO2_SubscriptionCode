@@ -297,8 +297,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
 
            // Header.addEmptyLine(1);
-            Header.addChank("Hospitals And Other Health Professionals");
-            messageHospital.add("Hospitals And Other Health Professionals");
+            Header.addChank("Hospitals And Other Health Professional");
+            messageHospital.add("Hospitals And Other Health Professional");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < hospitalList.size(); i++) {
@@ -541,8 +541,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
 
             //Header.addEmptyLine(1);
-            Header.addChank("Pharmacies And Home Medical Equipment");
-            messagePharmacy.add("Pharmacies And Home Medical Equipment");
+            Header.addChank("Pharmacies & Home Medical Equipment");
+            messagePharmacy.add("Pharmacies & Home Medical Equipment");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < pharmacyList.size(); i++) {
@@ -1092,8 +1092,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Doctors & Other Health Care Professionals ");
-                messageDoctor.add("Doctors & Other Health Care Professionals ");
+                Header.addChank("Doctors & Other Health Care Professional");
+                messageDoctor.add("Doctors & Other Health Care Professional");
                 Header.addEmptyLine(1);
             }
 
@@ -1684,8 +1684,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             if (i==0) {
                 //Header.addEmptyLine(1);
-                Header.addChank("Pharmacies And Home Medical Equipment");
-                messagePharmacy.add("Pharmacies And Home Medical Equipment");
+                Header.addChank("Pharmacies & Home Medical Equipment");
+                messagePharmacy.add("Pharmacies & Home Medical Equipment");
                 Header.addEmptyLine(1);
             }
 
@@ -1876,8 +1876,8 @@ public class Specialty {
             PdfPCell cell1;
             table1.setWidthPercentage(100);
             if (i==0) {
-                Header.addChank("Finance,Insurance,Legal");
-                messageFinance.add("Finance,Insurance,Legal");
+                Header.addChank("Finance, Legal, Other");
+                messageFinance.add("Finance, Legal, Other");
                 Header.addEmptyLine(1);
             }
            // for (i = 0; i < financeList.size(); i++) {

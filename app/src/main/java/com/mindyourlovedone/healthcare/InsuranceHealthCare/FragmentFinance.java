@@ -185,7 +185,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Finance.pdf");
+        File file = new File(dirfile, "FinInsOtherContacts.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -194,7 +194,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Finance,Insurance,Legal");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Finance, Legal, Other");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
@@ -268,9 +268,9 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Finance.pdf";
+                        + "/FinInsOtherContacts.pdf";
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Finance & Legal");
+                preferences.emailAttachement(f, getActivity(), "Finance, Legal, Other ");
                 dialog.dismiss();
 
             }
@@ -281,7 +281,7 @@ public class FragmentFinance extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Finance.pdf";
+                        + "/FinInsOtherContacts.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getFinanceInfo());
 

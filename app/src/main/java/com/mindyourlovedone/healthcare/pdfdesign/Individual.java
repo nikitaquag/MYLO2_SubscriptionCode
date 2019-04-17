@@ -2740,7 +2740,7 @@ public class Individual {
             cell7.setBorderColorBottom(BaseColor.WHITE);
             table7.addCell(cell7);
 
-            messageInfo3.add("Medical Implants -");
+            messageInfo3.add("Medical Implants :");
             messageInfo3.add("");
 
             cell7 = new PdfPCell(new Phrase(""));
@@ -2894,14 +2894,14 @@ public class Individual {
             PdfPCell cell10;
             table10.setWidthPercentage(100);
 
-            cell10 = new PdfPCell(new Phrase("Surgical History - " + ""));
+            cell10 = new PdfPCell(new Phrase("Surgical History : " + ""));
             cell10.setBorder(Rectangle.BOTTOM);
             cell10.setUseBorderPadding(true);
             cell10.setBorderWidthBottom(5);
             cell10.setBorderColorBottom(BaseColor.WHITE);
             table10.addCell(cell10);
 
-            messageInfo3.add("Surgical History -:");
+            messageInfo3.add("Surgical History :");
             messageInfo3.add("");
 
             cell10 = new PdfPCell(new Phrase(""));
@@ -3030,14 +3030,14 @@ public class Individual {
             PdfPCell cell9;
             table9.setWidthPercentage(100);
 
-            cell9 = new PdfPCell(new Phrase("Preferred Hospital - " + ""));
+            cell9 = new PdfPCell(new Phrase("Preferred Hospital : " + ""));
             cell9.setBorder(Rectangle.BOTTOM);
             cell9.setUseBorderPadding(true);
             cell9.setBorderWidthBottom(5);
             cell9.setBorderColorBottom(BaseColor.WHITE);
             table9.addCell(cell9);
 
-            messageInfo3.add("Preferred Hospitals -");
+            messageInfo3.add("Preferred Hospitals :");
             messageInfo3.add("");
 
             cell9 = new PdfPCell(new Phrase(""));
@@ -3175,7 +3175,7 @@ public class Individual {
             messageInfo3.add("Function Notes :");
             messageInfo3.add(functionNote);*/
 
-            cell5 = new PdfPCell(new Phrase("Diet : " + ""));
+            /*cell5 = new PdfPCell(new Phrase("Diet : " + ""));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
@@ -3183,21 +3183,21 @@ public class Individual {
             table5.addCell(cell5);
 
             messageInfo3.add("Diet :");
-            messageInfo3.add("");
+            messageInfo3.add("");*/
 
 
             String dietNote = "";
             if (medInfo.getDietNote() != null) {
                 dietNote = medInfo.getDietNote();
             }
-            cell5 = new PdfPCell(new Phrase("Notes : " + dietNote));
+            cell5 = new PdfPCell(new Phrase("Diet Notes : " + dietNote));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
             cell5.setBorderColorBottom(BaseColor.WHITE);
             table5.addCell(cell5);
 
-            messageInfo3.add("Notes :");
+            messageInfo3.add("Diet Notes :");
             messageInfo3.add(dietNote);
 
             String bloodNote = "";
@@ -3228,6 +3228,17 @@ public class Individual {
 
             messageInfo3.add("Organ Donor :");
             messageInfo3.add(organDonor);
+
+            cell5 = new PdfPCell(new Phrase("" ));
+            cell5.setBorder(Rectangle.BOTTOM);
+            cell5.setUseBorderPadding(true);
+            cell5.setBorderWidthBottom(5);
+            cell5.setBorderColorBottom(BaseColor.WHITE);
+            table5.addCell(cell5);
+
+            messageInfo3.add(" ");
+            messageInfo3.add(organDonor);
+
 
             Header.document.add(table5);
             Paragraph p5 = new Paragraph(" ");
@@ -3875,8 +3886,8 @@ public class Individual {
 
         try {
             Header.addEmptyLine(1);
-            Header.addChank("Activities Of Daily Living");
-            messageLiving.add("Activities Of Daily Living");
+            Header.addChank("Activities of Daily Living");
+            messageLiving.add("Activities of Daily Living");
             Header.addEmptyLine(1);
 
             PdfPTable table;
@@ -3891,14 +3902,14 @@ public class Individual {
                 PdfPCell cell1;
                 table1.setWidthPercentage(100);
 
-                cell1 = new PdfPCell(new Phrase("Activities Of Daily Living(ADL) " + ""));
+                cell1 = new PdfPCell(new Phrase("Activities of Daily Living(ADL) " + ""));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
                 table1.addCell(cell1);
 
-                messageLiving.add("Activities Of Daily Living(ADL)" + "");
+                messageLiving.add("Activities of Daily Living(ADL)" + "");
                 messageLiving.add("");
 
                 cell1 = new PdfPCell(new Phrase(""));
@@ -4058,14 +4069,14 @@ public class Individual {
                 PdfPCell cell2;
                 table2.setWidthPercentage(100);
 
-                cell2 = new PdfPCell(new Phrase("Instrumental Activities Of Daily Living(IADL) " + ""));
+                cell2 = new PdfPCell(new Phrase("Instrumental Activities of Daily Living(IADL) " + ""));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
                 cell2.setBorderColorBottom(BaseColor.WHITE);
                 table2.addCell(cell2);
 
-                messageLiving.add("Instrumental Activities Of Daily Living(IADL)" + "");
+                messageLiving.add("Instrumental Activities of Daily Living(IADL)" + "");
                 messageLiving.add("");
 
                 cell2 = new PdfPCell(new Phrase(""));
@@ -4338,14 +4349,14 @@ public class Individual {
                         reationType = e.getRelationType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Relation Type : " + reationType));
+                cell = new PdfPCell(new Phrase("Relationship : " + reationType));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageEmergency.add("Relation Type :");
+                messageEmergency.add("Relationship :");
                 messageEmergency.add(reationType);
 
 

@@ -191,7 +191,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Hospital.pdf");
+        File file = new File(dirfile, "Hosp,RehabAgencies.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -270,7 +270,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/Hosp,RehabAgencies.pdf";
 
                 File f = new File(path);
                 preferences.emailAttachement(f, getActivity(), "Hospitals, Rehab, Home Care");
@@ -285,7 +285,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/Hosp,RehabAgencies.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getHospitalInfo());
 

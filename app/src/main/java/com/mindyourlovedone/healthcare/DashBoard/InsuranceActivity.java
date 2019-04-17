@@ -75,7 +75,7 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     break;
                 case "Doctors":
                     header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
-                    txtTitle.setText("Doctors & Health\nCare Professionals");
+                    txtTitle.setText("Doctors & Other Health\nCare Professional");
                     callFragment("SPECIALIST", fragmentSpecialist);
                     break;
 

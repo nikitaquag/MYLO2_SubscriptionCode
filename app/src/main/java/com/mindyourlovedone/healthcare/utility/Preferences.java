@@ -160,7 +160,7 @@ public class Preferences {
                // "\n" + username +
                 "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 username;
         //"Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body

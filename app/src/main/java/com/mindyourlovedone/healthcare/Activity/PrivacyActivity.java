@@ -33,7 +33,7 @@ public class PrivacyActivity extends AppCompatActivity implements View.OnClickLi
                 webPrivacy.loadUrl(privacyPdf);
                 /*"http://drive.google.com/viewerng/viewer?embedded=true&url=" + */
             } else {
-                Toast.makeText(context, "Something went wrong dude..!!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(context, "Something went wrong dude..!!", Toast.LENGTH_SHORT).show();
             }
         }
 

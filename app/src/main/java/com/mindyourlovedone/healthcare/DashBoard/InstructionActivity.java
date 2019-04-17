@@ -997,7 +997,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.VISIBLE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Doctors & Other Health Care Professionals");
+                txtHeader.setText("Instructions for Doctors & Other Health Care Professional");
                 break;
 
             case "PhysicianInstruction":
@@ -1406,7 +1406,50 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "Card":
-                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                imgPicture.setVisibility(View.GONE);
+                imgDot.setVisibility(View.GONE);
+                imgPicture.setImageResource(R.drawable.v_user);
+
+                txt61.setText(Html.fromHtml("You can <b>add</b> the card from both the sides i.e <b>front and back</b>."));
+                txt62.setText(Html.fromHtml("For adding front and back card, You need to click on the <b>plus</b> icon. Now you can add picture of card either from <b>Camera or Gallery</b>."));
+                txt63.setText(Html.fromHtml("For adding card through <b>camera</b>, It is <b>recommended</b> that you hold your phone <b>horizontal</b> while taking a picture of a card."));
+                txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
+
+
+                UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
+                        "<br>"+txt62.getText().toString()+"<br>" +
+                        "<br>"+txt63.getText().toString()+"<br>" +
+                        "<br>"+txt64.getText().toString()+"<br>"
+
+                ).toString();
+
+                //nikita
+                txt61.setVisibility(View.VISIBLE);
+                txt62.setVisibility(View.VISIBLE);
+                txt63.setVisibility(View.VISIBLE);
+                txt64.setVisibility(View.VISIBLE);
+                txt622.setVisibility(View.GONE);
+                txt65.setVisibility(View.GONE);
+                txt66.setVisibility(View.GONE);
+                txt67.setVisibility(View.GONE);
+                txt68.setVisibility(View.GONE);
+                txt622.setVisibility(View.GONE);
+                rel622.setVisibility(View.GONE);
+
+                //nikita
+                img61.setVisibility(View.VISIBLE);
+                img62.setVisibility(View.VISIBLE);
+                img63.setVisibility(View.VISIBLE);
+                img64.setVisibility(View.VISIBLE);
+                img65.setVisibility(View.GONE);
+                img66.setVisibility(View.GONE);
+                img67.setVisibility(View.GONE);
+                img68.setVisibility(View.GONE);
+                img622.setVisibility(View.GONE);
+
+                txtTitle.setText("User Instructions");
+                txtHeader.setText("Instructions for Insurance Card GuideLines");
+                /*header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -1449,7 +1492,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img68.setVisibility(View.GONE);
                 img622.setVisibility(View.GONE);
 
-                txtHeader.setText("Insurance Card GuideLines");
+                txtHeader.setText("Insurance Card GuideLines");*/
                 break;
 
         }
@@ -1591,7 +1634,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 } else if (From.equals("FormInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Forms", UI);
                 } else if (From.equals("DoctorInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Doctors & Other Health Care Professionals", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Doctors & Other Health Care Professional", UI);
                 } else if (From.equals("HospitalInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Hospitals, Rehab and Home Care", UI);
                 } else if (From.equals("PharmacyInstruction")) {
@@ -1610,9 +1653,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Other Documents", UI);
                 } else if (From.equals("MedicalInfoInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Medical Records", UI);
+                } else if (From.equals("Card")) {
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Card GuideLines", UI);
                 } else if (From.equals("AdvanceInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Advance Directives", UI);
-                } else {
+                }else {
                     Toast.makeText(context, "Some thing went wrong Dude...!!", Toast.LENGTH_SHORT).show();
                 }
                 dialogEmailIns.dismiss();

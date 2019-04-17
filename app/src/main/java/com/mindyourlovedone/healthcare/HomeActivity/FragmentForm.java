@@ -99,7 +99,7 @@ public class FragmentForm extends Fragment {
 
 
         Links l8 = new Links();
-        l8.setName("Fillable Form Activities Of Daily Living & Instrumental Activities Of Daily Living");
+        l8.setName("Fillable Form Activities of Daily Living & Instrumental Activities of Daily Living");
         l8.setUrl("mylo_living.pdf");
         l8.setImage(R.drawable.pdf);
 

@@ -776,21 +776,19 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[]{""});
-        //  String name = preferences.getString(PrefConstants.CONNECTED_NAME);
-        String username = preferences.getString(PrefConstants.USER_NAME);
-
+        String name = preferences.getString(PrefConstants.CONNECTED_NAME);
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
                 name + " - " + s); // subject
 
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + name +
-                " shared this document with you. Please check the attachment. \n" +
+                //  "\n" + name +
+                "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 name;
-        //  "Mind Your Loved Ones - Support";
+        // "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -799,7 +797,6 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         } else {
             uri = Uri.fromFile(targetFile);
         }
-
         emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
         emailIntent.setType("application/email");
@@ -825,34 +822,38 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         if (requestCode == RESULTCODE && data != null) {
             name = data.getExtras().getString("Name");
             originPath = data.getExtras().getString("URI");
-            txtName.setText(name);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            imgDoc.setClickable(false);
-            // imgDoc.setImageResource(R.drawable.pdf);
-            rlDoc.setBackgroundResource(R.drawable.pdf);
-            imgDoc.setVisibility(View.GONE);
-            imgEdit.setVisibility(View.VISIBLE);
-            txtAttach.setVisibility(View.GONE);
-            txtAdd.setText("Edit File");
-            ShowWindowDialog(text);
+            if (!name.equalsIgnoreCase("")) {
+                txtName.setText(name);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                imgDoc.setClickable(false);
+                // imgDoc.setImageResource(R.drawable.pdf);
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                imgDoc.setVisibility(View.GONE);
+                imgEdit.setVisibility(View.VISIBLE);
+                txtAttach.setVisibility(View.GONE);
+                txtAdd.setText("Edit File");
+                ShowWindowDialog(text);
+            }
         } else if (requestCode == RQUESTCODE) {
             name = preferences.getString(PrefConstants.RESULT);
             // name = data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
 
             // originPath = data.getExtras().getString("URI");
-            txtName.setText(name);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            // imgDoc.setImageResource(R.drawable.pdf);
-            rlDoc.setBackgroundResource(R.drawable.pdf);
-            imgDoc.setVisibility(View.GONE);
-            txtAttach.setVisibility(View.GONE);
-            imgDoc.setClickable(false);
-            txtAdd.setText("Edit File");
-            imgEdit.setVisibility(View.VISIBLE);
-            ShowWindowDialog(text);
+            if (!name.equalsIgnoreCase("")) {
+                txtName.setText(name);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                // imgDoc.setImageResource(R.drawable.pdf);
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                imgDoc.setVisibility(View.GONE);
+                txtAttach.setVisibility(View.GONE);
+                imgDoc.setClickable(false);
+                txtAdd.setText("Edit File");
+                imgEdit.setVisibility(View.VISIBLE);
+                ShowWindowDialog(text);
+            }
         }
     }
 

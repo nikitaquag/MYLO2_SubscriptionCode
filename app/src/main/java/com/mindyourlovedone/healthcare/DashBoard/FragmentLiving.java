@@ -328,14 +328,14 @@ public class FragmentLiving extends Fragment implements View.OnClickListener, Co
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);
                 dirfile.mkdirs();
-                File file = new File(dirfile, "ActivityLiving.pdf");
+                File file = new File(dirfile, "ADL-IADLs.pdf");
                 if (file.exists()) {
                     file.delete();
                 }
                 new Header().createPdfHeader(file.getAbsolutePath(),
                         "" + preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(1);
-                Header.addusereNameChank("Activities Of Daily Living");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addusereNameChank("Activities of Daily Living");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(1);
                 /*new Header().createPdfHeader(file.getAbsolutePath(),
                         "Activities Of Daily Living");
@@ -358,7 +358,7 @@ public class FragmentLiving extends Fragment implements View.OnClickListener, Co
 
                     public void onClick(DialogInterface dialog, int itemPos) {
                         String path = Environment.getExternalStorageDirectory()
-                                + "/mylopdf/" + "ActivityLiving.pdf";
+                                + "/mylopdf/" + "ADL-IADLs.pdf";
                         switch (itemPos) {
                             case 0: //View
                                 StringBuffer result = new StringBuffer();

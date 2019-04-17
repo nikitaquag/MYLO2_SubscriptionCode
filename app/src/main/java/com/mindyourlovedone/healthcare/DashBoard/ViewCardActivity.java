@@ -288,7 +288,7 @@ public class ViewCardActivity extends AppCompatActivity implements View.OnClickL
         preferences.copyFile("ic_launcher.png",ViewCardActivity.this);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Insurance Card");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Insurance Cards");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 

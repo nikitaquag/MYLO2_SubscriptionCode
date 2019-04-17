@@ -89,6 +89,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
     boolean flagBackup = false;
 
     int Fun_Type = 0;
+    int isFile=0;
 
     // For to Delete the directory inside list of files and inner Directory //nikita
     public static boolean deleteDir(File dir) {//nikita
@@ -695,6 +696,13 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         if (preferences.getString(PrefConstants.URI).equals("") && preferences.getString(PrefConstants.RESULT).equals("")) {
 //            btnAdd.setVisibility(View.GONE);
             //   txtFile.setVisibility(View.GONE);
+            if (isFile==0)
+            {
+                isFile++;
+            }else if(preferences.getString(PrefConstants.URI).equals("") && preferences.getString(PrefConstants.RESULT).equals("")&&preferences.getString(PrefConstants.STORE).equals("Document"))
+            {
+                finish();
+            }
 
         } else {
             if (preferences.getString(PrefConstants.STORE).equals("Document")) {

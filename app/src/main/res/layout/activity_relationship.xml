@@ -98,7 +98,7 @@
             android:background="@drawable/border_type"
             android:gravity="center"
             android:padding="@dimen/dimension5dp"
-            android:text="Test"
+            android:text="Specialist"
             android:textAllCaps="false"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/dimension16dp"
@@ -119,7 +119,7 @@
             android:background="@drawable/border_specialist"
             android:gravity="center"
             android:padding="@dimen/dimension5dp"
-            android:text="Specialist"
+            android:text="Test"
             android:textAllCaps="false"
             android:textColor="@color/colorNewHereBlue"
             android:textSize="@dimen/dimension16dp"
@@ -133,14 +133,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/llType"
-        android:background="@drawable/drop_down">
+        >
 
         <ListView
             android:id="@+id/lvType"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="visible"
             android:divider="@null"
+            android:visibility="gone"
             android:background="@color/colorWhite"></ListView>
 
     </RelativeLayout>
@@ -150,13 +150,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/llType"
-        android:visibility="gone">
+        >
 
         <ListView
             android:id="@+id/lvSpecialist"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@null"
+            android:visibility="gone"
             android:background="@color/colorWhite"></ListView>
 
     </RelativeLayout>

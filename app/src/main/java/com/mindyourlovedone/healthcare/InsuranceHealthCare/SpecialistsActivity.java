@@ -157,7 +157,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 profile = new int[]{R.drawable.sp_one, R.drawable.sp_two, R.drawable.sp_three, R.drawable.sp_four};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"Doctors And Other Health Care Professionals", "Hospitals, Rehab, Home Care", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
+                specialist = new String[]{"Doctors & Other Health Care Professional", "Hospitals, Rehab, Home Care", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
 
                 isEmergency = false;
                 isInsurance = false;
@@ -728,10 +728,10 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + username +
-                " shared this document with you. Please check the attachment. \n" +
+                //"\n" + username +
+                "I shared this document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 username;
         // "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
@@ -857,7 +857,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
             Header.addEmptyLine(1);
-            Header.addusereNameChank("Doctors & Health Care Professionals");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            Header.addusereNameChank("Specialty Contacts");//preferences.getString(PrefConstants.CONNECTED_NAME));
             Header.addEmptyLine(1);
 
             Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -1191,7 +1191,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                     File f = new File(Environment.getExternalStorageDirectory()
                             + "/mylopdf/"
                             + "/Event.pdf");
-                    emailAttachement(f, "Event");
+                    emailAttachement(f, "Notes, Appointments, ADLs, Vital Signs");
                 }else if (from.equals("Prescription")) {
                     File f = new File(Environment.getExternalStorageDirectory()
                             + "/mylopdf/"

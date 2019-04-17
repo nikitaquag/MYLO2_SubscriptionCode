@@ -238,8 +238,8 @@ public class InsurancePdf {
             table1.setWidthPercentage(100);
 
          //   Header.addEmptyLine(1);
-            Header.addChank("Insurance Card");
-            messageCard.add("Insurance Card");
+            Header.addChank("Insurance Cards");
+            messageCard.add("Insurance Cards");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < cardList.size(); i++) {

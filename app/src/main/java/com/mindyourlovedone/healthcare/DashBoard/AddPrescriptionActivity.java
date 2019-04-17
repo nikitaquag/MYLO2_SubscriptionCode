@@ -966,10 +966,10 @@ LinearLayout casts_container;
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + name +
-                " shared this document with you. Please check the attachment. \n" +
+                //"\n" + name +
+                "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 name;
         //"Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
