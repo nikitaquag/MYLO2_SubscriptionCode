@@ -2482,8 +2482,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             case "Speciality":
                 changeIcon(source);
                 visiSpecialist();
-                txtAdd.setText("Add Doctors & Health Care Professional");
-                txtTitle.setText("Add Doctors & Health Care Professional");
+                txtAdd.setText("Add Doctors & Health Care Professionals");
+                txtTitle.setText("Add Doctors & Health Care Professionals");
 //                setListPh(listDrPhone);
                 PhoneLayout = llAddDrPhone;
                 setListPh();
@@ -2503,8 +2503,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 visiSpecialist();
                 txtDelete.setVisibility(View.GONE);
-                txtAdd.setText("Update Doctors & Health Care Professional");
-                txtTitle.setText("Update Doctors & Health Care Professional");
+                txtAdd.setText("Update Doctors & Health Care Professionals");
+                txtTitle.setText("Update Doctors & Health Care Professionals");
                 Intent specialistIntent = getActivity().getIntent();
                 if (specialistIntent.getExtras() != null) {
                     specialist = (Specialist) specialistIntent.getExtras().getSerializable("SpecialistObject");
@@ -3371,8 +3371,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
                 // visiFinance();
                 visiHospital();
-                txtAdd.setText("Add Hospitals, Rehab, Home Care");
-                txtTitle.setText("Add Hospitals, Rehab, Home Care");
+                txtAdd.setText("Add Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
+                txtTitle.setText("Add Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
 //                setListPh(listHospPhone);
                 PhoneLayout = llAddHospPhone;
                 setListPh();
@@ -3385,8 +3385,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilFNameHospital.setHintEnabled(true);
                 txtFNameHospital.setFocusable(true);
                 txtDelete.setVisibility(View.GONE);
-                txtAdd.setText("Update Hospitals, Rehab, Home Care");
-                txtTitle.setText("Update Hospitals, Rehab, Home Care");
+                txtAdd.setText("Update Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
+                txtTitle.setText("Update Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
                 Intent hospIntent = getActivity().getIntent();
                 if (hospIntent.getExtras() != null) {
                     Hospital specialist = (Hospital) hospIntent.getExtras().getSerializable("HospitalObject");
@@ -4384,8 +4384,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         rlAids.setVisibility(View.GONE);
         rlProxy.setVisibility(View.GONE);
 
-        txtAdd.setText("Add Doctors & Other Health Care Professional");
-        txtTitle.setText("Add Doctors & Other Health Care Professional");
+        txtAdd.setText("Add Doctors & Other Health Care Professionals");
+        txtTitle.setText("Add Doctors & Other Health Care Professionals");
         // tilDoctorName.setHintEnabled(false);
 
        /* txtDoctorName.setOnTouchListener(new View.OnTouchListener() {

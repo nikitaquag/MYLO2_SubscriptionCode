@@ -537,7 +537,42 @@
                         android:fontFamily="@font/lato"
                         android:textSize="@dimen/dimension18dp" />
                 </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rlStep9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlStep8"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
 
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/imgStep9"
+                        android:layout_width="@dimen/dimension15dp"
+                        android:layout_height="@dimen/dimension15dp"
+                        android:layout_marginTop="@dimen/dimension5dp"
+
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:src="@drawable/dot_bullet"
+
+                        android:textAlignment="center" />
+
+                    <TextView
+                        android:id="@+id/txtStep9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/imgStep9"
+                        android:gravity="start"
+                        android:layout_marginRight="@dimen/dimension10dp"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:text=""
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/colorBlack"
+                        android:fontFamily="@font/lato"
+                        android:textSize="@dimen/dimension18dp" />
+                </RelativeLayout>
             </RelativeLayout>
 
         </RelativeLayout>

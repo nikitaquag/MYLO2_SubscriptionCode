@@ -1591,7 +1591,7 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 drug_amt = txtDrugAmt.getText().toString().trim();
                 drug_year = txtDrugYear.getText().toString().trim();
 
-                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USEREMAIL), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote,historynote,vaccinenote,implantsnote);
+                Boolean flag = MedInfoQuery.insertMedInfoData(preferences.getInt(PrefConstants.CONNECTED_USERID), blood, glass, lense, falses, implants, aid, donor, note, mouth, mouthnote, visionnote, Aidenote, dietnote, blind, speech, allergynote, tobaco, t_type, t_amt, t_year, drink, drink_amt, drug, drug_type, drug_amt, drug_year, drink_year, functionnote,historynote,vaccinenote,implantsnote);
                 if (flag == true) {
                     Toast.makeText(getActivity(), "Medical Profile Saved", Toast.LENGTH_SHORT).show();
                     hideSoftKeyboard();

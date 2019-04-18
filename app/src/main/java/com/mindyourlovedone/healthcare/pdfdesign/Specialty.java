@@ -94,13 +94,13 @@ public class Specialty {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name of Doctor/Health Professional\n : " + name));
+                cell = new PdfPCell(new Phrase("Name of Doctor/Health Professionals\n : " + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Name of Doctor/Health Professional\n :");
+                messageDoctor.add("Name of Doctor/Health Professionals\n :");
                 messageDoctor.add(name);
 
                 String officePhone = "";
@@ -297,8 +297,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
 
            // Header.addEmptyLine(1);
-            Header.addChank("Hospitals And Other Health Professional");
-            messageHospital.add("Hospitals And Other Health Professional");
+            Header.addChank("Hospitals And Other Health Professionals");
+            messageHospital.add("Hospitals And Other Health Professionals");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < hospitalList.size(); i++) {
@@ -1092,8 +1092,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Doctors & Other Health Care Professional");
-                messageDoctor.add("Doctors & Other Health Care Professional");
+                Header.addChank("Doctors & Other Health Care Professionals");
+                messageDoctor.add("Doctors & Other Health Care Professionals");
                 Header.addEmptyLine(1);
             }
 
@@ -1397,8 +1397,8 @@ public class Specialty {
             table1.setWidthPercentage(100);
             if (f==0) {
                 // Header.addEmptyLine(1);
-                Header.addChank("Hospitals, Rehab, Home Care ");
-                messageHospital.add("Hospitals, Rehab, Home Care ");
+                Header.addChank("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
+                messageHospital.add("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
                 Header.addEmptyLine(1);
             }
           //  for (int i = 0; i < hospitalList.size(); i++) {

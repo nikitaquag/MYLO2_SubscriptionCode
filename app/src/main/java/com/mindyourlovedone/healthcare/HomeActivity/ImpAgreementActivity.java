@@ -57,7 +57,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
         Intent i=getIntent();
         name=i.getStringExtra("Name");
         email=i.getStringExtra("Email");
-        initComponent();
+     //   initComponent();
         initListener();
     }
 
@@ -136,12 +136,23 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
 
                     if ( validation())
                     {
-                        accessPermission();
+                       // preferences.putInt(PrefConstants.USER_ID, userid);
+                        Intent signupIntent = new Intent(context, BaseActivity.class);
+                        /*preferences.putString(PrefConstants.USER_EMAIL, email);
+                        preferences.putString(PrefConstants.USER_NAME, name);
+                        preferences.setREGISTERED(true);
+                        preferences.setLogin(true);
+                        if(getIntent().hasExtra("PDF_EXT")) {
+                            signupIntent.putExtra("PDF_EXT", getIntent().getStringExtra("PDF_EXT"));
+                        }*/
+                        startActivity(signupIntent);
+                        finish();
+                        //accessPermission();
                     }
                    else {
-                        Toast toast = Toast.makeText(context, Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_LONG);
+                     /*   Toast toast = Toast.makeText(context, Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
+                        toast.show();*/
                     }
               //  }
                /* Intent intentBase = new Intent(context, BaseActivity.class);
@@ -215,7 +226,9 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
          {
              f=true; }
          else {
-             Toast.makeText(context, "Click to Accept", Toast.LENGTH_SHORT).show();
+             Toast toast = Toast.makeText(context, Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_SHORT);
+             toast.setGravity(Gravity.CENTER, 0, 0);
+             toast.show();
          }
 
      return f;

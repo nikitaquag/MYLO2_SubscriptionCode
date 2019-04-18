@@ -130,7 +130,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Pharmacies";
                         break;
 
-                    case "Hospitals, Rehab, Home Care":
+                    case "Urgent Care, TeleMed, Hospitals, Rehab, Home Care":
                         fragment = "Hospitals";
                         break;
 
@@ -138,7 +138,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Functional";
                         break;
 
-                    case "Doctors & Other Health Care Professional":
+                    case "Doctors & Other Health Care Professionals":
                         fragment = "Doctors";
                         break;
 

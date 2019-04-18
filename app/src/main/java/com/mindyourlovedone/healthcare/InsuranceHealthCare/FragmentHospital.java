@@ -200,7 +200,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -273,7 +273,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                         + "/Hosp,RehabAgencies.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Hospitals, Rehab, Home Care");
+                preferences.emailAttachement(f, getActivity(), "Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
 
                 dialog.dismiss();
 

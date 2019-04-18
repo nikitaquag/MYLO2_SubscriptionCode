@@ -23,7 +23,7 @@ import com.mindyourlovedone.healthcare.utility.UIEmails;
 public class UserInsActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView imgBack,txtEmail;
 
-    TextView  txtStep1, txtStep2, txtStep22, txtStep222, txtStep3, txtStep4, txtStep5, txtStep55, txtStep555, txtStep6, txtStep7, txtStep8,txtHeader;
+    TextView  txtStep1, txtStep2, txtStep22, txtStep222, txtStep3, txtStep4, txtStep5, txtStep55, txtStep555, txtStep6, txtStep7, txtStep8,txtStep9,txtHeader;
     Context context = this;
     FloatingActionButton floatProfile;
 
@@ -60,6 +60,7 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
         txtStep6 = findViewById(R.id.txtStep6);
         txtStep7 = findViewById(R.id.txtStep7);
         txtStep8 = findViewById(R.id.txtStep8);
+        txtStep9 = findViewById(R.id.txtStep9);
         RelativeLayout relStep222 = findViewById(R.id.rlStep222);
         RelativeLayout relStep22 = findViewById(R.id.rlStep22);
         RelativeLayout relStep55 = findViewById(R.id.rlStep55);
@@ -69,25 +70,24 @@ public class UserInsActivity extends AppCompatActivity implements View.OnClickLi
         RelativeLayout relStep6 = findViewById(R.id.rlStep6);
         RelativeLayout relStep7 = findViewById(R.id.rlStep7);
         RelativeLayout relStep8 = findViewById(R.id.rlStep8);
-
+        RelativeLayout relStep9 = findViewById(R.id.rlStep9);
         Intent i = getIntent();
         if (i.getExtras() != null) {
             From = i.getExtras().getString("From");
         }
 if (From.equalsIgnoreCase("Profile")) {
     txtHeader.setText(R.string.prof_inst);
-    txtStep1.setText(Html.fromHtml("This is the Profiles screen.  This is where you will create a profile for each of your loved ones. Inside each profile is a dashboard.  To create a profile you will need 3 pieces of information; (1) Name, (2) Relationship, and (3) Email address.   To delete a profile you can long press on the profile bar.\n"));
-    txtStep2.setText(Html.fromHtml("The Dashboard.  The dashboard is where you will input and store information and documents. To open the dashboard you can click anywhere on the profile bar.  There are 6 sections on the dashboard and within each section are sub-sections. The main sections are (1) Personal, Medical and Emergency Contacts; (2) Specialty Contacts; (3) Notes and Appointments; (4) Advance Directives and Other Documents; (5) Insurance; and (6) Prescriptions.  \n"));
-    txtStep3.setText(Html.fromHtml("User Instructions.  Each section and sub-section have first time user instructions. Instructions are also always available by clicking the question mark on the top right corner of the screen.  To exit the user instructions click the arrow back button on the top right corner of the screen. To forward instructions click the up arrow on the right top corner of the screen.\n"));
-    txtStep4.setText(Html.fromHtml("Reports.  Reports are included for each section and sub-section. Users can view the report online or email it. Fax capability is available for the sections most often sent to medical professionals and is required for HIPAA purposes.\n"));
-    txtStep5.setText(Html.fromHtml("The Menu Bar.  The menu bar is available from the Profiles page and the Dashboard. It’s located on the top left corner.  The menu bar is chockful of important information.  Please take a look at the Resource section – it  includes information about advance care directives, MYLO forms and templates, and interesting podcasts and videos.  By clicking All Profiles you will return to the profile screen.\n"));
-   // txtStep6.setText(Html.fromHtml("<b>There are three required elements to create a Profile:</b>  (1) a name; (2) a relationship; and (3) an email address. You can type in the new profile or add some of the information from your contacts. Once you fill in that data click <b>SAVE</b> on the top right side of the screen.  You will automatically be brought to the Profiles Screen.).\n\n"));
-   // txtStep7.setText(Html.fromHtml("<b>Deleting Profiles.</b>  To delete a profile, long press on the profile box. A screen will pop up asking if you want to Delete the Profile or Backup/Share the profile.   Instructions for the backup/share function will be provided in another set of instructions titled <b>Backup, Restore, and Sharing a Profile.</b>\n\n"));
-  //  txtStep8.setText(Html.fromHtml("<b>LET’S GET STARTED</b> – GO TO YOUR PROFILE AND CLICK ON YOUR NAME OR THE LITTLE FILE FOLDER ON THE RIGH SIDE OF THE BAR. YOU WILL BE BROUGH TO THE DASHBOARD.  TO LEARN MORE ABOUT THE DASHBOARD CLICK THE QUESTION MARK ON THE TOP RIGHT OF THE SCREEN\n\n"));
+    txtStep1.setText(Html.fromHtml("<b>User Instructions.</b> Each section and sub-section have first time user instructions. Instructions are also always available by clicking the question mark on the top right corner of the screen. To exit the user instructions, click the arrow back button on the top right corner of the screen. To forward instructions click the up arrow on the right top corner of the screen."));
+    txtStep2.setText(Html.fromHtml("<b>This is the Profiles screen.</b>  A User’s profile was automatically created when they registered.  Click anywhere on the cell (except on the photo circle), to open the Dashboard.  The file folder represents the Dashboard. \n"));
+    txtStep3.setText(Html.fromHtml("<b>The Dashboard.</b>  The Dashboard is where Users will input and store information and documents. There are 6 sections on the Dashboard and within each section are sub-sections. The main sections are (1) Personal, Medical and Emergency Contacts; (2) Specialty Contacts; (3) Notes and Appointments; (4) Advance Directives and Other Documents; (5) Insurance; and (6) Prescriptions."));
+    txtStep4.setText(Html.fromHtml("<b>Create a Profile for a Loved One.</b>  From the Profiles Screen, click the green PLUS button on the bottom right of the screen. Users will be given a choice to “Create New or Import from Dropbox”.  Create New allows Users to initiate a new profile. Users can automatically add data from their contacts, or type in new information.  The minimum amount of information you need to create a profile is the person’s name, the User’s relationship to the person, and email address. "));
+    txtStep5.setText(Html.fromHtml("<b>Import from Dropbox</b> is used if the User is restoring a profile or uploading a profile that was shared by another person. Further instructions can be found in the Menu Bar. "));
+   txtStep6.setText(Html.fromHtml("<b>Delete a Profile.</b>  To delete a profile, long press on the profile bar.  Users will see two choices, “delete or backup/share the profile”. "));
+    txtStep7.setText(Html.fromHtml("<b>Backup or Share a Profile.</b>  To backup or share a profile, long press on the profile bar.  Click on backup/share a profile and the User will be provided further instructions. "));
+    txtStep8.setText(Html.fromHtml("<b>Reports.</b> Reports are included for each section and sub-section. Users can view the report or email it. Fax capability is available for the sections most often sent to medical professionals and is required for HIPAA purposes.  To access reports, click the green circle (with three white dots) on the bottom of the screen. "));
+    txtStep9.setText(Html.fromHtml("<b>The Menu Bar.</b> The menu bar is available from the Profiles page and the Dashboard. It’s located on the top left corner (the three horizontal lines). The menu bar is chockful of important information. Please take a look at the Resource section – it includes information about advance care directives, MYLO forms and templates, and interesting podcasts and videos. If in the Menu bar click All Profiles to return to the Profiles screen. "));
 
-    relStep6.setVisibility(View.GONE);
-    relStep7.setVisibility(View.GONE);
-    relStep8.setVisibility(View.GONE);
+
     relStep222.setVisibility(View.GONE);
     relStep22.setVisibility(View.GONE);
     relStep55.setVisibility(View.GONE);
@@ -98,10 +98,11 @@ if (From.equalsIgnoreCase("Profile")) {
             "<br>"+ txtStep2.getText().toString()+" <br>" +
             "<br>"+ txtStep3.getText().toString()+" <br>" +
             "<br> "+ txtStep4.getText().toString()+" <br>" +
-           // "<br> "+ txtStep1.getText().toString()+" <br>" +
-           //  "<br>"+ txtStep1.getText().toString()+" <br>" +
-         //   "<br>"+ txtStep1.getText().toString()+" <br>" +
-            "<br>"+ txtStep5.getText().toString()+"<br>").toString();
+            "<br> "+ txtStep5.getText().toString()+" <br>" +
+             "<br>"+ txtStep6.getText().toString()+" <br>" +
+           "<br>"+ txtStep7.getText().toString()+" <br>" +
+            "<br>"+ txtStep8.getText().toString()+" <br>" +
+            "<br>"+ txtStep9.getText().toString()+"<br>").toString();
 
 }else if (From.equalsIgnoreCase("Dashboard")){
     txtHeader.setText("Understanding the Dashboard");
@@ -121,6 +122,7 @@ if (From.equalsIgnoreCase("Profile")) {
     relStep6.setVisibility(View.GONE);
     relStep7.setVisibility(View.GONE);
     relStep8.setVisibility(View.GONE);
+    relStep9.setVisibility(View.GONE);
     relStep222.setVisibility(View.GONE);
     relStep22.setVisibility(View.GONE);
     relStep55.setVisibility(View.GONE);

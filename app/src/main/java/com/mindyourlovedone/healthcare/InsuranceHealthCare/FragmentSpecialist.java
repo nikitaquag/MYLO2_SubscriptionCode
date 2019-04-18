@@ -415,7 +415,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Doctors & Other Health Care Professional");//pFreferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Doctors & Other Health Care Professionals");//pFreferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
