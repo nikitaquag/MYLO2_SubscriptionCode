@@ -1344,10 +1344,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtHeight.setText(connection.getHeight());
             txtWeight.setText(connection.getWeight());
             txtProfession.setText(connection.getProfession());
-            if(connection.getPeople().equalsIgnoreCase("null")) {
+            if(connection.getPeople()!=null) {
+                if (connection.getPeople().equalsIgnoreCase("null")) {
+                    txtPeople.setText("");
+                } else {
+                    txtPeople.setText(connection.getPeople());
+                }
+            } else {
                 txtPeople.setText("");
-            }else{
-                txtPeople.setText(connection.getPeople());
             }
             txtEmployed.setText(connection.getEmployed());
             txttelephone.setText(connection.getManager_phone());
