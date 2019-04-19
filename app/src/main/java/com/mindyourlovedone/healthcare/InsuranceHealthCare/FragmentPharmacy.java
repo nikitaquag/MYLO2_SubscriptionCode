@@ -272,7 +272,7 @@ public class FragmentPharmacy extends Fragment implements View.OnClickListener {
                         + "/Pharmacy.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Pharmacies And Home Medical Equipment");
+                preferences.emailAttachement(f, getActivity(), "Pharmacies & Home Medical Equipment");
                 dialog.dismiss();
 
             }

@@ -1228,8 +1228,8 @@ public class Individual {
     }
 
     public Individual(ArrayList<Living> livingList, int i) {
-        Header.addChank("Activities Of Daily Living");
-        messageLiving.add("Activities Of Daily Living");
+        Header.addChank("Activities of Daily Living");
+        messageLiving.add("Activities of Daily Living");
         Header.addEmptyLine(1);
 
         Header.widths[0] = 0.15f;
@@ -1238,9 +1238,9 @@ public class Individual {
         Header.table.getDefaultCell().setBorder(Rectangle.NO_BORDER);
 
         for (i = 0; i < livingList.size(); i++) {
-            Header.addTable("Activities Of Daily Living(ADL)" + " :");
+            Header.addTable("Activities of Daily Living(ADL)" + " :");
             Header.addTable("");
-            messageLiving.add("Activities Of Daily Living(ADL)" + " :");
+            messageLiving.add("Activities of Daily Living(ADL)" + " :");
             messageLiving.add("");
 
             Living s = livingList.get(i);
@@ -1318,9 +1318,9 @@ public class Individual {
             messageLiving.add(functionNote);
 
 
-            Header.addTable("Instrumental Activities Of Daily Living(IADL)" + " :");
+            Header.addTable("Instrumental Activities of Daily Living(IADL)" + " :");
             Header.addTable("");
-            messageLiving.add("Instrumental Activities Of Daily Living(IADL)" + " :");
+            messageLiving.add("Instrumental Activities of Daily Living(IADL)" + " :");
             messageLiving.add("");
 
             String access = "";

@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -453,7 +454,30 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                     }
                     // Uri uris = Uri.parse(documentPath);
                     intent.setDataAndType(uris, "application/pdf");
-                    context.startActivity(intent);
+                    intent.setPackage("com.adobe.reader");
+                    try {
+                        context.startActivity(intent);
+
+                    } catch (ActivityNotFoundException e) {
+                        // No application to view, ask to download one
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle("No Application Found");
+                        builder.setMessage("Download Office Tool from Google Play ?");
+                        builder.setPositiveButton("Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+                                        Intent marketIntent = new Intent(
+                                                Intent.ACTION_VIEW);
+                                        marketIntent.setData(Uri
+                                                .parse("market://details?id=com.adobe.reader"));
+                                        context.startActivity(marketIntent);
+                                    }
+                                });
+                        builder.setNegativeButton("No", null);
+                        builder.create().show();
+                    }
                    /* Uri uris = Uri.parse(documentPath);
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
@@ -660,7 +684,18 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         View dialogview = lf.inflate(R.layout.dialog_email, null);
         final TextView txtIns = dialogview.findViewById(R.id.txtIns);
         final TextView txtOk = dialogview.findViewById(R.id.txtOk);
+        String data=Html.fromHtml(
+                "<li> √ To upload an email attachment open the attachment from your email and click the forward button on the upper right side of the screen. \n</li>" +
+                        "<li> √ Scroll through the App until you find MYLO.  Click MYLO – then click the Profile you wish to attach the document to, then click the sub-section the document pertains to and click OK. \n</li>" +
+                        "<li> √ Enter additional information and then click Save. \n</li>" +
+                        "<li> √ Watch a 10\n" +
+                        "second video found in the\n" +
+                        "Menu section of “How to\n" +
+                        "Videos”. \n</li>"
 
+        ).toString();
+
+        txtIns.setText(data);
 
         dialogEmail.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
@@ -741,21 +776,19 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
         emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL,
                 new String[]{""});
-        //  String name = preferences.getString(PrefConstants.CONNECTED_NAME);
-        String username = preferences.getString(PrefConstants.USER_NAME);
-
+        String name = preferences.getString(PrefConstants.CONNECTED_NAME);
         emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT,
                 name + " - " + s); // subject
 
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + name +
-                " shared this document with you. Please check the attachment. \n" +
+                //  "\n" + name +
+                "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 name;
-        //  "Mind Your Loved Ones - Support";
+        // "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -764,7 +797,6 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         } else {
             uri = Uri.fromFile(targetFile);
         }
-
         emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
         emailIntent.setType("application/email");
@@ -790,34 +822,38 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         if (requestCode == RESULTCODE && data != null) {
             name = data.getExtras().getString("Name");
             originPath = data.getExtras().getString("URI");
-            txtName.setText(name);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            imgDoc.setClickable(false);
-            // imgDoc.setImageResource(R.drawable.pdf);
-            rlDoc.setBackgroundResource(R.drawable.pdf);
-            imgDoc.setVisibility(View.GONE);
-            imgEdit.setVisibility(View.VISIBLE);
-            txtAttach.setVisibility(View.GONE);
-            txtAdd.setText("Edit File");
-            ShowWindowDialog(text);
+            if (!name.equalsIgnoreCase("")) {
+                txtName.setText(name);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                imgDoc.setClickable(false);
+                // imgDoc.setImageResource(R.drawable.pdf);
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                imgDoc.setVisibility(View.GONE);
+                imgEdit.setVisibility(View.VISIBLE);
+                txtAttach.setVisibility(View.GONE);
+                txtAdd.setText("Edit File");
+                ShowWindowDialog(text);
+            }
         } else if (requestCode == RQUESTCODE) {
             name = preferences.getString(PrefConstants.RESULT);
             // name = data.getExtras().getString("Name");
             originPath = preferences.getString(PrefConstants.URI);//data.getExtras().getString("URI");
 
             // originPath = data.getExtras().getString("URI");
-            txtName.setText(name);
-            String text = "You Have selected <b>" + name + "</b> Document";
-            Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-            // imgDoc.setImageResource(R.drawable.pdf);
-            rlDoc.setBackgroundResource(R.drawable.pdf);
-            imgDoc.setVisibility(View.GONE);
-            txtAttach.setVisibility(View.GONE);
-            imgDoc.setClickable(false);
-            txtAdd.setText("Edit File");
-            imgEdit.setVisibility(View.VISIBLE);
-            ShowWindowDialog(text);
+            if (!name.equalsIgnoreCase("")) {
+                txtName.setText(name);
+                String text = "You Have selected <b>" + name + "</b> Document";
+                Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
+                // imgDoc.setImageResource(R.drawable.pdf);
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                imgDoc.setVisibility(View.GONE);
+                txtAttach.setVisibility(View.GONE);
+                imgDoc.setClickable(false);
+                txtAdd.setText("Edit File");
+                imgEdit.setVisibility(View.VISIBLE);
+                ShowWindowDialog(text);
+            }
         }
     }
 

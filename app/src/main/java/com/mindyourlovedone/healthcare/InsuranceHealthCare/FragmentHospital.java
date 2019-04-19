@@ -191,7 +191,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Hospital.pdf");
+        File file = new File(dirfile, "Hosp,RehabAgencies.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -200,7 +200,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -270,10 +270,10 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/Hosp,RehabAgencies.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Hospitals, Rehab, Home Care");
+                preferences.emailAttachement(f, getActivity(), "Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
 
                 dialog.dismiss();
 
@@ -285,7 +285,7 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Hospital.pdf";
+                        + "/Hosp,RehabAgencies.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getHospitalInfo());
 

@@ -486,7 +486,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "ActivityLiving.pdf");
+        File file = new File(dirfile, "ADL-IADLs.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -495,7 +495,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Activities Of Daily Living");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Activities of Daily Living");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -565,7 +565,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
                 //  CopyReadAssetss("insu_pdf.pdf");
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/ActivityLiving.pdf";
+                        + "/ADL-IADLs.pdf";
                 File f = new File(path);
                 preferences.emailAttachement(f, context, "Activities of Daily Living");
                 dialog.dismiss();
@@ -578,7 +578,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/ActivityLiving.pdf";
+                        + "/ADL-IADLs.pdf";
 
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getLivingInfo());

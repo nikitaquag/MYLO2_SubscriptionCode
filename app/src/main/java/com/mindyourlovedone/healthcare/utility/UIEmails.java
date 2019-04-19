@@ -54,9 +54,10 @@ public class UIEmails {
         String body = "Hi, \n" +
                 "\n" +
                // "\n" + name +
-                "I shared these "+s+" with you. \n\n" + Data +
+              //  "I shared these "+s+" with you. \n\n" + Data +
+                "Here are the "+s+". \n\n" + Data +
                 "\n\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 name;
         // "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body

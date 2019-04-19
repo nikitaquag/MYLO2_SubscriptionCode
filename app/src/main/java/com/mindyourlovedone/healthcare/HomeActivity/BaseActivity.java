@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1181,7 +1182,29 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         intent.setAction(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(uri, "application/pdf");
-        context.startActivity(intent);
+        try {
+            context.startActivity(intent);
+
+        } catch (ActivityNotFoundException e) {
+            // No application to view, ask to download one
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("No Application Found");
+            builder.setMessage("Download Office Tool from Google Play ?");
+            builder.setPositiveButton("Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int which) {
+                            Intent marketIntent = new Intent(
+                                    Intent.ACTION_VIEW);
+                            marketIntent.setData(Uri
+                                    .parse("market://details?id=com.adobe.reader"));
+                            context.startActivity(marketIntent);
+                        }
+                    });
+            builder.setNegativeButton("No", null);
+            builder.create().show();
+        }
 
     }
 

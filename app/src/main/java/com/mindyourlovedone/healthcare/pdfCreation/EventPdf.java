@@ -117,6 +117,7 @@ public class EventPdf {
 
                 messageAppoint.add("Note :");
                 messageAppoint.add(note);
+
                 cell = new PdfPCell(new Phrase("Date Completed" + " :"));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
@@ -124,6 +125,15 @@ public class EventPdf {
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
                 messageAppoint.add("Date Completed" + " :");
+                messageAppoint.add("");
+
+                cell = new PdfPCell(new Phrase(""));
+                cell.setBorder(Rectangle.BOTTOM);
+                cell.setUseBorderPadding(true);
+                cell.setBorderWidthBottom(5);
+                cell.setBorderColorBottom(BaseColor.WHITE);
+                table.addCell(cell);
+                messageAppoint.add("");
                 messageAppoint.add("");
 
                 ArrayList<DateClass> datelist = DateQuery.fetchAllDosageRecord(appointList.get(i).getUserid(), appointList.get(i).getUnique());
@@ -144,16 +154,15 @@ public class EventPdf {
                     if (d.getDate() != null) {
                         date = d.getDate();
                     }
-                    cell = new PdfPCell(new Phrase("Date : " + date));
+                    cell = new PdfPCell(new Phrase(date));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
                     cell.setBorderWidthBottom(5);
                     cell.setBorderColorBottom(BaseColor.WHITE);
                     table.addCell(cell);
-                    messageAppoint.add("Date :");
+                    messageAppoint.add("");
                     messageAppoint.add(date);
-                }
-                if (!(datelist.size() % 2 == 0)) {
+
                     cell = new PdfPCell(new Phrase(""));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
@@ -163,6 +172,16 @@ public class EventPdf {
                     messageAppoint.add("");
                     messageAppoint.add("");
                 }
+              /*  if (!(datelist.size() % 2 == 0)) {
+                    cell = new PdfPCell(new Phrase(""));
+                    cell.setBorder(Rectangle.BOTTOM);
+                    cell.setUseBorderPadding(true);
+                    cell.setBorderWidthBottom(5);
+                    cell.setBorderColorBottom(BaseColor.WHITE);
+                    table.addCell(cell);
+                    messageAppoint.add("");
+                    messageAppoint.add("");
+                }*/
 
 
                 Header.document.add(table);
@@ -278,8 +297,8 @@ public class EventPdf {
     public EventPdf(int k, ArrayList<Living> livingList, int i) {
         try {
             //Header.addEmptyLine(1);
-            Header.addChank("Activities Of Daily Living");
-            messageLiving.add("Activities Of Daily Living");
+            Header.addChank("Activities of Daily Living");
+            messageLiving.add("Activities of Daily Living");
             Header.addEmptyLine(1);
 
             PdfPTable table;
@@ -294,14 +313,14 @@ public class EventPdf {
                 PdfPCell cell1;
                 table1.setWidthPercentage(100);
 
-                cell1 = new PdfPCell(new Phrase("Activities Of Daily Living(ADL) " + ""));
+                cell1 = new PdfPCell(new Phrase("Activities of Daily Living(ADL) " + ""));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
                 table1.addCell(cell1);
 
-                messageLiving.add("Activities Of Daily Living(ADL)" + "");
+                messageLiving.add("Activities of Daily Living(ADL)" + "");
                 messageLiving.add("");
 
                 cell1 = new PdfPCell(new Phrase(""));
@@ -424,7 +443,7 @@ public class EventPdf {
                 if (s.getFunctionOther() != null) {
                     functionOther = s.getFunctionOther();
                 }
-                cell1 = new PdfPCell(new Phrase("Other-Specify : " + functionOther));
+                cell1 = new PdfPCell(new Phrase("Other : " + functionOther));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -461,14 +480,14 @@ public class EventPdf {
                 PdfPCell cell2;
                 table2.setWidthPercentage(100);
 
-                cell2 = new PdfPCell(new Phrase("Instrumental Activities Of Daily Living(IADL) " + ""));
+                cell2 = new PdfPCell(new Phrase("Instrumental Activities of Daily Living(IADL) " + ""));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
                 cell2.setBorderColorBottom(BaseColor.WHITE);
                 table2.addCell(cell2);
 
-                messageLiving.add("Instrumental Activities Of Daily Living(IADL)" + "");
+                messageLiving.add("Instrumental Activities of Daily Living(IADL)" + "");
                 messageLiving.add("");
 
                 cell2 = new PdfPCell(new Phrase(""));
@@ -670,7 +689,7 @@ public class EventPdf {
                 if (s.getInstOther() != null) {
                     instOther = s.getInstOther();
                 }
-                cell2 = new PdfPCell(new Phrase("Other-Specify : " + instOther));
+                cell2 = new PdfPCell(new Phrase("Other : " + instOther));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -749,14 +768,14 @@ public class EventPdf {
                 PdfPCell cell1;
                 table1.setWidthPercentage(100);
 
-                /*cell1 = new PdfPCell(new Phrase("Activities Of Daily Living(ADL) " + ""));
+                /*cell1 = new PdfPCell(new Phrase("Activities of Daily Living(ADL) " + ""));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
                 table1.addCell(cell1);
 
-                messageLiving.add("Activities Of Daily Living(ADL)" + "");
+                messageLiving.add("Activities of Daily Living(ADL)" + "");
                 messageLiving.add("");
 
                 cell1 = new PdfPCell(new Phrase(""));

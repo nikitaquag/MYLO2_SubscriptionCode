@@ -252,6 +252,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         // }
         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
         connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
     }
 
 
@@ -1331,17 +1332,23 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.GONE);
                 flFront.setVisibility(View.GONE);
+                tbCard.setChecked(true);
             } else {
                 imgCard.setVisibility(View.GONE);
                 rlCard.setVisibility(View.VISIBLE);
                 txtCard.setVisibility(View.VISIBLE);
                 imgEditCard.setVisibility(View.GONE);
+                tbCard.setChecked(false);
             }
 
             txtHeight.setText(connection.getHeight());
             txtWeight.setText(connection.getWeight());
             txtProfession.setText(connection.getProfession());
-            txtPeople.setText(connection.getPeople());
+            if(connection.getPeople().equalsIgnoreCase("null")) {
+                txtPeople.setText("");
+            }else{
+                txtPeople.setText(connection.getPeople());
+            }
             txtEmployed.setText(connection.getEmployed());
             txttelephone.setText(connection.getManager_phone());
             txtReligion.setText(connection.getReligion());
@@ -1355,7 +1362,13 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     }
                 }
                 spinnerEyes.setSelection(indexd + 1);
-            }*/ txtSpinEye.setText(connection.getEyes());
+            }*/
+            if (connection.getEyes().equalsIgnoreCase("null"))
+            {
+                txtSpinEye.setText("");
+            }else {
+                txtSpinEye.setText(connection.getEyes());
+            }
 
             /*if (!connection.getLanguage().equals("")) {
                 int indexs = 0;
@@ -1390,7 +1403,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     }
                 }
                 spinnerMarital.setSelection(indexss + 1);
-            }*/  txtSpinMarital.setText(connection.getMarital_status());
+            }*/
+            if (connection.getMarital_status().equalsIgnoreCase("null"))
+            {
+                txtSpinMarital.setText("");
+            }else
+            {
+                txtSpinMarital.setText(connection.getMarital_status());
+            }
 
 /*
             if (connection.getMarital_status() != null) {

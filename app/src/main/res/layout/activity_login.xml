@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorLightBlue"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context="com.mindyourlovedone.healthcare.HomeActivity.LoginActivity">
 
     <RelativeLayout
         android:id="@+id/rlLogin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true">
+        android:layout_height="@dimen/dimension0dp"
+        android:layout_centerInParent="true"
+        android:layout_above="@+id/rlSponsor"
+        android:layout_weight="8"
+        >
 
         <FrameLayout
             android:id="@+id/flTop"
@@ -31,7 +35,9 @@
                 android:layout_gravity="center_horizontal|bottom"
                 android:src="@mipmap/ic_launcher_logo"
                 android:layout_width="@dimen/dimension100dp"
-                android:layout_height="@dimen/dimension100dp" />
+                android:layout_height="@dimen/dimension100dp"
+                android:visibility="gone"
+                />
 
         </FrameLayout>
         <LinearLayout
@@ -254,4 +260,49 @@
                 android:visibility="gone" />
         </LinearLayout>
     </RelativeLayout>
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_marginTop="@dimen/dimension2dp"
+        android:gravity="bottom"
+        android:layout_gravity="bottom"
+        android:id="@+id/rlSponsor"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension0dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorSponsorBlue"
+        android:layout_weight="1.5"
+        >
+
+        <TextView
+            android:fontFamily="@font/lato"
+            android:id="@+id/txtSponsor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:text="Sponsored by:"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension12dp"
+            android:textStyle="normal" />
+
+        <ImageView
+            android:id="@+id/imgAbaa"
+            android:layout_width="@dimen/dimension200dp"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/dimension5dp"
+            android:src="@drawable/r_new"
+
+            />
+        <ImageView
+            android:id="@+id/imgcopy"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/imgAbaa"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:src="@drawable/copy_rit"
+            android:tint="@color/colorWhite"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+</LinearLayout>

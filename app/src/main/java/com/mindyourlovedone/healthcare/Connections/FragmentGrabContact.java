@@ -112,7 +112,7 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
         etSearch = rootview.findViewById(R.id.etSearch);
         imgRefresh = getActivity().findViewById(R.id.imgRefresh);
         rlSearch = rootview.findViewById(R.id.rlSearch);
-        imgRefresh.setVisibility(View.GONE);
+       // imgRefresh.setVisibility(View.GONE);
         rlSearch.setVisibility(View.GONE);
 
         switch (GrabConnectionActivity.source) {
@@ -402,7 +402,8 @@ public class FragmentGrabContact extends Fragment implements View.OnClickListene
                                     home = home.replaceAll("\\s", "");
                                     break;
                                 case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
-                                    number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DATA));
+                                  number = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DATA));
+                                   // number = "(212)1234565";
                                     number = number.replaceAll("\\s", "");
                                     break;
                                 case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:

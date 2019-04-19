@@ -309,10 +309,10 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
 
         String body = "Hi, \n" +
                 "\n" +
-                "\n" + username +
-                " shared this document with you. Please check the attachment. \n" +
+               // "\n" + username +
+                "I shared these document with you. Please check the attachment. \n" +
                 "\n" +
-                "Thanks,\n" +
+                "Thank you,\n" +
                 "Mind Your Loved Ones - Support";
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, body); // Body
         Uri uri = null;

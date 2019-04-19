@@ -448,7 +448,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Insurance Card");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Insurance Cards");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 

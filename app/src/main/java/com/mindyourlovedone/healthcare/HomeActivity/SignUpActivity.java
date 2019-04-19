@@ -84,6 +84,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     Context context = this;
     String name="",email="";
     boolean allow=false;
+    private static final int REQUEST_CALL_PERMISSION = 100;
+    String has_card="NO";
   /*  private static final int REQUEST_CALL_PERMISSION = 100;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
@@ -107,6 +109,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     DBHelper dbHelper;
 
     int userid = 1;*/
+  Preferences preferences;
+    DBHelper dbHelper;
 RelativeLayout rlTops;
 CheckBox rbCheck;
     @Override
@@ -115,6 +119,7 @@ CheckBox rbCheck;
         setContentView(R.layout.activity_sign_up);
         initUI();
         initListener();
+        initComponent();
       /*
         initComponent();
         initListener();
@@ -130,6 +135,29 @@ CheckBox rbCheck;
         imgBack.setOnClickListener(this);
         txtNext.setOnClickListener(this);
 
+    }
+    private void initComponent() {
+
+        try {
+            File f = new File(Environment.getExternalStorageDirectory(), "/MYLO/MASTER/");
+            if (!f.exists()) {
+                f.mkdirs();
+            } else {
+                try {
+                    File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+                    FileUtils.deleteDirectory(file);
+                    f.mkdirs();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        preferences = new Preferences(context);
+        dbHelper = new DBHelper(context, "MASTER");
+        // PersonalInfoQuery s=new PersonalInfoQuery(context,dbHelper);
+        MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
     }
     private void initUI() {
         tilName = findViewById(R.id.tilName);
@@ -226,12 +254,109 @@ CheckBox rbCheck;
                  name=txtName.getText().toString();
                  email=txtEmail.getText().toString();
                 if (validate()) {
-                    Intent intentNext = new Intent(context, ImpAgreementActivity.class);
+                   /* Intent intentNext = new Intent(context, ImpAgreementActivity.class);
                     intentNext.putExtra("Name", name);
                     intentNext.putExtra("Email", email);
-                    startActivity(intentNext);
+                    startActivity(intentNext);*/
+                        accessPermission();
+                }
+                else {
+//                    Toast toast = Toast.makeText(context, Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_SHORT);
+//                    toast.setGravity(Gravity.CENTER, 0, 0);
+//                    toast.show();
                 }
                 break;
+        }
+    }
+    private void accessPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED
+                ||
+                ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                ||
+                ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                ||
+                ContextCompat.checkSelfPermission(getApplicationContext(),
+                        android.Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(new String[]{android.Manifest.permission.CALL_PHONE,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                    android.Manifest.permission.READ_CONTACTS
+            }, REQUEST_CALL_PERMISSION);
+
+        } else {
+
+            try {
+                File f = new File(Environment.getExternalStorageDirectory(), "/MYLO/MASTER/");
+                if (!f.exists()) {
+                    f.mkdirs();
+                } else {
+                    try {
+                        File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+                        FileUtils.deleteDirectory(file);
+                        f.mkdirs();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            if (!NetworkUtils.getConnectivityStatusString(SignUpActivity.this).equals("Not connected to Internet")) {
+                CreateUserAsynk asynkTask = new CreateUserAsynk(name, email);
+                asynkTask.execute();
+            } else {
+                DialogManager.showAlert("Network Error, Check your internet connection", SignUpActivity.this);
+            }
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CALL_PERMISSION: {
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                    if (!NetworkUtils.getConnectivityStatusString(SignUpActivity.this).equals("Not connected to Internet")) {
+                        CreateUserAsynk asynkTask = new CreateUserAsynk(name, email);
+                        asynkTask.execute();
+                    } else {
+                        DialogManager.showAlert("Network Error, Check your internet connection", SignUpActivity.this);
+                    }
+                    //  checkForRegistration();
+                    try {
+                        File f = new File(Environment.getExternalStorageDirectory(), "/MYLO/MASTER/");
+                        if (!f.exists()) {
+                            f.mkdirs();
+                        } else {
+                            try {
+                                File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
+                                FileUtils.deleteDirectory(file);
+                                f.mkdirs();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+
+                    accessPermission();
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                }
+                return;
+            }
+
+            // other 'switch' lines to check for other
+            // permissions this app might request
         }
     }
 
@@ -249,7 +374,7 @@ CheckBox rbCheck;
        else if (allow==false)
         {
 
-            Toast toast = Toast.makeText(context,Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(context,Html.fromHtml("<big><b>Click to Accept</b></big>"), Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();
         }
@@ -1069,5 +1194,131 @@ CheckBox rbCheck;
         }
 
     }*/
+class CreateUserAsynk extends AsyncTask<Void, Void, String> {
+    String name;
+    String email;
+    ProgressDialog pd;
 
+    private String deviceUdId = "";
+    private String deviceType = "Android";
+
+    public CreateUserAsynk(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    @Override
+    protected void onPreExecute() {
+        deviceUdId = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+        pd = ProgressDialog.show(context, "", "Please Wait..");
+        super.onPreExecute();
+    }
+
+    @Override
+    protected String doInBackground(Void... params) {
+        WebService webService = new WebService();
+        Log.e("URL parameter", name + "" + "" + " " + email
+                + " " + "" + " " + deviceUdId + " " + deviceType);
+        String result = webService.createProfile(name, "-",
+                "-", email, "-", deviceUdId, deviceType);
+        return result;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        if (pd != null) {
+            if (pd.isShowing()) {
+                pd.dismiss();
+            }
+        }
+
+        if (!result.equals("")) {
+            if (result.equals("Exception")) {
+                // ErrorDialog.errorDialog(context);
+                DialogManager.showAlert("Error", context);
+            } else {
+                Log.e("CreateUserAsynk", result);
+                String errorCode = parseResponse(result);
+                if (errorCode.equals("0")) {
+                    // DialogManager.showAlert("000", context);
+                } else {
+                    //Toast.makeText(context, "Registration Failed, Try again", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+        super.onPostExecute(result);
+    }
+
+    private String parseResponse(String result) {
+        Log.e("Response", result);
+        JSONObject job = null;
+        String errorCode = "";
+        try {
+            job = new JSONObject(result);
+            JSONObject job1 = job.getJSONObject("response");
+            errorCode = job1.getString("errorCode");
+            String message = "";
+            if (errorCode.equals("0")) {
+                message = job1.getString("respMsg");
+                JSONObject job2 = job1.getJSONObject("respData");
+                String userId = job2.getString("user_id");
+                Log.e("SuccessFullRegisterd", "UserId= " + userId);
+                int userid = Integer.parseInt(userId);
+                Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
+
+                //After Success
+                Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, email, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
+
+                PersonalInfoQuery pi = new PersonalInfoQuery(context, dbHelper);
+                Boolean flagPersonalinfo = PersonalInfoQuery.insertPersonalInfoData(name, email, "", "", "", "", "", "", "", "", "");
+                if (flag == true) {
+                    File file = new File(Environment.getExternalStorageDirectory(),
+                            "/MYLO/");
+                    String path = file.getAbsolutePath();
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    RelativeConnection connection = MyConnectionsQuery.fetchOneRecord("Self");
+                    String mail = connection.getEmail();
+                    mail = mail.replace(".", "_");
+                    mail = mail.replace("@", "_");
+                    DBHelper dbHelper = new DBHelper(context, mail);
+                    MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
+                    Boolean flags = MyConnectionsQuery.insertMyConnectionsData(connection.getId(), name, email, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
+                    if (flags == true) {
+                        // Toast.makeText(context, "You have created db Successfully", Toast.LENGTH_SHORT).show();
+                    }
+                    //  Toast.makeText(context,"You have added profile Successfully",Toast.LENGTH_SHORT).show();
+                    preferences.putInt(PrefConstants.USER_ID, userid);
+                    Intent signupIntent = new Intent(context, ImpAgreementActivity.class);
+                    preferences.putString(PrefConstants.USER_EMAIL, email);
+                    preferences.putString(PrefConstants.USER_NAME, name);
+                    preferences.setREGISTERED(true);
+                    preferences.setLogin(true);
+                    if(getIntent().hasExtra("PDF_EXT")) {
+                        signupIntent.putExtra("PDF_EXT", getIntent().getStringExtra("PDF_EXT"));
+                    }
+                    signupIntent.putExtra("Name", name);
+                    signupIntent.putExtra("Email", email);
+                    startActivity(signupIntent);
+                    finish();
+                } else {
+                    Toast.makeText(context, "Error to save in database", Toast.LENGTH_SHORT).show();
+                }
+
+                return errorCode;
+            } else {
+                message = job1.getString("errorMsg");
+                Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
+                return errorCode;
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "Exception";
+        }
+
+    }
+
+}
 }

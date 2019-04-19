@@ -32,8 +32,8 @@ public class PrescriptionPdf {
             for (int i = 0; i < prescriptionList.size(); i++) {
                /* int k = i + 1;
                 Header.addEmptyLine(1);
-                Header.addChank("Prescription Tracker " + k + " : ");
-                messagePrescription.add("Prescription Tracker " + k + " : ");
+                Header.addChank("Prescription Tracker " + k + ":");
+                messagePrescription.add("Prescription Tracker " + k + ":");
                 Header.addEmptyLine(1);*/
 
                 PdfPTable table;
@@ -45,7 +45,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getMedicine() != null) {
                     medicine = prescriptionList.get(i).getMedicine();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + medicine));
+                cell = new PdfPCell(new Phrase("Name:" + medicine));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -58,7 +58,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getDose() != null) {
                     dosage = prescriptionList.get(i).getDose();
                 }
-                cell = new PdfPCell(new Phrase("Dosage : " + dosage));
+                cell = new PdfPCell(new Phrase("Dosage:" + dosage));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -71,7 +71,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getFrequency() != null) {
                     frequency = prescriptionList.get(i).getFrequency();
                 }
-                cell = new PdfPCell(new Phrase("Frequency : " + frequency));
+                cell = new PdfPCell(new Phrase("Frequency:" + frequency));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -84,7 +84,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getRX() != null) {
                     rx = prescriptionList.get(i).getRX();
                 }
-                cell = new PdfPCell(new Phrase("RX# : " + rx));
+                cell = new PdfPCell(new Phrase("RX#:" + rx));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -97,7 +97,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getDoctor() != null) {
                     doctor = prescriptionList.get(i).getDoctor();
                 }
-                cell = new PdfPCell(new Phrase("Prescribing Doctor : " + doctor));
+                cell = new PdfPCell(new Phrase("Prescribing Doctor:" + doctor));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -110,7 +110,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getPre() != null) {
                     counter = prescriptionList.get(i).getPre();
                 }
-                cell = new PdfPCell(new Phrase("Over-the-counter : " + counter));
+                cell = new PdfPCell(new Phrase("Over-the-counter:" + counter));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -123,7 +123,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getDates() != null) {
                     date = prescriptionList.get(i).getDates();
                 }
-                cell = new PdfPCell(new Phrase("Date of Prescription : " + date));
+                cell = new PdfPCell(new Phrase("Date of Prescription:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -136,7 +136,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getPurpose() != null) {
                     treatment = prescriptionList.get(i).getPurpose();
                 }
-                cell = new PdfPCell(new Phrase("Treatment For : " + treatment));
+                cell = new PdfPCell(new Phrase("Treatment For:" + treatment));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -149,7 +149,7 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getNote() != null) {
                     notes = prescriptionList.get(i).getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + notes));
+                cell = new PdfPCell(new Phrase("Notes:" + notes));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -254,13 +254,13 @@ public class PrescriptionPdf {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Prescription Name : " + name));
+                cell = new PdfPCell(new Phrase("Prescription Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageForm.add("Form Name : ");
+                messageForm.add("Form Name:");
                 messageForm.add(name);
 
                /* cell = new PdfPCell(new Phrase(""));
@@ -276,13 +276,13 @@ public class PrescriptionPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Last Update : " + date));
+                cell = new PdfPCell(new Phrase("Last Update:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageForm.add("Last Update : ");
+                messageForm.add("Last Update:");
                 messageForm.add(date);
 
                 cell = new PdfPCell(new Phrase(""));

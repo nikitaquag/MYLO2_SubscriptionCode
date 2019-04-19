@@ -85,7 +85,7 @@ public class MedInfoQuery {
         boolean flag = false;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(COL_USERID, userid);
+        cv.put(COL_ID, userid);
         cv.put(COL_NOTE, note);
         cv.put(COL_EYE_GLASSES, glass);
         cv.put(COL_EYE_LENSE, lense);
@@ -123,7 +123,7 @@ public class MedInfoQuery {
 
         Cursor c = MedInfoQuery.fetchOneRecordCursor(userid);
         if (c.moveToFirst()) {
-            int rowid = db.update(TABLE_NAME, cv, COL_USERID + "=" + userid, null);
+            int rowid = db.update(TABLE_NAME, cv,null , null);
             flag = rowid != 0;
 
         } else {

@@ -377,7 +377,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                 + "/mylopdf/";
         File dirfile = new File(RESULT);
         dirfile.mkdirs();
-        File file = new File(dirfile, "Documents.pdf");
+        File file = new File(dirfile, "AdvDirectivesOtherDocs.pdf");
         if (file.exists()) {
             file.delete();
         }
@@ -461,7 +461,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Documents.pdf";
+                        + "/AdvDirectivesOtherDocs.pdf";
 
                 File f = new File(path);
                 preferences.emailAttachement(f, context, "Documents");
@@ -475,7 +475,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
             public void onClick(View v) {
                 String path = Environment.getExternalStorageDirectory()
                         + "/mylopdf/"
-                        + "/Documents.pdf";
+                        + "/AdvDirectivesOtherDocs.pdf";
                 StringBuffer result = new StringBuffer();
                 result.append(new MessageString().getAdvanceDocuments());
                 result.append(new MessageString().getOtherDocuments());

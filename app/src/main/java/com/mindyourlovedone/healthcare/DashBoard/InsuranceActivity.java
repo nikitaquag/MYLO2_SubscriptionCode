@@ -75,13 +75,13 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     break;
                 case "Doctors":
                     header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
-                    txtTitle.setText("Doctors & Health\nCare Professionals");
+                    txtTitle.setText("Doctors & Other Health\nCare Professionals");
                     callFragment("SPECIALIST", fragmentSpecialist);
                     break;
 
                 case "Hospitals":
                     header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
-                    txtTitle.setText("Hospitals, Rehab, Home Care");
+                    txtTitle.setText("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
                     callFragment("HOSPITAL", fragmentHospital);
                     break;
                 case "Pharmacies":

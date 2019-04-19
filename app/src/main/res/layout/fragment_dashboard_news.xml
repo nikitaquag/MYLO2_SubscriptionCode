@@ -407,7 +407,7 @@
                             android:layout_below="@+id/flEvent"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
-                            android:text="Note &amp; Appointment Checklist"
+                            android:text="Notes &amp; Appointment Checklist"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
                              />

@@ -48,10 +48,12 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
         rlSpecialist = findViewById(R.id.rlSpecialist);
 
         lvType = findViewById(R.id.lvType);
-        rd = new TypeAdapter(context, Type);
-        lvType.setAdapter(rd);
-
         lvSpecialist = findViewById(R.id.lvSpecialist);
+        rd = new TypeAdapter(context, Specialist);
+        lvType.setAdapter(rd);
+        lvType.setVisibility(View.VISIBLE);
+        lvSpecialist.setVisibility(View.GONE);
+
 
         txtType = findViewById(R.id.txtType);
        /* txtType.setBackgroundColor(getResources().getColor(R.color.colorNewHereBlue));
@@ -69,15 +71,18 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
             final String category = intent.getExtras().getString("Category");
             if (category != null) {
                 switch (category) {
-                    case "TypeAppointment":
+                    case "TypeSpecialist":
                         rd = new TypeAdapter(context, Type);
-                        lvType.setAdapter(rd);
-
+                        lvSpecialist.setAdapter(rd);
+                        lvType.setVisibility(View.GONE);
+                        lvSpecialist.setVisibility(View.VISIBLE);
 
                         break;
-                    case "TypeSpecialist":
+                    case "TypeAppointment":
                         rd = new TypeAdapter(context, Specialist);
-                        lvSpecialist.setAdapter(rd);
+                        lvType.setAdapter(rd);
+                        lvType.setVisibility(View.VISIBLE);
+                        lvSpecialist.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -94,8 +99,10 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                     // Toast.makeText(context, "In Specialist..!!", Toast.LENGTH_SHORT).show();
                     rlType.setVisibility(View.GONE);
                     rlSpecialist.setVisibility(View.VISIBLE);
-                    rd = new TypeAdapter(context, Specialist);
+                    rd = new TypeAdapter(context, Type);
                     lvSpecialist.setAdapter(rd);
+                    lvType.setVisibility(View.GONE);
+                    lvSpecialist.setVisibility(View.VISIBLE);
                     //   }
                 }
             });
@@ -112,9 +119,11 @@ public class RelationshipActivity extends AppCompatActivity implements View.OnCl
                     txtSpecialist.setBackgroundResource(R.drawable.border_specialist);
                     //  Toast.makeText(context, "In Type..!!", Toast.LENGTH_SHORT).show();
                     rlType.setVisibility(View.VISIBLE);
-                    rlSpecialist.setVisibility(View.GONE);
-                    rd = new TypeAdapter(context, Type);
+                  //  rlSpecialist.setVisibility(View.GONE);
+                    rd = new TypeAdapter(context, Specialist);
                     lvType.setAdapter(rd);
+                    lvType.setVisibility(View.VISIBLE);
+                    lvSpecialist.setVisibility(View.GONE);
                 }
                 // }
             });

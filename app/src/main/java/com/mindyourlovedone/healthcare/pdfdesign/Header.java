@@ -40,7 +40,7 @@ public class Header {
     public static Font GreenFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
             Font.BOLD);
 
-    public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 15,
+    public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 19,
             Font.NORMAL);
 
     public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 13,
@@ -195,7 +195,9 @@ public class Header {
 
     public static void addChank(String chunk) {
         BlackFont.setColor(102, 204, 0);//255, 99, 26);
+        BlackFont.setStyle(Font.BOLD);
         Chunk underline = new Chunk(chunk, BlackFont);
+
 //        underline.setUnderline(0.1f, -2f); // 0.1 thick, -2 y-location
         Paragraph p = new Paragraph(underline);
         p.setAlignment(Paragraph.ALIGN_LEFT);
