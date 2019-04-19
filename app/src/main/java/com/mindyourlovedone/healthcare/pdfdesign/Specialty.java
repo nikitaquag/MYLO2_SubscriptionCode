@@ -68,7 +68,7 @@ public class Specialty {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Specialty : " + speciality));
+                cell = new PdfPCell(new Phrase("Specialty:" + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -81,7 +81,7 @@ public class Specialty {
                 if (s.getOtherType() != null) {
                     specialityOther = s.getOtherType();
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + specialityOther));
+                cell = new PdfPCell(new Phrase("Speciality:" + specialityOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -94,7 +94,7 @@ public class Specialty {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name of Doctor/Health Professionals\n : " + name));
+                cell = new PdfPCell(new Phrase("Name of Doctor/Health Professionals\n:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -107,7 +107,7 @@ public class Specialty {
                 if (s.getOfficePhone() != null) {
                     officePhone = s.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -120,7 +120,7 @@ public class Specialty {
                 if (s.getHourPhone() != null) {
                     afterHoursPhone = s.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("After Hours Phone : " + afterHoursPhone));
+                cell = new PdfPCell(new Phrase("After Hours Phone:" + afterHoursPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -133,7 +133,7 @@ public class Specialty {
                 if (s.getOtherPhone() != null) {
                     otherPhone = s.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -146,7 +146,7 @@ public class Specialty {
                 if (s.getFax() != null) {
                     officeFax = s.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -160,7 +160,7 @@ public class Specialty {
                 if (s.getAddress() != null) {
                     address = s.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -173,7 +173,7 @@ public class Specialty {
                 if (s.getWebsite() != null) {
                     website = s.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -186,7 +186,7 @@ public class Specialty {
                 if (s.getPracticeName() != null) {
                     medicalPracticeName = s.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Medical Practice Name : " + medicalPracticeName));
+                cell = new PdfPCell(new Phrase("Medical Practice Name:" + medicalPracticeName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -199,7 +199,7 @@ public class Specialty {
                 if (s.getHospAffiliation() != null) {
                     hospitalAffiliations = s.getHospAffiliation();
                 }
-                cell = new PdfPCell(new Phrase("Hospital Affiliations : " + hospitalAffiliations));
+                cell = new PdfPCell(new Phrase("Hospital Affiliations:" + hospitalAffiliations));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -212,7 +212,7 @@ public class Specialty {
                 if (s.getNetwork() != null) {
                     networkStatus = s.getNetwork();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + networkStatus));
+                cell = new PdfPCell(new Phrase("In Network Status:" + networkStatus));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -225,7 +225,7 @@ public class Specialty {
                 if (s.getLastseen() != null) {
                     lastSeen = s.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -238,7 +238,7 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -251,7 +251,7 @@ public class Specialty {
                 if (s.getNote() != null) {
                     note = s.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -325,7 +325,7 @@ public class Specialty {
                         category = category + " - " + h.getOtherCategory();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Category : " + category));
+                cell = new PdfPCell(new Phrase("Category:" + category));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -338,7 +338,7 @@ public class Specialty {
                 if (h.getOtherCategory() != null) {
                     othercategory = h.getOtherCategory();
                 }
-                cell = new PdfPCell(new Phrase("Other Category : " + othercategory));
+                cell = new PdfPCell(new Phrase("Other Category:" + othercategory));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -351,7 +351,7 @@ public class Specialty {
                 if (h.getName() != null) {
                     name = h.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -364,7 +364,7 @@ public class Specialty {
                 if (h.getOfficePhone() != null) {
                     officePhone = h.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -377,7 +377,7 @@ public class Specialty {
                 if (h.getHourPhone() != null) {
                     mobile = h.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mobile));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mobile));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -390,7 +390,7 @@ public class Specialty {
                 if (h.getOtherPhone() != null) {
                     otherPhone = h.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -403,7 +403,7 @@ public class Specialty {
                 if (h.getFax() != null) {
                     officeFax = h.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -417,7 +417,7 @@ public class Specialty {
                 if (h.getAddress() != null) {
                     address = h.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -430,7 +430,7 @@ public class Specialty {
                 if (h.getWebsite() != null) {
                     website = h.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -443,7 +443,7 @@ public class Specialty {
                 if (h.getPracticeName() != null) {
                     companyName = h.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Contact Person : " + companyName));
+                cell = new PdfPCell(new Phrase("Contact Person:" + companyName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -456,7 +456,7 @@ public class Specialty {
                 if (h.getLocation() != null) {
                     network = h.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + network));
+                cell = new PdfPCell(new Phrase("In Network Status:" + network));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -469,7 +469,7 @@ public class Specialty {
                 if (h.getLastseen() != null) {
                     lastSeen = h.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -482,7 +482,7 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable) ) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (Link if applicable) ):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -495,7 +495,7 @@ public class Specialty {
                 if (h.getNote() != null) {
                     note = h.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -566,7 +566,7 @@ public class Specialty {
                 if (p.getName() != null) {
                     name = p.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -579,7 +579,7 @@ public class Specialty {
                 if (p.getAddress() != null) {
                     address = p.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -592,7 +592,7 @@ public class Specialty {
                 if (p.getPhone() != null) {
                     phone = p.getPhone();
                 }
-                cell = new PdfPCell(new Phrase("Phone : " + phone));
+                cell = new PdfPCell(new Phrase("Phone:" + phone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -605,7 +605,7 @@ public class Specialty {
                 if (p.getFax() != null) {
                     Fax = p.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Fax : " + Fax));
+                cell = new PdfPCell(new Phrase("Fax:" + Fax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -619,7 +619,7 @@ public class Specialty {
                 if (p.getWebsite() != null) {
                     website = p.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -632,7 +632,7 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link (if applicable):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -645,7 +645,7 @@ public class Specialty {
                 if (p.getNote() != null) {
                     note = p.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -712,7 +712,7 @@ public class Specialty {
                 if (a.getAidName() != null) {
                     name = a.getAidName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -725,7 +725,7 @@ public class Specialty {
                 if (a.getOfficePhone() != null) {
                     officePhone = a.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -738,7 +738,7 @@ public class Specialty {
                 if (a.getHourPhone() != null) {
                     afterHoursPhone = a.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("After Hours Phone : " + afterHoursPhone));
+                cell = new PdfPCell(new Phrase("After Hours Phone:" + afterHoursPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -751,7 +751,7 @@ public class Specialty {
                 if (a.getOtherPhone() != null) {
                     otherPhone = a.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -764,7 +764,7 @@ public class Specialty {
                 if (a.getFax() != null) {
                     officeFax = a.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -777,7 +777,7 @@ public class Specialty {
                 if (a.getEmail() != null) {
                     email = a.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email : " + email));
+                cell = new PdfPCell(new Phrase("Email:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -791,7 +791,7 @@ public class Specialty {
                 if (a.getAddress() != null) {
                     address = a.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -804,7 +804,7 @@ public class Specialty {
                 if (a.getWebsite() != null) {
                     website = a.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -817,7 +817,7 @@ public class Specialty {
                 if (a.getNote() != null) {
                     note = a.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -876,7 +876,7 @@ public class Specialty {
                 if (f.getOtherCategory() != null) {
                     category = f.getOtherCategory();
                 }
-                cell = new PdfPCell(new Phrase("Category : " + category));
+                cell = new PdfPCell(new Phrase("Category:" + category));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -889,7 +889,7 @@ public class Specialty {
                 if (f.getName() != null) {
                     name = f.getName();
                 }
-                cell = new PdfPCell(new Phrase("Firm Name : " + name));
+                cell = new PdfPCell(new Phrase("Firm Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -902,7 +902,7 @@ public class Specialty {
                 if (f.getContactName() != null) {
                     person = f.getContactName();
                 }
-                cell = new PdfPCell(new Phrase("Contact Name : " + person));
+                cell = new PdfPCell(new Phrase("Contact Name:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -915,7 +915,7 @@ public class Specialty {
                 if (f.getEmail() != null) {
                     email = f.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email : " + email));
+                cell = new PdfPCell(new Phrase("Email:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -929,7 +929,7 @@ public class Specialty {
                 if (f.getOfficePhone() != null) {
                     officePhone = f.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -942,7 +942,7 @@ public class Specialty {
                 if (f.getHourPhone() != null) {
                     mobile = f.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mobile));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mobile));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -955,7 +955,7 @@ public class Specialty {
                 if (f.getOtherPhone() != null) {
                     otherPhone = f.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -968,7 +968,7 @@ public class Specialty {
                 if (f.getLocation() != null) {
                     location = f.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("Location : " +location));
+                cell = new PdfPCell(new Phrase("Location:" +location));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -981,7 +981,7 @@ public class Specialty {
                 if (f.getFax() != null) {
                     officeFax = f.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -995,7 +995,7 @@ public class Specialty {
                 if (f.getAddress() != null) {
                     address = f.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1008,7 +1008,7 @@ public class Specialty {
                 if (f.getWebsite() != null) {
                     website = f.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1021,7 +1021,7 @@ public class Specialty {
                 if (f.getPracticeName() != null) {
                     companyName = f.getFirm();
                 }
-                cell = new PdfPCell(new Phrase("Company Name : " +companyName));
+                cell = new PdfPCell(new Phrase("Company Name:" +companyName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1034,7 +1034,7 @@ public class Specialty {
                 if (f.getLastseen() != null) {
                     lastSeen = f.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1047,7 +1047,7 @@ public class Specialty {
                 if (f.getNote() != null) {
                     note = f.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1122,7 +1122,7 @@ public class Specialty {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + speciality));
+                cell = new PdfPCell(new Phrase("Speciality:" + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1135,7 +1135,7 @@ public class Specialty {
                 if (s.getOtherType() != null) {
                     specialityOther = s.getOtherType();
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + specialityOther));
+                cell = new PdfPCell(new Phrase("Speciality:" + specialityOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1148,7 +1148,7 @@ public class Specialty {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1169,14 +1169,14 @@ public class Specialty {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageDoctor.add(type+" Phone : ");
+                messageDoctor.add(type+" Phone:");
                 messageDoctor.add(num);
             }
 
@@ -1184,7 +1184,7 @@ public class Specialty {
                 if (s.getOfficePhone() != null) {
                     officePhone = s.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1197,7 +1197,7 @@ public class Specialty {
                 if (s.getHourPhone() != null) {
                     afterHoursPhone = s.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("After Hours Phone : " + afterHoursPhone));
+                cell = new PdfPCell(new Phrase("After Hours Phone:" + afterHoursPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1210,7 +1210,7 @@ public class Specialty {
                 if (s.getOtherPhone() != null) {
                     otherPhone = s.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1223,7 +1223,7 @@ public class Specialty {
                 if (s.getFax() != null) {
                     officeFax = s.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1237,7 +1237,7 @@ public class Specialty {
                 if (s.getAddress() != null) {
                     address = s.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1250,7 +1250,7 @@ public class Specialty {
                 if (s.getWebsite() != null) {
                     website = s.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1263,7 +1263,7 @@ public class Specialty {
                 if (s.getPracticeName() != null) {
                     medicalPracticeName = s.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Medical Practice Name : " + medicalPracticeName));
+                cell = new PdfPCell(new Phrase("Medical Practice Name:" + medicalPracticeName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1276,7 +1276,7 @@ public class Specialty {
                 if (s.getHospAffiliation() != null) {
                     hospitalAffiliations = s.getHospAffiliation();
                 }
-                cell = new PdfPCell(new Phrase("Hospital Affiliations : " + hospitalAffiliations));
+                cell = new PdfPCell(new Phrase("Hospital Affiliations:" + hospitalAffiliations));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1289,7 +1289,7 @@ public class Specialty {
                 if (s.getNetwork() != null) {
                     networkStatus = s.getNetwork();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + networkStatus));
+                cell = new PdfPCell(new Phrase("In Network Status:" + networkStatus));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1302,7 +1302,7 @@ public class Specialty {
                 if (s.getLastseen() != null) {
                     lastSeen = s.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1315,7 +1315,7 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1328,7 +1328,7 @@ public class Specialty {
                 if (s.getNote() != null) {
                     note = s.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1350,13 +1350,13 @@ public class Specialty {
             if (s.getHas_card() != null) {
                 card = s.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageDoctor.add(("Do you have business card? : "));
+            messageDoctor.add(("Do you have business card?:"));
             messageDoctor.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -1425,7 +1425,7 @@ public class Specialty {
                         category = category + " - " + h.getOtherCategory();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Category : " + category));
+                cell = new PdfPCell(new Phrase("Category:" + category));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1438,7 +1438,7 @@ public class Specialty {
                 if (h.getOtherCategory() != null) {
                     othercategory = h.getOtherCategory();
                 }
-                cell = new PdfPCell(new Phrase("Other Category : " + othercategory));
+                cell = new PdfPCell(new Phrase("Other Category:" + othercategory));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1451,7 +1451,7 @@ public class Specialty {
                 if (h.getName() != null) {
                     name = h.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1464,7 +1464,7 @@ public class Specialty {
                 if (h.getOfficePhone() != null) {
                     officePhone = h.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1477,7 +1477,7 @@ public class Specialty {
                 if (h.getHourPhone() != null) {
                     mobile = h.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mobile));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mobile));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1490,7 +1490,7 @@ public class Specialty {
                 if (h.getOtherPhone() != null) {
                     otherPhone = h.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1503,7 +1503,7 @@ public class Specialty {
                 if (h.getFax() != null) {
                     officeFax = h.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1524,21 +1524,21 @@ public class Specialty {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageHospital.add(type+" Phone : ");
+                messageHospital.add(type+" Phone:");
                 messageHospital.add(num);
             }
                 String address = "";
                 if (h.getAddress() != null) {
                     address = h.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1551,7 +1551,7 @@ public class Specialty {
                 if (h.getWebsite() != null) {
                     website = h.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1564,7 +1564,7 @@ public class Specialty {
                 if (h.getPracticeName() != null) {
                     companyName = h.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Contact Person : " + companyName));
+                cell = new PdfPCell(new Phrase("Contact Person:" + companyName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1577,7 +1577,7 @@ public class Specialty {
                 if (h.getLocation() != null) {
                     network = h.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + network));
+                cell = new PdfPCell(new Phrase("In Network Status:" + network));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1590,7 +1590,7 @@ public class Specialty {
                 if (h.getLastseen() != null) {
                     lastSeen = h.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1603,7 +1603,7 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1616,7 +1616,7 @@ public class Specialty {
                 if (h.getNote() != null) {
                     note = h.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1639,13 +1639,13 @@ public class Specialty {
             if (h.getHas_card() != null) {
                 card = h.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageHospital.add(("Do you have business card? : "));
+            messageHospital.add(("Do you have business card?:"));
             messageHospital.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -1710,7 +1710,7 @@ public class Specialty {
                 if (p.getName() != null) {
                     name = p.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1723,7 +1723,7 @@ public class Specialty {
                 if (p.getAddress() != null) {
                     address = p.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1744,14 +1744,14 @@ public class Specialty {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messagePharmacy.add(type+" Phone : ");
+                messagePharmacy.add(type+" Phone:");
                 messagePharmacy.add(num);
             }
 
@@ -1759,7 +1759,7 @@ public class Specialty {
                 if (p.getPhone() != null) {
                     phone = p.getPhone();
                 }
-                cell = new PdfPCell(new Phrase("Phone : " + phone));
+                cell = new PdfPCell(new Phrase("Phone:" + phone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1772,7 +1772,7 @@ public class Specialty {
                 if (p.getFax() != null) {
                     Fax = p.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Fax : " + Fax));
+                cell = new PdfPCell(new Phrase("Fax:" + Fax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1786,7 +1786,7 @@ public class Specialty {
                 if (p.getWebsite() != null) {
                     website = p.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1799,7 +1799,7 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1812,7 +1812,7 @@ public class Specialty {
                 if (p.getNote() != null) {
                     note = p.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1834,13 +1834,13 @@ public class Specialty {
             if (p.getHas_card() != null) {
                 card = p.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messagePharmacy.add(("Do you have business card? : "));
+            messagePharmacy.add(("Do you have business card?:"));
             messagePharmacy.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -1902,7 +1902,7 @@ public class Specialty {
                 if (f.getOtherCategory() != null) {
                     category = f.getOtherCategory();
                 }
-                cell = new PdfPCell(new Phrase("Category : " + category));
+                cell = new PdfPCell(new Phrase("Category:" + category));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1915,7 +1915,7 @@ public class Specialty {
                 if (f.getName() != null) {
                     name = f.getName();
                 }
-                cell = new PdfPCell(new Phrase("Firm Name : " + name));
+                cell = new PdfPCell(new Phrase("Firm Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1928,7 +1928,7 @@ public class Specialty {
                 if (f.getContactName() != null) {
                     person = f.getContactName();
                 }
-                cell = new PdfPCell(new Phrase("Contact Name : " + person));
+                cell = new PdfPCell(new Phrase("Contact Name:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1941,7 +1941,7 @@ public class Specialty {
                 if (f.getEmail() != null) {
                     email = f.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email : " + email));
+                cell = new PdfPCell(new Phrase("Email:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1962,21 +1962,21 @@ public class Specialty {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageFinance.add(type+" Phone : ");
+                messageFinance.add(type+" Phone:");
                 messageFinance.add(num);
             }
                 /*String officePhone = "";
                 if (f.getOfficePhone() != null) {
                     officePhone = f.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1989,7 +1989,7 @@ public class Specialty {
                 if (f.getHourPhone() != null) {
                     mobile = f.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mobile));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mobile));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2002,7 +2002,7 @@ public class Specialty {
                 if (f.getOtherPhone() != null) {
                     otherPhone = f.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2015,7 +2015,7 @@ public class Specialty {
                 if (f.getLocation() != null) {
                     location = f.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("Location : " +location));
+                cell = new PdfPCell(new Phrase("Location:" +location));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2028,7 +2028,7 @@ public class Specialty {
                 if (f.getFax() != null) {
                     officeFax = f.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2042,7 +2042,7 @@ public class Specialty {
                 if (f.getAddress() != null) {
                     address = f.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2055,7 +2055,7 @@ public class Specialty {
                 if (f.getWebsite() != null) {
                     website = f.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2068,7 +2068,7 @@ public class Specialty {
                 if (f.getPracticeName() != null) {
                     companyName = f.getFirm();
                 }
-                cell = new PdfPCell(new Phrase("Company Name : " +companyName));
+                cell = new PdfPCell(new Phrase("Company Name:" +companyName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2081,7 +2081,7 @@ public class Specialty {
                 if (f.getLastseen() != null) {
                     lastSeen = f.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2094,7 +2094,7 @@ public class Specialty {
                 if (f.getNote() != null) {
                     note = f.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2116,13 +2116,13 @@ public class Specialty {
             if (f.getHas_card() != null) {
                 card = f.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageFinance.add(("Do you have business card? : "));
+            messageFinance.add(("Do you have business card?:"));
             messageFinance.add(card);
 
             cell = new PdfPCell(new Phrase(""));

@@ -123,7 +123,7 @@ public class MedInfoQuery {
 
         Cursor c = MedInfoQuery.fetchOneRecordCursor(userid);
         if (c.moveToFirst()) {
-            int rowid = db.update(TABLE_NAME, cv, COL_USERID + "=" + userid, null);
+            int rowid = db.update(TABLE_NAME, cv,null , null);
             flag = rowid != 0;
 
         } else {

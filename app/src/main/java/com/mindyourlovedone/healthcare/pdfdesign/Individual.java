@@ -82,7 +82,7 @@ public class Individual {
                 name = connection.getName();
             }
 
-            cell1 = new PdfPCell(new Phrase("Name : " + name));
+            cell1 = new PdfPCell(new Phrase("Name:" + name));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -100,7 +100,7 @@ public class Individual {
                 }
             }
 
-            cell1 = new PdfPCell(new Phrase("Relationship : " + realtion));
+            cell1 = new PdfPCell(new Phrase("Relationship:" + realtion));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -114,7 +114,7 @@ public class Individual {
             if (connection.getEmail() != null) {
                 email = connection.getEmail();
             }
-            cell1 = new PdfPCell(new Phrase("Email : " + email));
+            cell1 = new PdfPCell(new Phrase("Email:" + email));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -137,20 +137,20 @@ public class Individual {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                cell1 = new PdfPCell(new Phrase(type+" Phone : " + num));
+                cell1 = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
                 table1.addCell(cell1);
 
-                messageInfo2.add(type+" Phone : ");
+                messageInfo2.add(type+" Phone:");
                 messageInfo2.add(num);
             }
             /*if (connection.getMobile() != null) {
                 mPhone = connection.getMobile();
             }
-            cell1 = new PdfPCell(new Phrase("Mobile : " + mPhone));
+            cell1 = new PdfPCell(new Phrase("Mobile:" + mPhone));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -163,7 +163,7 @@ public class Individual {
             if (connection.getPhone() != null) {
                 hPhone = connection.getPhone();
             }
-            cell1 = new PdfPCell(new Phrase("Home Phone : " + hPhone));
+            cell1 = new PdfPCell(new Phrase("Home Phone:" + hPhone));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -178,7 +178,7 @@ public class Individual {
             if (connection.getWorkPhone() != null) {
                 workph = connection.getWorkPhone();
             }
-            cell1 = new PdfPCell(new Phrase("Work Phone : " + workph));
+            cell1 = new PdfPCell(new Phrase("Work Phone:" + workph));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -191,7 +191,7 @@ public class Individual {
             if (connection.getAddress() != null) {
                 address = connection.getAddress();
             }
-            cell1 = new PdfPCell(new Phrase("Address : " + address));
+            cell1 = new PdfPCell(new Phrase("Address:" + address));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -220,7 +220,7 @@ public class Individual {
             if (connection.getDob() != null) {
                 bdates = connection.getDob();
             }
-            cell8 = new PdfPCell(new Phrase("Birthday : " + bdates));
+            cell8 = new PdfPCell(new Phrase("Birthday:" + bdates));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -233,7 +233,7 @@ public class Individual {
             if (connection.getGender() != null) {
                 genders = connection.getGender();
             }
-            cell8 = new PdfPCell(new Phrase("Gender : " + genders));
+            cell8 = new PdfPCell(new Phrase("Gender:" + genders));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -247,7 +247,7 @@ public class Individual {
             if (connection.getHeight() != null) {
                 height = connection.getHeight();
             }
-            cell8 = new PdfPCell(new Phrase("Height : " + height));
+            cell8 = new PdfPCell(new Phrase("Height:" + height));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -260,7 +260,7 @@ public class Individual {
             if (connection.getWeight() != null) {
                 weight = connection.getWeight();
             }
-            cell8 = new PdfPCell(new Phrase("Weight : " + weight));
+            cell8 = new PdfPCell(new Phrase("Weight:" + weight));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -273,7 +273,7 @@ public class Individual {
             if (connection.getEyes() != null) {
                 eyes = connection.getEyes();
             }
-            cell8 = new PdfPCell(new Phrase("Eyes : " + eyes));
+            cell8 = new PdfPCell(new Phrase("Eyes:" + eyes));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -309,7 +309,7 @@ public class Individual {
             if (connection.getMarital_status() != null) {
                 marital_status = connection.getMarital_status();
             }
-            cellm = new PdfPCell(new Phrase("Marital Status : " + marital_status));
+            cellm = new PdfPCell(new Phrase("Marital Status:" + marital_status));
             cellm.setBorder(Rectangle.BOTTOM);
             cellm.setUseBorderPadding(true);
             cellm.setBorderWidthBottom(5);
@@ -347,7 +347,7 @@ public class Individual {
             if (connection.getLive() != null) {
                 live = connection.getLive();
             }
-            cell2 = new PdfPCell(new Phrase("Do you live alone? : " + live));
+            cell2 = new PdfPCell(new Phrase("Do you live alone?:" + live));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -361,7 +361,7 @@ public class Individual {
             if (connection.getChildren() != null) {
                 children = connection.getChildren();
             }
-            cell2 = new PdfPCell(new Phrase("Children : " + children));
+            cell2 = new PdfPCell(new Phrase("Children:" + children));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -375,7 +375,7 @@ public class Individual {
             if (connection.getFriend() != null) {
                 friend = connection.getFriend();
             }
-            cell2 = new PdfPCell(new Phrase("Friend : " + friend));
+            cell2 = new PdfPCell(new Phrase("Friend:" + friend));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -389,7 +389,7 @@ public class Individual {
             if (connection.getGrand() != null) {
                 grandParents = connection.getGrand();
             }
-            cell2 = new PdfPCell(new Phrase("Grandparent(s) : " + grandParents));
+            cell2 = new PdfPCell(new Phrase("Grandparent(s):" + grandParents));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -404,7 +404,7 @@ public class Individual {
             if (connection.getParents() != null) {
                 parents = connection.getParents();
             }
-            cell2 = new PdfPCell(new Phrase("Parent(s) : " + parents));
+            cell2 = new PdfPCell(new Phrase("Parent(s):" + parents));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -419,7 +419,7 @@ public class Individual {
             if (connection.getSpouse() != null) {
                 spouse = connection.getSpouse();
             }
-            cell2 = new PdfPCell(new Phrase("Spouse : " + spouse));
+            cell2 = new PdfPCell(new Phrase("Spouse:" + spouse));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -433,7 +433,7 @@ public class Individual {
             if (connection.getSibling() != null) {
                 sibling = connection.getSibling();
             }
-            cell2 = new PdfPCell(new Phrase("Sibling : " + sibling));
+            cell2 = new PdfPCell(new Phrase("Sibling:" + sibling));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -447,7 +447,7 @@ public class Individual {
             if (connection.getSign_other() != null) {
                 significant = connection.getSign_other();
             }
-            cell2 = new PdfPCell(new Phrase("Significant Other : " + significant));
+            cell2 = new PdfPCell(new Phrase("Significant Other:" + significant));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -461,7 +461,7 @@ public class Individual {
             if (connection.getOther_person() != null) {
                 other = connection.getOther_person();
             }
-            cell2 = new PdfPCell(new Phrase("Other : " + other));
+            cell2 = new PdfPCell(new Phrase("Other:" + other));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -472,7 +472,7 @@ public class Individual {
             if (connection.getPeople() != null) {
                 people = connection.getPeople();
             }
-            cell2 = new PdfPCell(new Phrase("Names of People : " + people));
+            cell2 = new PdfPCell(new Phrase("Names of People:" + people));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -498,7 +498,7 @@ public class Individual {
             if (connection.getProfession() != null) {
                 profession = connection.getProfession();
             }
-            cellp = new PdfPCell(new Phrase("Profession : " + profession));
+            cellp = new PdfPCell(new Phrase("Profession:" + profession));
             cellp.setBorder(Rectangle.BOTTOM);
             cellp.setUseBorderPadding(true);
             cellp.setBorderWidthBottom(5);
@@ -512,7 +512,7 @@ public class Individual {
             if (connection.getManager_phone() != null) {
                 telephone = connection.getManager_phone();
             }
-            cellp = new PdfPCell(new Phrase("Manager Phone : " + telephone));
+            cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
             cellp.setBorder(Rectangle.BOTTOM);
             cellp.setUseBorderPadding(true);
             cellp.setBorderWidthBottom(5);
@@ -525,7 +525,7 @@ public class Individual {
             if (connection.getEmployed() != null) {
                 employedBy = connection.getEmployed();
             }
-            cellp = new PdfPCell(new Phrase("Employed By : " + employedBy));
+            cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
             cellp.setBorder(Rectangle.BOTTOM);
             cellp.setUseBorderPadding(true);
             cellp.setBorderWidthBottom(5);
@@ -565,7 +565,7 @@ public class Individual {
            /* if (connection.getProfession() != null) {
                 profession = connection.getProfession();
             }
-            cell3 = new PdfPCell(new Phrase("Profession : " + profession));
+            cell3 = new PdfPCell(new Phrase("Profession:" + profession));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -579,7 +579,7 @@ public class Individual {
             if (connection.getEnglish() != null) {
                 english = connection.getEnglish();
             }
-            cell3 = new PdfPCell(new Phrase("Understand English : " + english));
+            cell3 = new PdfPCell(new Phrase("Understand English:" + english));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -596,7 +596,7 @@ public class Individual {
                     language=language+" - "+connection.getOtherLang();
                 }
             }
-            cell3 = new PdfPCell(new Phrase("Language Spoken : " + language));
+            cell3 = new PdfPCell(new Phrase("Language Spoken:" + language));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -677,7 +677,7 @@ public class Individual {
             if (connection.getVeteran() != null) {
                 Veteran = connection.getVeteran();
             }
-            cell4 = new PdfPCell(new Phrase("Veteran : " + Veteran));
+            cell4 = new PdfPCell(new Phrase("Veteran:" + Veteran));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -690,7 +690,7 @@ public class Individual {
             if (connection.getIdnumber() != null) {
                 idNumber = connection.getIdnumber();
             }
-            cell4 = new PdfPCell(new Phrase("Id Number : " + idNumber));
+            cell4 = new PdfPCell(new Phrase("Id Number:" + idNumber));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -719,7 +719,7 @@ public class Individual {
             if (connection.getPet() != null) {
                 Pets = connection.getPet();
             }
-            cell = new PdfPCell(new Phrase("Pet(s) : " + Pets));
+            cell = new PdfPCell(new Phrase("Pet(s):" + Pets));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -761,7 +761,7 @@ public class Individual {
                 if (a.getName() != null) {
                     name = a.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -775,7 +775,7 @@ public class Individual {
                     breed = a.getBreed();
                 }
 
-                cell = new PdfPCell(new Phrase("Type of Pet / Breed  : " + breed));
+                cell = new PdfPCell(new Phrase("Type of Pet / Breed :" + breed));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -788,7 +788,7 @@ public class Individual {
                 if (a.getColor() != null) {
                     color = a.getColor();
                 }
-                cell = new PdfPCell(new Phrase("Color : " + color));
+                cell = new PdfPCell(new Phrase("Color:" + color));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -801,7 +801,7 @@ public class Individual {
                 if (a.getChip() != null) {
                     microchip = a.getChip();
                 }
-                cell = new PdfPCell(new Phrase("Microchip number : " + microchip));
+                cell = new PdfPCell(new Phrase("Microchip number:" + microchip));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -815,7 +815,7 @@ public class Individual {
                 if (a.getVeterian() != null) {
                     veterian = a.getVeterian();
                 }
-                cell = new PdfPCell(new Phrase("Veterinarian Name : " + veterian));
+                cell = new PdfPCell(new Phrase("Veterinarian Name:" + veterian));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -829,7 +829,7 @@ public class Individual {
                 if (a.getVeterian_add() != null) {
                     vadd = a.getVeterian_add();
                 }
-                cell = new PdfPCell(new Phrase("Veterinarian Address : " + vadd));
+                cell = new PdfPCell(new Phrase("Veterinarian Address:" + vadd));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -843,7 +843,7 @@ public class Individual {
                 if (a.getVeterian_ph() != null) {
                     vpone = a.getVeterian_ph();
                 }
-                cell = new PdfPCell(new Phrase("Veterinarian Phone : " + vpone));
+                cell = new PdfPCell(new Phrase("Veterinarian Phone:" + vpone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -857,7 +857,7 @@ public class Individual {
                 if (a.getGuard() != null) {
                     person = a.getGuard();
                 }
-                cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet : " + person));
+                cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -871,7 +871,7 @@ public class Individual {
                 if (a.getCare_add() != null) {
                     cname = a.getCare_add();
                 }
-                cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet : " + cname));
+                cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet:" + cname));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -886,7 +886,7 @@ public class Individual {
                 if (a.getCare_ph() != null) {
                     cAdd = a.getCare_ph();
                 }
-                cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet : " + cAdd));
+                cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet:" + cAdd));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -900,7 +900,7 @@ public class Individual {
                 if (a.getBdate() != null) {
                     Bdate = a.getBdate();
                 }
-                cell = new PdfPCell(new Phrase("Birthday : " + Bdate));
+                cell = new PdfPCell(new Phrase("Birthday:" + Bdate));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -913,7 +913,7 @@ public class Individual {
                 if (a.getNotes() != null) {
                     notes = a.getNotes();
                 }
-                cell = new PdfPCell(new Phrase("Notes about Pet : " + notes));
+                cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -978,14 +978,14 @@ public class Individual {
             if (connection.getHas_card() != null) {
                 card = connection.getHas_card();
             }
-            cellf = new PdfPCell(new Phrase("Do you have business card? : " + card));
+            cellf = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cellf.setBorder(Rectangle.BOTTOM);
             cellf.setUseBorderPadding(true);
             cellf.setBorderWidthBottom(5);
             cellf.setBorderColorBottom(BaseColor.WHITE);
             tablef.addCell(cellf);
 
-            messageInfo2.add("Do you have business card? : ");
+            messageInfo2.add("Do you have business card?:");
             messageInfo2.add(card);
 
             cellf = new PdfPCell(new Phrase("" ));
@@ -1021,7 +1021,7 @@ public class Individual {
             if (medInfo.getDonor() != null) {
                 organDonor = medInfo.getDonor();
             }
-            cell = new PdfPCell(new Phrase("Organ Donor : " + organDonor));
+            cell = new PdfPCell(new Phrase("Organ Donor:" + organDonor));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -1087,7 +1087,7 @@ public class Individual {
                 name = connection.getName();
             }
 
-            cell1 = new PdfPCell(new Phrase("Profile Name : " + name));
+            cell1 = new PdfPCell(new Phrase("Profile Name:" + name));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1101,7 +1101,7 @@ public class Individual {
                 realtion = connection.getEmail();
             }
 
-            cell1 = new PdfPCell(new Phrase("Email : " + realtion));
+            cell1 = new PdfPCell(new Phrase("Email:" + realtion));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1114,7 +1114,7 @@ public class Individual {
             if (connection.getPhone() != null) {
                 mPhone = connection.getPhone();
             }
-            cell1 = new PdfPCell(new Phrase("Mobile : " + mPhone));
+            cell1 = new PdfPCell(new Phrase("Mobile:" + mPhone));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1127,7 +1127,7 @@ public class Individual {
             if (connection.getHomePhone() != null) {
                 hPhone = connection.getHomePhone();
             }
-            cell1 = new PdfPCell(new Phrase("Home Phone : " + hPhone));
+            cell1 = new PdfPCell(new Phrase("Home Phone:" + hPhone));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1141,7 +1141,7 @@ public class Individual {
             if (connection.getAddress() != null) {
                 address = connection.getAddress();
             }
-            cell1 = new PdfPCell(new Phrase("Address : " + address));
+            cell1 = new PdfPCell(new Phrase("Address:" + address));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1156,7 +1156,7 @@ public class Individual {
             if (connection.getDob() != null) {
                 bdate = connection.getDob();
             }
-            cell1 = new PdfPCell(new Phrase("Birth Date : " + bdate));
+            cell1 = new PdfPCell(new Phrase("Birth Date:" + bdate));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1168,7 +1168,7 @@ public class Individual {
             if (connection.getGender() != null) {
                 gender = connection.getGender();
             }
-            cell1 = new PdfPCell(new Phrase("Gender : " + gender));
+            cell1 = new PdfPCell(new Phrase("Gender:" + gender));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1182,7 +1182,7 @@ public class Individual {
             if (connection.getHeight() != null) {
                 height = connection.getHeight();
             }
-            cell1 = new PdfPCell(new Phrase("Height : " + height));
+            cell1 = new PdfPCell(new Phrase("Height:" + height));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1195,7 +1195,7 @@ public class Individual {
             if (connection.getWeight() != null) {
                 weight = connection.getWeight();
             }
-            cell1 = new PdfPCell(new Phrase("Weight : " + weight));
+            cell1 = new PdfPCell(new Phrase("Weight:" + weight));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1208,7 +1208,7 @@ public class Individual {
             if (connection.getEyes() != null) {
                 eyes = connection.getEyes();
             }
-            cell1 = new PdfPCell(new Phrase("Eyes : " + eyes));
+            cell1 = new PdfPCell(new Phrase("Eyes:" + eyes));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -1237,7 +1237,7 @@ public class Individual {
             if (connection.getLive() != null) {
                 live = connection.getLive();
             }
-            cell2 = new PdfPCell(new Phrase("Do you live alone? : " + live));
+            cell2 = new PdfPCell(new Phrase("Do you live alone?:" + live));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1251,7 +1251,7 @@ public class Individual {
             if (connection.getChildren() != null) {
                 children = connection.getChildren();
             }
-            cell2 = new PdfPCell(new Phrase("Children : " + children));
+            cell2 = new PdfPCell(new Phrase("Children:" + children));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1265,7 +1265,7 @@ public class Individual {
             if (connection.getFriend() != null) {
                 friend = connection.getFriend();
             }
-            cell2 = new PdfPCell(new Phrase("Friend : " + friend));
+            cell2 = new PdfPCell(new Phrase("Friend:" + friend));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1279,7 +1279,7 @@ public class Individual {
             if (connection.getGrand() != null) {
                 grandParents = connection.getGrand();
             }
-            cell2 = new PdfPCell(new Phrase("GrandParents : " + grandParents));
+            cell2 = new PdfPCell(new Phrase("GrandParents:" + grandParents));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1294,7 +1294,7 @@ public class Individual {
             if (connection.getParents() != null) {
                 parents = connection.getParents();
             }
-            cell2 = new PdfPCell(new Phrase("Parents : " + parents));
+            cell2 = new PdfPCell(new Phrase("Parents:" + parents));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1309,7 +1309,7 @@ public class Individual {
             if (connection.getSpouse() != null) {
                 spouse = connection.getSpouse();
             }
-            cell2 = new PdfPCell(new Phrase("Spouse : " + spouse));
+            cell2 = new PdfPCell(new Phrase("Spouse:" + spouse));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1324,7 +1324,7 @@ public class Individual {
             if (connection.getSign_other() != null) {
                 significant = connection.getSign_other();
             }
-            cell2 = new PdfPCell(new Phrase("Significant Other : " + significant));
+            cell2 = new PdfPCell(new Phrase("Significant Other:" + significant));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1338,7 +1338,7 @@ public class Individual {
             if (connection.getOther_person() != null) {
                 other = connection.getOther_person();
             }
-            cell2 = new PdfPCell(new Phrase("Other : " + other));
+            cell2 = new PdfPCell(new Phrase("Other:" + other));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1367,7 +1367,7 @@ public class Individual {
             if (connection.getEmployed() != null) {
                 employedBy = connection.getEmployed();
             }
-            cellp = new PdfPCell(new Phrase("Employed By : " + employedBy));
+            cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
             cellp.setBorder(Rectangle.BOTTOM);
             cellp.setUseBorderPadding(true);
             cellp.setBorderWidthBottom(5);
@@ -1380,7 +1380,7 @@ public class Individual {
             if (connection.getManager_phone() != null) {
                 telephone = connection.getManager_phone();
             }
-            cellp = new PdfPCell(new Phrase("Manager Phone : " + telephone));
+            cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
             cellp.setBorder(Rectangle.BOTTOM);
             cellp.setUseBorderPadding(true);
             cellp.setBorderWidthBottom(5);
@@ -1433,7 +1433,7 @@ public class Individual {
                     language=language+" - "+connection.getOtherLang();
                 }
             }
-            cell3 = new PdfPCell(new Phrase("Language Spoken : " + language));
+            cell3 = new PdfPCell(new Phrase("Language Spoken:" + language));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -1447,7 +1447,7 @@ public class Individual {
             if (connection.getEnglish() != null) {
                 english = connection.getEnglish();
             }
-            cell3 = new PdfPCell(new Phrase("Understand English : " + english));
+            cell3 = new PdfPCell(new Phrase("Understand English:" + english));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -1460,7 +1460,7 @@ public class Individual {
             if (connection.getProfession() != null) {
                 profession = connection.getProfession();
             }
-            cell3 = new PdfPCell(new Phrase("Profession : " + profession));
+            cell3 = new PdfPCell(new Phrase("Profession:" + profession));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -1497,7 +1497,7 @@ public class Individual {
             if (connection.getMarital_status() != null) {
                 marital_status = connection.getMarital_status();
             }
-            cellm = new PdfPCell(new Phrase("Marital Status : " + marital_status));
+            cellm = new PdfPCell(new Phrase("Marital Status:" + marital_status));
             cellm.setBorder(Rectangle.BOTTOM);
             cellm.setUseBorderPadding(true);
             cellm.setBorderWidthBottom(5);
@@ -1510,7 +1510,7 @@ public class Individual {
             if (connection.getReligion() != null) {
                 religionNote = connection.getReligion();
             }
-            cellm = new PdfPCell(new Phrase("Religion Note : " + religionNote));
+            cellm = new PdfPCell(new Phrase("Religion Note:" + religionNote));
             cellm.setBorder(Rectangle.BOTTOM);
             cellm.setUseBorderPadding(true);
             cellm.setBorderWidthBottom(5);
@@ -1538,7 +1538,7 @@ public class Individual {
             if (connection.getVeteran() != null) {
                 Veteran = connection.getVeteran();
             }
-            cell4 = new PdfPCell(new Phrase("Veteran : " + Veteran));
+            cell4 = new PdfPCell(new Phrase("Veteran:" + Veteran));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -1551,7 +1551,7 @@ public class Individual {
             if (connection.getIdnumber() != null) {
                 idNumber = connection.getIdnumber();
             }
-            cell4 = new PdfPCell(new Phrase("Id Number : " + idNumber));
+            cell4 = new PdfPCell(new Phrase("Id Number:" + idNumber));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -1580,7 +1580,7 @@ public class Individual {
             if (connection.getPet() != null) {
                 Pets = connection.getPet();
             }
-            cell = new PdfPCell(new Phrase("Pets : " + Pets));
+            cell = new PdfPCell(new Phrase("Pets:" + Pets));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -1622,7 +1622,7 @@ public class Individual {
                 if (a.getName() != null) {
                     name = a.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1636,7 +1636,7 @@ public class Individual {
                     breed = a.getBreed();
                 }
 
-                cell = new PdfPCell(new Phrase("Breed : " + breed));
+                cell = new PdfPCell(new Phrase("Breed:" + breed));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1649,7 +1649,7 @@ public class Individual {
                 if (a.getColor() != null) {
                     color = a.getColor();
                 }
-                cell = new PdfPCell(new Phrase("Color : " + color));
+                cell = new PdfPCell(new Phrase("Color:" + color));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1662,7 +1662,7 @@ public class Individual {
                 if (a.getChip() != null) {
                     microchip = a.getChip();
                 }
-                cell = new PdfPCell(new Phrase("Microchip number : " + microchip));
+                cell = new PdfPCell(new Phrase("Microchip number:" + microchip));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1676,7 +1676,7 @@ public class Individual {
                 if (a.getVeterian() != null) {
                     veterian = a.getVeterian();
                 }
-                cell = new PdfPCell(new Phrase("Veterinarian : " + veterian));
+                cell = new PdfPCell(new Phrase("Veterinarian:" + veterian));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1690,7 +1690,7 @@ public class Individual {
                 if (a.getGuard() != null) {
                     person = a.getGuard();
                 }
-                cell = new PdfPCell(new Phrase("Person(s) who will care for pet : " + person));
+                cell = new PdfPCell(new Phrase("Person(s) who will care for pet:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1703,7 +1703,7 @@ public class Individual {
                 if (a.getBdate() != null) {
                     Bdate = a.getBdate();
                 }
-                cell = new PdfPCell(new Phrase("Birthdate : " + Bdate));
+                cell = new PdfPCell(new Phrase("Birthdate:" + Bdate));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1716,7 +1716,7 @@ public class Individual {
                 if (a.getNotes() != null) {
                     notes = a.getNotes();
                 }
-                cell = new PdfPCell(new Phrase("Notes about Pet : " + notes));
+                cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1823,7 +1823,7 @@ public class Individual {
                 if (e.getName() != null) {
                     name = e.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1841,7 +1841,7 @@ public class Individual {
                         reationType = e.getRelationType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Relation Type : " + reationType));
+                cell = new PdfPCell(new Phrase("Relation Type:" + reationType));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1865,7 +1865,7 @@ public class Individual {
                     priority = "Secondary - Health Care Proxy Agent";
                 }
 
-                cell = new PdfPCell(new Phrase("Priority : " + priority));
+                cell = new PdfPCell(new Phrase("Priority:" + priority));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1881,7 +1881,7 @@ public class Individual {
                 if (e.getOtherRelation() != null) {
                     relationOther = e.getOtherRelation();
                 }
-                cell = new PdfPCell(new Phrase("Other : " + relationOther));
+                cell = new PdfPCell(new Phrase("Other:" + relationOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1896,7 +1896,7 @@ public class Individual {
                 if (e.getWorkPhone() != null) {
                     officePhone = e.getWorkPhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1909,7 +1909,7 @@ public class Individual {
                 if (e.getMobile() != null) {
                     mPhone = e.getMobile();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mPhone));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1923,7 +1923,7 @@ public class Individual {
                 if (e.getPhone() != null) {
                     hPhone = e.getPhone();
                 }
-                cell = new PdfPCell(new Phrase("Home Phone : " + hPhone));
+                cell = new PdfPCell(new Phrase("Home Phone:" + hPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1945,14 +1945,14 @@ public class Individual {
                     if (c.getContactType() != null) {
                         type =c.getContactType();
                     }
-                    cell = new PdfPCell(new Phrase(type+" : " + num));
+                    cell = new PdfPCell(new Phrase(type+":" + num));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
                     cell.setBorderWidthBottom(5);
                     cell.setBorderColorBottom(BaseColor.WHITE);
                     table1.addCell(cell);
 
-                    messageEmergency.add(type+" : ");
+                    messageEmergency.add(type+":");
                     messageEmergency.add(num);
                 }
 
@@ -1960,7 +1960,7 @@ public class Individual {
                 if (e.getEmail() != null) {
                     email = e.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email : " + email));
+                cell = new PdfPCell(new Phrase("Email:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1973,7 +1973,7 @@ public class Individual {
                 if (e.getAddress() != null) {
                     address = e.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Home Address : " + address));
+                cell = new PdfPCell(new Phrase("Home Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -1989,7 +1989,7 @@ public class Individual {
                 if (e.getHas_card() != null) {
                     ascard = e.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2003,7 +2003,7 @@ public class Individual {
                 if (e.getNote() != null) {
                     note = e.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2072,7 +2072,7 @@ public class Individual {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + speciality));
+                cell = new PdfPCell(new Phrase("Speciality:" + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2085,7 +2085,7 @@ public class Individual {
                 if (s.getOtherType() != null) {
                     specialityOther = s.getOtherType();
                 }
-                cell = new PdfPCell(new Phrase("Other Speciality : " + specialityOther));
+                cell = new PdfPCell(new Phrase("Other Speciality:" + specialityOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2098,7 +2098,7 @@ public class Individual {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2111,7 +2111,7 @@ public class Individual {
                 if (s.getOfficePhone() != null) {
                     officePhone = s.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2124,7 +2124,7 @@ public class Individual {
                 if (s.getHourPhone() != null) {
                     afterHoursPhone = s.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("After Hours Phone : " + afterHoursPhone));
+                cell = new PdfPCell(new Phrase("After Hours Phone:" + afterHoursPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2137,7 +2137,7 @@ public class Individual {
                 if (s.getOtherPhone() != null) {
                     otherPhone = s.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2150,7 +2150,7 @@ public class Individual {
                 if (s.getFax() != null) {
                     officeFax = s.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2164,7 +2164,7 @@ public class Individual {
                 if (s.getAddress() != null) {
                     address = s.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2177,7 +2177,7 @@ public class Individual {
                 if (s.getWebsite() != null) {
                     website = s.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2190,7 +2190,7 @@ public class Individual {
                 if (s.getPracticeName() != null) {
                     medicalPracticeName = s.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Medical Practice Name : " + medicalPracticeName));
+                cell = new PdfPCell(new Phrase("Medical Practice Name:" + medicalPracticeName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2203,7 +2203,7 @@ public class Individual {
                 if (s.getHospAffiliation() != null) {
                     hospitalAffiliations = s.getHospAffiliation();
                 }
-                cell = new PdfPCell(new Phrase("Hospital Affiliations : " + hospitalAffiliations));
+                cell = new PdfPCell(new Phrase("Hospital Affiliations:" + hospitalAffiliations));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2216,7 +2216,7 @@ public class Individual {
                 if (s.getNetwork() != null) {
                     networkStatus = s.getNetwork();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + networkStatus));
+                cell = new PdfPCell(new Phrase("In Network Status:" + networkStatus));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2229,7 +2229,7 @@ public class Individual {
                 if (s.getLastseen() != null) {
                     lastSeen = s.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2242,7 +2242,7 @@ public class Individual {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link  : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link :" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2255,7 +2255,7 @@ public class Individual {
                 if (s.getNote() != null) {
                     note = s.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2268,7 +2268,7 @@ public class Individual {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2328,7 +2328,7 @@ public class Individual {
 
             for (int i = 0; i < proxyList.size(); i++) {
                 int k = i + 1;
-                cell = new PdfPCell(new Phrase("Health Care Proxy Agent " + k + " : "));
+                cell = new PdfPCell(new Phrase("Health Care Proxy Agent " + k + ":"));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2344,7 +2344,7 @@ public class Individual {
                 if (p.getName() != null) {
                     name = p.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2363,7 +2363,7 @@ public class Individual {
                         relationShip = p.getRelationType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Relationship : " + relationShip));
+                cell = new PdfPCell(new Phrase("Relationship:" + relationShip));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2377,7 +2377,7 @@ public class Individual {
                 if (p.getMobile() != null) {
                     mobile = p.getMobile();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Number : " + mobile));
+                cell = new PdfPCell(new Phrase("Mobile Number:" + mobile));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2391,7 +2391,7 @@ public class Individual {
                 if (p.getWorkPhone() != null) {
                     homePhone = p.getWorkPhone();
                 }
-                cell = new PdfPCell(new Phrase("Home Phone : " + homePhone));
+                cell = new PdfPCell(new Phrase("Home Phone:" + homePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2405,7 +2405,7 @@ public class Individual {
                 if (p.getPhone() != null) {
                     officePhone = p.getPhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2419,7 +2419,7 @@ public class Individual {
                 if (p.getEmail() != null) {
                     email = p.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email Address : " + email));
+                cell = new PdfPCell(new Phrase("Email Address:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2433,7 +2433,7 @@ public class Individual {
                 if (p.getAddress() != null) {
                     address = p.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2449,7 +2449,7 @@ public class Individual {
                 } else {
                     priority = "Successor";
                 }
-                cell = new PdfPCell(new Phrase("Proxy Agent Priority : " + priority));
+                cell = new PdfPCell(new Phrase("Proxy Agent Priority:" + priority));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2509,7 +2509,7 @@ public class Individual {
             PdfPCell cell6;
             table6.setWidthPercentage(100);
 
-            cell6 = new PdfPCell(new Phrase("Allergies : " + ""));
+            cell6 = new PdfPCell(new Phrase("Allergies:" + ""));
             cell6.setBorder(Rectangle.BOTTOM);
             cell6.setUseBorderPadding(true);
             cell6.setBorderWidthBottom(5);
@@ -2549,7 +2549,7 @@ public class Individual {
                 if (a.getAllergy() != null) {
                     allergy = a.getAllergy();
                 }
-                cell6 = new PdfPCell(new Phrase("Allergy : " + allergy));
+                cell6 = new PdfPCell(new Phrase("Allergy:" + allergy));
                 cell6.setBorder(Rectangle.BOTTOM);
                 cell6.setUseBorderPadding(true);
                 cell6.setBorderWidthBottom(5);
@@ -2565,7 +2565,7 @@ public class Individual {
                         reaction = reaction + " - " + a.getOtherReaction();
                     }
                 }
-                cell6 = new PdfPCell(new Phrase("Reaction : " + reaction));
+                cell6 = new PdfPCell(new Phrase("Reaction:" + reaction));
                 cell6.setBorder(Rectangle.BOTTOM);
                 cell6.setUseBorderPadding(true);
                 cell6.setBorderWidthBottom(5);
@@ -2578,7 +2578,7 @@ public class Individual {
                 if (a.getTreatment() != null) {
                     treatment = a.getTreatment();
                 }
-                cell6 = new PdfPCell(new Phrase("Treatment : " + treatment));
+                cell6 = new PdfPCell(new Phrase("Treatment:" + treatment));
                 cell6.setBorder(Rectangle.BOTTOM);
                 cell6.setUseBorderPadding(true);
                 cell6.setBorderWidthBottom(5);
@@ -2620,7 +2620,7 @@ public class Individual {
 
             }
 
-            cell6 = new PdfPCell(new Phrase("Allergy Note : " + medInfo.getAllergyNote()));
+            cell6 = new PdfPCell(new Phrase("Allergy Note:" + medInfo.getAllergyNote()));
             cell6.setBorder(Rectangle.BOTTOM);
             cell6.setUseBorderPadding(true);
             cell6.setBorderWidthBottom(5);
@@ -2694,7 +2694,7 @@ public class Individual {
             if (medInfo.getNote() != null) {
                 preNote = medInfo.getNote();
             }
-            cell1 = new PdfPCell(new Phrase("Medical Condition Note : " + preNote));
+            cell1 = new PdfPCell(new Phrase("Medical Condition Note:" + preNote));
             cell1.setBorder(Rectangle.BOTTOM);
             cell1.setUseBorderPadding(true);
             cell1.setBorderWidthBottom(5);
@@ -2774,7 +2774,7 @@ public class Individual {
                     }
                 }
 
-                cell7 = new PdfPCell(new Phrase("Implants : " + name));
+                cell7 = new PdfPCell(new Phrase("Implants:" + name));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
@@ -2787,7 +2787,7 @@ public class Individual {
                 if (a.getDate() != null) {
                     date = a.getDate();
                 }
-                cell7 = new PdfPCell(new Phrase("Date : " + date));
+                cell7 = new PdfPCell(new Phrase("Date:" + date));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
@@ -2800,7 +2800,7 @@ public class Individual {
                 if (a.getLocation() != null) {
                     loc = a.getLocation();
                 }
-                cell7 = new PdfPCell(new Phrase("Location : " + loc));
+                cell7 = new PdfPCell(new Phrase("Location:" + loc));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
@@ -2813,7 +2813,7 @@ public class Individual {
                 if (a.getDetails() != null) {
                     details = a.getDetails();
                 }
-                cell7 = new PdfPCell(new Phrase("Details : " + details));
+                cell7 = new PdfPCell(new Phrase("Details:" + details));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
@@ -2826,7 +2826,7 @@ public class Individual {
                 if (a.getNotes() != null) {
                     note = a.getNotes();
                 }
-                cell7 = new PdfPCell(new Phrase("Note : " + note));
+                cell7 = new PdfPCell(new Phrase("Note:" + note));
                 cell7.setBorder(Rectangle.BOTTOM);
                 cell7.setUseBorderPadding(true);
                 cell7.setBorderWidthBottom(5);
@@ -2862,7 +2862,7 @@ public class Individual {
             if (medInfo.getImplantnote() != null) {
                 impNote = medInfo.getImplantnote();
             }
-            cell7 = new PdfPCell(new Phrase("Medical Implants Note : " + impNote));
+            cell7 = new PdfPCell(new Phrase("Medical Implants Note:" + impNote));
             cell7.setBorder(Rectangle.BOTTOM);
             cell7.setUseBorderPadding(true);
             cell7.setBorderWidthBottom(5);
@@ -2894,7 +2894,7 @@ public class Individual {
             PdfPCell cell10;
             table10.setWidthPercentage(100);
 
-            cell10 = new PdfPCell(new Phrase("Surgical History : " + ""));
+            cell10 = new PdfPCell(new Phrase("Surgical History:" + ""));
             cell10.setBorder(Rectangle.BOTTOM);
             cell10.setUseBorderPadding(true);
             cell10.setBorderWidthBottom(5);
@@ -2932,7 +2932,7 @@ public class Individual {
                         name = name + " - " + a.getOther();
                     }
                 }
-                cell10 = new PdfPCell(new Phrase("History : " + name));
+                cell10 = new PdfPCell(new Phrase("History:" + name));
                 cell10.setBorder(Rectangle.BOTTOM);
                 cell10.setUseBorderPadding(true);
                 cell10.setBorderWidthBottom(5);
@@ -2942,7 +2942,7 @@ public class Individual {
                 messageInfo3.add("History :");
                 messageInfo3.add(name);
 
-                cell10 = new PdfPCell(new Phrase("Date : " + historList.get(i).getDate()));
+                cell10 = new PdfPCell(new Phrase("Date:" + historList.get(i).getDate()));
                 cell10.setBorder(Rectangle.BOTTOM);
                 cell10.setUseBorderPadding(true);
                 cell10.setBorderWidthBottom(5);
@@ -2953,7 +2953,7 @@ public class Individual {
                 messageInfo3.add(historList.get(i).getDate());
 
 
-                cell10 = new PdfPCell(new Phrase("Doctor : " + historList.get(i).getDoctor()));
+                cell10 = new PdfPCell(new Phrase("Doctor:" + historList.get(i).getDoctor()));
                 cell10.setBorder(Rectangle.BOTTOM);
                 cell10.setUseBorderPadding(true);
                 cell10.setBorderWidthBottom(5);
@@ -2964,7 +2964,7 @@ public class Individual {
                 messageInfo3.add(historList.get(i).getDoctor());
 
 
-                cell10 = new PdfPCell(new Phrase("Location : " + historList.get(i).getDone()));
+                cell10 = new PdfPCell(new Phrase("Location:" + historList.get(i).getDone()));
                 cell10.setBorder(Rectangle.BOTTOM);
                 cell10.setUseBorderPadding(true);
                 cell10.setBorderWidthBottom(5);
@@ -2997,7 +2997,7 @@ public class Individual {
             if (medInfo.getImplantnote() != null) {
                 surNote = medInfo.getImplantnote();
             }
-            cell10 = new PdfPCell(new Phrase("Surgical History Note : " + surNote));
+            cell10 = new PdfPCell(new Phrase("Surgical History Note:" + surNote));
             cell10.setBorder(Rectangle.BOTTOM);
             cell10.setUseBorderPadding(true);
             cell10.setBorderWidthBottom(5);
@@ -3030,7 +3030,7 @@ public class Individual {
             PdfPCell cell9;
             table9.setWidthPercentage(100);
 
-            cell9 = new PdfPCell(new Phrase("Preferred Hospital : " + ""));
+            cell9 = new PdfPCell(new Phrase("Preferred Hospital:" + ""));
             cell9.setBorder(Rectangle.BOTTOM);
             cell9.setUseBorderPadding(true);
             cell9.setBorderWidthBottom(5);
@@ -3061,7 +3061,7 @@ public class Individual {
                 messageInfo3.add("Preferred Hospital " + k + " :");
                 messageInfo3.add("");*/
 
-                cell9 = new PdfPCell(new Phrase("Hospital : " + hospitalList.get(i)));
+                cell9 = new PdfPCell(new Phrase("Hospital:" + hospitalList.get(i)));
                 cell9.setBorder(Rectangle.BOTTOM);
                 cell9.setUseBorderPadding(true);
                 cell9.setBorderWidthBottom(5);
@@ -3109,7 +3109,7 @@ public class Individual {
             PdfPCell cell5;
             table5.setWidthPercentage(100);
 
-          /*  cell = new PdfPCell(new Phrase("Functional Status : " + ""));
+          /*  cell = new PdfPCell(new Phrase("Functional Status:" + ""));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -3123,7 +3123,7 @@ public class Individual {
             if (medInfo.getFeed() != null) {
                 feeding = medInfo.getFeed();
             }
-            cell = new PdfPCell(new Phrase("Feeding : " + feeding));
+            cell = new PdfPCell(new Phrase("Feeding:" + feeding));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -3137,7 +3137,7 @@ public class Individual {
             if (medInfo.getToilet() != null) {
                 toileting = medInfo.getToilet();
             }
-            cell = new PdfPCell(new Phrase("Toileting : " + toileting));
+            cell = new PdfPCell(new Phrase("Toileting:" + toileting));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -3151,7 +3151,7 @@ public class Individual {
             if (medInfo.getMedicate() != null) {
                 selfMedicate = medInfo.getMedicate();
             }
-            cell = new PdfPCell(new Phrase("Self Medicate : " + selfMedicate));
+            cell = new PdfPCell(new Phrase("Self Medicate:" + selfMedicate));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -3165,7 +3165,7 @@ public class Individual {
             if (medInfo.getFunctionnote() != null) {
                 functionNote = medInfo.getFunctionnote();
             }
-            cell = new PdfPCell(new Phrase("Function Notes : " + functionNote));
+            cell = new PdfPCell(new Phrase("Function Notes:" + functionNote));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -3175,7 +3175,7 @@ public class Individual {
             messageInfo3.add("Function Notes :");
             messageInfo3.add(functionNote);*/
 
-            /*cell5 = new PdfPCell(new Phrase("Diet : " + ""));
+            /*cell5 = new PdfPCell(new Phrase("Diet:" + ""));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
@@ -3190,7 +3190,7 @@ public class Individual {
             if (medInfo.getDietNote() != null) {
                 dietNote = medInfo.getDietNote();
             }
-            cell5 = new PdfPCell(new Phrase("Diet Notes : " + dietNote));
+            cell5 = new PdfPCell(new Phrase("Diet Notes:" + dietNote));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
@@ -3204,7 +3204,7 @@ public class Individual {
             if (medInfo.getBloodType() != null) {
                 bloodNote = medInfo.getBloodType();
             }
-            cell5 = new PdfPCell(new Phrase("Blood Type : " + bloodNote));
+            cell5 = new PdfPCell(new Phrase("Blood Type:" + bloodNote));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
@@ -3219,7 +3219,7 @@ public class Individual {
             if (medInfo.getDonor() != null) {
                 organDonor = medInfo.getDonor();
             }
-            cell5 = new PdfPCell(new Phrase("Organ Donor : " + organDonor));
+            cell5 = new PdfPCell(new Phrase("Organ Donor:" + organDonor));
             cell5.setBorder(Rectangle.BOTTOM);
             cell5.setUseBorderPadding(true);
             cell5.setBorderWidthBottom(5);
@@ -3256,7 +3256,7 @@ public class Individual {
             table3.setWidthPercentage(100);
 
 
-            cell3 = new PdfPCell(new Phrase("Dental : " + ""));
+            cell3 = new PdfPCell(new Phrase("Dental:" + ""));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -3278,7 +3278,7 @@ public class Individual {
             if (medInfo.getFalses() != null) {
                 upper = medInfo.getFalses();
             }
-            cell3 = new PdfPCell(new Phrase("Dentures- Removable Upper : " + upper));
+            cell3 = new PdfPCell(new Phrase("Dentures- Removable Upper:" + upper));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -3291,7 +3291,7 @@ public class Individual {
             if (medInfo.getImplants() != null) {
                 lower = medInfo.getImplants();
             }
-            cell3 = new PdfPCell(new Phrase("Dentures- Removable Lower : " + lower));
+            cell3 = new PdfPCell(new Phrase("Dentures- Removable Lower:" + lower));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -3305,7 +3305,7 @@ public class Individual {
             if (medInfo.getMouth() != null) {
                 drymouth = medInfo.getMouth();
             }
-            cell3 = new PdfPCell(new Phrase("Dry Mouth : " + drymouth));
+            cell3 = new PdfPCell(new Phrase("Dry Mouth:" + drymouth));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -3319,7 +3319,7 @@ public class Individual {
             if (medInfo.getMouthnote() != null) {
                 mouthnote = medInfo.getMouthnote();
             }
-            cell3 = new PdfPCell(new Phrase("Notes : " + mouthnote));
+            cell3 = new PdfPCell(new Phrase("Notes:" + mouthnote));
             cell3.setBorder(Rectangle.BOTTOM);
             cell3.setUseBorderPadding(true);
             cell3.setBorderWidthBottom(5);
@@ -3344,7 +3344,7 @@ public class Individual {
             PdfPCell cell4;
             table4.setWidthPercentage(100);
 
-            cell4 = new PdfPCell(new Phrase("Hearing & Speech : " + ""));
+            cell4 = new PdfPCell(new Phrase("Hearing & Speech:" + ""));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -3367,7 +3367,7 @@ public class Individual {
             if (medInfo.getAid() != null) {
                 aid = medInfo.getAid();
             }
-            cell4 = new PdfPCell(new Phrase("Hearing Aid(s) : " + aid));
+            cell4 = new PdfPCell(new Phrase("Hearing Aid(s):" + aid));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -3381,7 +3381,7 @@ public class Individual {
             if (medInfo.getSpeech() != null) {
                 speech = medInfo.getSpeech();
             }
-            cell4 = new PdfPCell(new Phrase("Speech Impaired : " + speech));
+            cell4 = new PdfPCell(new Phrase("Speech Impaired:" + speech));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -3395,7 +3395,7 @@ public class Individual {
             if (medInfo.getAideNote() != null) {
                 aidNote = medInfo.getAideNote();
             }
-            cell4 = new PdfPCell(new Phrase("Notes : " + aidNote));
+            cell4 = new PdfPCell(new Phrase("Notes:" + aidNote));
             cell4.setBorder(Rectangle.BOTTOM);
             cell4.setUseBorderPadding(true);
             cell4.setBorderWidthBottom(5);
@@ -3467,7 +3467,7 @@ public class Individual {
                     }
                 }
 
-                cell8 = new PdfPCell(new Phrase("Immunization/Vaccine : " + name));
+                cell8 = new PdfPCell(new Phrase("Immunization/Vaccine:" + name));
                 cell8.setBorder(Rectangle.BOTTOM);
                 cell8.setUseBorderPadding(true);
                 cell8.setBorderWidthBottom(5);
@@ -3476,7 +3476,7 @@ public class Individual {
                 messageInfo3.add("Immunization/Vaccine :");
                 messageInfo3.add(name);
 
-            /*    cell8 = new PdfPCell(new Phrase("Other Immunization/Vaccine : " + vaccineList.get(i).getOther()));
+            /*    cell8 = new PdfPCell(new Phrase("Other Immunization/Vaccine:" + vaccineList.get(i).getOther()));
                 cell8.setBorder(Rectangle.BOTTOM);
                 cell8.setUseBorderPadding(true);
                 cell8.setBorderWidthBottom(5);
@@ -3485,7 +3485,7 @@ public class Individual {
                 messageInfo3.add("Other Immunization/Vaccine :");
                 messageInfo3.add(vaccineList.get(i).getOther());
 */
-                cell8 = new PdfPCell(new Phrase("Note (Approximate Date, Location, Details) : " + vaccineList.get(i).getDate()));
+                cell8 = new PdfPCell(new Phrase("Note (Approximate Date, Location, Details):" + vaccineList.get(i).getDate()));
                 cell8.setBorder(Rectangle.BOTTOM);
                 cell8.setUseBorderPadding(true);
                 cell8.setBorderWidthBottom(5);
@@ -3539,7 +3539,7 @@ public class Individual {
             if (medInfo.getVaccinenote() != null) {
                 vacNote = medInfo.getVaccinenote();
             }
-            cell8 = new PdfPCell(new Phrase("Immunization Note : " + vacNote));
+            cell8 = new PdfPCell(new Phrase("Immunization Note:" + vacNote));
             cell8.setBorder(Rectangle.BOTTOM);
             cell8.setUseBorderPadding(true);
             cell8.setBorderWidthBottom(5);
@@ -3573,7 +3573,7 @@ public class Individual {
             table2.setWidthPercentage(100);
 
 
-            cell2 = new PdfPCell(new Phrase("Vision : " + ""));
+            cell2 = new PdfPCell(new Phrase("Vision:" + ""));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -3595,7 +3595,7 @@ public class Individual {
             if (medInfo.getGlass() != null) {
                 glass = medInfo.getGlass();
             }
-            cell2 = new PdfPCell(new Phrase("Glasses : " + glass));
+            cell2 = new PdfPCell(new Phrase("Glasses:" + glass));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -3608,7 +3608,7 @@ public class Individual {
             if (medInfo.getLense() != null) {
                 lense = medInfo.getLense();
             }
-            cell2 = new PdfPCell(new Phrase("Contact Lenses : " + lense));
+            cell2 = new PdfPCell(new Phrase("Contact Lenses:" + lense));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -3621,7 +3621,7 @@ public class Individual {
             if (medInfo.getBlind() != null) {
                 blind = medInfo.getBlind();
             }
-            cell2 = new PdfPCell(new Phrase("Color Blind : " + blind));
+            cell2 = new PdfPCell(new Phrase("Color Blind:" + blind));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -3634,7 +3634,7 @@ public class Individual {
             if (medInfo.getVisionNote() != null) {
                 visionNote = medInfo.getVisionNote();
             }
-            cell2 = new PdfPCell(new Phrase("Notes : " + visionNote));
+            cell2 = new PdfPCell(new Phrase("Notes:" + visionNote));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -3664,7 +3664,7 @@ public class Individual {
             if (medInfo.getTobaco() != null) {
                 tobaco = medInfo.getTobaco();
             }
-            cell16 = new PdfPCell(new Phrase("Smoking / Tobacco Use : " + tobaco));
+            cell16 = new PdfPCell(new Phrase("Smoking / Tobacco Use:" + tobaco));
             cell16.setBorder(Rectangle.BOTTOM);
             cell16.setUseBorderPadding(true);
             cell16.setBorderWidthBottom(5);
@@ -3677,7 +3677,7 @@ public class Individual {
             if (medInfo.getT_type() != null) {
                 tobacoType = medInfo.getT_type();
             }
-            cell16 = new PdfPCell(new Phrase("Type : " + tobacoType));
+            cell16 = new PdfPCell(new Phrase("Type:" + tobacoType));
             cell16.setBorder(Rectangle.BOTTOM);
             cell16.setUseBorderPadding(true);
             cell16.setBorderWidthBottom(5);
@@ -3691,7 +3691,7 @@ public class Individual {
             if (medInfo.getT_amt() != null) {
                 tobacoAmt = medInfo.getT_amt();
             }
-            cell16 = new PdfPCell(new Phrase("Amount/Frequency : " + tobacoAmt));
+            cell16 = new PdfPCell(new Phrase("Amount/Frequency:" + tobacoAmt));
             cell16.setBorder(Rectangle.BOTTOM);
             cell16.setUseBorderPadding(true);
             cell16.setBorderWidthBottom(5);
@@ -3705,7 +3705,7 @@ public class Individual {
             if (medInfo.getT_year() != null) {
                 tobacoYear = medInfo.getT_year();
             }
-            cell16 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable) : " + tobacoYear));
+            cell16 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable):" + tobacoYear));
             cell16.setBorder(Rectangle.BOTTOM);
             cell16.setUseBorderPadding(true);
             cell16.setBorderWidthBottom(5);
@@ -3736,7 +3736,7 @@ public class Individual {
             if (medInfo.getDrink() != null) {
                 alcohol = medInfo.getDrink();
             }
-            cell17 = new PdfPCell(new Phrase("Alcohol : " + alcohol));
+            cell17 = new PdfPCell(new Phrase("Alcohol:" + alcohol));
             cell17.setBorder(Rectangle.BOTTOM);
             cell17.setUseBorderPadding(true);
             cell17.setBorderWidthBottom(5);
@@ -3750,7 +3750,7 @@ public class Individual {
             if (medInfo.getDrink_amt() != null) {
                 alcoholAmt = medInfo.getDrink_amt();
             }
-            cell17 = new PdfPCell(new Phrase("Amount/Frequency/Other Notes : " + alcoholAmt));
+            cell17 = new PdfPCell(new Phrase("Amount/Frequency/Other Notes:" + alcoholAmt));
             cell17.setBorder(Rectangle.BOTTOM);
             cell17.setUseBorderPadding(true);
             cell17.setBorderWidthBottom(5);
@@ -3764,7 +3764,7 @@ public class Individual {
             if (medInfo.getDrink_year() != null) {
                 alcoholYear = medInfo.getDrink_year();
             }
-            cell17 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable) : " + alcoholYear));
+            cell17 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable):" + alcoholYear));
             cell17.setBorder(Rectangle.BOTTOM);
             cell17.setUseBorderPadding(true);
             cell17.setBorderWidthBottom(5);
@@ -3805,7 +3805,7 @@ public class Individual {
             if (medInfo.getDrug() != null) {
                 drug = medInfo.getDrug();
             }
-            cell18 = new PdfPCell(new Phrase("Recreational Drug Use : " + drug));
+            cell18 = new PdfPCell(new Phrase("Recreational Drug Use:" + drug));
             cell18.setBorder(Rectangle.BOTTOM);
             cell18.setUseBorderPadding(true);
             cell18.setBorderWidthBottom(5);
@@ -3819,7 +3819,7 @@ public class Individual {
             if (medInfo.getDrug_type() != null) {
                 drugType = medInfo.getDrug_type();
             }
-            cell18 = new PdfPCell(new Phrase("Type : " + drugType));
+            cell18 = new PdfPCell(new Phrase("Type:" + drugType));
             cell18.setBorder(Rectangle.BOTTOM);
             cell18.setUseBorderPadding(true);
             cell18.setBorderWidthBottom(5);
@@ -3834,7 +3834,7 @@ public class Individual {
             if (medInfo.getDrug_amt() != null) {
                 drugAmt = medInfo.getDrug_amt();
             }
-            cell18 = new PdfPCell(new Phrase("Amount/Frequency/Other Notes : " + drugAmt));
+            cell18 = new PdfPCell(new Phrase("Amount/Frequency/Other Notes:" + drugAmt));
             cell18.setBorder(Rectangle.BOTTOM);
             cell18.setUseBorderPadding(true);
             cell18.setBorderWidthBottom(5);
@@ -3849,7 +3849,7 @@ public class Individual {
             if (medInfo.getDrug_year() != null) {
                 drugYear = medInfo.getDrug_year();
             }
-            cell18 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable) : " + drugYear));
+            cell18 = new PdfPCell(new Phrase("Number of Years & When Stopped (if applicable):" + drugYear));
             cell18.setBorder(Rectangle.BOTTOM);
             cell18.setUseBorderPadding(true);
             cell18.setBorderWidthBottom(5);
@@ -3947,7 +3947,7 @@ public class Individual {
                     bathing = s.getBath();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Bathing : " + bathing));
+                cell1 = new PdfPCell(new Phrase("Bathing:" + bathing));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -3961,7 +3961,7 @@ public class Individual {
                 if (s.getContinence() != null) {
                     continence = s.getContinence();
                 }
-                cell1 = new PdfPCell(new Phrase("Continence : " + continence));
+                cell1 = new PdfPCell(new Phrase("Continence:" + continence));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -3975,7 +3975,7 @@ public class Individual {
                 if (s.getDress() != null) {
                     dressing = s.getDress();
                 }
-                cell1 = new PdfPCell(new Phrase("Dressing : " + dressing));
+                cell1 = new PdfPCell(new Phrase("Dressing:" + dressing));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -3988,7 +3988,7 @@ public class Individual {
                 if (s.getFeed() != null) {
                     eating = s.getFeed();
                 }
-                cell1 = new PdfPCell(new Phrase("Eating : " + eating));
+                cell1 = new PdfPCell(new Phrase("Eating:" + eating));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -4003,7 +4003,7 @@ public class Individual {
                     toileting = s.getToileting();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Toileting : " + toileting));
+                cell1 = new PdfPCell(new Phrase("Toileting:" + toileting));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -4018,7 +4018,7 @@ public class Individual {
                     transfering = s.getTransfer();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Transfering : " + transfering));
+                cell1 = new PdfPCell(new Phrase("Transfering:" + transfering));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -4032,7 +4032,7 @@ public class Individual {
                 if (s.getFunctionOther() != null) {
                     functionOther = s.getFunctionOther();
                 }
-                cell1 = new PdfPCell(new Phrase("Other-specify : " + functionOther));
+                cell1 = new PdfPCell(new Phrase("Other-specify:" + functionOther));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -4045,7 +4045,7 @@ public class Individual {
                 if (s.getFunctionNote() != null) {
                     functionNote = s.getFunctionNote();
                 }
-                cell1 = new PdfPCell(new Phrase("Note : " + functionNote));
+                cell1 = new PdfPCell(new Phrase("Note:" + functionNote));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
@@ -4111,7 +4111,7 @@ public class Individual {
                 if (s.getTransport() != null) {
                     access = s.getTransport();
                 }
-                cell2 = new PdfPCell(new Phrase("Accessing transportation : " + access));
+                cell2 = new PdfPCell(new Phrase("Accessing transportation:" + access));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4125,7 +4125,7 @@ public class Individual {
                 if (s.getPets() != null) {
                     carePet = s.getPets();
                 }
-                cell2 = new PdfPCell(new Phrase("Caring for pets : " + carePet));
+                cell2 = new PdfPCell(new Phrase("Caring for pets:" + carePet));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4139,7 +4139,7 @@ public class Individual {
                 if (s.getDrive() != null) {
                     driving = s.getDrive();
                 }
-                cell2 = new PdfPCell(new Phrase("Driving : " + driving));
+                cell2 = new PdfPCell(new Phrase("Driving:" + driving));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4153,7 +4153,7 @@ public class Individual {
                 if (s.getKeep() != null) {
                     housekeeping = s.getKeep();
                 }
-                cell2 = new PdfPCell(new Phrase("Housekeeping : " + housekeeping));
+                cell2 = new PdfPCell(new Phrase("Housekeeping:" + housekeeping));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4167,7 +4167,7 @@ public class Individual {
                 if (s.getMedication() != null) {
                     manage = s.getMedication();
                 }
-                cell2 = new PdfPCell(new Phrase("Manage medications : " + manage));
+                cell2 = new PdfPCell(new Phrase("Manage medications:" + manage));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4181,7 +4181,7 @@ public class Individual {
                 if (s.getFinance() != null) {
                     finance = s.getFinance();
                 }
-                cell2 = new PdfPCell(new Phrase("Managing personal finances : " + finance));
+                cell2 = new PdfPCell(new Phrase("Managing personal finances:" + finance));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4194,7 +4194,7 @@ public class Individual {
                 if (s.getPrepare() != null) {
                     meal = s.getPrepare();
                 }
-                cell2 = new PdfPCell(new Phrase("Preparing meals : " + meal));
+                cell2 = new PdfPCell(new Phrase("Preparing meals:" + meal));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4208,7 +4208,7 @@ public class Individual {
                 if (s.getShop() != null) {
                     shopping = s.getShop();
                 }
-                cell2 = new PdfPCell(new Phrase("Shopping for groceries or clothes : " + shopping));
+                cell2 = new PdfPCell(new Phrase("Shopping for groceries or clothes:" + shopping));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4222,7 +4222,7 @@ public class Individual {
                 if (s.getUse() != null) {
                     telephone = s.getUse();
                 }
-                cell2 = new PdfPCell(new Phrase("Using telephone : " + telephone));
+                cell2 = new PdfPCell(new Phrase("Using telephone:" + telephone));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4236,7 +4236,7 @@ public class Individual {
                 if (s.getInstOther() != null) {
                     instOther = s.getInstOther();
                 }
-                cell2 = new PdfPCell(new Phrase("Other-specify : " + instOther));
+                cell2 = new PdfPCell(new Phrase("Other-specify:" + instOther));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4250,7 +4250,7 @@ public class Individual {
                 if (s.getInstNote() != null) {
                     instNote = s.getInstNote();
                 }
-                cell2 = new PdfPCell(new Phrase("Note : " + instNote));
+                cell2 = new PdfPCell(new Phrase("Note:" + instNote));
                 cell2.setBorder(Rectangle.BOTTOM);
                 cell2.setUseBorderPadding(true);
                 cell2.setBorderWidthBottom(5);
@@ -4331,7 +4331,7 @@ public class Individual {
                 if (e.getName() != null) {
                     name = e.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4349,7 +4349,7 @@ public class Individual {
                         reationType = e.getRelationType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Relationship : " + reationType));
+                cell = new PdfPCell(new Phrase("Relationship:" + reationType));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4371,7 +4371,7 @@ public class Individual {
                     priority = "Secondary - Health Care Proxy Agent";
                 }
 
-                cell = new PdfPCell(new Phrase("Priority : " + priority));
+                cell = new PdfPCell(new Phrase("Priority:" + priority));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4387,7 +4387,7 @@ public class Individual {
                 if (e.getOtherRelation() != null) {
                     relationOther = e.getOtherRelation();
                 }
-                cell = new PdfPCell(new Phrase("Other : " + relationOther));
+                cell = new PdfPCell(new Phrase("Other:" + relationOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4402,7 +4402,7 @@ public class Individual {
                 if (e.getWorkPhone() != null) {
                     officePhone = e.getWorkPhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4415,7 +4415,7 @@ public class Individual {
                 if (e.getMobile() != null) {
                     mPhone = e.getMobile();
                 }
-                cell = new PdfPCell(new Phrase("Mobile Phone : " + mPhone));
+                cell = new PdfPCell(new Phrase("Mobile Phone:" + mPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4429,7 +4429,7 @@ public class Individual {
                 if (e.getPhone() != null) {
                     hPhone = e.getPhone();
                 }
-                cell = new PdfPCell(new Phrase("Home Phone : " + hPhone));
+                cell = new PdfPCell(new Phrase("Home Phone:" + hPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4451,14 +4451,14 @@ public class Individual {
                     if (c.getContactType() != null) {
                         type =c.getContactType();
                     }
-                    cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                    cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
                     cell.setBorderWidthBottom(5);
                     cell.setBorderColorBottom(BaseColor.WHITE);
                     table.addCell(cell);
 
-                    messageEmergency.add(type+" Phone : ");
+                    messageEmergency.add(type+" Phone:");
                     messageEmergency.add(num);
                 }
 
@@ -4466,7 +4466,7 @@ public class Individual {
                 if (e.getEmail() != null) {
                     email = e.getEmail();
                 }
-                cell = new PdfPCell(new Phrase("Email : " + email));
+                cell = new PdfPCell(new Phrase("Email:" + email));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4479,7 +4479,7 @@ public class Individual {
                 if (e.getAddress() != null) {
                     address = e.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Home Address : " + address));
+                cell = new PdfPCell(new Phrase("Home Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4495,7 +4495,7 @@ public class Individual {
                 if (e.getHas_card() != null) {
                     ascard = e.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4509,7 +4509,7 @@ public class Individual {
                 if (e.getNote() != null) {
                     note = e.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4588,7 +4588,7 @@ if (i==0) {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Speciality : " + speciality));
+                cell = new PdfPCell(new Phrase("Speciality:" + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4601,7 +4601,7 @@ if (i==0) {
                 if (s.getOtherType() != null) {
                     specialityOther = s.getOtherType();
                 }
-                cell = new PdfPCell(new Phrase("Other Speciality : " + specialityOther));
+                cell = new PdfPCell(new Phrase("Other Speciality:" + specialityOther));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4614,7 +4614,7 @@ if (i==0) {
                 if (s.getName() != null) {
                     name = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name : " + name));
+                cell = new PdfPCell(new Phrase("Name:" + name));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4635,21 +4635,21 @@ if (i==0) {
                     if (c.getContactType() != null) {
                         type =c.getContactType();
                     }
-                    cell = new PdfPCell(new Phrase(type+" Phone : " + num));
+                    cell = new PdfPCell(new Phrase(type+" Phone:" + num));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
                     cell.setBorderWidthBottom(5);
                     cell.setBorderColorBottom(BaseColor.WHITE);
                     table.addCell(cell);
 
-                    messagePhysician.add(type+" Phone : ");
+                    messagePhysician.add(type+" Phone:");
                     messagePhysician.add(num);
                 }
      /*           String officePhone = "";
                 if (s.getOfficePhone() != null) {
                     officePhone = s.getOfficePhone();
                 }
-                cell = new PdfPCell(new Phrase("Office Phone : " + officePhone));
+                cell = new PdfPCell(new Phrase("Office Phone:" + officePhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4662,7 +4662,7 @@ if (i==0) {
                 if (s.getHourPhone() != null) {
                     afterHoursPhone = s.getHourPhone();
                 }
-                cell = new PdfPCell(new Phrase("After Hours Phone : " + afterHoursPhone));
+                cell = new PdfPCell(new Phrase("After Hours Phone:" + afterHoursPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4675,7 +4675,7 @@ if (i==0) {
                 if (s.getOtherPhone() != null) {
                     otherPhone = s.getOtherPhone();
                 }
-                cell = new PdfPCell(new Phrase("Other Phone : " + otherPhone));
+                cell = new PdfPCell(new Phrase("Other Phone:" + otherPhone));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4688,7 +4688,7 @@ if (i==0) {
                 if (s.getFax() != null) {
                     officeFax = s.getFax();
                 }
-                cell = new PdfPCell(new Phrase("Office Fax : " + officeFax));
+                cell = new PdfPCell(new Phrase("Office Fax:" + officeFax));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4702,7 +4702,7 @@ if (i==0) {
                 if (s.getAddress() != null) {
                     address = s.getAddress();
                 }
-                cell = new PdfPCell(new Phrase("Address : " + address));
+                cell = new PdfPCell(new Phrase("Address:" + address));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4715,7 +4715,7 @@ if (i==0) {
                 if (s.getWebsite() != null) {
                     website = s.getWebsite();
                 }
-                cell = new PdfPCell(new Phrase("Website : " + website));
+                cell = new PdfPCell(new Phrase("Website:" + website));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4728,7 +4728,7 @@ if (i==0) {
                 if (s.getPracticeName() != null) {
                     medicalPracticeName = s.getPracticeName();
                 }
-                cell = new PdfPCell(new Phrase("Medical Practice Name : " + medicalPracticeName));
+                cell = new PdfPCell(new Phrase("Medical Practice Name:" + medicalPracticeName));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4741,7 +4741,7 @@ if (i==0) {
                 if (s.getHospAffiliation() != null) {
                     hospitalAffiliations = s.getHospAffiliation();
                 }
-                cell = new PdfPCell(new Phrase("Hospital Affiliations : " + hospitalAffiliations));
+                cell = new PdfPCell(new Phrase("Hospital Affiliations:" + hospitalAffiliations));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4754,7 +4754,7 @@ if (i==0) {
                 if (s.getNetwork() != null) {
                     networkStatus = s.getNetwork();
                 }
-                cell = new PdfPCell(new Phrase("In Network Status : " + networkStatus));
+                cell = new PdfPCell(new Phrase("In Network Status:" + networkStatus));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4767,7 +4767,7 @@ if (i==0) {
                 if (s.getLastseen() != null) {
                     lastSeen = s.getLastseen();
                 }
-                cell = new PdfPCell(new Phrase("Last Seen : " + lastSeen));
+                cell = new PdfPCell(new Phrase("Last Seen:" + lastSeen));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4780,7 +4780,7 @@ if (i==0) {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4793,7 +4793,7 @@ if (i==0) {
                 if (s.getNote() != null) {
                     note = s.getNote();
                 }
-                cell = new PdfPCell(new Phrase("Notes : " + note));
+                cell = new PdfPCell(new Phrase("Notes:" + note));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4806,7 +4806,7 @@ if (i==0) {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card? : "+ascard));
+                cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);

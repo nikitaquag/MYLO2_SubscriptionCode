@@ -73,11 +73,11 @@ public class MedicalConditionQuery {
 
     public static boolean deleteRecord(int userid, String s) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_IMPLANTS + "='" + s + "' and " + COL_USERID + "='" + userid + "';", null);
+        Cursor c = db.rawQuery("Select * from " + TABLE_NAME + " where " + COL_IMPLANTS + "='" + s + "';", null);
 
         if (c.moveToFirst()) {
             do {
-                db.execSQL("delete from " + TABLE_NAME + " where " + COL_IMPLANTS + "='" + s + "' and " + COL_USERID + "='" + userid + "';");
+                db.execSQL("delete from " + TABLE_NAME + " where " + COL_IMPLANTS + "='" + s + "';");
             } while (c.moveToNext());
         }
 
@@ -95,7 +95,7 @@ public class MedicalConditionQuery {
         //int rowid=db.update(TABLE_NAME,cv,COL_IMPLANTS + "='" + value + "' and "+COL_USERID+"=" + userid,null);
         int rowid = db.update(TABLE_NAME,
                 cv,
-                COL_USERID + " = " + userid + " AND " + COL_IMPLANTS + " = '" + name + "'",
+                 COL_IMPLANTS + " = '" + name + "'",
                 null);
 
         flag = rowid != 0;

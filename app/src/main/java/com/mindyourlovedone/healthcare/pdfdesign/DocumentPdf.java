@@ -61,14 +61,14 @@ public class DocumentPdf {
                         type = type + " - " + s.getOtherDoc();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Document Type : " + type));
+                cell = new PdfPCell(new Phrase("Document Type:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageAdvance.add("Document Type : ");
+                messageAdvance.add("Document Type:");
                 messageAdvance.add(type);
 
 
@@ -76,7 +76,7 @@ public class DocumentPdf {
                 if (s.getPerson() != null) {
                     person = s.getPerson();
                 }
-                cell = new PdfPCell(new Phrase("Name of Person : " + person));
+                cell = new PdfPCell(new Phrase("Name of Person:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -90,7 +90,7 @@ public class DocumentPdf {
                 if (s.getName() != null) {
                     file = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name of File : " + file));
+                cell = new PdfPCell(new Phrase("Name of File:" + file));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -104,7 +104,7 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date Signed : " + date));
+                cell = new PdfPCell(new Phrase("Date Signed:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -118,7 +118,7 @@ public class DocumentPdf {
                 if (s.getHolder() != null) {
                     holder = s.getHolder();
                 }
-                cell = new PdfPCell(new Phrase("Distributed to : " + holder));
+                cell = new PdfPCell(new Phrase("Distributed to:" + holder));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -132,7 +132,7 @@ public class DocumentPdf {
                 if (s.getLocation() != null) {
                     location = s.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("Location of Original : " + location));
+                cell = new PdfPCell(new Phrase("Location of Original:" + location));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -210,28 +210,28 @@ public class DocumentPdf {
                         category = category + " - " + s.getOtherCategory();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Category : " + category));
+                cell = new PdfPCell(new Phrase("Category:" + category));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageOther.add("Category : ");
+                messageOther.add("Category:");
                 messageOther.add(category);
 
                 String type = "";
                 if (s.getType() != null) {
                     type = s.getType();
                 }
-                cell = new PdfPCell(new Phrase("Document Type : " + type));
+                cell = new PdfPCell(new Phrase("Document Type:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageOther.add("Document Type : ");
+                messageOther.add("Document Type:");
                 messageOther.add(type);
 
 
@@ -239,7 +239,7 @@ public class DocumentPdf {
                 if (s.getPerson() != null) {
                     person = s.getPerson();
                 }
-                cell = new PdfPCell(new Phrase("Name of Person : " + person));
+                cell = new PdfPCell(new Phrase("Name of Person:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -253,7 +253,7 @@ public class DocumentPdf {
                 if (s.getName() != null) {
                     file = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name of File : " + file));
+                cell = new PdfPCell(new Phrase("Name of File:" + file));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -267,7 +267,7 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date of Document : " + date));
+                cell = new PdfPCell(new Phrase("Date of Document:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -281,7 +281,7 @@ public class DocumentPdf {
                 if (s.getHolder() != null) {
                     holder = s.getHolder();
                 }
-                cell = new PdfPCell(new Phrase("Distributed to : " + holder));
+                cell = new PdfPCell(new Phrase("Distributed to:" + holder));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -295,7 +295,7 @@ public class DocumentPdf {
                 if (s.getLocation() != null) {
                     location = s.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("Location of Original : " + location));
+                cell = new PdfPCell(new Phrase("Location of Original:" + location));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -371,14 +371,14 @@ public class DocumentPdf {
                 if (s.getType() != null) {
                     type = s.getType();
                 }
-                cell = new PdfPCell(new Phrase("Document Type : " + type));
+                cell = new PdfPCell(new Phrase("Document Type:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageRecord.add("Document Type : ");
+                messageRecord.add("Document Type:");
                 messageRecord.add(type);
 
 
@@ -386,7 +386,7 @@ public class DocumentPdf {
                 if (s.getPerson() != null) {
                     person = s.getPerson();
                 }
-                cell = new PdfPCell(new Phrase("Name on Document : " + person));
+                cell = new PdfPCell(new Phrase("Name on Document:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -400,7 +400,7 @@ public class DocumentPdf {
                 if (s.getName() != null) {
                     file = s.getName();
                 }
-                cell = new PdfPCell(new Phrase("Name of File : " + file));
+                cell = new PdfPCell(new Phrase("Name of File:" + file));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -414,7 +414,7 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date of Document : " + date));
+                cell = new PdfPCell(new Phrase("Date of Document:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -428,7 +428,7 @@ public class DocumentPdf {
                 if (s.getHolder() != null) {
                     holder = s.getHolder();
                 }
-                cell = new PdfPCell(new Phrase("Distributed to : " + holder));
+                cell = new PdfPCell(new Phrase("Distributed to:" + holder));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -442,7 +442,7 @@ public class DocumentPdf {
                 if (s.getLocation() != null) {
                     location = s.getLocation();
                 }
-                cell = new PdfPCell(new Phrase("Location of Original : " + location));
+                cell = new PdfPCell(new Phrase("Location of Original:" + location));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -456,7 +456,7 @@ public class DocumentPdf {
                 if (s.getHospital() != null) {
                     hosp = s.getHospital();
                 }
-                cell = new PdfPCell(new Phrase("Associated Hospital : " + hosp));
+                cell = new PdfPCell(new Phrase("Associated Hospital:" + hosp));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -471,7 +471,7 @@ public class DocumentPdf {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable) : " + locator));
+                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
