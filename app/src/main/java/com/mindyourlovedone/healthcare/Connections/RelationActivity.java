@@ -74,7 +74,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Category")) {
                 txtTitles.setText("Select Category");
-                String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
+                String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "TeleMed", "Urgent Care", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Insurance")) {

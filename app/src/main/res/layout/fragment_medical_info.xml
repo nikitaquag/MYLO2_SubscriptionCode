@@ -3254,7 +3254,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:layout_toLeftOf="@+id/txtAddHistory"
                             android:layout_toRightOf="@+id/imgHistory"
                             android:fontFamily="@font/lato"
-                            android:text="Surgical History"
+                            android:text="Surgical/Hospitalisation History"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension18dp" />
 

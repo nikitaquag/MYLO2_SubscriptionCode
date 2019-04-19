@@ -847,8 +847,8 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
             allergyIntent.putExtra("IsHistory", true);
             allergyIntent.putExtra("IsImplant", false);
             allergyIntent.putExtra("ADD", "HistoryUpdate");
-            allergyIntent.putExtra("Title", "Update Surgical History");
-            allergyIntent.putExtra("Name", "Add Surgical History");
+            allergyIntent.putExtra("Title", "Update Surgical/Hospitalisation History");
+            allergyIntent.putExtra("Name", "Add Surgical/Hospitalisation History");
             allergyIntent.putExtra("HistoryObject", value);
             allergyIntent.putExtra("ID", HistoryLists.get(position).getId()+"");
             startActivityForResult(allergyIntent, REQUEST_HISTORY);
@@ -1676,8 +1676,8 @@ RelativeLayout headAllergy,headPre,headImplants,headHistory,headHospital,headBlo
                 historyIntent.putExtra("IsHistory", true);
                 historyIntent.putExtra("IsImplant", false);
                 historyIntent.putExtra("ADD", "History");
-                historyIntent.putExtra("Title", "Add Surgical History");
-                historyIntent.putExtra("Name", "Add Surgical History");
+                historyIntent.putExtra("Title", "Add Surgical/Hospitalisation History");
+                historyIntent.putExtra("Name", "Add Surgical/Hospitalisation History");
                 startActivityForResult(historyIntent, REQUEST_HISTORY);
                 break;
         }
