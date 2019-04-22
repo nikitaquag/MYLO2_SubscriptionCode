@@ -87,7 +87,7 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
         if (documentList.get(position).getPerson().equals("")) {
             holder.txtDocTime.setVisibility(View.GONE);
         } else {
-            holder.txtDocTime.setText("Date Signed:"/*+documentList.get(position).getDate()*/);
+            holder.txtDocTime.setText("Dated:"/*+documentList.get(position).getDate()*/);
             holder.txtDocTime.setVisibility(View.GONE);
            // holder.txtDocTime.setText(documentList.get(position).getPerson());
         }
@@ -97,7 +97,7 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
         } else {
             holder.txtDocDate.setVisibility(View.VISIBLE);
             holder.txtDocTime.setVisibility(View.GONE);
-            holder.txtDocDate.setText("Date Signed: "+documentList.get(position).getDate());
+            holder.txtDocDate.setText("Dated: "+documentList.get(position).getDate());
         }
 
         holder.imgDocType.setImageResource(R.drawable.pdf_dir);//documentList.get(position).getImage()

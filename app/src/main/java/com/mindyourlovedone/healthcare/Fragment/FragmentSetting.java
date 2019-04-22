@@ -63,7 +63,7 @@ public class FragmentSetting extends Fragment {
         s1.setResImage(R.drawable.medical_one);
 
         Setting s2 = new Setting();
-        s2.setName("MYLO FAQs");
+        s2.setName("Support FAQs");
         s2.setResImage(R.drawable.insu_one);
 
         Setting s3 = new Setting();

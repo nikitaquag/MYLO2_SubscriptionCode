@@ -231,13 +231,13 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             public void onClick(View v) {
                 tilDoc.setVisibility(View.GONE);
                 spinnerDoc.setVisibility(View.VISIBLE);
-                spinnerDoc.setHint("Document Type");
+                spinnerDoc.setHint("Document Description");
                 spinnerDoc.performClick();
             }
         });*/
 
         tilDate = findViewById(R.id.tilDate);
-        //tilDate.setHint("Date Signed");
+        //tilDate.setHint("Document Date");
         txtDate = findViewById(R.id.txtDate);
        /* tilDate.setHintEnabled(false);
         txtDate.setOnTouchListener(new View.OnTouchListener() {
@@ -256,7 +256,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDoc.setAdapter(adapter);
-        spinnerDoc.setHint("Document Type");
+        spinnerDoc.setHint("Document Description");
 
 
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -282,7 +282,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             spinnerDoc.setAdapter(adapter);
-            spinnerDoc.setHint("Document Type");
+            spinnerDoc.setHint("Document Description");
             spinnerDoc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -305,8 +305,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtName.setVisibility(View.GONE);
             tilName.setVisibility(View.GONE);
 
-            tilPName.setHint("Name of Person");
-            tilDate.setHint("Date Signed");
+            tilPName.setHint("Document Received from");
+            tilDate.setHint("Document Date");
             txtTitle.setText("Advance Directives");
 
         } else if (From.equals("Other")) {
@@ -320,7 +320,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtName.setVisibility(View.GONE);
             tilName.setVisibility(View.GONE);
 
-            tilPName.setHint("Name of Person");
+            tilPName.setHint("Document Received from");
             tilDate.setHint("Date of Document");
             txtTitle.setText("Other Documents");
         } else if (From.equals("Record")) {
@@ -425,7 +425,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerDoc.setAdapter(adapter);
-                spinnerDoc.setHint("Document Type");
+                spinnerDoc.setHint("Document Description");
                 spinnerDoc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -447,8 +447,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 txtLocator.setVisibility(View.GONE);
                 txtName.setVisibility(View.GONE);
                 tilName.setVisibility(View.GONE);
-                // txtPName.setHint("Name of Person");
-                // txtDate.setHint("Date Signed");
+                // txtPName.setHint("Document Received from");
+                // txtDate.setHint("Document Date");
             } else if (From.equals("Other")) {
                 spinnerDoc.setVisibility(View.GONE);
                 tilSpinDoc.setVisibility(View.GONE);
@@ -459,8 +459,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 txtLocator.setVisibility(View.GONE);
                 txtName.setVisibility(View.GONE);
                 tilName.setVisibility(View.GONE);
-                //   txtPName.setHint("Name of Person");
-                //  txtDate.setHint("Date Signed");
+                //   txtPName.setHint("Document Received from");
+                //  txtDate.setHint("Document Date");
             } else if (From.equals("Record")) {
                 spinnerDoc.setVisibility(View.GONE);
 
@@ -517,7 +517,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerDoc.setAdapter(adapter);
-                spinnerDoc.setHint("Document Type");
+                spinnerDoc.setHint("Document Description");
 
             } else {
                 txtDocTYpe.setText(document.getType());
@@ -538,7 +538,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_dropdown_item, ADList);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinnerDoc.setAdapter(adapter);
-                spinnerDoc.setHint("Document Type");
+                spinnerDoc.setHint("Document Description");
                 for (int j = 0; j < ADList.length; j++) {
                     if (document.getType().equals(ADList[j])) {
                         indexs = j;

@@ -61,14 +61,14 @@ public class DocumentPdf {
                         type = type + " - " + s.getOtherDoc();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Document Type:" + type));
+                cell = new PdfPCell(new Phrase("Document Description:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageAdvance.add("Document Type:");
+                messageAdvance.add("Document Description:");
                 messageAdvance.add(type);
 
 
@@ -76,14 +76,14 @@ public class DocumentPdf {
                 if (s.getPerson() != null) {
                     person = s.getPerson();
                 }
-                cell = new PdfPCell(new Phrase("Name of Person:" + person));
+                cell = new PdfPCell(new Phrase("Document Received from:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageAdvance.add("Name of Person :");
+                messageAdvance.add("Document Received from :");
                 messageAdvance.add(person);
 
                 String file = "";
@@ -104,14 +104,14 @@ public class DocumentPdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Date Signed:" + date));
+                cell = new PdfPCell(new Phrase("Document Date:" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageAdvance.add("Date Signed :");
+                messageAdvance.add("Document Date :");
                 messageAdvance.add(date);
 
                 String holder = "";
@@ -224,14 +224,14 @@ public class DocumentPdf {
                 if (s.getType() != null) {
                     type = s.getType();
                 }
-                cell = new PdfPCell(new Phrase("Document Type:" + type));
+                cell = new PdfPCell(new Phrase("Document Description:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageOther.add("Document Type:");
+                messageOther.add("Document Description:");
                 messageOther.add(type);
 
 
@@ -239,14 +239,14 @@ public class DocumentPdf {
                 if (s.getPerson() != null) {
                     person = s.getPerson();
                 }
-                cell = new PdfPCell(new Phrase("Name of Person:" + person));
+                cell = new PdfPCell(new Phrase("Document Received from:" + person));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageOther.add("Name of Person :");
+                messageOther.add("Document Received from :");
                 messageOther.add(person);
 
                 String file = "";
@@ -371,14 +371,14 @@ public class DocumentPdf {
                 if (s.getType() != null) {
                     type = s.getType();
                 }
-                cell = new PdfPCell(new Phrase("Document Type:" + type));
+                cell = new PdfPCell(new Phrase("Document Description:" + type));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageRecord.add("Document Type:");
+                messageRecord.add("Document Description:");
                 messageRecord.add(type);
 
 
@@ -456,14 +456,14 @@ public class DocumentPdf {
                 if (s.getHospital() != null) {
                     hosp = s.getHospital();
                 }
-                cell = new PdfPCell(new Phrase("Associated Hospital:" + hosp));
+                cell = new PdfPCell(new Phrase("Associated Physician or Hospital:" + hosp));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageRecord.add("Associated Hospital :");
+                messageRecord.add("Associated Physician or Hospital :");
                 messageRecord.add(hosp);
 
 

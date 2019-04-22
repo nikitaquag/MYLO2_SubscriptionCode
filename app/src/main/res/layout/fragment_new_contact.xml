@@ -1644,10 +1644,9 @@ android:visibility="gone"
 
                             android:hint="Priority"
                             android:imeOptions="actionNext"
-                            android:maxLength="30"
-                            android:maxLines="1"
 
-                            android:singleLine="true"
+                            android:maxLines="2"
+
                             android:textColor="@color/colorPrimaryDark"
                             android:fontFamily="@font/lato"
                             android:includeFontPadding="true"
