@@ -402,8 +402,8 @@ LinearLayout casts_container;
                 String frequency = txtFrequency.getText().toString().trim();
                 String medicine = txtMedicine.getText().toString().trim();
                 if (medicine.equals("")) {
-                    Toast.makeText(context, "Please Enter Medicine", Toast.LENGTH_SHORT).show();
-                    txtMedicine.setError("Please Enter Medicine");
+                    Toast.makeText(context, "Please enter Name of Medication/Supplement", Toast.LENGTH_SHORT).show();
+                    txtMedicine.setError("Please enter Name of Medication/Supplement");
                 } else {
                     if (isEdit == false) {
                         unique = generateRandom();

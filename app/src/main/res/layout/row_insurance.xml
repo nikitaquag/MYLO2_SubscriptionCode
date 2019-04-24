@@ -99,7 +99,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtName"
                     android:gravity="left"
-                    android:paddingLeft="@dimen/dimension10dp"
+
                     android:paddingTop="@dimen/dimension5dp"
                     android:text=""
                     android:textColor="@color/colorDarkGray"

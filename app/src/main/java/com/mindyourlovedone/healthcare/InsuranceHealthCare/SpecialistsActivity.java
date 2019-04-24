@@ -35,6 +35,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
+import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.NonScrollListView;
@@ -265,7 +266,32 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
         imgRight.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { showInstructionDialog();}
+            public void onClick(View v) {
+                //showInstructionDialog();
+                if (from.equals("Speciality")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "SpecialitySection");
+                    startActivity(ia);
+                }else if (from.equals("Emergency")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "EmergencySection");
+                    startActivity(ia);
+                }else if (from.equals("Insurance")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "InsuranceSection");
+                    startActivity(ia);
+                }else if (from.equals("Event")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "EventSection");
+                    startActivity(ia);
+                }
+                else if (from.equals("Prescription")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "PrescriptionSection");
+                    startActivity(ia);
+                }
+
+            }
 //            {
 //
 //                if (from.equals("Speciality")) {

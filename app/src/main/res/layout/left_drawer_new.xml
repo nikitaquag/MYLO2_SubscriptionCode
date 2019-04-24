@@ -397,7 +397,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/scroll"
             android:background="@color/colorLogoutGray"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone"
+            >
 
             <ImageView
                 android:id="@+id/imgLogout"

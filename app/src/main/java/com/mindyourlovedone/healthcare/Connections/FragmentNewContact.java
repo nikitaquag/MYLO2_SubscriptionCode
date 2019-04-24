@@ -6295,10 +6295,10 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 txtInsuaranceEmail.setError("Please enter valid email");
                 DialogManager.showAlert("Please enter valid email", context);
             }
-            /*else if (phone.equals("")) {
-                txtInsuarancePhone.setError("Please Enter Home Phone");
-                showAlert("Please Enter Mobile", context);
-            }*/
+            else if (type.equals("")) {
+                txtInsuType.setError("Please Select Type of Insurance");
+                DialogManager.showAlert("Please Select Type of Insurance", context);
+            }
             else if (mobile.length() != 0 && mobile.length() < 10) {
                 txtInsuarancePhone.setError("Mobile number should be 10 digits");
                 DialogManager.showAlert("Mobile number should be 10 digits", context);

@@ -1413,11 +1413,11 @@ startActivity(i);
             //  txtFName.setError("Please Select File");
             Toast.makeText(context, "Please Select File", Toast.LENGTH_SHORT).show();
         } else if (docType.equals("")) {
-            txtDocTYpe.setError("Please enter type of document");
-            Toast.makeText(context, "Please enter type of document", Toast.LENGTH_SHORT).show();
+            txtDocTYpe.setError("Please Enter Document Description");
+            Toast.makeText(context, "Please Enter Document Description", Toast.LENGTH_SHORT).show();
         } else if (date.equals("")) {
-            txtDate.setError("Please select date");
-            Toast.makeText(context, "Please select date", Toast.LENGTH_SHORT).show();
+            txtDate.setError("Please Select Document Date");
+            Toast.makeText(context, "Please Select Document Date", Toast.LENGTH_SHORT).show();
         } else {
             return true;
         }
