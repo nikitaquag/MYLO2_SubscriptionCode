@@ -158,7 +158,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Information";
                         break;
 
-                    case "Emergency Contacts &\n Health Care Proxy Agent":
+                    case "Emergency Contacts &\nHealth Care Proxy Agent":
                         fragment = "Emergency";
                         break;
 
