@@ -1826,11 +1826,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -1902,11 +1904,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.GONE);
+                        tbCard.setChecked(false);
                     }
                 }
                 break;
@@ -2022,11 +2026,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
                 break;
@@ -2128,10 +2134,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         imgCard.setVisibility(View.VISIBLE);
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
+                        tbCard.setChecked(true);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
 
@@ -2207,11 +2215,14 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             rlCard.setVisibility(View.VISIBLE);
                              flFront.setVisibility(View.GONE);
                             imgEditCard.setVisibility(View.VISIBLE);
+                            tbCard.setChecked(true);
+
                         } else {
                             imgEditCard.setVisibility(View.GONE);
                             imgCard.setVisibility(View.GONE);
                             rlCard.setVisibility(View.GONE);
                              flFront.setVisibility(View.VISIBLE);
+                            tbCard.setChecked(false);
 
                         }
                     }
@@ -2366,11 +2377,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
 
                     }
                     if (rel.getHas_card() != null) {
@@ -2473,11 +2486,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.GONE);
+                        tbCard.setChecked(false);
                     }
 
                 }
@@ -2627,11 +2642,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
                         imgEditCard.setVisibility(View.GONE);
+                        tbCard.setChecked(false);
                     }
 
                 }
@@ -2781,11 +2798,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                          flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                          flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
 
                 }
@@ -2876,11 +2895,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
 
                 }
@@ -2955,11 +2976,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
 
                 }
@@ -3095,11 +3118,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                     if (insurance.getHas_card() != null) {
                         if (insurance.getHas_card().equals("YES")) {
@@ -3191,11 +3216,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
                 break;
@@ -3289,11 +3316,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
 
@@ -3351,11 +3380,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
 
@@ -3495,11 +3526,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -3594,11 +3627,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
                 break;
@@ -3733,11 +3768,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                     if (specialist.getHas_card() != null) {
                         if (specialist.getHas_card().equals("YES")) {
@@ -3833,11 +3870,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         rlCard.setVisibility(View.VISIBLE);
                         flFront.setVisibility(View.GONE);
                         imgEditCard.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(true);
                     } else {
                         imgEditCard.setVisibility(View.GONE);
                         imgCard.setVisibility(View.GONE);
                         rlCard.setVisibility(View.GONE);
                         flFront.setVisibility(View.VISIBLE);
+                        tbCard.setChecked(false);
                     }
                 }
                 break;
