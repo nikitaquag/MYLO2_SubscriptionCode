@@ -81,7 +81,8 @@ public class FragmentResources extends Fragment {
         l6.setImage(R.drawable.aba_market);*/
         Links l11 = new Links();
         l11.setName("ABA-American Bar Association, Commission on Law and Aging");
-        l11.setUrl("https://www.americanbar.org/groups/law_aging.html");
+       l11.setUrl("https://www.americanbar.org/groups/law_aging/resources/health_care_decision_making/consumer_s_toolkit_for_health_care_advance_planning/");
+
         l11.setImage(R.drawable.aba_market);
 
         Links l7 = new Links();

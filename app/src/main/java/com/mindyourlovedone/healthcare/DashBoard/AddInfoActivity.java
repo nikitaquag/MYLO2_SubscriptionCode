@@ -82,7 +82,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     String reactions = "";
     String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
     String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
-    String[] reactionList = {"Anaphylaxis", "Difficulty Breathing", "Hives", "Nausea", "Rash", "Vomiting", "Other"};
+    String[] reactionList = {"Anaphylaxis","Congestion","Difficulty Breathing","Hives","Itching","Mucus","Nausea","Rash","Runny nose","Sneezing","Vomiting", "Other"};
     String[] surgeryList = {"Appendix", "Breast Biopsy", "Mastectomy", "Cataract", "Colon", "Gallbladder", "Heart - Angio/Stent", "Heart - Bypass", "Heart - Valve", "Hernia", "Hip Replacement", "Hysterectomy", "Knee Surgery/Replacement", "Lasik Surgery", "Metal Implants", "Middle Ear Prosthesis", "Mohs – Basal Cell", "Mohs – Squamous Cell", "None", "Spine Surgery", "Thyroid Surgery", "Tonsils", "Vascular Surgery", "Wisdom Teeth", "Other"};
 
     @Override
@@ -372,7 +372,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other History");
-                    txttype.setHint("Surgical/Hospitalisation History");
+                    txttype.setHint("Surgical/Hospitalization History");
                     break;
 
                 case "HistoryUpdate":
@@ -385,7 +385,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other History");
-                    txttype.setHint("Surgical/Hospitalisation History");
+                    txttype.setHint("Surgical/Hospitalization History");
                     break;
 
                 case "Vaccine":
@@ -531,7 +531,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
                     break;
                 case "History":
-                    header = "Surgical/Hospitalisation History to Consider :";
+                    header = "Surgical/Hospitalization History to Consider :";
                     msg = "<br><ul><li>Appendix</li>" +
                             "<li>Breast Biopsy/Mastectomy</li>" +
                             "<li>Cataract</li>" +
@@ -557,7 +557,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     break;
 
                 case "HistoryUpdate":
-                    header = "Surgical/Hospitalisation History to Consider :";
+                    header = "Surgical/Hospitalization History to Consider :";
                     msg = "<br><ul><li>Appendix</li>" +
                             "<li>Breast Biopsy/Mastectomy</li>" +
                             "<li>Cataract</li>" +
@@ -1073,7 +1073,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
 
                         break;
                     case "History":
-                        header = "Surgical/Hospitalisation History to Consider";
+                        header = "Surgical/Hospitalization History to Consider";
                         msg = "<ul><li>Appendix</li>" +
                                 "<li>Breast Biopsy/Mastectomy</li>" +
                                 "<li>Cataract</li>" +
@@ -1098,7 +1098,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                         break;
 
                     case "HistoryUpdate":
-                        header = "Surgical/Hospitalisation History to Consider";
+                        header = "Surgical/Hospitalization History to Consider";
                         msg = "<ul><li>Appendix</li>" +
                                 "<li>Breast Biopsy/Mastectomy</li>" +
                                 "<li>Cataract</li>" +
