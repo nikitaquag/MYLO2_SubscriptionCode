@@ -135,7 +135,7 @@ public class PrescriptionInfoAdapter extends RecyclerSwipeAdapter<PrescriptionIn
 
         holder.txtDocHeader.setText(prescriptionList.get(position).getMedicine());
         holder.imgDocType.setImageResource(R.drawable.pres_one/*documentList.get(position).getImage()*/);
-//        holder.txtDocTime.setText("Last Update : "+documentList.get(position).getDate());
+//        holder.txtDocTime.setText("Date: : "+documentList.get(position).getDate());
         if (prescriptionList.get(position).getDose().equals("") && prescriptionList.get(position).getFrequency().equals("")) {
             holder.txtDocTime.setVisibility(View.GONE);
         } else {

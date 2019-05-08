@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.model.Emergency;
 
 public class RelationActivity extends AppCompatActivity implements View.OnClickListener {
     ListView listRelation;
@@ -64,7 +65,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Priority")) {
                 txtTitles.setText("Select Priority");
-                String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent"};
+                String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent","Primary – Emergency Contact and Health Care Proxy Agent"};
                 RelationsAdapter rd = new RelationsAdapter(context, priorityType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Specialty")) {
@@ -74,7 +75,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Category")) {
                 txtTitles.setText("Select Category");
-                String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "Other"};
+                String[] HospitalType = {"Home Health Care Agency", "Home Health Care Aide","Hospital", "Rehabilitation Center", "TeleMed", "Urgent Care", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Insurance")) {

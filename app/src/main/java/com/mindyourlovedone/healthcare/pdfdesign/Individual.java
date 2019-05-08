@@ -472,7 +472,7 @@ public class Individual {
             if (connection.getPeople() != null) {
                 people = connection.getPeople();
             }
-            cell2 = new PdfPCell(new Phrase("Names of People:" + people));
+            cell2 = new PdfPCell(new Phrase("Names of People in Household:" + people));
             cell2.setBorder(Rectangle.BOTTOM);
             cell2.setUseBorderPadding(true);
             cell2.setBorderWidthBottom(5);
@@ -1863,7 +1863,11 @@ public class Individual {
                 } else if (e.getIsPrimary() == 3) {
 
                     priority = "Secondary - Health Care Proxy Agent";
+                }else if (e.getIsPrimary() == 4) {
+
+                    priority = "Primary – Emergency Contact and Health Care Proxy Agent";
                 }
+
 
                 cell = new PdfPCell(new Phrase("Priority:" + priority));
                 cell.setBorder(Rectangle.BOTTOM);
@@ -2894,14 +2898,14 @@ public class Individual {
             PdfPCell cell10;
             table10.setWidthPercentage(100);
 
-            cell10 = new PdfPCell(new Phrase("Surgical History:" + ""));
+            cell10 = new PdfPCell(new Phrase("Surgical/Hospitalisation History:" + ""));
             cell10.setBorder(Rectangle.BOTTOM);
             cell10.setUseBorderPadding(true);
             cell10.setBorderWidthBottom(5);
             cell10.setBorderColorBottom(BaseColor.WHITE);
             table10.addCell(cell10);
 
-            messageInfo3.add("Surgical History :");
+            messageInfo3.add("Surgical/Hospitalisation History :");
             messageInfo3.add("");
 
             cell10 = new PdfPCell(new Phrase(""));
@@ -2915,14 +2919,14 @@ public class Individual {
             for (int i = 0; i < historList.size(); i++) {
               /*  int k = i + 1;
 
-                cell = new PdfPCell(new Phrase("Surgical History " + k + " :"));
+                cell = new PdfPCell(new Phrase("Surgical/Hospitalisation History " + k + " :"));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageInfo3.add("Surgical History " + k + " :");
+                messageInfo3.add("Surgical/Hospitalisation History " + k + " :");
                 messageInfo3.add("");*/
                 History a = historList.get(i);
                 String name = "";
@@ -2997,14 +3001,14 @@ public class Individual {
             if (medInfo.getImplantnote() != null) {
                 surNote = medInfo.getImplantnote();
             }
-            cell10 = new PdfPCell(new Phrase("Surgical History Note:" + surNote));
+            cell10 = new PdfPCell(new Phrase("Surgical/Hospitalisation History Note:" + surNote));
             cell10.setBorder(Rectangle.BOTTOM);
             cell10.setUseBorderPadding(true);
             cell10.setBorderWidthBottom(5);
             cell10.setBorderColorBottom(BaseColor.WHITE);
             table10.addCell(cell10);
 
-            messageInfo3.add("Surgical History Note :");
+            messageInfo3.add("Surgical/Hospitalisation History Note :");
             messageInfo3.add(surNote);
 
             cell10 = new PdfPCell(new Phrase(""));
@@ -4369,9 +4373,12 @@ public class Individual {
                     priority = "Secondary - Emergency Contact";
                 } else if (e.getIsPrimary() == 3) {
                     priority = "Secondary - Health Care Proxy Agent";
+                }else if (e.getIsPrimary() == 4) {
+                    priority = "Primary – Emergency Contact and Health Care Proxy Agent ";
                 }
 
-                cell = new PdfPCell(new Phrase("Priority:" + priority));
+
+            cell = new PdfPCell(new Phrase("Priority:" + priority));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);

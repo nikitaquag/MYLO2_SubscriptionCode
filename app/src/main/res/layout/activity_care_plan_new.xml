@@ -416,13 +416,16 @@
         android:text="XYZ XYZ"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension22dp" />
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/rlMedicalRecord">
     <RelativeLayout
         android:layout_marginRight="@dimen/dimension10dp"
         android:layout_marginLeft="@dimen/dimension10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/rlMedicalRecord"
+
         android:background="@color/colorOnesGray">
 
 
@@ -432,7 +435,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginTop="@dimen/dimension30dp"
+            android:layout_marginTop="@dimen/dimension20dp"
             android:gravity="center"
             android:fontFamily="@font/lato"
             android:text="@string/ClickDirective"
@@ -440,7 +443,22 @@
             android:textSize="@dimen/dimension17dp"
             android:textStyle="italic|bold"></TextView>
 
-
+        <TextView
+            android:id="@+id/txtInstruction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtClick"
+            android:background="#f9f9f9"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dimension10dp"
+            android:layout_marginBottom="@dimen/dimension20dp"
+            android:layout_marginRight="@dimen/dimension70dp"
+            android:layout_marginLeft="@dimen/dimension40dp"
+            android:text="User instructions are available within each sub-section. Once opened, click the question mark located on the upper right corner."
+            android:fontFamily="@font/lato"
+            android:textColor="@color/colorBlackDark"
+            android:padding="@dimen/dimension10dp"
+            android:textSize="@dimen/dimension20dp" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -522,4 +540,5 @@
             />
 
     </RelativeLayout>
+</ScrollView>
 </RelativeLayout>

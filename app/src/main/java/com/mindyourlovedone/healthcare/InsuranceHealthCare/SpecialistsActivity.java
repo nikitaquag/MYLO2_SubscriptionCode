@@ -35,6 +35,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
+import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.NonScrollListView;
@@ -171,7 +172,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isEmergency = true;
                 isInsurance = false;
                 profile = new int[]{R.drawable.pp, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
-                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts &\n Health Care Proxy Agent", "Primary Physician"};
+                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts &\nHealth Care Proxy Agent", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
                 specialist= new String[] { "PERSONAL PROFILE", "MEDICAL PROFILE", "EMERGENCY CONTACTS AND \nHEALTH CARE PROXY AGENT", "PRIMARY PHYSICIAN", "HEALTH CARE PROXY AGENT" };
@@ -265,7 +266,32 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
         imgRight.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { showInstructionDialog();}
+            public void onClick(View v) {
+                //showInstructionDialog();
+                if (from.equals("Speciality")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "SpecialitySection");
+                    startActivity(ia);
+                }else if (from.equals("Emergency")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "EmergencySection");
+                    startActivity(ia);
+                }else if (from.equals("Insurance")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "InsuranceSection");
+                    startActivity(ia);
+                }else if (from.equals("Event")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "EventSection");
+                    startActivity(ia);
+                }
+                else if (from.equals("Prescription")) {
+                    Intent ia = new Intent(context, InstructionActivity.class);
+                    ia.putExtra("From", "PrescriptionSection");
+                    startActivity(ia);
+                }
+
+            }
 //            {
 //
 //                if (from.equals("Speciality")) {

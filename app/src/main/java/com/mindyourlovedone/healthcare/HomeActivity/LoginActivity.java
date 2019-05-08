@@ -68,13 +68,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if (!f.exists()) {
                 f.mkdirs();
             } else {
-                /*try {
+                try {
                     File file = new File(Environment.getExternalStorageDirectory(), "/MYLO/");
                    FileUtils.deleteDirectory(file);
                    f.mkdirs();
                 } catch (IOException e) {
                     e.printStackTrace();
-               }*/
+               }
             }
         } catch (Exception e) {
             e.printStackTrace();

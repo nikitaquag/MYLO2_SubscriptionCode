@@ -808,20 +808,7 @@ public class EventPdf {
 */
                 VitalSigns s = vitalList.get(i);
 
-                String bathing = "";
-                if (s.getLocation() != null) {
-                    bathing = s.getLocation();
-                }
 
-                cell1 = new PdfPCell(new Phrase("Location : " + bathing));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-
-                messageLiving.add("Bathing :");
-                messageLiving.add(bathing);
 
                 String continence = "";
                 if (s.getDate() != null) {
@@ -849,6 +836,21 @@ public class EventPdf {
                 table1.addCell(cell1);
                 messageLiving.add("Dressing :");
                 messageLiving.add(dressing);
+
+                String bathing = "";
+                if (s.getLocation() != null) {
+                    bathing = s.getLocation();
+                }
+
+                cell1 = new PdfPCell(new Phrase("Location : " + bathing));
+                cell1.setBorder(Rectangle.BOTTOM);
+                cell1.setUseBorderPadding(true);
+                cell1.setBorderWidthBottom(5);
+                cell1.setBorderColorBottom(BaseColor.WHITE);
+                table1.addCell(cell1);
+
+                messageLiving.add("Bathing :");
+                messageLiving.add(bathing);
 
                 String eating = "";
                 if (s.getBp() != null) {
@@ -894,6 +896,21 @@ public class EventPdf {
                 messageLiving.add("Temperature :");
                 messageLiving.add(transfering);
 
+                Header.document.add(table1);
+                Paragraph p2 = new Paragraph(" ");
+                DottedLineSeparator line2 = new DottedLineSeparator();
+                line2.setOffset(-4);
+                line2.setLineColor(BaseColor.BLACK);
+                p2.add(line2);
+                Header.document.add(p2);
+                Header.addEmptyLine(1);
+
+//------------
+                PdfPTable tablep;
+                tablep = new PdfPTable(2);
+                PdfPCell cellp;
+                tablep.setWidthPercentage(100);
+
                 String functionOther = "";
                 if (s.getPulseRate() != null) {
                     functionOther = s.getPulseRate();
@@ -903,7 +920,7 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
                 messageLiving.add("Pulse Rate :");
                 messageLiving.add(functionOther);
 
@@ -916,7 +933,7 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
 
                 messageLiving.add("Respiratory Rate :");
                 messageLiving.add(functionNote);
@@ -930,7 +947,7 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
 
                 messageLiving.add("Cholesterol :");
                 messageLiving.add(Col);
@@ -944,7 +961,7 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
 
                 messageLiving.add("Other :");
                 messageLiving.add(oter);
@@ -958,7 +975,7 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
 
                 messageLiving.add("Note :");
                 messageLiving.add(Note);
@@ -968,11 +985,12 @@ public class EventPdf {
                 cell1.setUseBorderPadding(true);
                 cell1.setBorderWidthBottom(5);
                 cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                tablep.addCell(cell1);
 
                 messageLiving.add("");
                 messageLiving.add("");
-                Header.document.add(table1);
+
+                Header.document.add(tablep);
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);

@@ -79,6 +79,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
     TextView txtHBackUp, txtHRestore, txtHShare, txtHUpload;
     TextView txtName, txtFile, txtBackup2, txtLogoutDropbox, txtLoginPerson;
     ImageView imgBack, imgDot;
+    TextView txtLoginDropbox;
     Preferences preferences;
     String from = "";
     String todo = "";
@@ -114,7 +115,9 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         preferences = new Preferences(context);
         preferences.putString(PrefConstants.RESULT, "");
         preferences.putString(PrefConstants.URI, "");
+
         accessPermission();
+
 
 
         //   imgDot = findViewById(R.id.imgDot);
@@ -136,6 +139,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
 
             }
         });*/
+
         llHowToBackUp = findViewById(R.id.rlHowToBackUp);
         llHowToBackUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -199,6 +203,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         /*Shradha*/
         txtLoginPerson = findViewById(R.id.txtLoginPerson);
         txtLogoutDropbox = findViewById(R.id.txtLogoutDropbox);
+        txtLoginDropbox = findViewById(R.id.txtLoginDropbox);
         txtLogoutDropbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -271,6 +276,27 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
             }
         }
         btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                SharedPreferences prefs = getSharedPreferences("dropbox-sample", MODE_PRIVATE);
+                if (prefs.contains("access-token")) {
+                    prefs.edit().remove("access-token").apply();
+                    com.dropbox.core.android.AuthActivity.result = null;
+                    DropboxClientFactory.revokeClient(new DropboxClientFactory.CallBack() {
+                        @Override
+                        public void onRevoke() {
+                            Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                            // onResume();
+                        }
+                    });
+                } else {
+                    Auth.startOAuth2Authentication(DropboxLoginActivity.this, APP_KEY);
+                }
+            }
+        });
+
+        txtLoginDropbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -464,6 +490,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                         public void onRevoke() {
                             txtLogoutDropbox.setVisibility(View.GONE);
                             txtLoginPerson.setVisibility(View.VISIBLE);
+                            txtLoginDropbox.setVisibility(View.VISIBLE);
                         }
                     });
                     txtLoginPerson.setText("You are not yet logged in");
@@ -567,7 +594,7 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         new GetCurrentAccountTask(DropboxClientFactory.getClient(), new GetCurrentAccountTask.Callback() {
             @Override
             public void onComplete(FullAccount result) {
-
+txtLogoutDropbox.setVisibility(View.GONE);
                 if (Fun_Type == 1) {
                     Fun_Type = 4;
                     preferences.putString(PrefConstants.STORE, "Backup");
@@ -589,11 +616,14 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 }
                 else  {
                     Fun_Type = 4;
+                    //startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
                 }
 
                 String value = "You are logged in DropBox as " + result.getName().getDisplayName() /*+ " in dropbox."*/;
                 txtName.setText(value);
                 txtLogoutDropbox.setVisibility(View.VISIBLE);
+                TextView txtLoginDropbox=findViewById(R.id.txtLoginDropbox);
+                txtLoginDropbox.setVisibility(View.GONE);
 //                btnLogin.setText("Login With Different User");
 
                 //  Toast.makeText(DropboxLoginActivity.this,,Toast.LENGTH_SHORT).show();

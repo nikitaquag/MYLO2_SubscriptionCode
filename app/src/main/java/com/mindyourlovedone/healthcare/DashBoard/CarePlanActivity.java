@@ -231,7 +231,10 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.imgRight:
-                showInstructionDialog();
+                //showInstructionDialog();
+                Intent ia = new Intent(context, InstructionActivity.class);
+                ia.putExtra("From", "DirectiveSection");
+                startActivity(ia);
                /* final String RESULT = Environment.getExternalStorageDirectory()
                         + "/mylopdf/";
                 File dirfile = new File(RESULT);

@@ -48,7 +48,15 @@ public class Preferences {
         editor.putBoolean(this.LOGIN, firstTimeCall);
         editor.commit();
     }
+    public Boolean getFirstTime() {
+        return preferences.getBoolean(PrefConstants.FIRST_TIME, false);
+    }
 
+    public void setFirstTime(Boolean frst) {
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean(PrefConstants.FIRST_TIME, frst);
+        editor.commit();
+    }
     public boolean isFirstTimeCall() {
         return preferences.getBoolean(FIRST_TIME_CALL, true);
     }

@@ -197,7 +197,7 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
     }
 
     public void callUser(Specialist item) {
-        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Physician");
+        ArrayList<ContactData>  phonelist = ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),item.getId(), "Primary");
 
 
         if (phonelist.size()>0)

@@ -171,7 +171,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         }*/
 
         //nikita
-        String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent",};
+        String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent", "Primary – Emergency Contact and Health Care Proxy Agent"};
         if (emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtState.setVisibility(View.GONE);
         } else {
@@ -208,6 +208,10 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         } else if (emergencyList.get(position).getIsPrimary() == 3) {
 
             String  priority = "Secondary - Health Care Proxy Agent";
+            viewHolder.txtType.setText(priority);
+        } else if (emergencyList.get(position).getIsPrimary() == 4) {
+
+            String  priority = "Primary – Emergency Contact and Health Care Proxy Agent";
             viewHolder.txtType.setText(priority);
         } else {
             String priority = "";

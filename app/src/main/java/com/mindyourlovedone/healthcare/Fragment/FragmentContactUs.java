@@ -48,9 +48,9 @@ public class FragmentContactUs extends Fragment {
     private void getData() {
         contactList = new ArrayList<>();
 
-        Setting s1 = new Setting();
+      /*  Setting s1 = new Setting();
         s1.setName("Support - FAQs");
-        s1.setResImage(R.drawable.medical_one);
+        s1.setResImage(R.drawable.medical_one);*/
 
         Setting s2 = new Setting();
         s2.setName("MYLO Email");
@@ -60,7 +60,7 @@ public class FragmentContactUs extends Fragment {
         s3.setName("MYLO Website");
         s3.setResImage(R.drawable.drawer_videos);
 
-        contactList.add(s1);
+       // contactList.add(s1);
         contactList.add(s2);
         contactList.add(s3);
     }

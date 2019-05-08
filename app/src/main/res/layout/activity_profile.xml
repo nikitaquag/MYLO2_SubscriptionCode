@@ -1493,7 +1493,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/lato"
-                            android:hint="Names of People"
+                            android:hint="Names of People in Household"
                             android:imeOptions="actionNext"
                             android:paddingTop="@dimen/dimension8dp"
                             android:includeFontPadding="true"

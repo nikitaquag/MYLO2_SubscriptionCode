@@ -87,7 +87,7 @@ public class PresDocumentsAdapter extends RecyclerSwipeAdapter<PresDocumentsAdap
 
         holder.txtDocHeader.setText(documentList.get(position).getName());
         holder.imgDocType.setImageResource(R.drawable.pres_two/*documentList.get(position).getImage()*/);
-        holder.txtDocTime.setText("Last Update : "+documentList.get(position).getDate());
+        holder.txtDocTime.setText("Date: : "+documentList.get(position).getDate());
      //   holder.txtDocTime.setVisibility(View.GONE);
      /*   holder.imgForword.setOnClickListener(new View.OnClickListener() {
             @Override

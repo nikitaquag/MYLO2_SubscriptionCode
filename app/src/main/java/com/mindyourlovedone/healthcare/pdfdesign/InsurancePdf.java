@@ -415,13 +415,13 @@ public class InsurancePdf {
                 if (s.getDate() != null) {
                     date = s.getDate();
                 }
-                cell = new PdfPCell(new Phrase("Last Update:" + date));
+                cell = new PdfPCell(new Phrase("Date::" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageForm.add("Last Update:");
+                messageForm.add("Date::");
                 messageForm.add(date);
 
                 cell = new PdfPCell(new Phrase(""));

@@ -92,7 +92,7 @@
                     android:layout_below="@+id/txtDocTime"
                     android:layout_marginBottom="@dimen/dimension5dp"
                     android:gravity="top|left"
-                    android:text="Date Signed"
+                    android:text="Dated"
                     android:textColor="@color/colorDarkGray"
                     android:textSize="@dimen/dimension17dp"
                     android:visibility="gone" />
