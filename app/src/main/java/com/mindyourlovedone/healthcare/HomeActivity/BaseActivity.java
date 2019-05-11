@@ -367,6 +367,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
     List<RelativeConnection> items;//nikita
 
+
     public void getData() {//nikita
         DBHelper dbHelper = new DBHelper(this, "MASTER");
         MyConnectionsQuery m = new MyConnectionsQuery(this, dbHelper);
