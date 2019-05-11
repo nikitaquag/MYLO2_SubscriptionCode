@@ -522,6 +522,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         tbEnglish=findViewById(R.id.tbEnglish);
         tbVeteran=findViewById(R.id.tbVeteran);
         tbCard=findViewById(R.id.tbCard);
+        tbCard.setChecked(false);
         tbPet=findViewById(R.id.tbPet);
 
         tbCard.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -1449,6 +1450,12 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     cardpath = "";
                     CardMap = null;
                 }
+            }else{
+                tbCard.setChecked(false);
+                has_card="NO";
+                rlCard.setVisibility(View.GONE);
+                cardpath = "";
+                CardMap = null;
             }
             if (connection.getEnglish() != null) {
                 if (connection.getEnglish().equals("YES")) {

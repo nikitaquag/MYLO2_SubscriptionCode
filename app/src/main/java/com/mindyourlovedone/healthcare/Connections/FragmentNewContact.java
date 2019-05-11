@@ -1846,6 +1846,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             cardPath = "";
                             CardMap = null;
                         }
+                    } else{
+                        tbCard.setChecked(false);
+                        has_card="NO";
+                        rlCard.setVisibility(View.GONE);
+                        cardPath = "";
+                        CardMap = null;
                     }
                 }
 
@@ -2399,6 +2405,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             CardMap = null;
                         }
                     }
+                    else{
+                        tbCard.setChecked(false);
+                        has_card="NO";
+                        rlCard.setVisibility(View.GONE);
+                        cardPath = "";
+                        CardMap = null;
+                    }
                 }
                 break;
 
@@ -2665,6 +2678,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         CardMap = null;
                     }
                 }
+                else{
+                    tbCard.setChecked(false);
+                    has_card="NO";
+                    rlCard.setVisibility(View.GONE);
+                    cardPath = "";
+                    CardMap = null;
+                }
                 break;
             case "PhysicianData":
                 changeIcon(source);
@@ -2822,7 +2842,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                         CardMap = null;
                     }
                 }
-
+                else{
+                    tbCard.setChecked(false);
+                    has_card="NO";
+                    rlCard.setVisibility(View.GONE);
+                    cardPath = "";
+                    CardMap = null;
+                }
                 break;
 
 
@@ -3138,6 +3164,13 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             cardPath = "";
                             CardMap = null;
                         }
+                    }
+                    else{
+                        tbCard.setChecked(false);
+                        has_card="NO";
+                        rlCard.setVisibility(View.GONE);
+                        cardPath = "";
+                        CardMap = null;
                     }
                 }
 
@@ -3546,6 +3579,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             cardPath = "";
                             CardMap = null;
                         }
+                    } else{
+                        tbCard.setChecked(false);
+                        has_card="NO";
+                        rlCard.setVisibility(View.GONE);
+                        cardPath = "";
+                        CardMap = null;
                     }
                 }
 
@@ -3788,6 +3827,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                             cardPath = "";
                             CardMap = null;
                         }
+                    } else{
+                        tbCard.setChecked(false);
+                        has_card="NO";
+                        rlCard.setVisibility(View.GONE);
+                        cardPath = "";
+                        CardMap = null;
                     }
                 }
 

@@ -95,7 +95,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:padding="@dimen/dimension5dp"
-                android:src="@drawable/r_new" />
+                android:src="@drawable/aba_new" />
 
         </RelativeLayout>
 

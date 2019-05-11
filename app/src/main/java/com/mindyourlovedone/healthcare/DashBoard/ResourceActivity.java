@@ -96,7 +96,7 @@ public class ResourceActivity extends AppCompatActivity {
 
         Links l11 = new Links();
         l11.setName("The Commission on Law and Aging, ABA");
-        l11.setUrl("https://www.americanbar.org/groups/law_aging.html");
+        l11.setUrl("https://www.americanbar.org/groups/law_aging/resources/health_care_decision_making/consumer_s_toolkit_for_health_care_advance_planning/");
         l11.setImage(R.drawable.aba_market);
 
       /*  Links l12=new Links();
