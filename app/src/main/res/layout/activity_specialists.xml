@@ -78,7 +78,7 @@
         android:gravity="center"
         android:text="XYZ XYZ"
         android:fontFamily="@font/lato"
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/dimension22dp" />
     <ScrollView
         android:layout_width="match_parent"

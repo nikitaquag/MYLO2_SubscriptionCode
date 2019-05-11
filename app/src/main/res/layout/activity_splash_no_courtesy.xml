@@ -218,7 +218,7 @@ android:visibility="gone"
             android:layout_above="@+id/txtcourtesy"
             android:layout_centerHorizontal="true"
             android:padding="@dimen/dimension5dp"
-            android:src="@drawable/r_new" />
+            android:src="@drawable/aba_new" />
         <ImageView
             android:id="@+id/imgcopy"
             android:layout_width="@dimen/dimension25dp"
