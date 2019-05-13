@@ -319,7 +319,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 } else if (p == 5) {
                     imgProfile.setVisibility(View.GONE);
                     callFragmentData(new FragmentResources());
-                } else if (p == 6) {
+                }
+
+                else if (p == 6) {
                     imgProfile.setVisibility(View.GONE);
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Sponsor");
@@ -346,6 +348,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
 
                 }
+
                 /*Ends here*/
             }
         } catch (Exception e) {

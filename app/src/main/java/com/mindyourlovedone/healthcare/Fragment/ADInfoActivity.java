@@ -1,50 +1,41 @@
-package com.mindyourlovedone.healthcare.HomeActivity;
+package com.mindyourlovedone.healthcare.Fragment;
 
-import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mindyourlovedone.healthcare.HomeActivity.LinkAdapter;
+import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.Links;
 
 import java.util.ArrayList;
 
-/**
- * Created by welcome on 11/14/2017.
- */
-
-public class FragmentResources extends Fragment {
-
-    View rootview;
-    ArrayList<String> Datalist;
+public class ADInfoActivity extends AppCompatActivity {
+    Context context=this;
     ArrayList<Links> UrlList;
     ListView list;
     TextView txtTitle, txtName;
-    ImageView imgDrawer, imgHelp;
-
-
-    @Nullable
+    ImageView imgDrawer, imgBack;
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.fragment_resources, null);
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_adinfo);
         initUI();
         initListener();
         getData();
         setData();
-        return rootview;
+       
     }
 
     private void setData() {
-        LinkAdapter adapter = new LinkAdapter(getActivity(), UrlList);
+        LinkAdapter adapter = new LinkAdapter(context, UrlList);
         list.setAdapter(adapter);
     }
 
@@ -81,7 +72,7 @@ public class FragmentResources extends Fragment {
         l6.setImage(R.drawable.aba_market);*/
         Links l11 = new Links();
         l11.setName("ABA-American Bar Association, Commission on Law and Aging");
-       l11.setUrl("https://www.americanbar.org/groups/law_aging/resources/health_care_decision_making/consumer_s_toolkit_for_health_care_advance_planning/");
+        l11.setUrl("https://www.americanbar.org/groups/law_aging/resources/health_care_decision_making/consumer_s_toolkit_for_health_care_advance_planning/");
 
         l11.setImage(R.drawable.aba_market_new);
 
@@ -134,25 +125,32 @@ public class FragmentResources extends Fragment {
     }
 
     private void initUI() {
-        imgHelp = getActivity().findViewById(R.id.imgRight);
+       /* imgHelp = findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
 
-        imgDrawer = getActivity().findViewById(R.id.imgDrawer);
+        imgDrawer = findViewById(R.id.imgDrawer);
         imgDrawer.setImageResource(R.drawable.back_new);
 
         imgDrawer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().finish();
+                finish();
             }
         });
 
-        txtName = getActivity().findViewById(R.id.txtTitle);
+        txtName = findViewById(R.id.txtTitle);
         txtName.setVisibility(View.VISIBLE);
         txtName.setText("Advance Directives Informaton");
-        txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);
+        txtName.setGravity(View.TEXT_ALIGNMENT_CENTER);*/
+        imgBack = findViewById(R.id.imgBack);
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        list = rootview.findViewById(R.id.list);
+        list =findViewById(R.id.list);
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

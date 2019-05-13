@@ -34,6 +34,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
+import com.mindyourlovedone.healthcare.Fragment.ADInfoActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.DBHelper;
@@ -210,9 +211,8 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.txtClick:
-                Intent intentContactUs = new Intent(context, BaseActivity.class);
-                intentContactUs.putExtra("c", 5);
-                startActivity(intentContactUs);
+                Intent intentf = new Intent(CarePlanActivity.this, ADInfoActivity.class);
+                startActivity(intentf);
                 break;
             case R.id.floatOptions:
                 showFloatDialog();

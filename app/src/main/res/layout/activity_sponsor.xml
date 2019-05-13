@@ -27,7 +27,7 @@
                 android:layout_gravity="center"
                 android:padding="@dimen/dimension10dp"
                 android:layout_marginTop="@dimen/dimension20dp"
-                android:src="@drawable/aba_logo_blue" />
+                android:src="@drawable/abas" />
 
         </LinearLayout>
 

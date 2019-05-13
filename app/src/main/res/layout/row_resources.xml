@@ -22,6 +22,7 @@
         android:layout_toRightOf="@+id/imgLogo"
         android:gravity="center_vertical"
         android:padding="@dimen/dimension10dp"
+        android:fontFamily="@font/lato"
         android:text="jkhjksdf"
         android:textColor="@color/colorBlackDark"
         android:textSize="@dimen/dimension20dp" />

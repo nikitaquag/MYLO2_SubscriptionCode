@@ -700,11 +700,12 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     }
 
     public void onInfiniteGasButtonClicked() {
-        if (!mHelper.subscriptionsSupported()) {
-            complain("Subscriptions not supported on your device yet. Sorry!");
-            return;
+        if (mHelper!=null) {
+            if (!mHelper.subscriptionsSupported()) {
+                complain("Subscriptions not supported on your device yet. Sorry!");
+                return;
+            }
         }
-
         /* TODO: for security, generate your payload here for verification. See the comments on
          *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
          *        an empty string, but on a production app you should carefully generate this. */

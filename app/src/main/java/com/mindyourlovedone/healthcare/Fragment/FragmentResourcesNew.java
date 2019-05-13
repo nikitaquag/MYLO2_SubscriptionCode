@@ -78,16 +78,18 @@ public class FragmentResourcesNew extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
                     case 0:
-                        Intent intentContactUs = new Intent(getActivity(), BaseActivity.class);
-                        intentContactUs.putExtra("c", 5);
-                        getActivity().startActivity(intentContactUs);
-
+                        Intent intentf = new Intent(getActivity(), ADInfoActivity.class);
+                        getActivity().startActivity(intentf);
                         break;
                     case 1:
-                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getActivity(), HelpFormActivity.class);
+                        getActivity().startActivity(intent);
                         break;
                     case 2:
-                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        Intent intentd = new Intent(getActivity(), VideoActivity.class);
+                        getActivity().startActivity(intentd);
                         break;
                 }
             }

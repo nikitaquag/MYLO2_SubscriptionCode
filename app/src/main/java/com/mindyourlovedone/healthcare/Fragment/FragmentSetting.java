@@ -26,6 +26,7 @@ import com.mindyourlovedone.healthcare.Activity.PrivacyActivity;
 import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.HomeActivity.SignUpActivity;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.SettingAdapter;
 import com.mindyourlovedone.healthcare.model.Setting;
 
@@ -167,14 +168,24 @@ public class FragmentSetting extends Fragment {
                         }*/
                         break;
                     case 3://Privacy Policy-Section
-                        Toast.makeText(getActivity(), "Screen not provided...!!", Toast.LENGTH_SHORT).show();
-                        // ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
-                       /* Intent intentPrivacy = new Intent(getActivity(), PrivacyActivity.class);
-                        intentPrivacy.putExtra("Privacy","PRIVACY");
-                        getActivity().startActivity(intentPrivacy);*/
+
+                        Intent intentp = new Intent();
+                        intentp.setAction(Intent.ACTION_VIEW);
+                        intentp.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intentp.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intentp.setType(String.valueOf(Uri.parse("application/pdf")));
+                        ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
+
+
                         break;
                     case 4://End User License Agreement-Section
-                        Toast.makeText(getActivity(), "Screen not provided Yet to come", Toast.LENGTH_SHORT).show();
+                        Intent intentf = new Intent();
+                        intentf.setAction(Intent.ACTION_VIEW);
+                        intentf.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intentf.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intentf.setType(String.valueOf(Uri.parse("application/pdf")));
+                        ((BaseActivity) getActivity()).CopyReadAssetss("eula.pdf");
+
                         break;
                 }
             }
