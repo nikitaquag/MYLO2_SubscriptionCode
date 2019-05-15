@@ -2770,11 +2770,13 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
             if (connection.getRelationType().equals("Self")) {
                 if (connection.getName().equals(name) && connection.getEmail().equals(email)) {
-                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(preferences.getInt(PrefConstants.CONNECTED_USERID), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card,people);
+                    DBHelper dbHelper1 =new DBHelper(context, "MASTER");
+                    MyConnectionsQuery ms = new MyConnectionsQuery(context, dbHelper1);
+                    Boolean flag = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card,people);
                     if (flag == true) {
                         DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
-                        Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
+                        Boolean flags = MyConnectionsQuery.updateMyConnectionsData(connection.getId(), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                         if (flags == true) {
                             Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
