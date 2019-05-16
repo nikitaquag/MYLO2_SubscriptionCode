@@ -197,7 +197,7 @@ android:visibility="gone"
         android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
         android:layout_weight="1.5"
-        android:background="@color/colorSponsorBlue">
+        android:background="@color/colorWhite">
 
         <TextView
             android:id="@+id/txtSponsor"
@@ -207,7 +207,7 @@ android:visibility="gone"
             android:layout_marginTop="@dimen/dimension10dp"
             android:fontFamily="@font/lato"
             android:text="Sponsored by:"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:textSize="@dimen/dimension12dp"
             android:textStyle="normal" />
 

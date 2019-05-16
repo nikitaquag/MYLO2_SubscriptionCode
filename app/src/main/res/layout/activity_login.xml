@@ -268,7 +268,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorSponsorBlue"
+        android:background="@color/colorWhite"
         android:layout_weight="1.5"
         >
 
@@ -280,7 +280,7 @@
             android:layout_marginLeft="@dimen/dimension10dp"
             android:layout_marginTop="@dimen/dimension10dp"
             android:text="Sponsored by:"
-            android:textColor="@color/colorWhite"
+            android:textColor="@color/colorBlack"
             android:textSize="@dimen/dimension12dp"
             android:textStyle="normal" />
 
