@@ -680,7 +680,7 @@ txtLogoutDropbox.setVisibility(View.GONE);
                 if (resultList.size() != 0) {
                     Fun_Type = 4;
                     startActivity(FilesActivity.getIntent(DropboxLoginActivity.this, ""));
-                   // finish();
+                    dialog.dismiss();
                 } else {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
                         DialogNodata("There is no PDF files in your Dropbox account.");
