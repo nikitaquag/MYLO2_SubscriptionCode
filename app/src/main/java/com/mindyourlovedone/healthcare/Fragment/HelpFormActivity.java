@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class HelpFormActivity extends AppCompatActivity {
     Context context=this;
@@ -109,7 +110,7 @@ public class HelpFormActivity extends AppCompatActivity {
 
         Links l12 = new Links();
         l12.setName("Mind Your Loved Ones App Wallet Cards");
-        l12.setUrl("mylo_wallet_card.pdf");
+        l12.setUrl("http://mindyour-lovedones.com/MYLO/uploads/MYLO_App_Wallet_Card.pdf");
         l12.setImage(R.drawable.pdf);
 
        /* Links l9=new Links();
@@ -184,7 +185,25 @@ public class HelpFormActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CopyReadAssetss(UrlList.get(position).getUrl());
+                if (position==7)
+                {
+
+                  /*  Intent intentf = new Intent();
+                    intentf.setAction(Intent.ACTION_VIEW);
+                    intentf.addCategory(Intent.CATEGORY_BROWSABLE);
+                    intentf.setData(Uri.parse(UrlList.get(position).getUrl()));
+                    startActivity(intentf);*/
+/*
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(UrlList.get(position).getUrl()));
+                    startActivity(browserIntent);*/
+                    String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+                    String fullPathD = String.format(Locale.ENGLISH, formatD, UrlList.get(position).getUrl());
+                    Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
+                    startActivity(browserIntentD);
+                }
+                else {
+                    CopyReadAssetss(UrlList.get(position).getUrl());
+                }
                      /*  if (Datalist.get(position).equals(UrlList.get(position).getName()))
                        {*/
                           /* Intent intent = new Intent();

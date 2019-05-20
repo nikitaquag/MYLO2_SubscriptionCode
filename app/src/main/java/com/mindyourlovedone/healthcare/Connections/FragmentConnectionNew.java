@@ -929,7 +929,12 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
         txtUser.setText(preferences.getString(PrefConstants.USER_NAME));
         if (!image.equals("")) {
-            File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
+            String mail1 = preferences.getString(PrefConstants.USER_EMAIL);
+            mail1 = mail1.replace(".", "_");
+            mail1 = mail1.replace("@", "_");
+            File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/"+ mail1 +"/",image);
+
+            //File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", image);
             imgDrawerProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
             if (imgFile.exists()) {
                 if (imgDrawerProfile.getDrawable() == null) {

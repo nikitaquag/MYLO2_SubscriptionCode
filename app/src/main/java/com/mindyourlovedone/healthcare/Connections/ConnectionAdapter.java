@@ -137,7 +137,10 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
             }
 
             if (!connectionList.get(position).getPhoto().equals("")) {
-                File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/Master/",connectionList.get(position).getPhoto());
+                String mail1 = connectionList.get(position).getEmail();
+                mail1 = mail1.replace(".", "_");
+                mail1 = mail1.replace("@", "_");
+                File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/"+ mail1 +"/",connectionList.get(position).getPhoto());
                 //  if (imgFile.exists()) {
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
                  holder.imgConPhoto.setImageBitmap(myBitmap);

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Color;
+import android.graphics.Point;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -18,9 +20,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -176,14 +181,14 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
             if (result.isFailure()) {
                 //vars added comment
-              /*  if (!result.getMessage().contains("canceled")) {
+                if (!result.getMessage().contains("canceled")) {
                     complain(result.getMessage());
                 }
                 setWaitScreen(false);
-*/
+
                 //Shradha
                 //Varsa remove comment
-                llSubscribe.setVisibility(View.GONE);
+             /*   llSubscribe.setVisibility(View.GONE);
                 if (preferences == null) {
                     preferences = new Preferences(SplashNewActivity.this);
                 }
@@ -195,7 +200,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                     llSplash.setVisibility(View.VISIBLE);
                     llBottom.setVisibility(View.GONE);
                 }
-
+*/
                 return;
             }
             if (!verifyDeveloperPayload(purchase)) {
@@ -238,8 +243,36 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Window window = getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(0x00000000);  // transparent
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            int flags = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            window.addFlags(flags);
+        }
         setContentView(R.layout.activity_splash_no_courtesy);
+        window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+
+
+
+        // In Activity's onCreate() for instance
+       /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window w = getWindow();
+            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        }
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);*/
         new AsynData().execute("");
+       /*Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        Log.e("Width", "" + width);
+        Log.e("height", "" + height);
+        Toast.makeText(context, "" + width+"" + height,Toast.LENGTH_LONG).show();*/
+
     }
 
     @Override
@@ -279,7 +312,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         // initBanner();
 
         init();
-     //  inApp();//commented for 30 free days***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************'
+     // inApp();//commented for 30 free days***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************'
 
 
         // code below for 30 days -starts here-nikita
@@ -713,9 +746,18 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
         setWaitScreen(true);
         Log.d(TAG, "Launching purchase flow for Mylo subscription.");
-        mHelper.launchPurchaseFlow(this,
-                SKU_INFINITE_GAS, IabHelper.ITEM_TYPE_SUBS,
-                RC_REQUEST, mPurchaseFinishedListener, payload);
+
+        if (mHelper != null) {
+            try {
+                mHelper.launchPurchaseFlow(this,
+                        SKU_INFINITE_GAS, IabHelper.ITEM_TYPE_SUBS,
+                        RC_REQUEST, mPurchaseFinishedListener, payload);
+            }
+            catch(IllegalStateException ex){
+                Toast.makeText(this, "Please retry in a few seconds.", Toast.LENGTH_SHORT).show();
+                mHelper.flagEndAsync();
+            }
+        }
     }
 
     @Override

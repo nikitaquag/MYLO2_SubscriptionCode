@@ -89,17 +89,24 @@ public class ContactAdapter extends BaseAdapter implements Filterable {
         } else {
             holder.txtPhone.setVisibility(View.GONE);
         }
-
+        if (contactList.get(position).getHomePhone()!=null) {
         if (!contactList.get(position).getHomePhone().equals("")) {
             holder.txtHPhone.setText(c.getHomePhone());
             holder.txtHPhone.setVisibility(View.GONE);
         } else {
             holder.txtHPhone.setVisibility(View.GONE);
         }
+        } else {
+            holder.txtHPhone.setVisibility(View.GONE);
+        }
 
+        if (contactList.get(position).getWorkPhone()!=null) {
         if (!contactList.get(position).getWorkPhone().equals("")) {
             holder.txtWPhone.setText(c.getWorkPhone());
             holder.txtWPhone.setVisibility(View.GONE);
+        } else {
+            holder.txtWPhone.setVisibility(View.GONE);
+        }
         } else {
             holder.txtWPhone.setVisibility(View.GONE);
         }

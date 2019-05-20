@@ -32,6 +32,7 @@ import com.mindyourlovedone.healthcare.model.Setting;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class FragmentSetting extends Fragment {
     View rootView;
@@ -103,12 +104,25 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentContactUs);
                         break;
                     case 1://Change Password-Section
-                        Intent intent = new Intent();
+                       /* String urld="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urld));
+                        startActivity(browserIntent);*/
+                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf");
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
+                        startActivity(browserIntent);
+                       /* String url="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
+                        Intent intents = new Intent();
+                        intents.setAction(Intent.ACTION_VIEW);
+                        intents.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intents.setData(Uri.parse(url));
+                        startActivity(intents);*/
+                        /*Intent intent = new Intent();
                         intent.setAction(Intent.ACTION_VIEW);
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         intent.setData(Uri.parse("market://details?id=com.adobe.reader"));
                         intent.setType(String.valueOf(Uri.parse("application/pdf")));
-                        ((BaseActivity) getActivity()).CopyReadAssetss("FAQ.pdf");
+                        ((BaseActivity) getActivity()).CopyReadAssetss("FAQ.pdf");*/
                         // intent.setDataAndType(uri, "application/pdf");
                       /*  try {
                             getActivity().startActivity(intent);
@@ -137,12 +151,35 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentChangePass);*/
                         break;
                     case 2://User Guide-Section
-                        Intent intents = new Intent();
+                       /* Intent i=new Intent(getActivity(),PDFActivity.class);
+                        getActivity().startActivity(i);*/
+                        String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+                        String fullPathD = String.format(Locale.ENGLISH, formatD, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
+                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
+                        startActivity(browserIntentD);
+                       /* String urlf="https://docs.google.com/viewer?url=http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf" ;
+                        Intent browserIntents = new Intent(Intent.ACTION_VIEW, Uri.parse(urlf));
+                      startActivity(browserIntents);*/
+
+                       /* Intent intentf = new Intent();
+                        intentf.setAction(Intent.ACTION_VIEW);
+                        intentf.addCategory(Intent.CATEGORY_BROWSABLE);
+                        intentf.setData(Uri.parse(urlf));
+                        startActivity(intentf);*/
+                       /* "https://docs.google.com/viewer?url=" + "url of pdf file"
+                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
+                        Intent browserIntentx = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
+                        startActivity(browserIntentx);*/
+
+                        //--------------varsa commented--------
+                       /* Intent intents = new Intent();
                         intents.setAction(Intent.ACTION_VIEW);
                         intents.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         intents.setData(Uri.parse("market://details?id=com.adobe.reader"));
                         intents.setType(String.valueOf(Uri.parse("application/pdf")));
-                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");
+                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");*/
+                       //----------------------------------
                         /*try {
                             getActivity().startActivity(intents);
 
@@ -179,11 +216,11 @@ public class FragmentSetting extends Fragment {
 
                         break;
                     case 4://End User License Agreement-Section
-                        Intent intentf = new Intent();
-                        intentf.setAction(Intent.ACTION_VIEW);
-                        intentf.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intentf.setData(Uri.parse("market://details?id=com.adobe.reader"));
-                        intentf.setType(String.valueOf(Uri.parse("application/pdf")));
+                        Intent intentx = new Intent();
+                        intentx.setAction(Intent.ACTION_VIEW);
+                        intentx.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        intentx.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intentx.setType(String.valueOf(Uri.parse("application/pdf")));
                         ((BaseActivity) getActivity()).CopyReadAssetss("eula.pdf");
 
                         break;

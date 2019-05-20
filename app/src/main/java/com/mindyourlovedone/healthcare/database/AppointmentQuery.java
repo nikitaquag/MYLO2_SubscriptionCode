@@ -45,7 +45,7 @@ public class AppointmentQuery {
         return dropTableQuery;
     }
 
-    public static Boolean insertAppointmentData(int userid, String name, String date, String note, String type, String frequency, String otherType, String otherFrequency, ArrayList<DateClass> dateList, int unique) {
+    public static Boolean  insertAppointmentData(int userid, String name, String date, String note, String type, String frequency, String otherType, String otherFrequency, ArrayList<DateClass> dateList, int unique) {
         boolean flag;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 

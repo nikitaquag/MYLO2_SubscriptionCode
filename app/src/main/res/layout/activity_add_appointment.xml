@@ -88,8 +88,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimension10dp"
-                android:visibility="gone">
+               >
+                <FrameLayout
+                    android:id="@+id/fltypeReaction"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgtype"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="@dimen/dimension18dp"
+                        android:layout_marginRight="@dimen/dimension3dp"
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:src="@drawable/drg"></ImageView>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilRelation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintEnabled="true"
+                        android:paddingLeft="@dimen/dimension15dp"
+                        android:paddingRight="@dimen/dimension15dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:backgroundTint="@color/colordivideGray"
+                            android:fontFamily="@font/lato"
+                            android:id="@+id/txtRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Type Specialist or Test"
+                            android:imeOptions="actionNext"
+                            android:maxLength="300"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension2dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorBlackDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                </FrameLayout>
                 <com.mindyourlovedone.healthcare.customview.MySpinner
                     android:id="@+id/spinnerType"
                     android:layout_width="match_parent"
@@ -99,6 +149,7 @@
                     android:focusable="false"
                     app:ms_arrowColor="@color/colorBlue"
                     app:ms_arrowSize="16dp"
+                    android:visibility="gone"
                     app:ms_floatingLabelText="Type of Test or Specialist"
                     app:ms_hint="hint"
                     app:ms_multiline="true"
@@ -109,12 +160,14 @@
                     android:id="@+id/tilOtherType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/spinnerType"
-                    android:paddingLeft="@dimen/dimension30dp"
-                    android:paddingRight="@dimen/dimension30dp"
-                    android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_below="@+id/fltypeReaction"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
                     android:visibility="gone"
-                    custom:ms_floatingLabelColor="@color/colorBlue">
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingRight="@dimen/dimension15dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:backgroundTint="@color/colordivideGray"
@@ -123,70 +176,22 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Other Specialist"
+                        android:imeOptions="actionNext"
                         android:maxLength="30"
                         android:maxLines="1"
-                        android:paddingLeft="@dimen/dimension15dp"
-                        android:paddingTop="@dimen/dimension2dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:paddingTop="@dimen/dimension8dp"
                         android:singleLine="true"
-                        android:textColor="@color/colorBlackDark"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="@dimen/dimension20dp" />
                 </android.support.design.widget.TextInputLayout>
             </RelativeLayout>
 
-            <FrameLayout
 
-                android:layout_below="@+id/rlSpecialist"
-                android:id="@+id/fltypeReaction"
-                android:visibility="visible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                >
-
-            <ImageView
-                android:id="@+id/imgtype"
-                android:layout_width="@dimen/dimension20dp"
-                android:layout_height="@dimen/dimension25dp"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="bottom|right"
-                android:layout_marginBottom="@dimen/dimension18dp"
-                android:layout_marginRight="@dimen/dimension3dp"
-                android:paddingTop="@dimen/dimension8dp"
-                android:src="@drawable/drg"></ImageView>
 
             <android.support.design.widget.TextInputLayout
-                android:id="@+id/tilRelation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:descendantFocusability="beforeDescendants"
-                android:focusableInTouchMode="true"
-                android:paddingTop="@dimen/dimension8dp"
-                android:paddingBottom="@dimen/dimension8dp"
-                app:hintEnabled="true"
-
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
-                <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
-                <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
-                    android:fontFamily="@font/lato"
-                    android:id="@+id/txtRelation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Type Specialist or Test"
-                    android:imeOptions="actionNext"
-                    android:maxLength="300"
-                    android:maxLines="1"
-                    android:paddingTop="@dimen/dimension2dp"
-                    android:singleLine="true"
-                    android:textColor="@color/colorBlackDark"
-                    android:textSize="@dimen/dimension20dp" />
-
-                <requestFocus />
-            </android.support.design.widget.TextInputLayout>
-            </FrameLayout>
-
-            <android.support.design.widget.TextInputLayout
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -194,7 +199,8 @@
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
                 android:paddingTop="@dimen/dimension8dp"
-
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp"
                 android:paddingBottom="@dimen/dimension8dp">
 
 
@@ -268,8 +274,9 @@
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="visible"
                     app:hintEnabled="true"
-
-                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingRight="@dimen/dimension15dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:backgroundTint="@color/colordivideGray"
@@ -278,6 +285,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Frequency"
+                     
                         android:imeOptions="actionNext"
                         android:maxLength="300"
                         android:maxLines="1"
@@ -296,14 +304,15 @@
                     android:layout_below="@+id/fltypeReaction2"
                     android:descendantFocusability="beforeDescendants"
                     android:focusableInTouchMode="true"
-
+                    android:paddingLeft="@dimen/dimension15dp"
+                    android:paddingRight="@dimen/dimension15dp"
                     android:paddingTop="@dimen/dimension8dp"
                   
                     android:paddingBottom="@dimen/dimension8dp"
                     android:visibility="gone"
                     app:hintEnabled="true"
 
-                    app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium">
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
 
                     <AutoCompleteTextView
                         android:backgroundTint="@color/colordivideGray"
@@ -330,9 +339,10 @@
                 android:layout_below="@+id/rlFrequency"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:paddingTop="@dimen/dimension8dp"
-
+                android:paddingLeft="@dimen/dimension15dp"
+                android:paddingRight="@dimen/dimension15dp"
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
@@ -345,6 +355,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Note"
+                    
                     android:maxLines="1"
                     android:paddingLeft="@dimen/dimension5dp"
                     android:paddingTop="@dimen/dimension2dp"

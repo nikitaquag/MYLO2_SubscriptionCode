@@ -47,7 +47,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
     ArrayList<DateClass> dateList = null;
     ImageView imgBack, imgHome;
     RelativeLayout llAddConn, rlDelete;
-    TextInputLayout tilName, tilOtherFrequency, tilOtherSpecialist;
+    TextInputLayout tilName, tilOtherFrequency, tilOtherSpecialist,tilOtherType;
     RadioGroup rgCompleted;
     RadioButton rbYes, rbNo;
     String otherFrequency = "";
@@ -287,13 +287,29 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                 p = (Appoint) i.getExtras().getSerializable("AppointObject");
                 if (a.getType() != null) {
                     txtRelation.setText(a.getType());
+                    if (a.getType().equals("Other")) {
+
+                        tilOtherSpecialist.setVisibility(View.VISIBLE);
+                        txtOtherSpecialist.setText(a.getOtherDoctor());
+
+                    } else{
+                        tilOtherSpecialist.setVisibility(View.GONE);
+                        txtOtherSpecialist.setText("");
+                }
                 }
                 if (a.getFrequency() != null) {
                     txtFrequency.setText(a.getFrequency());
+                    if (a.getFrequency().equals("Other")) {
+                        txtOtherFrequency.setText(a.getOtherFrequency());
+                        tilOtherFrequency.setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        tilOtherFrequency.setVisibility(View.GONE);
+                        txtOtherFrequency.setText("");
+                    }
                 }
-                if (a.getFrequency().equals("Other")) {
-                    txtOtherFrequency.setText(a.getOtherFrequency());
-                }
+
 
                 if (a.getDoctor() != null) {
                     txtName.setText(a.getDoctor());
@@ -341,7 +357,13 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_TYPE && data != null) {
             String type = data.getExtras().getString("TypeAppointment");
-            txtRelation.setText(type);
+            if (type.equals("Other")) {
+                txtRelation.setText(type);
+                tilOtherSpecialist.setVisibility(View.VISIBLE);
+            } else{
+                txtRelation.setText(type);
+                tilOtherSpecialist.setVisibility(View.GONE);
+            }
         } else if (requestCode == RESULT_FREQUENCY && data != null) {
             String freq = data.getExtras().getString("Category");
             txtFrequency.setText(freq);

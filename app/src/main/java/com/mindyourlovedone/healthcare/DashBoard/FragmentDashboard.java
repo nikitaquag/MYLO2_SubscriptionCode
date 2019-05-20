@@ -198,20 +198,25 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
             connection = MyConnectionsQuery.fetchOneRecord("Self");
             preferences.putString(PrefConstants.USER_PROFILEIMAGE, connection.getPhoto());
             preferences.putString(PrefConstants.CONNECTED_NAME, connection.getName());
+
             preferences.putString(PrefConstants.CONNECTED_RELATION,"Self");
             String name = connection.getName();
            // String address = connection.getAddress();
             String relation = "Self";
             //byte[]array =personalInfo.getPhoto();
             if (!connection.getPhoto().equals("")) {
-                File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connection.getPhoto());
+                String mail1 = connection.getEmail();
+                mail1 = mail1.replace(".", "_");
+                mail1 = mail1.replace("@", "_");
+                File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/"+ mail1 +"/",connection.getPhoto());
+
+               // File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connection.getPhoto());
                 imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
                 if (imgFile.exists()) {
                     if (imgProfile.getDrawable() == null)
                         imgProfile.setImageResource(R.drawable.ic_profiles);
                     else
                         imgProfile.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-
                     // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
                 }
             } else {

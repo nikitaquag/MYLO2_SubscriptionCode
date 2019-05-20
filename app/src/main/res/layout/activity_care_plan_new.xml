@@ -532,16 +532,18 @@
                     android:textSize="@dimen/dimension18dp"></TextView>
             </RelativeLayout>
         </RelativeLayout>
-        <ImageView
-            android:id="@+id/floatOptions"
-            android:layout_width="@dimen/dimension70dp"
-            android:layout_height="@dimen/dimension70dp"
-            android:src="@drawable/threedots"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dimension16dp"
-            />
+
 
     </RelativeLayout>
+
 </ScrollView>
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dimension16dp"
+        />
 </RelativeLayout>

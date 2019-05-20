@@ -26,7 +26,7 @@
         android:roundIcon="@mipmap/mylo_new_cropped_logo"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme">
-        <activity android:name="com.mindyourlovedone.healthcare.Fragment.ADInfoActivity"></activity>
+        <activity android:name="com.mindyourlovedone.healthcare.Fragment.ADInfoActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.Fragment.VideoActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.Fragment.HelpFormActivity" />
         <activity android:name="com.mindyourlovedone.healthcare.DashBoard.FaxActivity" />

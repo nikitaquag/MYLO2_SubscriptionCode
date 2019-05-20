@@ -63,6 +63,12 @@ public class EventPdf {
                 String speciality = "";
                 if (s.getType() != null) {
                     speciality = s.getType();
+                    if (s.getType().equals("Other"))
+                    {
+                        speciality = s.getOtherDoctor();
+                    }else{
+                        speciality = s.getType();
+                    }
                 }
                 cell = new PdfPCell(new Phrase("Type of Test or Specialist : " + speciality));
                 cell.setBorder(Rectangle.BOTTOM);

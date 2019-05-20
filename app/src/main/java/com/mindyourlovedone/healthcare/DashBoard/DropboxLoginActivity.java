@@ -49,8 +49,10 @@ import com.mindyourlovedone.healthcare.DropBox.ZipListner;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
+import com.mindyourlovedone.healthcare.database.ContactTableQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -987,6 +989,9 @@ txtLogoutDropbox.setVisibility(View.GONE);
                 }
             }
         } else {
+            DBHelper dbHelpers = new DBHelper(context, "MASTER");
+            ContactTableQuery ms = new ContactTableQuery(context, dbHelpers);
+            ContactTableQuery.deleteContactData();
             //Toast.makeText(context, "Need Data save to master db", Toast.LENGTH_SHORT).show();
         }
 

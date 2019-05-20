@@ -362,7 +362,7 @@ public class IabHelper {
         if (itemType.equals(ITEM_TYPE_SUBS) && !mSubscriptionsSupported) {
             IabResult r = new IabResult(IABHELPER_SUBSCRIPTIONS_NOT_AVAILABLE,
                     "Subscriptions are not available.");
-            flagEndAsync();
+           flagEndAsync();
             if (listener != null) listener.onIabPurchaseFinished(r, null);
             return;
         }
@@ -723,7 +723,7 @@ public class IabHelper {
         logDebug("Starting async operation: " + operation);
     }
 
-    void flagEndAsync() {
+   public void flagEndAsync() {
         logDebug("Ending async operation: " + mAsyncOperation);
         mAsyncOperation = "";
         mAsyncInProgress = false;
