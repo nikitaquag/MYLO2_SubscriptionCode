@@ -12,7 +12,10 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
+import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.ContactUsAdapter;
@@ -20,6 +23,7 @@ import com.mindyourlovedone.healthcare.InsuranceHealthCare.SettingAdapter;
 import com.mindyourlovedone.healthcare.model.Setting;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Set;
 
 public class FragmentContactUs extends Fragment {
@@ -72,6 +76,34 @@ public class FragmentContactUs extends Fragment {
         imgHelp = getActivity().findViewById(R.id.imgRight);
         imgHelp.setVisibility(View.GONE);
 
+        lvContactUs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0://Mylo Email
+                        Intent i = new Intent(Intent.ACTION_SEND);
+                        i.setType("message/rfc822");
+                        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"http://customersupport@mindyour-lovedones.com"});
+                        i.putExtra(Intent.EXTRA_SUBJECT, "");
+                        i.putExtra(Intent.EXTRA_TEXT   , "");
+                        try {
+                            startActivity(Intent.createChooser(i, "Send mail..."));
+                        } catch (android.content.ActivityNotFoundException ex) {
+                            Toast.makeText(getActivity(), "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 1://Mylo Website
+                     //   String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+                       // String fullPathD = String.format(Locale.ENGLISH, formatD, "http://mindyour-lovedones.com");
+                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com"));
+                        startActivity(browserIntentD);
+
+                        break;
+
+                }
+            }
+        });
 
     }
 

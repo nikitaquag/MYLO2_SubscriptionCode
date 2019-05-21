@@ -1507,10 +1507,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             Cname = bundle.getString("Name");
             Cemail = bundle.getString("Email");
             Cphone = bundle.getString("Phone");
+            Cphone = Cphone.replaceAll("[^a-zA-Z0-9]", "");
             CAddress = bundle.getString("Address");
             CHPhone = bundle.getString("HPhone");
+            CHPhone = CHPhone.replaceAll("[^a-zA-Z0-9]", "");
             CWPhone = bundle.getString("WPhone");
-
+            CWPhone = CWPhone.replaceAll("[^a-zA-Z0-9]", "");
 
             byte[] image = bundle.getByteArray("Photo");
           /*  Bitmap photo = BitmapFactory.decodeByteArray(image, 0, image.length);

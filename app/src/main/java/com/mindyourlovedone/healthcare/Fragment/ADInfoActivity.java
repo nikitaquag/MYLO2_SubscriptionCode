@@ -96,6 +96,10 @@ public class ADInfoActivity extends AppCompatActivity {
         l10.setUrl("https://www.nhdd.org/public-resources/#where-can-i-get-an-advance-directive");
         l10.setImage(R.drawable.link_six);
 
+        Links l12 = new Links();
+        l12.setName("PREPARE for Your Care™");
+        l12.setUrl("https://www.prepareforyourcare.org");
+        l12.setImage(R.drawable.prepare);
 
 
       /*  Links l12=new Links();
@@ -114,7 +118,7 @@ public class ADInfoActivity extends AppCompatActivity {
         UrlList.add(l8);
         UrlList.add(l9);
         UrlList.add(l10);
-        //  UrlList.add(l12);
+        UrlList.add(l12);
         //Fol show
         // Datalist=new ArrayList<>();
         //Datalist.add("ABA - Elder Law");
