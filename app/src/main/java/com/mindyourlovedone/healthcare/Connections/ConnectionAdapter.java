@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -39,6 +40,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -71,7 +73,7 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                 .resetViewBeforeLoading(true) // default
                 .cacheInMemory(true) // default
                 .cacheOnDisk(true) // default
-                .showImageOnLoading(R.drawable.profile_darkbluecolor)
+                .showImageOnLoading(R.drawable.lightblue)
                 .considerExifParams(false) // default
 //                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
                 .bitmapConfig(Bitmap.Config.ARGB_8888) // default
@@ -141,12 +143,24 @@ public class ConnectionAdapter extends BaseSwipListAdapter {
                 mail1 = mail1.replace(".", "_");
                 mail1 = mail1.replace("@", "_");
                 File imgFile = new File(Environment.getExternalStorageDirectory()+"/MYLO/"+ mail1 +"/",connectionList.get(position).getPhoto());
-                //  if (imgFile.exists()) {
-                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
-                 holder.imgConPhoto.setImageBitmap(myBitmap);
-               // imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)),holder.imgConPhoto,displayImageOptions);
-            }
-            else{
+                // File imgFile = new File(Environment.getExternalStorageDirectory() + "/MYLO/Master/", connection.getPhoto());
+              // holder.imgConPhoto.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                if (imgFile.exists()) {
+                    if (holder.imgConPhoto.getDrawable() == null)
+                        holder.imgConPhoto.setImageResource(R.drawable.lightblue);
+                    else {
+
+                      //  holder.imgConPhoto.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
+                    //  imageLoader.displayImage(String.valueOf(Uri.fromFile(imgFile)), holder.imgConPhoto, displayImageOptions);
+                        final String uri = Uri.fromFile(imgFile).toString();
+                      //  final String decoded = Uri.decode(uri);
+                        Picasso.with(context)
+                                .load(uri)
+                                .into(holder.imgConPhoto);
+                      //  imageLoader.displayImage(uri, holder.imgConPhoto, displayImageOptions);
+                    }
+                }
+            } else {
                 holder.imgConPhoto.setImageResource(R.drawable.lightblue);
             }
             //  }

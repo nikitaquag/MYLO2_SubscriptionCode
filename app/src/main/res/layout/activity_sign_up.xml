@@ -31,14 +31,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/new_splash" />
+            android:src="@drawable/sin" />
 
         <ImageView
             android:background="@drawable/border_whitecorner"
             android:layout_gravity="center_horizontal|bottom"
             android:src="@mipmap/ic_launcher_logo"
             android:layout_width="@dimen/dimension100dp"
-            android:layout_height="@dimen/dimension100dp" />
+            android:layout_height="@dimen/dimension100dp"
+            android:visibility="gone"
+            />
 
     </FrameLayout>
 
