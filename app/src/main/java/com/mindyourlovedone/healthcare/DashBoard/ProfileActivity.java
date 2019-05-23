@@ -2302,11 +2302,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
-      Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+        Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
-       Header.addEmptyLine(1);
-      Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+       Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+        Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
         Paragraph p = new Paragraph(" ");
         LineSeparator line = new LineSeparator();
@@ -2318,7 +2318,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
-        Header.addEmptyLine(1);
+       Header.addEmptyLine(1);
                /* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Personal Profile");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));

@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "669162090702",
-    "firebase_url": "https://mylo-fabfe.firebaseio.com",
-    "project_id": "mylo-fabfe",
-    "storage_bucket": "mylo-fabfe.appspot.com"
+    "project_number": "657457981220",
+    "firebase_url": "https://mind-your-loved-ones.firebaseio.com",
+    "project_id": "mind-your-loved-ones",
+    "storage_bucket": "mind-your-loved-ones.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:669162090702:android:572b6b73b8f0ae00",
+        "mobilesdk_app_id": "1:657457981220:android:572b6b73b8f0ae00",
         "android_client_info": {
           "package_name": "com.mindyourlovedone.healthcare.HomeActivity"
         }
       },
       "oauth_client": [
         {
-          "client_id": "669162090702-jmvqo9ourlv5pa1u4jhge0pme9djog1f.apps.googleusercontent.com",
+          "client_id": "657457981220-mfkim8mh9nglk290mde4nb824ssh6ee7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLCekaFsIK-xbvpZjiHkBr7sgFOgaq7Aw"
+          "current_key": "AIzaSyDAoUbI2TffDW4GNFwYB9kAK19YtQjvVk0"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657457981220-mfkim8mh9nglk290mde4nb824ssh6ee7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -342,76 +342,127 @@ public class HeaderNew {
         public void onEndPage(PdfWriter writer, Document document) {
 
             PdfContentByte cby = writer.getDirectContent();
+            //--Outline BOrder
            // drowBorder(cby);
             // header = new Phrase(headertext, GreenFont);
             header = new PdfPTable(3);
-            header.setTotalWidth(530);
-//            header.getDefaultCell().setBorder(Rectangle.NO_BORDER);
-//            header.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
+            header.setTotalWidth(570);
+            header.setHorizontalAlignment(Rectangle.ALIGN_CENTER);
+          // header.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+         //  header.getDefaultCell().setHorizontalAlignment(Element.ALIGN_RIGHT);
 
             Calendar c = Calendar.getInstance();
             System.out.println("Current time => " + c.getTime());
-
             SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
             String formattedDate = df.format(c.getTime());
 //            header.addCell(new Phrase("Date : "+formattedDate));
 
             PdfPCell cells = new PdfPCell();
-            Image image=addProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
-          image.scaleAbsoluteHeight(10);
-            image.scaleAbsoluteWidth(5);
-            image.scalePercent(10);
-           image.setAbsolutePosition(20, 120);
-            image.scaleAbsolute(30f, 30f);
-            /*Paragraph p = new Paragraph();
-            Phrase pp = new Phrase();
-            p.add(new Chunk(image, 0, 0));
-            pp.add("  "+headertext);
-            p.add(pp);
-            cells.addElement(p);
 
-            header.addCell(cells);*/
-            cells = new PdfPCell(new Phrase(headertext));
+            //---image logo
+            Image image=addProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
+            image.scaleAbsoluteHeight(10);
+            image.scaleAbsoluteWidth(50);
+            image.scalePercent(10);
+            image.setAbsolutePosition(20, 220);
+            image.scaleAbsolute(90f, 40f);
+
+//---imae profile
+            Image images=addProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
+            images.scaleAbsoluteHeight(50);
+            images.scaleAbsoluteWidth(50);
+            images.scalePercent(10);
+            images.setAbsolutePosition(20, 120);
+            images.scaleAbsolute(30f, 30f);
+
+            //-- Cell 1
+            cells = new PdfPCell();
             cells.setBorder(Rectangle.NO_BORDER);
             cells.setHorizontalAlignment(Element.ALIGN_LEFT);
+            cells.setVerticalAlignment(Element.ALIGN_TOP);
+            Paragraph p = new Paragraph();
+            Phrase pp = new Phrase();
+            p.add(new Chunk(images, 0,0));
+            pp.add(headertext);
+            p.add(pp);
+            p.setAlignment(Element.ALIGN_CENTER);
+            cells.addElement(p);
+
             header.addCell(cells);
 
+            //--- Cell 2
             cells = new PdfPCell(image,false);
            cells.setBorder(Rectangle.NO_BORDER);
             cells.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cells.setVerticalAlignment(Element.ALIGN_TOP);
             //cells.addElement(image);
             header.addCell(cells);
 
 
-
-            cells = new PdfPCell(new Phrase("Date : " + formattedDate));
-           cells.setBorder(Rectangle.NO_BORDER);
+//-- CEll 3
+            cells = new PdfPCell();
+            cells.setBorder(Rectangle.NO_BORDER);
             cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            cells.setVerticalAlignment(Element.ALIGN_TOP);
+            Paragraph p1 = new Paragraph();
+            Phrase pp1 = new Phrase();
+            p1.add(new Chunk(images, 0,0));
+            pp1.add(formattedDate);
+            p1.add(pp1);
+            p1.setAlignment(Element.ALIGN_CENTER);
+            cells.addElement(p1);
             header.addCell(cells);
 
-            footer = new PdfPTable(1);
-            footer.setTotalWidth(300);
-            footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
-            footer.getDefaultCell()
-                    .setHorizontalAlignment(Element.ALIGN_CENTER);
-            footer.addCell(new Phrase(String.format(""
+            footer = new PdfPTable(2);
+            footer.setTotalWidth(PageSize.A4.getWidth());
+            footer.setLockedWidth(true);
+           ;
+
+          //  footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+          //  footer.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+
+            PdfPCell cell = new PdfPCell();
+            cell = new PdfPCell(new Phrase("WWW.MINDYOUR-LOVEDONES.COM"));
+            cell.setFixedHeight(70f);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(BaseColor.GRAY);
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            footer.addCell(cell);
+
+            cell = new PdfPCell(new Phrase(String.format(""
                     + (writer.getPageNumber()))));
+            cell.setBackgroundColor(BaseColor.GRAY);
+            cell.setFixedHeight(70f);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            footer.addCell(cell);
+
+            /*footer.addCell(new Phrase(String.format(""
+                    + (writer.getPageNumber()))));*/
             PdfContentByte cb = writer.getDirectContent();
             header.writeSelectedRows(
                     0,
                     -1,
-                    (document.right() - document.left() - 530) / 2
+                    (document.right() - document.left() - 570) / 2
                             + document.leftMargin(), document.top() + 20, cb);
+           /* footer.writeSelectedRows(
+                    0,
+                    -1,
+                    (document.right() - document.left() - 570) / 2
+                            + document.leftMargin(), document.bottom() - 10, cb);*/
+
             footer.writeSelectedRows(
                     0,
                     -1,
-                    (document.right() - document.left() - 300) / 2
-                            + document.leftMargin(), document.bottom() - 10, cb);
-            cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
+                    0, document.bottom(), cb);
+
+           /* cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
             cb.setGrayStroke(0.50f);
             cb.moveTo(30, 793);
             cb.lineTo(560, 793);
-            cb.stroke();
+            cb.stroke();*/
         }
     }
 }
