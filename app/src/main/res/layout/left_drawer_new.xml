@@ -308,13 +308,49 @@
                     android:layout_toRightOf="@id/imgSponsor"
                     android:background="@color/colorLightGrays"></View>
             </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rlBackup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rlSponsor"
+                android:background="@color/colorWhite">
+
+                <ImageView
+                    android:id="@+id/imgBackup"
+                    android:layout_width="@dimen/dimension45dp"
+                    android:layout_height="@dimen/dimension45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dimension5dp"
+                    android:padding="@dimen/dimension10dp"
+                    android:src="@drawable/drawer_backup" />
+
+                <TextView
+                    android:fontFamily="@font/lato"
+
+                    android:id="@+id/txtBackup"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension50dp"
+                    android:layout_toRightOf="@+id/imgBackup"
+                    android:gravity="center_vertical"
+                    android:text="@string/Backup"
+                    android:textColor="@color/colorBlackDark"
+                    android:textSize="@dimen/dimension16dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_below="@+id/txtBackup"
+                    android:layout_toRightOf="@id/imgBackup"
+                    android:background="@color/colorLightGrays"></View>
+
+            </RelativeLayout>
 
 
             <RelativeLayout
                 android:id="@+id/rlSettings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/rlSponsor"
+                android:layout_below="@+id/rlBackup"
                 android:background="@color/colorWhite">
 
                 <ImageView

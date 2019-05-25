@@ -61,7 +61,7 @@
         app:hintTextAppearance="@style/TextLabel">
         <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
         <AutoCompleteTextView
-                    android:backgroundTint="@color/colordivideGray"
+            android:backgroundTint="@color/colordivideGray"
             android:fontFamily="@font/lato"
             android:id="@+id/txtName"
             android:layout_width="match_parent"
@@ -69,7 +69,6 @@
             android:hint="Name"
             android:maxLength="30"
             android:maxLines="1"
-
             android:paddingTop="@dimen/dimension5dp"
             android:singleLine="true"
             android:textColor="@color/colorPrimaryDark"

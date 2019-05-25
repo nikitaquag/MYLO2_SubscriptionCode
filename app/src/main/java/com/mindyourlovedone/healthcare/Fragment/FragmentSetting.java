@@ -80,7 +80,7 @@ public class FragmentSetting extends Fragment {
         s5.setName("End User License Agreement");
         s5.setResImage(R.drawable.drawer_videos);
 
-        settingList.add(s1);
+      //  settingList.add(s1);
         settingList.add(s2);
         settingList.add(s3);
         settingList.add(s4);
@@ -99,11 +99,11 @@ public class FragmentSetting extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position) {
-                    case 0://BackUp-Section
+                    /*case 0://BackUp-Section
                         Intent intentContactUs = new Intent(getActivity(), DropboxLoginActivity.class);
                         getActivity().startActivity(intentContactUs);
-                        break;
-                    case 1://Change Password-Section
+                        break;*/
+                    case 0://Change Password-Section
                        /* String urld="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urld));
                         startActivity(browserIntent);*/
@@ -150,7 +150,7 @@ public class FragmentSetting extends Fragment {
                        /* Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
                         getActivity().startActivity(intentChangePass);*/
                         break;
-                    case 2://User Guide-Section
+                    case 1://User Guide-Section
                        /* Intent i=new Intent(getActivity(),PDFActivity.class);
                         getActivity().startActivity(i);*/
                         String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
@@ -204,7 +204,7 @@ public class FragmentSetting extends Fragment {
                             builder.create().show();
                         }*/
                         break;
-                    case 3://Privacy Policy-Section
+                    case 2://Privacy Policy-Section
 
                         Intent intentp = new Intent();
                         intentp.setAction(Intent.ACTION_VIEW);
@@ -215,7 +215,7 @@ public class FragmentSetting extends Fragment {
 
 
                         break;
-                    case 4://End User License Agreement-Section
+                    case 3://End User License Agreement-Section
                         Intent intentx = new Intent();
                         intentx.setAction(Intent.ACTION_VIEW);
                         intentx.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

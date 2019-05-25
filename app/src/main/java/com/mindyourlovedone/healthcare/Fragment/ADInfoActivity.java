@@ -71,7 +71,7 @@ public class ADInfoActivity extends AppCompatActivity {
         l6.setUrl("https://www.healthlawyers.org/Pages/PageNotFoundError.aspx?requestUrl=https://www.healthlawyers.org/hlresources/PI/InfoSeries/Pages/LovingConversations.aspx");
         l6.setImage(R.drawable.aba_market);*/
         Links l11 = new Links();
-        l11.setName("ABA-American Bar Association, Commission on Law and Aging");
+        l11.setName("ABA-American Bar Association, Commission on Law and Aging/n jkjlkjkljkl/n jjkji");
         l11.setUrl("https://www.americanbar.org/groups/law_aging/resources/health_care_decision_making/consumer_s_toolkit_for_health_care_advance_planning/");
 
         l11.setImage(R.drawable.aba_market_new);

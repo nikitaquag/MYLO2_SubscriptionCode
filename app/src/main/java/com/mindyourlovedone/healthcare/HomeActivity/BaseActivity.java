@@ -44,6 +44,7 @@ import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity;
 import com.mindyourlovedone.healthcare.DashBoard.AddInsuranceFormActivity;
 import com.mindyourlovedone.healthcare.DashBoard.CustomArrayAdapter;
+import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentDashboard;
 import com.mindyourlovedone.healthcare.DashBoard.FragmentNotification;
 import com.mindyourlovedone.healthcare.DashBoard.PrescriptionUploadActivity;
@@ -95,9 +96,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     Preferences preferences;
     ImageView txtDrawer;
     TextView txtPrivacyPolicy, txtEULA, txtversion;
-    RelativeLayout rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlBackup, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
-    TextView txtSettings, txtWebsite, txtGuide, txtProfiles, txtHome, txtSupport, txtContactUs, txtSponsor, txtResources, txtPrivacy, txtMarketPlace, txtVideos, txtBackup, txtResourcesDetail, txtMarketDetail, txtPrivacyDetail;
-    ImageView imgSettings, imgWebsite, imgGuide, imgProfiles, imgHome, imgSupport, imgContactUs, imgSponsor, imgResources, imgPrivacy, imgMarketPlace, imgVideos, imgBackup, imgResourcesDetail, imgMarketDetail, imgPrivacyDetail;
+    RelativeLayout rlBackup, rlSettings, rlWebsite, rlGuide, rlProfiles, rlHome, rlSupport, rlContactUs, rlSponsor, rlResources, rlPrivacy, rlMarketPlace, rlVideos, rlResourcesDetail, rlMarketDetail, rlPrivacyDetail;
+    TextView txtBackup,txtSettings, txtWebsite, txtGuide, txtProfiles, txtHome, txtSupport, txtContactUs, txtSponsor, txtResources, txtPrivacy, txtMarketPlace, txtVideos, txtResourcesDetail, txtMarketDetail, txtPrivacyDetail;
+    ImageView imgBackup,imgSettings, imgWebsite, imgGuide, imgProfiles, imgHome, imgSupport, imgContactUs, imgSponsor, imgResources, imgPrivacy, imgMarketPlace, imgVideos, imgResourcesDetail, imgMarketDetail, imgPrivacyDetail;
 
     boolean flagResource = false, flagMarket = false, flagPrivacy = false;
     int p = 0;
@@ -212,6 +213,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                     txtHome.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
@@ -219,6 +221,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -234,6 +237,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                     txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -241,6 +245,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -258,6 +263,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                     txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -265,10 +271,37 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtResources.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
                     txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 7) {
+                    imgProfile.setVisibility(View.GONE);
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Backup, Restore, Share");
+                    callFragmentData(new FragmentSetting());
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                } else if (p == 8) {
                     imgProfile.setVisibility(View.GONE);
                     txtTitle.setVisibility(View.VISIBLE);
                     txtTitle.setText("Settings");
@@ -282,6 +315,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                     txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -289,32 +323,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSettings.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                } else if (p == 8) {
-                    imgProfile.setVisibility(View.GONE);
-                    txtTitle.setVisibility(View.VISIBLE);
-                    txtTitle.setText("Contact Us");
-                    callFragmentData(new FragmentContactUs());
-
-                    //nikita
-                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
-
-
-                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
-                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
                     txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 } else if (p == 5) {
@@ -337,6 +347,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                     imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                     txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -344,10 +355,38 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                     txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
                     txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                     txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
 
+                }else if (p ==9) {
+                    imgProfile.setVisibility(View.GONE);
+                    txtTitle.setVisibility(View.VISIBLE);
+                    txtTitle.setText("Contact Us");
+                    callFragmentData(new FragmentContactUs());
+
+                    //nikita
+                    imgHome.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgProfiles.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgResources.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSponsor.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgSettings.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                    imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+
+
+                    txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtProfiles.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
+                    txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                    txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 }
 
                 /*Ends here*/
@@ -606,6 +645,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlVideos.setOnClickListener(this);
         rlSponsor.setOnClickListener(this);
         rlSettings.setOnClickListener(this);
+        rlBackup.setOnClickListener(this);
         rlContactUs.setOnClickListener(this);
         // flLogout.setOnClickListener(this);
 
@@ -624,6 +664,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         rlResources = leftDrawer.findViewById(R.id.rlResources);
         rlSponsor = leftDrawer.findViewById(R.id.rlSponsor);
         rlSettings = leftDrawer.findViewById(R.id.rlSettings);
+        rlBackup = leftDrawer.findViewById(R.id.rlBackup);
         rlContactUs = leftDrawer.findViewById(R.id.rlContactUs);
         rlMarketPlace = leftDrawer.findViewById(R.id.rlMarketPlace);
         rlVideos = leftDrawer.findViewById(R.id.rlVideos);
@@ -633,6 +674,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         imgResources = leftDrawer.findViewById(R.id.imgResources);
         imgSponsor = leftDrawer.findViewById(R.id.imgSponsor);
         imgSettings = leftDrawer.findViewById(R.id.imgSettings);
+        imgBackup = leftDrawer.findViewById(R.id.imgBackup);
         imgContactUs = leftDrawer.findViewById(R.id.imgContactUs);
         imgMarketPlace = leftDrawer.findViewById(R.id.imgMarketPlace);
         imgVideos = leftDrawer.findViewById(R.id.imgVideos);
@@ -642,6 +684,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         txtResources = leftDrawer.findViewById(R.id.txtResources);
         txtSponsor = leftDrawer.findViewById(R.id.txtSponsor);
         txtSettings = leftDrawer.findViewById(R.id.txtSettings);
+        txtBackup= leftDrawer.findViewById(R.id.txtBackup);
         txtContactUs = leftDrawer.findViewById(R.id.txtContactUs);
         txtMarketPlace = leftDrawer.findViewById(R.id.txtMarketPlace);
         txtVideos = leftDrawer.findViewById(R.id.txtVideos);
@@ -797,7 +840,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.rlSettings:
                 Intent intentSettings = new Intent(context, BaseActivity.class);
-                intentSettings.putExtra("c", 7);
+                intentSettings.putExtra("c", 8);
                 intentSettings.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentSettings);
@@ -805,9 +848,26 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 break;
+            case R.id.rlBackup:
+                Intent intentBackup = new Intent(context, DropboxLoginActivity.class);
+               // intentBackup.putExtra("c", 7);
+                intentBackup.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentBackup.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentBackup);
+                drawerLayout.closeDrawer(leftDrawer);
+
+             /*   Intent intentSettings = new Intent(context, BaseActivity.class);
+                intentSettings.putExtra("c", 7);
+                intentSettings.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intentSettings.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentSettings);
+                drawerLayout.closeDrawer(leftDrawer);*/
+
+
+                break;
             case R.id.rlContactUs:
                 Intent intentContactUs = new Intent(context, BaseActivity.class);
-                intentContactUs.putExtra("c", 8);
+                intentContactUs.putExtra("c", 9);
                 intentContactUs.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intentContactUs.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentContactUs);
@@ -828,6 +888,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                 imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
                 imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
+                imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                 txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -835,6 +896,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
                 txtVideos.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -852,6 +914,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 imgContactUs.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                 imgMarketPlace.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
                 imgVideos.setColorFilter(ContextCompat.getColor(context, R.color.colorBlue), android.graphics.PorterDuff.Mode.MULTIPLY);
+                imgBackup.setColorFilter(ContextCompat.getColor(context, R.color.colorGray), android.graphics.PorterDuff.Mode.MULTIPLY);
 
 
                 txtHome.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
@@ -859,6 +922,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 txtResources.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtSponsor.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtSettings.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
+                txtBackup.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtContactUs.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtMarketPlace.setTypeface(txtHome.getTypeface(), Typeface.NORMAL);
                 txtVideos.setTypeface(txtHome.getTypeface(), Typeface.BOLD);
@@ -1265,10 +1329,16 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    @Override
+   @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            callFirstFragment("CONNECTION", fragmentConnection);
+            try {
+                callFirstFragment("CONNECTION", fragmentConnection);
+            }catch (Exception e)
+            {
+                e.printStackTrace();
+            }
+
 
             //Back buttons was pressed, do whatever logic you want
         }
