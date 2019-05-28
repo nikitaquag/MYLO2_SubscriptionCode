@@ -979,7 +979,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
-            final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),personalInfoList.getId(),"Connection");
+            final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
             new Individual((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist);
             // }

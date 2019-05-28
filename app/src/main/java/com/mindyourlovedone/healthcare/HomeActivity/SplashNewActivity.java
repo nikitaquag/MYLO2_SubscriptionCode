@@ -7,12 +7,15 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
@@ -39,6 +42,13 @@ import com.mindyourlovedone.healthcare.util.Inventory;
 import com.mindyourlovedone.healthcare.util.Purchase;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.nostra13.universalimageloader.core.display.SimpleBitmapDisplayer;
+import com.squareup.picasso.Picasso;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -239,7 +249,26 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     //    ProgressDialog pd;
     private MyViewPagerAdapter myViewPagerAdapter;
     private TabLayout tabLayout;
+    ImageLoader imageLoader;
+    DisplayImageOptions displayImageOptions;
 
+    private void initImageLoader() {
+        displayImageOptions = new DisplayImageOptions.Builder() // resource
+                .resetViewBeforeLoading(true) // default
+                .cacheInMemory(true) // default
+                .cacheOnDisk(true) // default
+                .considerExifParams(false) // default
+//                .imageScaleType(ImageScaleType.EXACTLY_STRETCHED) // default
+                .bitmapConfig(Bitmap.Config.ARGB_8888) // default
+                .imageScaleType(ImageScaleType.IN_SAMPLE_POWER_OF_2)
+                .displayer(new SimpleBitmapDisplayer()) // default //for square SimpleBitmapDisplayer()
+                .handler(new Handler()) // default
+                .build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(context).defaultDisplayImageOptions(displayImageOptions)
+                .build();
+        ImageLoader.getInstance().init(config);
+        imageLoader = ImageLoader.getInstance();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -255,6 +284,18 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_splash_no_courtesy);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
+        ImageView imageView=findViewById(R.id.imgSplash);
+        initImageLoader();
+        String imageUri = "drawable://" + R.drawable.sp_new;
+        imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
+
+       /* Picasso.with(context)
+                .load(String.valueOf(getResources().getDrawable(R.drawable.sp_new)))
+                .into(imageView);*/
+       /* BitmapFactory.Options opts = new BitmapFactory.Options();
+        opts.inSampleSize = 4;
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.sp_new, opts);
+        imageView.setImageBitmap (bitmap);*/
 
 
         // In Activity's onCreate() for instance

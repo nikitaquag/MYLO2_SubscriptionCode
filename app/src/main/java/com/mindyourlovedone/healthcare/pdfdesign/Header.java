@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.pdfdesign;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.Html;
 
 import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
@@ -15,11 +16,13 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.html.WebColors;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.LineSeparator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -32,6 +35,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Header {
+    public static Font GrayFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.NORMAL);
+
+    public static Font GrayTitleFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.NORMAL);
 
     public static final String FONT = "main/assets/RomanS.ttf";
     // public static Font GreenFont = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
@@ -197,10 +205,154 @@ public class Header {
         BlackFont.setColor(102, 204, 0);//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
         Chunk underline = new Chunk(chunk, BlackFont);
-
 //        underline.setUnderline(0.1f, -2f); // 0.1 thick, -2 y-location
         Paragraph p = new Paragraph(underline);
         p.setAlignment(Paragraph.ALIGN_LEFT);
+        try {
+            document.add(p);
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+    }
+    public static Image addProfile(String path) {
+        Image image = null;
+        try {
+            // get input stream
+            InputStream ims = new FileInputStream(path);
+            Bitmap bmp = BitmapFactory.decodeStream(ims);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 40, stream);
+            image = Image.getInstance(stream.toByteArray());
+
+            image.setAlignment(Element.ALIGN_RIGHT);
+            image.scaleAbsoluteHeight(40);
+            image.scaleAbsoluteWidth(20);
+            image.scalePercent(50);
+            image.setAbsolutePosition(50, 720);
+            image.scaleAbsolute(59f, 59f);
+            //  document.add(image);
+            return image;
+
+
+        } catch (BadElementException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        return image;
+    }
+    public static  void addNewChank(String chunk){
+
+        Image images=addProfile("/sdcard/MYLO/images/" +"pp.png");
+        images.scaleAbsolute(25f, 25f);
+
+        BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+        BlackFont.setSize(16);
+        BlackFont.setStyle(Font.BOLD);
+
+        Paragraph p = new Paragraph();
+        Phrase pp = new Phrase();
+        images.setAlignment(Image.ALIGN_CENTER);
+        p.setIndentationLeft(2f);
+        //Add Imae
+        Chunk c=new Chunk(images, 0,-7,true);
+        p.add(c);
+
+        //Add Space between imae and Text
+        Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+        pp.add(underlined);
+
+        //Add Text
+        Chunk underline = new Chunk(chunk, BlackFont);
+        pp.add(underline);
+
+        p.add(pp);
+        p.setAlignment(Element.ALIGN_LEFT);
+
+        try {
+            document.add(p);
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        }
+            /*Image img = null;
+            try {
+                img = Image.getInstance("/sdcard/MYLO/images/" + "ic_launcher.png");
+            } catch (BadElementException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            img.scaleAbsolute(30f, 30f);
+            img.setAlignment(Image.LEFT);
+            try {
+                document.add(img);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+            Paragraph para = new Paragraph();
+            para.add(underline);
+
+                    try {
+                document.add(para);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }*/
+    }
+    public static Image addSectionProfile(String path) {
+        Image image = null;
+        try {
+            // get input stream
+            InputStream ims = new FileInputStream(path);
+            Bitmap bmp = BitmapFactory.decodeStream(ims);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 40, stream);
+            image = Image.getInstance(stream.toByteArray());
+
+            return image;
+
+
+        } catch (BadElementException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        return image;
+    }
+    public static void addImgChank(String chunk, String s) {
+        BlackFont.setColor(102, 204, 0);//255, 99, 26);
+        BlackFont.setStyle(Font.BOLD);
+        Chunk underline = new Chunk(chunk, BlackFont);
+//        underline.setUnderline(0.1f, -2f); // 0.1 thick, -2 y-location
+        Image images=addSectionProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
+        images.scaleAbsoluteHeight(50);
+        images.scaleAbsoluteWidth(50);
+        images.scalePercent(10);
+        images.setAbsolutePosition(20, 120);
+        images.scaleAbsolute(30f, 30f);
+
+        Paragraph p = new Paragraph();
+        Phrase pp = new Phrase();
+        p.add(new Chunk(images, 0,0));
+        pp.add(chunk);
+        p.add(pp);
+        p.setAlignment(Element.ALIGN_CENTER);
+
+        p.add(pp);
 
         try {
             document.add(p);
@@ -224,7 +376,79 @@ public class Header {
             e.printStackTrace();
         }
     }
+    public static void cellDesign(PdfPCell cell1, PdfPTable table1, String field, String value) {
+        BlackFont.setColor(00, 00, 00);//102, 204, 0);
+        BlackFont.setStyle(Font.BOLD);
+        BlackFont.setSize(14);
 
+        GrayFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayFont.setStyle(Font.BOLD);
+        GrayFont.setSize(14);
+
+        GrayTitleFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayTitleFont.setSize(14);
+
+        Phrase f;
+        Phrase f1;
+        Chunk chunk;
+        f=new Phrase(field,GrayTitleFont);
+
+        if (!value.equalsIgnoreCase("Empty")) {
+            if (value.equalsIgnoreCase("")) {
+                chunk = new Chunk("Field is Empty", GrayFont);
+            } else {
+                chunk = new Chunk(value, BlackFont);
+            }
+            f1 = new Phrase(chunk);
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingLeft(10);
+            cell1.setPaddingRight(5);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
+
+            Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_CENTER);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-5);
+            linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
+            linek.setLineWidth(2);
+            // linek.setOffset(-10);
+            k1.setIndentationLeft(2);
+            k1.setIndentationRight(3);
+            k1.add(linek);
+            cell1.addElement(k1);
+        }else{
+            chunk = new Chunk("", GrayFont);
+            f1 = new Phrase(chunk);
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingLeft(10);
+            cell1.setPaddingRight(5);
+            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
+            Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_CENTER);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-5);
+            linek.setLineColor(WebColors.getRGBColor("#FFFFFF"));
+            linek.setLineWidth(2);
+            // linek.setOffset(-10);
+            k1.setIndentationLeft(2);
+            k1.setIndentationRight(3);
+            k1.add(linek);
+            cell1.addElement(k1);
+        }
+
+
+    }
     /**
      * http://www.geek-tutorials.com/java/itext/itext_table.php
      * http://www.java2s
@@ -280,7 +504,9 @@ public class Header {
      * @throws SQLException
      */
     public void createPdfHeader(String RESULT, String header) {
-        document = new Document(PageSize.A4, 30, 30, 50, 50);
+        Rectangle pageSize = new Rectangle(PageSize.A4);
+      //  pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
+        document = new Document(pageSize, 30, 30, 50, 50);
 
         try {
             headertext = header;
@@ -289,7 +515,6 @@ public class Header {
             Background event = new Background();
             writer.setPageEvent(event);
             document.open();
-
 
         } catch (DocumentException e) {
             // TODO Auto-generated catch block

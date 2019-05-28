@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimension0dp"
         android:scaleType="fitXY"
-        android:src="@drawable/sp"
+
         android:layout_above="@+id/llSplash"
         android:layout_weight="7"
         />

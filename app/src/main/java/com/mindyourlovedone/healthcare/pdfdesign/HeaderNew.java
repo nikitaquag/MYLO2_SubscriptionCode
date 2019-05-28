@@ -152,6 +152,33 @@ public class HeaderNew {
         return image;
     }
 
+    public static Image addSectionProfile(String path) {
+        Image image = null;
+        try {
+            // get input stream
+            InputStream ims = new FileInputStream(path);
+            Bitmap bmp = BitmapFactory.decodeStream(ims);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 40, stream);
+            image = Image.getInstance(stream.toByteArray());
+
+            return image;
+
+
+        } catch (BadElementException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        return image;
+    }
+
     public static void addPhoto(byte[] photo) {
         Image image = null;
         try {
@@ -342,6 +369,7 @@ public class HeaderNew {
         public void onEndPage(PdfWriter writer, Document document) {
 
             PdfContentByte cby = writer.getDirectContent();
+
             //--Outline BOrder
            // drowBorder(cby);
             // header = new Phrase(headertext, GreenFont);

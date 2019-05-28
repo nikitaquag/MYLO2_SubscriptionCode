@@ -73,6 +73,7 @@ import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
+import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.NetworkUtils;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -2302,6 +2303,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
+        preferences.copyFile("pp.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -2331,7 +2333,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 else{*/
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),con.getId(),"Personal Profile");
+        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
+
 
         new Individual(personalInfoList, PetList, phonelist);
         // }
