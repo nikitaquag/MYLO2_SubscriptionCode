@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -269,6 +270,11 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         ImageLoader.getInstance().init(config);
         imageLoader = ImageLoader.getInstance();
     }
+    public boolean isTablet(Context context) {
+        boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
+        boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
+        return (xlarge || large);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -286,8 +292,15 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 
         ImageView imageView=findViewById(R.id.imgSplash);
         initImageLoader();
-        String imageUri = "drawable://" + R.drawable.sp_new;
-        imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
+        if (isTablet(context))
+        {
+            String imageUri = "drawable://" + R.drawable.sp_tabnew;
+            imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
+        }else {
+            String imageUri = "drawable://" + R.drawable.sp_new;
+            imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
+        }
+
 
        /* Picasso.with(context)
                 .load(String.valueOf(getResources().getDrawable(R.drawable.sp_new)))
