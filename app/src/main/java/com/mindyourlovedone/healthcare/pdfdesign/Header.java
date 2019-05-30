@@ -546,7 +546,7 @@ public class Header {
         public void onEndPage(PdfWriter writer, Document document) {
 
             PdfContentByte cby = writer.getDirectContent();
-           // drowBorder(cby);
+           drowBorder(cby);
             // header = new Phrase(headertext, GreenFont);
             header = new PdfPTable(2);
             header.setTotalWidth(530);

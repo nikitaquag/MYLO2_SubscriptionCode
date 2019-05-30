@@ -2336,7 +2336,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
 
-        new IndividualNew(personalInfoList, PetList, phonelist);
+        new Individual(personalInfoList, PetList, phonelist);
         // }
 
         Header.document.close();
