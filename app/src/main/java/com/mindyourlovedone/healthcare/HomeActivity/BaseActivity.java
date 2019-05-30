@@ -41,7 +41,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.firebase.crash.FirebaseCrash;
 import com.mindyourlovedone.healthcare.Connections.FragmentConnectionNew;
 import com.mindyourlovedone.healthcare.DashBoard.AddDocumentActivity;
@@ -456,6 +455,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                 mail = mail.replace(".", "_");
                 mail = mail.replace("@", "_");
                 preferences.putString(PrefConstants.CONNECTED_USERDB, mail);
+                //silly mistake - forgets this line to give path for saving copy of pdfs
+                //-corrected by nikita on 30-5-19
+                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
                 dialogSharePdf.dismiss();
                 AlertDialog.Builder builders = new AlertDialog.Builder(context);
                 builders.setTitle("");

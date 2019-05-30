@@ -9,6 +9,13 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
+import android.util.Log;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Calendar;
 
 /**
  * Created by Niki on 13-07-2018.
@@ -78,13 +85,37 @@ public class FilePath {
         // MediaStore (and general)
         else if ("content".equalsIgnoreCase(uri.getScheme())) {
 
-            if (isGooglePhotosUri(uri)) {
+            //-corrected by nikita on 30-5-19 for gmail attachment
+
+//            if (isGooglePhotosUri(uri)) {
+//                return uri.getLastPathSegment();
+//            } else if (isGooglePdfUri(uri)) {
+                try {
+                    InputStream attachment = context.getContentResolver().openInputStream(uri);
+                    if (attachment == null)
+                        Log.e("onCreate", "cannot access mail attachment");
+                    else {
+                        String path = "" + "/mnt/sdcard/attachment_" + Calendar.getInstance().getTimeInMillis() + ".pdf";
+                        FileOutputStream tmp = new FileOutputStream(path);
+                        byte[] buffer = new byte[1024];
+                        while (attachment.read(buffer) > 0)
+                            tmp.write(buffer);
+
+                        tmp.close();
+                        attachment.close();
+                        return path;
+                    }
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
                 return uri.getLastPathSegment();
-            } else if (isGooglePdfUri(uri)) {
-                return uri.getLastPathSegment();
-            } else {
-                return getDataColumn(context, uri, null, null);
-            }
+//            } else {
+//                return getDataColumn(context, uri, null, null);
+//            }
         }
         // File
         else if ("file".equalsIgnoreCase(uri.getScheme())) {
