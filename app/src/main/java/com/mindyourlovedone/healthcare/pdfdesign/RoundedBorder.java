@@ -40,5 +40,6 @@ class RoundedBorder implements PdfPTableEvent {
             cb.stroke();
             cb.setLineWidth(2.0f);
             cb.resetRGBColorStroke();
+
     }
 }

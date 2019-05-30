@@ -7,11 +7,13 @@ import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -20,6 +22,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.provider.MediaStore;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.widget.DrawerLayout;
@@ -137,7 +140,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             //nikita -pdf
             Intent i = getIntent();
             if (i != null) {
-                Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
+               Uri audoUri = i.getParcelableExtra(Intent.EXTRA_STREAM);
+
                 if (audoUri != null) {
                     Log.v("URI", audoUri.toString());
                     preferences = new Preferences(context);
@@ -157,6 +161,17 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             }
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    private String getContentName(ContentResolver resolver, Uri uri) {
+        Cursor cursor = resolver.query(uri, new String[]{MediaStore.MediaColumns.DISPLAY_NAME}, null, null, null);
+        cursor.moveToFirst();
+        int nameIndex = cursor.getColumnIndex(cursor.getColumnNames()[0]);
+        if (nameIndex >= 0) {
+            return cursor.getString(nameIndex);
+        } else {
+            return null;
         }
     }
 
@@ -1189,8 +1204,8 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
-        //byte[] photo = Base64.decode(image, Base64.DEFAULT);
+       /* String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
+
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
 
         if (!image.equals("")) {
@@ -1207,7 +1222,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
-        }
+        }*/
     }
 
 

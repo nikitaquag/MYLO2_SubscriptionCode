@@ -406,18 +406,21 @@ public class Header {
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             cell1.setPaddingLeft(10);
             cell1.setPaddingRight(5);
+            cell1.setPaddingTop(0);
+            cell1.setPaddingBottom(5);
             cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
             Paragraph k1;
             LineSeparator linek;
             k1 = new Paragraph(" ");
-            k1.setAlignment(Element.ALIGN_CENTER);
+            k1.setAlignment(Element.ALIGN_TOP);
             linek = new LineSeparator();
-            k1.setSpacingBefore(-5);
+            k1.setSpacingBefore(-6);
+            k1.setSpacingAfter(2);
             linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
             linek.setLineWidth(2);
             // linek.setOffset(-10);
-            k1.setIndentationLeft(2);
+            k1.setIndentationLeft(1);
             k1.setIndentationRight(3);
             k1.add(linek);
             cell1.addElement(k1);
@@ -430,18 +433,21 @@ public class Header {
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             cell1.setPaddingLeft(10);
             cell1.setPaddingRight(5);
-            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell1.setPaddingTop(0);
+            cell1.setPaddingBottom(5);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
             Paragraph k1;
             LineSeparator linek;
             k1 = new Paragraph(" ");
-            k1.setAlignment(Element.ALIGN_CENTER);
+            k1.setAlignment(Element.ALIGN_TOP);
             linek = new LineSeparator();
-            k1.setSpacingBefore(-5);
+            k1.setSpacingBefore(-6);
+            k1.setSpacingAfter(2);
             linek.setLineColor(WebColors.getRGBColor("#FFFFFF"));
             linek.setLineWidth(2);
             // linek.setOffset(-10);
-            k1.setIndentationLeft(2);
+            k1.setIndentationLeft(1);
             k1.setIndentationRight(3);
             k1.add(linek);
             cell1.addElement(k1);
@@ -496,6 +502,12 @@ public class Header {
         }
     }
 
+    public static void bottomLineSpace(PdfPCell cell1) {
+        Paragraph k1 = new Paragraph(" ");
+        k1.setSpacingAfter(-5);
+        cell1.addElement(k1);
+    }
+
     /**
      * Creates a PDF document.
      *
@@ -534,7 +546,7 @@ public class Header {
         public void onEndPage(PdfWriter writer, Document document) {
 
             PdfContentByte cby = writer.getDirectContent();
-            drowBorder(cby);
+           // drowBorder(cby);
             // header = new Phrase(headertext, GreenFont);
             header = new PdfPTable(2);
             header.setTotalWidth(530);

@@ -83,7 +83,7 @@ public class FragmentContactUs extends Fragment {
                     case 0://Mylo Email
                         Intent i = new Intent(Intent.ACTION_SEND);
                         i.setType("message/rfc822");
-                        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"http://customersupport@mindyour-lovedones.com"});
+                        i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"customersupport@mindyour-lovedones.com"});
                         i.putExtra(Intent.EXTRA_SUBJECT, "");
                         i.putExtra(Intent.EXTRA_TEXT   , "");
                         try {

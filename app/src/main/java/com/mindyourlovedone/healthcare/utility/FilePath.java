@@ -21,7 +21,7 @@ public class FilePath {
      * other file-based ContentProviders.
      *
      * @param context The context.
-     * @param uri The Uri to query.
+     * @param uri     The Uri to query.
      * @author paulburke
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -68,7 +68,7 @@ public class FilePath {
                 }
 
                 final String selection = "_id=?";
-                final String[] selectionArgs = new String[] {
+                final String[] selectionArgs = new String[]{
                         split[1]
                 };
 
@@ -77,7 +77,14 @@ public class FilePath {
         }
         // MediaStore (and general)
         else if ("content".equalsIgnoreCase(uri.getScheme())) {
-            return getDataColumn(context, uri, null, null);
+
+            if (isGooglePhotosUri(uri)) {
+                return uri.getLastPathSegment();
+            } else if (isGooglePdfUri(uri)) {
+                return uri.getLastPathSegment();
+            } else {
+                return getDataColumn(context, uri, null, null);
+            }
         }
         // File
         else if ("file".equalsIgnoreCase(uri.getScheme())) {
@@ -91,9 +98,9 @@ public class FilePath {
      * Get the value of the data column for this Uri. This is useful for
      * MediaStore Uris, and other file-based ContentProviders.
      *
-     * @param context The context.
-     * @param uri The Uri to query.
-     * @param selection (Optional) Filter used in the query.
+     * @param context       The context.
+     * @param uri           The Uri to query.
+     * @param selection     (Optional) Filter used in the query.
      * @param selectionArgs (Optional) Selection arguments used in the query.
      * @return The value of the _data column, which is typically a file path.
      */
@@ -143,5 +150,15 @@ public class FilePath {
      */
     public static boolean isMediaDocument(Uri uri) {
         return "com.android.providers.media.documents".equals(uri.getAuthority());
+    }
+
+    public static boolean isGooglePhotosUri(Uri uri) {
+
+        return "com.google.android.apps.photos.content".equals(uri.getAuthority());
+    }
+
+    public static boolean isGooglePdfUri(Uri uri) {
+
+        return "com.google.android.gm.sapi".equals(uri.getAuthority());
     }
 }
