@@ -22,6 +22,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 
 import java.io.ByteArrayOutputStream;
@@ -508,6 +509,26 @@ public class Header {
         cell1.addElement(k1);
     }
 
+    public static void addDottedLine(PdfPCell cell1) {
+        Paragraph p1;
+        DottedLineSeparator line1;
+        cell1.setColspan(2);
+        cell1.setBorder(Rectangle.NO_BORDER);
+        cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+        /*cell1.setPaddingLeft(10);
+        cell1.setPaddingRight(5);
+        cell1.setPaddingTop(0);
+        cell1.setPaddingBottom(10);*/
+        cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        p1 = new Paragraph(" ");
+        line1 = new DottedLineSeparator();
+        line1.setOffset(4);
+        line1.setLineWidth(2);
+        line1.setLineColor(BaseColor.BLACK);
+        p1.add(line1);
+        cell1.addElement(p1);
+    }
+
     /**
      * Creates a PDF document.
      *
@@ -517,7 +538,7 @@ public class Header {
      */
     public void createPdfHeader(String RESULT, String header) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
-      //  pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
+    //  pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
         document = new Document(pageSize, 30, 30, 50, 50);
 
         try {

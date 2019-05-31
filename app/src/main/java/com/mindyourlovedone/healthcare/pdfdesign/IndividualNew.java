@@ -85,13 +85,13 @@ public class IndividualNew {
             messageInfo.add("Personal Profile");
             Header.addEmptyLine(1);
 
-            PdfPTable table;
+           /* PdfPTable table;
             table = new PdfPTable(2);
             PdfPCell cell;
             table.setWidthPercentage(100);
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table.setTableEvent(new RoundedBorder());
-            table.getDefaultCell().setPadding(2);
+            table.getDefaultCell().setPadding(2);*/
 
             PdfPTable table1;
             table1 = new PdfPTable(2);
@@ -152,9 +152,9 @@ public class IndividualNew {
             messageInfo2.add("Email :");
             messageInfo2.add(email);
 
-
             for (int t=0;t<phonelist.size();t++)
             {
+
                 ContactData c=phonelist.get(t);
                 String num="";
                 String type="";
@@ -165,22 +165,24 @@ public class IndividualNew {
                 if (c.getContactType() != null) {
                     type =c.getContactType();
                 }
-                if (phonelist.size()==0)
+                int j= t+1;
+
+              /*  if (phonelist.size()==0)
                 {
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1, type + " Phone:", num);
+                    Header.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
                     table1.addCell(cell1);
                 }else if (phonelist.size()%2==0) {
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1, type + " Phone:", num);
+                    Header.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
                     table1.addCell(cell1);
                 }
                 else
-                {
+                {*/
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1, type + " Phone:", num);
+                    Header.cellDesign(cell1, table1,"Contact"+j+":",type+":"+num);
                     table1.addCell(cell1);
-                }
+              //  }
                /* cell1 = new PdfPCell(new Phrase(type+" Phone:" + num));
                 cell1.setBorder(Rectangle.BOTTOM);
                 cell1.setUseBorderPadding(true);
@@ -250,40 +252,27 @@ public class IndividualNew {
             messageInfo2.add("Address :");
             messageInfo2.add(address);
 
-            cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"" ,"Empty");
+            if (phonelist.size()%2!=0)
+            {
+                cell1 = new PdfPCell();
+                Header.cellDesign(cell1, table1, "", "Empty");
+                table1.addCell(cell1);
+            }
 
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
             table1.addCell(cell1);
 
-
-            Header.document.add(table1);
-            Paragraph p1 = new Paragraph(" ");
-            DottedLineSeparator line1 = new DottedLineSeparator();
-            line1.setOffset(-4);
-            line1.setLineColor(BaseColor.BLACK);
-            p1.add(line1);
-            Header.document.add(p1);
-            Header.addEmptyLine(1);
-
-//--------------------------------------------\
-
-            PdfPTable table8;
-            table8 = new PdfPTable(2);
-            PdfPCell cell8;
-            table8.setWidthPercentage(100);
-            table8.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table8.setTableEvent(new RoundedBorder());
-            table8.getDefaultCell().setPaddingBottom(10);
-            table1.getDefaultCell().setBackgroundColor(BaseColor.CYAN);
 
             String bdates = "";
             if (connection.getDob() != null) {
                 bdates = connection.getDob();
             }
 
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"Birthday:",bdates);
-            table8.addCell(cell8);
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Birthday:",bdates);
+            table1.addCell(cell1);
 
             messageInfo2.add("Birthday :");
             messageInfo2.add(bdates);
@@ -293,9 +282,9 @@ public class IndividualNew {
                 genders = connection.getGender();
             }
 
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"Gender:",genders);
-            table8.addCell(cell8);
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Gender:",genders);
+            table1.addCell(cell1);
 
             messageInfo2.add("Gender :");
             messageInfo2.add(genders);
@@ -304,10 +293,10 @@ public class IndividualNew {
             if (connection.getHeight() != null) {
                 height = connection.getHeight();
             }
-         //   cell8 = new PdfPCell(new Phrase("Height:" + height));
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"Height:",height);
-            table8.addCell(cell8);
+            //   cell8 = new PdfPCell(new Phrase("Height:" + height));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Height:",height);
+            table1.addCell(cell1);
 
 
             messageInfo2.add("Height :");
@@ -316,10 +305,10 @@ public class IndividualNew {
             if (connection.getWeight() != null) {
                 weight = connection.getWeight();
             }
-           // cell8 = new PdfPCell(new Phrase("Weight:" + weight));
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"Weight:",weight);
-            table8.addCell(cell8);
+            // cell8 = new PdfPCell(new Phrase("Weight:" + weight));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Weight:",weight);
+            table1.addCell(cell1);
 
             messageInfo2.add("Weight :");
             messageInfo2.add(weight);
@@ -327,24 +316,347 @@ public class IndividualNew {
             if (connection.getEyes() != null) {
                 eyes = connection.getEyes();
             }
-           // cell8 = new PdfPCell(new Phrase("Eyes:" + eyes));
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"Eyes:",eyes);
+            // cell8 = new PdfPCell(new Phrase("Eyes:" + eyes));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Eyes:",eyes);
            /* Paragraph k2 = new Paragraph(" ");
             k2.setSpacingAfter(-5);
             cell8.addElement(k2);*/
-            table8.addCell(cell8);
+            table1.addCell(cell1);
 
 
             messageInfo2.add("Eyes :");
             messageInfo2.add(eyes);
 
-            cell8 = new PdfPCell();
-            Header.cellDesign(cell8,table8,"","Empty");
-            table8.addCell(cell8);
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            if (connection.getMarital_status() != null) {
+                marital_status = connection.getMarital_status();
+            }
+            // cellm = new PdfPCell(new Phrase("Marital Status:" + marital_status));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Marital Status:",marital_status);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Marital Status :");
+            messageInfo2.add(marital_status);
+
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
+
+            messageInfo2.add("");
+            messageInfo2.add("");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            String live = "";
+            if (connection.getLive() != null) {
+                live = connection.getLive();
+            }
+            //cell2 = new PdfPCell(new Phrase("Do you live alone?:" + live));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Do you live alone?:",live);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Do you live alone? :");
+            messageInfo2.add(live);
+
+            String children = "";
+            if (connection.getChildren() != null) {
+                children = connection.getChildren();
+            }
+            // cell2 = new PdfPCell(new Phrase("Children:" + children));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Children:" ,children);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Children :");
+            messageInfo2.add(children);
+
+            String friend = "";
+            if (connection.getFriend() != null) {
+                friend = connection.getFriend();
+            }
+            // cell2 = new PdfPCell(new Phrase("Friend:" + friend));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Friend:" ,friend);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Friend :");
+            messageInfo2.add(friend);
+
+            String grandParents = "";
+            if (connection.getGrand() != null) {
+                grandParents = connection.getGrand();
+            }
+            //  cell2 = new PdfPCell(new Phrase("Grandparent(s):" + grandParents));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Grandparent(s):" ,grandParents);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Grandparent(s) :");
+            messageInfo2.add(grandParents);
+
+
+            String parents = "";
+            if (connection.getParents() != null) {
+                parents = connection.getParents();
+            }
+            // cell2 = new PdfPCell(new Phrase("Parent(s):" + parents));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Parent(s):" ,parents);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Parent(s) :");
+            messageInfo2.add(parents);
+
+
+            String spouse = "";
+            if (connection.getSpouse() != null) {
+                spouse = connection.getSpouse();
+            }
+            //cell2 = new PdfPCell(new Phrase("Spouse:" + spouse));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Spouse:" ,spouse);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Spouse :");
+            messageInfo2.add(spouse);
+
+            String sibling = "";
+            if (connection.getSibling() != null) {
+                sibling = connection.getSibling();
+            }
+            // cell2 = new PdfPCell(new Phrase("Sibling:" + sibling));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Sibling:" ,sibling);
+            table1.addCell(cell1);
+            messageInfo2.add("Sibling :");
+            messageInfo2.add(sibling);
+
+            String significant = "";
+            if (connection.getSign_other() != null) {
+                significant = connection.getSign_other();
+            }
+            //cell2 = new PdfPCell(new Phrase("Significant Other:" + significant));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Significant Other:" ,significant);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Significant Other :");
+            messageInfo2.add(significant);
+
+            String other = "";
+            if (connection.getOther_person() != null) {
+                other = connection.getOther_person();
+            }
+            //  cell2 = new PdfPCell(new Phrase("Other:" + other));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Other:" ,other);
+            table1.addCell(cell1);
+
+            String people = "";
+            if (connection.getPeople() != null) {
+                people = connection.getPeople();
+            }
+            // cell2 = new PdfPCell(new Phrase("Names of People in Household:" + people));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Names of People in Household:" ,people);
+
+            table1.addCell(cell1);
+
+           /* cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
+*/
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            if (connection.getProfession() != null) {
+                profession = connection.getProfession();
+            }
+
+            //cellp = new PdfPCell(new Phrase("Profession:" + profession));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Profession:",profession);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Profession :");
+            messageInfo2.add(profession);
+
+
+            if (connection.getManager_phone() != null) {
+                telephone = connection.getManager_phone();
+            }
+            //cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Manager Phone:",telephone);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Manager Phone :");
+            messageInfo2.add(telephone);
+
+            if (connection.getEmployed() != null) {
+                employedBy = connection.getEmployed();
+            }
+            //  cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Employed By:",employedBy);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Employed By :");
+            messageInfo2.add(employedBy);
+
+
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
+
+            messageInfo2.add("");
+            messageInfo2.add("");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            String english = "";
+            if (connection.getEnglish() != null) {
+                english = connection.getEnglish();
+            }
+            //cell3 = new PdfPCell(new Phrase("Understand English:" + english));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Understand English:",english);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Understand English :");
+            messageInfo2.add(english);
+
+            if (connection.getLanguage() != null) {
+                language = connection.getLanguage();
+                if (connection.getLanguage().equalsIgnoreCase("Other"));
+                {
+                    language=language+" - "+connection.getOtherLang();
+                }
+            }
+            //  cell3 = new PdfPCell(new Phrase("Language Spoken:" + language));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Language Spoken:",language);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Language Spoken :");
+            messageInfo2.add(language);
+
+            /*cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);*/
+
+            messageInfo2.add(" ");
+            messageInfo2.add(" ");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            if (connection.getReligion() != null) {
+                religionNote = connection.getReligion();
+            }
+            // cellr = new PdfPCell(new Phrase("Religious Affiliation & Notes: " + religionNote));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Religious Affiliation & Notes:",religionNote);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Religious Affiliation & Notes :");
+            messageInfo2.add(religionNote);
+
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
+
+            messageInfo2.add("");
+            messageInfo2.add("");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            if (connection.getVeteran() != null) {
+                Veteran = connection.getVeteran();
+            }
+            //cell4 = new PdfPCell(new Phrase("Veteran:" + Veteran));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Veteran:",Veteran);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Veteran :");
+            messageInfo2.add(Veteran);
+
+            if (connection.getIdnumber() != null) {
+                idNumber = connection.getIdnumber();
+            }
+            //cell4 = new PdfPCell(new Phrase("Id Number:" + idNumber));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Id Number:",idNumber);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Id Number :");
+            messageInfo2.add(idNumber);
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+
+            String card="";
+            if (connection.getHas_card() != null) {
+                card = connection.getHas_card();
+            }
+            // cellf = new PdfPCell(new Phrase("Do you have business card?:" + card));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Do you have business card?:",card);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Do you have business card?:");
+            messageInfo2.add(card);
+
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
+
+            messageInfo2.add("");
+            messageInfo2.add("");
+
+            cell1 = new PdfPCell();
+            Header.addDottedLine(cell1);
+            table1.addCell(cell1);
+
+            Header.document.add(table1);
+            Header.addEmptyLine(1);
+
+//--------------------------------------------\
+/*
+            PdfPTable table8;
+            table8 = new PdfPTable(2);
+            PdfPCell cell8;
+            table8.setWidthPercentage(100);
+            table8.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table8.setTableEvent(new RoundedBorder());
+            table8.getDefaultCell().setPaddingBottom(10);
+            table1.getDefaultCell().setBackgroundColor(BaseColor.CYAN);
+
+
 
             Header.document.add(table8);
             Paragraph p8 = new Paragraph(" ");
@@ -364,26 +676,7 @@ public class IndividualNew {
             tablem.setTableEvent(new RoundedBorder());
             tablem.getDefaultCell().setPadding(2);
 
-            if (connection.getMarital_status() != null) {
-                marital_status = connection.getMarital_status();
-            }
-           // cellm = new PdfPCell(new Phrase("Marital Status:" + marital_status));
-            cellm = new PdfPCell();
-            Header.cellDesign(cellm,tablem,"Marital Status:",marital_status);
-          /*  Paragraph km = new Paragraph(" ");
-            km.setSpacingAfter(-5);
-            cellm.addElement(km);*/
-            tablem.addCell(cellm);
 
-            messageInfo2.add("Marital Status :");
-            messageInfo2.add(marital_status);
-
-            cellm = new PdfPCell();
-            Header.cellDesign(cellm,tablem,"","Empty");
-            tablem.addCell(cellm);
-
-            messageInfo2.add("");
-            messageInfo2.add("");
 
             Header.document.add(tablem);
             Paragraph pm = new Paragraph(" ");
@@ -404,125 +697,7 @@ public class IndividualNew {
             table2.setTableEvent(new RoundedBorder());
             table2.getDefaultCell().setPadding(2);
 
-            String live = "";
-            if (connection.getLive() != null) {
-                live = connection.getLive();
-            }
-            //cell2 = new PdfPCell(new Phrase("Do you live alone?:" + live));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Do you live alone?:",live);
-            table2.addCell(cell2);
 
-            messageInfo2.add("Do you live alone? :");
-            messageInfo2.add(live);
-
-            String children = "";
-            if (connection.getChildren() != null) {
-                children = connection.getChildren();
-            }
-           // cell2 = new PdfPCell(new Phrase("Children:" + children));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Children:" ,children);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Children :");
-            messageInfo2.add(children);
-
-            String friend = "";
-            if (connection.getFriend() != null) {
-                friend = connection.getFriend();
-            }
-           // cell2 = new PdfPCell(new Phrase("Friend:" + friend));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Friend:" ,friend);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Friend :");
-            messageInfo2.add(friend);
-
-            String grandParents = "";
-            if (connection.getGrand() != null) {
-                grandParents = connection.getGrand();
-            }
-          //  cell2 = new PdfPCell(new Phrase("Grandparent(s):" + grandParents));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Grandparent(s):" ,grandParents);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Grandparent(s) :");
-            messageInfo2.add(grandParents);
-
-
-            String parents = "";
-            if (connection.getParents() != null) {
-                parents = connection.getParents();
-            }
-           // cell2 = new PdfPCell(new Phrase("Parent(s):" + parents));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Parent(s):" ,parents);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Parent(s) :");
-            messageInfo2.add(parents);
-
-
-            String spouse = "";
-            if (connection.getSpouse() != null) {
-                spouse = connection.getSpouse();
-            }
-            //cell2 = new PdfPCell(new Phrase("Spouse:" + spouse));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Spouse:" ,spouse);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Spouse :");
-            messageInfo2.add(spouse);
-
-            String sibling = "";
-            if (connection.getSibling() != null) {
-                sibling = connection.getSibling();
-            }
-           // cell2 = new PdfPCell(new Phrase("Sibling:" + sibling));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Sibling:" ,sibling);
-            table2.addCell(cell2);
-            messageInfo2.add("Sibling :");
-            messageInfo2.add(sibling);
-
-            String significant = "";
-            if (connection.getSign_other() != null) {
-                significant = connection.getSign_other();
-            }
-            //cell2 = new PdfPCell(new Phrase("Significant Other:" + significant));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Significant Other:" ,significant);
-            table2.addCell(cell2);
-
-            messageInfo2.add("Significant Other :");
-            messageInfo2.add(significant);
-
-            String other = "";
-            if (connection.getOther_person() != null) {
-                other = connection.getOther_person();
-            }
-          //  cell2 = new PdfPCell(new Phrase("Other:" + other));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Other:" ,other);
-            table2.addCell(cell2);
-
-            String people = "";
-            if (connection.getPeople() != null) {
-                people = connection.getPeople();
-            }
-           // cell2 = new PdfPCell(new Phrase("Names of People in Household:" + people));
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"Names of People in Household:" ,people);
-            
-            table2.addCell(cell2);
-
-            cell2 = new PdfPCell();
-            Header.cellDesign(cell2,table2,"","Empty");
-            table2.addCell(cell2);
 
             Header.document.add(table2);
             Paragraph p2 = new Paragraph(" ");
@@ -542,48 +717,7 @@ public class IndividualNew {
             tablep.setTableEvent(new RoundedBorder());
             tablep.getDefaultCell().setPadding(2);
 
-            if (connection.getProfession() != null) {
-                profession = connection.getProfession();
-            }
 
-            //cellp = new PdfPCell(new Phrase("Profession:" + profession));
-            cellp = new PdfPCell();
-            Header.cellDesign(cellp,tablep,"Profession:",profession);
-            tablep.addCell(cellp);
-
-            messageInfo2.add("Profession :");
-            messageInfo2.add(profession);
-
-
-            if (connection.getManager_phone() != null) {
-                telephone = connection.getManager_phone();
-            }
-            //cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
-            cellp = new PdfPCell();
-            Header.cellDesign(cellp,tablep,"Manager Phone:",telephone);
-            tablep.addCell(cellp);
-
-            messageInfo2.add("Manager Phone :");
-            messageInfo2.add(telephone);
-
-            if (connection.getEmployed() != null) {
-                employedBy = connection.getEmployed();
-            }
-          //  cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
-            cellp = new PdfPCell();
-            Header.cellDesign(cellp,tablep,"Employed By:",employedBy);
-            tablep.addCell(cellp);
-
-            messageInfo2.add("Employed By :");
-            messageInfo2.add(employedBy);
-
-
-            cellp = new PdfPCell();
-            Header.cellDesign(cellp,tablep,"","Empty");
-            tablep.addCell(cellp);
-
-            messageInfo2.add("");
-            messageInfo2.add("");
 
             Header.document.add(tablep);
             Paragraph pp = new Paragraph(" ");
@@ -603,7 +737,7 @@ public class IndividualNew {
             table3.setTableEvent(new RoundedBorder());
             table3.getDefaultCell().setPadding(2);
 
-           /* if (connection.getProfession() != null) {
+           *//* if (connection.getProfession() != null) {
                 profession = connection.getProfession();
             }
             cell3 = new PdfPCell(new Phrase("Profession:" + profession));
@@ -614,41 +748,8 @@ public class IndividualNew {
             table3.addCell(cell3);
 
             messageInfo2.add("Profession :");
-            messageInfo2.add(profession);*/
+            messageInfo2.add(profession);*//*
 
-            String english = "";
-            if (connection.getEnglish() != null) {
-                english = connection.getEnglish();
-            }
-            //cell3 = new PdfPCell(new Phrase("Understand English:" + english));
-            cell3 = new PdfPCell();
-            Header.cellDesign(cell3,table3,"Understand English:",english);
-            table3.addCell(cell3);
-
-            messageInfo2.add("Understand English :");
-            messageInfo2.add(english);
-
-            if (connection.getLanguage() != null) {
-                language = connection.getLanguage();
-                if (connection.getLanguage().equalsIgnoreCase("Other"));
-                {
-                    language=language+" - "+connection.getOtherLang();
-                }
-            }
-          //  cell3 = new PdfPCell(new Phrase("Language Spoken:" + language));
-            cell3 = new PdfPCell();
-            Header.cellDesign(cell3,table3,"Language Spoken:",language);
-            table3.addCell(cell3);
-
-            messageInfo2.add("Language Spoken :");
-            messageInfo2.add(language);
-
-            cell3 = new PdfPCell();
-            Header.cellDesign(cell3,table3,"","Empty");
-            table3.addCell(cell3);
-
-            messageInfo2.add(" ");
-            messageInfo2.add(" ");
 
 
             Header.document.add(table3);
@@ -670,23 +771,7 @@ public class IndividualNew {
             tabler.setTableEvent(new RoundedBorder());
             tabler.getDefaultCell().setPadding(2);
 
-            if (connection.getReligion() != null) {
-                religionNote = connection.getReligion();
-            }
-           // cellr = new PdfPCell(new Phrase("Religious Affiliation & Notes: " + religionNote));
-            cellr = new PdfPCell();
-            Header.cellDesign(cellr,tabler,"Religious Affiliation & Notes:",religionNote);
-            tabler.addCell(cellr);
 
-            messageInfo2.add("Religious Affiliation & Notes :");
-            messageInfo2.add(religionNote);
-
-            cellr = new PdfPCell();
-            Header.cellDesign(cellr,tabler,"","Empty");
-            tabler.addCell(cellr);
-
-            messageInfo2.add("");
-            messageInfo2.add("");
 
 
             Header.document.add(tabler);
@@ -698,7 +783,7 @@ public class IndividualNew {
             Header.document.add(pmr);
             Header.addEmptyLine(1);
 
-            /**/
+            *//**//*
 //-----------------------------------------------------------------------------------------------
 
             PdfPTable table4;
@@ -709,36 +794,16 @@ public class IndividualNew {
             table4.setTableEvent(new RoundedBorder());
             table4.getDefaultCell().setPadding(2);
 
-            if (connection.getVeteran() != null) {
-                Veteran = connection.getVeteran();
-            }
-            //cell4 = new PdfPCell(new Phrase("Veteran:" + Veteran));
-            cell4 = new PdfPCell();
-            Header.cellDesign(cell4,table4,"Veteran:",Veteran);
-            table4.addCell(cell4);
 
-            messageInfo2.add("Veteran :");
-            messageInfo2.add(Veteran);
-
-            if (connection.getIdnumber() != null) {
-                idNumber = connection.getIdnumber();
-            }
-            //cell4 = new PdfPCell(new Phrase("Id Number:" + idNumber));
-            cell4 = new PdfPCell();
-            Header.cellDesign(cell4,table4,"Id Number:",idNumber);
-            table4.addCell(cell4);
-
-            messageInfo2.add("Id Number :");
-            messageInfo2.add(idNumber);
 
             Header.document.add(table4);
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
             line4.setLineColor(BaseColor.BLACK);
-            p4.add(line4);    
+            p4.add(line4);
             Header.document.add(p4);
-            Header.addEmptyLine(1);
+            Header.addEmptyLine(1);*/
 
 //------------------------------------------------------
             PdfPTable table5;
@@ -795,7 +860,7 @@ if (Pets.equalsIgnoreCase("YES")) {
     cell5.setPaddingTop(0);
     cell5.setPaddingBottom(5);
     cell5.setVerticalAlignment(Element.ALIGN_TOP);*/
-   
+
 
     String name = "";
     String breed = "";
@@ -1010,7 +1075,7 @@ if (Pets.equalsIgnoreCase("YES")) {
             messageInfo.add(cellPhone);*/
 //        Header.table.setWidthPercentage(100f);
 //-------------------------------------------
-            PdfPTable tablef;
+        /*    PdfPTable tablef;
             tablef = new PdfPTable(2);
             PdfPCell cellf;
             tablef.setWidthPercentage(100);
@@ -1018,39 +1083,9 @@ if (Pets.equalsIgnoreCase("YES")) {
                tablef.setTableEvent(new RoundedBorder());
                tablef.getDefaultCell().setPadding(2);
 
-            String card="";
-            if (connection.getHas_card() != null) {
-                card = connection.getHas_card();
-            }
-           // cellf = new PdfPCell(new Phrase("Do you have business card?:" + card));
-             cellf = new PdfPCell();
-             Header.cellDesign(cellf,table5,"Do you have business card?:",card);
-             tablef.addCell(cellf);
-
-
-
-            messageInfo2.add("Do you have business card?:");
-            messageInfo2.add(card);
-
-            cellf = new PdfPCell();
-            Header.cellDesign(cellf,table5,"","Empty");
-            tablef.addCell(cellf);
-
-
-
-
-            messageInfo2.add("");
-            messageInfo2.add("");
-
             Header.document.add(tablef);
-            Paragraph pmf = new Paragraph(" ");
-            DottedLineSeparator linemf = new DottedLineSeparator();
-            linemr.setOffset(-4);
-            linemr.setLineColor(BaseColor.BLACK);
-            pmf.add(linemf);
-            Header.document.add(pmf);
             Header.addEmptyLine(1);
-
+*/
 
 
 
@@ -1059,51 +1094,6 @@ if (Pets.equalsIgnoreCase("YES")) {
             e.printStackTrace();
         }
 
-
-
-        /*            String organDonor = "";
-            if (medInfo.getDonor() != null) {
-                organDonor = medInfo.getDonor();
-            }
-            cell = new PdfPCell(new Phrase("Organ Donor:" + organDonor));
-            cell.setBorder(Rectangle.BOTTOM);
-            cell.setUseBorderPadding(true);
-            cell.setBorderWidthBottom(5);
-            cell.setBorderColorBottom(BaseColor.WHITE);
-            table.addCell(cell);
-
-            messageInfo3.add("Organ Donor :");
-            messageInfo3.add(organDonor);*//*
-         *//*  if (connection.get == null) {
-                oPhone = "";
-            }
-            Header.addTable("Medical Conditions :");
-            Header.addTable(oPhone);
-            messageInfo.add("Medical Conditions :");
-            messageInfo.add(oPhone);
-            if (cellPhone == null) {
-                cellPhone = "";
-            }
-            Header.addTable("Preferred Hospital :");
-            Header.addTable(cellPhone);
-            messageInfo.add("Preferred Hospital :");
-            messageInfo.add(cellPhone);*//*
-//        Header.table.setWidthPercentage(100f);
-
-
-            Header.document.add(table);
-
-            Paragraph p = new Paragraph(" ");
-            DottedLineSeparator line = new DottedLineSeparator();
-            line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
-            p.add(line);
-            Header.document.add(p);
-            Header.addEmptyLine(1);
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }*/
     }
 
 
