@@ -71,6 +71,7 @@ import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.NetworkUtils;
@@ -2295,21 +2296,22 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         if (file.exists()) {
             file.delete();
         }
-        new Header().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath);
+
+/// Old PDF
+        new Header().createPdfHeader(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         preferences.copyFile("pp.png", context);
         preferences.copyFile("pdflogo.png", context);
         preferences.copyFile("calpdf.png", context);
         preferences.copyFile("profpdf.png", context);
-      /*  preferences.copyFile("profpdf.png", context);*/
-      //  Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
-       // Header.addEmptyLine(1);
-       Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+          Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
+         Header.addEmptyLine(1);
+        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
-      //  Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
+          Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
 
-       /* Paragraph p = new Paragraph(" ");
+        Paragraph p = new Paragraph(" ");
         LineSeparator line = new LineSeparator();
         line.setOffset(-4);
         line.setLineColor(BaseColor.LIGHT_GRAY);
@@ -2319,25 +2321,32 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
-       Header.addEmptyLine(1);*/
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Personal Profile");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
-               /* if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
-                    final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    final PersonalInfo personalInfoList =  PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-                    new Individual(personalInfoList,PetLists);
-                }
-                else{*/
+       Header.addEmptyLine(1);
+
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
+        new Individual(personalInfoList, PetList, phonelist);
+        /*   Pdf New
+        new Header().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath);
+        preferences.copyFile("ic_launcher.png", context);
+        preferences.copyFile("pp.png", context);
+        preferences.copyFile("pdflogo.png", context);
+        preferences.copyFile("calpdf.png", context);
+        preferences.copyFile("profpdf.png", context);
+
+        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addEmptyLine(1);
+
+
+        final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
         new IndividualNew(personalInfoList, PetList, phonelist);
-        // }
-
+        */
         Header.document.close();
 
         //------------------------------------------------------------------------
