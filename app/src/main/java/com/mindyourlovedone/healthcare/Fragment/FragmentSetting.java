@@ -109,7 +109,7 @@ public class FragmentSetting extends Fragment {
                         String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf");
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
                         startActivity(browserIntent);
-                        
+
                        /* String urld="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urld));
                         startActivity(browserIntent);*/
