@@ -125,7 +125,7 @@
                     android:layout_marginTop="@dimen/dimension15dp"
                     android:layout_marginRight="@dimen/dimension30dp"
                     android:layout_toLeftOf="@+id/imgRight"
-                    android:src="@drawable/rr"
+                    android:src="@drawable/aba_new"
                     android:tint="@color/colorWhite"
                     android:visibility="invisible" />
 

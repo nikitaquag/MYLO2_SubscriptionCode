@@ -35,7 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimension30dp"
             android:layout_below="@+id/rlSponsor"
-            android:layout_marginTop="@dimen/dimension20dp">
+            android:layout_marginTop="@dimen/dimension20dp"
+            >
 
 
             <ImageView
@@ -46,9 +47,8 @@
                 android:layout_marginLeft="@dimen/dimension50dp"
                 android:layout_marginTop="@dimen/dimension15dp"
                 android:layout_marginBottom="@dimen/dimension10dp"
-                android:src="@drawable/rr"
-                android:tint="@color/colorBlue"
-                android:visibility="visible" />
+                android:src="@drawable/aba_new"
+                android:visibility="gone" />
 
         </FrameLayout>
 

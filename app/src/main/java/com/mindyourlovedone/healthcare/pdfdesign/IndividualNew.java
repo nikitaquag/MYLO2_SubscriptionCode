@@ -98,8 +98,7 @@ public class IndividualNew {
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setTableEvent(new RoundedBorder());
             table1.getDefaultCell().setPaddingBottom(15);
-            table1.getDefaultCell().setBackgroundColor(BaseColor.CYAN);
-
+            table1.setSplitLate(false);
             PdfPCell cell1;
             Paragraph k1;
             table1.setWidthPercentage(100);
@@ -642,218 +641,53 @@ public class IndividualNew {
             Header.addDottedLine(cell1);
             table1.addCell(cell1);
 
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+           // Header.document.add(table1);
+           // Header.addEmptyLine(1);
 
-//--------------------------------------------\
-/*
-            PdfPTable table8;
-            table8 = new PdfPTable(2);
-            PdfPCell cell8;
-            table8.setWidthPercentage(100);
-            table8.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table8.setTableEvent(new RoundedBorder());
-            table8.getDefaultCell().setPaddingBottom(10);
-            table1.getDefaultCell().setBackgroundColor(BaseColor.CYAN);
-
-
-
-            Header.document.add(table8);
-            Paragraph p8 = new Paragraph(" ");
-            DottedLineSeparator line8 = new DottedLineSeparator();
-            line8.setOffset(-4);
-            line8.setLineColor(BaseColor.BLACK);
-            p8.add(line8);
-            Header.document.add(p8);
-            Header.addEmptyLine(1);
-//------------------------------------------------
-
-            PdfPTable tablem;
-            tablem = new PdfPTable(2);
-            PdfPCell cellm;
-            tablem.setWidthPercentage(100);
-            tablem.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            tablem.setTableEvent(new RoundedBorder());
-            tablem.getDefaultCell().setPadding(2);
-
-
-
-            Header.document.add(tablem);
-            Paragraph pm = new Paragraph(" ");
-            DottedLineSeparator linem = new DottedLineSeparator();
-            linem.setOffset(-4);
-            linem.setLineColor(BaseColor.BLACK);
-            pm.add(linem);
-            Header.document.add(pm);
-            Header.addEmptyLine(1);
-
-
-//------------------------------------------------------------
-            PdfPTable table2;
-            table2 = new PdfPTable(2);
-            PdfPCell cell2;
-            table2.setWidthPercentage(100);
-            table2.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table2.setTableEvent(new RoundedBorder());
-            table2.getDefaultCell().setPadding(2);
-
-
-
-            Header.document.add(table2);
-            Paragraph p2 = new Paragraph(" ");
-            DottedLineSeparator line2 = new DottedLineSeparator();
-            line2.setOffset(-4);
-            line2.setLineColor(BaseColor.BLACK);
-            p2.add(line2);
-            Header.document.add(p2);
-            Header.addEmptyLine(1);
-
-            //-------------------------------------------------------------------
-            PdfPTable tablep;
-            tablep = new PdfPTable(2);
-            PdfPCell cellp;
-            tablep.setWidthPercentage(100);
-            tablep.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            tablep.setTableEvent(new RoundedBorder());
-            tablep.getDefaultCell().setPadding(2);
-
-
-
-            Header.document.add(tablep);
-            Paragraph pp = new Paragraph(" ");
-            DottedLineSeparator linep = new DottedLineSeparator();
-            linep.setOffset(-4);
-            linep.setLineColor(BaseColor.BLACK);
-            pp.add(linep);
-            Header.document.add(pp);
-            Header.addEmptyLine(1);
-            //----------------------------------------------------
-
-            PdfPTable table3;
-            table3 = new PdfPTable(2);
-            PdfPCell cell3;
-            table3.setWidthPercentage(100);
-            table3.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table3.setTableEvent(new RoundedBorder());
-            table3.getDefaultCell().setPadding(2);
-
-           *//* if (connection.getProfession() != null) {
-                profession = connection.getProfession();
-            }
-            cell3 = new PdfPCell(new Phrase("Profession:" + profession));
-            cell3.setBorder(Rectangle.BOTTOM);
-            cell3.setUseBorderPadding(true);
-            cell3.setBorderWidthBottom(5);
-            cell3.setBorderColorBottom(BaseColor.WHITE);
-            table3.addCell(cell3);
-
-            messageInfo2.add("Profession :");
-            messageInfo2.add(profession);*//*
-
-
-
-            Header.document.add(table3);
-            Paragraph p3 = new Paragraph(" ");
-            DottedLineSeparator line3 = new DottedLineSeparator();
-            line3.setOffset(-4);
-            line3.setLineColor(BaseColor.BLACK);
-            p3.add(line3);
-            Header.document.add(p3);
-            Header.addEmptyLine(1);
-
-//---------------------------------------------------------------------------------------------
-
-            PdfPTable tabler;
-            tabler = new PdfPTable(2);
-            PdfPCell cellr;
-            tabler.setWidthPercentage(100);
-            tabler.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            tabler.setTableEvent(new RoundedBorder());
-            tabler.getDefaultCell().setPadding(2);
-
-
-
-
-            Header.document.add(tabler);
-            Paragraph pmr = new Paragraph(" ");
-            DottedLineSeparator linemr = new DottedLineSeparator();
-            linemr.setOffset(-4);
-            linemr.setLineColor(BaseColor.BLACK);
-            pmr.add(linemr);
-            Header.document.add(pmr);
-            Header.addEmptyLine(1);
-
-            *//**//*
-//-----------------------------------------------------------------------------------------------
-
-            PdfPTable table4;
-            table4 = new PdfPTable(2);
-            PdfPCell cell4;
-            table4.setWidthPercentage(100);
-            table4.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table4.setTableEvent(new RoundedBorder());
-            table4.getDefaultCell().setPadding(2);
-
-
-
-            Header.document.add(table4);
-            Paragraph p4 = new Paragraph(" ");
-            DottedLineSeparator line4 = new DottedLineSeparator();
-            line4.setOffset(-4);
-            line4.setLineColor(BaseColor.BLACK);
-            p4.add(line4);
-            Header.document.add(p4);
-            Header.addEmptyLine(1);*/
-
-//------------------------------------------------------
-            PdfPTable table5;
-            table5= new PdfPTable(1);
-            PdfPCell cell5;
-            table5.setWidthPercentage(100);
-            table5.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table5.setTableEvent(new RoundedBorder());
-            table5.getDefaultCell().setPadding(2);
-                              table5.setSplitLate(false);
             if (connection.getPet() != null) {
                 Pets = connection.getPet();
             }
-          //  cell = new PdfPCell(new Phrase("Pet(s):" + Pets));
-            cell5 = new PdfPCell();
-            Header.cellDesign(cell5,table5,"Pet(s):",Pets);
-            table5.addCell(cell5);
+            //  cell = new PdfPCell(new Phrase("Pet(s):" + Pets));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"Pet(s):",Pets);
+            table1.addCell(cell1);
 
             messageInfo2.add("Pet(s) :");
             messageInfo2.add(Pets);
 
-           // cell = new PdfPCell(new Phrase(""));
-            cell5 = new PdfPCell();
-            Header.cellDesign(cell5,table5,"","Empty");
-            table5.addCell(cell5);
+            // cell = new PdfPCell(new Phrase(""));
+            cell1 = new PdfPCell();
+            Header.cellDesign(cell1,table1,"","Empty");
+            table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
 
-if (Pets.equalsIgnoreCase("YES")) {
+            if (Pets.equalsIgnoreCase("YES")) {
 
-    BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-    BlackFont.setSize(16);
-    BlackFont.setStyle(Font.BOLD);
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
 
-    Paragraph pf = new Paragraph();
-    Phrase pps = new Phrase();
-    Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
-    pps.add(underlined);
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+                pps.add(underlined);
 
-    Chunk underline = new Chunk("Pet(s) Details", BlackFont);
-    pps.add(underline);
+                Chunk underline = new Chunk("Pet(s) Details", BlackFont);
+                pps.add(underline);
 
-    pf.add(pps);
-    pf.setAlignment(Element.ALIGN_LEFT);
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
 
-    cell5 = new PdfPCell();
-    cell5.addElement(pf);
-    cell5.setBorder(Rectangle.NO_BORDER);
+                cell1 = new PdfPCell();
+                if (Petlist.size()!=0){
+                cell1.addElement(pf);
+                }
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+
     /*cell5.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
     cell5.setPaddingLeft(10);
     cell5.setPaddingRight(5);
@@ -862,17 +696,17 @@ if (Pets.equalsIgnoreCase("YES")) {
     cell5.setVerticalAlignment(Element.ALIGN_TOP);*/
 
 
-    String name = "";
-    String breed = "";
-    String color = "";
-    String microchip = "";
-    String veterian = "";
-    String person = "";
+                String name = "";
+                String breed = "";
+                String color = "";
+                String microchip = "";
+                String veterian = "";
+                String person = "";
 
-    //cell5 = new PdfPCell();
-    PdfPTable tableIN;
+                //cell5 = new PdfPCell();
+                PdfPTable tableIN;
 
-    for (int i = 0; i < Petlist.size(); i++) {
+                for (int i = 0; i < Petlist.size(); i++) {
               /* int k = i + 1;
                 cell = new PdfPCell(new Phrase("Pets " + k + " :"));
                 cell.setBorder(Rectangle.BOTTOM);
@@ -885,209 +719,185 @@ if (Pets.equalsIgnoreCase("YES")) {
                 messageInfo3.add("");*/
 
 
-        tableIN= new PdfPTable(2);
-        PdfPCell cellIN;
-        tableIN.setWidthPercentage(95);
-        tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-        tableIN.setTableEvent(new RoundedBorder());
-        tableIN.getDefaultCell().setPadding(2);
-        tableIN.setKeepTogether(false);
-            tableIN.setSplitLate(false);
+                    tableIN = new PdfPTable(2);
+                    PdfPCell cellIN;
+                    tableIN.setWidthPercentage(95);
+                    tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                    tableIN.setTableEvent(new RoundedBorder());
+                    tableIN.getDefaultCell().setPadding(2);
+                    tableIN.setKeepTogether(false);
+                    tableIN.setSplitLate(false);
 
 
-        Pet a = Petlist.get(i);
-        if (a.getName() != null) {
-            name = a.getName();
-        }
-        //cellIN = new PdfPCell(new Phrase("Name:" + name));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Name:",name);
-        tableIN.addCell(cellIN);
+                    Pet a = Petlist.get(i);
+                    if (a.getName() != null) {
+                        name = a.getName();
+                    }
+                    //cellIN = new PdfPCell(new Phrase("Name:" + name));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Name:", name);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Name :");
-        messageInfo3.add(name);
+                    messageInfo3.add("Name :");
+                    messageInfo3.add(name);
 
-        if (a.getBreed() != null) {
-            breed = a.getBreed();
-        }
+                    if (a.getBreed() != null) {
+                        breed = a.getBreed();
+                    }
 
-      //  cell = new PdfPCell(new Phrase("Type of Pet / Breed :" + breed));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Type of Pet / Breed:",breed);
-        tableIN.addCell(cellIN);
+                    //  cell = new PdfPCell(new Phrase("Type of Pet / Breed :" + breed));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Type of Pet / Breed:", breed);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Breed :");
-        messageInfo3.add(breed);
+                    messageInfo3.add("Breed :");
+                    messageInfo3.add(breed);
 
-        if (a.getColor() != null) {
-            color = a.getColor();
-        }
-       // cell = new PdfPCell(new Phrase("Color:" + color));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Color:",color);
-        tableIN.addCell(cellIN);
+                    if (a.getColor() != null) {
+                        color = a.getColor();
+                    }
+                    // cell = new PdfPCell(new Phrase("Color:" + color));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Color:", color);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Color :");
-        messageInfo3.add(color);
+                    messageInfo3.add("Color :");
+                    messageInfo3.add(color);
 
-        if (a.getChip() != null) {
-            microchip = a.getChip();
-        }
-       // cell = new PdfPCell(new Phrase("Microchip number:" + microchip));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Microchip number:",microchip);
-        tableIN.addCell(cellIN);
+                    if (a.getChip() != null) {
+                        microchip = a.getChip();
+                    }
+                    // cell = new PdfPCell(new Phrase("Microchip number:" + microchip));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Microchip number:", microchip);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Microchip number :");
-        messageInfo3.add(microchip);
-
-
-        if (a.getVeterian() != null) {
-            veterian = a.getVeterian();
-        }
-      //  cell = new PdfPCell(new Phrase("Veterinarian Name:" + veterian));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Veterinarian Name:",veterian);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Veterinarian Name :");
-        messageInfo3.add(veterian);
-
-        String vadd = "";
-        if (a.getVeterian_add() != null) {
-            vadd = a.getVeterian_add();
-        }
-      //  cell = new PdfPCell(new Phrase("Veterinarian Address:" + vadd));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Veterinarian Address:",vadd);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Veterinarian :");
-        messageInfo3.add(vadd);
-
-        String vpone = "";
-        if (a.getVeterian_ph() != null) {
-            vpone = a.getVeterian_ph();
-        }
-      //  cell = new PdfPCell(new Phrase("Veterinarian Phone:" + vpone));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Veterinarian Phone:",vpone);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Veterinarian Phone :");
-        messageInfo3.add(vpone);
+                    messageInfo3.add("Microchip number :");
+                    messageInfo3.add(microchip);
 
 
-        if (a.getGuard() != null) {
-            person = a.getGuard();
-        }
-      //  cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet:" + person));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Person(s) Name who will care for pet:",person);
-        tableIN.addCell(cellIN);
+                    if (a.getVeterian() != null) {
+                        veterian = a.getVeterian();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Veterinarian Name:" + veterian));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Veterinarian Name:", veterian);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Person(s) Name who will care for pet :");
-        messageInfo3.add(person);
+                    messageInfo3.add("Veterinarian Name :");
+                    messageInfo3.add(veterian);
 
-        String cname = "";
-        if (a.getCare_add() != null) {
-            cname = a.getCare_add();
-        }
-      //  cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet:" + cname));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Person(s) Address who will care for pet:",cname);
-        tableIN.addCell(cellIN);
+                    String vadd = "";
+                    if (a.getVeterian_add() != null) {
+                        vadd = a.getVeterian_add();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Veterinarian Address:" + vadd));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Veterinarian Address:", vadd);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        messageInfo3.add("Person(s) Address who will care for pet :");
-        messageInfo3.add(cname);
+                    messageInfo3.add("Veterinarian :");
+                    messageInfo3.add(vadd);
 
+                    String vpone = "";
+                    if (a.getVeterian_ph() != null) {
+                        vpone = a.getVeterian_ph();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Veterinarian Phone:" + vpone));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Veterinarian Phone:", vpone);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-        String cAdd = "";
-        if (a.getCare_ph() != null) {
-            cAdd = a.getCare_ph();
-        }
-       // cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet:" + cAdd));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Person(s) Phone who will care for pet:",cAdd);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Person(s) Phone who will care for pet :");
-        messageInfo3.add(cAdd);
-
-
-        if (a.getBdate() != null) {
-            Bdate = a.getBdate();
-        }
-      //  cell = new PdfPCell(new Phrase("Birthday:" + Bdate));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Birthday:",Bdate);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Birthday:");
-        messageInfo3.add(Bdate);
-
-        if (a.getNotes() != null) {
-            notes = a.getNotes();
-        }
-      //  cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"Notes about Pet:",notes);
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("Notes about Pet :");
-        messageInfo3.add(notes);
-
-        cellIN = new PdfPCell();
-        Header.cellDesign(cellIN,tableIN,"","Empty");
-        tableIN.addCell(cellIN);
-
-        messageInfo3.add("");
-        messageInfo3.add("");
-        cell5.addElement(tableIN);
+                    messageInfo3.add("Veterinarian Phone :");
+                    messageInfo3.add(vpone);
 
 
-    }
+                    if (a.getGuard() != null) {
+                        person = a.getGuard();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet:" + person));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Person(s) Name who will care for pet:", person);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
 
-             table5.addCell(cell5);
-    Header.document.add(table5);
-    Paragraph p = new Paragraph(" ");
-    DottedLineSeparator line = new DottedLineSeparator();
-    line.setOffset(-4);
-    line.setLineColor(BaseColor.BLACK);
-    p.add(line);
-    Header.document.add(p);
-    Header.addEmptyLine(1);
-}
+                    messageInfo3.add("Person(s) Name who will care for pet :");
+                    messageInfo3.add(person);
 
-          /*  if (connection.get == null) {
-                oPhone = "";
+                    String cname = "";
+                    if (a.getCare_add() != null) {
+                        cname = a.getCare_add();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet:" + cname));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Person(s) Address who will care for pet:", cname);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
+
+                    messageInfo3.add("Person(s) Address who will care for pet :");
+                    messageInfo3.add(cname);
+
+
+                    String cAdd = "";
+                    if (a.getCare_ph() != null) {
+                        cAdd = a.getCare_ph();
+                    }
+                    // cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet:" + cAdd));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Person(s) Phone who will care for pet:", cAdd);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
+
+                    messageInfo3.add("Person(s) Phone who will care for pet :");
+                    messageInfo3.add(cAdd);
+
+
+                    if (a.getBdate() != null) {
+                        Bdate = a.getBdate();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Birthday:" + Bdate));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Birthday:", Bdate);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
+
+                    messageInfo3.add("Birthday:");
+                    messageInfo3.add(Bdate);
+
+                    if (a.getNotes() != null) {
+                        notes = a.getNotes();
+                    }
+                    //  cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "Notes about Pet:", notes);
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    tableIN.addCell(cellIN);
+
+                    messageInfo3.add("Notes about Pet :");
+                    messageInfo3.add(notes);
+
+                    cellIN = new PdfPCell();
+                    Header.cellDesign(cellIN, tableIN, "", "Empty");
+                    tableIN.addCell(cellIN);
+
+                    messageInfo3.add("");
+                    messageInfo3.add("");
+                    cell1.addElement(tableIN);
+
+
+                }
+
+                table1.addCell(cell1);
             }
-            Header.addTable("Medical Conditions :");
-            Header.addTable(oPhone);
-            messageInfo.add("Medical Conditions :");
-            messageInfo.add(oPhone);
-            if (cellPhone == null) {
-                cellPhone = "";
-            }
-            Header.addTable("Preferred Hospital :");
-            Header.addTable(cellPhone);
-            messageInfo.add("Preferred Hospital :");
-            messageInfo.add(cellPhone);*/
-//        Header.table.setWidthPercentage(100f);
-//-------------------------------------------
-        /*    PdfPTable tablef;
-            tablef = new PdfPTable(2);
-            PdfPCell cellf;
-            tablef.setWidthPercentage(100);
-               tablef.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-               tablef.setTableEvent(new RoundedBorder());
-               tablef.getDefaultCell().setPadding(2);
-
-            Header.document.add(tablef);
+            Header.document.add(table1);
             Header.addEmptyLine(1);
-*/
-
-
 
         } catch (Exception e) {
             // TODO Auto-generated catch block

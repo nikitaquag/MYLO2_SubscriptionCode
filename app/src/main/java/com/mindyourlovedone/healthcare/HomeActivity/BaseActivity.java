@@ -1206,7 +1206,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-       /* String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
+        String image = preferences.getString(PrefConstants.USER_PROFILEIMAGE);
 
         txtDrawerName.setText(preferences.getString(PrefConstants.USER_NAME));
 
@@ -1224,7 +1224,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             }
         } else {
             imgDrawerProfile.setImageResource(R.drawable.ic_profiles);
-        }*/
+        }
     }
 
 

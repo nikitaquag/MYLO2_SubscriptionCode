@@ -21,7 +21,11 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.pdf.PdfShading;
+import com.itextpdf.text.pdf.PdfShadingPattern;
+import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.pdf.ShadingColor;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 
@@ -52,6 +56,9 @@ public class Header {
     public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 19,
             Font.NORMAL);
 
+    public static Font FooterFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+            Font.NORMAL);
+
     public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 13,
             Font.NORMAL);
 
@@ -59,6 +66,7 @@ public class Header {
     public static float[] widths = {0.15f, 0.85f};
     public static PdfPTable table;
     public static String headertext;
+    public static String pathimg;
     public static PdfWriter writer;
     private static PdfPCell cell;
 
@@ -253,13 +261,14 @@ public class Header {
     }
     public static  void addNewChank(String chunk){
 
-        Image images=addProfile("/sdcard/MYLO/images/" +"pp.png");
-        images.scaleAbsolute(25f, 25f);
+
 
         BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
         BlackFont.setSize(16);
         BlackFont.setStyle(Font.BOLD);
 
+        Image images=addProfile("/sdcard/MYLO/images/" +"pp.png");
+        images.scaleAbsolute(25f, 25f);
         Paragraph p = new Paragraph();
         Phrase pp = new Phrase();
         images.setAlignment(Image.ALIGN_CENTER);
@@ -380,14 +389,14 @@ public class Header {
     public static void cellDesign(PdfPCell cell1, PdfPTable table1, String field, String value) {
         BlackFont.setColor(00, 00, 00);//102, 204, 0);
         BlackFont.setStyle(Font.BOLD);
-        BlackFont.setSize(14);
+        BlackFont.setSize(12);
 
         GrayFont.setColor(WebColors.getRGBColor("#747474"));
         GrayFont.setStyle(Font.BOLD);
-        GrayFont.setSize(14);
+        GrayFont.setSize(12);
 
         GrayTitleFont.setColor(WebColors.getRGBColor("#747474"));
-        GrayTitleFont.setSize(14);
+        GrayTitleFont.setSize(12);
 
         Phrase f;
         Phrase f1;
@@ -487,16 +496,50 @@ public class Header {
     }
 
     public static void addusereNameChank(String username) {
-        BlackFont.setColor(0, 0, 0);//255, 99, 26);
-       // GreenFont.setColor(0, 153, 153);//varsa
+        BlackFont.setColor(WebColors.getRGBColor("#ffffff"));//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
-        Chunk underline = new Chunk(username, BlackFont);
-//        underline.setUnderline(0.1f, -3f); // 0.1 thick, -2 y-location
-        Paragraph p = new Paragraph(underline);
-        p.setAlignment(Paragraph.ALIGN_CENTER);
+
+
+
+        PdfShading shading = (PdfShading) PdfShading.simpleAxial(writer, 0, PageSize.A4.getWidth(), 500, PageSize.A4.getWidth(), WebColors.getRGBColor("#A3D07D"), WebColors.getRGBColor("#2EACDF"));
+
+        //Create a pattern from our shading object
+        PdfShadingPattern pattern = new PdfShadingPattern(shading);
+
+        //Create a color from our patter
+        ShadingColor color = new ShadingColor(pattern);
+
+       /* PdfPTable footer = new PdfPTable(1);
+        footer.setWidthPercentage(100);
+        footer.setLockedWidth(true);
+        PdfPCell cell = new PdfPCell();
+
+        Paragraph p1 = new Paragraph(username,BlackFont);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+        cell.setPadding(10);
+        cell.addElement(p1);
+       // cell.setBorder(Rectangle.NO_BORDER);
+        cell.setBackgroundColor(color);
+
+        footer.addCell(cell);*/
+
+        PdfPTable footer = new PdfPTable(1);
+        footer.setTotalWidth(PageSize.A4.getWidth());
+        footer.setLockedWidth(true);
+
+        footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+        footer.getDefaultCell()
+                .setHorizontalAlignment(Element.ALIGN_CENTER);
+        footer.getDefaultCell()
+                .setVerticalAlignment(Element.ALIGN_MIDDLE);
+        footer.getDefaultCell().setBackgroundColor(color);
+               footer.getDefaultCell().setPadding(15);
+        Paragraph p1 = new Paragraph(username,BlackFont);
+        footer.addCell(p1);
 
         try {
-            document.add(p);
+            document.add(footer);
         } catch (DocumentException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -538,11 +581,36 @@ public class Header {
      */
     public void createPdfHeader(String RESULT, String header) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
-    //  pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
-        document = new Document(pageSize, 30, 30, 50, 50);
+      pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
+        document = new Document(pageSize, 20, 20, 40, 40);
 
         try {
             headertext = header;
+
+            writer = PdfWriter.getInstance(document, new FileOutputStream(
+                    RESULT));
+            Background event = new Background();
+            writer.setPageEvent(event);
+            document.open();
+
+        } catch (DocumentException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    public void createPdfHeaders(String RESULT, String header,String s) {
+        Rectangle pageSize = new Rectangle(PageSize.A4);
+        pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
+        document = new Document(pageSize, 20, 20, 40, 40);
+
+        try {
+            headertext = header;
+            pathimg=s;
             writer = PdfWriter.getInstance(document, new FileOutputStream(
                     RESULT));
             Background event = new Background();
@@ -566,8 +634,209 @@ public class Header {
         @Override
         public void onEndPage(PdfWriter writer, Document document) {
 
+            BlackFont.setSize(12);
             PdfContentByte cby = writer.getDirectContent();
-           drowBorder(cby);
+            //--Outline BOrder
+            // drowBorder(cby);
+            // header = new Phrase(headertext, GreenFont);
+            header = new PdfPTable(3);
+            header.setTotalWidth(PageSize.A4.getWidth());
+            header.setHorizontalAlignment(Rectangle.ALIGN_CENTER);
+
+
+            Calendar c = Calendar.getInstance();
+            System.out.println("Current time => " + c.getTime());
+            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+            String formattedDate = df.format(c.getTime());
+//            header.addCell(new Phrase("Date : "+formattedDate));
+
+            PdfPCell cells = new PdfPCell();
+
+            //---image logo
+            Image image=addProfile("/sdcard/MYLO/images/" + "pdflogo.png");
+            image.scaleAbsoluteHeight(10);
+            image.scaleAbsoluteWidth(50);
+            image.scalePercent(10);
+            image.setAbsolutePosition(20, 220);
+            image.scaleAbsolute(100f, 30f);
+
+//---imae profile
+           /* Image images=addProfile("/sdcard/MYLO/images/" + "pp.png");
+            images.scaleAbsoluteHeight(50);
+            images.scaleAbsoluteWidth(50);
+            images.scalePercent(10);
+            images.setAbsolutePosition(20, 120);
+            images.scaleAbsolute(30f, 30f);
+*/
+           Image imagesf=addProfile("/sdcard/MYLO/images/" +"calpdf.png");
+            imagesf.scaleAbsolute(25f, 25f);
+
+            Image imagedef=addProfile("/sdcard/MYLO/images/" +"profpdf.png");
+            imagedef.scaleAbsolute(25f, 25f);
+
+            Image imaged= null;
+            try {
+                imaged = Image.getInstance(pathimg);
+            } catch (BadElementException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+          // imaged.scaleAbsolute(25f, 25f);
+            float w = imaged.getScaledWidth();
+            float h = imaged.getScaledHeight();
+
+            PdfTemplate t = PdfTemplate.createTemplate(writer,w,h);
+            t.ellipse(0, 0, w, h);
+            t.clip();
+            t. newPath();
+            try {
+                t.addImage(imaged, w, 0, 0, h, 0, -100);
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+            Image clipped = null;
+            try {
+                 clipped = Image.getInstance(t);
+
+            } catch (BadElementException e) {
+                e.printStackTrace();
+            }
+            clipped.scaleAbsolute(25f, 25f);
+
+
+            //-- Cell 1
+            cells = new PdfPCell();
+          cells.setBorder(Rectangle.NO_BORDER);
+            cells.setHorizontalAlignment(Element.ALIGN_LEFT);
+            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+            cells.setPaddingLeft(20);
+            cells.setPaddingRight(20);
+            cells.setPaddingTop(7);
+            cells.setPaddingBottom(7);
+
+            Paragraph p;
+            Phrase pp ;
+             p = new Paragraph();
+             pp = new Phrase();
+            imagesf.setAlignment(Image.ALIGN_CENTER);
+            p.setIndentationLeft(2f);
+            //Add Imae
+            Chunk cf;
+            if (clipped!=null) {
+                cf = new Chunk(clipped, 0, -7, true);
+            }
+            else {
+                cf = new Chunk(imagedef, 0, -7, true);
+            }
+            p.add(cf);
+            //Add Space between imae and Text
+            Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+            pp.add(underlined);
+            //Add Text
+            Chunk underline = new Chunk(headertext, BlackFont);
+            pp.add(underline);
+            p.add(pp);
+            p.setAlignment(Element.ALIGN_LEFT);
+            cells.addElement(p);
+
+            header.addCell(cells);
+
+            //--- Cell 2
+            cells = new PdfPCell(image,false);
+            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+            cells.setBorder(Rectangle.NO_BORDER);
+            cells.setHorizontalAlignment(Element.ALIGN_CENTER);
+            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cells.setPaddingTop(10);
+            cells.setPaddingBottom(10);
+            //cells.addElement(image);
+            header.addCell(cells);
+
+
+            //-- CEll 3
+            cells = new PdfPCell();
+            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+              cells.setBorder(Rectangle.NO_BORDER);
+            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cells.setPaddingLeft(20);
+            cells.setPaddingRight(20);
+            cells.setPaddingTop(7);
+            cells.setPaddingBottom(7);
+            p = new Paragraph();
+            pp = new Phrase();
+            imagesf.setAlignment(Image.ALIGN_CENTER);
+            p.setIndentationLeft(2f);
+            //Add Imae
+            Chunk cfd=new Chunk(imagesf, 0,-7,true);
+            p.add(cfd);
+            //Add Space between imae and Text
+            Chunk underlinedd = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+            pp.add(underlinedd);
+            //Add Text
+            Chunk underlines = new Chunk(formattedDate, BlackFont);
+            pp.add(underlines);
+
+            p.add(pp);
+            p.setAlignment(Element.ALIGN_RIGHT);
+            cells.addElement(p);
+            header.addCell(cells);
+
+            footer = new PdfPTable(2);
+            footer.setTotalWidth(PageSize.A4.getWidth());
+            footer.setLockedWidth(true);
+            ;
+
+            //  footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+            //  footer.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            FooterFont.setColor(WebColors.getRGBColor("#A5A5A5"));//255, 99, 26);
+            FooterFont.setStyle(Font.BOLD);
+            PdfPCell cell = new PdfPCell();
+            cell = new PdfPCell(new Phrase("WWW.MINDYOUR-LOVEDONES.COM",FooterFont));
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+           cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell.setPadding(10);
+            footer.addCell(cell);
+
+            cell = new PdfPCell(new Phrase("PAGE "+String.format(""
+                    + (writer.getPageNumber())),FooterFont));
+            cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
+            cell.setPadding(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            footer.addCell(cell);
+
+            /*footer.addCell(new Phrase(String.format(""
+                    + (writer.getPageNumber()))));*/
+            PdfContentByte cb = writer.getDirectContent();
+            header.writeSelectedRows(
+                    0,
+                    -1,
+                    0, document.top()+40, cb);
+
+           /* footer.writeSelectedRows(
+                    0,
+                    -1,
+                    (document.right() - document.left() - 570) / 2
+                            + document.leftMargin(), document.bottom() - 10, cb);*/
+
+           footer.writeSelectedRows(
+                    0,
+                    -1,
+                    0, document.bottom()-10, cb);
+
+           /* cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
+            cb.setGrayStroke(0.50f);
+            cb.moveTo(30, 793);
+            cb.lineTo(560, 793);
+            cb.stroke();*/
+        /*    PdfContentByte cby = writer.getDirectContent();
+          // drowBorder(cby);
             // header = new Phrase(headertext, GreenFont);
             header = new PdfPTable(2);
             header.setTotalWidth(530);
@@ -614,6 +883,8 @@ public class Header {
             cb.moveTo(30, 793);
             cb.lineTo(560, 793);
             cb.stroke();
+*/
         }
     }
+
 }
