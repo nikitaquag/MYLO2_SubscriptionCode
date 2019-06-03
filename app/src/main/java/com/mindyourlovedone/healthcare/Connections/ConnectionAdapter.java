@@ -190,6 +190,8 @@ else {
                 preferences.putString(PrefConstants.CONNECTED_USEREMAIL, connectionList.get(position).getEmail());
                 preferences.putInt(PrefConstants.CONNECTED_USERID, connectionList.get(position).getId());
                 preferences.putString(PrefConstants.CONNECTED_USERDB, mail1);
+                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+
                 context.startActivity(intentP);
             }
         });

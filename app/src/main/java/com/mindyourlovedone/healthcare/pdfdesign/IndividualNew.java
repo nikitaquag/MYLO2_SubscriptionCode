@@ -78,12 +78,12 @@ public class IndividualNew {
 
     public IndividualNew(RelativeConnection connection, ArrayList<Pet> Petlist, ArrayList<ContactData> phonelist) {
         try {
-            // Header.addEmptyLine(1);
+            // HeaderNew.addEmptyLine(1);
 
 
-            Header.addNewChank("Personal Profile"  );
+            HeaderNew.addNewChank("Personal Profile"  );
             messageInfo.add("Personal Profile");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
            /* PdfPTable table;
             table = new PdfPTable(2);
@@ -107,7 +107,7 @@ public class IndividualNew {
             }
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Name:",name);
+            HeaderNew.cellDesign(cell1,table1,"Name:",name);
             table1.addCell(cell1);
             messageInfo.add("Name :");
             messageInfo.add(name);
@@ -122,7 +122,7 @@ public class IndividualNew {
                 }
             }
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Relationship:",realtion);
+            HeaderNew.cellDesign(cell1,table1,"Relationship:",realtion);
             table1.addCell(cell1);
           /*  cell1 = new PdfPCell(new Phrase("Relationship:" + realtion));
             cell1.setBorder(Rectangle.BOTTOM);
@@ -145,7 +145,7 @@ public class IndividualNew {
             cell1.setBorderColorBottom(BaseColor.WHITE);
             table1.addCell(cell1);*/
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Email:" ,email);
+            HeaderNew.cellDesign(cell1,table1,"Email:" ,email);
             table1.addCell(cell1);
 
             messageInfo2.add("Email :");
@@ -169,17 +169,17 @@ public class IndividualNew {
               /*  if (phonelist.size()==0)
                 {
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
+                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
                     table1.addCell(cell1);
                 }else if (phonelist.size()%2==0) {
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
+                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
                     table1.addCell(cell1);
                 }
                 else
                 {*/
                     cell1 = new PdfPCell();
-                    Header.cellDesign(cell1, table1,"Contact"+j+":",type+":"+num);
+                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":",type+":"+num);
                     table1.addCell(cell1);
               //  }
                /* cell1 = new PdfPCell(new Phrase(type+" Phone:" + num));
@@ -237,7 +237,7 @@ public class IndividualNew {
                 address = connection.getAddress();
             }
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Address:" ,address);
+            HeaderNew.cellDesign(cell1,table1,"Address:" ,address);
             table1.addCell(cell1);
 
            /* cell1 = new PdfPCell(new Phrase("Address:" + address));
@@ -254,13 +254,13 @@ public class IndividualNew {
             if (phonelist.size()%2!=0)
             {
                 cell1 = new PdfPCell();
-                Header.cellDesign(cell1, table1, "", "Empty");
+                HeaderNew.cellDesign(cell1, table1, "", "Empty");
                 table1.addCell(cell1);
             }
 
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
 
@@ -270,7 +270,7 @@ public class IndividualNew {
             }
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Birthday:",bdates);
+            HeaderNew.cellDesign(cell1,table1,"Birthday:",bdates);
             table1.addCell(cell1);
 
             messageInfo2.add("Birthday :");
@@ -282,7 +282,7 @@ public class IndividualNew {
             }
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Gender:",genders);
+            HeaderNew.cellDesign(cell1,table1,"Gender:",genders);
             table1.addCell(cell1);
 
             messageInfo2.add("Gender :");
@@ -294,7 +294,7 @@ public class IndividualNew {
             }
             //   cell8 = new PdfPCell(new Phrase("Height:" + height));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Height:",height);
+            HeaderNew.cellDesign(cell1,table1,"Height:",height);
             table1.addCell(cell1);
 
 
@@ -306,7 +306,7 @@ public class IndividualNew {
             }
             // cell8 = new PdfPCell(new Phrase("Weight:" + weight));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Weight:",weight);
+            HeaderNew.cellDesign(cell1,table1,"Weight:",weight);
             table1.addCell(cell1);
 
             messageInfo2.add("Weight :");
@@ -317,7 +317,7 @@ public class IndividualNew {
             }
             // cell8 = new PdfPCell(new Phrase("Eyes:" + eyes));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Eyes:",eyes);
+            HeaderNew.cellDesign(cell1,table1,"Eyes:",eyes);
            /* Paragraph k2 = new Paragraph(" ");
             k2.setSpacingAfter(-5);
             cell8.addElement(k2);*/
@@ -328,14 +328,14 @@ public class IndividualNew {
             messageInfo2.add(eyes);
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             if (connection.getMarital_status() != null) {
@@ -343,21 +343,21 @@ public class IndividualNew {
             }
             // cellm = new PdfPCell(new Phrase("Marital Status:" + marital_status));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Marital Status:",marital_status);
+            HeaderNew.cellDesign(cell1,table1,"Marital Status:",marital_status);
             table1.addCell(cell1);
 
             messageInfo2.add("Marital Status :");
             messageInfo2.add(marital_status);
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             String live = "";
@@ -366,7 +366,7 @@ public class IndividualNew {
             }
             //cell2 = new PdfPCell(new Phrase("Do you live alone?:" + live));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Do you live alone?:",live);
+            HeaderNew.cellDesign(cell1,table1,"Do you live alone?:",live);
             table1.addCell(cell1);
 
             messageInfo2.add("Do you live alone? :");
@@ -378,7 +378,7 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Children:" + children));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Children:" ,children);
+            HeaderNew.cellDesign(cell1,table1,"Children:" ,children);
             table1.addCell(cell1);
 
             messageInfo2.add("Children :");
@@ -390,7 +390,7 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Friend:" + friend));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Friend:" ,friend);
+            HeaderNew.cellDesign(cell1,table1,"Friend:" ,friend);
             table1.addCell(cell1);
 
             messageInfo2.add("Friend :");
@@ -402,7 +402,7 @@ public class IndividualNew {
             }
             //  cell2 = new PdfPCell(new Phrase("Grandparent(s):" + grandParents));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Grandparent(s):" ,grandParents);
+            HeaderNew.cellDesign(cell1,table1,"Grandparent(s):" ,grandParents);
             table1.addCell(cell1);
 
             messageInfo2.add("Grandparent(s) :");
@@ -415,7 +415,7 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Parent(s):" + parents));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Parent(s):" ,parents);
+            HeaderNew.cellDesign(cell1,table1,"Parent(s):" ,parents);
             table1.addCell(cell1);
 
             messageInfo2.add("Parent(s) :");
@@ -428,7 +428,7 @@ public class IndividualNew {
             }
             //cell2 = new PdfPCell(new Phrase("Spouse:" + spouse));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Spouse:" ,spouse);
+            HeaderNew.cellDesign(cell1,table1,"Spouse:" ,spouse);
             table1.addCell(cell1);
 
             messageInfo2.add("Spouse :");
@@ -440,7 +440,7 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Sibling:" + sibling));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Sibling:" ,sibling);
+            HeaderNew.cellDesign(cell1,table1,"Sibling:" ,sibling);
             table1.addCell(cell1);
             messageInfo2.add("Sibling :");
             messageInfo2.add(sibling);
@@ -451,7 +451,7 @@ public class IndividualNew {
             }
             //cell2 = new PdfPCell(new Phrase("Significant Other:" + significant));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Significant Other:" ,significant);
+            HeaderNew.cellDesign(cell1,table1,"Significant Other:" ,significant);
             table1.addCell(cell1);
 
             messageInfo2.add("Significant Other :");
@@ -463,7 +463,7 @@ public class IndividualNew {
             }
             //  cell2 = new PdfPCell(new Phrase("Other:" + other));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Other:" ,other);
+            HeaderNew.cellDesign(cell1,table1,"Other:" ,other);
             table1.addCell(cell1);
 
             String people = "";
@@ -472,16 +472,16 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Names of People in Household:" + people));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Names of People in Household:" ,people);
+            HeaderNew.cellDesign(cell1,table1,"Names of People in Household:" ,people);
 
             table1.addCell(cell1);
 
            /* cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 */
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             if (connection.getProfession() != null) {
@@ -490,7 +490,7 @@ public class IndividualNew {
 
             //cellp = new PdfPCell(new Phrase("Profession:" + profession));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Profession:",profession);
+            HeaderNew.cellDesign(cell1,table1,"Profession:",profession);
             table1.addCell(cell1);
 
             messageInfo2.add("Profession :");
@@ -502,7 +502,7 @@ public class IndividualNew {
             }
             //cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Manager Phone:",telephone);
+            HeaderNew.cellDesign(cell1,table1,"Manager Phone:",telephone);
             table1.addCell(cell1);
 
             messageInfo2.add("Manager Phone :");
@@ -513,7 +513,7 @@ public class IndividualNew {
             }
             //  cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Employed By:",employedBy);
+            HeaderNew.cellDesign(cell1,table1,"Employed By:",employedBy);
             table1.addCell(cell1);
 
             messageInfo2.add("Employed By :");
@@ -521,14 +521,14 @@ public class IndividualNew {
 
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             String english = "";
@@ -537,7 +537,7 @@ public class IndividualNew {
             }
             //cell3 = new PdfPCell(new Phrase("Understand English:" + english));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Understand English:",english);
+            HeaderNew.cellDesign(cell1,table1,"Understand English:",english);
             table1.addCell(cell1);
 
             messageInfo2.add("Understand English :");
@@ -552,21 +552,21 @@ public class IndividualNew {
             }
             //  cell3 = new PdfPCell(new Phrase("Language Spoken:" + language));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Language Spoken:",language);
+            HeaderNew.cellDesign(cell1,table1,"Language Spoken:",language);
             table1.addCell(cell1);
 
             messageInfo2.add("Language Spoken :");
             messageInfo2.add(language);
 
             /*cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);*/
 
             messageInfo2.add(" ");
             messageInfo2.add(" ");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             if (connection.getReligion() != null) {
@@ -574,21 +574,21 @@ public class IndividualNew {
             }
             // cellr = new PdfPCell(new Phrase("Religious Affiliation & Notes: " + religionNote));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Religious Affiliation & Notes:",religionNote);
+            HeaderNew.cellDesign(cell1,table1,"Religious Affiliation & Notes:",religionNote);
             table1.addCell(cell1);
 
             messageInfo2.add("Religious Affiliation & Notes :");
             messageInfo2.add(religionNote);
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
             if (connection.getVeteran() != null) {
@@ -596,7 +596,7 @@ public class IndividualNew {
             }
             //cell4 = new PdfPCell(new Phrase("Veteran:" + Veteran));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Veteran:",Veteran);
+            HeaderNew.cellDesign(cell1,table1,"Veteran:",Veteran);
             table1.addCell(cell1);
 
             messageInfo2.add("Veteran :");
@@ -607,14 +607,14 @@ public class IndividualNew {
             }
             //cell4 = new PdfPCell(new Phrase("Id Number:" + idNumber));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Id Number:",idNumber);
+            HeaderNew.cellDesign(cell1,table1,"Id Number:",idNumber);
             table1.addCell(cell1);
 
             messageInfo2.add("Id Number :");
             messageInfo2.add(idNumber);
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
 
@@ -624,32 +624,32 @@ public class IndividualNew {
             }
             // cellf = new PdfPCell(new Phrase("Do you have business card?:" + card));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Do you have business card?:",card);
+            HeaderNew.cellDesign(cell1,table1,"Do you have business card?:",card);
             table1.addCell(cell1);
 
             messageInfo2.add("Do you have business card?:");
             messageInfo2.add(card);
 
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
 
             cell1 = new PdfPCell();
-            Header.addDottedLine(cell1);
+            HeaderNew.addDottedLine(cell1);
             table1.addCell(cell1);
 
-           // Header.document.add(table1);
-           // Header.addEmptyLine(1);
+           // HeaderNew.document.add(table1);
+           // HeaderNew.addEmptyLine(1);
 
             if (connection.getPet() != null) {
                 Pets = connection.getPet();
             }
             //  cell = new PdfPCell(new Phrase("Pet(s):" + Pets));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"Pet(s):",Pets);
+            HeaderNew.cellDesign(cell1,table1,"Pet(s):",Pets);
             table1.addCell(cell1);
 
             messageInfo2.add("Pet(s) :");
@@ -657,7 +657,7 @@ public class IndividualNew {
 
             // cell = new PdfPCell(new Phrase(""));
             cell1 = new PdfPCell();
-            Header.cellDesign(cell1,table1,"","Empty");
+            HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
@@ -735,7 +735,7 @@ public class IndividualNew {
                     }
                     //cellIN = new PdfPCell(new Phrase("Name:" + name));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Name:", name);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Name:", name);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -748,7 +748,7 @@ public class IndividualNew {
 
                     //  cell = new PdfPCell(new Phrase("Type of Pet / Breed :" + breed));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Type of Pet / Breed:", breed);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Type of Pet / Breed:", breed);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -760,7 +760,7 @@ public class IndividualNew {
                     }
                     // cell = new PdfPCell(new Phrase("Color:" + color));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Color:", color);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Color:", color);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -772,7 +772,7 @@ public class IndividualNew {
                     }
                     // cell = new PdfPCell(new Phrase("Microchip number:" + microchip));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Microchip number:", microchip);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Microchip number:", microchip);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -785,7 +785,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Veterinarian Name:" + veterian));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Veterinarian Name:", veterian);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Veterinarian Name:", veterian);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -798,7 +798,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Veterinarian Address:" + vadd));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Veterinarian Address:", vadd);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Veterinarian Address:", vadd);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -811,7 +811,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Veterinarian Phone:" + vpone));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Veterinarian Phone:", vpone);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Veterinarian Phone:", vpone);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -824,7 +824,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet:" + person));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Person(s) Name who will care for pet:", person);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Name who will care for pet:", person);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -837,7 +837,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet:" + cname));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Person(s) Address who will care for pet:", cname);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Address who will care for pet:", cname);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -851,7 +851,7 @@ public class IndividualNew {
                     }
                     // cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet:" + cAdd));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Person(s) Phone who will care for pet:", cAdd);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Phone who will care for pet:", cAdd);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -864,7 +864,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Birthday:" + Bdate));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Birthday:", Bdate);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Birthday:", Bdate);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -876,7 +876,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "Notes about Pet:", notes);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Notes about Pet:", notes);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -884,7 +884,7 @@ public class IndividualNew {
                     messageInfo3.add(notes);
 
                     cellIN = new PdfPCell();
-                    Header.cellDesign(cellIN, tableIN, "", "Empty");
+                    HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
                     tableIN.addCell(cellIN);
 
                     messageInfo3.add("");
@@ -896,8 +896,8 @@ public class IndividualNew {
 
                 table1.addCell(cell1);
             }
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table1);
+            HeaderNew.addEmptyLine(1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -910,15 +910,15 @@ public class IndividualNew {
 
     public IndividualNew(PersonalInfo connection, ArrayList<Pet> PetList) {
         try {
-            //  Header.addEmptyLine(1);
-            Header.addChank("Personal Profile");
+            //  HeaderNew.addEmptyLine(1);
+            HeaderNew.addChank("Personal Profile");
             messageInfo2.add("Personal Profile");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
-//        Header.widths[0] = 0.15f;
-//        Header.widths[1] = 0.85f;
-//        Header.table = new PdfPTable(Header.widths);
-//        Header.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+//        HeaderNew.widths[0] = 0.15f;
+//        HeaderNew.widths[1] = 0.85f;
+//        HeaderNew.table = new PdfPTable(HeaderNew.widths);
+//        HeaderNew.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
 
             PdfPTable table;
             table = new PdfPTable(2);
@@ -1064,14 +1064,14 @@ public class IndividualNew {
             messageInfo2.add("Eyes :");
             messageInfo2.add(eyes);
 
-            Header.document.add(table1);
+            HeaderNew.document.add(table1);
             Paragraph p1 = new Paragraph(" ");
             DottedLineSeparator line1 = new DottedLineSeparator();
             line1.setOffset(-4);
             line1.setLineColor(BaseColor.BLACK);
             p1.add(line1);
-            Header.document.add(p1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p1);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table2;
@@ -1194,14 +1194,14 @@ public class IndividualNew {
             messageInfo2.add("Other :");
             messageInfo2.add(other);
 
-            Header.document.add(table2);
+            HeaderNew.document.add(table2);
             Paragraph p2 = new Paragraph(" ");
             DottedLineSeparator line2 = new DottedLineSeparator();
             line2.setOffset(-4);
             line2.setLineColor(BaseColor.BLACK);
             p2.add(line2);
-            Header.document.add(p2);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p2);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable tablep;
@@ -1257,14 +1257,14 @@ public class IndividualNew {
             messageInfo2.add("");
             messageInfo2.add("");
 
-            Header.document.add(tablep);
+            HeaderNew.document.add(tablep);
             Paragraph pp = new Paragraph(" ");
             DottedLineSeparator linep = new DottedLineSeparator();
             linep.setOffset(-4);
             linep.setLineColor(BaseColor.BLACK);
             pp.add(linep);
-            Header.document.add(pp);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(pp);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table3;
@@ -1326,14 +1326,14 @@ public class IndividualNew {
             messageInfo3.add("");
 
 
-            Header.document.add(table3);
+            HeaderNew.document.add(table3);
             Paragraph p3 = new Paragraph(" ");
             DottedLineSeparator line3 = new DottedLineSeparator();
             line3.setOffset(-4);
             line3.setLineColor(BaseColor.BLACK);
             p3.add(line3);
-            Header.document.add(p3);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p3);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable tablem;
@@ -1366,14 +1366,14 @@ public class IndividualNew {
             messageInfo2.add("Religion Note :");
             messageInfo2.add(religionNote);
 
-            Header.document.add(tablem);
+            HeaderNew.document.add(tablem);
             Paragraph pm = new Paragraph(" ");
             DottedLineSeparator linem = new DottedLineSeparator();
             linem.setOffset(-4);
             linem.setLineColor(BaseColor.BLACK);
             pm.add(linem);
-            Header.document.add(pm);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(pm);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table4;
@@ -1407,14 +1407,14 @@ public class IndividualNew {
             messageInfo2.add("Id Number :");
             messageInfo2.add(idNumber);
 
-            Header.document.add(table4);
+            HeaderNew.document.add(table4);
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
             line4.setLineColor(BaseColor.BLACK);
             p4.add(line4);
-            Header.document.add(p4);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p4);
+            HeaderNew.addEmptyLine(1);
 
 
            /* PdfPTable table5;
@@ -1597,28 +1597,28 @@ public class IndividualNew {
           /*  if (connection.get == null) {
                 oPhone = "";
             }
-            Header.addTable("Medical Conditions :");
-            Header.addTable(oPhone);
+            HeaderNew.addTable("Medical Conditions :");
+            HeaderNew.addTable(oPhone);
             messageInfo.add("Medical Conditions :");
             messageInfo.add(oPhone);
             if (cellPhone == null) {
                 cellPhone = "";
             }
-            Header.addTable("Preferred Hospital :");
-            Header.addTable(cellPhone);
+            HeaderNew.addTable("Preferred Hospital :");
+            HeaderNew.addTable(cellPhone);
             messageInfo.add("Preferred Hospital :");
             messageInfo.add(cellPhone);*/
-//        Header.table.setWidthPercentage(100f);
+//        HeaderNew.table.setWidthPercentage(100f);
 
 
-            Header.document.add(table);
+            HeaderNew.document.add(table);
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
             line.setLineColor(BaseColor.BLACK);
             p.add(line);
-            Header.document.add(p);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p);
+            HeaderNew.addEmptyLine(1);
 
 //card
 
@@ -1632,15 +1632,15 @@ public class IndividualNew {
 
     public IndividualNew(String emergency, ArrayList<Emergency> emergencyList, ArrayList<ContactData> phonelist) {
         try {
-            // Header.addEmptyLine(1);
-            Header.addChank("Emergency Contacts & Health Care Proxy Agent");
+            // HeaderNew.addEmptyLine(1);
+            HeaderNew.addChank("Emergency Contacts & Health Care Proxy Agent");
             messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
-//        Header.widths[0] = 0.15f;
-//        Header.widths[1] = 0.85f;
-//        Header.table = new PdfPTable(Header.widths);
-//        Header.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+//        HeaderNew.widths[0] = 0.15f;
+//        HeaderNew.widths[1] = 0.85f;
+//        HeaderNew.table = new PdfPTable(HeaderNew.widths);
+//        HeaderNew.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
             PdfPTable table1;
             table1 = new PdfPTable(2);
             PdfPCell cell1;
@@ -1863,19 +1863,19 @@ public class IndividualNew {
                 messageEmergency.add("Notes :");
                 messageEmergency.add(note);
 
-                Header.document.add(table);
+                HeaderNew.document.add(table);
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
                 line.setLineColor(BaseColor.BLACK);
                 p.add(line);
-                Header.document.add(p);
-                Header.addEmptyLine(1);
+                HeaderNew.document.add(p);
+                HeaderNew.addEmptyLine(1);
             }
-//        Header.table.setWidthPercentage(100f);
+//        HeaderNew.table.setWidthPercentage(100f);
 
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table1);
+            HeaderNew.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -1890,11 +1890,11 @@ public class IndividualNew {
             table1 = new PdfPTable(2);
             PdfPCell cell1;
             table1.setWidthPercentage(100);
-            // Header.addEmptyLine(1);
+            // HeaderNew.addEmptyLine(1);
 
-            Header.addChank("Primary Physicians");
+            HeaderNew.addChank("Primary Physicians");
             messagePhysician.add("Primary Physicians");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
 
             for (int i = 0; i < specialistsList.size(); i++) {
@@ -2139,19 +2139,19 @@ public class IndividualNew {
                 messagePhysician.add("");
                 messagePhysician.add("");
 
-                Header.document.add(table);
+                HeaderNew.document.add(table);
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
                 line.setLineColor(BaseColor.BLACK);
                 p.add(line);
-                Header.document.add(p);
-                Header.addEmptyLine(1);
+                HeaderNew.document.add(p);
+                HeaderNew.addEmptyLine(1);
             }
 
 
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table1);
+            HeaderNew.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -2161,15 +2161,15 @@ public class IndividualNew {
 
     public IndividualNew(ArrayList<Proxy> proxyList) {
         try {
-            Header.addEmptyLine(1);
-            Header.addChank("Health Care Proxy Agent");
+            HeaderNew.addEmptyLine(1);
+            HeaderNew.addChank("Health Care Proxy Agent");
             messageProxy.add("Health Care Proxy Agent");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
-//        Header.widths[0] = 0.15f;
-//        Header.widths[1] = 0.85f;
-//        Header.table = new PdfPTable(Header.widths);
-//        Header.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+//        HeaderNew.widths[0] = 0.15f;
+//        HeaderNew.widths[1] = 0.85f;
+//        HeaderNew.table = new PdfPTable(HeaderNew.widths);
+//        HeaderNew.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
 
             PdfPTable table;
             table = new PdfPTable(2);
@@ -2310,17 +2310,17 @@ public class IndividualNew {
                 messageProxy.add(priority);
 
             }
-//        Header.table.setWidthPercentage(100f);
+//        HeaderNew.table.setWidthPercentage(100f);
 
 
-            Header.document.add(table);
+            HeaderNew.document.add(table);
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
             line.setLineColor(BaseColor.BLACK);
             p.add(line);
-            Header.document.add(p);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p);
+            HeaderNew.addEmptyLine(1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -2331,7 +2331,7 @@ public class IndividualNew {
 
     public IndividualNew(MedInfo medInfo, ArrayList<Allergy> allargyLists, ArrayList<Implant> implantsList, ArrayList<History> historList, ArrayList<String> hospitalList, ArrayList<String> conditionList, ArrayList<Vaccine> vaccineList) {
         try {
-            // Header.addEmptyLine(1);
+            // HeaderNew.addEmptyLine(1);
             String preNote = "";
             String glass = "";
             String lense = "";
@@ -2339,14 +2339,14 @@ public class IndividualNew {
             String upper = "";
             String lower = "";
             String visionNote = "";
-            Header.addChank("Medical Profile");
+            HeaderNew.addChank("Medical Profile");
             messageInfo3.add("Medical Profile");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
-//        Header.widths[0] = 0.15f;
-//        Header.widths[1] = 0.85f;
-//        Header.table = new PdfPTable(Header.widths);
-//        Header.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+//        HeaderNew.widths[0] = 0.15f;
+//        HeaderNew.widths[1] = 0.85f;
+//        HeaderNew.table = new PdfPTable(HeaderNew.widths);
+//        HeaderNew.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
 
             PdfPTable table;
             table = new PdfPTable(2);
@@ -2491,14 +2491,14 @@ public class IndividualNew {
             messageInfo3.add("");
 
 
-            Header.document.add(table6);
+            HeaderNew.document.add(table6);
             Paragraph p6 = new Paragraph(" ");
             DottedLineSeparator line6 = new DottedLineSeparator();
             line6.setOffset(-4);
             line6.setLineColor(BaseColor.BLACK);
             p6.add(line6);
-            Header.document.add(p6);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p6);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table1;
@@ -2567,14 +2567,14 @@ public class IndividualNew {
                 messageInfo3.add("");
             }
 
-            Header.document.add(table1);
+            HeaderNew.document.add(table1);
             Paragraph p1 = new Paragraph(" ");
             DottedLineSeparator line1 = new DottedLineSeparator();
             line1.setOffset(-4);
             line1.setLineColor(BaseColor.BLACK);
             p1.add(line1);
-            Header.document.add(p1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p1);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table7;
@@ -2729,14 +2729,14 @@ public class IndividualNew {
             cell7.setBorderColorBottom(BaseColor.WHITE);
             table7.addCell(cell7);
 
-            Header.document.add(table7);
+            HeaderNew.document.add(table7);
             Paragraph p7 = new Paragraph(" ");
             DottedLineSeparator line7 = new DottedLineSeparator();
             line7.setOffset(-4);
             line7.setLineColor(BaseColor.BLACK);
             p7.add(line7);
-            Header.document.add(p7);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p7);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table10;
@@ -2864,15 +2864,15 @@ public class IndividualNew {
             cell10.setBorderColorBottom(BaseColor.WHITE);
             table10.addCell(cell10);
 
-            Header.document.add(table10);
+            HeaderNew.document.add(table10);
             Paragraph p10 = new Paragraph(" ");
             DottedLineSeparator line10 = new DottedLineSeparator();
             line10.setOffset(-4);
             line10.setLineColor(BaseColor.BLACK);
             p10.add(line10);
-            Header.document.add(p10);
-            Header.addEmptyLine(1);
-//        Header.table.setWidthPercentage(100f);
+            HeaderNew.document.add(p10);
+            HeaderNew.addEmptyLine(1);
+//        HeaderNew.table.setWidthPercentage(100f);
 
 
             PdfPTable table9;
@@ -2944,14 +2944,14 @@ public class IndividualNew {
                 messageInfo3.add("");
             }
 
-            Header.document.add(table9);
+            HeaderNew.document.add(table9);
             Paragraph p9 = new Paragraph(" ");
             DottedLineSeparator line9 = new DottedLineSeparator();
             line9.setOffset(-4);
             line9.setLineColor(BaseColor.BLACK);
             p9.add(line9);
-            Header.document.add(p9);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p9);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table5;
@@ -3090,14 +3090,14 @@ public class IndividualNew {
             messageInfo3.add(organDonor);
 
 
-            Header.document.add(table5);
+            HeaderNew.document.add(table5);
             Paragraph p5 = new Paragraph(" ");
             DottedLineSeparator line5 = new DottedLineSeparator();
             line5.setOffset(-4);
             line5.setLineColor(BaseColor.BLACK);
             p5.add(line5);
-            Header.document.add(p5);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p5);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table3;
@@ -3179,14 +3179,14 @@ public class IndividualNew {
             messageInfo3.add("Notes :");
             messageInfo3.add(mouthnote);
 
-            Header.document.add(table3);
+            HeaderNew.document.add(table3);
             Paragraph p3 = new Paragraph(" ");
             DottedLineSeparator line3 = new DottedLineSeparator();
             line3.setOffset(-4);
             line3.setLineColor(BaseColor.BLACK);
             p3.add(line3);
-            Header.document.add(p3);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p3);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table4;
@@ -3264,14 +3264,14 @@ public class IndividualNew {
             messageInfo3.add("");
             messageInfo3.add("");
 
-            Header.document.add(table4);
+            HeaderNew.document.add(table4);
             Paragraph p4 = new Paragraph(" ");
             DottedLineSeparator line4 = new DottedLineSeparator();
             line4.setOffset(-4);
             line4.setLineColor(BaseColor.BLACK);
             p4.add(line4);
-            Header.document.add(p4);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p4);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table8;
@@ -3407,14 +3407,14 @@ public class IndividualNew {
             table8.addCell(cell8);
 
 
-            Header.document.add(table8);
+            HeaderNew.document.add(table8);
             Paragraph p8 = new Paragraph(" ");
             DottedLineSeparator line8 = new DottedLineSeparator();
             line8.setOffset(-4);
             line8.setLineColor(BaseColor.BLACK);
             p8.add(line8);
-            Header.document.add(p8);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p8);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table2;
@@ -3494,14 +3494,14 @@ public class IndividualNew {
             messageInfo3.add("Notes :");
             messageInfo3.add(visionNote);
 
-            Header.document.add(table2);
+            HeaderNew.document.add(table2);
             Paragraph p2 = new Paragraph(" ");
             DottedLineSeparator line2 = new DottedLineSeparator();
             line2.setOffset(-4);
             line2.setLineColor(BaseColor.BLACK);
             p2.add(line2);
-            Header.document.add(p2);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p2);
+            HeaderNew.addEmptyLine(1);
 
 
             PdfPTable table16;
@@ -3566,14 +3566,14 @@ public class IndividualNew {
             messageInfo3.add(tobacoYear);
 
 
-            Header.document.add(table16);
+            HeaderNew.document.add(table16);
             Paragraph p16 = new Paragraph(" ");
             DottedLineSeparator line16 = new DottedLineSeparator();
             line16.setOffset(-4);
             line16.setLineColor(BaseColor.BLACK);
             p16.add(line16);
-            Header.document.add(p16);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p16);
+            HeaderNew.addEmptyLine(1);
 
             /**/
             PdfPTable table17;
@@ -3634,14 +3634,14 @@ public class IndividualNew {
             messageInfo3.add("");
             messageInfo3.add("");
 
-            Header.document.add(table17);
+            HeaderNew.document.add(table17);
             Paragraph p17 = new Paragraph(" ");
             DottedLineSeparator line17 = new DottedLineSeparator();
             line17.setOffset(-4);
             line17.setLineColor(BaseColor.BLACK);
             p17.add(line17);
-            Header.document.add(p17);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p17);
+            HeaderNew.addEmptyLine(1);
 
 
             /**/
@@ -3710,18 +3710,18 @@ public class IndividualNew {
             messageInfo3.add(drugYear);
 
 
-            Header.document.add(table18);
+            HeaderNew.document.add(table18);
             Paragraph p18 = new Paragraph(" ");
             DottedLineSeparator line18 = new DottedLineSeparator();
             line18.setOffset(-4);
             line18.setLineColor(BaseColor.BLACK);
             p18.add(line18);
-            Header.document.add(p18);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p18);
+            HeaderNew.addEmptyLine(1);
 
 
-            Header.document.add(table);
-            //  Header.addEmptyLine(1);
+            HeaderNew.document.add(table);
+            //  HeaderNew.addEmptyLine(1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -3735,10 +3735,10 @@ public class IndividualNew {
     public IndividualNew(ArrayList<Living> livingList, int i) {
 
         try {
-            Header.addEmptyLine(1);
-            Header.addChank("Activities of Daily Living");
+            HeaderNew.addEmptyLine(1);
+            HeaderNew.addChank("Activities of Daily Living");
             messageLiving.add("Activities of Daily Living");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
             PdfPTable table;
             table = new PdfPTable(2);
@@ -3905,14 +3905,14 @@ public class IndividualNew {
                 messageLiving.add("Note :");
                 messageLiving.add(functionNote);
 
-                Header.document.add(table1);
+                HeaderNew.document.add(table1);
                 Paragraph p = new Paragraph(" ");
                 DottedLineSeparator line = new DottedLineSeparator();
                 line.setOffset(-4);
                 line.setLineColor(BaseColor.BLACK);
                 p.add(line);
-                Header.document.add(p);
-                Header.addEmptyLine(1);
+                HeaderNew.document.add(p);
+                HeaderNew.addEmptyLine(1);
 
                 PdfPTable table2;
                 table2 = new PdfPTable(2);
@@ -4120,18 +4120,18 @@ public class IndividualNew {
                 messageLiving.add("");
 
 
-                Header.document.add(table2);
+                HeaderNew.document.add(table2);
                 Paragraph p1 = new Paragraph(" ");
                 DottedLineSeparator line1 = new DottedLineSeparator();
                 line1.setOffset(-4);
                 line1.setLineColor(BaseColor.BLACK);
                 p1.add(line1);
-                Header.document.add(p1);
-                Header.addEmptyLine(1);
+                HeaderNew.document.add(p1);
+                HeaderNew.addEmptyLine(1);
 
             }
-            Header.document.add(table);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table);
+            HeaderNew.addEmptyLine(1);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -4142,17 +4142,17 @@ public class IndividualNew {
 
     public IndividualNew(String emergency1, Emergency e, ArrayList<ContactData> phonelist, int i) {
         try {
-            // Header.addEmptyLine(1);
+            // HeaderNew.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Emergency Contacts & Health Care Proxy Agent");
+                HeaderNew.addChank("Emergency Contacts & Health Care Proxy Agent");
                 messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
-                Header.addEmptyLine(1);
+                HeaderNew.addEmptyLine(1);
             }
 
-//        Header.widths[0] = 0.15f;
-//        Header.widths[1] = 0.85f;
-//        Header.table = new PdfPTable(Header.widths);
-//        Header.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
+//        HeaderNew.widths[0] = 0.15f;
+//        HeaderNew.widths[1] = 0.85f;
+//        HeaderNew.table = new PdfPTable(HeaderNew.widths);
+//        HeaderNew.table.getDefaultCell().setBorder(Rectangle.BOTTOM);
             PdfPTable table1;
             table1 = new PdfPTable(2);
             PdfPCell cell1;
@@ -4383,19 +4383,19 @@ public class IndividualNew {
             messageEmergency.add("");
 
 
-            Header.document.add(table);
+            HeaderNew.document.add(table);
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
             line.setLineColor(BaseColor.BLACK);
             p.add(line);
-            Header.document.add(p);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p);
+            HeaderNew.addEmptyLine(1);
 
-//        Header.table.setWidthPercentage(100f);
+//        HeaderNew.table.setWidthPercentage(100f);
 
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table1);
+            HeaderNew.addEmptyLine(1);
         } catch (Exception ee) {
             // TODO Auto-generated catch block
             ee.printStackTrace();
@@ -4409,11 +4409,11 @@ public class IndividualNew {
             table1 = new PdfPTable(2);
             PdfPCell cell1;
             table1.setWidthPercentage(100);
-            // Header.addEmptyLine(1);
+            // HeaderNew.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Primary Physicians");
+                HeaderNew.addChank("Primary Physicians");
                 messagePhysician.add("Primary Physicians");
-                Header.addEmptyLine(1);
+                HeaderNew.addEmptyLine(1);
 
             }
             //    for (int i = 0; i < specialistsList.size(); i++) {
@@ -4680,19 +4680,19 @@ public class IndividualNew {
             messagePhysician.add("");
             messagePhysician.add("");
 
-            Header.document.add(table);
+            HeaderNew.document.add(table);
             Paragraph p = new Paragraph(" ");
             DottedLineSeparator line = new DottedLineSeparator();
             line.setOffset(-4);
             line.setLineColor(BaseColor.BLACK);
             p.add(line);
-            Header.document.add(p);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(p);
+            HeaderNew.addEmptyLine(1);
             //}
 
 
-            Header.document.add(table1);
-            Header.addEmptyLine(1);
+            HeaderNew.document.add(table1);
+            HeaderNew.addEmptyLine(1);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

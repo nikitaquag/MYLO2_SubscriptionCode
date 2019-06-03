@@ -689,6 +689,8 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
                 mail1 = mail1.replace("@", "_");
                 preferences.putString(PrefConstants.CONNECTED_USERDB, mail1);
                 preferences.putInt(PrefConstants.CONNECTED_USERID, connection.getId());
+                preferences.putString(PrefConstants.CONNECTED_PATH, Environment.getExternalStorageDirectory() + "/MYLO/" + preferences.getString(PrefConstants.CONNECTED_USERDB) + "/");
+
                 startActivity(intentP);
 
                 break;
