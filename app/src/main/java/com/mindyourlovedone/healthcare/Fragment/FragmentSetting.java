@@ -1,17 +1,10 @@
 package com.mindyourlovedone.healthcare.Fragment;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.FileProvider;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,20 +12,13 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mindyourlovedone.healthcare.Activity.ChangePasswordActivity;
-import com.mindyourlovedone.healthcare.Activity.PrivacyActivity;
-import com.mindyourlovedone.healthcare.DashBoard.DropboxLoginActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.HomeActivity.SignUpActivity;
 import com.mindyourlovedone.healthcare.InsuranceHealthCare.SettingAdapter;
 import com.mindyourlovedone.healthcare.model.Setting;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class FragmentSetting extends Fragment {
     View rootView;
@@ -105,10 +91,14 @@ public class FragmentSetting extends Fragment {
                         break;*/
                     case 0://Support Faq
 
-                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf");
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
+                        //nikita
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf"));
                         startActivity(browserIntent);
+
+//                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+//                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf");
+//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
+//                        startActivity(browserIntent);
 
                        /* String urld="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
                         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urld));
@@ -156,10 +146,16 @@ public class FragmentSetting extends Fragment {
                     case 1://User Guide-Section
                        /* Intent i=new Intent(getActivity(),PDFActivity.class);
                         getActivity().startActivity(i);*/
-                        String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-                        String fullPathD = String.format(Locale.ENGLISH, formatD, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
-                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
+
+                       //nikita
+                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf"));
                         startActivity(browserIntentD);
+
+//                        String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
+//                        String fullPathD = String.format(Locale.ENGLISH, formatD, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
+//                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
+//                        startActivity(browserIntentD);
+
                        /* String urlf="https://docs.google.com/viewer?url=http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf" ;
                         Intent browserIntents = new Intent(Intent.ACTION_VIEW, Uri.parse(urlf));
                       startActivity(browserIntents);*/
