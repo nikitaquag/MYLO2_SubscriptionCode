@@ -80,7 +80,7 @@ public class PDFDocumentProcess {
                                 Intent marketIntent = new Intent(
                                         Intent.ACTION_VIEW);
                                 marketIntent.setData(Uri
-                                        .parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
+                                        .parse("market://details?id=cn.wps.moffice_eng"));//varsa ("market://details?id=com.adobe.reader"));
                                 context.startActivity(marketIntent);
                             }
                         });

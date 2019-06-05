@@ -398,7 +398,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                                 Intent marketIntent = new Intent(
                                                         Intent.ACTION_VIEW);
                                                 marketIntent.setData(Uri
-                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        .parse("market://details?id=cn.wps.moffice_eng"));
                                                 context.startActivity(marketIntent);
                                             }
                                         });
@@ -445,7 +445,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                         Intent marketIntent = new Intent(
                                                 Intent.ACTION_VIEW);
                                         marketIntent.setData(Uri
-                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                         context.startActivity(marketIntent);
                                     }
                                 });
@@ -537,7 +537,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                         Intent marketIntent = new Intent(
                                                 Intent.ACTION_VIEW);
                                         marketIntent.setData(Uri
-                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                         context.startActivity(marketIntent);
                                     }
                                 });
@@ -637,7 +637,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                                         Intent marketIntent = new Intent(
                                                                 Intent.ACTION_VIEW);
                                                         marketIntent.setData(Uri
-                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                         context.startActivity(marketIntent);
                                                     }
                                                 });
@@ -1043,7 +1043,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                             Intent marketIntent = new Intent(
                                     Intent.ACTION_VIEW);
                             marketIntent.setData(Uri
-                                    .parse("market://details?id=com.avp.document.viewer.reader"));
+                                    .parse("market://details?id=cn.wps.moffice_eng"));
                             context.startActivity(marketIntent);
                         }
                     });

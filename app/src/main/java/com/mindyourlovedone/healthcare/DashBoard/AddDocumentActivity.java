@@ -725,7 +725,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                                 Intent marketIntent = new Intent(
                                                         Intent.ACTION_VIEW);
                                                 marketIntent.setData(Uri
-                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        .parse("market://details?id=cn.wps.moffice_eng"));
                                                 context.startActivity(marketIntent);
                                             }
                                         });
@@ -836,7 +836,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                                Intent marketIntent = new Intent(
                                                        Intent.ACTION_VIEW);
                                                marketIntent.setData(Uri
-                                                       .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                       .parse("market://details?id=cn.wps.moffice_eng"));
                                                context.startActivity(marketIntent);
                                            }
                                        });
@@ -1010,7 +1010,7 @@ startActivity(i);
                                                 Intent marketIntent = new Intent(
                                                         Intent.ACTION_VIEW);
                                                 marketIntent.setData(Uri
-                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        .parse("market://details?id=cn.wps.moffice_eng"));
                                                 context.startActivity(marketIntent);
                                             }
                                         });
@@ -1070,7 +1070,7 @@ startActivity(i);
                                                         Intent marketIntent = new Intent(
                                                                 Intent.ACTION_VIEW);
                                                         marketIntent.setData(Uri
-                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                         context.startActivity(marketIntent);
                                                     }
                                                 });
@@ -1445,7 +1445,7 @@ startActivity(i);
                             Intent marketIntent = new Intent(
                                     Intent.ACTION_VIEW);
                             marketIntent.setData(Uri
-                                    .parse("market://details?id=com.avp.document.viewer.reader"));
+                                    .parse("market://details?id=cn.wps.moffice_eng"));
                             context.startActivity(marketIntent);
                         }
                     });

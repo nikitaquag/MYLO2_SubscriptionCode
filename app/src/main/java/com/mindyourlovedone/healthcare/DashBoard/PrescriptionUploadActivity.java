@@ -391,7 +391,7 @@ floatOptions.setVisibility(View.VISIBLE);
                                                                                         Intent marketIntent = new Intent(
                                                                                                 Intent.ACTION_VIEW);
                                                                                         marketIntent.setData(Uri
-                                                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                                                         context.startActivity(marketIntent);
                                                                                 }
                                                                         });
@@ -439,7 +439,7 @@ floatOptions.setVisibility(View.VISIBLE);
                                                                         Intent marketIntent = new Intent(
                                                                                 Intent.ACTION_VIEW);
                                                                         marketIntent.setData(Uri
-                                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                                         context.startActivity(marketIntent);
                                                                 }
                                                         });
@@ -532,7 +532,7 @@ floatOptions.setVisibility(View.VISIBLE);
                                                                         Intent marketIntent = new Intent(
                                                                                 Intent.ACTION_VIEW);
                                                                         marketIntent.setData(Uri
-                                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                                         context.startActivity(marketIntent);
                                                                 }
                                                         });
@@ -631,7 +631,7 @@ else {
                                                                                                         Intent marketIntent = new Intent(
                                                                                                                 Intent.ACTION_VIEW);
                                                                                                         marketIntent.setData(Uri
-                                                                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                                                                                .parse("market://details?id=cn.wps.moffice_eng"));
                                                                                                         context.startActivity(marketIntent);
                                                                                                 }
                                                                                         });
@@ -1010,7 +1010,7 @@ else {
                                                 Intent marketIntent = new Intent(
                                                         Intent.ACTION_VIEW);
                                                 marketIntent.setData(Uri
-                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        .parse("market://details?id=cn.wps.moffice_eng"));
                                                 context.startActivity(marketIntent);
                                         }
                                 });
