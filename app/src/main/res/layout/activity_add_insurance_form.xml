@@ -190,11 +190,8 @@
                     android:hint="Upload New Insurance Form"
                     android:imeOptions="actionNext"
                     android:fontFamily="@font/lato"
-                    android:maxLength="30"
-                    android:maxLines="1"
                     android:paddingLeft="@dimen/dimension15dp"
                     android:paddingTop="@dimen/dimension2dp"
-                    android:singleLine="true"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="@dimen/dimension20dp" />
 

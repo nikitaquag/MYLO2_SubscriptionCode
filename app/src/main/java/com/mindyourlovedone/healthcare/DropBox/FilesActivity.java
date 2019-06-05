@@ -316,7 +316,8 @@ public class FilesActivity extends DropboxActivity implements ZipListner {
                 ArrayList<Metadata> resultList = new ArrayList<Metadata>();
                 for (int i = 0; i < result.getEntries().size(); i++) {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
-                        if (result.getEntries().get(i).getName().endsWith(".pdf")) {
+                        String name=result.getEntries().get(i).getName();
+                        if (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".xlsx")) {
                             // if (result.getEntries().get(i).getName().endsWith(".pdf")||result.getEntries().get(i).getName().endsWith(".db")) {
                             resultList.add(result.getEntries().get(i));
                         }
