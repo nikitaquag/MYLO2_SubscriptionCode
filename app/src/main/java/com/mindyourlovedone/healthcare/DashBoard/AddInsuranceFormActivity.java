@@ -152,7 +152,8 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             documentPath = document.getDocument();
             imgEdit.setVisibility(View.VISIBLE);
             // imgDoc.setImageResource(document.getImage());
-            rlDoc.setBackgroundResource(document.getImage());
+            String extension = FilenameUtils.getExtension(document.getName());
+            showDocIcon(extension);
             imgDoc.setVisibility(View.GONE);
             txtAttach.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
@@ -164,7 +165,8 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             documentPath = document.getDocument();
             floatOptions.setVisibility(View.VISIBLE);
             // imgDoc.setImageResource(document.getImage());
-            rlDoc.setBackgroundResource(document.getImage());
+            String extension = FilenameUtils.getExtension(document.getName());
+            showDocIcon(extension);
             imgEdit.setVisibility(View.VISIBLE);
             imgDoc.setVisibility(View.GONE);
             txtAttach.setVisibility(View.GONE);
@@ -241,25 +243,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 showDialogWindow(text);
                 txtAdd.setText("Edit File");
                 String extension = FilenameUtils.getExtension(name);
-                switch (extension)
-                {
-                    case "pdf":
-                        imgDoc.setImageResource(R.drawable.pdf);
-                        break;
-                    case "txt":
-                        imgDoc.setImageResource(R.drawable.pdf);
-                        break;
-                    case "docx":
-                        imgDoc.setImageResource(R.drawable.pdf);
-                        break;
-                    case "xslx":
-                        imgDoc.setImageResource(R.drawable.pdf);
-                        break;
-                    default:
-                        imgDoc.setImageResource(R.drawable.pdf);
-                        break;
-
-                }
+                showDocIcon(extension);
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
@@ -927,7 +911,8 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 imgDoc.setClickable(false);
                 // imgDoc.setImageResource(R.drawable.pdf);
-                rlDoc.setBackgroundResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                showDocIcon(extension);
                 imgDoc.setVisibility(View.GONE);
                 imgEdit.setVisibility(View.VISIBLE);
                 txtAttach.setVisibility(View.GONE);
@@ -945,7 +930,8 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 // imgDoc.setImageResource(R.drawable.pdf);
-                rlDoc.setBackgroundResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                showDocIcon(extension);
                 imgDoc.setVisibility(View.GONE);
                 txtAttach.setVisibility(View.GONE);
                 imgDoc.setClickable(false);
@@ -954,6 +940,30 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 ShowWindowDialog(text);
             }
         }
+    }
+
+    private void showDocIcon(String extension) {
+        Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+        switch (extension)
+        {
+            case "pdf":
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                break;
+            case "txt":
+                rlDoc.setBackgroundResource(R.drawable.docx);
+                break;
+            case "docx":
+                rlDoc.setBackgroundResource(R.drawable.docx);
+                break;
+            case "xlsx":
+                rlDoc.setBackgroundResource(R.drawable.excel);
+                break;
+            default:
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                break;
+
+        }
+
     }
 
     private void ShowWindowDialog(String text) {

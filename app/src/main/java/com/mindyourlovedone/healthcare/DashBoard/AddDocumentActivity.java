@@ -48,6 +48,8 @@ import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -492,6 +494,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtLocation.setText(document.getLocation());
             txtNote.setText(document.getNote());
             txtFName.setText(document.getName());
+            String extension = FilenameUtils.getExtension(document.getName());
+            showDocIcon(extension);
             txtPName.setText(document.getPerson());
             txtName.setText(document.getPrinciple());
             txtOther.setText(document.getOtherCategory());
@@ -499,7 +503,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtLocator.setText(document.getLocator());
             documentPath = document.getDocument();
 
-            imgDoc.setImageResource(R.drawable.pdf);//document.getImage()
+            //imgDoc.setImageResource(R.drawable.pdf);//document.getImage()
             imgAdd.setVisibility(View.VISIBLE);
             if (document.getType().equals("Other")) {
                 tilOtherDocType.setVisibility(View.VISIBLE);
@@ -631,7 +635,8 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 txtAdd.setText("Edit File");
-                imgDoc.setImageResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                showDocIcon(extension);
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
@@ -1551,7 +1556,8 @@ startActivity(i);
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
-                imgDoc.setImageResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                showDocIcon(extension);
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
@@ -1565,7 +1571,8 @@ startActivity(i);
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
-                imgDoc.setImageResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                showDocIcon(extension);
                 imgAdd.setVisibility(View.VISIBLE);
             }
             else
@@ -1682,5 +1689,29 @@ startActivity(i);
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private void showDocIcon(String extension) {
+        Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+        switch (extension)
+        {
+            case "pdf":
+                imgDoc.setImageResource(R.drawable.pdf);
+                break;
+            case "txt":
+                imgDoc.setImageResource(R.drawable.docx);
+                break;
+            case "docx":
+                imgDoc.setImageResource(R.drawable.docx);
+                break;
+            case "xlsx":
+                imgDoc.setImageResource(R.drawable.excel);
+                break;
+            default:
+                imgDoc.setImageResource(R.drawable.pdf);
+                break;
+
+        }
+
     }
 }

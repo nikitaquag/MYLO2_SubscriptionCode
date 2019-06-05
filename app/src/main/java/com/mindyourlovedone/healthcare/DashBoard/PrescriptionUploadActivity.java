@@ -40,6 +40,8 @@ import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -149,7 +151,8 @@ floatOptions.setVisibility(View.VISIBLE);
                         documentPath = document.getDocument();
                         imgEdit.setVisibility(View.VISIBLE);
                         // imgDoc.setImageResource(document.getImage());
-                        rlDoc.setBackgroundResource(document.getImage());
+                        String extension = FilenameUtils.getExtension(document.getName());
+                        showDocIcon(extension);
                         imgDoc.setVisibility(View.GONE);
                         txtAttach.setVisibility(View.GONE);
                         txtAdd.setVisibility(View.GONE);
@@ -161,7 +164,8 @@ floatOptions.setVisibility(View.VISIBLE);
                         txtName.setText(document.getName());
                         documentPath = document.getDocument();
                         // imgDoc.setImageResource(document.getImage());
-                        rlDoc.setBackgroundResource(document.getImage());
+                        String extension = FilenameUtils.getExtension(document.getName());
+                        showDocIcon(extension);
                         imgEdit.setVisibility(View.VISIBLE);
                         imgDoc.setVisibility(View.GONE);
                         txtAttach.setVisibility(View.GONE);
@@ -903,7 +907,8 @@ else {
                                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                                 imgDoc.setClickable(false);
                                 // imgDoc.setImageResource(R.drawable.pdf);
-                                rlDoc.setBackgroundResource(R.drawable.pdf);
+                                String extension = FilenameUtils.getExtension(name);
+                                showDocIcon(extension);
                                 imgDoc.setVisibility(View.GONE);
                                 imgEdit.setVisibility(View.VISIBLE);
                                 txtAttach.setVisibility(View.GONE);
@@ -920,7 +925,8 @@ else {
                                 String text = "You Have selected <b>" + name + "</b> Document";
                                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                                 // imgDoc.setImageResource(R.drawable.pdf);
-                                rlDoc.setBackgroundResource(R.drawable.pdf);
+                                String extension = FilenameUtils.getExtension(name);
+                                showDocIcon(extension);
                                 imgDoc.setVisibility(View.GONE);
                                 imgEdit.setVisibility(View.VISIBLE);
                                 txtAttach.setVisibility(View.GONE);
@@ -1014,6 +1020,29 @@ else {
                         out.write(buffer, 0, read);
                 }
 
+
+        }
+        private void showDocIcon(String extension) {
+                Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+                switch (extension)
+                {
+                        case "pdf":
+                                rlDoc.setBackgroundResource(R.drawable.pdf);
+                                break;
+                        case "txt":
+                                rlDoc.setBackgroundResource(R.drawable.docx);
+                                break;
+                        case "docx":
+                                rlDoc.setBackgroundResource(R.drawable.docx);
+                                break;
+                        case "xlsx":
+                                rlDoc.setBackgroundResource(R.drawable.excel);
+                                break;
+                        default:
+                                rlDoc.setBackgroundResource(R.drawable.pdf);
+                                break;
+
+                }
 
         }
 }
