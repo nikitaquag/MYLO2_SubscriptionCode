@@ -24,6 +24,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.MimeTypeMap;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -38,6 +39,8 @@ import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -73,7 +76,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     String path = "";
     String date = "";
     String Goto = "";
-     TextView txtTitle;
+    TextView txtTitle;
     int id;
 
     @Override
@@ -237,7 +240,26 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
                 txtAdd.setText("Edit File");
-                imgDoc.setImageResource(R.drawable.pdf);
+                String extension = FilenameUtils.getExtension(name);
+                switch (extension)
+                {
+                    case "pdf":
+                        imgDoc.setImageResource(R.drawable.pdf);
+                        break;
+                    case "txt":
+                        imgDoc.setImageResource(R.drawable.pdf);
+                        break;
+                    case "docx":
+                        imgDoc.setImageResource(R.drawable.pdf);
+                        break;
+                    case "xslx":
+                        imgDoc.setImageResource(R.drawable.pdf);
+                        break;
+                    default:
+                        imgDoc.setImageResource(R.drawable.pdf);
+                        break;
+
+                }
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
@@ -363,9 +385,34 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                 uri = Uri.fromFile(targetFile);
                             }
                             // Uri uris = Uri.parse(documentPath);
-                            intent.setDataAndType(uri, "application/pdf");
-                            context.startActivity(intent);
+                          //  intent.setDataAndType(uri, "application/pdf");
+                            String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, mimeType);
+                            //  //intent.setPackage("com.adobe.reader");//varsa
+                            try {
+                                context.startActivity(intent);
 
+                            } catch (ActivityNotFoundException e) {
+                                // No application to view, ask to download one
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("No Application Found");
+                                builder.setMessage("Download Office Tool from Google Play ?");
+                                builder.setPositiveButton("Yes",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int which) {
+                                                Intent marketIntent = new Intent(
+                                                        Intent.ACTION_VIEW);
+                                                marketIntent.setData(Uri
+                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                context.startActivity(marketIntent);
+                                            }
+                                        });
+                                builder.setNegativeButton("No", null);
+                                builder.create().show();
+                            }
                         }
                         dialog.dismiss();
                     }
@@ -385,8 +432,34 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                         uri = Uri.fromFile(targetFile);
                     }
                     // Uri uris = Uri.parse(documentPath);
-                    intent.setDataAndType(uri, "application/pdf");
-                    context.startActivity(intent);
+                  //  intent.setDataAndType(uri, "application/pdf");
+                    String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                    // Uri uris = Uri.parse(documentPath);
+                    intent.setDataAndType(uri, mimeType);
+                    //  //intent.setPackage("com.adobe.reader");//varsa
+                    try {
+                        context.startActivity(intent);
+
+                    } catch (ActivityNotFoundException e) {
+                        // No application to view, ask to download one
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle("No Application Found");
+                        builder.setMessage("Download Office Tool from Google Play ?");
+                        builder.setPositiveButton("Yes",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog,
+                                                        int which) {
+                                        Intent marketIntent = new Intent(
+                                                Intent.ACTION_VIEW);
+                                        marketIntent.setData(Uri
+                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                        context.startActivity(marketIntent);
+                                    }
+                                });
+                        builder.setNegativeButton("No", null);
+                        builder.create().show();
+                    }
                    /* Uri uris = Uri.parse(documentPath);
                     Intent intent = new Intent();
                     intent.setAction(Intent.ACTION_VIEW);
@@ -452,9 +525,10 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                     } else {
                         uris = Uri.fromFile(targetFile);
                     }
+                    String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
                     // Uri uris = Uri.parse(documentPath);
-                    intent.setDataAndType(uris, "application/pdf");
-                    intent.setPackage("com.adobe.reader");
+                    intent.setDataAndType(uris, mimeType);
+                    //  //intent.setPackage("com.adobe.reader");//varsa
                     try {
                         context.startActivity(intent);
 
@@ -471,7 +545,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                         Intent marketIntent = new Intent(
                                                 Intent.ACTION_VIEW);
                                         marketIntent.setData(Uri
-                                                .parse("market://details?id=com.adobe.reader"));
+                                                .parse("market://details?id=com.avp.document.viewer.reader"));
                                         context.startActivity(marketIntent);
                                     }
                                 });
@@ -550,9 +624,34 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                                     } else {
                                         uri = Uri.fromFile(targetFile);
                                     }
+                                    String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
                                     // Uri uris = Uri.parse(documentPath);
-                                    intent.setDataAndType(uri, "application/pdf");
-                                    context.startActivity(intent);
+                                    intent.setDataAndType(uri, mimeType);
+                                    //  //intent.setPackage("com.adobe.reader");//varsa
+                                  //  intent.setDataAndType(uri, "application/pdf");
+                                    try {
+                                        context.startActivity(intent);
+
+                                    } catch (ActivityNotFoundException e) {
+                                        // No application to view, ask to download one
+
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                        builder.setTitle("No Application Found");
+                                        builder.setMessage("Download Office Tool from Google Play ?");
+                                        builder.setPositiveButton("Yes",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog,
+                                                                        int which) {
+                                                        Intent marketIntent = new Intent(
+                                                                Intent.ACTION_VIEW);
+                                                        marketIntent.setData(Uri
+                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        context.startActivity(marketIntent);
+                                                    }
+                                                });
+                                        builder.setNegativeButton("No", null);
+                                        builder.create().show();
+                                    }
                                 }
                                        /* Uri uris = Uri.parse(documentPath);
                                         Intent intent = new Intent();
@@ -906,8 +1005,33 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(uri, "application/pdf");
-        context.startActivity(intent);
+        String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+        // Uri uris = Uri.parse(documentPath);
+        intent.setDataAndType(uri, mimeType);
+        //  //intent.setPackage("com.adobe.reader");//varsa
+        try {
+            context.startActivity(intent);
+
+        } catch (ActivityNotFoundException e) {
+            // No application to view, ask to download one
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("No Application Found");
+            builder.setMessage("Download Office Tool from Google Play ?");
+            builder.setPositiveButton("Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int which) {
+                            Intent marketIntent = new Intent(
+                                    Intent.ACTION_VIEW);
+                            marketIntent.setData(Uri
+                                    .parse("market://details?id=com.avp.document.viewer.reader"));
+                            context.startActivity(marketIntent);
+                        }
+                    });
+            builder.setNegativeButton("No", null);
+            builder.create().show();
+        }
 
     }
     private void copyFiles(InputStream in, OutputStream out) throws IOException {
@@ -920,3 +1044,5 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
 
     }
 }
+
+

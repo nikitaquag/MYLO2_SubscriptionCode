@@ -71,6 +71,7 @@ import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.utility.DialogManager;
@@ -2298,7 +2299,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         }
 
 /// Old PDF
-        new Header().createPdfHeader(file.getAbsolutePath(),
+     /*  new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         preferences.copyFile("pp.png", context);
@@ -2328,8 +2329,11 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
         new Individual(personalInfoList, PetList, phonelist);
-        /*   Pdf New
-        new Header().createPdfHeaders(file.getAbsolutePath(),
+         Header.document.close();
+*/
+
+          // Pdf New
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath);
         preferences.copyFile("ic_launcher.png", context);
         preferences.copyFile("pp.png", context);
@@ -2337,8 +2341,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         preferences.copyFile("calpdf.png", context);
         preferences.copyFile("profpdf.png", context);
 
-        Header.addusereNameChank("Personal Profile");//preferences.getString(PrefConstants.CONNECTED_NAME));
-        Header.addEmptyLine(1);
+        HeaderNew.addusereNameChank("PERSONAL PROFILE");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
 
 
         final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -2346,8 +2350,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
         new IndividualNew(personalInfoList, PetList, phonelist);
-        */
-        Header.document.close();
+
+        HeaderNew.document.close();
 
         //------------------------------------------------------------------------
         final Dialog dialog = new Dialog(context);

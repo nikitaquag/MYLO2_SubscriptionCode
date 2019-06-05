@@ -1284,7 +1284,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
                             Intent marketIntent = new Intent(
                                     Intent.ACTION_VIEW);
                             marketIntent.setData(Uri
-                                    .parse("market://details?id=com.adobe.reader"));
+                                    .parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                             context.startActivity(marketIntent);
                         }
                     });

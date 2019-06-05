@@ -652,7 +652,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         }
 
         if (targetFile.getName().endsWith(".pdf")) {
-            intent.setPackage("com.adobe.reader");
+            //intent.setPackage("com.adobe.reader");//varsa
             intent.setDataAndType(targetUri, "application/pdf");
 
             try {
@@ -671,7 +671,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
                                 Intent marketIntent = new Intent(
                                         Intent.ACTION_VIEW);
                                 marketIntent.setData(Uri
-                                        .parse("market://details?id=com.adobe.reader"));
+                                        .parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                                 startActivity(marketIntent);
                             }
                         });

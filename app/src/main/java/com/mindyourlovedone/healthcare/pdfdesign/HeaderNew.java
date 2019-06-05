@@ -264,7 +264,7 @@ public class HeaderNew {
 
 
         BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-        BlackFont.setSize(16);
+        BlackFont.setSize(14);
         BlackFont.setStyle(Font.BOLD);
 
         Image images=addProfile("/sdcard/MYLO/images/" +"pp.png");
@@ -414,9 +414,9 @@ public class HeaderNew {
             cell1.addElement(f1);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
-            cell1.setPaddingLeft(10);
-            cell1.setPaddingRight(5);
-            cell1.setPaddingTop(0);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            cell1.setPaddingTop(2);
             cell1.setPaddingBottom(5);
             cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
@@ -431,7 +431,7 @@ public class HeaderNew {
             linek.setLineWidth(2);
             // linek.setOffset(-10);
             k1.setIndentationLeft(1);
-            k1.setIndentationRight(3);
+            k1.setIndentationRight(4);
             k1.add(linek);
             cell1.addElement(k1);
         }else{
@@ -441,9 +441,9 @@ public class HeaderNew {
             cell1.addElement(f1);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
-            cell1.setPaddingLeft(10);
-            cell1.setPaddingRight(5);
-            cell1.setPaddingTop(0);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            cell1.setPaddingTop(2);
             cell1.setPaddingBottom(5);
             cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
@@ -458,7 +458,7 @@ public class HeaderNew {
             linek.setLineWidth(2);
             // linek.setOffset(-10);
             k1.setIndentationLeft(1);
-            k1.setIndentationRight(3);
+            k1.setIndentationRight(4);
             k1.add(linek);
             cell1.addElement(k1);
         }
@@ -498,7 +498,7 @@ public class HeaderNew {
     public static void addusereNameChank(String username) {
         BlackFont.setColor(WebColors.getRGBColor("#ffffff"));//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
-
+        BlackFont.setSize(16);
 
 
         PdfShading shading = (PdfShading) PdfShading.simpleAxial(writer, 0, PageSize.A4.getWidth(), 500, PageSize.A4.getWidth(), WebColors.getRGBColor("#A3D07D"), WebColors.getRGBColor("#2EACDF"));
@@ -509,32 +509,20 @@ public class HeaderNew {
         //Create a color from our patter
         ShadingColor color = new ShadingColor(pattern);
 
-       /* PdfPTable footer = new PdfPTable(1);
-        footer.setWidthPercentage(100);
-        footer.setLockedWidth(true);
-        PdfPCell cell = new PdfPCell();
-
-        Paragraph p1 = new Paragraph(username,BlackFont);
-        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-        cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-        cell.setPadding(10);
-        cell.addElement(p1);
-       // cell.setBorder(Rectangle.NO_BORDER);
-        cell.setBackgroundColor(color);
-
-        footer.addCell(cell);*/
 
         PdfPTable footer = new PdfPTable(1);
         footer.setTotalWidth(PageSize.A4.getWidth());
         footer.setLockedWidth(true);
 
-        footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+       footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
         footer.getDefaultCell()
                 .setHorizontalAlignment(Element.ALIGN_CENTER);
         footer.getDefaultCell()
                 .setVerticalAlignment(Element.ALIGN_MIDDLE);
         footer.getDefaultCell().setBackgroundColor(color);
-        footer.getDefaultCell().setPadding(15);
+        footer.getDefaultCell().setPaddingTop(15);
+        footer.getDefaultCell().setPaddingBottom(10);
+
         Paragraph p1 = new Paragraph(username,BlackFont);
         footer.addCell(p1);
 
@@ -646,7 +634,7 @@ public class HeaderNew {
 
             Calendar c = Calendar.getInstance();
             System.out.println("Current time => " + c.getTime());
-            SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
+            SimpleDateFormat df = new SimpleDateFormat("dd MMM yyyy");
             String formattedDate = df.format(c.getTime());
 //            header.addCell(new Phrase("Date : "+formattedDate));
 
@@ -723,13 +711,13 @@ public class HeaderNew {
             }
             //-- Cell 1
             cells = new PdfPCell();
-            cells.setBorder(Rectangle.NO_BORDER);
-            cells.setHorizontalAlignment(Element.ALIGN_LEFT);
-            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+            cells.setBorder(Rectangle.NO_BORDER);
+            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
+            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cells.setPaddingLeft(20);
             cells.setPaddingRight(20);
-            cells.setPaddingTop(7);
+            cells.setPaddingTop(6);
             cells.setPaddingBottom(7);
 
             Paragraph p;
@@ -779,7 +767,7 @@ public class HeaderNew {
             cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
             cells.setPaddingLeft(20);
             cells.setPaddingRight(20);
-            cells.setPaddingTop(7);
+            cells.setPaddingTop(6);
             cells.setPaddingBottom(7);
             p = new Paragraph();
             pp = new Phrase();
@@ -798,6 +786,9 @@ public class HeaderNew {
             p.add(pp);
             p.setAlignment(Element.ALIGN_RIGHT);
             cells.addElement(p);
+            header.addCell(cells);
+
+            cells = new PdfPCell( new Paragraph(""));
             header.addCell(cells);
 
             footer = new PdfPTable(2);
@@ -845,6 +836,8 @@ public class HeaderNew {
                     0,
                     -1,
                     0, document.bottom()-10, cb);
+
+            cb.moveTo(PageSize.A4.getHeight()+90,PageSize.A4.getHeight()-40 );
 
            /* cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
             cb.setGrayStroke(0.50f);

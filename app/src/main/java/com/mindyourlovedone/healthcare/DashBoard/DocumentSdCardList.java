@@ -71,7 +71,8 @@ public class DocumentSdCardList extends AppCompatActivity {
 
         imagelist = Pdfs.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return ((name.endsWith(".pdf")));
+                // return ((name.endsWith(".pdf")));
+                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".xlsx"));
             }
         });
 
@@ -90,7 +91,7 @@ public class DocumentSdCardList extends AppCompatActivity {
         File download = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         downloadList = download.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return ((name.endsWith(".pdf")));
+                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".xlsx"));
             }
         });
 
@@ -204,3 +205,4 @@ public class DocumentSdCardList extends AppCompatActivity {
         setResult(RESULTCODE, i);
     }
 }
+

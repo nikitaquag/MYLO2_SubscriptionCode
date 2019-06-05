@@ -98,6 +98,7 @@ public class IndividualNew {
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setTableEvent(new RoundedBorder());
             table1.getDefaultCell().setPaddingBottom(15);
+            table1.setKeepTogether(false);
             table1.setSplitLate(false);
             PdfPCell cell1;
             Paragraph k1;
@@ -684,9 +685,13 @@ public class IndividualNew {
                 cell1 = new PdfPCell();
                 if (Petlist.size()!=0){
                 cell1.addElement(pf);
+
                 }
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
 
     /*cell5.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
     cell5.setPaddingLeft(10);
@@ -890,8 +895,7 @@ public class IndividualNew {
                     messageInfo3.add("");
                     messageInfo3.add("");
                     cell1.addElement(tableIN);
-
-
+                    cell1.addElement(new Paragraph(" "));
                 }
 
                 table1.addCell(cell1);

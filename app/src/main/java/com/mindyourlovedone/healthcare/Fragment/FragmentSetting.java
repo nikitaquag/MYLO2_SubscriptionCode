@@ -113,7 +113,7 @@ public class FragmentSetting extends Fragment {
                         /*Intent intent = new Intent();
                         intent.setAction(Intent.ACTION_VIEW);
                         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intent.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intent.setData(Uri.parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                         intent.setType(String.valueOf(Uri.parse("application/pdf")));
                         ((BaseActivity) getActivity()).CopyReadAssetss("FAQ.pdf");*/
                         // intent.setDataAndType(uri, "application/pdf");
@@ -133,7 +133,7 @@ public class FragmentSetting extends Fragment {
                                             Intent marketIntent = new Intent(
                                                     Intent.ACTION_VIEW);
                                             marketIntent.setData(Uri
-                                                    .parse("market://details?id=com.adobe.reader"));
+                                                    .parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                                             getActivity().startActivity(marketIntent);
                                         }
                                     });
@@ -175,7 +175,7 @@ public class FragmentSetting extends Fragment {
                        /* Intent intents = new Intent();
                         intents.setAction(Intent.ACTION_VIEW);
                         intents.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intents.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intents.setData(Uri.parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                         intents.setType(String.valueOf(Uri.parse("application/pdf")));
                         ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");*/
                        //----------------------------------
@@ -195,7 +195,7 @@ public class FragmentSetting extends Fragment {
                                             Intent marketIntent = new Intent(
                                                     Intent.ACTION_VIEW);
                                             marketIntent.setData(Uri
-                                                    .parse("market://details?id=com.adobe.reader"));
+                                                    .parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                                             getActivity().startActivity(marketIntent);
                                         }
                                     });
@@ -208,7 +208,7 @@ public class FragmentSetting extends Fragment {
                         Intent intentp = new Intent();
                         intentp.setAction(Intent.ACTION_VIEW);
                         intentp.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intentp.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intentp.setData(Uri.parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                         intentp.setType(String.valueOf(Uri.parse("application/pdf")));
                         ((BaseActivity) getActivity()).CopyReadAssetss("Privacy Policy.pdf");
 
@@ -218,7 +218,7 @@ public class FragmentSetting extends Fragment {
                         Intent intentx = new Intent();
                         intentx.setAction(Intent.ACTION_VIEW);
                         intentx.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intentx.setData(Uri.parse("market://details?id=com.adobe.reader"));
+                        intentx.setData(Uri.parse("market://details?id=com.avp.document.viewer.reader"));//varsa ("market://details?id=com.adobe.reader"));
                         intentx.setType(String.valueOf(Uri.parse("application/pdf")));
                         ((BaseActivity) getActivity()).CopyReadAssetss("eula.pdf");
 

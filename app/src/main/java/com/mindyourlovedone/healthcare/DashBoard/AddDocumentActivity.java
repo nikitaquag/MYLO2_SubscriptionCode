@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
@@ -701,8 +702,31 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                 uri = Uri.fromFile(targetFile);
                             }
                             // Uri uris = Uri.parse(documentPath);
-                            intent.setDataAndType(uri, "application/pdf");
-                            context.startActivity(intent);
+                            String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                                            intent.setDataAndType(uri, mimeType);
+                            try {
+                                context.startActivity(intent);
+
+                            } catch (ActivityNotFoundException e) {
+                                // No application to view, ask to download one
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("No Application Found");
+                                builder.setMessage("Download Office Tool from Google Play ?");
+                                builder.setPositiveButton("Yes",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int which) {
+                                                Intent marketIntent = new Intent(
+                                                        Intent.ACTION_VIEW);
+                                                marketIntent.setData(Uri
+                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                context.startActivity(marketIntent);
+                                            }
+                                        });
+                                builder.setNegativeButton("No", null);
+                                builder.create().show();
+                            }
                         }
                     }
 
@@ -788,8 +812,9 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                uri = Uri.fromFile(targetFile);
                            }
                            // Uri uris = Uri.parse(documentPath);
-                           intent.setDataAndType(uri, "application/pdf");
-                           intent.setPackage("com.adobe.reader");
+                           String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                                            intent.setDataAndType(uri, mimeType);
+                         //  //intent.setPackage("com.adobe.reader");//varsa
                            try {
                                context.startActivity(intent);
 
@@ -806,7 +831,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                                                Intent marketIntent = new Intent(
                                                        Intent.ACTION_VIEW);
                                                marketIntent.setData(Uri
-                                                       .parse("market://details?id=com.adobe.reader"));
+                                                       .parse("market://details?id=com.avp.document.viewer.reader"));
                                                context.startActivity(marketIntent);
                                            }
                                        });
@@ -961,8 +986,32 @@ startActivity(i);
                                 uri = Uri.fromFile(targetFile);
                             }
                             // Uri uris = Uri.parse(documentPath);
-                            intent.setDataAndType(uri, "application/pdf");
-                            context.startActivity(intent);
+                            String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                            // Uri uris = Uri.parse(documentPath);
+                            intent.setDataAndType(uri, mimeType);
+                            try {
+                                context.startActivity(intent);
+
+                            } catch (ActivityNotFoundException e) {
+                                // No application to view, ask to download one
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setTitle("No Application Found");
+                                builder.setMessage("Download Office Tool from Google Play ?");
+                                builder.setPositiveButton("Yes",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog,
+                                                                int which) {
+                                                Intent marketIntent = new Intent(
+                                                        Intent.ACTION_VIEW);
+                                                marketIntent.setData(Uri
+                                                        .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                context.startActivity(marketIntent);
+                                            }
+                                        });
+                                builder.setNegativeButton("No", null);
+                                builder.create().show();
+                            }
 
                         }
                         dialog.dismiss();
@@ -997,8 +1046,32 @@ startActivity(i);
                                         uri = Uri.fromFile(targetFile);
                                     }
                                     // Uri uris = Uri.parse(documentPath);
-                                    intent.setDataAndType(uri, "application/pdf");
-                                    context.startActivity(intent);
+                                    String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+                                    // Uri uris = Uri.parse(documentPath);
+                                    intent.setDataAndType(uri, mimeType);
+                                    try {
+                                        context.startActivity(intent);
+
+                                    } catch (ActivityNotFoundException e) {
+                                        // No application to view, ask to download one
+
+                                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                        builder.setTitle("No Application Found");
+                                        builder.setMessage("Download Office Tool from Google Play ?");
+                                        builder.setPositiveButton("Yes",
+                                                new DialogInterface.OnClickListener() {
+                                                    public void onClick(DialogInterface dialog,
+                                                                        int which) {
+                                                        Intent marketIntent = new Intent(
+                                                                Intent.ACTION_VIEW);
+                                                        marketIntent.setData(Uri
+                                                                .parse("market://details?id=com.avp.document.viewer.reader"));
+                                                        context.startActivity(marketIntent);
+                                                    }
+                                                });
+                                        builder.setNegativeButton("No", null);
+                                        builder.create().show();
+                                    }
                                    /* uri= Uri.parse(documentPath);
                                     Intent intent = new Intent();
                                     intent.setAction(Intent.ACTION_VIEW);
@@ -1348,8 +1421,32 @@ startActivity(i);
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        intent.setDataAndType(uri, "application/pdf");
-        context.startActivity(intent);
+        String mimeType= MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(documentPath));
+        // Uri uris = Uri.parse(documentPath);
+        intent.setDataAndType(uri, mimeType);
+        try {
+            context.startActivity(intent);
+
+        } catch (ActivityNotFoundException e) {
+            // No application to view, ask to download one
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle("No Application Found");
+            builder.setMessage("Download Office Tool from Google Play ?");
+            builder.setPositiveButton("Yes",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog,
+                                            int which) {
+                            Intent marketIntent = new Intent(
+                                    Intent.ACTION_VIEW);
+                            marketIntent.setData(Uri
+                                    .parse("market://details?id=com.avp.document.viewer.reader"));
+                            context.startActivity(marketIntent);
+                        }
+                    });
+            builder.setNegativeButton("No", null);
+            builder.create().show();
+        }
 
     }
 
