@@ -177,7 +177,7 @@ floatOptions.setVisibility(View.VISIBLE);
                         txtAdd.setVisibility(View.GONE);
                         //txtAdd.setText("Edit File");
                 } else {
-                        floatOptions.setVisibility(View.GONE);
+                       /* floatOptions.setVisibility(View.GONE);
                         imgDot.setVisibility(View.GONE);
                         txtSave.setVisibility(View.VISIBLE);
                         imgDoc.setVisibility(View.VISIBLE);
@@ -187,7 +187,7 @@ floatOptions.setVisibility(View.VISIBLE);
                         // imgDone.setVisibility(View.VISIBLE);
                         imgAdd.setVisibility(View.GONE);
                         txtAdd.setVisibility(View.GONE);
-                        txtAdd.setText("Select File");
+                        txtAdd.setText("Select File");*/
                 }
 
         }
@@ -237,10 +237,16 @@ floatOptions.setVisibility(View.VISIBLE);
                         if (!name.equalsIgnoreCase("")&&!documentPath.equalsIgnoreCase("")) {
                                 String text = "You Have selected <b>" + name + "</b> Document";
                                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-                                showDialogWindow(text);
-                                txtAdd.setText("Edit File");
-                                imgDoc.setImageResource(R.drawable.pdf);
-                                imgAdd.setVisibility(View.VISIBLE);
+                                imgDoc.setClickable(false);
+                                // imgDoc.setImageResource(R.drawable.pdf);
+                                String extension = FilenameUtils.getExtension(name);
+                                showDocIcon(extension);
+                                imgDoc.setVisibility(View.GONE);
+                                imgEdit.setVisibility(View.VISIBLE);
+                                imgDoc.setVisibility(View.GONE);
+                                txtAttach.setVisibility(View.GONE);
+                                txtAdd.setVisibility(View.GONE);
+                                ShowWindowDialog(text);
                         }
                 } catch (Exception ex) {
                         ex.printStackTrace();
@@ -1023,7 +1029,7 @@ else {
 
         }
         private void showDocIcon(String extension) {
-                Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+               // Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
                 switch (extension)
                 {
                         case "pdf":

@@ -1692,7 +1692,7 @@ startActivity(i);
     }
 
     private void showDocIcon(String extension) {
-        Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
         switch (extension)
         {
             case "pdf":

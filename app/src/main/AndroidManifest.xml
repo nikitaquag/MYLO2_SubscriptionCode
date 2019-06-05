@@ -88,11 +88,12 @@
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
-                <data android:mimeType="application/pdf" />
+                <data android:mimeType="application/*" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.OPENABLE" />
             </intent-filter>
+
             <!--<intent-filter tools:ignore="AppLinkUrlError">
 
             <action android:name="android.intent.action.VIEW"/>

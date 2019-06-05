@@ -8,8 +8,11 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.provider.OpenableColumns;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
+import android.webkit.MimeTypeMap;
+import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -90,12 +93,36 @@ public class FilePath {
 //            if (isGooglePhotosUri(uri)) {
 //                return uri.getLastPathSegment();
 //            } else if (isGooglePdfUri(uri)) {
+
+            String result = null;
+            if (uri.getScheme().equals("content")) {
+                Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+                try {
+                    if (cursor != null && cursor.moveToFirst()) {
+                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+                    }
+                } finally {
+                    cursor.close();
+                }
+            }
+            if (result == null) {
+                result = uri.getPath();
+                int cut = result.lastIndexOf('/');
+                if (cut != -1) {
+                    result = result.substring(cut + 1);
+                }
+            }
+         //   Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
+
                 try {
                     InputStream attachment = context.getContentResolver().openInputStream(uri);
                     if (attachment == null)
                         Log.e("onCreate", "cannot access mail attachment");
                     else {
-                        String path = "" + "/mnt/sdcard/attachment_" + Calendar.getInstance().getTimeInMillis() + ".pdf";
+                        MimeTypeMap mime = MimeTypeMap.getSingleton();
+                        String type= mime.getExtensionFromMimeType( context.getContentResolver().getType(uri));
+
+                        String path = "" + "/mnt/sdcard/"+result;
                         FileOutputStream tmp = new FileOutputStream(path);
                         byte[] buffer = new byte[1024];
                         while (attachment.read(buffer) > 0)

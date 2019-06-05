@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.OpenableColumns;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -179,7 +181,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             txtTitle.setText("Update Insurance Form");
             //txtAdd.setText("Edit File");
         } else {
-            floatOptions.setVisibility(View.GONE);
+            /*floatOptions.setVisibility(View.GONE);
             imgDot.setVisibility(View.GONE);
             txtSave.setVisibility(View.VISIBLE);
             imgDoc.setVisibility(View.VISIBLE);
@@ -190,7 +192,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             imgAdd.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
             txtTitle.setText("Add Insurance Form");
-            txtAdd.setText("Select File");
+            txtAdd.setText("Select File");*/
         }
 
     }
@@ -241,10 +243,16 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 showDialogWindow(text);
-                txtAdd.setText("Edit File");
+
+                imgDoc.setClickable(false);
+                // imgDoc.setImageResource(R.drawable.pdf);
                 String extension = FilenameUtils.getExtension(name);
                 showDocIcon(extension);
-                imgAdd.setVisibility(View.VISIBLE);
+                imgDoc.setVisibility(View.GONE);
+                imgEdit.setVisibility(View.VISIBLE);
+                txtAttach.setVisibility(View.GONE);
+                txtAdd.setText("Edit File");
+                ShowWindowDialog(text);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -943,7 +951,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
     }
 
     private void showDocIcon(String extension) {
-        Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+       // Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
         switch (extension)
         {
             case "pdf":
