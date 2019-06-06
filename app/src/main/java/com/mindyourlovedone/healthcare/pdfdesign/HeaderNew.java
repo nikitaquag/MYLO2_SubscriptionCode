@@ -17,13 +17,13 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.html.WebColors;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.pdf.PdfShading;
 import com.itextpdf.text.pdf.PdfShadingPattern;
-import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.ShadingColor;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
@@ -40,27 +40,51 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class HeaderNew {
-    public static Font GrayFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL);
+//    public static Font GrayFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+//            Font.NORMAL);
+//
+//    public static Font GrayTitleFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+//            Font.NORMAL);
+//
+//    public static final String FONT = "main/assets/RomanS.ttf";
+//    // public static Font GreenFont = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
+//
+//
+//    public static Font GreenFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
+//            Font.BOLD);
+//
+//    public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 19,
+//            Font.NORMAL);
+//
+//    public static Font FooterFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
+//            Font.NORMAL);
+//
+//    public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 13,
+//            Font.NORMAL);
 
-    public static Font GrayTitleFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL);
+    //nikita - new code for font
+    public static Font GrayFont, GrayTitleFont, GreenFont, BlackFont, FooterFont, CompFont;
 
-    public static final String FONT = "main/assets/RomanS.ttf";
-    // public static Font GreenFont = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
+    public static void HeaderNewfont() {
+        //nikita - new code for font
+        try {
+            BaseFont base = BaseFont.createFont("assets/Lato-Regular.ttf", "UTF-8",BaseFont.EMBEDDED);
 
+            GrayFont = new Font(base, 12,Font.NORMAL);
 
-    public static Font GreenFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
-            Font.BOLD);
+            GrayTitleFont = new Font(base, 12, Font.NORMAL);
 
-    public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 19,
-            Font.NORMAL);
+            GreenFont = new Font(base, 20, Font.BOLD);
 
-    public static Font FooterFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL);
+            BlackFont = new Font(base, 19, Font.NORMAL);
 
-    public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 13,
-            Font.NORMAL);
+            FooterFont = new Font(base, 12, Font.NORMAL);
+
+            CompFont = new Font(base, 13, Font.NORMAL);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
     public static Document document;
     public static float[] widths = {0.15f, 0.85f};
@@ -173,6 +197,7 @@ public class HeaderNew {
      */
 
     public static void addParagraph(String[][] data) {
+        HeaderNewfont();
         BlackFont.setColor(00, 00, 00);
         for (int i = 0; i < data.length; i++) {
 
@@ -193,6 +218,7 @@ public class HeaderNew {
      */
 
     public static void addParagraph(String data) {
+        HeaderNewfont();
         BlackFont.setColor(00, 00, 00);
 
         try {
@@ -211,6 +237,7 @@ public class HeaderNew {
      */
 
     public static void addChank(String chunk) {
+        HeaderNewfont();
         BlackFont.setColor(102, 204, 0);//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
         Chunk underline = new Chunk(chunk, BlackFont);
@@ -226,6 +253,7 @@ public class HeaderNew {
 
 
     }
+
     public static Image addProfile(String path) {
         Image image = null;
         try {
@@ -259,22 +287,22 @@ public class HeaderNew {
 
         return image;
     }
-    public static  void addNewChank(String chunk){
 
+    public static void addNewChank(String chunk) {
 
-
+        HeaderNewfont();
         BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
         BlackFont.setSize(14);
         BlackFont.setStyle(Font.BOLD);
 
-        Image images=addProfile("/sdcard/MYLO/images/" +"pp.png");
+        Image images = addProfile("/sdcard/MYLO/images/" + "pp.png");
         images.scaleAbsolute(25f, 25f);
         Paragraph p = new Paragraph();
         Phrase pp = new Phrase();
         images.setAlignment(Image.ALIGN_CENTER);
         p.setIndentationLeft(2f);
         //Add Imae
-        Chunk c=new Chunk(images, 0,-7,true);
+        Chunk c = new Chunk(images, 0, -7, true);
         p.add(c);
 
         //Add Space between imae and Text
@@ -317,6 +345,7 @@ public class HeaderNew {
                 e.printStackTrace();
             }*/
     }
+
     public static Image addSectionProfile(String path) {
         Image image = null;
         try {
@@ -343,12 +372,14 @@ public class HeaderNew {
 
         return image;
     }
+
     public static void addImgChank(String chunk, String s) {
+        HeaderNewfont();
         BlackFont.setColor(102, 204, 0);//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
         Chunk underline = new Chunk(chunk, BlackFont);
 //        underline.setUnderline(0.1f, -2f); // 0.1 thick, -2 y-location
-        Image images=addSectionProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
+        Image images = addSectionProfile("/sdcard/MYLO/images/" + "mylopdf.PNG");
         images.scaleAbsoluteHeight(50);
         images.scaleAbsoluteWidth(50);
         images.scalePercent(10);
@@ -357,7 +388,7 @@ public class HeaderNew {
 
         Paragraph p = new Paragraph();
         Phrase pp = new Phrase();
-        p.add(new Chunk(images, 0,0));
+        p.add(new Chunk(images, 0, 0));
         pp.add(chunk);
         p.add(pp);
         p.setAlignment(Element.ALIGN_CENTER);
@@ -373,6 +404,7 @@ public class HeaderNew {
     }
 
     public static void addCompany(String chunk) {
+        HeaderNewfont();
         CompFont.setColor(102, 204, 0);//255, 99, 26);
         Chunk underline = new Chunk(chunk, CompFont);
 //        underline.setUnderline(0.1f, -2f); // 0.1 thick, -2 y-location
@@ -386,7 +418,9 @@ public class HeaderNew {
             e.printStackTrace();
         }
     }
+
     public static void cellDesign(PdfPCell cell1, PdfPTable table1, String field, String value) {
+        HeaderNewfont();
         BlackFont.setColor(00, 00, 00);//102, 204, 0);
         BlackFont.setStyle(Font.BOLD);
         BlackFont.setSize(12);
@@ -401,7 +435,7 @@ public class HeaderNew {
         Phrase f;
         Phrase f1;
         Chunk chunk;
-        f=new Phrase(field,GrayTitleFont);
+        f = new Phrase(field, GrayTitleFont);
 
         if (!value.equalsIgnoreCase("Empty")) {
             if (value.equalsIgnoreCase("")) {
@@ -434,7 +468,7 @@ public class HeaderNew {
             k1.setIndentationRight(4);
             k1.add(linek);
             cell1.addElement(k1);
-        }else{
+        } else {
             chunk = new Chunk("", GrayFont);
             f1 = new Phrase(chunk);
             cell1.addElement(f);
@@ -465,6 +499,7 @@ public class HeaderNew {
 
 
     }
+
     /**
      * http://www.geek-tutorials.com/java/itext/itext_table.php
      * http://www.java2s
@@ -477,7 +512,7 @@ public class HeaderNew {
      * @throws IOException
      */
     public static void addTable(String data) {
-
+        HeaderNewfont();
         cell = new PdfPCell(new Phrase(data, BlackFont));
         cell.setBorder(Rectangle.NO_BORDER);
         table.addCell(cell);
@@ -496,12 +531,13 @@ public class HeaderNew {
     }
 
     public static void addusereNameChank(String username) {
+        HeaderNewfont();
         BlackFont.setColor(WebColors.getRGBColor("#ffffff"));//255, 99, 26);
         BlackFont.setStyle(Font.BOLD);
         BlackFont.setSize(16);
 
 
-        PdfShading shading = (PdfShading) PdfShading.simpleAxial(writer, 0, PageSize.A4.getWidth(), 500, PageSize.A4.getWidth(), WebColors.getRGBColor("#A3D07D"), WebColors.getRGBColor("#2EACDF"));
+        PdfShading shading = (PdfShading)PdfShading.simpleAxial(writer, 0, PageSize.A4.getWidth(), 500, PageSize.A4.getWidth(), WebColors.getRGBColor("#A3D07D"), WebColors.getRGBColor("#2EACDF"));
 
         //Create a pattern from our shading object
         PdfShadingPattern pattern = new PdfShadingPattern(shading);
@@ -514,7 +550,7 @@ public class HeaderNew {
         footer.setTotalWidth(PageSize.A4.getWidth());
         footer.setLockedWidth(true);
 
-       footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+        footer.getDefaultCell().setBorder(Rectangle.NO_BORDER);
         footer.getDefaultCell()
                 .setHorizontalAlignment(Element.ALIGN_CENTER);
         footer.getDefaultCell()
@@ -523,7 +559,7 @@ public class HeaderNew {
         footer.getDefaultCell().setPaddingTop(15);
         footer.getDefaultCell().setPaddingBottom(10);
 
-        Paragraph p1 = new Paragraph(username,BlackFont);
+        Paragraph p1 = new Paragraph(username, BlackFont);
         footer.addCell(p1);
 
         try {
@@ -591,14 +627,14 @@ public class HeaderNew {
 
     }
 
-    public void createPdfHeaders(String RESULT, String header,String s) {
+    public void createPdfHeaders(String RESULT, String header, String s) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
         pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
         document = new Document(pageSize, 20, 20, 40, 40);
 
         try {
             headertext = header;
-            pathimg=s;
+            pathimg = s;
             writer = PdfWriter.getInstance(document, new FileOutputStream(
                     RESULT));
             Background event = new Background();
@@ -621,7 +657,7 @@ public class HeaderNew {
 
         @Override
         public void onEndPage(PdfWriter writer, Document document) {
-
+            HeaderNewfont();
             BlackFont.setSize(12);
             PdfContentByte cby = writer.getDirectContent();
             //--Outline BOrder
@@ -640,142 +676,142 @@ public class HeaderNew {
 
             PdfPCell cells = new PdfPCell();
 
-            //---image logo
-            Image image=addProfile("/sdcard/MYLO/images/" + "pdflogo.png");
-            image.scaleAbsoluteHeight(10);
-            image.scaleAbsoluteWidth(50);
-            image.scalePercent(10);
-            image.setAbsolutePosition(20, 220);
-            image.scaleAbsolute(100f, 30f);
-
-//---imae profile
-           /* Image images=addProfile("/sdcard/MYLO/images/" + "pp.png");
-            images.scaleAbsoluteHeight(50);
-            images.scaleAbsoluteWidth(50);
-            images.scalePercent(10);
-            images.setAbsolutePosition(20, 120);
-            images.scaleAbsolute(30f, 30f);
-*/
-            Image imagesf=addProfile("/sdcard/MYLO/images/" +"calpdf.png");
-            imagesf.scaleAbsolute(25f, 25f);
-
-            Image imagedef=addProfile("/sdcard/MYLO/images/" +"profpdf.png");
-            imagedef.scaleAbsolute(25f, 25f);
-
-            Image imaged= null;
-            Image clipped = null;
-
-            try {
-                imaged = Image.getInstance(pathimg);//addProfile(pathimg);//
-            } catch (BadElementException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (imaged!=null) {
-                // imaged.scaleAbsolute(25f, 25f);
-                float w = imaged.getScaledWidth();
-                float h = imaged.getScaledHeight();
-                float bitmapRatio = (float)w  / (float) h;
-                if (bitmapRatio > 1) {
-                    w  = 900;
-                    h = (int) (w  / bitmapRatio);
-                } else {
-                    h = 900;
-                    w  = (int) (h * bitmapRatio);
-                }
-
-                //  float w = imaged.getScaledWidth();
-                //  float h = imaged.getScaledHeight();
-
-                PdfTemplate t = PdfTemplate.createTemplate(writer, w, h);
-                t.ellipse(0, 0, w, h);
-                t.clip();
-                t.newPath();
-                try {
-                    t.addImage(imaged, w, 0, 0, h, 0, -100);
-                } catch (DocumentException e) {
-                    e.printStackTrace();
-                }
-
-                try {
-                    clipped = Image.getInstance(t);
-
-                } catch (BadElementException e) {
-                    e.printStackTrace();
-                }
-                clipped.scaleAbsolute(25f, 25f);
-
-            }else{
-
-            }
-            //-- Cell 1
-            cells = new PdfPCell();
-            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
-            cells.setBorder(Rectangle.NO_BORDER);
-            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
-            cells.setPaddingLeft(20);
-            cells.setPaddingRight(20);
-            cells.setPaddingTop(6);
-            cells.setPaddingBottom(7);
-
+            //nikita - commented code for exception
+//            //---image logo
+//            Image image = addProfile("/sdcard/MYLO/images/" + "pdflogo.png");
+//            image.scaleAbsoluteHeight(10);
+//            image.scaleAbsoluteWidth(50);
+//            image.scalePercent(10);
+//            image.setAbsolutePosition(20, 220);
+//            image.scaleAbsolute(100f, 30f);
+//
+////---imae profile
+//           /* Image images=addProfile("/sdcard/MYLO/images/" + "pp.png");
+//            images.scaleAbsoluteHeight(50);
+//            images.scaleAbsoluteWidth(50);
+//            images.scalePercent(10);
+//            images.setAbsolutePosition(20, 120);
+//            images.scaleAbsolute(30f, 30f);
+//*/
+//            Image imagesf = addProfile("/sdcard/MYLO/images/" + "calpdf.png");
+//            imagesf.scaleAbsolute(25f, 25f);
+//
+//            Image imagedef = addProfile("/sdcard/MYLO/images/" + "profpdf.png");
+//            imagedef.scaleAbsolute(25f, 25f);
+//
+//            Image imaged = null;
+//            Image clipped = null;
+//
+//            try {
+//                imaged = Image.getInstance(pathimg);//addProfile(pathimg);//
+//            } catch (BadElementException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//            if (imaged != null) {
+//                // imaged.scaleAbsolute(25f, 25f);
+//                float w = imaged.getScaledWidth();
+//                float h = imaged.getScaledHeight();
+//                float bitmapRatio = (float)w / (float)h;
+//                if (bitmapRatio > 1) {
+//                    w = 900;
+//                    h = (int)(w / bitmapRatio);
+//                } else {
+//                    h = 900;
+//                    w = (int)(h * bitmapRatio);
+//                }
+//
+//                //  float w = imaged.getScaledWidth();
+//                //  float h = imaged.getScaledHeight();
+//
+//                PdfTemplate t = PdfTemplate.createTemplate(writer, w, h);
+//                t.ellipse(0, 0, w, h);
+//                t.clip();
+//                t.newPath();
+//                try {
+//                    t.addImage(imaged, w, 0, 0, h, 0, -100);
+//                } catch (DocumentException e) {
+//                    e.printStackTrace();
+//                }
+//
+//                try {
+//                    clipped = Image.getInstance(t);
+//
+//                } catch (BadElementException e) {
+//                    e.printStackTrace();
+//                }
+//                clipped.scaleAbsolute(25f, 25f);
+//
+//            } else {
+//
+//            }
+//            //-- Cell 1
+//            cells = new PdfPCell();
+//            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+//            cells.setBorder(Rectangle.NO_BORDER);
+//            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
+//            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+//            cells.setPaddingLeft(20);
+//            cells.setPaddingRight(20);
+//            cells.setPaddingTop(6);
+//            cells.setPaddingBottom(7);
+//
             Paragraph p;
-            Phrase pp ;
+            Phrase pp;
+//            p = new Paragraph();
+//            pp = new Phrase();
+//            imagesf.setAlignment(Image.ALIGN_CENTER);
+//            p.setIndentationLeft(2f);
+//            //Add Imae
+//            Chunk cf;
+//            if (imaged != null) {
+//                cf = new Chunk(clipped, 0, -7, true);
+//            } else {
+//                cf = new Chunk(imagedef, 0, -7, true);
+//            }
+//            p.add(cf);
+//            //Add Space between imae and Text
+//            Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+//            pp.add(underlined);
+//            //Add Text
+//            Chunk underline = new Chunk(headertext, BlackFont);
+//            pp.add(underline);
+//            p.add(pp);
+//            p.setAlignment(Element.ALIGN_LEFT);
+//            cells.addElement(p);
+//
+//            header.addCell(cells);
+//
+//            //--- Cell 2
+//            cells = new PdfPCell(image, false);
+//            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+//            cells.setBorder(Rectangle.NO_BORDER);
+//            cells.setHorizontalAlignment(Element.ALIGN_CENTER);
+//            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+//            cells.setPaddingTop(10);
+//            cells.setPaddingBottom(10);
+//            //cells.addElement(image);
+//            header.addCell(cells);
+//
+//
+//            //-- CEll 3
+//            cells = new PdfPCell();
+//            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
+//            cells.setBorder(Rectangle.NO_BORDER);
+//            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
+//            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
+//            cells.setPaddingLeft(20);
+//            cells.setPaddingRight(20);
+//            cells.setPaddingTop(6);
+//            cells.setPaddingBottom(7);
             p = new Paragraph();
             pp = new Phrase();
-            imagesf.setAlignment(Image.ALIGN_CENTER);
-            p.setIndentationLeft(2f);
-            //Add Imae
-            Chunk cf;
-            if (imaged!=null) {
-                cf = new Chunk(clipped, 0, -7, true);
-            }
-            else {
-                cf = new Chunk(imagedef, 0, -7, true);
-            }
-            p.add(cf);
-            //Add Space between imae and Text
-            Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
-            pp.add(underlined);
-            //Add Text
-            Chunk underline = new Chunk(headertext, BlackFont);
-            pp.add(underline);
-            p.add(pp);
-            p.setAlignment(Element.ALIGN_LEFT);
-            cells.addElement(p);
-
-            header.addCell(cells);
-
-            //--- Cell 2
-            cells = new PdfPCell(image,false);
-            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
-            cells.setBorder(Rectangle.NO_BORDER);
-            cells.setHorizontalAlignment(Element.ALIGN_CENTER);
-            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
-            cells.setPaddingTop(10);
-            cells.setPaddingBottom(10);
-            //cells.addElement(image);
-            header.addCell(cells);
-
-
-            //-- CEll 3
-            cells = new PdfPCell();
-            cells.setBackgroundColor(WebColors.getRGBColor("#FFFFFF"));
-            cells.setBorder(Rectangle.NO_BORDER);
-            cells.setHorizontalAlignment(Element.ALIGN_RIGHT);
-            cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
-            cells.setPaddingLeft(20);
-            cells.setPaddingRight(20);
-            cells.setPaddingTop(6);
-            cells.setPaddingBottom(7);
-            p = new Paragraph();
-            pp = new Phrase();
-            imagesf.setAlignment(Image.ALIGN_CENTER);
-            p.setIndentationLeft(2f);
-            //Add Imae
-            Chunk cfd=new Chunk(imagesf, 0,-7,true);
-            p.add(cfd);
+//            imagesf.setAlignment(Image.ALIGN_CENTER);
+//            p.setIndentationLeft(2f);
+//            //Add Imae
+//            Chunk cfd = new Chunk(imagesf, 0, -7, true);
+//            p.add(cfd); //nikita - commented code for exception
             //Add Space between imae and Text
             Chunk underlinedd = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
             pp.add(underlinedd);
@@ -788,7 +824,7 @@ public class HeaderNew {
             cells.addElement(p);
             header.addCell(cells);
 
-            cells = new PdfPCell( new Paragraph(""));
+            cells = new PdfPCell(new Paragraph(""));
             header.addCell(cells);
 
             footer = new PdfPTable(2);
@@ -801,7 +837,7 @@ public class HeaderNew {
             FooterFont.setColor(WebColors.getRGBColor("#A5A5A5"));//255, 99, 26);
             FooterFont.setStyle(Font.BOLD);
             PdfPCell cell = new PdfPCell();
-            cell = new PdfPCell(new Phrase("WWW.MINDYOUR-LOVEDONES.COM",FooterFont));
+            cell = new PdfPCell(new Phrase("WWW.MINDYOUR-LOVEDONES.COM", FooterFont));
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
             cell.setHorizontalAlignment(Element.ALIGN_LEFT);
@@ -809,8 +845,8 @@ public class HeaderNew {
             cell.setPadding(10);
             footer.addCell(cell);
 
-            cell = new PdfPCell(new Phrase("PAGE "+String.format(""
-                    + (writer.getPageNumber())),FooterFont));
+            cell = new PdfPCell(new Phrase("PAGE " + String.format(""
+                    + (writer.getPageNumber())), FooterFont));
             cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
             cell.setPadding(10);
             cell.setBorder(Rectangle.NO_BORDER);
@@ -824,7 +860,7 @@ public class HeaderNew {
             header.writeSelectedRows(
                     0,
                     -1,
-                    0, document.top()+40, cb);
+                    0, document.top() + 40, cb);
 
            /* footer.writeSelectedRows(
                     0,
@@ -835,9 +871,9 @@ public class HeaderNew {
             footer.writeSelectedRows(
                     0,
                     -1,
-                    0, document.bottom()-10, cb);
+                    0, document.bottom() - 10, cb);
 
-            cb.moveTo(PageSize.A4.getHeight()+90,PageSize.A4.getHeight()-40 );
+            cb.moveTo(PageSize.A4.getHeight() + 90, PageSize.A4.getHeight() - 40);
 
            /* cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
             cb.setGrayStroke(0.50f);
