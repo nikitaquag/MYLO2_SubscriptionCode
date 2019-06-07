@@ -6,6 +6,7 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
@@ -29,6 +30,7 @@ import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 
@@ -80,12 +82,12 @@ public class IndividualNew {
     }
 }
 
-    public IndividualNew(RelativeConnection connection, ArrayList<Pet> Petlist, ArrayList<ContactData> phonelist) {
+    public IndividualNew(RelativeConnection connection, ArrayList<Pet> Petlist, ArrayList<ContactData> phonelist, Image ppys) {
         try {
             // Font
             IndividualNewFont();
 
-            HeaderNew.addNewChank("Personal Profile"  );
+            HeaderNew.addNewChank("Personal Profile",ppys);
             messageInfo.add("Personal Profile");
             HeaderNew.addEmptyLine(1);
 
@@ -256,17 +258,17 @@ public class IndividualNew {
             messageInfo2.add("Address :");
             messageInfo2.add(address);
 
-            if (phonelist.size()%2!=0)
+           /* if (phonelist.size()%2!=0)
             {
                 cell1 = new PdfPCell();
                 HeaderNew.cellDesign(cell1, table1, "", "Empty");
                 table1.addCell(cell1);
-            }
+            }*/
 
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
 
             String bdates = "";
@@ -332,16 +334,16 @@ public class IndividualNew {
             messageInfo2.add("Eyes :");
             messageInfo2.add(eyes);
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
-            messageInfo2.add("");
+            messageInfo2.add("");*/
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
             if (connection.getMarital_status() != null) {
                 marital_status = connection.getMarital_status();
@@ -354,16 +356,16 @@ public class IndividualNew {
             messageInfo2.add("Marital Status :");
             messageInfo2.add(marital_status);
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
             messageInfo2.add("");
-
-            cell1 = new PdfPCell();
+*/
+          /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1); */
 
             String live = "";
             if (connection.getLive() != null) {
@@ -485,9 +487,9 @@ public class IndividualNew {
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 */
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
             if (connection.getProfession() != null) {
                 profession = connection.getProfession();
@@ -525,16 +527,16 @@ public class IndividualNew {
             messageInfo2.add(employedBy);
 
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
-            messageInfo2.add("");
+            messageInfo2.add("");*/
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
             String english = "";
             if (connection.getEnglish() != null) {
@@ -570,9 +572,9 @@ public class IndividualNew {
             messageInfo2.add(" ");
             messageInfo2.add(" ");
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
             if (connection.getReligion() != null) {
                 religionNote = connection.getReligion();
@@ -585,16 +587,16 @@ public class IndividualNew {
             messageInfo2.add("Religious Affiliation & Notes :");
             messageInfo2.add(religionNote);
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
-            messageInfo2.add("");
+            messageInfo2.add("");*/
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
             if (connection.getVeteran() != null) {
                 Veteran = connection.getVeteran();
@@ -618,9 +620,9 @@ public class IndividualNew {
             messageInfo2.add("Id Number :");
             messageInfo2.add(idNumber);
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
 
             String card="";
@@ -635,16 +637,16 @@ public class IndividualNew {
             messageInfo2.add("Do you have business card?:");
             messageInfo2.add(card);
 
-            cell1 = new PdfPCell();
+            /*cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1,table1,"","Empty");
             table1.addCell(cell1);
 
             messageInfo2.add("");
-            messageInfo2.add("");
+            messageInfo2.add("");*/
 
-            cell1 = new PdfPCell();
+           /* cell1 = new PdfPCell();
             HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);
+            table1.addCell(cell1);*/
 
            // HeaderNew.document.add(table1);
            // HeaderNew.addEmptyLine(1);
@@ -661,10 +663,12 @@ public class IndividualNew {
             messageInfo2.add(Pets);
 
             // cell = new PdfPCell(new Phrase(""));
-            cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1,table1,"","Empty");
-            table1.addCell(cell1);
-
+            if (phonelist.size()%2!=0)
+            {
+                cell1 = new PdfPCell();
+                HeaderNew.cellDesign(cell1, table1, "", "Empty");
+                table1.addCell(cell1);
+            }
             messageInfo2.add("");
             messageInfo2.add("");
 
@@ -677,9 +681,11 @@ public class IndividualNew {
 
                 Paragraph pf = new Paragraph();
                 Phrase pps = new Phrase();
-                Chunk underlined = new Chunk(Html.fromHtml("&nbsp;&nbsp;").toString(), BlackFont);
+                    Chunk underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
+                pf.add(pps);
 
+                pps = new Phrase();
                 Chunk underline = new Chunk("Pet(s) Details", BlackFont);
                 pps.add(underline);
 
@@ -727,7 +733,7 @@ public class IndividualNew {
                 messageInfo3.add("Pets " + k + " :");
                 messageInfo3.add("");*/
 
-
+                   int  k=i+1;
                     tableIN = new PdfPTable(2);
                     PdfPCell cellIN;
                     tableIN.setWidthPercentage(95);
@@ -744,7 +750,7 @@ public class IndividualNew {
                     }
                     //cellIN = new PdfPCell(new Phrase("Name:" + name));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Name:", name);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Pet "+k+" Name:", name);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 

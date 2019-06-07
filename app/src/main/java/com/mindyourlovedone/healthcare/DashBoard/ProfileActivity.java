@@ -50,8 +50,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.PetAdapter;
@@ -95,6 +98,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -2333,13 +2337,14 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 */
 
           // Pdf New
+
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
+
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath);
-        preferences.copyFile("ic_launcher.png", context);
-        preferences.copyFile("pp.png", context);
-        preferences.copyFile("pdflogo.png", context);
-        preferences.copyFile("calpdf.png", context);
-        preferences.copyFile("profpdf.png", context);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath,pdflogo,calendar,profile);
 
         HeaderNew.addusereNameChank("PERSONAL PROFILE");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
@@ -2349,7 +2354,9 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         final ArrayList<ContactData> phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
 
-        new IndividualNew(personalInfoList, PetList, phonelist);
+        Image pp = null;
+        pp=preferences.addFile("pp.png", context);
+        new IndividualNew(personalInfoList, PetList, phonelist,pp);
 
         HeaderNew.document.close();
 

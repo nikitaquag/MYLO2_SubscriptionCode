@@ -4,16 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Image;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.MalformedURLException;
 
 /**
  * Created by varsha on 8/21/2017.
@@ -218,6 +226,42 @@ public class Preferences {
             Log.e("tag", "Exception in copyFile() of " + newFileName);
             Log.e("tag", "Exception in copyFile() " + e.toString());
         }
+
+    }
+
+    public Image addFile(String s, Context context) {
+        Image logostreamp=null;
+        try {
+            InputStream logostream=context.getAssets().open(s);
+            logostreamp=addProfile(logostream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return logostreamp;
+    }
+    public static Image addProfile(InputStream path) {
+        Image image = null;
+        try {
+            // get input stream
+            InputStream ims = path;
+            Bitmap bmp = BitmapFactory.decodeStream(ims);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bmp.compress(Bitmap.CompressFormat.PNG, 40, stream);
+            image = Image.getInstance(stream.toByteArray());
+            //  document.add(image);
+
+
+        } catch (BadElementException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (MalformedURLException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (Exception e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        return image;
 
     }
 }
