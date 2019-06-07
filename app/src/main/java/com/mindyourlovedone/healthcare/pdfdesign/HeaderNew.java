@@ -69,17 +69,11 @@ public class HeaderNew {
         //nikita - new code for font
         try {
             BaseFont base = BaseFont.createFont("assets/Lato-Regular.ttf", "UTF-8",BaseFont.EMBEDDED);
-
             GrayFont = new Font(base, 12,Font.NORMAL);
-
             GrayTitleFont = new Font(base, 12, Font.NORMAL);
-
             GreenFont = new Font(base, 20, Font.BOLD);
-
             BlackFont = new Font(base, 19, Font.NORMAL);
-
             FooterFont = new Font(base, 12, Font.NORMAL);
-
             CompFont = new Font(base, 13, Font.NORMAL);
         } catch (Exception ex) {
             ex.printStackTrace();

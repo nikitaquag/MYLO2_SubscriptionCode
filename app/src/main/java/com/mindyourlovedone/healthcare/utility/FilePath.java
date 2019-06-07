@@ -35,7 +35,7 @@ public class FilePath {
      * @author paulburke
      */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static String getPath(final Context context, final Uri uri) {
+    public static String getPath(final Context context, Uri uri) {
 
         final boolean isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT;
 
@@ -88,30 +88,44 @@ public class FilePath {
         // MediaStore (and general)
         else if ("content".equalsIgnoreCase(uri.getScheme())) {
 
-            //-corrected by nikita on 30-5-19 for gmail attachment
-
-//            if (isGooglePhotosUri(uri)) {
-//                return uri.getLastPathSegment();
-//            } else if (isGooglePdfUri(uri)) {
-
             String result = null;
-            if (uri.getScheme().equals("content")) {
-                Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
-                try {
-                    if (cursor != null && cursor.moveToFirst()) {
-                        result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                    }
-                } finally {
-                    cursor.close();
-                }
+           // String path = null;
+            MimeTypeMap mime = MimeTypeMap.getSingleton();
+            String type= mime.getExtensionFromMimeType( context.getContentResolver().getType(uri));
+if (type.equalsIgnoreCase("png")||type.equalsIgnoreCase("jpg")||type.equalsIgnoreCase("jpeg")) {
+    String[] proj = {MediaStore.Images.Media.DISPLAY_NAME};
+    Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
+    if (cursor.moveToFirst()) {
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME);
+        result = cursor.getString(column_index);
+    }
+    cursor.close();
+    if (result == null) {
+        result = uri.getPath();
+        int cut = result.lastIndexOf('/');
+        if (cut != -1) {
+            result = result.substring(cut + 1);
+        }
+    }
+}else {
+    if (uri.getScheme().equals("content")) {
+        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+        try {
+            if (cursor != null && cursor.moveToFirst()) {
+                result = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
             }
-            if (result == null) {
-                result = uri.getPath();
-                int cut = result.lastIndexOf('/');
-                if (cut != -1) {
-                    result = result.substring(cut + 1);
-                }
-            }
+        } finally {
+            cursor.close();
+        }
+    }
+    if (result == null) {
+        result = uri.getPath();
+        int cut = result.lastIndexOf('/');
+        if (cut != -1) {
+            result = result.substring(cut + 1);
+        }
+    }
+}
          //   Toast.makeText(context,result,Toast.LENGTH_SHORT).show();
 
                 try {
@@ -119,8 +133,6 @@ public class FilePath {
                     if (attachment == null)
                         Log.e("onCreate", "cannot access mail attachment");
                     else {
-                        MimeTypeMap mime = MimeTypeMap.getSingleton();
-                        String type= mime.getExtensionFromMimeType( context.getContentResolver().getType(uri));
 
                         String path = "" + "/mnt/sdcard/"+result;
                         FileOutputStream tmp = new FileOutputStream(path);

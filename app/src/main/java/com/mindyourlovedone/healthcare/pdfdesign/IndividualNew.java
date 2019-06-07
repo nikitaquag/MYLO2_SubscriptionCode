@@ -10,6 +10,7 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.html.WebColors;
+import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.draw.DottedLineSeparator;
@@ -36,13 +37,7 @@ import java.util.ArrayList;
  */
 
 public class IndividualNew {
-    public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 8,
-            Font.NORMAL);
-
     public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-            Font.NORMAL);
-
-    public static Font GrayFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.NORMAL);
 
     public static ArrayList<String> messageInfo = new ArrayList<String>();
@@ -74,12 +69,21 @@ public class IndividualNew {
     String Bdate = "";
     String notes = "";
 
+    public static void  IndividualNewFont()
+{
+    try {
+        BaseFont base = BaseFont.createFont("assets/Lato-Regular.ttf", "UTF-8",BaseFont.EMBEDDED);
+        BlackFont = new Font(base, 19, Font.NORMAL);
 
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
+}
 
     public IndividualNew(RelativeConnection connection, ArrayList<Pet> Petlist, ArrayList<ContactData> phonelist) {
         try {
-            // HeaderNew.addEmptyLine(1);
-
+            // Font
+            IndividualNewFont();
 
             HeaderNew.addNewChank("Personal Profile"  );
             messageInfo.add("Personal Profile");
