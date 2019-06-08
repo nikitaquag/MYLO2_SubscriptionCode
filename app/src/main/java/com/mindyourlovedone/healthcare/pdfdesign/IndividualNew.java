@@ -98,17 +98,33 @@ public class IndividualNew {
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table.setTableEvent(new RoundedBorder());
             table.getDefaultCell().setPadding(2);*/
+            PdfPTable table;
+            table = new PdfPTable(1);
+            table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table.setTableEvent(new RoundedBorder());
+            table.getDefaultCell().setPaddingBottom(15);
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table.setWidthPercentage(100);
+            PdfPCell cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
 
             PdfPTable table1;
             table1 = new PdfPTable(2);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table1.setTableEvent(new RoundedBorder());
-            table1.getDefaultCell().setPaddingBottom(15);
+           // table1.setTableEvent(new RoundedBorder());
+           // table1.getDefaultCell().setPaddingBottom(15);
             table1.setKeepTogether(false);
             table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
             PdfPCell cell1;
             Paragraph k1;
-            table1.setWidthPercentage(100);
+
             if (connection.getName() != null) {
                 name = connection.getName();
             }
@@ -752,6 +768,7 @@ public class IndividualNew {
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesign(cellIN, tableIN, "Pet "+k+" Name:", name);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
                     messageInfo3.add("Name :");
@@ -765,6 +782,7 @@ public class IndividualNew {
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesign(cellIN, tableIN, "Type of Pet / Breed:", breed);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
                     messageInfo3.add("Breed :");
@@ -910,7 +928,9 @@ public class IndividualNew {
 
                 table1.addCell(cell1);
             }
-            HeaderNew.document.add(table1);
+            cell.addElement(table1);
+            table.addCell(cell);
+            HeaderNew.document.add(table);
             HeaderNew.addEmptyLine(1);
 
         } catch (Exception e) {

@@ -446,61 +446,65 @@ public class HeaderNew {
                 chunk = new Chunk(value, BlackFont);
             }
             f1 = new Phrase(chunk);
+
             cell1.addElement(f);
             cell1.addElement(f1);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
             cell1.setPaddingLeft(14);
             cell1.setPaddingRight(14);
-            //cell1.setPaddingTop(2);
-            cell1.setPaddingBottom(5);
-            cell1.setVerticalAlignment(Element.ALIGN_TOP);
-            cell1.setLeading(2,1);
+           // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+           // cell1.setLeading(8,1);
 cell1.setUseDescender(true);
 cell1.setUseAscender(true);
 
             Paragraph k1;
             LineSeparator linek;
             k1 = new Paragraph(" ");
-            k1.setAlignment(Element.ALIGN_TOP);
+            k1.setAlignment(Element.ALIGN_MIDDLE);
             linek = new LineSeparator();
-            k1.setSpacingBefore(-6);
-            k1.setSpacingAfter(2);
+            k1.setSpacingBefore(-7);
+           // k1.setSpacingAfter(2);
             linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
-            linek.setLineWidth(2);
-            // linek.setOffset(-10);
-            k1.setIndentationLeft(1);
-            k1.setIndentationRight(4);
+            linek.setLineWidth(1.5f);
+           //
+            // linek.setOffset(-5);
+          //  k1.setIndentationLeft(1);
+          //  k1.setIndentationRight(4);
             k1.add(linek);
             cell1.addElement(k1);
         } else {
             chunk = new Chunk("", GrayFont);
             f1 = new Phrase(chunk);
+
             cell1.addElement(f);
             cell1.addElement(f1);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
             cell1.setPaddingLeft(14);
             cell1.setPaddingRight(14);
-           // cell1.setPaddingTop(2);
-            cell1.setPaddingBottom(5);
-            cell1.setLeading(2,1);
+            // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            // cell1.setLeading(8,1);
             cell1.setUseDescender(true);
             cell1.setUseAscender(true);
-            cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
             Paragraph k1;
             LineSeparator linek;
             k1 = new Paragraph(" ");
-            k1.setAlignment(Element.ALIGN_TOP);
+            k1.setAlignment(Element.ALIGN_MIDDLE);
             linek = new LineSeparator();
-            k1.setSpacingBefore(-6);
-            k1.setSpacingAfter(2);
-            linek.setLineColor(WebColors.getRGBColor("#FFFFFF"));
-            linek.setLineWidth(2);
-            // linek.setOffset(-10);
-            k1.setIndentationLeft(1);
-            k1.setIndentationRight(4);
+            k1.setSpacingBefore(-7);
+            // k1.setSpacingAfter(2);
+            linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
+            linek.setLineWidth(1.5f);
+            //
+            // linek.setOffset(-5);
+            //  k1.setIndentationLeft(1);
+            //  k1.setIndentationRight(4);
             k1.add(linek);
             cell1.addElement(k1);
         }
@@ -640,7 +644,7 @@ cell1.setUseAscender(true);
     public void createPdfHeaders(String RESULT, String header, String s, Image logostream, Image calendarstrem, Image profilestream) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
         pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
-        document = new Document(pageSize, 20, 20, 40, 40);
+        document = new Document(pageSize, 20, 20, 40, 30);
 
         try {
             headertext = header;
@@ -904,9 +908,9 @@ cell1.setUseAscender(true);
             footer.writeSelectedRows(
                     0,
                     -1,
-                    0, document.bottom()-10, cb);
+                    0, document.bottom(), cb);
 
-            cb.moveTo(50, 793);
+          //  cb.moveTo(50, 793);
 
            /* cb.setLineWidth(.50f); // Make a bit thicker than 1.0 default
             cb.setGrayStroke(0.50f);
