@@ -569,7 +569,7 @@ cell1.setUseAscender(true);
         footer.getDefaultCell()
                 .setVerticalAlignment(Element.ALIGN_MIDDLE);
         footer.getDefaultCell().setBackgroundColor(color);
-        footer.getDefaultCell().setPaddingTop(8);
+        footer.getDefaultCell().setPaddingTop(16);
         footer.getDefaultCell().setPaddingBottom(8);
 
         Paragraph p1 = new Paragraph(username, BlackFont);
@@ -644,7 +644,7 @@ cell1.setUseAscender(true);
     public void createPdfHeaders(String RESULT, String header, String s, Image logostream, Image calendarstrem, Image profilestream, String personal_profile) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
         pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
-        document = new Document(pageSize, 20, 20, 50, 30);
+        document = new Document(pageSize, 20, 20, 40, 30);
 
         try {
             headertext = header;
@@ -849,7 +849,7 @@ cell1.setUseAscender(true);
                 header.writeSelectedRows(
                         0,
                         -1,
-                        0, document.top()+50, cb);
+                        0, document.top()+40, cb);
             }
 
 else {
@@ -972,15 +972,9 @@ else {
 
                 //--- Cell 2-------------------------------------------------------------------------
                 cells = new PdfPCell();
-                p = new Paragraph();
-                pp = new Phrase();
+                p = new Paragraph(new Phrase(title));
+
                 cells.setBackgroundColor(color);
-
-                //Add Text
-                Chunk underlinesd = new Chunk(title, BlackFont);
-                pp.add(underlinesd);
-
-                p.add(pp);
                 cells.setBorder(Rectangle.NO_BORDER);
                 cells.setHorizontalAlignment(Element.ALIGN_MIDDLE);
                 cells.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -988,6 +982,9 @@ else {
                 cells.setPaddingBottom(10);
                 cells.setUseAscender(true);
                 cells.setUseDescender(true);
+
+                p.setFont(BlackFont);
+                p.setAlignment(Element.ALIGN_CENTER);
                 cells.addElement(p);
                 header.addCell(cells);
 
@@ -1031,7 +1028,7 @@ else {
                 header.writeSelectedRows(
                         0,
                         -1,
-                        0, document.top()+50, cb);
+                        0, document.top()+40, cb);
 
             }
 //--------------------------Footer-----------------------------------------------------------------------------------
