@@ -2344,7 +2344,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
         profile=preferences.addFile("profpdf.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath,pdflogo,calendar,profile);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath,pdflogo,calendar,profile,"PERSONAL PROFILE");
 
         HeaderNew.addusereNameChank("PERSONAL PROFILE");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
