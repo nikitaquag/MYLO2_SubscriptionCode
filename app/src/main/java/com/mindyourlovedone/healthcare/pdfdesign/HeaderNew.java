@@ -304,7 +304,7 @@ public class HeaderNew {
         p.setIndentationLeft(2f);
         //Add Imae
         Chunk cf;
-            cf = new Chunk(images, 0, -7, true);
+            cf = new Chunk(images, 0, -8, true);
 
         p.add(cf);
         //Add Space between imae and Text
@@ -434,18 +434,19 @@ public class HeaderNew {
         GrayTitleFont.setColor(WebColors.getRGBColor("#747474"));
         GrayTitleFont.setSize(10);
 
-        Phrase f;
-        Phrase f1;
+        Paragraph f;
+        Paragraph f1;
         Chunk chunk;
-        f = new Phrase(field, GrayTitleFont);
-
+        f = new Paragraph(field, GrayTitleFont);
+      //  f1 = new Paragraph();
         if (!value.equalsIgnoreCase("Empty")) {
             if (value.equalsIgnoreCase("")) {
-                chunk = new Chunk("Field is Empty", GrayFont);
+                f1 = new Paragraph("Field is Empty", GrayFont);
             } else {
-                chunk = new Chunk(value, BlackFont);
+                f1 = new Paragraph(value, BlackFont);
             }
-            f1 = new Phrase(chunk);
+            //f1 = new Paragraph(chunk);
+            f1.setSpacingBefore(-3);
 
             cell1.addElement(f);
             cell1.addElement(f1);
@@ -476,9 +477,9 @@ cell1.setUseAscender(true);
             k1.add(linek);
             cell1.addElement(k1);
         } else {
-            chunk = new Chunk("", GrayFont);
-            f1 = new Phrase(chunk);
-
+           // chunk = new Chunk("", GrayFont);
+            f1 = new Paragraph("", GrayFont);
+            f1.setSpacingBefore(-3);
             cell1.addElement(f);
             cell1.addElement(f1);
             cell1.setBorder(Rectangle.NO_BORDER);
@@ -776,9 +777,9 @@ cell1.setUseAscender(true);
                 //Add Imae
                 Chunk cf;
                 if (imaged != null) {
-                    cf = new Chunk(clipped, 0, -7, true);
+                    cf = new Chunk(clipped, 0, -8, true);
                 } else {
-                    cf = new Chunk(imagedef, 0, -7, true);
+                    cf = new Chunk(imagedef, 0, -8, true);
                 }
                 p.add(cf);
                 //Add Space between imae and Text
@@ -828,7 +829,7 @@ cell1.setUseAscender(true);
                 imagesf.setAlignment(Image.ALIGN_CENTER);
                 p.setIndentationLeft(2f);
                 //Add Imae
-                Chunk cfd = new Chunk(imagesf, 0, -7, true);
+                Chunk cfd = new Chunk(imagesf, 0, -8, true);
                 p.add(cfd);
                 //Add Space between imae and Text
                 Chunk underlinedn = new Chunk("  ", BlackFont);
@@ -950,9 +951,9 @@ else {
                 //Add Imae
                 Chunk cf;
                 if (imaged != null) {
-                    cf = new Chunk(clipped, 0, -7, true);
+                    cf = new Chunk(clipped, 0, -8, true);
                 } else {
-                    cf = new Chunk(imagedef, 0, -7, true);
+                    cf = new Chunk(imagedef, 0, -8, true);
                 }
                 p.add(cf);
                 //Add Space between imae and Text
@@ -1007,7 +1008,7 @@ else {
                 imagesf.setAlignment(Image.ALIGN_CENTER);
                 p.setIndentationLeft(2f);
                 //Add Imae
-                Chunk cfd = new Chunk(imagesf, 0, -7, true);
+                Chunk cfd = new Chunk(imagesf, 0, -8, true);
                 p.add(cfd);
                 //Add Space between imae and Text
                 Chunk underlinedn = new Chunk("  ", BlackFont);
