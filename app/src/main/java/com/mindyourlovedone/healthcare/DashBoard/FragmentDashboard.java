@@ -229,6 +229,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
           //  txtAddress.setText(address);
           /*  Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
             imgProfile.setImageBitmap(bmp);*/
+          preferences.putString(PrefConstants.CONNECTED_PHOTO,connection.getPhoto());
         } else {
             connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             preferences.putString(PrefConstants.CONNECTED_NAME, connection.getName());
@@ -277,6 +278,7 @@ public class FragmentDashboard extends Fragment implements View.OnClickListener,
 //            txtAddress.setText(address);
 //            Bitmap bmp = BitmapFactory.decodeByteArray(array, 0, array.length);
 //            imgProfile.setImageBitmap(bmp);
+            preferences.putString(PrefConstants.CONNECTED_PHOTO,connection.getPhoto());
         }
     }
 

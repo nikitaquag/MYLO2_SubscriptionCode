@@ -493,21 +493,16 @@ cell1.setUseAscender(true);
             cell1.setUseDescender(true);
             cell1.setUseAscender(true);
 
-            Paragraph k1;
+           /* Paragraph k1;
             LineSeparator linek;
             k1 = new Paragraph(" ");
             k1.setAlignment(Element.ALIGN_MIDDLE);
             linek = new LineSeparator();
             k1.setSpacingBefore(-7);
-            // k1.setSpacingAfter(2);
             linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
             linek.setLineWidth(1.5f);
-            //
-            // linek.setOffset(-5);
-            //  k1.setIndentationLeft(1);
-            //  k1.setIndentationRight(4);
             k1.add(linek);
-            cell1.addElement(k1);
+            cell1.addElement(k1);*/
         }
 
 
@@ -1046,7 +1041,10 @@ else {
             cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
             cell.setHorizontalAlignment(Element.ALIGN_LEFT);
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-            cell.setPadding(10);
+            cell.setPaddingTop(13);
+            cell.setPaddingBottom(10);
+            cell.setPaddingRight(10);
+            cell.setPaddingLeft(10);
             cell.setUseAscender(true);
             cell.setUseDescender(true);
             footer.addCell(cell);
@@ -1054,7 +1052,10 @@ else {
             cell = new PdfPCell(new Phrase("PAGE " + String.format(""
                     + (writer.getPageNumber())), FooterFont));
             cell.setBackgroundColor(WebColors.getRGBColor("#4B4B4B"));
-            cell.setPadding(10);
+            cell.setPaddingTop(13);
+            cell.setPaddingBottom(10);
+            cell.setPaddingRight(10);
+            cell.setPaddingLeft(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setHorizontalAlignment(Element.ALIGN_RIGHT);
             cell.setVerticalAlignment(Element.ALIGN_MIDDLE);

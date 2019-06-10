@@ -2788,6 +2788,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     MyConnectionsQuery ms = new MyConnectionsQuery(context, dbHelper1);
                     Boolean flag = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card,people);
                     if (flag == true) {
+                        preferences.putString(PrefConstants.CONNECTED_PHOTO,imagepath);
                         DBHelper dbHelper = new DBHelper(context, preferences.getString(PrefConstants.CONNECTED_USERDB));
                         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
                         Boolean flags = MyConnectionsQuery.updateMyConnectionsData(connection.getId(), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
@@ -2833,6 +2834,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
                     Boolean flags = MyConnectionsQuery.updateMyConnectionsData(1, name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                     if (flags == true) {
+                        preferences.putString(PrefConstants.CONNECTED_PHOTO,imagepath);
                         Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
                         preferences.putString(PrefConstants.CONNECTED_NAME, name);
                         preferences.putString(PrefConstants.CONNECTED_RELATION, relation);
