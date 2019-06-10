@@ -2193,7 +2193,7 @@
     </ScrollView>
     <ImageView
         android:id="@+id/floatOptions"
-        android:layout_width="@dimen/dimension90dp"
+        android:layout_width="@dimen/dimension70dp"
         android:layout_height="@dimen/dimension70dp"
         android:src="@drawable/threedots"
         android:layout_alignParentRight="true"

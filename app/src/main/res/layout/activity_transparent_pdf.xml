@@ -50,8 +50,8 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/floatCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/dimension70dp"
+        android:layout_height="@dimen/dimension70dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/dimension16dp"
@@ -69,8 +69,8 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatContact"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dimension20dp"
@@ -106,8 +106,8 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/floatNew"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="@dimen/dimension70dp"
+            android:layout_height="@dimen/dimension70dp"
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/dimension20dp"
