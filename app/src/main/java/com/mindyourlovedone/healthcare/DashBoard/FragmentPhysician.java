@@ -464,9 +464,9 @@ public class FragmentPhysician extends Fragment implements View.OnClickListener 
         profile=preferences.addFile("profpdf.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PERSONAL PROFILE");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRIMARY PHYSICIAN");
 
-        HeaderNew.addusereNameChank("Primary Physician");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addusereNameChank("PRIMARY PHYSICIAN");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
         Image pp = null;
         pp=preferences.addFile("emergency_four.png", getActivity());

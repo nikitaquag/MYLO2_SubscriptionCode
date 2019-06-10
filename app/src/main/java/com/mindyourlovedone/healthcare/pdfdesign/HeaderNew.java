@@ -323,29 +323,6 @@ public class HeaderNew {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
-            /*Image img = null;
-            try {
-                img = Image.getInstance("/sdcard/MYLO/images/" + "ic_launcher.png");
-            } catch (BadElementException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            img.scaleAbsolute(30f, 30f);
-            img.setAlignment(Image.LEFT);
-            try {
-                document.add(img);
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            }
-            Paragraph para = new Paragraph();
-            para.add(underline);
-
-                    try {
-                document.add(para);
-            } catch (DocumentException e) {
-                e.printStackTrace();
-            }*/
     }
 
     public static Image addSectionProfile(String path) {
@@ -590,19 +567,24 @@ cell1.setUseAscender(true);
         Paragraph p1;
         DottedLineSeparator line1;
         cell1.setColspan(2);
+        cell1.setUseAscender(true);
+        cell1.setUseDescender(true);
         cell1.setBorder(Rectangle.NO_BORDER);
         cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
-        /*cell1.setPaddingLeft(10);
-        cell1.setPaddingRight(5);
-        cell1.setPaddingTop(0);
-        cell1.setPaddingBottom(10);*/
+        cell1.setPaddingLeft(14);
+        cell1.setPaddingRight(14);
+        cell1.setPaddingTop(2);
+        cell1.setPaddingBottom(2);
         cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+
         p1 = new Paragraph(" ");
-        line1 = new DottedLineSeparator();
-        line1.setOffset(4);
-        line1.setLineWidth(2);
-        line1.setLineColor(BaseColor.BLACK);
-        p1.add(line1);
+        CustomDashedLineSeparator customLine= new CustomDashedLineSeparator();
+        customLine.setDash(5);
+        customLine.setGap(4);
+        customLine.setLineWidth(1.5f);
+        customLine.setLineColor(WebColors.getRGBColor("#747474"));
+        p1.add(customLine);
+
         cell1.addElement(p1);
     }
 

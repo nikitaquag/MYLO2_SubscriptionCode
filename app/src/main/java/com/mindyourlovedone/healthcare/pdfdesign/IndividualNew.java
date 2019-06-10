@@ -31,6 +31,7 @@ import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
 
 import java.io.InputStream;
+import java.nio.file.NotLinkException;
 import java.util.ArrayList;
 
 
@@ -4264,26 +4265,7 @@ public class IndividualNew {
             messageEmergency.add("Priority :");
             messageEmergency.add(priority);
 
-            for (int t=0;t<phonelist.size();t++)
-            {
-                ContactData c=phonelist.get(t);
-                String num="";
-                String type="";
-                if (c.getValue() != null) {
-                    num =c.getValue();
-                }
 
-                if (c.getContactType() != null) {
-                    type =c.getContactType();
-                }
-                int j= t+1;
-                cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table1,"Contact"+j+":",type+":"+num);
-                table.addCell(cell);
-
-                messageEmergency.add(type+" Phone:");
-                messageEmergency.add(num);
-            }
 
             String email = "";
             if (e.getEmail() != null) {
@@ -4334,12 +4316,43 @@ public class IndividualNew {
             messageEmergency.add("Notes :");
             messageEmergency.add(note);
 
+            cell = new PdfPCell();
+            HeaderNew.cellDesign(cell, table, "", "Empty");
+            table.addCell(cell);
 
+            if (phonelist.size()!=0) {
+                cell = new PdfPCell();
+                HeaderNew.addDottedLine(cell);
+                table.addCell(cell);
+            }
+
+            for (int t=0;t<phonelist.size();t++)
+            {
+                ContactData c=phonelist.get(t);
+                String num="";
+                String type="";
+                if (c.getValue() != null) {
+                    num =c.getValue();
+                }
+
+                if (c.getContactType() != null) {
+                    type =c.getContactType();
+                }
+                int j= t+1;
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table1,"Contact"+j+":",type+":"+num);
+                table.addCell(cell);
+
+                messageEmergency.add(type+" Phone:");
+                messageEmergency.add(num);
+            }
+if (phonelist.size()%2!=0)
+{
                 cell = new PdfPCell();
                 HeaderNew.cellDesign(cell, table, "", "Empty");
                 table.addCell(cell);
 
-
+}
 
             cell1.addElement(table);
             table1.addCell(cell1);
@@ -4431,26 +4444,6 @@ public class IndividualNew {
             messagePhysician.add("Name :");
             messagePhysician.add(name);
 
-            for (int t=0;t<phonelists.size();t++)
-            {
-                ContactData c=phonelists.get(t);
-                String num="";
-                String type="";
-                if (c.getValue() != null) {
-                    num =c.getValue();
-                }
-
-                if (c.getContactType() != null) {
-                    type =c.getContactType();
-                }
-                int j= t+1;
-                cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table,"Contact"+j+":",type+":"+num);
-                table.addCell(cell);
-
-                messagePhysician.add(type+" Phone:");
-                messagePhysician.add(num);
-            }
 
             String address = "";
             if (s.getAddress() != null) {
@@ -4552,11 +4545,43 @@ public class IndividualNew {
             messagePhysician.add("Do you have business card?");
             messagePhysician.add(ascard);
 
-
             cell = new PdfPCell();
             HeaderNew.cellDesign(cell, table, "", "Empty");
             table.addCell(cell);
 
+            if (phonelists.size()!=0) {
+                cell = new PdfPCell();
+                HeaderNew.addDottedLine(cell);
+                table.addCell(cell);
+            }
+
+            for (int t=0;t<phonelists.size();t++)
+            {
+                ContactData c=phonelists.get(t);
+                String num="";
+                String type="";
+                if (c.getValue() != null) {
+                    num =c.getValue();
+                }
+
+                if (c.getContactType() != null) {
+                    type =c.getContactType();
+                }
+                int j= t+1;
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table,"Contact"+j+":",type+":"+num);
+                table.addCell(cell);
+
+                messagePhysician.add(type+" Phone:");
+                messagePhysician.add(num);
+            }
+
+            if (phonelists.size()%2!=0) {
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
+
+            }
 
 
             cell1.addElement(table);

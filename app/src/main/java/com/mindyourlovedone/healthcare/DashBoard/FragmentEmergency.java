@@ -548,9 +548,9 @@ emergencyList=new ArrayList<>();
         profile=preferences.addFile("profpdf.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PERSONAL PROFILE");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EMERGENCY CONTACTS & HEALTH CARE PROXY AGENT");
 
-        HeaderNew.addusereNameChank("Emergency Contacts & Health Care Proxy Agent");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addusereNameChank("EMERGENCY CONTACTS & HEALTH CARE PROXY AGENT");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
         Image pp = null;
         pp=preferences.addFile("emergency_three.png", getActivity());
