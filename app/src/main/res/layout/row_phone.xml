@@ -26,7 +26,6 @@ android:paddingTop="@dimen/dimension3dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:focusable="true"
-                android:backgroundTint="@color/colorOnesGray"
                 android:inputType="number"
                 android:focusableInTouchMode="true"
                 app:hintTextAppearance="@style/TextInputLayoutHintText"
@@ -54,7 +53,7 @@ android:paddingTop="@dimen/dimension3dp"
                     />
 
 
-                <requestFocus />
+
             </android.support.design.widget.TextInputLayout>
             <FrameLayout
                 android:layout_gravity="bottom"

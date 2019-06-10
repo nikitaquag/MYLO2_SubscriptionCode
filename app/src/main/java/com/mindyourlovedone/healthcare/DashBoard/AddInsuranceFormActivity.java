@@ -7,12 +7,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.OpenableColumns;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
@@ -21,7 +23,6 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -41,6 +42,8 @@ import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.utility.FilePath;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -153,9 +156,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             txtName.setText(document.getName());
             documentPath = document.getDocument();
             imgEdit.setVisibility(View.VISIBLE);
-            // imgDoc.setImageResource(document.getImage());
+            // rlDoc.setBackgroundResource(document.getImage());
             String extension = FilenameUtils.getExtension(document.getName());
-            showDocIcon(extension);
+            showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);
             imgDoc.setVisibility(View.GONE);
             txtAttach.setVisibility(View.GONE);
             txtAdd.setVisibility(View.GONE);
@@ -166,9 +169,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             txtName.setText(document.getName());
             documentPath = document.getDocument();
             floatOptions.setVisibility(View.VISIBLE);
-            // imgDoc.setImageResource(document.getImage());
+            // rlDoc.setBackgroundResource(document.getImage());
             String extension = FilenameUtils.getExtension(document.getName());
-            showDocIcon(extension);
+            showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);
             imgEdit.setVisibility(View.VISIBLE);
             imgDoc.setVisibility(View.GONE);
             txtAttach.setVisibility(View.GONE);
@@ -245,9 +248,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 showDialogWindow(text);
 
                 imgDoc.setClickable(false);
-                // imgDoc.setImageResource(R.drawable.pdf);
+                // rlDoc.setBackgroundResource(R.drawable.pdf);
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension, originPath);
                 imgDoc.setVisibility(View.GONE);
                 imgEdit.setVisibility(View.VISIBLE);
                 txtAttach.setVisibility(View.GONE);
@@ -918,9 +921,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                 imgDoc.setClickable(false);
-                // imgDoc.setImageResource(R.drawable.pdf);
+                // rlDoc.setBackgroundResource(R.drawable.pdf);
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension, originPath);
                 imgDoc.setVisibility(View.GONE);
                 imgEdit.setVisibility(View.VISIBLE);
                 txtAttach.setVisibility(View.GONE);
@@ -937,9 +940,9 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 txtName.setText(name);
                 String text = "You Have selected <b>" + name + "</b> Document";
                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
-                // imgDoc.setImageResource(R.drawable.pdf);
+                // rlDoc.setBackgroundResource(R.drawable.pdf);
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension,originPath);
                 imgDoc.setVisibility(View.GONE);
                 txtAttach.setVisibility(View.GONE);
                 imgDoc.setClickable(false);
@@ -950,29 +953,7 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
         }
     }
 
-    private void showDocIcon(String extension) {
-       // Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
-        switch (extension)
-        {
-            case "pdf":
-                rlDoc.setBackgroundResource(R.drawable.pdf);
-                break;
-            case "txt":
-                rlDoc.setBackgroundResource(R.drawable.docx);
-                break;
-            case "docx":
-                rlDoc.setBackgroundResource(R.drawable.docx);
-                break;
-            case "xlsx":
-                rlDoc.setBackgroundResource(R.drawable.excel);
-                break;
-            default:
-                rlDoc.setBackgroundResource(R.drawable.pdf);
-                break;
 
-        }
-
-    }
 
     private void ShowWindowDialog(String text) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
@@ -1059,6 +1040,52 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
             out.write(buffer, 0, read);
         }
 
+
+    }
+
+    private void showDocIcon(String extension, String originPath) {
+        // Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+        switch (extension)
+        {
+            case "pdf":
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                break;
+            case "txt":
+                rlDoc.setBackgroundResource(R.drawable.docx);
+                break;
+            case "docx":
+                rlDoc.setBackgroundResource(R.drawable.docx);
+                break;
+            case "xlsx":
+                rlDoc.setBackgroundResource(R.drawable.excel);
+                break;
+            case "doc":
+                rlDoc.setBackgroundResource(R.drawable.docx);
+                break;
+            case "xls":
+                rlDoc.setBackgroundResource(R.drawable.excel);
+                break;
+            case "png":
+                BitmapDrawable background = new BitmapDrawable(originPath);
+                rlDoc.setBackgroundDrawable(background);
+                break;
+            case "PNG":
+                BitmapDrawable background1 = new BitmapDrawable(originPath);
+                rlDoc.setBackgroundDrawable(background1);
+                break;
+            case "jpg":
+                BitmapDrawable background2 = new BitmapDrawable(originPath);
+                rlDoc.setBackgroundDrawable(background2);
+                break;
+            case "jpeg":
+                BitmapDrawable background3 = new BitmapDrawable(originPath);
+                rlDoc.setBackgroundDrawable(background3);
+                break;
+            default:
+                rlDoc.setBackgroundResource(R.drawable.pdf);
+                break;
+
+        }
 
     }
 }

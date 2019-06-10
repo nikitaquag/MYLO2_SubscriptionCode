@@ -57,19 +57,35 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension10dp"
-            android:layout_marginRight="@dimen/dimension10dp"
             android:layout_toLeftOf="@+id/imgRight"
-            android:layout_toRightOf="@+id/txtTitle"
+            android:layout_marginRight="10dp"
             android:fontFamily="@font/lato"
-            android:paddingLeft="@dimen/dimension3dp"
-            android:gravity="center"
-            android:paddingRight="@dimen/dimension3dp"
-            android:text="Save"
+            android:text="SAVE"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/dimension18dp"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
             android:textStyle="bold"
             android:visibility="gone" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/txtSave"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="@dimen/dimension10dp"-->
+            <!--android:layout_marginRight="@dimen/dimension10dp"-->
+            <!--android:layout_toLeftOf="@+id/imgRight"-->
+            <!--android:layout_toRightOf="@+id/txtTitle"-->
+            <!--android:fontFamily="@font/lato"-->
+            <!--android:paddingLeft="@dimen/dimension3dp"-->
+            <!--android:gravity="center"-->
+            <!--android:paddingRight="@dimen/dimension3dp"-->
+            <!--android:text="Save"-->
+            <!--android:textAllCaps="true"-->
+            <!--android:textColor="@color/colorWhite"-->
+            <!--android:textSize="@dimen/dimension18dp"-->
+            <!--android:textStyle="bold"-->
+            <!--android:visibility="visible" />-->
 
         <ImageView
             android:id="@+id/imgDone"

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimension10dp"
+            android:orientation="vertical"
+
+            >
+
+            <LinearLayout
+                android:id="@+id/llRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+                <!--OVERVIEW-->
+                <RelativeLayout
+                    android:padding="@dimen/dimension5dp"
+                    android:id="@+id/rlEmergencyContact"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:background="@drawable/rlborderone"
+                    android:elevation="@dimen/dimension10dp"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flEC"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgECLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/personal" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtEmergencyContact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flEC"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center_horizontal"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Personal &amp; Medical Profile &amp; Emergency Contacts"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtEmergencyContact"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgECForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:padding="@dimen/dimension5dp"
+                    android:id="@+id/rlCarePlan"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rlbordertwo"
+                    android:elevation="@dimen/dimension10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flDirective"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgCPLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:src="@drawable/advance" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtCarePlan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flDirective"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Advance Directives &amp; Documents"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold"
+
+
+                            />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtCarePlan"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgCPForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <!--Row Two-->
+
+            <LinearLayout
+                android:id="@+id/llRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llRow1"
+                android:layout_marginBottom="@dimen/dimension10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+                <!--EMrgency-->
+                <RelativeLayout
+                    android:id="@+id/rlSpecialist"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
+                    android:padding="@dimen/dimension5dp"
+                    android:background="@drawable/rlborderthree"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/imageView"
+                        android:layout_toRightOf="@+id/imageView">
+
+                        <FrameLayout
+                            android:id="@+id/flSpeciality"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgSpecialistLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/speciality" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtSpecialist"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flSpeciality"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center_horizontal"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Specialty\nContacts"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtSpecialist"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgSPForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:id="@+id/rlInsuranceCard"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dimension5dp"
+                    android:background="@drawable/rlbordersix"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flInsurance"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgInsuranceCardLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/insurance" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtInsuranceCard"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flInsurance"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center_horizontal"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Insurance\nInformation"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtInsuranceCard"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgICForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llRow2"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                >
+                <!--EMrgency-->
+                <RelativeLayout
+                    android:id="@+id/rlEmergencyEvent"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/dimension10dp"
+
+                    android:padding="@dimen/dimension5dp"
+                    android:background="@drawable/rlborderfour"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true">
+
+                        <FrameLayout
+                            android:id="@+id/flEvent"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgEventLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/notes" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtEmergencyEvent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flEvent"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center_horizontal"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Notes &amp; Appointment Checklist"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtEmergencyEvent"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgEVForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <!--CARE PLAN-->
+                <RelativeLayout
+                    android:id="@+id/rlPrescription"
+                    android:layout_width="@dimen/dimension250dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="@dimen/dimension5dp"
+                    android:background="@drawable/rlborderfive"
+                    android:elevation="@dimen/dimension10dp">
+
+                    <ImageView
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_marginTop="@dimen/dimension20dp"
+                        android:src="@drawable/ic_check"
+                        android:visibility="gone" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true">
+
+                        <FrameLayout
+                            android:id="@+id/flPrescription"
+                            android:layout_width="@dimen/dimension65dp"
+                            android:layout_height="@dimen/dimension65dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/dimension5dp"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgPrescriptionLogo"
+                                android:layout_width="@dimen/dimension50dp"
+                                android:layout_height="@dimen/dimension50dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension5dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/presc" />
+                        </FrameLayout>
+
+
+                        <TextView
+                            android:id="@+id/txtPrescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/flPrescription"
+                            android:layout_centerHorizontal="true"
+                            android:fontFamily="@font/lato"
+                            android:gravity="center"
+                            android:maxLines="2"
+                            android:padding="@dimen/dimension5dp"
+                            android:text="Prescription\nTracker"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/dimension17dp"
+                            android:textStyle="bold" />
+
+                        <FrameLayout
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_below="@+id/txtPrescription"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/border_ec_forward">
+
+                            <ImageView
+                                android:id="@+id/imgPresForward"
+                                android:layout_width="@dimen/dimension25dp"
+                                android:layout_height="@dimen/dimension25dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="@dimen/dimension2dp"
+                                android:src="@drawable/next_1" />
+                        </FrameLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -1,10 +1,8 @@
 package com.mindyourlovedone.healthcare.InsuranceHealthCare;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -25,7 +23,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -158,7 +155,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 profile = new int[]{R.drawable.sp_one, R.drawable.sp_two, R.drawable.sp_three, R.drawable.sp_four};
                 //   specialist= new String[]{"DOCTORS","HOSPITALS AND \nOTHER HEALTH PROFESSIONALS", "PHARMACIES AND \nHOME MEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
                 // specialist= new String[]{"DOCTORS & OTHER HEALTH\nPROFESSIONALS","HOSPITALS & REHABILITATION CENTERS", "PHARMACIES & HOME\nMEDICAL EQUIPMENT", "HOME HEALTH SERVICES", "FINANCE, INSURANCE, LEGAL"};
-                specialist = new String[]{"Doctors & Other Health Care Professionals", "Urgent Care, TeleMed, Hospitals, Rehab, Home Care", "Pharmacies & Home\nMedical Equipment", "Finance, Legal, Other"};
+                specialist = new String[]{"Doctors & Other Health Care Professionals", "Urgent Care, TeleMed, Hospitals, Rehab, Home Care", "Pharmacies & Home Medical Equipment", "Finance, Legal, Other"};
 
                 isEmergency = false;
                 isInsurance = false;
@@ -172,7 +169,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isEmergency = true;
                 isInsurance = false;
                 profile = new int[]{R.drawable.pp, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
-                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts &\nHealth Care Proxy Agent", "Primary Physician"};
+                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agent", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
                 specialist= new String[] { "PERSONAL PROFILE", "MEDICAL PROFILE", "EMERGENCY CONTACTS AND \nHEALTH CARE PROXY AGENT", "PRIMARY PHYSICIAN", "HEALTH CARE PROXY AGENT" };

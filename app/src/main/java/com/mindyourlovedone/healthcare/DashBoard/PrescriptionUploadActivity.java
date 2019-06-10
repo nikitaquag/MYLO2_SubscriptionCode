@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -19,7 +20,6 @@ import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -152,7 +152,7 @@ floatOptions.setVisibility(View.VISIBLE);
                         imgEdit.setVisibility(View.VISIBLE);
                         // imgDoc.setImageResource(document.getImage());
                         String extension = FilenameUtils.getExtension(document.getName());
-                        showDocIcon(extension);
+                        showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);
                         imgDoc.setVisibility(View.GONE);
                         txtAttach.setVisibility(View.GONE);
                         txtAdd.setVisibility(View.GONE);
@@ -165,7 +165,7 @@ floatOptions.setVisibility(View.VISIBLE);
                         documentPath = document.getDocument();
                         // imgDoc.setImageResource(document.getImage());
                         String extension = FilenameUtils.getExtension(document.getName());
-                        showDocIcon(extension);
+                        showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);
                         imgEdit.setVisibility(View.VISIBLE);
                         imgDoc.setVisibility(View.GONE);
                         txtAttach.setVisibility(View.GONE);
@@ -240,7 +240,7 @@ floatOptions.setVisibility(View.VISIBLE);
                                 imgDoc.setClickable(false);
                                 // imgDoc.setImageResource(R.drawable.pdf);
                                 String extension = FilenameUtils.getExtension(name);
-                                showDocIcon(extension);
+                                showDocIcon(extension, originPath);
                                 imgDoc.setVisibility(View.GONE);
                                 imgEdit.setVisibility(View.VISIBLE);
                                 imgDoc.setVisibility(View.GONE);
@@ -914,7 +914,7 @@ else {
                                 imgDoc.setClickable(false);
                                 // imgDoc.setImageResource(R.drawable.pdf);
                                 String extension = FilenameUtils.getExtension(name);
-                                showDocIcon(extension);
+                                showDocIcon(extension, originPath);
                                 imgDoc.setVisibility(View.GONE);
                                 imgEdit.setVisibility(View.VISIBLE);
                                 txtAttach.setVisibility(View.GONE);
@@ -932,7 +932,7 @@ else {
                                 Toast.makeText(context, Html.fromHtml(text), Toast.LENGTH_SHORT).show();
                                 // imgDoc.setImageResource(R.drawable.pdf);
                                 String extension = FilenameUtils.getExtension(name);
-                                showDocIcon(extension);
+                                showDocIcon(extension,originPath);
                                 imgDoc.setVisibility(View.GONE);
                                 imgEdit.setVisibility(View.VISIBLE);
                                 txtAttach.setVisibility(View.GONE);
@@ -1028,7 +1028,7 @@ else {
 
 
         }
-        private void showDocIcon(String extension) {
+        private void showDocIcon(String extension, String originPath) {
                // Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
                 switch (extension)
                 {
@@ -1043,6 +1043,28 @@ else {
                                 break;
                         case "xlsx":
                                 rlDoc.setBackgroundResource(R.drawable.excel);
+                                break;
+                        case "doc":
+                                rlDoc.setBackgroundResource(R.drawable.docx);
+                                break;
+                        case "xls":
+                                rlDoc.setBackgroundResource(R.drawable.excel);
+                                break;
+                        case "png":
+                                BitmapDrawable background = new BitmapDrawable(originPath);
+                                rlDoc.setBackgroundDrawable(background);
+                                break;
+                        case "PNG":
+                                BitmapDrawable background1 = new BitmapDrawable(originPath);
+                                rlDoc.setBackgroundDrawable(background1);
+                                break;
+                        case "jpg":
+                                BitmapDrawable background2 = new BitmapDrawable(originPath);
+                                rlDoc.setBackgroundDrawable(background2);
+                                break;
+                        case "jpeg":
+                                BitmapDrawable background3 = new BitmapDrawable(originPath);
+                                rlDoc.setBackgroundDrawable(background3);
                                 break;
                         default:
                                 rlDoc.setBackgroundResource(R.drawable.pdf);

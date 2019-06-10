@@ -21,6 +21,7 @@
 -->
 
     <RelativeLayout
+        android:elevation="@dimen/dimension3dp"
         android:id="@+id/rlAD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,8 +34,8 @@
 
         <ImageView
             android:id="@+id/imgAD"
-            android:layout_width="@dimen/dimension55dp"
-            android:layout_height="@dimen/dimension55dp"
+            android:layout_width="@dimen/dimension50dp"
+            android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
@@ -244,6 +245,8 @@
     </RelativeLayout>
 
     <RelativeLayout
+
+        android:elevation="@dimen/dimension3dp"
         android:id="@+id/rlOther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -256,8 +259,8 @@
 
         <ImageView
             android:id="@+id/imgOther"
-            android:layout_width="@dimen/dimension55dp"
-            android:layout_height="@dimen/dimension55dp"
+            android:layout_width="@dimen/dimension50dp"
+            android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
@@ -294,6 +297,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:elevation="@dimen/dimension3dp"
         android:id="@+id/rlMedicalRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -305,8 +309,8 @@
 
         <ImageView
             android:id="@+id/imgRecord"
-            android:layout_width="@dimen/dimension55dp"
-            android:layout_height="@dimen/dimension55dp"
+            android:layout_width="@dimen/dimension50dp"
+            android:layout_height="@dimen/dimension50dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension15dp"
             android:padding="@dimen/dimension5dp"
@@ -434,6 +438,7 @@
 
 
         <TextView
+            android:padding="@dimen/dimension5dp"
             android:id="@+id/txtClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -455,12 +460,12 @@
             android:gravity="center"
             android:layout_marginTop="@dimen/dimension10dp"
             android:layout_marginBottom="@dimen/dimension20dp"
-            android:layout_marginRight="@dimen/dimension70dp"
-            android:layout_marginLeft="@dimen/dimension40dp"
+            android:layout_marginRight="@dimen/dimension10dp"
+            android:layout_marginLeft="@dimen/dimension10dp"
             android:text="User instructions are available within each sub-section. Once opened, click the question mark located on the upper right corner."
             android:fontFamily="@font/lato"
             android:textColor="@color/colorBlackDark"
-            android:padding="@dimen/dimension10dp"
+            android:padding="@dimen/dimension5dp"
             android:textSize="@dimen/dimension20dp" />
         <RelativeLayout
             android:layout_width="match_parent"

@@ -17,7 +17,6 @@ import com.mindyourlovedone.healthcare.DashBoard.LivingActivity;
 import com.mindyourlovedone.healthcare.DashBoard.MedicalAppointActivity;
 import com.mindyourlovedone.healthcare.DashBoard.ProfileActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.Activity.RelationshipActivity;
 
 /**
  * Created by welcome on 9/13/2017.
@@ -117,6 +116,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
         ImageView imgLogo = convertView.findViewById(R.id.imgLogo);
         imgLogo.setImageResource(profile[position]);
         txtName.setText(specialist[position]);
+        txtName.setSelected(true);
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,7 +126,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Insurance";
                         break;
 
-                    case "Pharmacies & Home\nMedical Equipment":
+                    case "Pharmacies & Home Medical Equipment":
                         fragment = "Pharmacies";
                         break;
 
@@ -158,7 +158,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Information";
                         break;
 
-                    case "Emergency Contacts &\nHealth Care Proxy Agent":
+                    case "Emergency Contacts & Health Care Proxy Agent":
                         fragment = "Emergency";
                         break;
 

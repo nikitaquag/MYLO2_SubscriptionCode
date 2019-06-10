@@ -72,26 +72,16 @@ public class DocumentSdCardList extends AppCompatActivity {
         imagelist = Pdfs.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 // return ((name.endsWith(".pdf")));
-                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".xlsx"));
+                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".doc")||name.endsWith(".xlsx")||name.endsWith(".xls")||name.endsWith(".png")||name.endsWith(".PNG")||name.endsWith(".jpg")||name.endsWith(".jpeg"));
             }
         });
 
-       /* if (imagelist!=null) {
-            pdflist = new String[imagelist.length];
-            for (int i = 0; i < imagelist.length; i++) {
-                pdflist[i] = imagelist[i].getName();
-            }
-            PdfAdapter adapter=new PdfAdapter(context,pdflist,imagelist);
-            lvSd.setAdapter(adapter);
-        }
-        else{
-            Toast.makeText(context,"No Files Available in Sdcard",Toast.LENGTH_SHORT).show();
-        }*/
+
 
         File download = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         downloadList = download.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".xlsx"));
+                return (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".doc")||name.endsWith(".xlsx")||name.endsWith(".xls")||name.endsWith(".png")||name.endsWith(".PNG")||name.endsWith(".jpg")||name.endsWith(".jpeg"));
             }
         });
 

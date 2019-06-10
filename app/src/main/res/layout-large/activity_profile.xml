@@ -1,0 +1,2204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dimension10dp"
+        android:layout_marginLeft="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension10dp"
+        android:layout_marginEnd="@dimen/dimension10dp"
+        android:layout_marginRight="@dimen/dimension10dp"
+        android:layout_marginBottom="@dimen/dimension10dp"
+        android:src="@drawable/ic_box"
+        android:tint="@color/colorWhite"
+        android:visibility="gone"
+        app:backgroundTint="@color/colorFloatRed"
+        app:fabSize="normal"
+        tools:targetApi="lollipop" />
+
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimension70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorEmerMainGreen">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="@dimen/dimension35dp"
+            android:layout_height="@dimen/dimension45dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:src="@drawable/backward_arrow" />
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension25dp"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension5dp"
+            android:layout_toRightOf="@+id/imgBack"
+            android:src="@drawable/homes" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:fontFamily="@font/lato"
+            android:gravity="center"
+            android:text="Personal Profile"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_toLeftOf="@+id/imgRight"
+            android:layout_marginRight="10dp"
+            android:fontFamily="@font/lato"
+            android:text="SAVE"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/dimension20dp"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imgDone"
+            android:layout_width="@dimen/dimension30dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_centerVertical="true"
+
+            android:layout_marginLeft="@dimen/dimension10dp"
+            android:layout_marginRight="@dimen/dimension5dp"
+            android:layout_toLeftOf="@+id/imgRight"
+            android:src="@drawable/check_mark"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imgRight"
+            android:layout_width="@dimen/dimension25dp"
+            android:layout_height="@dimen/dimension30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dimension15dp"
+            android:src="@drawable/information"
+            android:visibility="visible"
+            android:tint="@color/colorWhite"/>
+    </RelativeLayout>
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_marginBottom="@dimen/dimension20dp"
+        android:background="@color/colorLightBlue">
+
+        <RelativeLayout
+            android:id="@+id/llIndividual"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <ImageView
+                android:id="@+id/imgInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="@dimen/dimension5dp"
+                android:src="@drawable/info"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true">
+                <!--  <RelativeLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorBlue"
+                    >
+
+                    <ImageView
+                        android:id="@+id/imgBack"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension50dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimension15dp"
+                        android:src="@drawable/backward_arrow" />
+
+                    <TextView
+                        android:id="@+id/txtTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:layout_toRightOf="@+id/imgBack"
+                        android:text="Individual Contact"
+                        android:textColor="#FFFFFF"
+                        android:textSize="@dimen/dimension22dp"
+                        />
+
+                    <ImageView
+                        android:id="@+id/imgDone"
+                        android:layout_width="@dimen/dimension30dp"
+                        android:layout_height="@dimen/dimension30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimension15dp"
+                        android:src="@drawable/check_mark"
+                        />
+                </RelativeLayout>-->
+                <!--
+                                <FrameLayout
+                                    android:id="@+id/flProfile"
+                                    android:layout_width="@dimen/dimension110dp"
+                                    android:layout_height="@dimen/dimension110dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="17dp">
+
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/imgProfile"
+                                        android:layout_width="@dimen/dimension100dp"
+                                        android:layout_height="@dimen/dimension100dp"
+                                        android:src="@drawable/ic_profile_defaults" />
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/imgEdit"
+                                        android:layout_width="@dimen/dimension35dp"
+                                        android:layout_height="@dimen/dimension40dp"
+                                        android:layout_gravity="top|right"
+                                        android:src="@drawable/ic_edit_blue" />
+
+                                </FrameLayout>
+                -->
+                <View
+                    android:id="@+id/vtop"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <RelativeLayout
+                    android:id="@+id/llProfile"
+                    android:layout_width="@dimen/dimension150dp"
+                    android:layout_height="@dimen/dimension150dp"
+                    android:layout_below="@+id/vtop"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/dimension20dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/dimension150dp"
+                        android:layout_height="@dimen/dimension150dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:src="@drawable/ic_profile_defaults" />
+
+                    <ImageView
+                        android:id="@+id/imgEdit"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimension20dp"
+                        android:src="@drawable/edit_n" />
+
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/vbot"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/llProfile"
+                    android:layout_marginTop="@dimen/dimension20dp"
+                    android:background="@color/colorLightGray"></View>
+                <!--<FrameLayout
+                    android:id="@+id/flProfile"
+                    android:layout_width="@dimen/dimension110dp"
+                    android:layout_height="@dimen/dimension110dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="17dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="@dimen/dimension100dp"
+                        android:layout_height="@dimen/dimension100dp"
+                        android:src="@drawable/ic_profile_defaults" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgEdit"
+                        android:layout_width="@dimen/dimension35dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_gravity="top|right"
+                        android:src="@drawable/ic_edit_blue" />
+
+                </FrameLayout>-->
+                <!--Code commented for prev image loader-->
+                <!--
+                                <FrameLayout
+                                    android:id="@+id/flProfile"
+                                    android:layout_width="@dimen/dimension110dp"
+                                    android:layout_height="@dimen/dimension110dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginTop="@dimen/dimension40dp">
+
+                                    <ImageView
+                                        android:id="@+id/imgProfile"
+                                        android:layout_width="@dimen/dimension100dp"
+                                        android:layout_height="@dimen/dimension100dp"
+                                        android:adjustViewBounds="true"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/ic_profile_defaults" />
+
+                                    <ImageView
+                                        android:id="@+id/imgEdit"
+                                        android:layout_width="@dimen/dimension40dp"
+                                        android:layout_height="@dimen/dimension40dp"
+                                        android:layout_gravity="top|right"
+                                        android:src="@drawable/ic_edit_blue" />
+                                </FrameLayout>
+                -->
+
+                <RelativeLayout
+                    android:id="@+id/llCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/viewg"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+                    android:layout_marginBottom="@dimen/dimension10dp"
+                    android:background="@color/colorWhite">
+
+                    <TextView
+                        android:id="@+id/txtCardz"
+                        style="@style/EmergencyCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dimension5dp"
+                        android:fontFamily="@font/lato"
+                        android:padding="@dimen/dimension10dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:text="Do you have business card?"
+                        android:textColor="@color/colorBlack" />
+
+                    <ToggleButton
+                        android:id="@+id/tbCard"
+                        android:layout_width="@dimen/dimension90dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:background="@drawable/toggle_selector"
+                        android:checked="false"
+                        android:gravity="center_vertical"
+                        android:text=""
+                        android:textOff=""
+                        android:textOn="" />
+
+                    <View
+                        android:id="@+id/vs"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/txtCardz"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_margin="@dimen/dimension10dp"
+                        android:background="@color/colorLightGray"></View>
+
+                    <RelativeLayout
+                        android:id="@+id/rlCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension200dp"
+                        android:layout_below="@+id/vs">
+
+                        <ImageView
+                            android:id="@+id/imgCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension200dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/busicard" />
+
+                        <ImageView
+                            android:id="@+id/txtCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension200dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:adjustViewBounds="true"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitXY"
+                           />
+
+                        <FrameLayout
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/dimension10dp"
+                            android:layout_marginTop="@dimen/dimension10dp"
+                            android:layout_marginRight="@dimen/dimension10dp"
+                            android:id="@+id/flFront"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dimension200dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/insu_border">
+
+                            <ImageView
+                                android:id="@+id/imgFrontCard"
+                                android:layout_width="250dp"
+                                android:layout_height="@dimen/dimension160dp"
+                                android:layout_gravity="center"
+                                android:scaleType="fitXY" />
+
+                            <LinearLayout
+                                android:id="@+id/llFrontCam"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imgFrontCard1"
+                                    android:layout_width="@dimen/dimension40dp"
+                                    android:layout_height="@dimen/dimension40dp"
+                                    android:src="@drawable/cam_front"
+                                    android:visibility="visible" />
+
+                                <TextView
+                                    android:id="@+id/txtFrontText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:gravity="center"
+                                    android:text="ADD CARD"
+                                    android:textAllCaps="true" />
+
+                            </LinearLayout>
+
+
+                        </FrameLayout>
+
+
+                        <ImageView
+                            android:id="@+id/imgEditCard"
+                            android:layout_width="@dimen/dimension40dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:visibility="gone"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/edit_n" />
+                    </RelativeLayout>
+
+                    <View
+                        android:background="@color/colorWhite"
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/rlCard"
+                        android:layout_height="@dimen/dimension50dp"/>
+
+                </RelativeLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vbot"
+                    android:layout_marginTop="@dimen/dimension22dp"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText"
+
+                    >
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Name"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/colorLightGray"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension15dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlRelations"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Email"
+                        android:imeOptions="actionNext"
+                        android:maxLines="2"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:singleLine="false"
+                        android:text=""
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/llPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilEmail">
+
+                    <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                        android:id="@+id/listPhone"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:divider="@null"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"></com.mindyourlovedone.healthcare.customview.NonScrollListView>
+
+                    <LinearLayout
+                        android:id="@+id/llNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilPhoNum"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="3"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/txtPhoNum"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/lato"
+                                android:hint="Phone Number"
+                                android:imeOptions="actionNext"
+                                android:inputType="phone"
+                                android:maxLength="12"
+                                android:maxLines="1"
+                                android:backgroundTint="@color/colorLightGray"
+
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/tilType"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/txtType"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/dropd"
+                                android:fontFamily="@font/lato"
+                                android:hint="Type"
+                                android:backgroundTint="@color/colorLightGray"
+
+                                android:imeOptions="actionNext"
+                                android:paddingTop="@dimen/dimension2dp"
+                                android:singleLine="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="@dimen/dimension20dp" />
+
+                            <requestFocus />
+                        </android.support.design.widget.TextInputLayout>
+
+                        <ImageView
+
+                            android:id="@+id/imgAddPhone"
+                            android:layout_width="@dimen/dimension0dp"
+                            android:layout_height="@dimen/dimension40dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:src="@drawable/add_n" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:id="@+id/llAddPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llNum"
+                        android:orientation="vertical"></LinearLayout>
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilAddres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llPhone"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension2dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Address"
+                        android:backgroundTint="@color/colorLightGray"
+                        android:imeOptions="actionNext"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/tilAddres"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilAddres"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/ic_droupdown_arrow"
+                        android:drawablePadding="@dimen/dimension10dp"
+                        android:fontFamily="@font/lato"
+                        android:hint="Country"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension2dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilEmail"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Mobile Phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension10dp"
+                        android:paddingBottom="@dimen/dimension10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilHomePhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilPhone"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtHomePhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Home Phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+
+                        android:paddingTop="@dimen/dimension10dp"
+                        android:paddingBottom="@dimen/dimension10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilWorkPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilHomePhone"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtWorkPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Work Phone"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="12"
+                        android:maxLines="1"
+
+                        android:paddingTop="@dimen/dimension10dp"
+                        android:paddingBottom="@dimen/dimension10dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rlRelations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilName">
+                    <FrameLayout
+                        android:id="@+id/flrel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:layout_marginRight="@dimen/dimension22dp"
+                        >
+                    <ImageView
+                        android:id="@+id/imgrel"
+                        android:layout_width="@dimen/dimension20dp"
+                        android:layout_height="@dimen/dimension25dp"
+                        android:src="@drawable/drg"
+                        android:layout_alignParentRight="true"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:layout_gravity="bottom|right"
+                        android:layout_marginBottom="@dimen/dimension17dp"
+                        ></ImageView>
+                    <com.mindyourlovedone.healthcare.customview.MySpinner
+                        android:id="@+id/spinnerRelation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension35dp"
+                        android:layout_marginRight="@dimen/dimension35dp"
+                        android:visibility="gone"
+                        app:ms_arrowColor="@color/colorBlue"
+                        app:ms_arrowSize="16dp"
+                        app:ms_floatingLabelText="Relationship"
+                        app:ms_hint="hint"
+                        app:ms_multiline="true"
+                        custom:ms_floatingLabelColor="@color/colorBlue"
+                        custom:ms_hintColor="@color/colorDarkGray" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilRelation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/spinnerRelation"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Relationship"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:backgroundTint="@color/colorLightGray"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                    </FrameLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilOtherRelation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/flrel"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintEnabled="true"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtOtherRelation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Other Relationship"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <com.mindyourlovedone.healthcare.customview.MySpinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilPhone"
+                    android:layout_marginLeft="@dimen/dimension35dp"
+                    android:layout_marginRight="@dimen/dimension35dp"
+                    android:visibility="gone"
+                    app:ms_arrowColor="@color/colorBlue"
+                    app:ms_arrowSize="16dp"
+                    app:ms_floatingLabelText="Country"
+                    app:ms_hint="hint"
+                    app:ms_multiline="true"
+                    custom:ms_floatingLabelColor="@color/colorBlue"
+                    custom:ms_hintColor="@color/colorDarkGray" />
+
+                <RelativeLayout
+                    android:id="@+id/rlGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilBdate"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp">
+
+                    <TextView
+                        android:id="@+id/txtvGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension5dp"
+                        android:fontFamily="@font/lato"
+                        android:imeOptions="actionNext"
+
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension10dp"
+                        android:paddingBottom="@dimen/dimension10dp"
+                        android:singleLine="true"
+                        android:text="Gender"
+                        android:textColor="@color/colorDarkGray"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioGroup
+                        android:id="@+id/rgGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtvGender"
+                        android:orientation="horizontal"
+
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="@dimen/dimension100dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@drawable/male_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="@dimen/dimension100dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@drawable/female_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
+
+                        <RadioButton
+                            android:id="@+id/rbTrans"
+                            android:layout_width="@dimen/dimension100dp"
+                            android:layout_height="@dimen/dimension45dp"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/dimension5dp"
+                            android:background="@drawable/trans_radio"
+                            android:button="@android:color/transparent"
+                            android:checked="false" />
+                    </RadioGroup>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/vgender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension1dp"
+                    android:layout_below="@+id/rlGender"
+                    android:backgroundTint="@color/colorLightGray"
+
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension3dp"
+                    android:layout_marginRight="@dimen/dimension20dp"
+
+                    android:layout_marginBottom="@dimen/dimension3dp"
+                    android:background="@color/colorGray">
+
+                </View>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilGender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlGender"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:focusable="false"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:hint="Gender"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilBdate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view2"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtBdate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@drawable/cal_c"
+                        android:drawablePadding="@dimen/dimension10dp"
+                        android:focusable="false"
+                        android:fontFamily="@font/lato"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:hint="Birthday"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/llHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/vgender"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:orientation="horizontal">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilHeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilGender"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtHeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Height(Ft-Inches)"
+                            android:imeOptions="actionNext"
+                            android:inputType="phone"
+                            android:nextFocusDown="@+id/txtWeight"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilWeight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tilHeight"
+                        android:layout_weight="1"
+                        android:gravity="bottom"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtWeight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Weight(lbs)"
+                            android:imeOptions="actionNext"
+                            android:inputType="number"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+<FrameLayout
+    android:id="@+id/rlEyess"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/llHeight"
+    android:layout_marginRight="@dimen/dimension22dp"
+    ><ImageView
+    android:id="@+id/img"
+    android:layout_width="@dimen/dimension20dp"
+    android:layout_height="@dimen/dimension25dp"
+    android:src="@drawable/drg"
+    android:layout_alignParentRight="true"
+    android:paddingTop="@dimen/dimension8dp"
+    android:layout_gravity="bottom|right"
+    android:layout_marginBottom="@dimen/dimension17dp"
+
+    ></ImageView>
+                <com.mindyourlovedone.healthcare.customview.MySpinner
+                    android:id="@+id/spinnerEyes"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension85dp"
+                    android:layout_marginLeft="@dimen/dimension35dp"
+                    android:layout_marginRight="@dimen/dimension35dp"
+                    android:visibility="gone"
+                    app:ms_arrowColor="@color/colorBlue"
+                    app:ms_arrowSize="16dp"
+                    app:ms_floatingLabelText="Eye Color"
+                    app:ms_hint="hint"
+                    app:ms_multiline="true"
+                    custom:ms_floatingLabelColor="@color/colorBlue"
+                    custom:ms_hintColor="@color/colorDarkGray" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSpinEyes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintEnabled="true"
+                    android:backgroundTint="@color/colorLightGray"
+
+                    app:hintTextAppearance="@style/TextInputLayoutHintText"
+                    android:layout_toLeftOf="@+id/img"
+
+                    >
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtSpinEyes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Eye Color"
+                        android:imeOptions="actionNext"
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+
+                </android.support.design.widget.TextInputLayout>
+
+</FrameLayout>
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/rlEyess"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <TextView
+                    android:id="@+id/txtLiving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view58"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:backgroundTint="@color/colorLightGray"
+
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:text="Do you live alone?"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension20dp" />
+
+
+                <ToggleButton
+                    android:id="@+id/tbLive"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_below="@+id/view58"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <!-- <View
+                     android:id="@+id/v"
+                     android:layout_width="match_parent"
+                     android:layout_height="2dp"
+                     android:layout_below="@+id/txtCardz"
+                     android:layout_margin="@dimen/dimension10dp"
+                     android:background="@color/colorLightGray"></View>
+ -->
+                <RadioGroup
+                    android:id="@+id/rgLive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtLiving"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYesLive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:text="Yes"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoLive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:checked="true"
+                        android:text="No"
+                        android:textSize="@dimen/dimension20dp" />
+                </RadioGroup>
+
+                <RelativeLayout
+                    android:id="@+id/rlLive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rgLive"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginRight="@dimen/dimension20dp">
+
+                    <View
+                        android:id="@+id/vw"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_marginTop="@dimen/dimension10dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginBottom="@dimen/dimension5dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkChild"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw"
+                        android:fontFamily="@font/lato"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Children"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <View
+                        android:id="@+id/vw1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_below="@+id/chkChild"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkFriend"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw1"
+                        android:fontFamily="@font/lato"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Friend"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <View
+                        android:id="@+id/vw3"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_below="@+id/chkFriend"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkGrandParent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw3"
+                        android:button="@drawable/radiocheck"
+                        android:fontFamily="@font/lato"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Grandparent(s)"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <View
+                        android:id="@+id/vw2"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_below="@+id/chkGrandParent"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkParent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw2"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:button="@drawable/radiocheck"
+                        android:fontFamily="@font/lato"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Parent(s)"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <View
+                        android:id="@+id/vw4"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_below="@+id/chkParent"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkSpouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw4"
+                        android:button="@drawable/radiocheck"
+                        android:fontFamily="@font/lato"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Spouse"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <View
+                        android:id="@+id/vw5"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:layout_below="@+id/chkSpouse"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkSibling"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw5"
+                        android:fontFamily="@font/lato"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Sibling"
+                        android:textSize="@dimen/dimension18dp"/>
+
+                    <View
+                        android:id="@+id/vw6"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_below="@+id/chkSibling"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <CheckBox
+                        android:id="@+id/chkOther"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw6"
+                        android:fontFamily="@font/lato"
+                        android:button="@drawable/radiocheck"
+                        android:paddingLeft="@dimen/dimension8dp"
+                        android:text="Significant Other"
+                        android:textSize="@dimen/dimension18dp" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilOther"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/chkOther"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:gravity="bottom"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
+
+                        >
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtOther"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Other(Specify)"
+                            android:imeOptions="actionNext"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:id="@+id/vw63"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension1dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_below="@+id/tilOther"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:layout_marginBottom="@dimen/dimension8dp"
+                        android:background="@color/colorGray"></View>
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilpeople"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vw63"
+                        android:layout_marginTop="@dimen/dimension8dp"
+                        android:gravity="bottom"
+
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="visible"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText"
+
+                        >
+
+
+                        <AutoCompleteTextView
+                            android:id="@+id/txtPeople"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:hint="Names of People in Household"
+                            android:imeOptions="actionNext"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <View
+                    android:id="@+id/view12"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension12dp"
+                    android:layout_below="@+id/rlLive"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilProfession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view12"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtProfession"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Profession"
+                        android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilEmployedBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilProfession"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtEmployedBy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Employed by and Name of Manager "
+                        android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tiltelephone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilEmployedBy"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txttelephone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Telephone # of Manager"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:maxLength="12"
+                        android:maxLines="2"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/tiltelephone"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <RelativeLayout
+                    android:id="@+id/rlLangauge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view4">
+                    <FrameLayout
+                        android:id="@+id/flLang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/dimension22dp"
+                        >
+                    <ImageView
+                    android:id="@+id/imgLn"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:src="@drawable/drg"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/dimension17dp"
+
+                    ></ImageView>
+                    <com.mindyourlovedone.healthcare.customview.MySpinner
+                        android:id="@+id/spinnerLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension85dp"
+                        android:layout_marginLeft="@dimen/dimension35dp"
+                        android:layout_marginRight="@dimen/dimension35dp"
+                        android:visibility="gone"
+                        app:ms_arrowColor="@color/colorBlue"
+                        app:ms_arrowSize="16dp"
+                        app:ms_floatingLabelText="Language Spoken"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        app:ms_hint="hint"
+                        app:ms_multiline="true"
+                        custom:ms_floatingLabelColor="@color/colorBlue"
+                        custom:ms_hintColor="@color/colorDarkGray" />
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilSpinLang"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:descendantFocusability="beforeDescendants"
+                        android:focusableInTouchMode="true"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+
+                        android:paddingBottom="@dimen/dimension8dp"
+                        app:hintEnabled="true"
+
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtSpinLang"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:fontFamily="@font/lato"
+                            android:hint="Language Spoken"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                    </FrameLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tilOtherLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/flLang"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:paddingRight="@dimen/dimension20dp"
+                        android:paddingBottom="@dimen/dimension8dp"
+                        android:visibility="gone"
+                        app:hintTextAppearance="@style/TextInputLayoutHintText">
+                        <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                        <AutoCompleteTextView
+                            android:id="@+id/txtOtherLanguage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato"
+                            android:imeOptions="actionNext"
+                            android:maxLength="30"
+                            android:maxLines="1"
+                            android:backgroundTint="@color/colorLightGray"
+
+                            android:paddingTop="@dimen/dimension8dp"
+                            android:includeFontPadding="true"
+                            android:paddingBottom="@dimen/dimension18dp"
+                            android:singleLine="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="@dimen/dimension20dp" />
+
+                        <requestFocus />
+                    </android.support.design.widget.TextInputLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtUnderstand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlLangauge"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:text="Understand English"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <ToggleButton
+                    android:id="@+id/tbEnglish"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_below="@+id/rlLangauge"
+                    android:layout_alignParentRight="true"
+
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <RadioGroup
+                    android:id="@+id/rgUnderstand"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtUnderstand"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:text="Yes"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:checked="true"
+                        android:text="No"
+                        android:textSize="@dimen/dimension20dp" />
+                </RadioGroup>
+
+                <View
+                    android:id="@+id/view7"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/rgUnderstand"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+                <FrameLayout
+                    android:id="@+id/flMar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/dimension22dp"
+                    android:layout_below="@+id/view3"
+                    >
+                <ImageView
+                    android:id="@+id/imgMr"
+                    android:layout_width="@dimen/dimension20dp"
+                    android:layout_height="@dimen/dimension25dp"
+                    android:src="@drawable/drg"
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="@dimen/dimension17dp"
+
+                    ></ImageView>
+                <com.mindyourlovedone.healthcare.customview.MySpinner
+                    android:id="@+id/spinnerMarital"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension85dp"
+
+                    android:layout_marginLeft="@dimen/dimension35dp"
+                    android:layout_marginRight="@dimen/dimension35dp"
+                    android:visibility="gone"
+                    app:ms_arrowColor="@color/colorBlue"
+                    app:ms_arrowSize="16dp"
+                    app:ms_floatingLabelText="Marital Status"
+                    app:ms_hint="hint"
+                    app:ms_multiline="true"
+                    custom:ms_floatingLabelColor="@color/colorBlue"
+                    custom:ms_hintColor="@color/colorDarkGray" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilSpinMarital"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view7"
+                    android:descendantFocusability="beforeDescendants"
+                    android:focusableInTouchMode="true"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintEnabled="true"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+                    <!--app:hintTextAppearance="@style/CustomTextAppearance"-->
+                    <AutoCompleteTextView
+                        android:id="@+id/txtSpinMarital"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:fontFamily="@font/lato"
+                        android:hint="Marital Status"
+                        android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:maxLength="30"
+                        android:maxLines="1"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/view58"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/flMar"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilReligion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view7"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtReligion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="Religious Affiliation &amp; Notes"
+                        android:imeOptions="actionNext"
+                        android:maxLines="3"
+                        android:backgroundTint="@color/colorLightGray"
+
+
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/tilReligion"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <TextView
+                    android:id="@+id/txtVeteran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view5"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:text="Veteran"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <ToggleButton
+                    android:id="@+id/tbVeteran"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_below="@+id/view5"
+                    android:layout_alignParentRight="true"
+                   android:layout_marginBottom="@dimen/dimension5dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <RadioGroup
+                    android:id="@+id/rgVeteran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtVeteran"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:text="Yes"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:checked="true"
+                        android:text="No"
+                        android:textSize="@dimen/dimension20dp" />
+                </RadioGroup>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tilId"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rgVeteran"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato"
+                        android:hint="ID Number"
+                        android:imeOptions="actionNext"
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tilId"
+                    android:gravity="bottom"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension8dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/TextInputLayoutHintText">
+
+                    <AutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/corner_gray_white_border"
+                        android:fontFamily="@font/lato"
+                        android:hint="ID Number"
+                        android:imeOptions="actionNext"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:paddingTop="@dimen/dimension8dp"
+                        android:includeFontPadding="true"
+                        android:paddingBottom="@dimen/dimension18dp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <requestFocus />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:id="@+id/view6"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/tilId"
+                    android:layout_marginTop="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray"></View>
+
+                <TextView
+                    android:id="@+id/txtPet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/view6"
+                    android:layout_marginLeft="@dimen/dimension5dp"
+                    android:fontFamily="@font/lato"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:paddingBottom="@dimen/dimension20dp"
+                    android:text="Pet(s)"
+                    android:textColor="@color/colorDarkGray"
+                    android:textSize="@dimen/dimension20dp" />
+
+                <ToggleButton
+                    android:id="@+id/tbPet"
+                    android:layout_width="@dimen/dimension90dp"
+                    android:layout_height="@dimen/dimension40dp"
+                    android:layout_below="@+id/view6"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="@dimen/dimension20dp"
+                    android:layout_alignTop="@+id/txtPet"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:paddingBottom="@dimen/dimension20dp"
+                    android:background="@drawable/toggle_selector"
+                    android:checked="false"
+                    android:gravity="center_vertical"
+                    android:text=""
+                    android:textOff=""
+                    android:textOn="" />
+
+                <RadioGroup
+                    android:id="@+id/rgPet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/txtPet"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dimension20dp"
+                    android:paddingTop="@dimen/dimension8dp"
+                    android:paddingRight="@dimen/dimension20dp"
+                    android:visibility="gone">
+
+                    <RadioButton
+                        android:id="@+id/rbYesPet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:text="Yes"
+                        android:textSize="@dimen/dimension20dp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNoPet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dimension20dp"
+                        android:checked="true"
+                        android:text="No"
+                        android:textSize="@dimen/dimension20dp" />
+                </RadioGroup>
+
+                <RelativeLayout
+                    android:id="@+id/rlPet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rgPet"
+                    android:layout_marginLeft="@dimen/dimension20dp"
+                    android:layout_marginTop="@dimen/dimension8dp"
+                    android:layout_marginRight="@dimen/dimension15dp"
+                    android:layout_marginBottom="@dimen/dimension8dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/txtPetHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_toRightOf="@+id/imgAllergy"
+                        android:fontFamily="@font/lato"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/dimension20dp"
+                        android:text="Add Pets"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/dimension20dp"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/txtAddPets"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/dimension5dp"
+                        android:layout_marginBottom="@dimen/dimension15dp"
+                        android:fontFamily="@font/lato"
+                        android:gravity="center_vertical"
+                        android:text="Add"
+                        android:textColor="#005EB6"
+                        android:textSize="@dimen/dimension20dp"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+
+                    <ImageView
+                        android:id="@+id/imgAddPet"
+                        android:layout_width="@dimen/dimension40dp"
+                        android:layout_height="@dimen/dimension40dp"
+                        android:layout_alignParentRight="true"
+                        android:padding="@dimen/dimension5dp"
+                        android:src="@drawable/add_square"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/viewBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:backgroundTint="@color/colorLightGray"
+
+                        android:layout_below="@+id/txtPetHeader"
+                        android:layout_margin="@dimen/dimension5dp"
+                        android:background="@color/colorLightGray"></View>
+
+                    <com.mindyourlovedone.healthcare.customview.NonScrollListView
+                        android:id="@+id/ListPet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/viewBar"
+                        android:divider="@null" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtAddPet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rlPet"
+                    android:background="#F6f6f6"
+                    android:fontFamily="@font/lato"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/dimension12dp"
+                    android:paddingBottom="@dimen/dimension12dp"
+                    android:layout_marginTop="@dimen/dimension10dp"
+                    android:text="ADD NEW"
+                    android:textColor="@color/colorTabDotsBlueColor"
+                    android:textSize="@dimen/dimension20dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/viewg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimension10dp"
+                    android:layout_below="@+id/txtAddPet"
+                    android:layout_marginBottom="@dimen/dimension15dp"
+                    android:background="@color/colorLightGray" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+    <ImageView
+        android:id="@+id/floatOptions"
+        android:layout_width="@dimen/dimension90dp"
+        android:layout_height="@dimen/dimension70dp"
+        android:src="@drawable/threedots"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="@dimen/dimension16dp"
+        android:layout_marginBottom="@dimen/dimension16dp"
+        />
+</RelativeLayout>

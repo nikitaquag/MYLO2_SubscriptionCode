@@ -494,15 +494,15 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtLocation.setText(document.getLocation());
             txtNote.setText(document.getNote());
             txtFName.setText(document.getName());
-            String extension = FilenameUtils.getExtension(document.getName());
-            showDocIcon(extension);
+
             txtPName.setText(document.getPerson());
             txtName.setText(document.getPrinciple());
             txtOther.setText(document.getOtherCategory());
             txtHosp.setText(document.getHospital());
             txtLocator.setText(document.getLocator());
             documentPath = document.getDocument();
-
+            String extension = FilenameUtils.getExtension(document.getName());
+            showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);
             //imgDoc.setImageResource(R.drawable.pdf);//document.getImage()
             imgAdd.setVisibility(View.VISIBLE);
             if (document.getType().equals("Other")) {
@@ -636,7 +636,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
                 showDialogWindow(text);
                 txtAdd.setText("Edit File");
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension, originPath);
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } catch (Exception ex) {
@@ -1557,7 +1557,7 @@ startActivity(i);
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension, originPath);
                 imgAdd.setVisibility(View.VISIBLE);
             }
         } else if (requestCode == RQUESTCODE) {//&& data != null) {
@@ -1572,7 +1572,7 @@ startActivity(i);
                 showDialogWindow(text);
                 //  txtAdd.setText("Edit File");
                 String extension = FilenameUtils.getExtension(name);
-                showDocIcon(extension);
+                showDocIcon(extension,originPath);
                 imgAdd.setVisibility(View.VISIBLE);
             }
             else
@@ -1691,7 +1691,7 @@ startActivity(i);
         super.onResume();
     }
 
-    private void showDocIcon(String extension) {
+    private void showDocIcon(String extension, String originPath) {
       //  Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
         switch (extension)
         {
@@ -1704,8 +1704,27 @@ startActivity(i);
             case "docx":
                 imgDoc.setImageResource(R.drawable.docx);
                 break;
+
             case "xlsx":
                 imgDoc.setImageResource(R.drawable.excel);
+                break;
+            case "doc":
+                imgDoc.setImageResource(R.drawable.docx);
+                break;
+            case "xls":
+                imgDoc.setImageResource(R.drawable.excel);
+                break;
+            case "png":
+                imgDoc.setImageURI(Uri.parse(originPath));;
+                break;
+            case "PNG":
+                imgDoc.setImageURI(Uri.parse(originPath));
+                break;
+            case "jpg":
+                imgDoc.setImageURI(Uri.parse(originPath));
+                break;
+            case "jpeg":
+                imgDoc.setImageURI(Uri.parse(originPath));
                 break;
             default:
                 imgDoc.setImageResource(R.drawable.pdf);
@@ -1714,4 +1733,6 @@ startActivity(i);
         }
 
     }
+
+
 }
