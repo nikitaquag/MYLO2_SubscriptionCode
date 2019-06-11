@@ -1274,14 +1274,10 @@ startActivity(i);
         final TextView txtIns = dialogview.findViewById(R.id.txtIns);
 
         String data=Html.fromHtml(
-                "<li> √ To upload an email attachment open the attachment from your email and click the forward button on the upper right side of the screen. \n</li>" +
-                "<li> √ Scroll through the App until you find MYLO.  Click MYLO – then click the Profile you wish to attach the document to, then click the sub-section the document pertains to and click OK. \n</li>" +
-                "<li> √ Enter additional information and then click Save. \n</li>" +
-                "<li> √ Watch a 10\n" +
-                        "second video found in the\n" +
-                        "Menu section of “How to\n" +
-                        "Videos”. \n</li>"
-
+                "<li> √ To upload an email attachment open the attachment from your email and click the forward button on the upper right side of the screen. <br></li>" +
+                        "<li> √ Scroll through the App until you find MYLO.  Click MYLO – then click the Profile you wish to attach the document to, then click the sub-section the document pertains to and click OK. <br></li>" +
+                        "<li> √ Enter additional information and then click Save. <br></li>" +
+                        "<li> √ Watch a 10 second video found in the Menu section of “How to Videos”. <br></li>"
         ).toString();
 
         txtIns.setText(data);

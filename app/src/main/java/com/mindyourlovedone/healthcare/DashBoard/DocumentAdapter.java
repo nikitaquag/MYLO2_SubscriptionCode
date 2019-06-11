@@ -2,6 +2,7 @@ package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,10 @@ import com.mindyourlovedone.healthcare.SwipeCode.RecyclerSwipeAdapter;
 import com.mindyourlovedone.healthcare.SwipeCode.SimpleSwipeListener;
 import com.mindyourlovedone.healthcare.SwipeCode.SwipeLayout;
 import com.mindyourlovedone.healthcare.model.Document;
+import com.mindyourlovedone.healthcare.utility.PrefConstants;
+import com.mindyourlovedone.healthcare.utility.Preferences;
+
+import org.apache.commons.io.FilenameUtils;
 
 import java.util.ArrayList;
 
@@ -30,11 +35,13 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
     Context context;
     ArrayList<Document> documentList;
     LayoutInflater lf;
+    Preferences preferences;
 
     public DocumentAdapter(Context context, ArrayList<Document> documentList) {
         this.context = context;
         this.documentList = documentList;
         lf = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        preferences=new Preferences(context);
     }
 
 
@@ -100,8 +107,10 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             holder.txtDocDate.setText("Dated: "+documentList.get(position).getDate());
         }
 
-        holder.imgDocType.setImageResource(R.drawable.pdf_dir);//documentList.get(position).getImage()
-
+      //  holder.holder.imgDocType.setImageResource(R.drawable.pdf_dir);//documentList.get(position).getImage()
+        String extension = FilenameUtils.getExtension(documentList.get(position).getName());
+        showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentList.get(position).getDocument(),holder);
+        
         holder.rlFix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -158,5 +167,47 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             rlFix = convertView.findViewById(R.id.rlFix);
 
         }
+    }
+    private void showDocIcon(String extension, String originPath, ViewHolder holder) {
+        //  Toast.makeText(context,extension,Toast.LENGTH_SHORT).show();
+        switch (extension)
+        {
+            case "pdf":
+                holder.imgDocType.setImageResource(R.drawable.pdf);
+                break;
+            case "txt":
+                holder.imgDocType.setImageResource(R.drawable.docx);
+                break;
+            case "docx":
+                holder.imgDocType.setImageResource(R.drawable.docx);
+                break;
+
+            case "xlsx":
+                holder.imgDocType.setImageResource(R.drawable.excel);
+                break;
+            case "doc":
+                holder.imgDocType.setImageResource(R.drawable.docx);
+                break;
+            case "xls":
+                holder.imgDocType.setImageResource(R.drawable.excel);
+                break;
+            case "png":
+                holder.imgDocType.setImageURI(Uri.parse(originPath));;
+                break;
+            case "PNG":
+                holder.imgDocType.setImageURI(Uri.parse(originPath));
+                break;
+            case "jpg":
+                holder.imgDocType.setImageURI(Uri.parse(originPath));
+                break;
+            case "jpeg":
+                holder.imgDocType.setImageURI(Uri.parse(originPath));
+                break;
+            default:
+                holder.imgDocType.setImageResource(R.drawable.pdf);
+                break;
+
+        }
+
     }
 }
