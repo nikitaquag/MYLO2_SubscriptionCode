@@ -1140,11 +1140,6 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             }
             Header.addEmptyLine(1);
 
-                   /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Event And Appointment Checklist");
-
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(2);*/
             ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             new PrescriptionPdf(prescriptionList);
             ArrayList<Form> prescriptionLists =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));

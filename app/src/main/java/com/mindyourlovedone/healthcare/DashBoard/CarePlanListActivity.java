@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -38,13 +39,20 @@ import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
+import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DocumentQuery;
+import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Document;
+import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdf;
+import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
+import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -631,8 +639,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 if (file1.exists()) {
                     file1.delete();
                 }
-
-                new Header().createPdfHeader(file1.getAbsolutePath(),
+//Old code varsa
+              /*  new Header().createPdfHeader(file1.getAbsolutePath(),
                         "" + preferences.getString(PrefConstants.CONNECTED_NAME));
                 preferences.copyFile("ic_launcher.png", context);
                 Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -655,7 +663,24 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 
                 ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
                 new DocumentPdf(AdList);
-                Header.document.close();
+                Header.document.close();*/
+
+              //New code varsa
+                Image pdflogo = null,calendar= null,profile= null;
+                pdflogo=preferences.addFile("pdflogo.png", context);
+                calendar=preferences.addFile("calpdf.png", context);
+                profile=preferences.addFile("profpdf.png", context);
+
+                new HeaderNew().createPdfHeaders(file1.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ADVANCE DIRECTIVES");
+
+                HeaderNew.addusereNameChank("ADVANCE DIRECTIVES");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                HeaderNew.addEmptyLine(1);
+                Image pp = null;
+                pp=preferences.addFile("dir_one.png", context);
+                ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
+                new DocumentPdfNew(AdList,pp);
+                HeaderNew.document.close();
                 break;
             case "Other":
                 final String RESULT3 = Environment.getExternalStorageDirectory()
@@ -666,6 +691,8 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 if (file3.exists()) {
                     file3.delete();
                 }
+                //Old Code varsa
+                /*
 
                 new Header().createPdfHeader(file3.getAbsolutePath(),
                         "" + preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -690,7 +717,23 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 
                 ArrayList<Document> OtherList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Other");
                 new DocumentPdf(OtherList, 1);
-                Header.document.close();
+                Header.document.close();*/
+
+               // Image pdflogo = null,calendar= null,profile= null;
+                pdflogo=preferences.addFile("pdflogo.png", context);
+                calendar=preferences.addFile("calpdf.png", context);
+                profile=preferences.addFile("profpdf.png", context);
+
+                new HeaderNew().createPdfHeaders(file3.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"OTHER DOCUMENTS");
+
+                HeaderNew.addusereNameChank("OTHER DOCUMENTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                HeaderNew.addEmptyLine(1);
+                 pp = null;
+                pp=preferences.addFile("dir_two.png", context);
+                ArrayList<Document> OtherList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Other");
+                new DocumentPdfNew(OtherList, 1,pp);
+                HeaderNew.document.close();
                 break;
 
             case "Record":
@@ -703,7 +746,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                     file2.delete();
                 }
 
-                new Header().createPdfHeader(file2.getAbsolutePath(),
+          /*     new Header().createPdfHeader(file2.getAbsolutePath(),
                         "" + preferences.getString(PrefConstants.CONNECTED_NAME));
                 preferences.copyFile("ic_launcher.png", context);
                 Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -726,7 +769,22 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
 
                 ArrayList<Document> RecordList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Record");
                 new DocumentPdf(RecordList, "Record");
-                Header.document.close();
+                Header.document.close();*/
+                // Image pdflogo = null,calendar= null,profile= null;
+                pdflogo=preferences.addFile("pdflogo.png", context);
+                calendar=preferences.addFile("calpdf.png", context);
+                profile=preferences.addFile("profpdf.png", context);
+
+                new HeaderNew().createPdfHeaders(file2.getAbsolutePath(),
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"MEDICAL RECORDS");
+
+                HeaderNew.addusereNameChank("MEDICAL RECORDS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                HeaderNew.addEmptyLine(1);
+                pp = null;
+                pp=preferences.addFile("dir_three.png", context);
+                ArrayList<Document> RecordList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Record");
+                new DocumentPdfNew(RecordList, "Record",pp);
+                HeaderNew.document.close();
                 break;
         }
                 //----------------------------------------

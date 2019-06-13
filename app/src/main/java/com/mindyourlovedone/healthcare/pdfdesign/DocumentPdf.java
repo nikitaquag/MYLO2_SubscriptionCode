@@ -1,6 +1,7 @@
 package com.mindyourlovedone.healthcare.pdfdesign;
 
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
@@ -335,7 +336,7 @@ public class DocumentPdf {
         }
     }
 
-    public DocumentPdf(ArrayList<Document> recordList, String record) {
+    public DocumentPdf(ArrayList<Document> recordList, String record ) {
         try {
           //  Header.addEmptyLine(1);
             Header.addChank("Medical Records");
@@ -471,14 +472,14 @@ public class DocumentPdf {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Protected Health Information Record Locator (if applicable):" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageRecord.add("Electronic Protected Health Information Record Locator (if applicable) :");
+                messageRecord.add("Electronic Health Record Link :");
                 messageRecord.add(locator);
 
                 cell = new PdfPCell(new Phrase(""));

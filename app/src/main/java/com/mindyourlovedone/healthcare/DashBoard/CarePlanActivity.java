@@ -32,6 +32,7 @@ import android.widget.TextView;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Fragment.ADInfoActivity;
@@ -43,7 +44,9 @@ import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdf;
+import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -384,7 +387,7 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         if (file.exists()) {
             file.delete();
         }
-        new Header().createPdfHeader(file.getAbsolutePath(),
+        /*new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         copyFile("ic_launcher.png");
         Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -405,11 +408,11 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         }
         Header.addEmptyLine(1);
 
-                  /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Specialty");*/
+                  *//* new Header().createPdfHeader(file.getAbsolutePath(),
+                            "Specialty");*//*
 
-              /*  Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+              *//*  Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addEmptyLine(2);*//*
 
         ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
         ArrayList<Document> OtherList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Other");
@@ -418,7 +421,31 @@ public class CarePlanActivity extends AppCompatActivity implements View.OnClickL
         new DocumentPdf(OtherList, 1);
         new DocumentPdf(RecordList, "Record");
 
-        Header.document.close();
+        Header.document.close();*/
+
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
+
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"DOCUMENTS");
+
+        HeaderNew.addusereNameChank("DOCUMENTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+
+        ArrayList<Document> AdList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "AD");
+        ArrayList<Document> OtherList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Other");
+        ArrayList<Document> RecordList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Record");
+        Image pp1 = null,pp2 = null,pp3 = null;
+        pp1=preferences.addFile("dir_one.png", context);
+        pp2=preferences.addFile("dir_two.png", context);
+        pp3=preferences.addFile("dir_three.png", context);
+        new DocumentPdfNew(AdList,pp1);
+        new DocumentPdfNew(OtherList, 1,pp2);
+        new DocumentPdfNew(RecordList, "Record",pp3);
+
+        HeaderNew.document.close();
 
         //----------------------------------------------
         final Dialog dialog = new Dialog(context);
