@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -36,12 +37,17 @@ import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.CardQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.FormQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
 import com.mindyourlovedone.healthcare.model.Card;
 import com.mindyourlovedone.healthcare.model.Form;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdfNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -443,7 +449,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
             file.delete();
         }
 
-        new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -463,17 +469,31 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Insurance Information");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                // Header.addEmptyLine(2);*/
+                // Header.addEmptyLine(2);*//*
 
         ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         new InsurancePdf(CardList, 1);
 
-        Header.document.close();
+        Header.document.close();*/
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity());
 
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE CARDS");
+
+        HeaderNew.addusereNameChank("INSURANCE CARDS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("insu_two.png", getActivity());
+        ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new InsurancePdfNew(CardList, 1,pp);
+        HeaderNew.document.close();
         //----------------------------------
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

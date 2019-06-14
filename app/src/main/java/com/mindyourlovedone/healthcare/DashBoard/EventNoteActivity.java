@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -36,11 +37,16 @@ import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
+import com.mindyourlovedone.healthcare.database.FormQuery;
+import com.mindyourlovedone.healthcare.model.Form;
 import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
+import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -329,7 +335,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         if (file.exists()) {
             file.delete();
         }
-        new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -349,16 +355,33 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-              /*  new Header().createPdfHeader(file.getAbsolutePath(),
+              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
                         "Event Note");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
         // ArrayList<Appoint> AppointList= AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         new EventPdf(NoteList, 1);
         //new EventPdf(AppointList);
 
-        Header.document.close();
+        Header.document.close();*/
+
+        //New PDF Varsa
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png",context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
+
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EVENT NOTE");
+
+        HeaderNew.addusereNameChank("EVENT NOTE");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("eve.png", context);
+        ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdfNew(NoteList, 1,pp);
+        HeaderNew.document.close();
 //--------------------------------------------------------------------------------------
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

@@ -25,17 +25,22 @@ import android.widget.ToggleButton;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
+import com.mindyourlovedone.healthcare.database.AppointmentQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.LivingQuery;
+import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Living;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -490,7 +495,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         if (file.exists()) {
             file.delete();
         }
-        new Header().createPdfHeader(file.getAbsolutePath(),
+        /*new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -517,8 +522,25 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         LivingList.add(Live);
         new EventPdf(1, LivingList, 1);
 
-        Header.document.close();
+        Header.document.close();*/
+        //New PDF Varsa
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png",context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
 
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ACTIVITIES OF DAILY LIVING");
+
+        HeaderNew.addusereNameChank("ACTIVITIES OF DAILY LIVING");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("eve_three.png", context);
+        Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+       // ArrayList<Living> LivingList = new ArrayList<Living>();
+       // LivingList.add(Live);
+        new EventPdfNew(1, Live, 1,pp);
+        HeaderNew.document.close();
         //------------------------------------------------
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

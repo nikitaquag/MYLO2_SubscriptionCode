@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
@@ -43,6 +44,7 @@ import com.mindyourlovedone.healthcare.database.CardQuery;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
+import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.database.FinanceQuery;
 import com.mindyourlovedone.healthcare.database.FormQuery;
@@ -66,6 +68,7 @@ import com.mindyourlovedone.healthcare.model.Allergy;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Card;
 import com.mindyourlovedone.healthcare.model.ContactData;
+import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Form;
@@ -85,11 +88,16 @@ import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
+import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
+import com.mindyourlovedone.healthcare.pdfdesign.SpecialtyNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -864,6 +872,11 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
     }
 
     private void showFloatDialog() {
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
+        Image pp1 = null,pp2 = null,pp3 = null;
         //-----------------------enerate pdf code
         if (from.equals("Speciality")) {
             final String RESULT = Environment.getExternalStorageDirectory()
@@ -875,7 +888,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 file.delete();
             }
 
-            new Header().createPdfHeader(file.getAbsolutePath(),
+           /* new Header().createPdfHeader(file.getAbsolutePath(),
                     "" + preferences.getString(PrefConstants.CONNECTED_NAME));
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -896,8 +909,8 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             }
             Header.addEmptyLine(1);
 
-                  /* new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Specialty");*/
+                  *//* new Header().createPdfHeader(file.getAbsolutePath(),
+                            "Specialty");*//*
 
             // Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
             //  Header.addEmptyLine(2);
@@ -930,7 +943,46 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 new Specialty(financeList.get(i), "Finance", phonelists,i);
             }
 
-            Header.document.close();
+            Header.document.close();*/
+            new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"SPECIALTY CONTACTS");
+
+            HeaderNew.addusereNameChank("SPECIALTY CONTACTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addEmptyLine(1);
+
+            pp1=preferences.addFile("sp_one.png", context);
+            pp2=preferences.addFile("sp_two.png", context);
+            pp3=preferences.addFile("sp_three.png", context);
+            Image pp4=preferences.addFile("sp_four.png", context);
+            ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+            ArrayList<Hospital> HospitalList = HospitalHealthQuery.fetchAllHospitalhealthRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Pharmacy> PharmacyList = PharmacyQuery.fetchAllPharmacyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            // ArrayList<Aides> AidesList= AideQuery.fetchAllAideRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Finance> financeList = FinanceQuery.fetchAllFinanceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+            // new Specialty(specialistsList, "Doctors");
+            for(int i=0;i<specialistsList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+                new SpecialtyNew(specialistsList.get(i), "Doctors", phonelists,i,pp1);
+            }
+            // new Specialty("Hospital", HospitalList);
+            for(int i=0;i<HospitalList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), HospitalList.get(i).getId(),"Hospital");
+                new SpecialtyNew(HospitalList.get(i), "Hospital", phonelists,i,pp2);
+            }
+            // new Specialty(PharmacyList);
+            for(int i=0;i<PharmacyList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), PharmacyList.get(i).getId(),"Pharmacy");
+                new SpecialtyNew(PharmacyList.get(i), "Pharmacy", phonelists,i,pp3);
+            }
+            //   new Specialty(AidesList,1);
+            // new Specialty(1, financeList);
+            for(int i=0;i<financeList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), financeList.get(i).getId(),"Finance");
+                new SpecialtyNew(financeList.get(i), "Finance", phonelists,i,pp4);
+            }
+
+            HeaderNew.document.close();
 
         } else if (from.equals("Emergency")) {
             final String RESULT = Environment.getExternalStorageDirectory()
@@ -1021,7 +1073,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             if (file.exists()) {
                 file.delete();
             }
-            new Header().createPdfHeader(file.getAbsolutePath(),
+           /* new Header().createPdfHeader(file.getAbsolutePath(),
                     "" + preferences.getString(PrefConstants.CONNECTED_NAME));
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -1042,10 +1094,10 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             }
             Header.addEmptyLine(1);
 
-                    /* new Header().createPdfHeader(file.getAbsolutePath(),
+                    *//* new Header().createPdfHeader(file.getAbsolutePath(),
                             "Insurance");
 
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));*/
+                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));*//*
             // Header.addEmptyLine(2);
 
             ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -1061,7 +1113,31 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             new InsurancePdf(CardList, 1);
             new InsurancePdf(formList, "form");
 
-            Header.document.close();
+            Header.document.close();*/
+
+            new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE");
+
+            HeaderNew.addusereNameChank("INSURANCE");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addEmptyLine(1);
+
+            pp1=preferences.addFile("insu_one.png", context);
+            pp2=preferences.addFile("insu_two.png", context);
+            pp3=preferences.addFile("insu_three.png", context);
+            ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Card> CardList = CardQuery.fetchAllCardRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Form> formList = FormQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+            // new InsurancePdf(insuranceList);
+            for(int i=0;i<insuranceList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Insurance");
+                final ArrayList<ContactData> aphonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Agent");
+                new InsurancePdfNew(insuranceList.get(i), "Insurance", phonelists,i,aphonelists,pp3);
+            }
+            new InsurancePdfNew(CardList, 1,pp2);
+            new InsurancePdfNew(formList, "form",pp1);
+
+            HeaderNew.document.close();
         } else if (from.equals("Event")) {
             final String RESULT = Environment.getExternalStorageDirectory()
                     + "/mylopdf/";
@@ -1119,7 +1195,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             if (file.exists()) {
                 file.delete();
             }
-            new Header().createPdfHeader(file.getAbsolutePath(),
+            /*new Header().createPdfHeader(file.getAbsolutePath(),
                     "" + preferences.getString(PrefConstants.CONNECTED_NAME));
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -1145,7 +1221,22 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<Form> prescriptionLists =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             new PrescriptionPdf(prescriptionLists,1);
 
-            Header.document.close();
+            Header.document.close();*/
+            new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION TRACKER");
+
+            HeaderNew.addusereNameChank("PRESCRIPTION TRACKER");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addEmptyLine(1);
+
+            pp1=preferences.addFile("pres_one.png", context);
+            pp2=preferences.addFile("pres_two.png", context);
+           // pp3=preferences.addFile("dir_three.png", context);
+            ArrayList<Prescription> prescriptionList = PrescriptionQuery.fetchAllPrescrptionRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdfNew(prescriptionList,pp1);
+            ArrayList<Form> prescriptionLists =PrescriptionUpload.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new PrescriptionPdfNew(prescriptionLists,1,pp2);
+
+            HeaderNew.document.close();
         }
 
 

@@ -9,7 +9,7 @@ import com.itextpdf.text.pdf.PdfPCellEvent;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfPTableEvent;
 
-class RoundedBorder implements PdfPTableEvent {
+public class RoundedBorder implements PdfPTableEvent {
    /* @Override
     public void cellLayout(PdfPCell pdfPCell, Rectangle rect, PdfContentByte[] canvases) {
         PdfContentByte cb = canvases[PdfPTable.BACKGROUNDCANVAS];

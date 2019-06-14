@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
@@ -41,8 +42,11 @@ import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
+import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
+import com.mindyourlovedone.healthcare.pdfdesign.SpecialtyNew;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -410,7 +414,7 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
         if (file.exists()) {
             file.delete();
         }
-        new Header().createPdfHeader(file.getAbsolutePath(),
+      /*  new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -430,11 +434,11 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Doctor");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
 
         ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
 
@@ -443,8 +447,28 @@ public class FragmentSpecialist extends Fragment implements View.OnClickListener
             new Specialty(specialistsList.get(i), "Doctors", phonelists,i);
         }
 
-        Header.document.close();
+        Header.document.close();*/
 
+        // New pdf varsa
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity());
+
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"DOCTORS & OTHER HEALTH CARE PROFESSIONALS");
+
+        HeaderNew.addusereNameChank("DOCTORS & OTHER HEALTH CARE PROFESSIONALS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("sp_one.png", getActivity());
+        ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+
+        for(int i=0;i<specialistsList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Doctor");
+            new SpecialtyNew(specialistsList.get(i), "Doctors", phonelists,i,pp);
+        }
+        HeaderNew.document.close();
         //--------------------------------------------------------
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

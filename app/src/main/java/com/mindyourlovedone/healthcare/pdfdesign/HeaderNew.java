@@ -433,7 +433,7 @@ public class HeaderNew {
             cell1.setPaddingLeft(14);
             cell1.setPaddingRight(14);
            // cell1.setPaddingBottom(2);
-            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
            // cell1.setLeading(8,1);
 cell1.setUseDescender(true);
 cell1.setUseAscender(true);
@@ -465,7 +465,7 @@ cell1.setUseAscender(true);
             cell1.setPaddingLeft(14);
             cell1.setPaddingRight(14);
             // cell1.setPaddingBottom(2);
-            cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
             // cell1.setLeading(8,1);
             cell1.setUseDescender(true);
             cell1.setUseAscender(true);

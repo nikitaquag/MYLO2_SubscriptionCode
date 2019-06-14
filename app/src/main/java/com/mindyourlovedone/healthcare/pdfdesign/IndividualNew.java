@@ -203,7 +203,7 @@ public class IndividualNew {
                 else
                 {*/
                     cell1 = new PdfPCell();
-                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":",type+":"+num);
+                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":",type+" : "+num);
                     table1.addCell(cell1);
               //  }
                /* cell1 = new PdfPCell(new Phrase(type+" Phone:" + num));
@@ -739,16 +739,6 @@ public class IndividualNew {
                 PdfPTable tableIN;
 
                 for (int i = 0; i < Petlist.size(); i++) {
-              /* int k = i + 1;
-                cell = new PdfPCell(new Phrase("Pets " + k + " :"));
-                cell.setBorder(Rectangle.BOTTOM);
-                cell.setUseBorderPadding(true);
-                cell.setBorderWidthBottom(5);
-                cell.setBorderColorBottom(BaseColor.WHITE);
-                table.addCell(cell);
-
-                messageInfo3.add("Pets " + k + " :");
-                messageInfo3.add("");*/
 
                    int  k=i+1;
                     tableIN = new PdfPTable(2);
@@ -1830,7 +1820,7 @@ public class IndividualNew {
                     if (c.getContactType() != null) {
                         type =c.getContactType();
                     }
-                    cell = new PdfPCell(new Phrase(type+":" + num));
+                    cell = new PdfPCell(new Phrase(type+"  : " + num));
                     cell.setBorder(Rectangle.BOTTOM);
                     cell.setUseBorderPadding(true);
                     cell.setBorderWidthBottom(5);
@@ -4340,7 +4330,7 @@ public class IndividualNew {
                 }
                 int j= t+1;
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table1,"Contact"+j+":",type+":"+num);
+                HeaderNew.cellDesign(cell, table1,"Contact"+j+":",type+" : "+num);
                 table.addCell(cell);
 
                 messageEmergency.add(type+" Phone:");
@@ -4569,7 +4559,7 @@ if (phonelist.size()%2!=0)
                 }
                 int j= t+1;
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table,"Contact"+j+":",type+":"+num);
+                HeaderNew.cellDesign(cell, table,"Contact"+j+":",type+" : "+num);
                 table.addCell(cell);
 
                 messagePhysician.add(type+" Phone:");

@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -39,9 +40,11 @@ import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Note;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -449,7 +452,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             file.delete();
         }
 
-        new Header().createPdfHeader(file.getAbsolutePath(),
+      /*  new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -469,17 +472,32 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Medical Appointment");
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*/
+                Header.addEmptyLine(2);*//*
         ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         //  ArrayList<Note> NoteList= EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         // new EventPdf(NoteList,1);
         new EventPdf(AppointList);
 
-        Header.document.close();
+        Header.document.close();*/
+        //New PDF Varsa
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png",context);
+        calendar=preferences.addFile("calpdf.png", context);
+        profile=preferences.addFile("profpdf.png", context);
 
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST");
+
+        HeaderNew.addusereNameChank("APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("eve_one.png", context);
+        ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdfNew(AppointList,pp);
+        HeaderNew.document.close();
 //--------------------------------------------------------------------------------------
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

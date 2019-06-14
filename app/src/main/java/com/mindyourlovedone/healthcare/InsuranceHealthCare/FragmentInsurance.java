@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
@@ -36,12 +37,20 @@ import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.InsuranceQuery;
+import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
+import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
 import com.mindyourlovedone.healthcare.model.ContactData;
+import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.Insurance;
+import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
+import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
+import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
+import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -183,7 +192,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             file.delete();
         }
 
-        new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -203,11 +212,11 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-               /* new Header().createPdfHeader(file.getAbsolutePath(),
+               *//* new Header().createPdfHeader(file.getAbsolutePath(),
                         "Insurance Information");
 
                 Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                // Header.addEmptyLine(2);*/
+                // Header.addEmptyLine(2);*//*
 
         ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
        //new InsurancePdf(insuranceList);
@@ -217,7 +226,29 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
             new InsurancePdf(insuranceList.get(i), "Insurance", phonelists,i,aphonelists);
         }
 
-        Header.document.close();
+        Header.document.close();*/
+
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity());
+
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE INFORMATION");
+
+        HeaderNew.addusereNameChank("INSURANCE INFORMATION");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile( "insu_three.png", getActivity());
+        ArrayList<Insurance> insuranceList = InsuranceQuery.fetchAllInsuranceRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+//Toast.makeText(getActivity(),""+insuranceList.size(),Toast.LENGTH_SHORT).show();
+        for(int i=0;i<insuranceList.size();i++) {
+            final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Insurance");
+            final ArrayList<ContactData> aphonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), insuranceList.get(i).getId(),"Agent");
+            new InsurancePdfNew(insuranceList.get(i), "Insurance", phonelists,i,aphonelists,pp);
+        }
+        HeaderNew.document.close();
+
         //----------------------------------
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
