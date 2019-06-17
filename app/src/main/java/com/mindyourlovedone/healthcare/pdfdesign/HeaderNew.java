@@ -398,6 +398,181 @@ public class HeaderNew {
         }
     }
 
+    public static void cellDesignbroadline(PdfPCell cell1, PdfPTable table1, String field, String value) {
+        HeaderNewfont();
+        BlackFont.setColor(00, 00, 00);//102, 204, 0);
+        BlackFont.setStyle(Font.BOLD);
+        BlackFont.setSize(11);
+
+        GrayFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayFont.setStyle(Font.BOLD);
+        GrayFont.setSize(11);
+
+        GrayTitleFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayTitleFont.setSize(10);
+
+        Paragraph f;
+        Paragraph f1;
+        Chunk chunk;
+        f = new Paragraph(field, GrayTitleFont);
+        //  f1 = new Paragraph();
+        if (!value.equalsIgnoreCase("Empty")) {
+            if (value.equalsIgnoreCase("")) {
+                f1 = new Paragraph("Field is Empty", GrayFont);
+            } else {
+                f1 = new Paragraph(value, BlackFont);
+            }
+            //f1 = new Paragraph(chunk);
+            f1.setSpacingBefore(-3);
+
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
+            // cell1.setLeading(8,1);
+            cell1.setUseDescender(true);
+            cell1.setUseAscender(true);
+
+            Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_MIDDLE);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-7);
+            // k1.setSpacingAfter(2);
+            linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
+            linek.setLineWidth(3.5f);
+            //
+            // linek.setOffset(-5);
+            //  k1.setIndentationLeft(1);
+            //  k1.setIndentationRight(4);
+            k1.add(linek);
+            cell1.addElement(k1);
+        } else {
+            // chunk = new Chunk("", GrayFont);
+            f1 = new Paragraph("", GrayFont);
+            f1.setSpacingBefore(-3);
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
+            // cell1.setLeading(8,1);
+            cell1.setUseDescender(true);
+            cell1.setUseAscender(true);
+
+           /* Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_MIDDLE);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-7);
+            linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
+            linek.setLineWidth(1.5f);
+            k1.add(linek);
+            cell1.addElement(k1);*/
+        }
+
+
+    }
+
+
+    public static void cellDesignNoline(PdfPCell cell1, PdfPTable table1, String field, String value) {
+        HeaderNewfont();
+        BlackFont.setColor(00, 00, 00);//102, 204, 0);
+        BlackFont.setStyle(Font.BOLD);
+        BlackFont.setSize(11);
+
+        GrayFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayFont.setStyle(Font.BOLD);
+        GrayFont.setSize(11);
+
+        GrayTitleFont.setColor(WebColors.getRGBColor("#747474"));
+        GrayTitleFont.setSize(10);
+
+        Paragraph f;
+        Paragraph f1;
+        Chunk chunk;
+        f = new Paragraph(field, GrayTitleFont);
+        //  f1 = new Paragraph();
+        if (!value.equalsIgnoreCase("Empty")) {
+            if (value.equalsIgnoreCase("")) {
+                f1 = new Paragraph("Field is Empty", GrayFont);
+            } else {
+                f1 = new Paragraph(value, BlackFont);
+            }
+            //f1 = new Paragraph(chunk);
+            f1.setSpacingBefore(-3);
+
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
+            // cell1.setLeading(8,1);
+            cell1.setUseDescender(true);
+            cell1.setUseAscender(true);
+
+            Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_MIDDLE);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-7);
+            // k1.setSpacingAfter(2);
+            linek.setLineColor(WebColors.getRGBColor("#FFFFFF"));
+            linek.setLineWidth(1.5f);
+            //
+            // linek.setOffset(-5);
+            //  k1.setIndentationLeft(1);
+            //  k1.setIndentationRight(4);
+            k1.add(linek);
+            cell1.addElement(k1);
+        } else {
+            // chunk = new Chunk("", GrayFont);
+            f1 = new Paragraph("", GrayFont);
+            f1.setSpacingBefore(-3);
+            cell1.addElement(f);
+            cell1.addElement(f1);
+            cell1.setBorder(Rectangle.NO_BORDER);
+            cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            cell1.setPaddingTop(5);
+            cell1.setPaddingLeft(14);
+            cell1.setPaddingRight(14);
+            // cell1.setPaddingBottom(2);
+            cell1.setVerticalAlignment(Element.ALIGN_TOP);
+            // cell1.setLeading(8,1);
+            cell1.setUseDescender(true);
+            cell1.setUseAscender(true);
+
+           /* Paragraph k1;
+            LineSeparator linek;
+            k1 = new Paragraph(" ");
+            k1.setAlignment(Element.ALIGN_MIDDLE);
+            linek = new LineSeparator();
+            k1.setSpacingBefore(-7);
+            linek.setLineColor(WebColors.getRGBColor("#D6D6D6"));
+            linek.setLineWidth(1.5f);
+            k1.add(linek);
+            cell1.addElement(k1);*/
+        }
+
+
+    }
+
     public static void cellDesign(PdfPCell cell1, PdfPTable table1, String field, String value) {
         HeaderNewfont();
         BlackFont.setColor(00, 00, 00);//102, 204, 0);
