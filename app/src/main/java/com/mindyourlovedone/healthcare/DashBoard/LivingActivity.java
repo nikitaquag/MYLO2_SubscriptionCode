@@ -495,7 +495,7 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
         if (file.exists()) {
             file.delete();
         }
-        /*new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
