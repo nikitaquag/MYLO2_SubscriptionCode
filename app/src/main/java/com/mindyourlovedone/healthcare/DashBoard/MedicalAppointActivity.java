@@ -452,7 +452,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             file.delete();
         }
 
-      /*  new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -472,10 +472,8 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-               *//* new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Medical Appointment");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*//*
+
+
         ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         //  ArrayList<Note> NoteList= EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         // new EventPdf(NoteList,1);

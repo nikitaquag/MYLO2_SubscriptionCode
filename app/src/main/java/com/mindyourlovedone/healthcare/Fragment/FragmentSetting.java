@@ -90,118 +90,22 @@ public class FragmentSetting extends Fragment {
                         getActivity().startActivity(intentContactUs);
                         break;*/
                     case 0://Support Faq
-
-                        //nikita
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf"));
+                        Intent browserIntent = new Intent(getActivity(),WebViewActivity.class);
+                        browserIntent.putExtra("Name","Support FAQs");
                         startActivity(browserIntent);
-
-//                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-//                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf");
-//                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
-//                        startActivity(browserIntent);
-
-                       /* String urld="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urld));
-                        startActivity(browserIntent);*/
-
-                       /* String url="http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf" ;
-                        Intent intents = new Intent();
-                        intents.setAction(Intent.ACTION_VIEW);
-                        intents.addCategory(Intent.CATEGORY_BROWSABLE);
-                        intents.setData(Uri.parse(url));
-                        startActivity(intents);*/
-                        /*Intent intent = new Intent();
-                        intent.setAction(Intent.ACTION_VIEW);
-                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intent.setData(Uri.parse("market://details?id=cn.wps.moffice_eng"));//varsa ("market://details?id=com.adobe.reader"));
-                        intent.setType(String.valueOf(Uri.parse("application/pdf")));
-                        ((BaseActivity) getActivity()).CopyReadAssetss("FAQ.pdf");*/
-                        // intent.setDataAndType(uri, "application/pdf");
-                      /*  try {
-                            getActivity().startActivity(intent);
-
-                        } catch (ActivityNotFoundException e) {
-                            // No application to view, ask to download one
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setTitle("No Application Found");
-                            builder.setMessage("Download Office Tool from Google Play ?");
-                            builder.setPositiveButton("Yes",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            Intent marketIntent = new Intent(
-                                                    Intent.ACTION_VIEW);
-                                            marketIntent.setData(Uri
-                                                    .parse("market://details?id=cn.wps.moffice_eng"));//varsa ("market://details?id=com.adobe.reader"));
-                                            getActivity().startActivity(marketIntent);
-                                        }
-                                    });
-                            builder.setNegativeButton("No", null);
-                            builder.create().show();
-                        }*/
-                       /* Intent intentChangePass = new Intent(getActivity(), ChangePasswordActivity.class);
-                        getActivity().startActivity(intentChangePass);*/
+                        //nikita
+                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com/MYLO/uploads/Support_Faqs.pdf"));
+                       // startActivity(browserIntent);
                         break;
                     case 1://User Guide-Section
-                       /* Intent i=new Intent(getActivity(),PDFActivity.class);
-                        getActivity().startActivity(i);*/
 
+                       /* Intent browserIntents = new Intent(getActivity(),WebViewActivity.class);
+                        browserIntents.putExtra("Name","User Guide");
+                        startActivity(browserIntents);*/
                        //nikita
                         Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse("http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf"));
                         startActivity(browserIntentD);
 
-//                        String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-//                        String fullPathD = String.format(Locale.ENGLISH, formatD, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
-//                        Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
-//                        startActivity(browserIntentD);
-
-                       /* String urlf="https://docs.google.com/viewer?url=http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf" ;
-                        Intent browserIntents = new Intent(Intent.ACTION_VIEW, Uri.parse(urlf));
-                      startActivity(browserIntents);*/
-
-                       /* Intent intentf = new Intent();
-                        intentf.setAction(Intent.ACTION_VIEW);
-                        intentf.addCategory(Intent.CATEGORY_BROWSABLE);
-                        intentf.setData(Uri.parse(urlf));
-                        startActivity(intentf);*/
-                       /* "https://docs.google.com/viewer?url=" + "url of pdf file"
-                        String format = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
-                        String fullPath = String.format(Locale.ENGLISH, format, "http://mindyour-lovedones.com/MYLO/uploads/User_Guide.pdf");
-                        Intent browserIntentx = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPath));
-                        startActivity(browserIntentx);*/
-
-                        //--------------varsa commented--------
-                       /* Intent intents = new Intent();
-                        intents.setAction(Intent.ACTION_VIEW);
-                        intents.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                        intents.setData(Uri.parse("market://details?id=cn.wps.moffice_eng"));//varsa ("market://details?id=com.adobe.reader"));
-                        intents.setType(String.valueOf(Uri.parse("application/pdf")));
-                        ((BaseActivity) getActivity()).CopyReadAssetss("mylo_users_guide.pdf");*/
-                       //----------------------------------
-                        /*try {
-                            getActivity().startActivity(intents);
-
-                        } catch (ActivityNotFoundException e) {
-                            // No application to view, ask to download one
-
-                            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                            builder.setTitle("No Application Found");
-                            builder.setMessage("Download Office Tool from Google Play ?");
-                            builder.setPositiveButton("Yes",
-                                    new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog,
-                                                            int which) {
-                                            Intent marketIntent = new Intent(
-                                                    Intent.ACTION_VIEW);
-                                            marketIntent.setData(Uri
-                                                    .parse("market://details?id=cn.wps.moffice_eng"));//varsa ("market://details?id=com.adobe.reader"));
-                                            getActivity().startActivity(marketIntent);
-                                        }
-                                    });
-                            builder.setNegativeButton("No", null);
-                            builder.create().show();
-                        }*/
                         break;
                     case 2://Privacy Policy-Section
 

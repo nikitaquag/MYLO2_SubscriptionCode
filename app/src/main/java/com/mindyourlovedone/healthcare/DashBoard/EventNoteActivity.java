@@ -335,7 +335,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
         if (file.exists()) {
             file.delete();
         }
-       /* new Header().createPdfHeader(file.getAbsolutePath(),
+      /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", context);
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -355,10 +355,7 @@ public class EventNoteActivity extends AppCompatActivity implements View.OnClick
             e.printStackTrace();
         }
         Header.addEmptyLine(1);
-              *//*  new Header().createPdfHeader(file.getAbsolutePath(),
-                        "Event Note");
-                Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                Header.addEmptyLine(2);*//*
+
         // ArrayList<Appoint> AppointList= AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         new EventPdf(NoteList, 1);
