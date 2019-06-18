@@ -93,6 +93,7 @@ import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Individual;
+import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
 import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
@@ -994,7 +995,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             if (file.exists()) {
                 file.delete();
             }
-            new Header().createPdfHeader(file.getAbsolutePath(),
+           /* new Header().createPdfHeader(file.getAbsolutePath(),
                     "" + preferences.getString(PrefConstants.CONNECTED_NAME));
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -1013,19 +1014,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 e.printStackTrace();
             }
             Header.addEmptyLine(1);
-/*
-                    new Header().createPdfHeader(file.getAbsolutePath(),
-                            "Personal & Medical Profile");
 
-                    Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(2);*/
-
-                  /*  if (preferences.getInt(PrefConstants.CONNECTED_USERID)==(preferences.getInt(PrefConstants.USER_ID))) {
-                        final ArrayList<Pet> PetLists = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
-
-                        new Individual((PersonalInfoQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))),PetLists);
-                    }
-                    else{*/
             final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
 
@@ -1055,16 +1044,48 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 new Individual("Physician", specialistsList.get(i), phonelists,i);
             }
 
-           /* ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+            Header.document.close();*/
+
+            new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PERSONAL, MEDICAL AND  EMERGENCY INFO");
+
+            HeaderNew.addusereNameChank("PERSONAL, MEDICAL AND  EMERGENCY INFO");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addEmptyLine(1);
+
+            pp1=preferences.addFile("pp.png", context);
+            pp2=preferences.addFile("emergency_two.png", context);
+            pp3=preferences.addFile("emergency_three.png", context);
+            Image pp4=preferences.addFile("emergency_four.png", context);
+            final ArrayList<Pet> PetList = PetQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final RelativeConnection personalInfoList = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+            final ArrayList<ContactData> phonelist= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
+
+            new IndividualNew((MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID))), PetList, phonelist,pp1);
+            // }
+            // new MessageString().getProfileProfile(connection);
+            final ArrayList<Allergy> AllargyLists = AllergyQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final ArrayList<Implant> implantsList = MedicalImplantsQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final ArrayList<History> historList = HistoryQuery.fetchHistoryRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final ArrayList<String> hospitalList = HospitalQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final ArrayList<String> conditionList = MedicalConditionQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            final ArrayList<Vaccine> vaccineList = VaccineQuery.fetchAllRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+
+
+            new IndividualNew(MedInfoQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID)), AllargyLists, implantsList, historList, hospitalList, conditionList, vaccineList,pp2);
+
+            ArrayList<Emergency> emergencyList = MyConnectionsQuery.fetchAllEmergencyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 2);
+            for(int i=0;i<emergencyList.size();i++) {
+                final ArrayList<ContactData> phonelistd= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), emergencyList.get(i).getId(),"Emergency");
+                new IndividualNew("Emergency", emergencyList.get(i), phonelistd,i,pp3);
+            }
             ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
-            // ArrayList<Proxy> proxyList=MyConnectionsQuery.fetchAllProxyRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),3);
-            new Individual("Emergency", emergencyList, phonelist);
-            new Individual(specialistsList, "Physician");
-            //   new Individual(proxyList);
+            for(int i=0;i<specialistsList.size();i++) {
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Physician");
+                new IndividualNew("Physician", specialistsList.get(i), phonelists,i,pp4);
+            }
 
-*/
-            Header.document.close();
-
+            HeaderNew.document.close();
         } else if (from.equals("Insurance")) {
             final String RESULT = Environment.getExternalStorageDirectory()
                     + "/mylopdf/";
