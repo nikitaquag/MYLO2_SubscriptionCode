@@ -2329,13 +2329,13 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
 
           // Pdf New
 
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png", context);
-        calendar=preferences.addFile("calpdf.png", context);
-        profile=preferences.addFile("profpdf.png", context);
+        calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+        profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath,pdflogo,calendar,profile,"PERSONAL PROFILE");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + imagepath,pdflogo,calendar,profile,"PERSONAL PROFILE", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("PERSONAL PROFILE");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

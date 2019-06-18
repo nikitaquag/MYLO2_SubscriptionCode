@@ -17,7 +17,6 @@ import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,30 +28,18 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
-import com.mindyourlovedone.healthcare.HomeActivity.BaseNewActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
-import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DocumentQuery;
-import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
-import com.mindyourlovedone.healthcare.model.ContactData;
 import com.mindyourlovedone.healthcare.model.Document;
-import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
-import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
@@ -666,13 +653,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 Header.document.close();*/
 
               //New code varsa
-                Image pdflogo = null,calendar= null,profile= null;
+                Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
                 pdflogo=preferences.addFile("pdflogo.png", context);
-                calendar=preferences.addFile("calpdf.png", context);
-                profile=preferences.addFile("profpdf.png", context);
+                calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+                profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file1.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ADVANCE DIRECTIVES");
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ADVANCE DIRECTIVES", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("ADVANCE DIRECTIVES");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);
@@ -719,13 +706,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 new DocumentPdf(OtherList, 1);
                 Header.document.close();*/
 
-               // Image pdflogo = null,calendar= null,profile= null;
+               // Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
                 pdflogo=preferences.addFile("pdflogo.png", context);
-                calendar=preferences.addFile("calpdf.png", context);
-                profile=preferences.addFile("profpdf.png", context);
+                calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+                profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file3.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"OTHER DOCUMENTS");
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"OTHER DOCUMENTS", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("OTHER DOCUMENTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);
@@ -770,13 +757,13 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 ArrayList<Document> RecordList = DocumentQuery.fetchAllDocumentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), "Record");
                 new DocumentPdf(RecordList, "Record");
                 Header.document.close();*/
-                // Image pdflogo = null,calendar= null,profile= null;
+                // Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
                 pdflogo=preferences.addFile("pdflogo.png", context);
-                calendar=preferences.addFile("calpdf.png", context);
-                profile=preferences.addFile("profpdf.png", context);
+                calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+                profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file2.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"MEDICAL RECORDS");
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"MEDICAL RECORDS", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("MEDICAL RECORDS");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);

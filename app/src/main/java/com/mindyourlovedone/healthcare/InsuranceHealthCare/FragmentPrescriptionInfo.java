@@ -24,34 +24,21 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.PrescriptionInfoAdapter;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
-import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
-import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
-import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PrescriptionQuery;
-import com.mindyourlovedone.healthcare.model.ContactData;
-import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.PrescribeImage;
 import com.mindyourlovedone.healthcare.model.Prescription;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
-import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
-import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdfNew;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -455,13 +442,13 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         Header.document.close();
 */
 
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png", getActivity());
-        calendar=preferences.addFile("calpdf.png", getActivity());
-        profile=preferences.addFile("profpdf.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());calendarWite=preferences.addFile("calpdf_wite.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION INFORMATION");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION INFORMATION", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("PRESCRIPTION INFORMATION");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

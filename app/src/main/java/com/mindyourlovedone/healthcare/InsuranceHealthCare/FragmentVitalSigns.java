@@ -259,13 +259,15 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         new EventPdf("Vital", HospitalList);
         Header.document.close();
 */
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png", getActivity());
         calendar=preferences.addFile("calpdf.png", getActivity());
+        calendarWite=preferences.addFile("calpdf_wite.png", getActivity());
         profile=preferences.addFile("profpdf.png", getActivity());
+        profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"VITAL SIGNS");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"VITAL SIGNS",calendarWite,profileWite);
 
         HeaderNew.addusereNameChank("VITAL SIGNS");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

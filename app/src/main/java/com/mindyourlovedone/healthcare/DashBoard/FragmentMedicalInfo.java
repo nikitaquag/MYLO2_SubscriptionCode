@@ -1055,13 +1055,14 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
 //        Header.document.close();
 
         // New pdf
-        Image pdflogo = null, calendar = null, profile = null;
-        pdflogo = preferences.addFile("pdflogo.png", getActivity());
-        calendar = preferences.addFile("calpdf.png", getActivity());
-        profile = preferences.addFile("profpdf.png", getActivity());
-
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
+        pdflogo=preferences.addFile("pdflogo.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());
+        calendarWite=preferences.addFile("calpdf_wite.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity());
+        profileWite=preferences.addFile("profpdf_wite.png", getActivity());
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME), preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO), pdflogo, calendar, profile, "MEDICAL PROFILE");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME), preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO), pdflogo, calendar, profile, "MEDICAL PROFILE", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("MEDICAL PROFILE");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

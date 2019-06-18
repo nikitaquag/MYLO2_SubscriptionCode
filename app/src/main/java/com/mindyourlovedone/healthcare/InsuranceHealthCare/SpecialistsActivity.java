@@ -26,11 +26,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
@@ -44,7 +40,6 @@ import com.mindyourlovedone.healthcare.database.CardQuery;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
-import com.mindyourlovedone.healthcare.database.DocumentQuery;
 import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.database.FinanceQuery;
 import com.mindyourlovedone.healthcare.database.FormQuery;
@@ -68,7 +63,6 @@ import com.mindyourlovedone.healthcare.model.Allergy;
 import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Card;
 import com.mindyourlovedone.healthcare.model.ContactData;
-import com.mindyourlovedone.healthcare.model.Document;
 import com.mindyourlovedone.healthcare.model.Emergency;
 import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Form;
@@ -85,20 +79,13 @@ import com.mindyourlovedone.healthcare.model.RelativeConnection;
 import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
-import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
-import com.mindyourlovedone.healthcare.pdfdesign.Individual;
 import com.mindyourlovedone.healthcare.pdfdesign.IndividualNew;
-import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdf;
 import com.mindyourlovedone.healthcare.pdfdesign.InsurancePdfNew;
-import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdf;
 import com.mindyourlovedone.healthcare.pdfdesign.PrescriptionPdfNew;
-import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.pdfdesign.SpecialtyNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -874,10 +861,10 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
     }
 
     private void showFloatDialog() {
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png", context);
-        calendar=preferences.addFile("calpdf.png", context);
-        profile=preferences.addFile("profpdf.png", context);
+        calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+        profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
         Image pp1 = null,pp2 = null,pp3 = null;
         //-----------------------enerate pdf code
         if (from.equals("Speciality")) {
@@ -947,7 +934,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             Header.document.close();*/
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"SPECIALTY CONTACTS");
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"SPECIALTY CONTACTS", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("SPECIALTY CONTACTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1047,7 +1034,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PERSONAL, MEDICAL AND  EMERGENCY INFO");
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PERSONAL, MEDICAL AND  EMERGENCY INFO", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("PERSONAL, MEDICAL AND  EMERGENCY INFO");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1138,7 +1125,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE");
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("INSURANCE");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1210,7 +1197,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST");
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("EVENT AND APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1267,7 +1254,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             Header.document.close();*/
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION TRACKER");
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION TRACKER", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("PRESCRIPTION TRACKER");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
