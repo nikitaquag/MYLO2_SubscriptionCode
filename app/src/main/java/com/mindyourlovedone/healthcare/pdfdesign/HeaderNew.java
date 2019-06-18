@@ -91,7 +91,8 @@ public class HeaderNew {
     Image logostream = null;
     Image calendarstrem= null;
     Image profilestream= null;
-
+    Image calendarWite= null;
+    Image profileWite= null;
     /**
      * This function drow a border for all side
      *
@@ -794,7 +795,7 @@ cell1.setUseAscender(true);
 
     }
 
-    public void createPdfHeaders(String RESULT, String header, String s, Image logostream, Image calendarstrem, Image profilestream, String personal_profile) {
+    public void createPdfHeaders(String RESULT, String header, String s, Image logostream, Image calendarstrem, Image profilestream, String personal_profile, Image calendarWite, Image profileWite) {
         Rectangle pageSize = new Rectangle(PageSize.A4);
         pageSize.setBackgroundColor(WebColors.getRGBColor("#F3F3F3"));
         document = new Document(pageSize, 20, 20, 40, 30);
@@ -805,6 +806,8 @@ cell1.setUseAscender(true);
             this.logostream=logostream;
             this.calendarstrem=calendarstrem;
             this.profilestream=profilestream;
+            this.calendarWite=calendarWite;
+            this.profileWite=profileWite;
             pathimg = s;
             writer = PdfWriter.getInstance(document, new FileOutputStream(
                     RESULT));
@@ -1030,10 +1033,10 @@ else {
                 image.scaleAbsolute(100f, 30f);
 
 
-                Image imagesf = calendarstrem;
+                Image imagesf = calendarWite;
                 imagesf.scaleAbsolute(25f, 25f);
 
-                Image imagedef = profilestream;
+                Image imagedef = profileWite;
                 imagedef.scaleAbsolute(25f, 25f);
 
                 Image imaged = null;

@@ -24,11 +24,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
@@ -36,14 +32,10 @@ import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.AppointmentQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.DateQuery;
-import com.mindyourlovedone.healthcare.database.EventNoteQuery;
 import com.mindyourlovedone.healthcare.model.Appoint;
-import com.mindyourlovedone.healthcare.model.Note;
-import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -481,13 +473,13 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
 
         Header.document.close();*/
         //New PDF Varsa
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png",context);
-        calendar=preferences.addFile("calpdf.png", context);
-        profile=preferences.addFile("profpdf.png", context);
+        calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+        profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

@@ -1,9 +1,7 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
@@ -23,29 +21,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
-import com.mindyourlovedone.healthcare.database.AppointmentQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.LivingQuery;
-import com.mindyourlovedone.healthcare.model.Appoint;
 import com.mindyourlovedone.healthcare.model.Living;
-import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
 
 import java.io.File;
-import java.util.ArrayList;
 
 public class LivingActivity extends AppCompatActivity implements View.OnClickListener, CompoundButton.OnCheckedChangeListener {
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
@@ -524,13 +513,13 @@ public class LivingActivity extends AppCompatActivity implements View.OnClickLis
 
         Header.document.close();*/
         //New PDF Varsa
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png",context);
-        calendar=preferences.addFile("calpdf.png", context);
-        profile=preferences.addFile("profpdf.png", context);
+        calendar=preferences.addFile("calpdf.png", context);calendarWite=preferences.addFile("calpdf_wite.png", context);
+        profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ACTIVITIES OF DAILY LIVING");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ACTIVITIES OF DAILY LIVING", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("ACTIVITIES OF DAILY LIVING");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

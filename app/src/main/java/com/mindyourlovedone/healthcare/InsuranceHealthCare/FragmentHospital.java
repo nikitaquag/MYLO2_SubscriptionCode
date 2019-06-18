@@ -23,13 +23,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Connections.GrabConnectionActivity;
-import com.mindyourlovedone.healthcare.DashBoard.FragmentPhysician;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
@@ -37,16 +32,12 @@ import com.mindyourlovedone.healthcare.SwipeCode.DividerItemDecoration;
 import com.mindyourlovedone.healthcare.SwipeCode.VerticalSpaceItemDecoration;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
-import com.mindyourlovedone.healthcare.database.FinanceQuery;
 import com.mindyourlovedone.healthcare.database.HospitalHealthQuery;
 import com.mindyourlovedone.healthcare.model.ContactData;
-import com.mindyourlovedone.healthcare.model.Finance;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
-import com.mindyourlovedone.healthcare.pdfdesign.Header;
 import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
-import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.pdfdesign.SpecialtyNew;
 import com.mindyourlovedone.healthcare.utility.CallDialog;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
@@ -232,13 +223,13 @@ public class FragmentHospital extends Fragment implements View.OnClickListener {
         Header.document.close();*/
 
         // New pdf varsa
-        Image pdflogo = null,calendar= null,profile= null;
+        Image pdflogo = null,calendar= null,profile= null,calendarWite= null,profileWite= null;
         pdflogo=preferences.addFile("pdflogo.png", getActivity());
-        calendar=preferences.addFile("calpdf.png", getActivity());
-        profile=preferences.addFile("profpdf.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());calendarWite=preferences.addFile("calpdf_wite.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"URGENT CARE, TELEMED, HOSPITALS, REHAB, HOME CARE");
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"URGENT CARE, TELEMED, HOSPITALS, REHAB, HOME CARE", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("URGENT CARE, TELEMED, HOSPITALS, REHAB, HOME CARE");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
