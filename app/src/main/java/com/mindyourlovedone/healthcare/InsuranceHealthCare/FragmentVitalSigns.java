@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.draw.LineSeparator;
 import com.mindyourlovedone.healthcare.Activity.AddVitalSignsActivity;
@@ -39,9 +40,11 @@ import com.mindyourlovedone.healthcare.database.VitalQuery;
 import com.mindyourlovedone.healthcare.model.Hospital;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.Header;
+import com.mindyourlovedone.healthcare.pdfdesign.HeaderNew;
 import com.mindyourlovedone.healthcare.pdfdesign.Specialty;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
@@ -231,7 +234,7 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         }
 
 
-        new Header().createPdfHeader(file.getAbsolutePath(),
+       /* new Header().createPdfHeader(file.getAbsolutePath(),
                 "" + preferences.getString(PrefConstants.CONNECTED_NAME));
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
@@ -255,7 +258,22 @@ public class FragmentVitalSigns extends Fragment implements View.OnClickListener
         ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         new EventPdf("Vital", HospitalList);
         Header.document.close();
+*/
+        Image pdflogo = null,calendar= null,profile= null;
+        pdflogo=preferences.addFile("pdflogo.png", getActivity());
+        calendar=preferences.addFile("calpdf.png", getActivity());
+        profile=preferences.addFile("profpdf.png", getActivity());
 
+        new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"VITAL SIGNS");
+
+        HeaderNew.addusereNameChank("VITAL SIGNS");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addEmptyLine(1);
+        Image pp = null;
+        pp=preferences.addFile("eve_four.png", getActivity());
+        ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+        new EventPdfNew("Vital", HospitalList,pp);
+        HeaderNew.document.close();
 //--------------------------------------------------------------------------------------
         final Dialog dialog = new Dialog(getActivity());
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

@@ -86,6 +86,7 @@ import com.mindyourlovedone.healthcare.model.Specialist;
 import com.mindyourlovedone.healthcare.model.Vaccine;
 import com.mindyourlovedone.healthcare.model.VitalSigns;
 import com.mindyourlovedone.healthcare.pdfCreation.EventPdf;
+import com.mindyourlovedone.healthcare.pdfCreation.EventPdfNew;
 import com.mindyourlovedone.healthcare.pdfCreation.MessageString;
 import com.mindyourlovedone.healthcare.pdfCreation.PDFDocumentProcess;
 import com.mindyourlovedone.healthcare.pdfdesign.DocumentPdfNew;
@@ -1147,7 +1148,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             if (file.exists()) {
                 file.delete();
             }
-            new Header().createPdfHeader(file.getAbsolutePath(),
+            /*new Header().createPdfHeader(file.getAbsolutePath(),
                     "" + preferences.getString(PrefConstants.CONNECTED_NAME));
             copyFile("ic_launcher.png");
             Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
@@ -1168,11 +1169,11 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             }
             Header.addEmptyLine(1);
 
-                   /* new Header().createPdfHeader(file.getAbsolutePath(),
+                   *//* new Header().createPdfHeader(file.getAbsolutePath(),
                             "Event And Appointment Checklist");
 
                     Header.addusereNameChank(preferences.getString(PrefConstants.CONNECTED_NAME));
-                    Header.addEmptyLine(2);*/
+                    Header.addEmptyLine(2);*//*
 
             ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -1185,7 +1186,29 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
             new EventPdf("Vital", HospitalList);
 
-            Header.document.close();
+            Header.document.close();*/
+
+            new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST");
+
+            HeaderNew.addusereNameChank("EVENT AND APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addEmptyLine(1);
+
+            pp1=preferences.addFile("eve.png", context);
+            pp2=preferences.addFile("eve_one.png", context);
+            pp3=preferences.addFile("eve_three.png", context);
+            Image pp4=preferences.addFile("eve_four.png", context);
+            ArrayList<Appoint> AppointList = AppointmentQuery.fetchAllAppointmentRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Note> NoteList = EventNoteQuery.fetchAllNoteRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new EventPdfNew(NoteList, 1,pp1);
+            new EventPdfNew(AppointList,pp2);
+            Living Live = LivingQuery.fetchOneRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            ArrayList<Living> LivingList = new ArrayList<Living>();
+            LivingList.add(Live);
+            new EventPdfNew(1, LivingList.get(0), 1,pp3);
+            ArrayList<VitalSigns> HospitalList = VitalQuery.fetchAllVitalRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
+            new EventPdfNew("Vital", HospitalList,pp4);
+            HeaderNew.document.close();
         } else if (from.equals("Prescription")) {
             final String RESULT = Environment.getExternalStorageDirectory()
                     + "/mylopdf/";

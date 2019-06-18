@@ -768,63 +768,41 @@ public class EventPdfNew {
 
     }
 
-    public EventPdfNew(String vital, ArrayList<VitalSigns> vitalList) {
+    public EventPdfNew(String vital, ArrayList<VitalSigns> vitalList, Image pp) {
+        EventNewFont();
         try {
-            //Header.addEmptyLine(1);
-            Header.addChank("Vital Signs");
+            HeaderNew.addNewChank("Vital Signs", pp);
             messageLiving.add("Vital Signs");
-            Header.addEmptyLine(1);
+            HeaderNew.addEmptyLine(1);
 
-            PdfPTable table;
-            table = new PdfPTable(2);
-            PdfPCell cell;
-            table.setWidthPercentage(100);
 
             for (int i = 0; i < vitalList.size(); i++) {
-
                 PdfPTable table1;
-                table1 = new PdfPTable(2);
-                PdfPCell cell1;
+                table1 = new PdfPTable(1);
+                table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                table1.setTableEvent(new RoundedBorder());
+                table1.getDefaultCell().setPaddingBottom(15);
+                table1.setKeepTogether(false);
+                table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
+                PdfPCell cell1 = new PdfPCell();
+                cell1.setPaddingTop(10);
+                cell1.setPaddingBottom(10);
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+                table1.setKeepTogether(false);
+                table1.setSplitLate(false);
 
-                /*cell1 = new PdfPCell(new Phrase("Activities of Daily Living(ADL) " + ""));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                PdfPTable table;
+                table = new PdfPTable(2);
+                table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                table.setKeepTogether(false);
+                table.setSplitLate(false);
+                table.setWidthPercentage(100);
 
-                messageLiving.add("Activities of Daily Living(ADL)" + "");
-                messageLiving.add("");
 
-                cell1 = new PdfPCell(new Phrase(""));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-                messageLiving.add("");
-                messageLiving.add("");
-
-                cell1 = new PdfPCell(new Phrase("Needs Help With" + " :"));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-
-                messageLiving.add("Needs Help With" + " :");
-                messageLiving.add("");
-
-                cell1 = new PdfPCell(new Phrase(""));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-                messageLiving.add("");
-                messageLiving.add("");
-*/
+                PdfPCell cell;
+                Paragraph k1;
                 VitalSigns s = vitalList.get(i);
 
 
@@ -833,12 +811,10 @@ public class EventPdfNew {
                 if (s.getDate() != null) {
                     continence = s.getDate();
                 }
-                cell1 = new PdfPCell(new Phrase("Date : " + continence));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                // cell1 = new PdfPCell(new Phrase("Date : " + continence));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Date:", continence);
+                table.addCell(cell);
 
                 messageLiving.add("Date :");
                 messageLiving.add(continence);
@@ -847,12 +823,10 @@ public class EventPdfNew {
                 if (s.getTime() != null) {
                     dressing = s.getTime();
                 }
-                cell1 = new PdfPCell(new Phrase("Time : " + dressing));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                // cell1 = new PdfPCell(new Phrase("Time : " + dressing));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Time:", dressing);
+                table.addCell(cell);
                 messageLiving.add("Dressing :");
                 messageLiving.add(dressing);
 
@@ -861,12 +835,10 @@ public class EventPdfNew {
                     bathing = s.getLocation();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Location : " + bathing));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                // cell1 = new PdfPCell(new Phrase("Location : " + bathing));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Location:", bathing);
+                table.addCell(cell);
 
                 messageLiving.add("Bathing :");
                 messageLiving.add(bathing);
@@ -875,12 +847,10 @@ public class EventPdfNew {
                 if (s.getBp() != null) {
                     eating = s.getBp();
                 }
-                cell1 = new PdfPCell(new Phrase("Blood Pressure : " + eating));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                //  cell1 = new PdfPCell(new Phrase("Blood Pressure : " + eating));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Blood Pressure:", eating);
+                table.addCell(cell);
 
                 messageLiving.add("Blood Pressure :");
                 messageLiving.add(eating);
@@ -890,12 +860,10 @@ public class EventPdfNew {
                     toileting = s.getHeartRate();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Heart Rate : " + toileting));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
+                //  cell1 = new PdfPCell(new Phrase("Heart Rate : " + toileting));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Heart Rate:", toileting);
+                table.addCell(cell);
 
                 messageLiving.add("Heart Rate :");
                 messageLiving.add(toileting);
@@ -905,41 +873,64 @@ public class EventPdfNew {
                     transfering = s.getTemperature();
                 }
 
-                cell1 = new PdfPCell(new Phrase("Temperature : " + transfering));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);
-
+                // cell1 = new PdfPCell(new Phrase("Temperature : " + transfering));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Temperature:", transfering);
+                table.addCell(cell);
                 messageLiving.add("Temperature :");
                 messageLiving.add(transfering);
 
-                Header.document.add(table1);
-                Paragraph p2 = new Paragraph(" ");
-                DottedLineSeparator line2 = new DottedLineSeparator();
-                line2.setOffset(-4);
-                line2.setLineColor(BaseColor.BLACK);
-                p2.add(line2);
-                Header.document.add(p2);
-                Header.addEmptyLine(1);
+                  /*  cell = new PdfPCell();
+                    HeaderNew.addDottedLine(cell);
+                    table.addCell(cell);
 
-//------------
-                PdfPTable tablep;
-                tablep = new PdfPTable(2);
-                PdfPCell cellp;
-                tablep.setWidthPercentage(100);
+                   cell = new PdfPCell();
+                    cell.setColspan(2);
+                    HeaderNew.cellDesign(cell, table, "Additional Information:", "");
+                    table.addCell(cell);*/
+
+                   /* BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                    BlackFont.setSize(16);
+                    BlackFont.setStyle(Font.BOLD);*/
+                   /* cell= new PdfPCell(new Phrase("Additional Information"));
+                    cell.setColspan(2);
+                    cell.setBorder(Rectangle.NO_BORDER);
+                    table.addCell(cell);
+*/BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(11.5f);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Additional Information:", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell = new PdfPCell();
+                cell.addElement(pf);
+
+                //cell.setPaddingTop(2);
+                cell.setPaddingBottom(5);
+                cell.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell.setBorder(Rectangle.NO_BORDER);
+                cell.setColspan(2);
+                table.addCell(cell);
 
                 String functionOther = "";
                 if (s.getPulseRate() != null) {
                     functionOther = s.getPulseRate();
                 }
-                cell1 = new PdfPCell(new Phrase("Pulse Rate : " + functionOther));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
+                //  cell1 = new PdfPCell(new Phrase("Pulse Rate : " + functionOther));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Pulse Rate:", functionOther);
+                table.addCell(cell);
                 messageLiving.add("Pulse Rate :");
                 messageLiving.add(functionOther);
 
@@ -947,12 +938,10 @@ public class EventPdfNew {
                 if (s.getRespRate() != null) {
                     functionNote = s.getRespRate();
                 }
-                cell1 = new PdfPCell(new Phrase("Respiratory Rate : " + functionNote));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
+                //  cell1 = new PdfPCell(new Phrase("Respiratory Rate : " + functionNote));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Respiratory Rate:", functionNote);
+                table.addCell(cell);
 
                 messageLiving.add("Respiratory Rate :");
                 messageLiving.add(functionNote);
@@ -961,12 +950,10 @@ public class EventPdfNew {
                 if (s.getCol() != null) {
                     Col = s.getCol();
                 }
-                cell1 = new PdfPCell(new Phrase("Cholesterol : " + Col));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
+                // cell1 = new PdfPCell(new Phrase("Cholesterol : " + Col));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Cholesterol:", Col);
+                table.addCell(cell);
 
                 messageLiving.add("Cholesterol :");
                 messageLiving.add(Col);
@@ -975,13 +962,10 @@ public class EventPdfNew {
                 if (s.getOther() != null) {
                     oter = s.getOther();
                 }
-                cell1 = new PdfPCell(new Phrase("Other : " + oter));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
-
+                // cell1 = new PdfPCell(new Phrase("Other : " + oter));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Other:", oter);
+                table.addCell(cell);
                 messageLiving.add("Other :");
                 messageLiving.add(oter);
 
@@ -989,47 +973,31 @@ public class EventPdfNew {
                 if (s.getNote() != null) {
                     Note = s.getNote();
                 }
-                cell1 = new PdfPCell(new Phrase("Note : " + Note));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
+                //  cell1 = new PdfPCell(new Phrase("Note : " + Note));
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "Note:", Note);
+                table.addCell(cell);
 
                 messageLiving.add("Note :");
                 messageLiving.add(Note);
 
-                cell1 = new PdfPCell(new Phrase(""));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                tablep.addCell(cell1);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
 
                 messageLiving.add("");
                 messageLiving.add("");
 
-                Header.document.add(tablep);
-                Paragraph p = new Paragraph(" ");
-                DottedLineSeparator line = new DottedLineSeparator();
-                line.setOffset(-4);
-                line.setLineColor(BaseColor.BLACK);
-                p.add(line);
-                Header.document.add(p);
-                Header.addEmptyLine(1);
 
+                cell1.addElement(table);
+                table1.addCell(cell1);
+                HeaderNew.document.add(table1);
+                HeaderNew.addEmptyLine(1);
             }
-           /* Paragraph p = new Paragraph(" ");
-            DottedLineSeparator line = new DottedLineSeparator();
-            line.setOffset(-4);
-            line.setLineColor(BaseColor.LIGHT_GRAY);
-            p.add(line);
-            Header.document.add(p);*/
-            // Header.addEmptyLine(1);
-
-        } catch (Exception e) {
+        } catch (Exception e1) {
             // TODO Auto-generated catch block
-            e.printStackTrace();
+            e1.printStackTrace();
         }
 
     }
