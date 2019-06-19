@@ -448,7 +448,7 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION INFORMATION", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTION INFORMATION", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("PRESCRIPTION INFORMATION");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

@@ -474,7 +474,7 @@ public class FragementInsuarnceCard extends Fragment implements View.OnClickList
         profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE CARDS", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"INSURANCE CARDS", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("INSURANCE CARDS");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

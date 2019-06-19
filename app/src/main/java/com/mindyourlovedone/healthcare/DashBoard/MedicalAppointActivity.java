@@ -479,7 +479,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);

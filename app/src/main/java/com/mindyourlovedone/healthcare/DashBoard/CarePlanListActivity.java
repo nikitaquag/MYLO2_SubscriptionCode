@@ -659,7 +659,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file1.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"ADVANCE DIRECTIVES", calendarWite, profileWite);
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"ADVANCE DIRECTIVES", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("ADVANCE DIRECTIVES");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);
@@ -712,7 +712,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file3.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"OTHER DOCUMENTS", calendarWite, profileWite);
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"OTHER DOCUMENTS", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("OTHER DOCUMENTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);
@@ -763,7 +763,7 @@ public class CarePlanListActivity extends AppCompatActivity implements View.OnCl
                 profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
                 new HeaderNew().createPdfHeaders(file2.getAbsolutePath(),
-                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"MEDICAL RECORDS", calendarWite, profileWite);
+                        "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"MEDICAL RECORDS", calendarWite, profileWite);
 
                 HeaderNew.addusereNameChank("MEDICAL RECORDS");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 HeaderNew.addEmptyLine(1);

@@ -934,7 +934,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             Header.document.close();*/
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"SPECIALTY CONTACTS", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"SPECIALTY CONTACTS", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("SPECIALTY CONTACTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1034,7 +1034,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PERSONAL, MEDICAL AND  EMERGENCY INFO", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PERSONAL, MEDICAL AND  EMERGENCY INFO", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("PERSONAL, MEDICAL AND  EMERGENCY INFO");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1125,7 +1125,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"INSURANCE", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"INSURANCE", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("INSURANCE");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1197,7 +1197,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("EVENT AND APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
@@ -1254,7 +1254,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             Header.document.close();*/
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"PRESCRIPTION TRACKER", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTION TRACKER", calendarWite, profileWite);
 
             HeaderNew.addusereNameChank("PRESCRIPTION TRACKER");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);

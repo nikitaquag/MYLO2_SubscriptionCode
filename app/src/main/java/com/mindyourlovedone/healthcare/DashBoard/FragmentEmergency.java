@@ -542,7 +542,7 @@ emergencyList=new ArrayList<>();
         profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.USER_PROFILEIMAGE),pdflogo,calendar,profile,"EMERGENCY CONTACTS & HEALTH CARE PROXY AGENT", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"EMERGENCY CONTACTS & HEALTH CARE PROXY AGENT", calendarWite, profileWite);
 
         HeaderNew.addusereNameChank("EMERGENCY CONTACTS & HEALTH CARE PROXY AGENT");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
