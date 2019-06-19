@@ -4429,7 +4429,7 @@ public class IndividualNew {
 
             cell.addElement(table1);
             table.addCell(cell);
-            
+
             //dental -7
            // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
