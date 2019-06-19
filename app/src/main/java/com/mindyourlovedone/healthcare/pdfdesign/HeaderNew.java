@@ -431,8 +431,8 @@ public class HeaderNew {
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             cell1.setPaddingTop(5);
-            cell1.setPaddingLeft(14);
-            cell1.setPaddingRight(14);
+            cell1.setPaddingLeft(16);
+            cell1.setPaddingRight(16);
             // cell1.setPaddingBottom(2);
             cell1.setVerticalAlignment(Element.ALIGN_TOP);
             // cell1.setLeading(8,1);
@@ -463,8 +463,8 @@ public class HeaderNew {
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             cell1.setPaddingTop(5);
-            cell1.setPaddingLeft(14);
-            cell1.setPaddingRight(14);
+            cell1.setPaddingLeft(16);
+            cell1.setPaddingRight(16);
             // cell1.setPaddingBottom(2);
             cell1.setVerticalAlignment(Element.ALIGN_TOP);
             // cell1.setLeading(8,1);

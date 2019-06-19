@@ -710,6 +710,8 @@ public class IndividualNew {
                 cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setColspan(2);
+                cell1.setPaddingLeft(10);
+                cell1.setPaddingRight(10);
                 cell1.addElement(new Paragraph(" "));
 
     /*cell5.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
@@ -735,7 +737,7 @@ public class IndividualNew {
                     int k = i + 1;
                     tableIN = new PdfPTable(2);
                     PdfPCell cellIN;
-                    tableIN.setWidthPercentage(95);
+                    tableIN.setWidthPercentage(98);
                     tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     tableIN.setTableEvent(new RoundedBorder());
                     tableIN.getDefaultCell().setPadding(2);
@@ -752,6 +754,7 @@ public class IndividualNew {
                     HeaderNew.cellDesign(cellIN, tableIN, "Pet " + k + " Name:", name);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
+
                     tableIN.addCell(cellIN);
 
                     messageInfo3.add("Name :");
@@ -2382,7 +2385,7 @@ public class IndividualNew {
 //
 //            PdfPTable table6;
 //            table6 = new PdfPTable(2);
-//            table6.setWidthPercentage(95);
+//            table6.setWidthPercentage(98);
 //            table6.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
 //            table6.setTableEvent(new RoundedBorder());
 //            table6.getDefaultCell().setPadding(10);
@@ -3809,7 +3812,7 @@ public class IndividualNew {
 
             PdfPCell cell1;
 
-            if (!allargyLists.isEmpty()) {
+            //if (!allargyLists.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
@@ -3831,8 +3834,10 @@ public class IndividualNew {
                 cell1 = new PdfPCell();
                 cell1.addElement(pf);
 
-                cell1.setPaddingTop(10);
+                //cell1.setPaddingTop(10);
 //                cell1.setPaddingBottom(10);
+                cell1.setPaddingRight(10);
+                cell1.setPaddingLeft(10);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setColspan(2);
@@ -3842,7 +3847,7 @@ public class IndividualNew {
                 PdfPTable tableIN;
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -3902,7 +3907,7 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+          //  }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -3921,6 +3926,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             //table.setKeepTogether(false);
@@ -3931,20 +3938,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!conditionList.isEmpty()) {
+          //  if (!conditionList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Pre Existing Medical Conditions", BlackFont);
+                 underline = new Chunk("Pre Existing Medical Conditions", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -3953,16 +3960,16 @@ public class IndividualNew {
                 cell1 = new PdfPCell();
                 cell1.addElement(pf);
 
-                cell1.setPaddingTop(10);
+               // cell1.setPaddingTop(10);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -3991,7 +3998,7 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+       //     }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4010,6 +4017,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4020,20 +4029,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!implantsList.isEmpty()) {
+          //  if (!implantsList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Medical Implants", BlackFont);
+                 underline = new Chunk("Medical Implants", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4042,16 +4051,16 @@ public class IndividualNew {
                 cell1 = new PdfPCell();
                 cell1.addElement(pf);
 
-                cell1.setPaddingTop(10);
+               // cell1.setPaddingTop(10);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4119,7 +4128,7 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+       //     }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4129,15 +4138,17 @@ public class IndividualNew {
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
-            cellIN = new PdfPCell();
+            /*cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
+            table.addCell(cellIN);*/
 
             //History -4
          //   HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4148,20 +4159,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!historList.isEmpty()) {
+        //    if (!historList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Surgical/Hospitalization History", BlackFont);
+                 underline = new Chunk("Surgical/Hospitalization History", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4176,10 +4187,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4241,7 +4252,7 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+          //  }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4251,15 +4262,17 @@ public class IndividualNew {
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
-            cellIN = new PdfPCell();
+            /*cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
+            table.addCell(cellIN);*/
 
             //hospital -5
            // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4270,20 +4283,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!hospitalList.isEmpty()) {
+         //   if (!hospitalList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Preferred Hospitals", BlackFont);
+                 underline = new Chunk("Preferred Hospitals", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4298,10 +4311,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4331,19 +4344,21 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+          //  }
             cell.addElement(table1);
             table.addCell(cell);
 
-            cellIN = new PdfPCell();
+          /*  cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
+            table.addCell(cellIN);*/
 
             //blood -6
             //HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4354,20 +4369,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!medInfo.getBloodType().isEmpty()) {
+
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Blood Type", BlackFont);
+                 underline = new Chunk("Blood Type", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4383,16 +4398,15 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
                 tableIN.setKeepTogether(false);
                 tableIN.setSplitLate(false);
-
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesignNoline(cellIN, tableIN, "Blood Type", medInfo.getBloodType());
@@ -4407,19 +4421,22 @@ public class IndividualNew {
 
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+
+
+            cell1 = new PdfPCell();
+            HeaderNew.cellDesign(cell1, table, "", "Empty");
+            table1.addCell(cell1);
+
             cell.addElement(table1);
             table.addCell(cell);
-
-            cellIN = new PdfPCell();
-            HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
-
+            
             //dental -7
            // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4436,14 +4453,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Dental", BlackFont);
+                 underline = new Chunk("Dental", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4459,10 +4476,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4514,6 +4531,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4524,20 +4543,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!medInfo.getDietNote().isEmpty()) {
+          //  if (!medInfo.getDietNote().isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Diet", BlackFont);
+                 underline = new Chunk("Diet", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4553,10 +4572,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4577,7 +4596,7 @@ public class IndividualNew {
 
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+       //     }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4590,6 +4609,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4606,14 +4627,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Hearing & Speech", BlackFont);
+                 underline = new Chunk("Hearing & Speech", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4629,10 +4650,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4673,6 +4694,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4683,20 +4706,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!vaccineList.isEmpty()) {
+          //  if (!vaccineList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Immunizations/Vaccines", BlackFont);
+                 underline = new Chunk("Immunizations/Vaccines", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4711,10 +4734,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4764,7 +4787,7 @@ public class IndividualNew {
                 }
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+         //   }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4783,6 +4806,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4793,20 +4818,20 @@ public class IndividualNew {
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
-            if (!medInfo.getDietNote().isEmpty()) {
+          //  if (!medInfo.getDietNote().isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Organ Donor", BlackFont);
+                 underline = new Chunk("Organ Donor", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4822,10 +4847,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4846,7 +4871,7 @@ public class IndividualNew {
 
                 cell1.addElement(tableIN);
                 table1.addCell(cell1);
-            }
+         //   }
             cell.addElement(table1);
             table.addCell(cell);
 
@@ -4860,6 +4885,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4876,14 +4903,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Vision", BlackFont);
+                 underline = new Chunk("Vision", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4898,10 +4925,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -4957,6 +4984,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4973,14 +5002,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Smoking/Tobacco Use", BlackFont);
+                 underline = new Chunk("Smoking/Tobacco Use", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -4995,10 +5024,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -5059,6 +5088,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -5075,14 +5106,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Alcohol", BlackFont);
+                 underline = new Chunk("Alcohol", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -5097,10 +5128,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
@@ -5159,6 +5190,8 @@ public class IndividualNew {
             cell = new PdfPCell();
             cell.setPaddingTop(5);
             cell.setPaddingBottom(5);
+            cell.setPaddingLeft(10);
+            cell.setPaddingRight(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -5175,14 +5208,14 @@ public class IndividualNew {
                 BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
-                Paragraph pf = new Paragraph();
-                Phrase pps = new Phrase();
-                Chunk underlined = new Chunk("  ", BlackFont);
+                 pf = new Paragraph();
+                 pps = new Phrase();
+                 underlined = new Chunk("  ", BlackFont);
                 pps.add(underlined);
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Recreational Drug Use", BlackFont);
+                 underline = new Chunk("Recreational Drug Use", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -5197,10 +5230,10 @@ public class IndividualNew {
                 cell1.setColspan(2);
                 cell1.addElement(new Paragraph(" "));
 
-                PdfPTable tableIN;
+
                 tableIN = new PdfPTable(2);
 
-                tableIN.setWidthPercentage(95);
+                tableIN.setWidthPercentage(98);
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);

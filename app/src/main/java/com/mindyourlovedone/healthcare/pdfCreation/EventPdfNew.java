@@ -172,8 +172,8 @@ public class EventPdfNew {
                 cell.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell.setBorder(Rectangle.NO_BORDER);
                 cell.setColspan(2);
-               cell.setPaddingLeft(10);
-                cell.setPaddingRight(10);
+              // cell.setPaddingLeft(10);
+               // cell.setPaddingRight(10);
                 cell.addElement(new Paragraph(" "));
 
 
@@ -521,8 +521,8 @@ public class EventPdfNew {
                     messageLiving.add(functionNote);
 
 
-                    cell1.addElement(table);
-                    table1.addCell(cell1);
+                   /* cell1.addElement(table);
+                   table1.addCell(cell1);*/
 
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
