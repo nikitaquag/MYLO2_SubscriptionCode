@@ -51,7 +51,7 @@ public class FilePath {
                     return Environment.getExternalStorageDirectory() + "/" + split[1];
                 }
 
-                // TODO handle non-primary volumes
+                // TODO handle non-pra  aimary volumes
             }
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {
@@ -92,6 +92,7 @@ public class FilePath {
            // String path = null;
             MimeTypeMap mime = MimeTypeMap.getSingleton();
             String type= mime.getExtensionFromMimeType( context.getContentResolver().getType(uri));
+
 if (type.equalsIgnoreCase("png")||type.equalsIgnoreCase("jpg")||type.equalsIgnoreCase("jpeg")) {
     String[] proj = {MediaStore.Images.Media.DISPLAY_NAME};
     Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);

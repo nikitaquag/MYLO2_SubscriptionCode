@@ -685,7 +685,7 @@ public class IndividualNew {
             if (Pets.equalsIgnoreCase("YES")) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -3797,14 +3797,14 @@ public class IndividualNew {
             cell.setPaddingBottom(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
-            table.setKeepTogether(false);
-            table.setSplitLate(false);
+          //  table.setKeepTogether(false);
+          //  table.setSplitLate(false);
 
             PdfPTable table1;
             table1 = new PdfPTable(2);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table1.setKeepTogether(false);
-            table1.setSplitLate(false);
+            //table1.setKeepTogether(false);
+           // table1.setSplitLate(false);
             table1.setWidthPercentage(100);
 
             PdfPCell cell1;
@@ -3812,7 +3812,7 @@ public class IndividualNew {
             if (!allargyLists.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -3846,8 +3846,8 @@ public class IndividualNew {
                 tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 tableIN.setTableEvent(new RoundedBorder());
                 tableIN.getDefaultCell().setPadding(2);
-                tableIN.setKeepTogether(false);
-                tableIN.setSplitLate(false);
+              //  tableIN.setKeepTogether(false);
+              //  tableIN.setSplitLate(false);
 
                 for (int i = 0; i < allargyLists.size(); i++) {
 
@@ -3909,7 +3909,7 @@ public class IndividualNew {
             PdfPCell cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Allergy Note", medInfo.getAllergyNote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -3917,14 +3917,14 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //Pre-exist -2
-            HeaderNew.addEmptyLine(1);
+          //  HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
-            table.setKeepTogether(false);
-            table.setSplitLate(false);
+            //table.setKeepTogether(false);
+           // table.setSplitLate(false);
             table1 = new PdfPTable(2);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setKeepTogether(false);
@@ -3934,7 +3934,7 @@ public class IndividualNew {
             if (!conditionList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -3998,7 +3998,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Pre Existing Medical Conditions Note", medInfo.getNote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4006,10 +4006,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //Implants -3
-            HeaderNew.addEmptyLine(1);
+          //  HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4023,7 +4023,7 @@ public class IndividualNew {
             if (!implantsList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4126,7 +4126,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Medical Implant Note", medInfo.getImplantnote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4134,10 +4134,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //History -4
-            HeaderNew.addEmptyLine(1);
+         //   HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4151,7 +4151,7 @@ public class IndividualNew {
             if (!historList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4248,7 +4248,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Surgical/Hospitalization History Note", medInfo.getHistorynote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4256,10 +4256,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //hospital -5
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4273,7 +4273,7 @@ public class IndividualNew {
             if (!hospitalList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4340,10 +4340,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //blood -6
-            HeaderNew.addEmptyLine(1);
+            //HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4357,7 +4357,7 @@ public class IndividualNew {
             if (!medInfo.getBloodType().isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4416,10 +4416,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //dental -7
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4433,7 +4433,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4502,7 +4502,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Dental Note", medInfo.getMouthnote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4510,10 +4510,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //diet -8
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4527,7 +4527,7 @@ public class IndividualNew {
             if (!medInfo.getDietNote().isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4586,10 +4586,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //speech -9
-            HeaderNew.addEmptyLine(1);
+          //  HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4603,7 +4603,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4661,7 +4661,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Hearing & Speech Note", medInfo.getAideNote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4669,10 +4669,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //vaccine -10
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4686,7 +4686,7 @@ public class IndividualNew {
             if (!vaccineList.isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4771,7 +4771,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Immunizations/Vaccines Note", medInfo.getVaccinenote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4779,10 +4779,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //donor -11
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4796,7 +4796,7 @@ public class IndividualNew {
             if (!medInfo.getDietNote().isEmpty()) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4856,10 +4856,10 @@ public class IndividualNew {
 
 
             //vaccine -12
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4873,7 +4873,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -4945,7 +4945,7 @@ public class IndividualNew {
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Vision Note", medInfo.getVisionNote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
-            cellIN.setPaddingTop(14);
+            cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
             cellIN = new PdfPCell();
@@ -4953,10 +4953,10 @@ public class IndividualNew {
             table.addCell(cellIN);
 
             //Smoking -13
-            HeaderNew.addEmptyLine(1);
+            //HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -4970,7 +4970,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -5050,15 +5050,15 @@ public class IndividualNew {
             cell.addElement(table1);
             table.addCell(cell);
 
-            cellIN = new PdfPCell();
+            /*cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
+            table.addCell(cellIN);*/
 
             //Drink -14
-            HeaderNew.addEmptyLine(1);
+           // HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -5072,7 +5072,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -5150,15 +5150,15 @@ public class IndividualNew {
             cell.addElement(table1);
             table.addCell(cell);
 
-            cellIN = new PdfPCell();
+           /* cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
-            table.addCell(cellIN);
+            table.addCell(cellIN);*/
 
             //Drug -15
-            HeaderNew.addEmptyLine(1);
+          //  HeaderNew.addEmptyLine(1);
             cell = new PdfPCell();
-            cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+            cell.setPaddingTop(5);
+            cell.setPaddingBottom(5);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -5172,7 +5172,7 @@ public class IndividualNew {
             if (medInfo != null) {
 
                 BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
-                BlackFont.setSize(16);
+                BlackFont.setSize(11.5f);
                 BlackFont.setStyle(Font.BOLD);
 
                 Paragraph pf = new Paragraph();
@@ -5252,10 +5252,10 @@ public class IndividualNew {
             cell.addElement(table1);
             table.addCell(cell);
 
-            cellIN = new PdfPCell();
+           /* cellIN = new PdfPCell();
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
             table.addCell(cellIN);
-
+*/
             // last full table
             HeaderNew.document.add(table);
             HeaderNew.addEmptyLine(1);

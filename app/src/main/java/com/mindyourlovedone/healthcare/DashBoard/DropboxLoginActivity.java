@@ -657,7 +657,7 @@ txtLogoutDropbox.setVisibility(View.GONE);
                 for (int i = 0; i < result.getEntries().size(); i++) {
                     if (preferences.getString(PrefConstants.STORE).equals("Document")) {
                         String name=result.getEntries().get(i).getName();
-                        if (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".doc")||name.endsWith(".xlsx")||name.endsWith(".xls")||name.endsWith(".png")||name.endsWith(".PNG")||name.endsWith(".jpg")||name.endsWith(".jpeg")) {
+                        if (name.endsWith(".pdf")||name.endsWith(".txt")||name.endsWith(".docx")||name.endsWith(".doc")||name.endsWith(".xlsx")||name.endsWith(".xls")||name.endsWith(".png")||name.endsWith(".PNG")||name.endsWith(".jpg")||name.endsWith(".jpeg")||name.endsWith(".ppt")||name.endsWith(".pptx")) {
                             // if (result.getEntries().get(i).getName().endsWith(".pdf")||result.getEntries().get(i).getName().endsWith(".db")) {
                             resultList.add(result.getEntries().get(i));
                         }
