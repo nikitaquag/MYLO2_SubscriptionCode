@@ -1077,6 +1077,12 @@ public class AddInsuranceFormActivity extends AppCompatActivity implements View.
                 BitmapDrawable background3 = new BitmapDrawable(originPath);
                 rlDoc.setBackgroundDrawable(background3);
                 break;
+            case "ppt":
+                rlDoc.setBackgroundResource(R.drawable.ppt);
+                break;
+            case "pptx":
+                rlDoc.setBackgroundResource(R.drawable.ppt);
+                break;
             default:
                 rlDoc.setBackgroundResource(R.drawable.pdf);
                 break;

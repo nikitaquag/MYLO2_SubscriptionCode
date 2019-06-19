@@ -203,6 +203,12 @@ public class DocumentAdapter extends RecyclerSwipeAdapter<DocumentAdapter.ViewHo
             case "jpeg":
                 holder.imgDocType.setImageURI(Uri.parse(originPath));
                 break;
+            case "ppt":
+                holder.imgDocType.setImageResource(R.drawable.ppt);
+                break;
+            case "pptx":
+                holder.imgDocType.setImageResource(R.drawable.ppt);
+                break;
             default:
                 holder.imgDocType.setImageResource(R.drawable.pdf);
                 break;

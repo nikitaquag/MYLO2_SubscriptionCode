@@ -1722,12 +1722,12 @@ startActivity(i);
             case "jpeg":
                 imgDoc.setImageURI(Uri.parse(originPath));
                 break;
-           /* case "ppt":
-                imgDoc.setImageResource(R.drawable.excel);
+            case "ppt":
+                imgDoc.setImageResource(R.drawable.ppt);
                 break;
             case "pptx":
-                imgDoc.setImageResource(R.drawable.excel);
-                break;*/
+                imgDoc.setImageResource(R.drawable.ppt);
+                break;
             default:
                 imgDoc.setImageResource(R.drawable.pdf);
                 break;
