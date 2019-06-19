@@ -3913,7 +3913,7 @@ public class IndividualNew {
 
             PdfPCell cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Allergy Note", medInfo.getAllergyNote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4004,7 +4004,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Pre Existing Medical Conditions Note", medInfo.getNote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4134,7 +4134,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Medical Implant Note", medInfo.getImplantnote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4258,7 +4258,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Surgical/Hospitalization History Note", medInfo.getHistorynote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4518,7 +4518,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Dental Note", medInfo.getMouthnote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4585,7 +4585,7 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesignNoline(cellIN, tableIN, "Diet Note", medInfo.getDietNote());
-                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+               // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -4681,7 +4681,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Hearing & Speech Note", medInfo.getAideNote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4793,7 +4793,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Immunizations/Vaccines Note", medInfo.getVaccinenote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 
@@ -4971,7 +4971,7 @@ public class IndividualNew {
 
             cellIN = new PdfPCell();
             HeaderNew.cellDesignbroadline(cellIN, table, "Vision Note", medInfo.getVisionNote());
-            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+           // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
 

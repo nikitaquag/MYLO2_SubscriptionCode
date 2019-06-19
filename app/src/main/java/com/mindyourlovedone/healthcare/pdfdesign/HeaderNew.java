@@ -893,7 +893,7 @@ cell1.setUseAscender(true);
                     t.clip();
                     t.newPath();
                     try {
-                        t.addImage(imaged, w, 0, 0, h, 0, -100);
+                        t.addImage(imaged, w, 0, 0, h, 0, 0);
                     } catch (DocumentException e) {
                         e.printStackTrace();
                     }
@@ -1067,7 +1067,7 @@ else {
                     t.clip();
                     t.newPath();
                     try {
-                        t.addImage(imaged, w, 0, 0, h, 0, -100);
+                        t.addImage(imaged, w, 0, 0, h, 0, 0);
                     } catch (DocumentException e) {
                         e.printStackTrace();
                     }
