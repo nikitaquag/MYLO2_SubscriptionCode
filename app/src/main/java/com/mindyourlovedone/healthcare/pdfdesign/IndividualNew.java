@@ -3771,16 +3771,21 @@ public class IndividualNew {
 //
 //        }
 
+
+        // New PDF changes - Nikita
         try {
             // Font
             IndividualNewFont();
 
             HeaderNew.addNewChank("Medical Profile", ppys);
             messageInfo.add("Medical Profile");
+
+            //Allergy -1
             HeaderNew.addEmptyLine(1);
 
             PdfPTable table;
             table = new PdfPTable(1);
+
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table.setTableEvent(new RoundedBorder());
             table.getDefaultCell().setPaddingBottom(15);
@@ -3864,7 +3869,7 @@ public class IndividualNew {
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
-                    if(a.getReaction().equalsIgnoreCase("other")){
+                    if (a.getReaction().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         if (i == allargyLists.size() - 1) {
                             HeaderNew.cellDesignNoline(cellIN, tableIN, "Other Reaction", a.getOtherReaction());
@@ -3884,9 +3889,10 @@ public class IndividualNew {
                         HeaderNew.cellDesign(cellIN, tableIN, "Treatment", a.getTreatment());
                     }
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
-                    if(!a.getReaction().equalsIgnoreCase("other")) {
+                    if (!a.getReaction().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
                         tableIN.addCell(cellIN);
@@ -3901,7 +3907,7 @@ public class IndividualNew {
             table.addCell(cell);
 
             PdfPCell cellIN = new PdfPCell();
-            HeaderNew.cellDesignbroadline(cellIN, table, "Notes", medInfo.getAllergyNote());
+            HeaderNew.cellDesignbroadline(cellIN, table, "Allergy Note", medInfo.getAllergyNote());
             cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(14);
             table.addCell(cellIN);
@@ -3910,6 +3916,1347 @@ public class IndividualNew {
             HeaderNew.cellDesign(cellIN, table, "", "Empty");
             table.addCell(cellIN);
 
+            //Pre-exist -2
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!conditionList.isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Pre Existing Medical Conditions", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+                for (int i = 0; i < conditionList.size(); i++) {
+
+                    int k = i + 1;
+
+                    cellIN = new PdfPCell();
+                    if (i == conditionList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Medical Condition " + k + "", conditionList.get(i));
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Medical Condition " + k + "", conditionList.get(i));
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Pre Existing Medical Conditions Note", medInfo.getNote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //Implants -3
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!implantsList.isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Medical Implants", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+                for (int i = 0; i < implantsList.size(); i++) {
+
+                    int k = i + 1;
+
+                    Implant implant = implantsList.get(i);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Medical Condition " + k + "", implant.getName());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (implant.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "Other", implant.getOther());
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        cellIN.setPaddingTop(14);
+                        tableIN.addCell(cellIN);
+                    }
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Date", implant.getDate());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Location", implant.getLocation());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    if (i == implantsList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Details", implant.getDetails());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Details", implant.getDetails());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    if (i == implantsList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Notes", implant.getNotes());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Notes", implant.getNotes());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (!implant.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        tableIN.addCell(cellIN);
+                    }
+
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Medical Implant Note", medInfo.getImplantnote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //History -4
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!historList.isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Surgical/Hospitalization History", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+                for (int i = 0; i < historList.size(); i++) {
+
+                    int k = i + 1;
+
+                    History implant = historList.get(i);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Surgical History " + k + "", implant.getName());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (implant.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "Other", implant.getOther());
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        cellIN.setPaddingTop(14);
+                        tableIN.addCell(cellIN);
+                    }
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Date", implant.getDate());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    if (i == historList.size() - 1 && !implant.getName().equalsIgnoreCase("other")) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Doctor", implant.getDate());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Doctor", implant.getDate());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    if (i == historList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Location", implant.getDone());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Location", implant.getDone());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (implant.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        tableIN.addCell(cellIN);
+                    }
+
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Surgical/Hospitalization History Note", medInfo.getHistorynote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //hospital -5
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!hospitalList.isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Preferred Hospitals", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+                for (int i = 0; i < hospitalList.size(); i++) {
+
+                    int k = i + 1;
+
+                    String history = hospitalList.get(i);
+
+                    cellIN = new PdfPCell();
+                    if (i == hospitalList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Hospital " + k + "", history);
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Hospital " + k + "", history);
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //blood -6
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!medInfo.getBloodType().isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Blood Type", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Blood Type", medInfo.getBloodType());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //dental -7
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Dental", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "Dentures - Removable Upper", medInfo.getFalses());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "Dry Mouth", medInfo.getMouth());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Dentures - Removable Lower", medInfo.getImplants());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Dental Note", medInfo.getMouthnote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //diet -8
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!medInfo.getDietNote().isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Diet", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Diet Note", medInfo.getDietNote());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //speech -9
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Hearing & Speech", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Hearing Aid(S)", medInfo.getAid());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Speech Impaired", medInfo.getSpeech());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Hearing & Speech Note", medInfo.getAideNote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //vaccine -10
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!vaccineList.isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Immunizations/Vaccines", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+                for (int i = 0; i < vaccineList.size(); i++) {
+
+                    int k = i + 1;
+
+                    Vaccine history = vaccineList.get(i);
+
+                    cellIN = new PdfPCell();
+                    if (i == vaccineList.size() - 1 && !history.getName().equalsIgnoreCase("other")) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Vaccine " + k + "", history.getName());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Vaccine " + k + "", history.getName());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (history.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "Other", history.getOther());
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        cellIN.setPaddingTop(14);
+                        tableIN.addCell(cellIN);
+                    }
+
+                    cellIN = new PdfPCell();
+                    if (i == vaccineList.size() - 1) {
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Date", history.getDate());
+                    } else {
+                        HeaderNew.cellDesign(cellIN, tableIN, "Date", history.getDate());
+                    }
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    if (history.getName().equalsIgnoreCase("other")) {
+                        cellIN = new PdfPCell();
+                        HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        cellIN.setPaddingTop(14);
+                        tableIN.addCell(cellIN);
+                    }
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Immunizations/Vaccines Note", medInfo.getVaccinenote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //donor -11
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (!medInfo.getDietNote().isEmpty()) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Organ Donor", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Are You a Organ Donor?", medInfo.getDonor());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+
+            //vaccine -12
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Vision", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "Glasses", medInfo.getGlass());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "Contact Lenses", medInfo.getLense());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Color Blind", medInfo.getBlind());
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                cellIN = new PdfPCell();
+                HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesignbroadline(cellIN, table, "Vision Note", medInfo.getVisionNote());
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+            cellIN.setPaddingTop(14);
+            table.addCell(cellIN);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //Smoking -13
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Smoking/Tobacco Use", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                if (!medInfo.getTobaco().equalsIgnoreCase("never")) {
+                    HeaderNew.cellDesign(cellIN, tableIN, "Smoking/Tobacco Use", medInfo.getTobaco());
+                } else {
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Smoking/Tobacco Use", medInfo.getTobaco());
+                }
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                if (!medInfo.getTobaco().equalsIgnoreCase("never")) {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Type", medInfo.getT_type());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Amount/Frequency", medInfo.getT_amt());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Number of Years & When Stopped (if applicable)", medInfo.getT_year());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                } else {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //Drink -14
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Alcohol", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                if (!medInfo.getDrink().equalsIgnoreCase("never")) {
+                    HeaderNew.cellDesign(cellIN, tableIN, "Alcohol", medInfo.getDrink());
+                } else {
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Alcohol", medInfo.getDrink());
+                }
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                if (!medInfo.getDrink().equalsIgnoreCase("never")) {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Amount/Frequency", medInfo.getDrink_amt());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Number of Years & When Stopped (if applicable)", medInfo.getDrink_year());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                } else {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            //Drug -15
+            HeaderNew.addEmptyLine(1);
+            cell = new PdfPCell();
+            cell.setPaddingTop(10);
+            cell.setPaddingBottom(10);
+            cell.setBorder(Rectangle.NO_BORDER);
+            cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
+            table.setKeepTogether(false);
+            table.setSplitLate(false);
+            table1 = new PdfPTable(2);
+            table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+            table1.setKeepTogether(false);
+            table1.setSplitLate(false);
+            table1.setWidthPercentage(100);
+
+            if (medInfo != null) {
+
+                BlackFont.setColor(WebColors.getRGBColor("#24AAE0"));//255, 99, 26);
+                BlackFont.setSize(16);
+                BlackFont.setStyle(Font.BOLD);
+
+                Paragraph pf = new Paragraph();
+                Phrase pps = new Phrase();
+                Chunk underlined = new Chunk("  ", BlackFont);
+                pps.add(underlined);
+                pf.add(pps);
+
+                pps = new Phrase();
+                Chunk underline = new Chunk("Recreational Drug Use", BlackFont);
+                pps.add(underline);
+
+                pf.add(pps);
+                pf.setAlignment(Element.ALIGN_LEFT);
+
+                cell1 = new PdfPCell();
+                cell1.addElement(pf);
+
+                cell1.setPaddingTop(10);
+                cell1.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
+                cell1.setBorder(Rectangle.NO_BORDER);
+                cell1.setColspan(2);
+                cell1.addElement(new Paragraph(" "));
+
+                PdfPTable tableIN;
+                tableIN = new PdfPTable(2);
+
+                tableIN.setWidthPercentage(95);
+                tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
+                tableIN.setTableEvent(new RoundedBorder());
+                tableIN.getDefaultCell().setPadding(2);
+                tableIN.setKeepTogether(false);
+                tableIN.setSplitLate(false);
+
+
+                cellIN = new PdfPCell();
+                if (!medInfo.getDrug().equalsIgnoreCase("never")) {
+                    HeaderNew.cellDesign(cellIN, tableIN, "Recreational Drug Use", medInfo.getDrug());
+                } else {
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Recreational Drug Use", medInfo.getDrug());
+                }
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setPaddingTop(14);
+                tableIN.addCell(cellIN);
+
+
+                if (!medInfo.getDrug().equalsIgnoreCase("never")) {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesign(cellIN, tableIN, "Type", medInfo.getDrug_type());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Amount/Frequency", medInfo.getDrug_amt());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Number of Years & When Stopped (if applicable)", medInfo.getDrug_year());
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+
+                } else {
+                    cellIN = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setPaddingTop(14);
+                    tableIN.addCell(cellIN);
+                }
+                cell1.addElement(tableIN);
+                table1.addCell(cell1);
+            }
+            cell.addElement(table1);
+            table.addCell(cell);
+
+            cellIN = new PdfPCell();
+            HeaderNew.cellDesign(cellIN, table, "", "Empty");
+            table.addCell(cellIN);
+
+            // last full table
             HeaderNew.document.add(table);
             HeaderNew.addEmptyLine(1);
 
@@ -4330,7 +5677,8 @@ public class IndividualNew {
 
     }
 
-    public IndividualNew(String emergency1, Emergency e, ArrayList<ContactData> phonelist, int i, Image ppys) {
+    public IndividualNew(String emergency1, Emergency e, ArrayList<ContactData> phonelist,
+                         int i, Image ppys) {
         // Font
         IndividualNewFont();
         try {
@@ -4516,7 +5864,8 @@ public class IndividualNew {
         }
     }
 
-    public IndividualNew(String physician, Specialist s, ArrayList<ContactData> phonelists, int i, Image ppys) {
+    public IndividualNew(String physician, Specialist s, ArrayList<ContactData> phonelists,
+                         int i, Image ppys) {
         IndividualNewFont();
         try {
             // HeaderNew.addEmptyLine(1);
