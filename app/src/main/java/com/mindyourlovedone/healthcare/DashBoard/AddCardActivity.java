@@ -212,7 +212,7 @@ tilOther.setVisibility(View.VISIBLE);
                 }
                 else {*/
                     imgfrontCard.setImageURI(Uri.parse(String.valueOf(Uri.fromFile(imgFile))));
-                    backFlag = true;
+                    frontFlag = true;
                     imgEdit1.setVisibility(View.VISIBLE);
                 //}
                 // imageLoaderProfile.displayImage(String.valueOf(Uri.fromFile(imgFile)), viewHolder.imgProfile, displayImageOptionsProfile);
@@ -301,12 +301,12 @@ tilOther.setVisibility(View.VISIBLE);
                 break;
 
             case R.id.imgFrontCard:
-              //  if (frontFlag == true) {
+                if (frontFlag == true) {
                     Intent i = new Intent(context, AddFormActivity.class);
                     i.putExtra("Image", imagePathFront);
                     i.putExtra("FROM", "Insurance");
                     startActivityForResult(i, REQUEST_CARD);
-              //  }
+                }
                 break;
             case R.id.llBackCam:
                 imgEdit2.performClick();
@@ -325,12 +325,12 @@ tilOther.setVisibility(View.VISIBLE);
                 startActivity(intentHome);
                 break;
             case R.id.imgBackCard:
-               // if (backFlag == true) {
+                if (backFlag == true) {
                     Intent j = new Intent(context, AddFormActivity.class);
                     j.putExtra("Image", imagePathBack);
                     j.putExtra("FROM", "Insurance");
                     startActivityForResult(j, REQUEST_CARD);
-              //  }
+                }
                 break;
             case R.id.txtSave:
                 //Shradha
