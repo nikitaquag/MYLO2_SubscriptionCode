@@ -112,6 +112,21 @@ public class FilePath {
                             result = result.substring(cut + 1);
                         }
                     }
+                } else if (type.equalsIgnoreCase("image/png") || type.equalsIgnoreCase("image/jpg") || type.equalsIgnoreCase("image/jpeg")) {
+                    String[] proj = {MediaStore.Images.Media.DISPLAY_NAME};
+                    Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
+                    if (cursor.moveToFirst()) {
+                        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DISPLAY_NAME);
+                        result = cursor.getString(column_index);
+                    }
+                    cursor.close();
+                    if (result == null) {
+                        result = uri.getPath();
+                        int cut = result.lastIndexOf('/');
+                        if (cut != -1) {
+                            result = result.substring(cut + 1);
+                        }
+                    }
                 } else {
                     if (uri.getScheme().equals("content")) {
                         Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
@@ -140,7 +155,7 @@ public class FilePath {
                 if (attachment == null)
                     Log.e("onCreate", "cannot access mail attachment");
                 else {
-                    String path = Environment.getExternalStorageDirectory() + result;
+                    String path = Environment.getExternalStorageDirectory()+ "/"+ result;
                     FileOutputStream tmp = new FileOutputStream(path);
                     byte[] buffer = new byte[1024];
                     while (attachment.read(buffer) > 0)
