@@ -140,7 +140,6 @@ public class FilePath {
                 if (attachment == null)
                     Log.e("onCreate", "cannot access mail attachment");
                 else {
-
                     String path = Environment.getExternalStorageDirectory() + result;
                     FileOutputStream tmp = new FileOutputStream(path);
                     byte[] buffer = new byte[1024];
