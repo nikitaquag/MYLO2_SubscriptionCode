@@ -311,11 +311,11 @@ public class IndividualNew {
             }
             //   cell8 = new PdfPCell(new Phrase("Height:" + height));
             cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Height:", height);
+            HeaderNew.cellDesign(cell1, table1, "Height(Ft-Inches):", height);
             table1.addCell(cell1);
 
 
-            messageInfo2.add("Height :");
+            messageInfo2.add("Height(Ft-Inches):");
             messageInfo2.add(height);
 
             if (connection.getWeight() != null) {
@@ -323,10 +323,10 @@ public class IndividualNew {
             }
             // cell8 = new PdfPCell(new Phrase("Weight:" + weight));
             cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Weight:", weight);
+            HeaderNew.cellDesign(cell1, table1, "Weight(lbs):", weight);
             table1.addCell(cell1);
 
-            messageInfo2.add("Weight :");
+            messageInfo2.add("Weight(lbs):");
             messageInfo2.add(weight);
 
             if (connection.getEyes() != null) {
@@ -334,7 +334,7 @@ public class IndividualNew {
             }
             // cell8 = new PdfPCell(new Phrase("Eyes:" + eyes));
             cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Eyes:", eyes);
+            HeaderNew.cellDesign(cell1, table1, "Eye Color:", eyes);
            /* Paragraph k2 = new Paragraph(" ");
             k2.setSpacingAfter(-5);
             cell8.addElement(k2);*/
@@ -513,28 +513,29 @@ public class IndividualNew {
             messageInfo2.add("Profession :");
             messageInfo2.add(profession);
 
+            if (connection.getEmployed() != null) {
+                employedBy = connection.getEmployed();
+            }
+            //  cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
+            cell1 = new PdfPCell();
+            HeaderNew.cellDesign(cell1, table1, "Employed by and Name of Manager:", employedBy);
+            table1.addCell(cell1);
+
+            messageInfo2.add("Employed By :");
+            messageInfo2.add(employedBy);
 
             if (connection.getManager_phone() != null) {
                 telephone = connection.getManager_phone();
             }
             //cellp = new PdfPCell(new Phrase("Manager Phone:" + telephone));
             cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Manager Phone:", telephone);
+            HeaderNew.cellDesign(cell1, table1, "Telephone# of Manager:", telephone);
             table1.addCell(cell1);
 
             messageInfo2.add("Manager Phone :");
             messageInfo2.add(telephone);
 
-            if (connection.getEmployed() != null) {
-                employedBy = connection.getEmployed();
-            }
-            //  cellp = new PdfPCell(new Phrase("Employed By:" + employedBy));
-            cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Employed By:", employedBy);
-            table1.addCell(cell1);
 
-            messageInfo2.add("Employed By :");
-            messageInfo2.add(employedBy);
 
 
             /*cell1 = new PdfPCell();
@@ -843,11 +844,11 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Person(s) Name who will care for pet:" + person));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Name who will care for pet:", person);
+                    HeaderNew.cellDesign(cellIN, tableIN, "ICE - who will care for pet?:", person);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
-                    messageInfo3.add("Person(s) Name who will care for pet :");
+                    messageInfo3.add("ICE - who will care for pet?:");
                     messageInfo3.add(person);
 
                     String cname = "";
@@ -856,11 +857,11 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Person(s) Address who will care for pet:" + cname));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Address who will care for pet:", cname);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Address of emergency pet caretaker:", cname);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
-                    messageInfo3.add("Person(s) Address who will care for pet :");
+                    messageInfo3.add("Address of emergency pet caretaker:");
                     messageInfo3.add(cname);
 
 
@@ -870,11 +871,11 @@ public class IndividualNew {
                     }
                     // cell = new PdfPCell(new Phrase("Person(s) Phone who will care for pet:" + cAdd));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Person(s) Phone who will care for pet:", cAdd);
+                    HeaderNew.cellDesign(cellIN, tableIN, "Tel # of emergency pet caretaker:", cAdd);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
-                    messageInfo3.add("Person(s) Phone who will care for pet :");
+                    messageInfo3.add("Tel # of emergency pet caretaker:");
                     messageInfo3.add(cAdd);
 
 
@@ -3825,7 +3826,7 @@ public class IndividualNew {
                 pf.add(pps);
 
                 pps = new Phrase();
-                Chunk underline = new Chunk("Allergy(s)", BlackFont);
+                Chunk underline = new Chunk("Allergies & Mediacation Reactions  ", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -3900,6 +3901,7 @@ public class IndividualNew {
                     if (!a.getReaction().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                         tableIN.addCell(cellIN);
                     }
 
@@ -3951,7 +3953,7 @@ public class IndividualNew {
                 pf.add(pps);
 
                 pps = new Phrase();
-                 underline = new Chunk("Pre Existing Medical Conditions", BlackFont);
+                 underline = new Chunk("Pre-existing Medical Conditions", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -3992,6 +3994,7 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
@@ -4074,7 +4077,7 @@ public class IndividualNew {
                     Implant implant = implantsList.get(i);
 
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Medical Condition " + k + "", implant.getName());
+                    HeaderNew.cellDesign(cellIN, tableIN, "Medical Implant " + k + "", implant.getName());
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
@@ -4122,6 +4125,7 @@ public class IndividualNew {
                     if (!implant.getName().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                         tableIN.addCell(cellIN);
                     }
 
@@ -4246,6 +4250,7 @@ public class IndividualNew {
                     if (implant.getName().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                         tableIN.addCell(cellIN);
                     }
 
@@ -4339,6 +4344,7 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
                 }
@@ -4416,6 +4422,7 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -4507,6 +4514,7 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -4585,12 +4593,13 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesignNoline(cellIN, tableIN, "Diet Note", medInfo.getDietNote());
-               // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -4781,6 +4790,7 @@ public class IndividualNew {
                     if (history.getName().equalsIgnoreCase("other")) {
                         cellIN = new PdfPCell();
                         HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                        cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                         cellIN.setPaddingTop(14);
                         tableIN.addCell(cellIN);
                     }
@@ -4866,6 +4876,7 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -4959,6 +4970,7 @@ public class IndividualNew {
 
                 cellIN = new PdfPCell();
                 HeaderNew.cellDesign(cellIN, tableIN, "", "Empty");
+                cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 cellIN.setPaddingTop(14);
                 tableIN.addCell(cellIN);
 
@@ -5070,6 +5082,7 @@ public class IndividualNew {
                 } else {
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
                 }
@@ -5166,12 +5179,14 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
                 } else {
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
                 }
@@ -5276,6 +5291,7 @@ public class IndividualNew {
                 } else {
                     cellIN = new PdfPCell();
                     HeaderNew.cellDesignNoline(cellIN, tableIN, "", "Empty");
+                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
                 }
@@ -5971,10 +5987,10 @@ public class IndividualNew {
             }
             //  cell = new PdfPCell(new Phrase("Name:" + name));
             cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table1, "Name:", name);
+            HeaderNew.cellDesign(cell, table1, "Name of Doctor/Health Professionals:", name);
             table.addCell(cell);
 
-            messagePhysician.add("Name :");
+            messagePhysician.add("Name of Doctor/Health Professionals:");
             messagePhysician.add(name);
 
 

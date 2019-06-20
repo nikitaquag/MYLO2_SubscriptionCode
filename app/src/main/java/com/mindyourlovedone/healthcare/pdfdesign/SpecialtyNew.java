@@ -1174,9 +1174,9 @@ public class SpecialtyNew {
                 }
                // cell = new PdfPCell(new Phrase("Name:" + name));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell,table1,"Name:",name);
+                HeaderNew.cellDesign(cell,table1,"Name of Doctor/Health Professionals:",name);
                 table.addCell(cell);
-                messageDoctor.add("Name :");
+                messageDoctor.add("Name of Doctor/Health Professionals :");
                 messageDoctor.add(name);
 
            /* for (int t=0;t<phonelists.size();t++)
