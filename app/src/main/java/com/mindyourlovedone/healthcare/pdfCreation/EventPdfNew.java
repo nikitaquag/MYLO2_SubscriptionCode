@@ -61,13 +61,13 @@ public class EventPdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+              //  table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+               // cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -172,7 +172,7 @@ public class EventPdfNew {
                 cell.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell.setBorder(Rectangle.NO_BORDER);
                 cell.setColspan(2);
-              // cell.setPaddingLeft(10);
+                cell.setPaddingLeft(10);
                // cell.setPaddingRight(10);
                 cell.addElement(new Paragraph(" "));
 
@@ -180,7 +180,7 @@ public class EventPdfNew {
                 PdfPTable tableIN;
                     tableIN = new PdfPTable(2);
                     PdfPCell cellIN;
-                    tableIN.setWidthPercentage(95);
+                    tableIN.setWidthPercentage(98);
                     tableIN.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     tableIN.setTableEvent(new RoundedBorder());
                     tableIN.getDefaultCell().setPadding(2);
@@ -195,10 +195,33 @@ public class EventPdfNew {
                         date = d.getDate();
                     }
                     int k = j + 1;
-                    //cellIN = new PdfPCell(new Phrase("Name:" + name));
-                    cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Date " + k + ":", date);
-                    cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+
+                    if (datelist.size() % 2 != 0) {
+                        if (k==datelist.size())
+                        {
+                            cellIN = new PdfPCell();
+                            HeaderNew.cellDesignNoline(cellIN, tableIN, "Date " + k + ":", date);
+                            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        }
+                        else{
+                            cellIN = new PdfPCell();
+                            HeaderNew.cellDesign(cellIN, tableIN, "Date " + k + ":", date);
+                            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        }
+                    }
+                    else {
+                        if (k==datelist.size()||k  ==datelist.size()-1) {
+                            cellIN = new PdfPCell();
+                            HeaderNew.cellDesignNoline(cellIN, tableIN, "Date " + k + ":", date);
+                            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        }else{
+                            cellIN = new PdfPCell();
+                            HeaderNew.cellDesign(cellIN, tableIN, "Date " + k + ":", date);
+                            cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
+                        }
+
+                    }
+
                     if (j<2) {
                         cellIN.setPaddingTop(14);
                     }
@@ -258,13 +281,13 @@ public class EventPdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+             //   table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+                //cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -289,6 +312,7 @@ public class EventPdfNew {
                 }
               //  cell = new PdfPCell(new Phrase("Event Note : " + name));
                 cell = new PdfPCell();
+                cell.setColspan(2);
                 HeaderNew.cellDesign(cell, table, "Event Note:", name);
                 table.addCell(cell);
 
@@ -302,7 +326,7 @@ public class EventPdfNew {
                 }
                // cell = new PdfPCell(new Phrase("Event Date : " + noteDate));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Event Date:", noteDate);
+                HeaderNew.cellDesignNoline(cell, table, "Event Date:", noteDate);
                 table.addCell(cell);
 
                 messageEvent.add("Event Date :");
@@ -340,13 +364,13 @@ public class EventPdfNew {
                     table1 = new PdfPTable(1);
                     table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     table1.setTableEvent(new RoundedBorder());
-                    table1.getDefaultCell().setPaddingBottom(15);
+                   // table1.getDefaultCell().setPaddingBottom(15);
                     table1.setKeepTogether(false);
                     table1.setSplitLate(false);
                     table1.setWidthPercentage(100);
                     PdfPCell cell1 = new PdfPCell();
                     cell1.setPaddingTop(10);
-                    cell1.setPaddingBottom(10);
+                   // cell1.setPaddingBottom(10);
                     cell1.setBorder(Rectangle.NO_BORDER);
                     cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                     table1.setKeepTogether(false);
@@ -497,7 +521,7 @@ public class EventPdfNew {
                     // cell1 = new PdfPCell(new Phrase("Other : " + functionOther));
                     cellIN = new PdfPCell();
                     cellIN.setColspan(2);
-                    HeaderNew.cellDesign(cellIN, tableIN, "Other:", functionOther);
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Other:", functionOther);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
                     messageLiving.add("Other-specify :");
@@ -732,7 +756,7 @@ public class EventPdfNew {
                // cell2 = new PdfPCell(new Phrase("Other : " + instOther));
                 cellIN = new PdfPCell();
                 cellIN.setColspan(2);
-                HeaderNew.cellDesign(cellIN, tableIN, "Other:", instOther);
+                HeaderNew.cellDesignNoline(cellIN, tableIN, "Other:", instOther);
                 cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                 tableIN.addCell(cellIN);
                 messageLiving.add("Other-specify :");
@@ -781,13 +805,13 @@ public class EventPdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+               // table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+                //cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -918,6 +942,7 @@ public class EventPdfNew {
 
                 //cell.setPaddingTop(2);
                 cell.setPaddingBottom(5);
+                cell.setPaddingLeft(4);
                 cell.setBackgroundColor(WebColors.getRGBColor("#ffffff"));
                 cell.setBorder(Rectangle.NO_BORDER);
                 cell.setColspan(2);
@@ -975,7 +1000,7 @@ public class EventPdfNew {
                 }
                 //  cell1 = new PdfPCell(new Phrase("Note : " + Note));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Note:", Note);
+                HeaderNew.cellDesignNoline(cell, table, "Note:", Note);
                 table.addCell(cell);
 
                 messageLiving.add("Note :");

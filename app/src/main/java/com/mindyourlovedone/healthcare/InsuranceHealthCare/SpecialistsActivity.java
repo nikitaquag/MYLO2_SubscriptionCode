@@ -1068,10 +1068,9 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             }
             ArrayList<Specialist> specialistsList = SpecialistQuery.fetchAllPhysicianRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), 1);
             for(int i=0;i<specialistsList.size();i++) {
-                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Physician");
-                new IndividualNew("Physician", specialistsList.get(i), phonelists,i,pp4);
+                final ArrayList<ContactData> phonelists= ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID), specialistsList.get(i).getId(),"Primary");
+                new IndividualNew("Physician", specialistsList.get(i), phonelists,i,pp4 );
             }
-
             HeaderNew.document.close();
         } else if (from.equals("Insurance")) {
             final String RESULT = Environment.getExternalStorageDirectory()

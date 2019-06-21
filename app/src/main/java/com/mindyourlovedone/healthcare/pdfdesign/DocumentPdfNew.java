@@ -50,13 +50,13 @@ public class DocumentPdfNew {
                     table1 = new PdfPTable(1);
                     table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     table1.setTableEvent(new RoundedBorder());
-                    table1.getDefaultCell().setPaddingBottom(15);
+                 //   table1.getDefaultCell().setPaddingBottom(15);
                     table1.setKeepTogether(false);
                     table1.setSplitLate(false);
                     table1.setWidthPercentage(100);
                     PdfPCell cell1 = new PdfPCell();
                     cell1.setPaddingTop(10);
-                    cell1.setPaddingBottom(10);
+                  //  cell1.setPaddingBottom(10);
                     cell1.setBorder(Rectangle.NO_BORDER);
                     cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                     table1.setKeepTogether(false);
@@ -160,7 +160,7 @@ public class DocumentPdfNew {
                     }
                     // cell = new PdfPCell(new Phrase("Location of Original:" + location));
                     cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table, "Notes:", note);
+                    HeaderNew.cellDesignNoline(cell, table, "Notes:", note);
                     table.addCell(cell);
 
                     messageAdvance.add("Note :");
@@ -203,13 +203,13 @@ public class DocumentPdfNew {
                     table1 = new PdfPTable(1);
                     table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     table1.setTableEvent(new RoundedBorder());
-                    table1.getDefaultCell().setPaddingBottom(15);
+                   // table1.getDefaultCell().setPaddingBottom(15);
                     table1.setKeepTogether(false);
                     table1.setSplitLate(false);
                     table1.setWidthPercentage(100);
                     PdfPCell cell1 = new PdfPCell();
                     cell1.setPaddingTop(10);
-                    cell1.setPaddingBottom(10);
+                    //cell1.setPaddingBottom(10);
                     cell1.setBorder(Rectangle.NO_BORDER);
                     cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                     table1.setKeepTogether(false);
@@ -310,7 +310,7 @@ public class DocumentPdfNew {
                 }
                // cell = new PdfPCell(new Phrase("Location of Original:" + location));
                     cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table, "Location of Original:", location);
+                    HeaderNew.cellDesignNoline(cell, table, "Location of Original:", location);
                     table.addCell(cell);
 
                 messageOther.add("Location of Original :");
@@ -322,7 +322,7 @@ public class DocumentPdfNew {
                     }
                     // cell = new PdfPCell(new Phrase("Location of Original:" + location));
                     cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table, "Notes:", note);
+                    HeaderNew.cellDesignNoline(cell, table, "Notes:", note);
                     table.addCell(cell);
 
                     messageOther.add("Note :");
@@ -364,13 +364,13 @@ public class DocumentPdfNew {
                     table1 = new PdfPTable(1);
                     table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                     table1.setTableEvent(new RoundedBorder());
-                    table1.getDefaultCell().setPaddingBottom(15);
+                   // table1.getDefaultCell().setPaddingBottom(15);
                     table1.setKeepTogether(false);
                     table1.setSplitLate(false);
                     table1.setWidthPercentage(100);
                     PdfPCell cell1 = new PdfPCell();
                     cell1.setPaddingTop(10);
-                    cell1.setPaddingBottom(10);
+                   // cell1.setPaddingBottom(10);
                     cell1.setBorder(Rectangle.NO_BORDER);
                     cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                     table1.setKeepTogether(false);
@@ -493,7 +493,7 @@ public class DocumentPdfNew {
                     }
                     // cell = new PdfPCell(new Phrase("Location of Original:" + location));
                     cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table, "Notes:", note);
+                    HeaderNew.cellDesignNoline(cell, table, "Notes:", note);
                     table.addCell(cell);
 
                     messageRecord.add("Note :");

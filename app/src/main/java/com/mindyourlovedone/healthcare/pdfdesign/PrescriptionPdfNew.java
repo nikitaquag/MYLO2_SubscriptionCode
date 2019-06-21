@@ -52,13 +52,13 @@ public class PrescriptionPdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+               // table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+              //  cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -172,7 +172,7 @@ public class PrescriptionPdfNew {
                 }
                 //    cell = new PdfPCell(new Phrase("Notes:" + notes));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Notes:", notes);
+                HeaderNew.cellDesignNoline(cell, table, "Notes:", notes);
                 table.addCell(cell);
                 messagePrescription.add("Notes :");
                 messagePrescription.add(notes);
@@ -269,13 +269,13 @@ public class PrescriptionPdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+               // table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+               // cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -300,7 +300,7 @@ public class PrescriptionPdfNew {
                 }
                 // cell = new PdfPCell(new Phrase("Prescription Name:" + name));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Prescription Name:", name);
+                HeaderNew.cellDesignNoline(cell, table, "Prescription Name:", name);
                 table.addCell(cell);
                 messageForm.add("Prescription Name:");
                 messageForm.add(name);
@@ -321,7 +321,7 @@ public class PrescriptionPdfNew {
                 //cell = new PdfPCell(new Phrase("Date::" + date));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Date:", date);
+                HeaderNew.cellDesignNoline(cell, table, "Date:", date);
                 table.addCell(cell);
                 messageForm.add("Date::");
                 messageForm.add(date);

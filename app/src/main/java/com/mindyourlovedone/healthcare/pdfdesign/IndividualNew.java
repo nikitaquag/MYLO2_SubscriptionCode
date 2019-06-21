@@ -97,13 +97,13 @@ public class IndividualNew {
             table = new PdfPTable(1);
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table.setTableEvent(new RoundedBorder());
-            table.getDefaultCell().setPaddingBottom(15);
+            //table.getDefaultCell().setPaddingBottom(15);
             table.setKeepTogether(false);
             table.setSplitLate(false);
             table.setWidthPercentage(100);
             PdfPCell cell = new PdfPCell();
             cell.setPaddingTop(10);
-            cell.setPaddingBottom(10);
+           // cell.setPaddingBottom(10);
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -631,53 +631,88 @@ public class IndividualNew {
             messageInfo2.add("Id Number :");
             messageInfo2.add(idNumber);
 
-           /* cell1 = new PdfPCell();
-            HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);*/
-
 
             String card = "";
             if (connection.getHas_card() != null) {
                 card = connection.getHas_card();
             }
-            // cellf = new PdfPCell(new Phrase("Do you have business card?:" + card));
-            cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Do you have business card?:", card);
-            table1.addCell(cell1);
-
-            messageInfo2.add("Do you have business card?:");
-            messageInfo2.add(card);
-
-            /*cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1,table1,"","Empty");
-            table1.addCell(cell1);
-
-            messageInfo2.add("");
-            messageInfo2.add("");*/
-
-           /* cell1 = new PdfPCell();
-            HeaderNew.addDottedLine(cell1);
-            table1.addCell(cell1);*/
-
-            // HeaderNew.document.add(table1);
-            // HeaderNew.addEmptyLine(1);
 
             if (connection.getPet() != null) {
                 Pets = connection.getPet();
             }
-            //  cell = new PdfPCell(new Phrase("Pet(s):" + Pets));
-            cell1 = new PdfPCell();
-            HeaderNew.cellDesign(cell1, table1, "Pet(s):", Pets);
-            table1.addCell(cell1);
 
-            messageInfo2.add("Pet(s) :");
-            messageInfo2.add(Pets);
 
-            // cell = new PdfPCell(new Phrase(""));
+
             if (phonelist.size() % 2 != 0) {
-                cell1 = new PdfPCell();
-                HeaderNew.cellDesign(cell1, table1, "", "Empty");
-                table1.addCell(cell1);
+                if (Petlist.size()!=0)
+                {
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign (cell1, table1, "Do you have business card?:", card);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add(card);
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign(cell1, table1, "Pet(s):", Pets);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Pet(s) :");
+                    messageInfo2.add(Pets);
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign(cell1, table1, "", "Empty");
+                    table1.addCell(cell1);
+                }else{
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign (cell1, table1, "Do you have business card?:", card);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add(card);
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cell1, table1, "Pet(s):", Pets);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Pet(s) :");
+                    messageInfo2.add(Pets);
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign(cell1, table1, "", "Empty");
+                    table1.addCell(cell1);
+                }
+
+            }
+            else{
+                if (Petlist.size()!=0) {
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign(cell1, table1, "Do you have business card?:", card);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add(card);
+
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesign(cell1, table1, "Pet(s):", Pets);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Pet(s) :");
+                    messageInfo2.add(Pets);
+                }else{
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cell1, table1, "Do you have business card?:", card);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add(card);
+
+                    cell1 = new PdfPCell();
+                    HeaderNew.cellDesignNoline(cell1, table1, "Pet(s):", Pets);
+                    table1.addCell(cell1);
+
+                    messageInfo2.add("Pet(s) :");
+                    messageInfo2.add(Pets);
+                }
+
+
+
             }
             messageInfo2.add("");
             messageInfo2.add("");
@@ -884,7 +919,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Birthday:" + Bdate));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Birthday:", Bdate);
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Birthday:", Bdate);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -896,7 +931,7 @@ public class IndividualNew {
                     }
                     //  cell = new PdfPCell(new Phrase("Notes about Pet:" + notes));
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Notes about Pet:", notes);
+                    HeaderNew.cellDesignNoline(cellIN, tableIN, "Notes about Pet:", notes);
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     tableIN.addCell(cellIN);
 
@@ -5743,13 +5778,13 @@ public class IndividualNew {
             table1 = new PdfPTable(1);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setTableEvent(new RoundedBorder());
-            table1.getDefaultCell().setPaddingBottom(15);
+          //  table1.getDefaultCell().setPaddingBottom(15);
             table1.setKeepTogether(false);
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
             PdfPCell cell1 = new PdfPCell();
             cell1.setPaddingTop(10);
-            cell1.setPaddingBottom(10);
+           // cell1.setPaddingBottom(10);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table1.setKeepTogether(false);
@@ -5841,19 +5876,6 @@ public class IndividualNew {
             messageEmergency.add("Home Address :");
             messageEmergency.add(address);
 
-
-            String ascard = "";
-            if (e.getHas_card() != null) {
-                ascard = e.getHas_card();
-            }
-            // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table1, "Do you have business card?:", ascard);
-            table.addCell(cell);
-
-            messageEmergency.add("Do you have business card?");
-            messageEmergency.add(ascard);
-
             String note = "";
             if (e.getNote() != null) {
                 note = e.getNote();
@@ -5866,15 +5888,42 @@ public class IndividualNew {
             messageEmergency.add("Notes :");
             messageEmergency.add(note);
 
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table, "", "Empty");
-            table.addCell(cell);
 
+            String ascard = "";
+            if (e.getHas_card() != null) {
+                ascard = e.getHas_card();
+            }
+            // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
             if (phonelist.size() != 0) {
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                table.addCell(cell);
+
+                messageEmergency.add("Do you have business card?");
+                messageEmergency.add(ascard);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
+
                 cell = new PdfPCell();
                 HeaderNew.addDottedLine(cell);
                 table.addCell(cell);
             }
+            else{
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                table.addCell(cell);
+
+                messageEmergency.add("Do you have business card?");
+                messageEmergency.add(ascard);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
+            }
+
 
             for (int t = 0; t < phonelist.size(); t++) {
                 ContactData c = phonelist.get(t);
@@ -5888,10 +5937,31 @@ public class IndividualNew {
                     type = c.getContactType();
                 }
                 int j = t + 1;
-                cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table1, "Contact" + j + ":", type + " : " + num);
-                table.addCell(cell);
+                if (phonelist.size() % 2 != 0) {
+                    if (j==phonelist.size())
+                    {
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
+                    else{
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesign(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
+                }
+                else {
+                    if (j==phonelist.size()||j==phonelist.size()-1) {
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }else{
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesign(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
 
+                }
                 messageEmergency.add(type + " Phone:");
                 messageEmergency.add(num);
             }
@@ -5929,13 +5999,13 @@ public class IndividualNew {
             table1 = new PdfPTable(1);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setTableEvent(new RoundedBorder());
-            table1.getDefaultCell().setPaddingBottom(15);
+           // table1.getDefaultCell().setPaddingBottom(15);
             table1.setKeepTogether(false);
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
             PdfPCell cell1 = new PdfPCell();
             cell1.setPaddingTop(10);
-            cell1.setPaddingBottom(10);
+            //cell1.setPaddingBottom(10);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table1.setKeepTogether(false);
@@ -6087,20 +6157,35 @@ public class IndividualNew {
                 ascard = s.getHas_card();
             }
             // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table1, "Do you have business card?", ascard);
-            table.addCell(cell);
 
-            messagePhysician.add("Do you have business card?");
-            messagePhysician.add(ascard);
-
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table, "", "Empty");
-            table.addCell(cell);
 
             if (phonelists.size() != 0) {
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                table.addCell(cell);
+
+                messagePhysician.add("Do you have business card?");
+                messagePhysician.add(ascard);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
+
                 cell = new PdfPCell();
                 HeaderNew.addDottedLine(cell);
+                table.addCell(cell);
+            }
+            else{
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                table.addCell(cell);
+
+                messagePhysician.add("Do you have business card?");
+                messagePhysician.add(ascard);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
                 table.addCell(cell);
             }
 
@@ -6116,9 +6201,31 @@ public class IndividualNew {
                     type = c.getContactType();
                 }
                 int j = t + 1;
-                cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Contact" + j + ":", type + " : " + num);
-                table.addCell(cell);
+                if (phonelists.size() % 2 != 0) {
+                    if (j==phonelists.size())
+                    {
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
+                    else{
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesign(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
+                }
+                else {
+                    if (j==phonelists.size()||j==phonelists.size()-1) {
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }else{
+                        cell = new PdfPCell();
+                        HeaderNew.cellDesign(cell, table, "Contact" + j + ":", type + " : " + num);
+                        table.addCell(cell);
+                    }
+
+                }
 
                 messagePhysician.add(type + " Phone:");
                 messagePhysician.add(num);

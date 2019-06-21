@@ -257,13 +257,13 @@ public class InsurancePdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+               // table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+               // cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -288,7 +288,7 @@ public class InsurancePdfNew {
                 }
               //  cell = new PdfPCell(new Phrase("Provider Name:" + name));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Provider Name:", name);
+                HeaderNew.cellDesignNoline(cell, table, "Provider Name:", name);
                 table.addCell(cell);
                 messageCard.add("Provider Name:");
                 messageCard.add(name);
@@ -299,7 +299,7 @@ public class InsurancePdfNew {
                 }
                // cell = new PdfPCell(new Phrase("Type: " + type));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Type:", type);
+                HeaderNew.cellDesignNoline(cell, table, "Type:", type);
                 table.addCell(cell);
                 messageCard.add("Type :");
                 messageCard.add(type);
@@ -336,13 +336,13 @@ public class InsurancePdfNew {
                 table1 = new PdfPTable(1);
                 table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
                 table1.setTableEvent(new RoundedBorder());
-                table1.getDefaultCell().setPaddingBottom(15);
+                //table1.getDefaultCell().setPaddingBottom(15);
                 table1.setKeepTogether(false);
                 table1.setSplitLate(false);
                 table1.setWidthPercentage(100);
                 PdfPCell cell1 = new PdfPCell();
                 cell1.setPaddingTop(10);
-                cell1.setPaddingBottom(10);
+               // cell1.setPaddingBottom(10);
                 cell1.setBorder(Rectangle.NO_BORDER);
                 cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
                 table1.setKeepTogether(false);
@@ -366,7 +366,7 @@ public class InsurancePdfNew {
                 }
              //   cell = new PdfPCell(new Phrase("Form Name:" + name));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Form Name:", name);
+                HeaderNew.cellDesignNoline(cell, table, "Form Name:", name);
                 table.addCell(cell);
                 messageForm.add("Form Name:");
                 messageForm.add(name);
@@ -386,7 +386,7 @@ public class InsurancePdfNew {
                 }
                // cell = new PdfPCell(new Phrase("Date::" + date));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "Date:", date);
+                HeaderNew.cellDesignNoline(cell, table, "Date:", date);
                 table.addCell(cell);
                 messageForm.add("Date::");
                 messageForm.add(date);
@@ -425,13 +425,13 @@ public class InsurancePdfNew {
             table1 = new PdfPTable(1);
             table1.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
             table1.setTableEvent(new RoundedBorder());
-            table1.getDefaultCell().setPaddingBottom(15);
+          //  table1.getDefaultCell().setPaddingBottom(15);
             table1.setKeepTogether(false);
             table1.setSplitLate(false);
             table1.setWidthPercentage(100);
             PdfPCell cell1 = new PdfPCell();
             cell1.setPaddingTop(10);
-            cell1.setPaddingBottom(10);
+           // cell1.setPaddingBottom(10);
             cell1.setBorder(Rectangle.NO_BORDER);
             cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table1.setKeepTogether(false);
@@ -592,24 +592,39 @@ public class InsurancePdfNew {
                     notes = s.getNote();
                 }
                // cell = new PdfPCell(new Phrase("Notes:" + notes));
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell,table1,"Notes:",notes);
-            table.addCell(cell);
-                messageInsurance.add("Notes :");
+            if (phonelists.size() != 0) {
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Notes:", notes);
+                table.addCell(cell);
+
+                messageInsurance.add("Notes");
                 messageInsurance.add(notes);
 
-            cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table, "", "Empty");
-            table.addCell(cell);
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table, "", "Empty");
+                table.addCell(cell);
 
-            if (phonelists.size()!=0) {
                 cell = new PdfPCell();
                 HeaderNew.addDottedLine(cell);
                 table.addCell(cell);
             }
+            else{
+                cell = new PdfPCell();
+                HeaderNew.cellDesignNoline(cell, table1, "Notes", notes);
+                table.addCell(cell);
+
+                messageInsurance.add("Notes");
+                messageInsurance.add(notes);
+
+                cell = new PdfPCell();
+                HeaderNew.cellDesign(cell, table, "", "Empty");
+                table.addCell(cell);
+            }
 
 
-                for (int t=0;t<phonelists.size();t++)
+
+            for (int t=0;t<phonelists.size();t++)
                 {
                     ContactData c=phonelists.get(t);
                     String nums="";
@@ -622,9 +637,31 @@ public class InsurancePdfNew {
                         ctypes =c.getContactType();
                     }
                     int j= t+1;
-                    cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table1,"Contact"+j+":",ctypes+" : "+nums);
-                    table.addCell(cell);
+                    if (phonelists.size() % 2 != 0) {
+                        if (j==phonelists.size())
+                        {
+                            cell = new PdfPCell();
+                            HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", ctypes + " : " + nums);
+                            table.addCell(cell);
+                        }
+                        else{
+                            cell = new PdfPCell();
+                            HeaderNew.cellDesign(cell, table, "Contact" + j + ":", ctypes + " : " + nums);
+                            table.addCell(cell);
+                        }
+                    }
+                    else {
+                        if (j==phonelists.size()||j==phonelists.size()-1) {
+                            cell = new PdfPCell();
+                            HeaderNew.cellDesignNoline(cell, table, "Contact" + j + ":", ctypes + " : " + nums);
+                            table.addCell(cell);
+                        }else{
+                            cell = new PdfPCell();
+                            HeaderNew.cellDesign(cell, table, "Contact" + j + ":", ctypes + " : " + nums);
+                            table.addCell(cell);
+                        }
+
+                    }
 
                     messageInsurance.add(ctypes+" Phone:");
                     messageInsurance.add(nums);

@@ -749,9 +749,9 @@ cell1.setUseAscender(true);
         cell1.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
         cell1.setPaddingLeft(14);
         cell1.setPaddingRight(14);
-        cell1.setPaddingTop(2);
-        cell1.setPaddingBottom(2);
-        cell1.setVerticalAlignment(Element.ALIGN_MIDDLE);
+       // cell1.setPaddingTop(2);
+        cell1.setPaddingBottom(10);
+        cell1.setVerticalAlignment(Element.ALIGN_TOP);
 
         p1 = new Paragraph(" ");
         CustomDashedLineSeparator customLine= new CustomDashedLineSeparator();
@@ -761,7 +761,7 @@ cell1.setUseAscender(true);
         customLine.setLineColor(WebColors.getRGBColor("#747474"));
         p1.add(customLine);
 
-        cell1.addElement(p1);
+        cell1.addElement(customLine);
     }
 
     /**
