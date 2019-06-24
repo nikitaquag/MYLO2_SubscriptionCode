@@ -3545,7 +3545,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:fontFamily="@font/lato"
                             android:gravity="center_vertical|left"
                             android:padding="@dimen/dimension8dp"
-                            android:text="If yes, see Driver's License or Health Care Proxy"
+                            android:text="If yes, see Driver's License or Health Care Proxy."
                             android:textSize="@dimen/dimension16dp" />
 
                     </LinearLayout>

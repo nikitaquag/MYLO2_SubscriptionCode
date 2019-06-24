@@ -647,10 +647,10 @@ public class IndividualNew {
                 if (Petlist.size()!=0)
                 {
                     cell1 = new PdfPCell();
-                    HeaderNew.cellDesign (cell1, table1, "Do you have business card?:", card);
+                    HeaderNew.cellDesign (cell1, table1, "Do you have a business card?:", card);
                     table1.addCell(cell1);
 
-                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add("Do you have a business card?:");
                     messageInfo2.add(card);
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Pet(s):", Pets);
@@ -663,10 +663,10 @@ public class IndividualNew {
                     table1.addCell(cell1);
                 }else{
                     cell1 = new PdfPCell();
-                    HeaderNew.cellDesign (cell1, table1, "Do you have business card?:", card);
+                    HeaderNew.cellDesign (cell1, table1, "Do you have a business card?:", card);
                     table1.addCell(cell1);
 
-                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add("Do you have a business card?:");
                     messageInfo2.add(card);
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesignNoline(cell1, table1, "Pet(s):", Pets);
@@ -683,10 +683,10 @@ public class IndividualNew {
             else{
                 if (Petlist.size()!=0) {
                     cell1 = new PdfPCell();
-                    HeaderNew.cellDesign(cell1, table1, "Do you have business card?:", card);
+                    HeaderNew.cellDesign(cell1, table1, "Do you have a business card?:", card);
                     table1.addCell(cell1);
 
-                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add("Do you have a business card?:");
                     messageInfo2.add(card);
 
                     cell1 = new PdfPCell();
@@ -697,10 +697,10 @@ public class IndividualNew {
                     messageInfo2.add(Pets);
                 }else{
                     cell1 = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell1, table1, "Do you have business card?:", card);
+                    HeaderNew.cellDesignNoline(cell1, table1, "Do you have a business card?:", card);
                     table1.addCell(cell1);
 
-                    messageInfo2.add("Do you have business card?:");
+                    messageInfo2.add("Do you have a business card?:");
                     messageInfo2.add(card);
 
                     cell1 = new PdfPCell();
@@ -1892,14 +1892,14 @@ public class IndividualNew {
                 if (e.getHas_card() != null) {
                     ascard = e.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card?:" + ascard));
+                cell = new PdfPCell(new Phrase("Do you have a business card?:" + ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messageEmergency.add("Do you have business card?");
+                messageEmergency.add("Do you have a business card?");
                 messageEmergency.add(ascard);
 
                 String note = "";
@@ -2171,14 +2171,14 @@ public class IndividualNew {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have business card?:" + ascard));
+                cell = new PdfPCell(new Phrase("Do you have a business card?:" + ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
 
-                messagePhysician.add("Do you have business card?");
+                messagePhysician.add("Do you have a business card?");
                 messagePhysician.add(ascard);
 
 
@@ -5893,14 +5893,14 @@ public class IndividualNew {
             if (e.getHas_card() != null) {
                 ascard = e.getHas_card();
             }
-            // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
+            // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
             if (phonelist.size() != 0) {
 
                 cell = new PdfPCell();
-                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                 table.addCell(cell);
 
-                messageEmergency.add("Do you have business card?");
+                messageEmergency.add("Do you have a business card?");
                 messageEmergency.add(ascard);
 
                 cell = new PdfPCell();
@@ -5913,10 +5913,10 @@ public class IndividualNew {
             }
             else{
                 cell = new PdfPCell();
-                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                 table.addCell(cell);
 
-                messageEmergency.add("Do you have business card?");
+                messageEmergency.add("Do you have a business card?");
                 messageEmergency.add(ascard);
 
                 cell = new PdfPCell();
@@ -6156,16 +6156,16 @@ public class IndividualNew {
             if (s.getHas_card() != null) {
                 ascard = s.getHas_card();
             }
-            // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
+            // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
 
 
             if (phonelists.size() != 0) {
 
                 cell = new PdfPCell();
-                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                 table.addCell(cell);
 
-                messagePhysician.add("Do you have business card?");
+                messagePhysician.add("Do you have a business card?");
                 messagePhysician.add(ascard);
 
                 cell = new PdfPCell();
@@ -6178,10 +6178,10 @@ public class IndividualNew {
             }
             else{
                 cell = new PdfPCell();
-                HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                 table.addCell(cell);
 
-                messagePhysician.add("Do you have business card?");
+                messagePhysician.add("Do you have a business card?");
                 messagePhysician.add(ascard);
 
                 cell = new PdfPCell();

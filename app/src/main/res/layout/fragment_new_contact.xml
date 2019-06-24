@@ -4158,7 +4158,7 @@ android:maxLength="12"
                     android:padding="@dimen/dimension10dp"
                     android:fontFamily="@font/lato"
                     android:paddingRight="@dimen/dimension20dp"
-                    android:text="Do you have business card?"
+                    android:text="Do you have a business card?"
                     android:textColor="@color/colorBlack" />
 
                 <ToggleButton

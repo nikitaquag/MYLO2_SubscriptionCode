@@ -74,7 +74,8 @@
                 android:fontFamily="@font/lato"
                 android:paddingLeft="@dimen/dimension5dp"
                 android:paddingRight="@dimen/dimension5dp"
-                android:text="Please click each circle to indicate your understanding."
+                android:text="Please click each circle individually to indicate your understanding and acceptance.
+"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/dimension16dp"
                 android:textStyle="bold"

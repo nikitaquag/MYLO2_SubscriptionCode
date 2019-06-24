@@ -25,7 +25,7 @@ import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.utility.UIEmails;
 
 public class InstructionActivity extends AppCompatActivity implements View.OnClickListener {
-    RelativeLayout header;
+    RelativeLayout titleHeader;
     ImageView imgBack, imgPicture, txtEmail;
     TextView txtHeader, txtTitle, txtMsg;
     String From;
@@ -34,6 +34,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
     String UI = "";
     UIEmails ui = new UIEmails();
     FloatingActionButton floatProfile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
     private void initListener() {
         txtEmail.setOnClickListener(this);
         floatProfile.setOnClickListener(this);
+
     }
 
     private void initUI() {
@@ -86,7 +88,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
         TextView txtPolicy72 = findViewById(R.id.txtPolicy72);
         TextView txtPolicy73 = findViewById(R.id.txtPolicy73);
 
-        header = findViewById(R.id.header);
+        titleHeader = findViewById(R.id.header);
         imgBack = findViewById(R.id.imgBack);
         imgPicture = findViewById(R.id.imgPicture);
         txtHeader = findViewById(R.id.txtHeader);
@@ -163,24 +165,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 txtHeader.setText("Dropbox");
                 break;
             case "PrescriptionUploadInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep copies of their lists of prescriptions.  Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Form.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  <b>To edit the document</b>, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). \n"));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
-                txt66.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt67.setText(Html.fromHtml("<b>Edit Entry.</b>   From the summary screen, click on the cell of the document and make changes by clicking the blue pencil. To save your edits click the SAVE on the top right side of the screen."));
-                txt68.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to upload a list of prescriptions for themselves or their loved ones.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. Click the ATTACH FILE icon at the top of the screen and select the location of the file.  Choose the file. To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click the SAVE icon on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought back to the Summary screen. The User can view, print or email a Summary Report by clicking the green icon on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
+                txt66.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen swipe right to left on applicable cell of the document."));
+                txt67.setText(Html.fromHtml("<b>Edit Entry.</b> From the Summary screen, click on the cell of the document and make changes by clicking the blue Pencil icon. To save your edits click SAVE on the top right corner of the screen."));
+                txt68.setText(Html.fromHtml("<b>View Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document."));
                 txtPolicy69.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy71.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations’ HIPAA requirements (e.g. health, insurance).  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));//txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
-
+                txtPolicy71.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations’ HIPAA requirements (e.g. health, insurance).  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -223,26 +222,23 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Prescription Upload");
+                txtHeader.setText("Prescription Upload");
                 break;
             case "PrescriptionInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to store information about their prescriptions as well as pictures of the prescription and pills. "));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. The minimum amount of information you need to complete this section is the name of the medication or supplement and the frequency of use. \n" +
-                        "\n"));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b>  Data is entered via free text. You may use your phone’s microphone to add certain data verbally"));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Photo of Prescription/Pills:</b>  To add a Photo click the blue plus button and follow directions (take picture or pull a photo from your gallery).  Users can store more than one photo in this section. To edit the photo, click the blue pencil and follow the directions on the screen. "));
-                txt66.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen. <b> To edit information,</b> click the cell of the prescription. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. \n" +
-                        "\n"));
-                txt67.setText(Html.fromHtml("<b>To Delete an Entry.</b>  From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txt68.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view the input, print or email Summary Reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements"));
-
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to store information about their Prescriptions and those of their loved ones. Users can also take photos of the prescription and the pills."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. The minimum amount of information you need to complete this section is the name of the medication or supplement and the frequency of use."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text. You may use your phone’s microphone to add certain data verbally."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click the SAVE icon on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Photo of Prescription/Pills:</b> To add a Photo click the blue Plus icon and follow directions (take picture or pull a photo from your gallery).  Users can store more than one photo in this section. To edit the photo, click the blue Pencil icon and follow the directions on the screen."));
+                txt66.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  To edit information, click the cell of the prescription. Make changes and then click SAVE on the top right corner of the screen. Clicking SAVE, takes Users back to the Summary page. "));
+                txt67.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txt68.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email Summary Reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
                         "<br>"+txt63.getText().toString()+"<br>" +
@@ -278,26 +274,23 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Prescription Information");
+                txtHeader.setText("Prescription Information");
                 break;
 
             case "VitalInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep a summary of their vital signs and monitor important changes. \n" +
-                        "Users choose which vital sign they want to store. The summary page includes the most popular BP, HR, and TEMP. \n"));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b>  Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Data is entered via free text. You can use your phone’s microphone to add certain data verbally.  We recommend adding the location, date and time of the test. \n"));
-                txt63.setText(Html.fromHtml("<b>To Save Input.</b>  Click the SAVE button on the top right side of the screen. \n" +
-                        "\n"));
-                txt64.setText(Html.fromHtml("<b>Edit Function.</b>  Edit the Vital Signs by clicking the green down ARROW on the right of the entry. This will show the edit button, click it to edit the vital sign. To save your edits click the SAVE at the top right of the screen.\n" +
-                        "\n"));
-                txt65.setText(Html.fromHtml("<b>Delete Function.</b>  To delete the entry left swipe (right to left) the summary cell. This will bring up the delete button."));
-                txt66.setText(Html.fromHtml("<b>View input and Reports.</b>  Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a Summary of Vital Signs and monitor important changes. Users choose which Vital Sign they want to store. The Summary screen includes the most commonly tracked: Blood Pressure, Heart Rate, and Temperature, (BP, HR, TEMP)."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. Data is entered via free text. You can use your phone’s microphone to add certain data verbally.  We recommend adding the location, date and time of the test. "));
+                txt63.setText(Html.fromHtml("<b>Save Input.</b> SAVE on the top right corner of the screen."));
+                txt64.setText(Html.fromHtml("<b>Edit Vital Signs.</b> Edit the Vital Signs by clicking the green Down Arrow on the right of the entry. This will show the edit icon, click it to edit the Vital Sign. To save your edits click the SAVE icon at the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Delete Vital Signs.</b> To delete the entry swipe left (right to left) the summary cell. This will bring up the Delete icon."));
+                txt66.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
                         "<br>"+txt63.getText().toString()+"<br>" +
@@ -331,28 +324,26 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Vital Signs");
+                txtHeader.setText("Vital Signs");
                 break;
 
             case "FormInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep a copies of insurance forms. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Form.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  <b>To edit the document</b>, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). \n"));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
-                txt66.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt67.setText(Html.fromHtml("<b>Edit Entry.</b>   From the summary screen, click on the cell of the document and make changes by clicking the blue pencil. To save your edits click the SAVE on the top right side of the screen."));
-                txt68.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copies of insurance forms. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("<b>Add a Form.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
+                        "Click the ATTACH FILE icon at the top of the screen and select the location of the file.  Choose the file.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below).\n"));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can view, print or email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
+                txt66.setText(Html.fromHtml("<b>Delete Entry.</b> From Summary screen swipe right to left on applicable cell of the document."));
+                txt67.setText(Html.fromHtml("<b>Edit Entry.</b>  From the Summary screen, click on the cell of the document and make changes by clicking the blue Pencil icon. To save your edits click SAVE on the top right corner of the screen."));
+                txt68.setText(Html.fromHtml("<b>View Document.</b> .  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document."));
                 txtPolicy69.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy71.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations’ HIPAA requirements (e.g. health, insurance).  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));//txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
-
+                txtPolicy71.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations’ HIPAA requirements (e.g. health, insurance).  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -395,23 +386,22 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Insurance Forms");
+                txtHeader.setText("Insurance Forms");
                 break;
             case "CardInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep photos of their insurance cards. "));
-                txt62.setText(Html.fromHtml("<b>Add a Card.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Enter the name of the Provider and Type of Insurance and click SAVE on the top right side of the screen. \n"));
-                txt63.setText(Html.fromHtml("<b>Picture.</b>  To take a picture of your insurance card (front and back). Click the ADD CARD button. It is recommended that you hold your phone horizontal when taking a picture of the card. Once saved, click on the picture of the card for a closer view. Use the share function on the top right of the screen to send via email. Arrow back to get to the summary screen.   To edit the picture of the card, click the blue pencil."));
-                txt64.setText(Html.fromHtml("<b>Save Input.</b>  To save your information click the SAVE on the top right side of the screen."));
-                txt65.setText(Html.fromHtml("<b>Edit Entry.</b>  To edit information, click the cell of the added card. To save your edits click the SAVE again."));
-                txt66.setText(Html.fromHtml("<b>Delete Entry.</b>  To delete the entry swipe right to left on the cell of the card."));
-                txt67.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view the input, print or email Summary Reports by clicking the green circle (with 3 white dots) located on the bottom of the summary screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to maintain photos of their Insurance Cards and those of their loved ones."));
+                txt62.setText(Html.fromHtml("<b>Add a Card.</b> Click the Plus icon on the bottom right corner of the screen. Enter the name of the Provider and Type of Insurance and click SAVE on the top right corner of the screen."));
+                txt63.setText(Html.fromHtml("<b>Picture of Insurance Card.</b> To take a picture of an insurance card (front and back). Click the ADD CARD icon. It is recommended that you hold your phone horizontal when taking a picture of the card. Once saved, click on the picture of the card for a closer view. Use the share function on the top right of the screen to send via email. Arrow back to get to the Summary screen. To edit the picture of the card, click the blue Pencil icon."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Edit Entry.</b> To edit information, click the cell of the added card. To save edits click SAVE again."));
+                txt66.setText(Html.fromHtml("<b>Delete Entry.</b> To delete the entry swipe right to left on the cell of the card."));
+                txt67.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email Summary Reports by clicking the green circle (with 3 white dots) located on the bottom of the summary screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -447,25 +437,25 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Insurance Cards");
+                txtHeader.setText("Insurance Cards");
                 break;
 
             case "InsuranceInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep information about their insurance coverage and names of agents."));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts. The minimum amount of information you need to complete this section is the name of the entity, type of insurance, and phone number (including type e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep Insurance Coverage information for themselves and their loved ones."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. If the company or person is in your Contacts click the option - “Add from Contacts”. The minimum amount of information you need to complete this section is the name of the entity, type of insurance, and phone number (including type e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue Plus icon."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -511,30 +501,28 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Insurance Information");
+                txtHeader.setText("Insurance Information");
                 break;
 
             case "AdvanceInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
 
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep a copy of their Advance Directives as well as copies of their loved ones documents. Currently the only documents that can be uploaded are pdf’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Document.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file and say, “Name of File Selected”. Click SAVE on the upper right side of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). "));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information."));
-                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
-                txt67.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt68.setText(Html.fromHtml("<b>Edit Entry.</b>  From the summary screen, click on the cell of the document and make changes. To save your edits click the SAVE on the top right side of the screen."));
-                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copy of their Advance Directives as well as copies of their loved ones’ documents. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
+                        "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
+                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
+                txt67.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen, swipe right to left on the applicable cell in the document."));
+                txt68.setText(Html.fromHtml("<b>Edit Entry.</b> From the Summary screen, click on the cell of the document and make changes. To save your edits click SAVE on the top right corner of the screen."));
+                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document."));
                 txtPolicy71.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
-
+                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -579,29 +567,28 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Advance Directives");
+                txtHeader.setText("Advance Directives");
                 break;
 
             case "OtherInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep copies of important documents, and to categorize them accordingly. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Document.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file and say, “Name of File Selected”. Click SAVE on the upper right side of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). "));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information."));
-                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
-                txt67.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt68.setText(Html.fromHtml("<b>Edit Entry.</b>  From the summary screen, click on the cell of the document and make changes. To save your edits click the SAVE on the top right side of the screen."));
-                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
+                        "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
+                txt65.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
+                txt67.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen, swipe right to left on the applicable cell in the document."));
+                txt68.setText(Html.fromHtml("<b>Edit Entry.</b> From the Summary screen, click on the cell of the document and make changes. To save your edits click SAVE on the top right corner of the screen."));
+                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document."));
                 txtPolicy71.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
+                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend."));
 
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
@@ -646,30 +633,28 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Other Documents");
+                txtHeader.setText("Other Documents");
 
                 break;
 
             case "MedicalInfoInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep copies of important documents, and to categorize them accordingly. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Document.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file and say, “Name of File Selected”. Click SAVE on the upper right side of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). "));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information."));
-                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
-                txt67.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt68.setText(Html.fromHtml("<b>Edit Entry.</b>  From the summary screen, click on the cell of the document and make changes. To save your edits click the SAVE on the top right side of the screen."));
-                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
+                        "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
+                txt65.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
+                txt67.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen, swipe right to left on the applicable cell in the document."));
+                txt68.setText(Html.fromHtml("<b>Edit Entry.</b> From the Summary screen, click on the cell of the document and make changes. To save your edits click SAVE on the top right corner of the screen."));
+                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document."));
                 txtPolicy71.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
-
+                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -767,18 +752,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Medical Records");
+                txtHeader.setText("Medical Records");
 
                 break;
             case "LivingInstruction":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep a record of any patterns or progress and can help in early detection of upcoming critical situations.  "));
-                txt62.setText(Html.fromHtml("<b>To Add or Edit Information.</b> Swipe yes or no and use the note functionality.  Click SAVE to store the information."));
-                txt63.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep a record of any patterns or progress and can help in early detection of upcoming critical situations."));
+                txt62.setText(Html.fromHtml("<b>Add or Edit Information.</b> Toggle yes or no and use the note functionality.  Click SAVE to store the information."));
+                txt63.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -814,19 +800,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "CheckListInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to create a master checklist of routine appointments (specialists and tests) and the dates of completion.  The summary page contains name of appointment and the last completion date. "));
-                txt62.setText(Html.fromHtml("<b>To Add an Appointment.</b> Click the PLUS button on the bottom right corner of the screen.\n" +
-                        "Click the first line – “Type Specialist or Test”.  Choose a Specialist or Test. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. The minimum amount of information you need to complete this section is the category and frequency. \n"));
-                txt63.setText(Html.fromHtml("<b>To Add a Completion Date.</b> Add the Completed Date(s) by clicking the green down ARROW on the right of the appointment then click ADD NEW and enter the date.  The information will automatically be saved. Click the up ARROW to close the cell. "));
-                txt64.setText(Html.fromHtml("<b>Edit Function.</b> Edit the Appointment by clicking the green down ARROW on the right of the appointment. You will see the edit button - click and edit the appointment. Once completed click the SAVE button at the top right corner of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Delete Function.</b> To delete the entry left swipe (right to left). You will see the delete symbol (trash can) - click it. You will be asked if you are sure you want to delete the record. "));
-                txt66.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to create a master checklist of routine appointments (specialists and tests) and the dates of completion.  The Summary page contains name of appointment and the last completion date. "));
+                txt62.setText(Html.fromHtml("<b>Add an Appointment.</b> Click the Plus icon on the bottom right corner of the screen.\n" +
+                        "Click the first line “Type Specialist or Test”.  Choose a Specialist or Test. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information. The minimum amount of information you need to complete this section is the category and frequency.\n"));
+                txt63.setText(Html.fromHtml("<b>Add a Completion Date.</b> Add the Completed Date(s) by clicking the green Down Arrow on the right of the appointment then click ADD NEW and enter the date.  The information will automatically be saved. Click the Up Arrow to close the cell."));
+                txt64.setText(Html.fromHtml("<b>Edit an Appointment</b> Edit the Appointment by clicking the green Down Arrow on the right of the appointment. You will see the Edit icon - click and edit the appointment. Once completed click the SAVE icon at the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Delete an Appointment.</b> To delete the entry swipe left (right to left). You will see the Delete icon (Trash can) - click it. You will be asked if you are sure you want to delete the record. "));
+                txt66.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
                         "<br>"+txt63.getText().toString()+"<br>" +
@@ -859,20 +846,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Appointment Checklist");
+                txtHeader.setText("Appointment Checklist");
                 break;
             case "EventNotesInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
                 //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b>  Allows users to keep a running record of particularly important notes.  For example, what the doctor said, how you or your loved one felt at a particular time, time you took certain medicine."));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. Start typing your note. You may use your phone’s microphone to add information verbally.  The date and time will automatically be created. Once completed click SAVE."));
-                txt63.setText(Html.fromHtml("<b>Edit Function.</b> To edit the note, click the green down arrow on the right of the note. You will see the ”EDIT NOTE” function. Click, ”EDIT NOTE” and type your changes. To save your edits click SAVE at the top right of the screen."));
-                txt64.setText(Html.fromHtml("<b>Delete Function.</b> To delete the entry left swipe (right to left) the cell of your note. You will see the delete symbol (trash cash) – click it. You will be asked if you are sure you want to delete the record. "));
-                txt65.setText(Html.fromHtml("<b>View input and Reports.</b>za Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a running record of particularly important notes.  For example, what the doctor said, how you or your loved one felt at a particular time, time you took certain medicine."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. Start typing your note. Users may use their phone’s microphone to add information verbally.  The date and time will automatically be created. Once completed click SAVE. "));
+                txt63.setText(Html.fromHtml("<b>Edit a Note.</b> To edit the note, click the green Down Arrow on the right of the note. You will see the ”EDIT NOTE” function. Click, ”EDIT NOTE” and type your changes. To save your edits click SAVE at the top right corner of the screen."));
+                txt64.setText(Html.fromHtml("<b>Delete a Note.</b> To delete the entry swipe left (right to left) the cell of your note. You will see the delete icon (Trash can) – click it. You will be asked if you are sure you want to delete the record."));
+                txt65.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input, print or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
                         "<br>"+txt63.getText().toString()+"<br>" +
@@ -904,24 +892,24 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Event Notes");
+                txtHeader.setText("Event Notes");
                 break;
             case "PharmacyInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep their important contact information and the important contact information for each of their loved ones. "));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts.  The minimum amount of information you need to complete this section is the name of the entity.  To add a phone number you must include type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep their important contact information and the important contact information for each of their loved ones. "));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus on the bottom right corner of the screen. If the person is in your Contacts click the option “Add from Contacts”. The minimum amount of information you need to complete this section is the name of the entity and a phone number. To add a phone number, Users must include the type of number, e.g. mobile, home, office or fax.  You can add more than one phone number by clicking the blue Plus icon."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -967,25 +955,25 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Pharmacies & Home Medical Equipment");
+                txtHeader.setText("Pharmacies & Home Medical Equipment");
                 break;
 
             case "FinanceInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep their important contact information and the important contact information for each of their loved ones. "));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts.  The minimum amount of information you need to complete this section is the category, name of the entity and phone number including type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep their important contact information and the important contact information for each of their loved ones. "));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus on the bottom right corner of the screen. If the person is in your Contacts click the option “Add from Contacts”. The minimum amount of information you need to complete this section is the category, name of the Firm and the phone number. To store a phone number, Users must include the type of number, e.g. mobile, home, office or fax.  You can add more than one phone number by clicking the blue Plus icon."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -1031,26 +1019,27 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Finance, Legal, Other");
+                txtHeader.setText("Finance, Legal, Other");
                 break;
             case "HospitalInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep their important contact information and the important contact information for each of their loved ones. "));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts. The minimum amount of information you need to complete this section is the name of the entity, category, and phone number including type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep their important contact information and the important contact information for each of their loved ones. "));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. If the entity is in your Contacts click the option “Add from Contacts”. The minimum amount of information you need to complete this section is the name of the entity, category, and phone number including type (e.g. mobile, home, office or fax). You can add more than one phone number by clicking the blue Plus icon. "));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
+
 
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
@@ -1094,26 +1083,26 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
+                txtHeader.setText("Urgent Care, TeleMed, Hospitals, Rehab, Home Care");
                 break;
                 // txtStep1.setText(Html.fromHtml("<b>"));
 
             case "DoctorInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep their important contact information and the important contact information for each of their loved ones. "));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts. The minimum amount of information needed to complete this section is the physician’s or other health care professional’s name, his/her specialty, and phone number include type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to store the name and contact information of the doctor(s) or other health care professional’s."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. If the person is in your Contacts click the option, “Add from Contacts”. The minimum amount of information needed to complete this section is the physician’s or other health care professional’s name, his/her specialty and phone number including type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue Plus icon."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -1159,25 +1148,25 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Doctors & Other Health Care Professionals");
+                txtHeader.setText("Doctors & Other Health Care Professionals");
                 break;
 
             case "PhysicianInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to store the name and contact information of the primary physician(s)."));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts. The minimum amount of information needed to complete this section is the physician’s name, his/her specialty, and phone number include type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to store the name and contact information of the primary care physician(s)."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. If the person is in your Contacts click the option, “Add from Contacts”. The minimum amount of information needed to complete this section is the physician’s name, his/her specialty, and phone number including type (e.g. mobile, home, office or fax).  You can add more than one phone number by clicking the blue Plus icon."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                 //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                 // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -1225,24 +1214,24 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Primary Physician");
+                txtHeader.setText("Primary Physician");
                 break;
             case "EmergencyInstruction":
-                header.setBackgroundColor(getResources().getColor(R.color.colorRegisteredGreen));
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allow users to keep emergency contact information and identify the health care proxy agent."));
-                txt62.setText(Html.fromHtml("<b>To Add Information.</b> Click the PLUS button on the bottom right corner of the screen. If the person is in your contacts click the option - Add from Contacts. The minimum amount of information needed to complete this section is the person’s name, the relationship to the person, the priority, and a phone number including type (e.g. mobile, home, office or fax). You can add more than one phone number by clicking the blue plus button. "));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information. Business cards can also be added. "));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo click anywhere in the circle, then click ”take picture” or “gallery” choose the photo then click SAVE. To edit or delete the photo click the pencil."));
-                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD or the blue pencil and further instructions will pop-up.  Click SAVE on the top right of the screen when you are done.  To forward the card, click on the card and click the share symbol on the top right of the screen. To edit the card, click the pencil and follow the directions on the screen. "));
-                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a summary screen.  <b>To edit information</b> click the cell of the contact. Make changes and then click SAVE on the top right side of the screen. When you click SAVE, Users will be brought back to the summary page. "));
-                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the summary screen, click the picture of the phone."));
-                txtPolicy69.setText(Html.fromHtml("<b>To Delete an Entry.</b> From the summary screen, identify the entry to delete, them left swipe (start from the right side of the cell and swipe left)."));
-                 txtPolicy71.setText(Html.fromHtml("<b> View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep Emergency Contact Information and identify the Healthcare Proxy Agent."));
+                txt62.setText(Html.fromHtml("<b>Add Information.</b> Click the Plus icon on the bottom right corner of the screen. If the person is in your Contacts click the option “Add from Contacts”. The minimum amount of information needed to complete this section is the person’s name, the relationship to the person, the priority, and a phone number including type (e.g. mobile, home, office or fax). You can add more than one phone number by clicking the blue Plus icon. "));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open, and you can add your information. Business cards can also be added."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Profile Photo:</b> To add a Photo, click anywhere in the circle, choose ”Take picture” or “Gallery”, select the photo you want, and then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt66.setText(Html.fromHtml("<b>Adding a Business Card.</b> The last entry on the screen allows the User to add a business card. Click ADD CARD and further instructions will pop up.  Click SAVE on the top right corner of the screen when you are done.  To forward the card, click on the card and click the Share icon on the top right of the screen. To edit the card, click the Pencil icon and follow the directions on the screen."));
+                txt67.setText(Html.fromHtml("<b>Summary Screen.</b> MYLO provides Users with a Summary screen.  To edit information, click the cell of the contact, make changes and then click SAVE on the top right corner of the screen. Clicking SAVE returns the User back to the Summary page. "));
+                txt68.setText(Html.fromHtml("<b>Automated Phone Calls.</b> From the Summary screen, click the Phone icon."));
+                txtPolicy69.setText(Html.fromHtml("<b>Delete an Entry.</b> From the Summary screen, identify the entry to delete, then swipe left (start from the right side of the cell and swipe left)."));
+                 txtPolicy71.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
                  //txtPolicy72.setText(Html.fromHtml("<b>To view a report or to email the data</b> click the green circle with the three dots located on the left side of the screen. \n<br>"));
                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
 
@@ -1288,7 +1277,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Emergency Contacts and Health Care Proxy Agent");
+                txtHeader.setText("Emergency Contacts and Health Care Proxy Agent");
                 break;
             case "ConnectionInstuction":
                 imgPicture.setVisibility(View.GONE);
@@ -1342,29 +1331,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
                 // txtEmail.setText("Email");
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Profile");
+                txtHeader.setText("Profile");
                 break;
             case "Personal":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
-//                String msgs = "To <b>add</b> information type responses.<br>" +
-//                        "To <b>save</b> information click the check mark" +
-//                        " on the <b>top right</b> side of the screen.<br>" +
-//                        "To <b>edit</b> or <b>delete</b> information simply work on the screen and then save your edits by clicking on the <b>check mark</b> on the <b>top right</b> side of the screen." +
-//                        "<br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the <b>three dots</b> on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgs));
 
-                //nikita
-                txt61.setText(Html.fromHtml("<b>Function.</b> The Personal Profile allows Users to store data about themselves or their loved ones.  "));
-                txt62.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus.  You may use your phone’s microphone to add data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open."));
-                txt63.setText(Html.fromHtml("<b>Save.</b> Click the SAVE button on the top right corner of the screen. Users should click SAVE after every few entries."));
-                txt64.setText(Html.fromHtml("<b>Profile Photo.</b> To add a Photo click anywhere in the circle and choose, ”take picture” or “gallery” then click SAVE. To edit or delete the photo click the pencil."));
-                txt65.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements. "));
-                txt66.setText(Html.fromHtml("<b>Exiting the sub-section.</b> To return to the prior screen click the back arrow button on the top left corner of the screen. To return to the Dashboard click the picture of the house on the top left corner of the screen."));
 
+                txt61.setText(Html.fromHtml("<b>Function.</b> The Personal Profile allows Users to store data about themselves or their loved ones."));
+                txt62.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. User’s may use their phone’s microphone to add data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. "));
+                txt63.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen. Users should click SAVE after every few entries. "));
+                txt64.setText(Html.fromHtml("<b>Profile Photo.</b> To add a Photo click anywhere in the circle and choose, ”Take Picture” or “Gallery” then click SAVE. To edit or delete the photo, click the Pencil icon."));
+                txt65.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements. "));
+                txt66.setText(Html.fromHtml("<b>Exiting the Sub-Section.</b> To return to the prior screen, click the back Arrow icon on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -1399,7 +1380,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Personal Profile");
+                txtHeader.setText("Personal Profile");
                 break;
 
 
@@ -1442,31 +1423,18 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "Medical":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
-//                String msgd = "To <b>add</b> information click the <b>plus box</b> for each section " +
-//                        "and then click the green bar." +
-//                        "<br>" +
-//                        "To <b>save</b> information click the <b>check mark</b>" +
-//                        " on the top right side of the screen." +
-//                        "<br>" +
-//                        "To <b>edit</b> information in a particular section click the picture of the <b>pencil</b>. To save your edits click the green bar at the lower half of the screen." +
-//                        "<br>" +
-//                        "To <b>delete</b> information in a particular section click the <b>garbage can</b>. For sections without the garbage can, simply delete the data." +
-//                        "<br>" +
-//                        "To <b>view a report</b> or to <b>email</b> or <b>fax</b> the data in each section click the three dots on the top right side of the screen.";
-//
-//                txtMsg.setText(Html.fromHtml(msgd));
 
-                //shradha
-                txt61.setText(Html.fromHtml("<b>Function.</b> The Medical Profile allows users to keep a comprehensive summary of their or their loved ones medical conditions and health history.  There are 15 sections. "));
-                txt62.setText(Html.fromHtml("<b>To Open a Section.</b> Click the GREEN DOWN ARROW."));
-                txt63.setText(Html.fromHtml("<b>Data Entry.</b> In many sections users will need to click the BLUE PLUS SIGN before they can enter data and to enter additional entries. Data is entered via free text and dropdown menus.  You may use your phone’s microphone to add certain data verbally. Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open.  For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text field will open and you can add your information.  Use Note if there is a general comment you wish to include."));
-                txt64.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen.  It’s recommended that you click Save after you complete each section. "));
-                txt65.setText(Html.fromHtml("<b>To Close a Section.</b> Click the green UP ARROW on the right side of the section. "));
-                txt66.setText(Html.fromHtml("<b>To Edit or Delete Information.</b> Click the picture of the pencil or garbage can."));
-                txt67.setText(Html.fromHtml("<b>View input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements. "));
+                txt61.setText(Html.fromHtml("<b>Function.</b> The Medical Profile allows Users to maintain a comprehensive summary of their own or their loved ones’ medical conditions and health history."));
+                txt62.setText(Html.fromHtml("<b>To Open a Section.</b> Click the green Down Arrow."));
+                txt63.setText(Html.fromHtml("<b>Data Entry.</b> In many sections Users will need to click the blue Plus icon before they can enter data and to enter additional entries. Data is entered via free text and dropdown menus.  You may use your phone’s microphone to add certain data verbally. Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open.  For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text field will open and you can add your information.  Use Note if there is a general comment you wish to include."));
+                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen.  It’s recommended that you click SAVE after you complete each section. "));
+                txt65.setText(Html.fromHtml("<b>To Close a Section.</b> Click the green Up Arrow on the right corner of the section. "));
+                txt66.setText(Html.fromHtml("<b>To Edit or Delete Information.</b> Click the Pencil icon or Trashcan."));
+                txt67.setText(Html.fromHtml("<b>View Input and Reports.</b> Users can view the input or email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements. "));
                 //txt68.setText(Html.fromHtml("<b>To Close a Section.</b> Click the green UP ARROW on the right side of the section."));
                 //txtPolicy69.setText(Html.fromHtml("<b>Reports.</b> Users can view and email reports by clicking the green circle (with 3 white dots) located on the bottom of the screen. Fax capability has been included in certain sections and should only be used to meet HIPAA requirements."));
 
@@ -1508,10 +1476,11 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
 
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Medical Profile");
+                txtHeader.setText("Medical Profile");
                 break;
 
             case "Living":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -1556,6 +1525,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "Card":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -1598,8 +1568,8 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Insurance Card GuideLines");
-                /*header.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
+                txtHeader.setText("Insurance Card GuideLines");
+                /*titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
@@ -1646,14 +1616,14 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 break;
 
             case "EmergencySection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to maintain information most often needed during an emergency event."));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
+                txt61.setText(Html.fromHtml("This section allows Users to maintain information most often needed during an emergency event."));
+                txt62.setText(Html.fromHtml("Users can view the Input, Print and Email a report of the entire section by clicking the green circle located on the bottom of the screen."));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
              //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
 
 
@@ -1689,21 +1659,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Personal & Medical Profile & Emergency Contacts");
+                txtHeader.setText("Personal & Medical Profile & Emergency Contacts");
 
                 break;
 
             case "SpecialitySection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store important contact information (including business cards)."));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
-                //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
-
+                txt61.setText(Html.fromHtml("This section allows users to store important contact information (including business cards).  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                                 "<br>"+txt62.getText().toString()+"<br>" +
@@ -1737,19 +1705,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Specialty Contacts");
+                txtHeader.setText("Specialty Contacts");
 
                 break;
 
             case "InsuranceSection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store insurance information, cards and forms. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
+                txt61.setText(Html.fromHtml("This section allows users to store Insurance Information, cards and forms.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
 
 
@@ -1785,21 +1753,20 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Insurance Information ");
+                txtHeader.setText("Insurance Information ");
 
                 break;
 
             case "EventSection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to keep event notes, establish a routine appointment checklist along with completed dates, record progress of ADLs and IADLs, and maintain a summary history of vital signs. "));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
+                txt61.setText(Html.fromHtml("This section allows Users to maintain Event Notes, document a Routine Appointment Checklist along with completed dates, record progress of ADLs and IADLs and keep a summary history of Vital Signs."));
+                txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
-
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                                 "<br>"+txt62.getText().toString()+"<br>" +
@@ -1833,19 +1800,19 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Notes & Appointments Checklist");
+                txtHeader.setText("Notes & Appointments Checklist");
 
                 break;
 
             case "PrescriptionSection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store individual prescriptions, take pictures of their prescriptions and pills, as well as upload a list of prescriptions. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
+                txt61.setText(Html.fromHtml("This section allows Users to store individual prescriptions, take pictures of their prescriptions and pills, as well as upload a list of prescriptions. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
 
 
@@ -1881,19 +1848,21 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Prescription Tracker ");
+                txtHeader.setText("Prescription Tracker ");
 
                 break;
 
             case "DirectiveSection":
+                titleHeader.setBackgroundColor(getResources().getColor(R.color.colorDirectiveRed));
                 imgPicture.setVisibility(View.GONE);
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store important documents. Currently the only documents that can be uploaded are pdf’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("Users can view the input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
-                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the QUESTION MARK on the top right side of the screen.  To exit click the arrow back button on the top left side of the screen. To email the instructions click the share button on the top right side of the screen. To return to the dashboard, click the little house on the top left side of the screen.\n" +
-                        "\n"));
+                txt61.setText(Html.fromHtml("This section allows users to store important documents.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
+                txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
+                //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
+
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
 
 
@@ -1929,7 +1898,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Instructions for Advance Directives & Documents");
+                txtHeader.setText("Advance Directives & Documents");
 
                 break;
 

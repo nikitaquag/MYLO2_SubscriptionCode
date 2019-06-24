@@ -1350,13 +1350,13 @@ public class Specialty {
             if (s.getHas_card() != null) {
                 card = s.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
+            cell = new PdfPCell(new Phrase("Do you have a business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageDoctor.add(("Do you have business card?:"));
+            messageDoctor.add(("Do you have a business card?:"));
             messageDoctor.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -1639,13 +1639,13 @@ public class Specialty {
             if (h.getHas_card() != null) {
                 card = h.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
+            cell = new PdfPCell(new Phrase("Do you have a business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageHospital.add(("Do you have business card?:"));
+            messageHospital.add(("Do you have a business card?:"));
             messageHospital.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -1834,13 +1834,13 @@ public class Specialty {
             if (p.getHas_card() != null) {
                 card = p.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
+            cell = new PdfPCell(new Phrase("Do you have a business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messagePharmacy.add(("Do you have business card?:"));
+            messagePharmacy.add(("Do you have a business card?:"));
             messagePharmacy.add(card);
 
             cell = new PdfPCell(new Phrase(""));
@@ -2116,13 +2116,13 @@ public class Specialty {
             if (f.getHas_card() != null) {
                 card = f.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have business card?:" + card));
+            cell = new PdfPCell(new Phrase("Do you have a business card?:" + card));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messageFinance.add(("Do you have business card?:"));
+            messageFinance.add(("Do you have a business card?:"));
             messageFinance.add(card);
 
             cell = new PdfPCell(new Phrase(""));

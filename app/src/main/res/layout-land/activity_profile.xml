@@ -305,7 +305,7 @@
                         android:fontFamily="@font/lato"
                         android:padding="@dimen/dimension10dp"
                         android:paddingRight="@dimen/dimension20dp"
-                        android:text="Do you have business card?"
+                        android:text="Do you have a business card?"
                         android:textColor="@color/colorBlack" />
 
                     <ToggleButton

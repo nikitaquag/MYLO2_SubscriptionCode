@@ -1261,14 +1261,14 @@ public class SpecialtyNew {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                     cell = new PdfPCell();
@@ -1281,10 +1281,10 @@ public class SpecialtyNew {
                 }
                 else{
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                     cell = new PdfPCell();
@@ -1597,10 +1597,10 @@ public class SpecialtyNew {
                     messagePharmacy.add(note);
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                     cell = new PdfPCell();
@@ -1616,10 +1616,10 @@ public class SpecialtyNew {
                     messagePharmacy.add(note);
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                 }
@@ -1834,7 +1834,7 @@ public class SpecialtyNew {
                 if (p.getHas_card() != null) {
                     ascard = p.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();
@@ -1845,10 +1845,10 @@ public class SpecialtyNew {
                     messagePharmacy.add(note);
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                    /* cell = new PdfPCell();
@@ -1868,10 +1868,10 @@ public class SpecialtyNew {
                     messagePharmacy.add(note);
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                    /* cell = new PdfPCell();
@@ -2174,14 +2174,14 @@ public class SpecialtyNew {
                 if (f.getHas_card() != null) {
                     ascard = f.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                     cell = new PdfPCell();
@@ -2194,10 +2194,10 @@ public class SpecialtyNew {
                 }
                 else{
                     cell = new PdfPCell();
-                    HeaderNew.cellDesignNoline(cell, table1, "Do you have business card?", ascard);
+                    HeaderNew.cellDesignNoline(cell, table1, "Do you have a business card?", ascard);
                     table.addCell(cell);
 
-                    messageDoctor.add("Do you have business card?");
+                    messageDoctor.add("Do you have a business card?");
                     messageDoctor.add(ascard);
 
                     cell = new PdfPCell();
