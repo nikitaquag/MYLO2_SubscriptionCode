@@ -5357,7 +5357,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), RelationActivity.class);
-                i.putExtra("Category", "Specialty");
+                if (source.equalsIgnoreCase("PhysicianData")||source.equalsIgnoreCase("Physician"))
+                {
+                    i.putExtra("Category", "Physician");
+                }
+                else
+                {
+                    i.putExtra("Category", "Specialty");
+                }
+
                 i.putExtra("Selected",txtSpecialty.getText().toString());
                 startActivityForResult(i, RESULT_SPECIALTY);
             }
@@ -6578,7 +6586,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             txtPriority.setText(priority);
 
         } else if (requestCode == RESULT_SPECIALTY && data != null) {
-            speciality = data.getStringExtra("Specialty");
+            if (source.equalsIgnoreCase("PhysicianData")||source.equalsIgnoreCase("Physician"))
+            {
+                speciality = data.getStringExtra("Physician");
+            }
+            else
+            {
+                speciality = data.getStringExtra("Specialty");
+            }
+
             txtSpecialty.setText(speciality);
             if (speciality.equals("Other")) {
                 //tilOtherRelation.setVisibility(View.VISIBLE);

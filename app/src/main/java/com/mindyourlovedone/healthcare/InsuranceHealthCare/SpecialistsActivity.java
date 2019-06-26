@@ -188,7 +188,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 txtUser.setVisibility(View.GONE);
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
-                txtTitle.setText("Notes & Appointment Checklist");
+                txtTitle.setText("Notes, Appt. Checklist, ADLs, Vital Signs");
                 header.setBackgroundResource(R.color.colorEventPink);
                 profile = new int[]{R.drawable.eve, R.drawable.eve_one, R.drawable.eve_three, R.drawable.eve_four};
                 specialist = new String[]{"Event Notes", "Appointment Checklist", "Activities of Daily Living", "Vital Signs"};
