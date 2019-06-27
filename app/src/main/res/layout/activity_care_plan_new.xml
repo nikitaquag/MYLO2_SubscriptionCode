@@ -250,9 +250,9 @@
         android:id="@+id/rlOther"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rlMedical"
+        android:layout_below="@id/rlMedicalRecord"
         android:layout_marginBottom="@dimen/dimension10dp"
-        android:layout_marginTop="@dimen/dimension10dp"
+        android:layout_marginTop="@dimen/dimension20dp"
         android:layout_marginLeft="@dimen/dimension20dp"
         android:layout_marginRight="@dimen/dimension20dp"
         android:background="@drawable/border_row_white">
@@ -301,7 +301,7 @@
         android:id="@+id/rlMedicalRecord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rlOther"
+        android:layout_below="@id/rlAD"
         android:layout_marginTop="@dimen/dimension10dp"
         android:layout_marginLeft="@dimen/dimension20dp"
         android:layout_marginRight="@dimen/dimension20dp"
@@ -426,7 +426,7 @@
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_below="@+id/rlMedicalRecord">
+    android:layout_below="@+id/rlOther">
     <RelativeLayout
         android:layout_marginRight="@dimen/dimension10dp"
         android:layout_marginLeft="@dimen/dimension10dp"

@@ -65,7 +65,7 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
 
    </string>
     <string name="ftu"><u>First Time User Instructions</u></string>
-    <string name="guide"><u>Guideline for add Card</u></string>
+    <string name="guide"><u>Guidelines for adding Cards</u></string>
     <string name="sigindropbox">a. <u> Sign in to dropbox.com</u></string>
 
     <string name="person"><b> 1.\t<u>If You are the Person Sharing </u>the\n\t\tDatabase or a particular Profile with\n\t\tAnother Person</b></string>
@@ -113,7 +113,7 @@ Step 6. TO <b>DELETE</b> A PROFILE. <b>Long press</b> on the profile box. <br><b
     <string name="ContactUs">Contact Us</string>
     <string name="Logout">Logout</string>
     <string name="Your">Your Loved Ones</string>
-    <string name="FTUEmergency"><i>First time user instructions</i></string>
+    <string name="FTUEmergency"><i>First-time User instructions</i></string>
     <string name="FTUEmergencyInstruc">Instructions</string>
     <string name="AddNew">Add New</string>
     <string name="AddNews"><u>Add New</u></string>

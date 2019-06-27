@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import com.itextpdf.text.Image;
 import com.mindyourlovedone.healthcare.DashBoard.AddPrescriptionActivity;
+import com.mindyourlovedone.healthcare.DashBoard.FaxActivity;
 import com.mindyourlovedone.healthcare.DashBoard.InstructionActivity;
 import com.mindyourlovedone.healthcare.DashBoard.PrescriptionInfoAdapter;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
@@ -470,7 +471,9 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
         floatContact.setImageResource(R.drawable.eyee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
         floatNew.setImageResource(R.drawable.closee);
-
+        final RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
+        final FloatingActionButton floatfax = dialogview.findViewById(R.id.floatfax);
         TextView txtNew = dialogview.findViewById(R.id.txtNew);
         txtNew.setText(getResources().getString(R.string.EmailReports));
 
@@ -494,7 +497,25 @@ public class FragmentPrescriptionInfo extends Fragment implements View.OnClickLi
                 dialog.dismiss();
             }
         });
+        floatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/Prescription.pdf";
 
+             /* StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);*/
+                Intent i = new Intent(getActivity(), FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
+                dialog.dismiss();
+            }
+
+
+        });
         floatNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

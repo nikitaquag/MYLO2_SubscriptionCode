@@ -1149,10 +1149,10 @@ public class SpecialtyNew {
                 }
                 //cell = new PdfPCell(new Phrase("Speciality:" + speciality));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell,table1,"Speciality:",speciality);
+                HeaderNew.cellDesign(cell,table1,"Specialty:",speciality);
                 table.addCell(cell);
 
-                messageDoctor.add("Speciality :");
+                messageDoctor.add("Specialty :");
                 messageDoctor.add(speciality);
 
 
@@ -1261,7 +1261,7 @@ public class SpecialtyNew {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();
@@ -1834,7 +1834,7 @@ public class SpecialtyNew {
                 if (p.getHas_card() != null) {
                     ascard = p.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();
@@ -2174,7 +2174,7 @@ public class SpecialtyNew {
                 if (f.getHas_card() != null) {
                     ascard = f.getHas_card();
                 }
-                // cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+                // cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
                 if (phonelists.size() != 0) {
 
                     cell = new PdfPCell();

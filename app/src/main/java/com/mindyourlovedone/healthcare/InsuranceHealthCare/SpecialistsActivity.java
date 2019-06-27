@@ -204,7 +204,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("Prescription Tracker");
                 header.setBackgroundResource(R.color.colorPrescriptionSub);
                 profile = new int[]{R.drawable.pres_one, R.drawable.pres_two};
-                specialist = new String[]{"Prescription Information", "Prescription Upload"};
+                specialist = new String[]{"Prescription Information", "Prescription List Upload"};
                 isEmergency = false;
                 isInsurance = false;
             }
@@ -1423,10 +1423,6 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 }else if (from.equals("Prescription")) {
                     StringBuffer result = new StringBuffer();
                     result.append(new MessageString().getInsuranceInfo());
-                    result.append(new MessageString().getInsuranceInfo());
-
-
-
                     new PDFDocumentProcess(Environment.getExternalStorageDirectory()
                             + "/mylopdf/" + "/PrescriptionTracker.pdf",
                             context, result);
@@ -1438,7 +1434,10 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
         });
 
         RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
-        rlFloatfax.setVisibility(View.VISIBLE);
+if(from.equals("Emergency")||from.equals("Prescription") )
+{
+    rlFloatfax.setVisibility(View.VISIBLE);
+}
 
         rlFloatfax.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1456,6 +1455,18 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                 Intent i = new Intent(context, FaxActivity.class);
                 i.putExtra("PATH", path);
                 startActivity(i);
+                }
+                else   if (from.equals("Prescription")) {
+                    String path = Environment.getExternalStorageDirectory()
+                            + "/mylopdf/"
+                            + "/PrescriptionTracker.pdf";
+                    StringBuffer result = new StringBuffer();
+                    result.append(new MessageString().getInsuranceInfo());
+                    new PDFDocumentProcess(path,
+                            context, result);
+                    Intent i = new Intent(context, FaxActivity.class);
+                    i.putExtra("PATH", path);
+                    startActivity(i);
                 }
                 dialog.dismiss();
             }

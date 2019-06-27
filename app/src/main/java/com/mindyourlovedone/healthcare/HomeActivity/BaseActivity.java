@@ -207,7 +207,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
 
 
         if (fragmentManager.findFragmentByTag("CONNECTION") == null) {
-            callFirstFragment("CONNECTION", fragmentConnection);
+            if (preferences.getREGISTERED()) {
+                callFirstFragment("CONNECTION", fragmentConnection);
+            }
         }
         /*shradha*/
         try {

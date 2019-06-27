@@ -16,7 +16,11 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
+import android.text.util.Linkify;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -211,6 +215,7 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         txtHosp = findViewById(R.id.txtHosp);
         tilHosp = findViewById(R.id.tilHosp);
         txtLocator = findViewById(R.id.txtLocator);
+        txtLocator.setMovementMethod(LinkMovementMethod.getInstance());
         tilLocator = findViewById(R.id.tilLocator);
         txtLocation = findViewById(R.id.txtLocation);
         txtNote= findViewById(R.id.txtNote);
@@ -261,7 +266,46 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
         spinnerDoc.setAdapter(adapter);
         spinnerDoc.setHint("Document Description");
 
+        txtLocator.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                Linkify.addLinks(s, Linkify.WEB_URLS);
+
+            }
+        });
+        txtLocator.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                AlertDialog.Builder alert=new AlertDialog.Builder(context);
+                alert.setMessage("Do you want to remove Link?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        txtLocator.setText("");
+                    }
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+dialogInterface.dismiss();
+                    }
+                });
+                alert.show();
+                return false;
+            }
+        });
         spinnerType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -499,7 +543,12 @@ public class AddDocumentActivity extends AppCompatActivity implements View.OnCli
             txtName.setText(document.getPrinciple());
             txtOther.setText(document.getOtherCategory());
             txtHosp.setText(document.getHospital());
-            txtLocator.setText(document.getLocator());
+            txtLocator.setText(Html.fromHtml(document.getLocator()));
+            txtLocator.setLinksClickable(true);
+            txtLocator.setAutoLinkMask(Linkify.WEB_URLS);
+            txtLocator.setMovementMethod(LinkMovementMethod.getInstance());
+//If the edit text contains previous text with potential links
+            Linkify.addLinks(txtLocator, Linkify.WEB_URLS);
             documentPath = document.getDocument();
             String extension = FilenameUtils.getExtension(document.getName());
             showDocIcon(extension, preferences.getString(PrefConstants.CONNECTED_PATH)+ documentPath);

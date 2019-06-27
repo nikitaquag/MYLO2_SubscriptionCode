@@ -228,8 +228,8 @@ public class PrescriptionPdf {
             table1.setWidthPercentage(100);
 
             //  Header.addEmptyLine(1);
-            Header.addChank("Prescription Upload");
-           messageForm.add("Prescription Upload");
+            Header.addChank("Prescription List Upload");
+           messageForm.add("Prescription List Upload");
             Header.addEmptyLine(1);
 
             for (int i = 0; i < prescriptionList.size(); i++) {

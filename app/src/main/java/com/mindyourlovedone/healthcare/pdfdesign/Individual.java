@@ -982,14 +982,14 @@ public class Individual {
             if (connection.getHas_card() != null) {
                 card = connection.getHas_card();
             }
-            cellf = new PdfPCell(new Phrase("Do you have a business card?:" + card));
+            cellf = new PdfPCell(new Phrase("Do you have a business card:" + card));
             cellf.setBorder(Rectangle.BOTTOM);
             cellf.setUseBorderPadding(true);
             cellf.setBorderWidthBottom(5);
             cellf.setBorderColorBottom(BaseColor.WHITE);
             tablef.addCell(cellf);
 
-            messageInfo2.add("Do you have a business card?:");
+            messageInfo2.add("Do you have a business card:");
             messageInfo2.add(card);
 
             cellf = new PdfPCell(new Phrase("" ));
@@ -1997,7 +1997,7 @@ public class Individual {
                 if (e.getHas_card() != null) {
                     ascard = e.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+                cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -2080,13 +2080,13 @@ public class Individual {
                         speciality = speciality + " - " + s.getOtherType();
                     }
                 }
-                cell = new PdfPCell(new Phrase("Speciality:" + speciality));
+                cell = new PdfPCell(new Phrase("Specialty:" + speciality));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePhysician.add("Speciality :");
+                messagePhysician.add("Specialty :");
                 messagePhysician.add(speciality);
 
                 /*String specialityOther = "";
@@ -2276,7 +2276,7 @@ public class Individual {
                 if (s.getHas_card() != null) {
                     ascard = s.getHas_card();
                 }
-                cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+                cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
@@ -4506,7 +4506,7 @@ public class Individual {
             if (e.getHas_card() != null) {
                 ascard = e.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+            cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
@@ -4569,8 +4569,8 @@ public class Individual {
             table1.setWidthPercentage(100);
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Primary Physicians");
-                messagePhysician.add("Primary Physicians");
+                Header.addChank("Primary Physician");
+                messagePhysician.add("Primary Physician");
                 Header.addEmptyLine(1);
 
             }
@@ -4599,13 +4599,13 @@ public class Individual {
                     speciality = speciality + " - " + s.getOtherType();
                 }
             }
-            cell = new PdfPCell(new Phrase("Speciality:" + speciality));
+            cell = new PdfPCell(new Phrase("Specialty:" + speciality));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);
             cell.setBorderColorBottom(BaseColor.WHITE);
             table.addCell(cell);
-            messagePhysician.add("Speciality :");
+            messagePhysician.add("Specialty :");
             messagePhysician.add(speciality);
 
                 /*String specialityOther = "";
@@ -4817,7 +4817,7 @@ public class Individual {
             if (s.getHas_card() != null) {
                 ascard = s.getHas_card();
             }
-            cell = new PdfPCell(new Phrase("Do you have a business card?:"+ascard));
+            cell = new PdfPCell(new Phrase("Do you have a business card:"+ascard));
             cell.setBorder(Rectangle.BOTTOM);
             cell.setUseBorderPadding(true);
             cell.setBorderWidthBottom(5);

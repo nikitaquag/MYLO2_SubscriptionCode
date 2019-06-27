@@ -170,9 +170,9 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to upload a list of prescriptions for themselves or their loved ones.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to upload a list of prescriptions for themselves or their loved ones.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. Click the ATTACH FILE icon at the top of the screen and select the location of the file.  Choose the file. To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
-                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the email with the file you want to upload. Click on the attachment and open it. After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  For more information consult the “How-to Video” found in the Menu Bar."));
                 txt64.setText(Html.fromHtml("<b>Save Input.</b> Click the SAVE icon on the top right corner of the screen."));
                 txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought back to the Summary screen. The User can view, print or email a Summary Report by clicking the green icon on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
                 txt66.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen swipe right to left on applicable cell of the document."));
@@ -222,7 +222,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Prescription Upload");
+                txtHeader.setText("Prescription List Upload");
                 break;
             case "PrescriptionInstruction":
                 titleHeader.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
@@ -333,11 +333,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copies of insurance forms. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copies of insurance forms. The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("<b>Add a Form.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
                         "Click the ATTACH FILE icon at the top of the screen and select the location of the file.  Choose the file.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below).\n"));
-                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
-                txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the email with the file you want to upload. Click on the attachment and open it. After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  For more information consult the “How-to Video” found in the Menu Bar.")); txt64.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
                 txt65.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can view, print or email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can only be viewed or shared if working inside the cell – see View Document below)."));
                 txt66.setText(Html.fromHtml("<b>Delete Entry.</b> From Summary screen swipe right to left on applicable cell of the document."));
                 txt67.setText(Html.fromHtml("<b>Edit Entry.</b>  From the Summary screen, click on the cell of the document and make changes by clicking the blue Pencil icon. To save your edits click SAVE on the top right corner of the screen."));
@@ -511,12 +510,12 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copy of their Advance Directives as well as copies of their loved ones’ documents. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep a copy of their Advance Directives as well as copies of their loved ones’ documents. The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
                         "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
-                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the email with the file you want to upload. Click on the attachment and open it. After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  For more information consult the “How-to Video” found in the Menu Bar."));
                 txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
-                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click SAVE on the top right corner of the screen."));
+                txt65.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
                 txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
                 txt67.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen, swipe right to left on the applicable cell in the document."));
                 txt68.setText(Html.fromHtml("<b>Edit Entry.</b> From the Summary screen, click on the cell of the document and make changes. To save your edits click SAVE on the top right corner of the screen."));
@@ -577,10 +576,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgPicture.setImageResource(R.drawable.v_user);
 
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
                         "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
-                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the email with the file you want to upload. Click on the attachment and open it. After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  For more information consult the “How-to Video” found in the Menu Bar."));
                 txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
                 txt65.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
                 txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
@@ -643,11 +642,10 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to keep copies of important documents, and to categorize them. The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("<b>Add a Document.</b> Click the Plus icon on the bottom right corner of the screen. \n" +
                         "Click ATTACH FILE at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file, “Name of File Selected” -  Click SAVE on the upper right corner of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue Pencil icon and upload a new document or delete the entire entry (see Delete Entry below)."));
-                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  Consult the “How-to Video” found in the Menu Bar."));
-                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
+                txt63.setText(Html.fromHtml("<b>Add a Document from your Email.</b> If the document is in your email, go to your email account and choose the email with the file you want to upload. Click on the attachment and open it. After it opens, click the forward icon and scroll to find MYLO.  Choose the specific profile and section for the upload.  For more information consult the “How-to Video” found in the Menu Bar.")); txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey Arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information."));
                 txt65.setText(Html.fromHtml("<b>Save Input.</b> Click SAVE on the top right corner of the screen."));
                 txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b> After a document is stored the User will be brought to the Summary Screen. The User can View, Print or Email a Summary Report of all documents stored in the section by clicking the green icon on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
                 txt67.setText(Html.fromHtml("<b>Delete Entry.</b> From the Summary screen, swipe right to left on the applicable cell in the document."));
@@ -695,20 +693,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel69.setVisibility(View.VISIBLE);
                 rel71.setVisibility(View.VISIBLE);
                 rel72.setVisibility(View.VISIBLE);
-                rel73.setVisibility(View.GONE); txt61.setText(Html.fromHtml("<b>Function.</b> Allows users to keep copies of important documents, and to categorize them accordingly. Currently the only documents that can be uploaded are PDF’s.  We are working on other formats such as excel, word, txt, jpg, and video."));
-                txt62.setText(Html.fromHtml("<b>To Add a Document.</b> Click the PLUS button on the bottom right corner of the screen. \n" +
-                        "Click the ATTACH FILE button at the top of the screen and select the location of the file.  Choose the file.  A message should appear identifying the name of the file and say, “Name of File Selected”. Click SAVE on the upper right side of the screen.   The minimum amount of information needed is Document Description and Document Date.  To edit the document, click the blue pencil and upload a new document or delete the entire entry (see Delete Entry below). "));
-                txt63.setText(Html.fromHtml("<b>To Add a Document from your Email.</b>   If the document is in your email, go to your email account and choose the PDF and click on it.  After it opens, click the forward button and scroll to find MYLO.  Choose the specific profile and section for the upload.  There is a “how-to” video in the Menu."));
-                txt64.setText(Html.fromHtml("<b>Data Entry.</b> Data is entered via free text and dropdown menus. You may use your phone’s microphone to add certain data verbally.  Dropdown menus are identified by the little grey arrow to the right of the line. Click anywhere on the line and the dropdown menu will open. For each dropdown menu we have included an “other” as the last option on the menu – if you click “other” a text box will open and you can add your information."));
-                txt65.setText(Html.fromHtml("<b>To Save Input.</b> Click the SAVE button on the top right side of the screen. "));
-                txt66.setText(Html.fromHtml("<b>Summary Data Screen.</b>  After a document is stored the User will be brought to the Summary Screen. The user can view, print or email a Summary Report of all documents stored in the section by clicking the green button on the bottom of the screen. (The specific document can be viewed or shared only if working inside the cell – see View Document below)."));
-                txt67.setText(Html.fromHtml("<b>Delete Entry.</b>  From the summary screen swipe right to left on applicable cell of the document."));
-                txt68.setText(Html.fromHtml("<b>Edit Entry.</b>  From the summary screen, click on the cell of the document and make changes. To save your edits click the SAVE on the top right side of the screen."));
-                txtPolicy69.setText(Html.fromHtml("<b>View Document.</b>  Click the green circle (with 3 white dots) located on the bottom of the screen and then click View Document.  "));
-                txtPolicy71.setText(Html.fromHtml("<b>Email or Fax Document.</b> Click the green circle (with 3 white dots) located on the bottom of the screen and then click Email or Fax Document."));
-                txtPolicy72.setText(Html.fromHtml("<b>Faxing a Document.</b> Users should only send documents via fax to meet an organizations, (e.g. health, insurance) HIPAA requirements.  Users can receive notification that the fax was received by including a Reply Email Address. The fax will be sent immediately, but the machine you are sending to may be turned off or very busy.  If a reply is not received within 20 minutes, check the fax number and resend. "));
-                // txtPolicy73.setText(Html.fromHtml("To exit the User Instructions and go back to the prior screen click the arrow back button on the top left side of the screen. If you want to send or share these instructions click the share button on the top right side of the screen. Clicking the little house will bring you back to the dashboard.\n<br>"));
-
+                rel73.setVisibility(View.GONE);
 
                 UI = Html.fromHtml("<br>"+txt61.getText().toString()+"<br>" +
                         "<br>"+txt62.getText().toString()+"<br>" +
@@ -1669,7 +1654,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store important contact information (including business cards).  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("This section allows users to store important contact information (including business cards).  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
                 txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
 
@@ -1715,7 +1700,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store Insurance Information, cards and forms.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("This section allows users to store Insurance Information, cards and forms.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
                 txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
@@ -1810,7 +1795,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows Users to store individual prescriptions, take pictures of their prescriptions and pills, as well as upload a list of prescriptions. The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("This section allows Users to store individual prescriptions, take pictures of their prescriptions and pills, as well as upload a list of prescriptions. The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen. "));
                 txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
@@ -1858,7 +1843,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store important documents.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG, and Video."));
+                txt61.setText(Html.fromHtml("This section allows users to store important documents.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
                 txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
@@ -2025,7 +2010,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 if (From.equals("PrescriptionInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription Information", UI);
                 } else if (From.equals("PrescriptionUploadInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription Upload", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription List Upload", UI);
                 } else if (From.equals("EventNotesInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Event Notes", UI);
                 } else if (From.equals("CheckListInstruction")) {

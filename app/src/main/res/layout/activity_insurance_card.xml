@@ -337,7 +337,7 @@
             android:textStyle="bold|italic"
             android:fontFamily="@font/lato"
             android:textColor="@color/colorLightGrays"
-            android:text="Add a new Card!"
+            android:text="Add a new Insurance Card!"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

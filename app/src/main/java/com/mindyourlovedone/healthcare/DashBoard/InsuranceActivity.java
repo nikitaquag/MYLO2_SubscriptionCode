@@ -106,10 +106,10 @@ public class InsuranceActivity extends AppCompatActivity implements View.OnClick
                     callFragment("Prescription Information", fragmentPrescriptionInfo);
                     break;
 
-                case "Prescription Upload":
+                case "Prescription List Upload":
                     header.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
-                    txtTitle.setText("Prescription Upload");
-                    callFragment("Prescription Upload", fragmentPrescriptionUpload);
+                    txtTitle.setText("Prescription List Upload");
+                    callFragment("Prescription List Upload", fragmentPrescriptionUpload);
                     break;
 
                 case "Vital Signs":

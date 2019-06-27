@@ -194,8 +194,8 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Prescription Information";
                         break;
 
-                    case "Prescription Upload":
-                        fragment = "Prescription Upload";
+                    case "Prescription List Upload":
+                        fragment = "Prescription List Upload";
                         break;
 
                     case "Vital Signs":

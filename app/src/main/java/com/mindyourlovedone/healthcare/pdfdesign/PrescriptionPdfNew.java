@@ -259,8 +259,8 @@ public class PrescriptionPdfNew {
     public PrescriptionPdfNew(ArrayList<Form> prescriptionList, int j, Image pp) {
         PrescriptionNewFont();
         try {
-            HeaderNew.addNewChank("Prescription Upload", pp);
-            messagePrescription.add("Prescription Upload");
+            HeaderNew.addNewChank("Prescription List Upload", pp);
+            messagePrescription.add("Prescription List Upload");
             HeaderNew.addEmptyLine(1);
 
 

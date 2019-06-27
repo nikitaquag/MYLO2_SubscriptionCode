@@ -568,6 +568,7 @@ android:visibility="gone"
                         android:paddingTop="@dimen/dimension8dp"
                         android:paddingRight="@dimen/dimension20dp"
                         android:paddingBottom="@dimen/dimension8dp"
+
                         android:visibility="gone"
                         app:hintTextAppearance="@style/TextInputLayoutHintText">
 

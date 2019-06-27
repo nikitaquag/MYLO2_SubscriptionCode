@@ -309,7 +309,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         preferences.copyFile("ic_launcher.png", getActivity());
         Header.addImage("/sdcard/MYLO/images/" + "ic_launcher.png");
         Header.addEmptyLine(1);
-        Header.addusereNameChank("Prescription Upload");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        Header.addusereNameChank("Prescription List Upload");//preferences.getString(PrefConstants.CONNECTED_NAME));
         Header.addEmptyLine(1);
 
         Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));
@@ -343,9 +343,9 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         profile=preferences.addFile("profpdf.png", getActivity()); profileWite=preferences.addFile("profpdf_wite.png", getActivity());
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTION UPLOAD", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTION LIST UPLOAD", calendarWite, profileWite);
 
-        HeaderNew.addusereNameChank("PRESCRIPTION UPLOAD");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addusereNameChank("PRESCRIPTION LIST UPLOAD");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
         Image pp = null;
         pp=preferences.addFile("pres_two.png", getActivity());
@@ -361,8 +361,11 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.activity_transparent_pdf, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
+        final FloatingActionButton floatfax = dialogview.findViewById(R.id.floatfax);
         floatContact.setImageResource(R.drawable.eyee);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
         floatNew.setImageResource(R.drawable.closee);
@@ -384,11 +387,23 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
         dialog.show();
 
         rlView.setBackgroundColor(getResources().getColor(R.color.colorTransparent));
-        floatCancel.setOnClickListener(new View.OnClickListener() {
+        floatfax.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String path = Environment.getExternalStorageDirectory()
+                        + "/mylopdf/"
+                        + "/PrescriptionUpload.pdf";
+                /*StringBuffer result = new StringBuffer();
+                result.append(new MessageString().getInsuranceInfo());
+                new PDFDocumentProcess(path,
+                        getActivity(), result);*/
+                Intent i = new Intent(getActivity(), FaxActivity.class);
+                i.putExtra("PATH", path);
+                startActivity(i);
                 dialog.dismiss();
             }
+
+
         });
 
         floatNew.setOnClickListener(new View.OnClickListener() {
@@ -399,7 +414,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                         + "/PrescriptionUpload.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Prescription Upload");
+                preferences.emailAttachement(f, getActivity(), "Prescription List Upload");
 
 
                 dialog.dismiss();
