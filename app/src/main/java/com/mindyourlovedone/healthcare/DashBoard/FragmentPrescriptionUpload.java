@@ -402,8 +402,7 @@ public class FragmentPrescriptionUpload extends Fragment implements View.OnClick
                 startActivity(i);
                 dialog.dismiss();
             }
-
-
+            
         });
 
         floatNew.setOnClickListener(new View.OnClickListener() {
