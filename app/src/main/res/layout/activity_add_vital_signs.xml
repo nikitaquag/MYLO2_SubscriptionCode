@@ -82,14 +82,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <android.support.design.widget.TextInputLayout
+                android:fontFamily="@font/lato"
+                android:id="@+id/tilLocations"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:descendantFocusability="beforeDescendants"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="@dimen/dimension10dp"
+                android:paddingTop="@dimen/dimension8dp"
+                android:paddingRight="@dimen/dimension10dp"
+                android:paddingBottom="@dimen/dimension8dp"
+                app:hintEnabled="true">
 
+                <AutoCompleteTextView
+                    android:fontFamily="@font/lato"
+                    android:backgroundTint="@color/colordivideGray"
+                    android:id="@+id/txtLocations"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Location"
+                    android:paddingTop="2dp"
+                    android:singleLine="false"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/dimension20dp" />
+
+
+            </android.support.design.widget.TextInputLayout>
             <android.support.design.widget.TextInputLayout
                 android:fontFamily="@font/lato"
                 android:id="@+id/tilLocation"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimension10dp"
                 android:descendantFocusability="beforeDescendants"
                 android:focusableInTouchMode="true"
                 android:paddingLeft="@dimen/dimension10dp"
@@ -119,7 +145,7 @@
                 android:id="@+id/tilDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_below="@+id/rlDosage"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
@@ -148,7 +174,7 @@
                 android:id="@+id/tilTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_below="@+id/rlDosage"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
@@ -177,7 +203,7 @@
                 android:id="@+id/tilBP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_below="@+id/rlDosage"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
@@ -206,7 +232,7 @@
                 android:id="@+id/tilHeart"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_below="@+id/rlDosage"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
@@ -238,7 +264,7 @@
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
                 android:paddingRight="@dimen/dimension10dp"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:paddingBottom="@dimen/dimension8dp">
 
                 <AutoCompleteTextView
@@ -278,7 +304,7 @@
                 android:fontFamily="@font/lato"
 
                 android:id="@+id/tilPulseRate"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/dimension10dp"
@@ -308,7 +334,7 @@
                 android:id="@+id/tilRespRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_below="@+id/rlDosage"
                 android:paddingLeft="@dimen/dimension10dp"
                 android:paddingTop="@dimen/dimension8dp"
@@ -333,7 +359,7 @@
             <android.support.design.widget.TextInputLayout
                 android:fontFamily="@font/lato"
                 android:id="@+id/tilCol"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rlDosage"
@@ -359,7 +385,7 @@
             <android.support.design.widget.TextInputLayout
                 android:fontFamily="@font/lato"
                 android:id="@+id/tilOther"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tilCol"
@@ -386,7 +412,7 @@
                 android:fontFamily="@font/lato"
 
                 android:id="@+id/tilNote"
-                app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:hintTextAppearance="@style/TextInputLayoutHintText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tilOther"

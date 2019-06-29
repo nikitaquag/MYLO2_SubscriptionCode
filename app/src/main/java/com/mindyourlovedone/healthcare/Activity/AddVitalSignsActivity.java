@@ -102,9 +102,9 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
         imgBack = findViewById(R.id.imgBack);
         imgHome = findViewById(R.id.imgHome);
         tilLocation = findViewById(R.id.tilLocation);
-        tilLocation.setHintEnabled(false);
+        //tilLocation.setHintEnabled(false);
         txtLocation = findViewById(R.id.txtLocation);
-        txtLocation.setOnTouchListener(new View.OnTouchListener() {
+      /*  txtLocation.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 tilLocation.setHintEnabled(true);
@@ -112,7 +112,7 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
 
                 return false;
             }
-        });
+        });*/
 
         txtDate = findViewById(R.id.txtDate);
         txtTime = findViewById(R.id.txtTime);

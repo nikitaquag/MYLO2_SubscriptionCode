@@ -99,7 +99,7 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("finance")) {
                 titleheaders.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
-                txtTitles.setText("Finance Type");
+                txtTitles.setText("Category");
                 String[] financeType = {"Accountant", "Attorney", "Broker", "Financial Adviser", "Financial Planner", "Notary", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, financeType, selected);
                 listRelation.setAdapter(rd);
