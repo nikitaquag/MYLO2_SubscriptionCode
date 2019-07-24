@@ -29,20 +29,20 @@ import java.net.URL;
 
 public class WebService {
     //Live Server
-/*    private final static String POST_PDF_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/fax/sendFax";
+  private final static String POST_PDF_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/fax/sendFax";
     private final String CREATE_PROFILE_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/createProfile";
     private final String GET_PROFILE_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/getProfile";
     private final String LOGIN_PROFILE_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/loginUser";
     private final String EDIT_PROFILE_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/editProfile";
-    private final String UNSSUBSCRIBE_ME_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/unRegister";*/
+    private final String UNSSUBSCRIBE_ME_URL = "http://mindyour-lovedones.com/MYLO/index.php/webservices/user/unRegister";
 
-//Test Server
-    private final static String POST_PDF_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/fax/sendFax";
-    private final String CREATE_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/createProfile";
-    private final String GET_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/getProfile";
-    private final String LOGIN_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/loginUser";
-    private final String EDIT_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/editProfile";
-    private final String UNSSUBSCRIBE_ME_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/unRegister";
+////Test Server
+//    private final static String POST_PDF_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/fax/sendFax";
+//    private final String CREATE_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/createProfile";
+//    private final String GET_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/getProfile";
+//    private final String LOGIN_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/loginUser";
+//    private final String EDIT_PROFILE_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/editProfile";
+//    private final String UNSSUBSCRIBE_ME_URL = "http://demo.arihantwebconsultancy.com/mylo/public/webservices/user/unRegister";
 
     public static String uploadFile(String sourceFileUri, String number, String to, String from, String subject, String replayEmail, Context context) {
         String fileName = sourceFileUri;
