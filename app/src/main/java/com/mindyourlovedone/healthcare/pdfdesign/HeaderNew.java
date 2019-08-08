@@ -40,29 +40,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class HeaderNew {
-//    public static Font GrayFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-//            Font.NORMAL);
-//
-//    public static Font GrayTitleFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-//            Font.NORMAL);
-//
-//    public static final String FONT = "main/RomanS.ttf";
-//    // public static Font GreenFont = FontFactory.getFont(FONT, "Cp1250", BaseFont.EMBEDDED);
-//
-//
-//    public static Font GreenFont = new Font(Font.FontFamily.TIMES_ROMAN, 20,
-//            Font.BOLD);
-//
-//    public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 19,
-//            Font.NORMAL);
-//
-//    public static Font FooterFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
-//            Font.NORMAL);
-//
-//    public static Font CompFont = new Font(Font.FontFamily.TIMES_ROMAN, 13,
-//            Font.NORMAL);
 
-    //nikita - new code for font
     public static Font GrayFont, GrayTitleFont, GreenFont, BlackFont, FooterFont, CompFont;
 
     public static void HeaderNewfont() {

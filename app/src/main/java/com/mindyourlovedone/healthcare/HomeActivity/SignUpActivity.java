@@ -280,6 +280,7 @@ CheckBox rbCheck;
                 break;
         }
     }
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
                 ContextCompat.checkSelfPermission(getApplicationContext(),

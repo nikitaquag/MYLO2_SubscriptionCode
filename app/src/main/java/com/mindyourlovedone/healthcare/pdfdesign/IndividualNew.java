@@ -86,13 +86,7 @@ public class IndividualNew {
             messageInfo.add("Personal Profile");
             HeaderNew.addEmptyLine(1);
 
-           /* PdfPTable table;
-            table = new PdfPTable(2);
-            PdfPCell cell;
-            table.setWidthPercentage(100);
-            table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
-            table.setTableEvent(new RoundedBorder());
-            table.getDefaultCell().setPadding(2);*/
+
             PdfPTable table;
             table = new PdfPTable(1);
             table.getDefaultCell().setBorder(PdfPCell.NO_BORDER);
@@ -103,7 +97,7 @@ public class IndividualNew {
             table.setWidthPercentage(100);
             PdfPCell cell = new PdfPCell();
             cell.setPaddingTop(10);
-           // cell.setPaddingBottom(10);
+
             cell.setBorder(Rectangle.NO_BORDER);
             cell.setBackgroundColor(WebColors.getRGBColor("#Ffffff"));
             table.setKeepTogether(false);
@@ -142,12 +136,7 @@ public class IndividualNew {
             cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1, table1, "Relationship:", realtion);
             table1.addCell(cell1);
-          /*  cell1 = new PdfPCell(new Phrase("Relationship:" + realtion));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);*/
+
 
             messageInfo.add("Relationship :");
             messageInfo.add(realtion);
@@ -156,12 +145,7 @@ public class IndividualNew {
             if (connection.getEmail() != null) {
                 email = connection.getEmail();
             }
-           /* cell1 = new PdfPCell(new Phrase("Email:" + email));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);*/
+
             cell1 = new PdfPCell();
             HeaderNew.cellDesign(cell1, table1, "Email:", email);
             table1.addCell(cell1);
@@ -183,72 +167,16 @@ public class IndividualNew {
                 }
                 int j = t + 1;
 
-              /*  if (phonelist.size()==0)
-                {
-                    cell1 = new PdfPCell();
-                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
-                    table1.addCell(cell1);
-                }else if (phonelist.size()%2==0) {
-                    cell1 = new PdfPCell();
-                    HeaderNew.cellDesign(cell1, table1,"Contact"+j+":","type:"+num);
-                    table1.addCell(cell1);
-                }
-                else
-                {*/
+
                 cell1 = new PdfPCell();
                 HeaderNew.cellDesign(cell1, table1, "Contact" + j + ":", type + " : " + num);
                 table1.addCell(cell1);
-                //  }
-               /* cell1 = new PdfPCell(new Phrase(type+" Phone:" + num));
-                cell1.setBorder(Rectangle.BOTTOM);
-                cell1.setUseBorderPadding(true);
-                cell1.setBorderWidthBottom(5);
-                cell1.setBorderColorBottom(BaseColor.WHITE);
-                table1.addCell(cell1);*/
+
 
                 messageInfo2.add(type + " Phone:");
                 messageInfo2.add(num);
             }
-            /*if (connection.getMobile() != null) {
-                mPhone = connection.getMobile();
-            }
-            cell1 = new PdfPCell(new Phrase("Mobile:" + mPhone));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);
 
-            messageInfo2.add("Mobile :");
-            messageInfo2.add(mPhone);
-
-            if (connection.getPhone() != null) {
-                hPhone = connection.getPhone();
-            }
-            cell1 = new PdfPCell(new Phrase("Home Phone:" + hPhone));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);
-
-            messageInfo2.add("Home Phone :");
-            messageInfo2.add(hPhone);
-
-
-            String workph = "";
-            if (connection.getWorkPhone() != null) {
-                workph = connection.getWorkPhone();
-            }
-            cell1 = new PdfPCell(new Phrase("Work Phone:" + workph));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);
-            messageInfo2.add("Work Phone :");
-            messageInfo2.add(workph);
-*/
 
             if (connection.getAddress() != null) {
                 address = connection.getAddress();
@@ -257,14 +185,6 @@ public class IndividualNew {
             HeaderNew.cellDesign(cell1, table1, "Address:", address);
             table1.addCell(cell1);
 
-           /* cell1 = new PdfPCell(new Phrase("Address:" + address));
-            cell1.setBorder(Rectangle.BOTTOM);
-            cell1.setUseBorderPadding(true);
-            cell1.setBorderWidthBottom(5);
-            cell1.setBorderColorBottom(BaseColor.WHITE);
-            table1.addCell(cell1);
-
-*/
             messageInfo2.add("Address :");
             messageInfo2.add(address);
 

@@ -20,6 +20,7 @@ import android.os.Environment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.text.Spannable;
+import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
@@ -229,6 +230,11 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
         Spannable spans = (Spannable) txtBackup2.getText();
         ClickableSpan clickSpan = new ClickableSpan() {
             @Override
+            public void updateDrawState(TextPaint ds) {
+                ds.setColor(getResources().getColor(R.color.colorNewHereBlue)) ;    // you can use custom color
+                ds.setUnderlineText(false);    // this remove the underline
+            }
+            @Override
             public void onClick(View widget) {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
@@ -237,8 +243,8 @@ public class DropboxLoginActivity extends DropboxActivity implements ZipListner 
                 startActivity(intent);
             }
         };
-        spans.setSpan(clickSpan, 32, 36, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+        spans.setSpan(clickSpan, 32, 36, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         btnBackup = findViewById(R.id.btnBackup);
         btnRestore = findViewById(R.id.btnRestore);
         // rlView = findViewById(R.id.rlView);

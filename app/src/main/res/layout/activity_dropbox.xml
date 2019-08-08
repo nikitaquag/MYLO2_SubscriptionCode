@@ -398,6 +398,7 @@
                         android:visibility="visible" />
 
                     <TextView
+                        android:id="@+id/txtBackup2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dimension20dp"
@@ -406,6 +407,7 @@
                         android:textColor="@color/colorBlackDark"
                         android:textSize="@dimen/dimension18dp"
                         android:fontFamily="@font/lato"
+android:textColorLink="@color/colorNewHereBlue"
 
                         android:visibility="visible" />
 
@@ -485,7 +487,7 @@
                     android:visibility="visible" />
 
                 <TextView
-                    android:id="@+id/txtBackup2"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/txtBackup1"
