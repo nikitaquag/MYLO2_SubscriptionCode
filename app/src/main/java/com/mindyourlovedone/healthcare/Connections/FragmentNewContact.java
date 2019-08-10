@@ -196,9 +196,9 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
 
     String[] HospitalType = {"Hospital", "Rehabilitation Center", "Home Health Care Agency", "Home Health Care Aide", "TeleMed", "Urgent Care", "Other"};
 
-    String[] proxyType = {"Primary - Health Care Proxy Agent", "Successor - Health Care Proxy Agent"};
-    //  String[] priorityType = {"Primary - Health Care Proxy Agent", "Primary - Emergency Contact", "Secondary - Health Care Proxy Agent", "Secondary - Emergency Contact"};
-    String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent","Primary – Emergency Contact and Health Care Proxy Agent"};
+    String[] proxyType = {"Primary Health Care Proxy Agent", "Successor - Health Care Proxy Agent"};
+    //  String[] priorityType = {"Primary Health Care Proxy Agent", "Primary Emergency Contact", "Secondary Health Care Proxy Agent", "Secondary Emergency Contact"};
+    String[] priorityType = {"Primary Emergency Contact", "Primary Health Care Proxy Agent", "Secondary Emergency Contact", "Secondary Health Care Proxy Agent","Primary Emergency Contact and Health Care Proxy Agent"};
 
     Boolean isEdit;
 
@@ -2315,23 +2315,23 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                     }
 
                     if (rel.getIsPrimary() == 0) {
-                        priority = "Primary - Emergency Contact";
+                        priority = "Primary Emergency Contact";
                         txtPriority.setText(priority);
                     } else if (rel.getIsPrimary() == 1) {
 
-                        priority = "Primary - Health Care Proxy Agent";
+                        priority = "Primary Health Care Proxy Agent";
                         txtPriority.setText(priority);
                     } else if (rel.getIsPrimary() == 2) {
 
-                        priority = "Secondary - Emergency Contact";
+                        priority = "Secondary Emergency Contact";
                         txtPriority.setText(priority);
                     } else if (rel.getIsPrimary() == 3) {
 
-                        priority = "Secondary - Health Care Proxy Agent";
+                        priority = "Secondary Health Care Proxy Agent";
                         txtPriority.setText(priority);
                     }else if (rel.getIsPrimary() == 4) {
 
-                        priority = "Primary – Emergency Contact and Health Care Proxy Agent";
+                        priority = "Primary Emergency Contact and Health Care Proxy Agent";
                         txtPriority.setText(priority);
                     } else {
                         priority = "";
@@ -3021,8 +3021,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 changeIcon(source);
               //  rlInsured.setVisibility(View.VISIBLE);
                 visiInsurance();
-                txtAdd.setText("Add Insurance");
-                txtTitle.setText("Add Insurance");
+                txtAdd.setText("Add Insurance Company");
+                txtTitle.setText("Add Insurance Company");
 //                setListPh(listInsuPhone);
                 PhoneLayout = llAddInsuPhone;
             //    A_PhoneLayout=llAddAentPhone;
@@ -3036,8 +3036,8 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                // rlInsured.setVisibility(View.VISIBLE);
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
-                txtAdd.setText("Update Insurance");
-                txtTitle.setText("Update Insurance");
+                txtAdd.setText("Update Insurance Company");
+                txtTitle.setText("Update Insurance Company");
                 txtDelete.setVisibility(View.GONE);
                 Intent insuranceIntent = getActivity().getIntent();
                 if (insuranceIntent.getExtras() != null) {
@@ -3184,7 +3184,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 disableInsurance();
                 tilInsuaranceName.setHintEnabled(true);
                 txtInsuaranceName.setFocusable(true);
-                txtTitle.setText("Insurance Information");
+                txtTitle.setText("Insurance Company");
                 txtTitle.setVisibility(View.VISIBLE);
                 Intent insuranceIntent2 = getActivity().getIntent();
                 if (insuranceIntent2.getExtras() != null) {
@@ -6006,15 +6006,15 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             otherRelation = txtOtherRelation.getText().toString();
             note = txtEmergencyNote.getText().toString().trim();
             /**/
-            if (priority.equals("Primary - Emergency Contact")) {
+            if (priority.equals("Primary Emergency Contact")) {
                 prior = 0;
-            } else if (priority.equals("Primary - Health Care Proxy Agent")) {
+            } else if (priority.equals("Primary Health Care Proxy Agent")) {
                 prior = 1;
-            } else if (priority.equals("Secondary - Emergency Contact")) {
+            } else if (priority.equals("Secondary Emergency Contact")) {
                 prior = 2;
-            } else if (priority.equals("Secondary - Health Care Proxy Agent")) {
+            } else if (priority.equals("Secondary Health Care Proxy Agent")) {
                 prior = 3;
-            } else if (priority.equals("Primary – Emergency Contact and Health Care Proxy Agent")) {
+            } else if (priority.equals("Primary Emergency Contact and Health Care Proxy Agent")) {
 
                 prior = 4;
             }
@@ -6063,7 +6063,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
             if (indexValues != 0) {
                 proxy = proxyType[indexValues - 1];
             }
-            if (proxy.equals("Primary - Health Care Proxy Agent")) {
+            if (proxy.equals("Primary Health Care Proxy Agent")) {
                 prox = 0;
             } else if (proxy.equals("Successor - Health Care Proxy Agent")) {
                 prox = 1;

@@ -1,6 +1,7 @@
 package com.mindyourlovedone.healthcare.DashBoard;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +20,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -48,6 +50,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class AddInfoActivity extends AppCompatActivity implements View.OnClickListener {
@@ -61,7 +66,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     ImageView imgBack, imgInfo,imgHome;
     RelativeLayout llAddConn, rlInfo, rlPdf;
     TextView txttype,txttypeReaction, txtSave, txtName, txtReaction, txtTreatment, txtTitle, txtAdd, txtDate, txtDoctor, txtDone, txtOtherVaccine, txtOtherReaction;
-    TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction;
+    TextInputLayout tilTitle, tilReaction, tilTreatment, tilDate, tilDoctor, tilDone, tilOtherVaccine, tilOtherReaction,tilType22;
     String from, name, title;
     Boolean isAllergy, isHistory, isImplant;
     Preferences preferences;
@@ -80,9 +85,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
     TextView txtLocation, txtDetails, txtNote;
     FrameLayout fltypeReaction,fltype,fltype222;
     String reactions = "";
-    String[] vaccineList = {"Chickenpox (Varicella)", "Hepatitis A", "Hepatitis B", "Hib", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
+    String[] vaccineList = {"Chickenpox (Varicella)","Haemophilus influenza type B (Hib)", "Hepatitis A", "Hepatitis B", "Human Papillomavirus (HPV)", "Influenza (Flu)", "Measles, Mumps, Rubella (MMR)", "Meningococcal", "Polio (IPV)", "Pneumococcal (PCV and PPSV)", "Shingles (Herpes Zoster)", "Tetanus, Diphtheria, Pertussis (Td, Tdap)", "Other"};
     String[] implantList = {"Aneurysm Stent or Aneurysm Clip", "Artifical Limbs", "Artificial Heart Value", "Body Art/Tatoos", "Coronary Stents(Drug Coated/Bare Methal/Unknown)", "Metal Crowns, Fillings, Implants", "Gastric Band", "Body Piercing", "Implanted Cardio Defibrilator (ICD)", "Implanted Devices/Pumps/Stimulator", "Joint Replacements (specify)", "Lens Implants", "Metal Implants", "Middle Ear Prosthesis", "None", "Pacemaker", "Penile Implant", "Pins/Rods/Screws", "Prosthetic Eye", "Renal or other Stents", "Tracheotomy", "Other"};
-    String[] reactionList = {"Anaphylaxis","Congestion","Difficulty Breathing","Hives","Itching","Mucus","Nausea","Rash","Runny nose","Sneezing","Vomiting", "Other"};
+    String[] reactionList = {"Anaphylaxis","Chest pain","Congestion","Difficulty Breathing","Hives","Itching","Mucus","Nausea","Rash","Runny nose","Sneezing","Vomiting", "Other"};
     String[] surgeryList = {"Appendix", "Breast Biopsy", "Mastectomy", "Cataract", "Colon", "Gallbladder", "Heart - Angio/Stent", "Heart - Bypass", "Heart - Valve", "Hernia", "Hip Replacement", "Hysterectomy", "Knee Surgery/Replacement", "Lasik Surgery", "Metal Implants", "Middle Ear Prosthesis", "Mohs – Basal Cell", "Mohs – Squamous Cell", "None", "Spine Surgery", "Thyroid Surgery", "Tonsils", "Vascular Surgery", "Wisdom Teeth", "Other"};
 
     @Override
@@ -288,10 +293,10 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     tilNote.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
-                    tilMedical.setHint("Medical Implants");
+                    tilMedical.setHint("Medical Implant");
                     fltype.setVisibility(View.GONE);
-                    tilOtherVaccine.setHint("Other Implants");
-                    txttype.setHint("Medical Implants");
+                    tilOtherVaccine.setHint("Other Implant");
+                    txttype.setHint("Medical Implant");
                     fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
@@ -306,14 +311,14 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtMedical.setVisibility(View.VISIBLE);
                     txtMedical.setFocusable(false);
                     tilMedical.setHintEnabled(true);
-                    tilMedical.setHint("Medical Implants");
+                    tilMedical.setHint("Medical Implant");
                     tilLocation.setVisibility(View.VISIBLE);
                     tilDetails.setVisibility(View.VISIBLE);
                     tilNote.setVisibility(View.VISIBLE);
 
                     fltype.setVisibility(View.GONE);
-                    tilOtherVaccine.setHint("Other Implants");
-                    txttype.setHint("Medical Implants");
+                    tilOtherVaccine.setHint("Other Implant");
+                    txttype.setHint("Medical Implant");
                     fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
@@ -396,7 +401,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtMedical.setVisibility(View.VISIBLE);
                     fltype.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
-                    txttype.setHint("Immunizations/Vaccines");
+                    txttype.setHint("Immunization/Vaccine");
                     fltypeReaction.setVisibility(View.GONE);
                     tilReaction.setVisibility(View.VISIBLE);
                     break;
@@ -409,9 +414,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtMedical.setVisibility(View.VISIBLE);
                     fltype.setVisibility(View.VISIBLE);
                     tilOtherVaccine.setHint("Other Vaccine");
-                    txttype.setHint("Immunizations/Vaccines");
+                    txttype.setHint("Immunization/Vaccine");
                     fltypeReaction.setVisibility(View.GONE);
-                    tilReaction.setVisibility(View.VISIBLE);
+                    tilType22.setVisibility(View.VISIBLE);
                     break;
             }
             switch (from) {
@@ -493,9 +498,9 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtInfo.setText(Html.fromHtml(msg));
                     break;
                 case "Condition":
-                    header = "For Assistance See Medical History Template";
+                    header = "For assistance, see medical history template. The purpose of the template is to  jog your memory. The template will not automatically populate MYLO.";
                     msg = "<br>" +
-                            "Click on<br>" +
+                            "Click<br>" +
                             "<a><font color='blue'><u>Resources/Forms and Templates/Medical History Template</u></font></a>";
                     txtHeader.setText(Html.fromHtml(header));
                     txtInfo.setText(Html.fromHtml(msg));
@@ -891,12 +896,14 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
         txtInfo = findViewById(R.id.txtInfo);
         txtMedical = findViewById(R.id.txtMedical);
         tilMedical = findViewById(R.id.tilMedical);
+        tilType22 = findViewById(R.id.tilType22);
         fltype222 = findViewById(R.id.fltype222);
         tilLocation = findViewById(R.id.tilLocation);
         tilDetails = findViewById(R.id.tilDetails);
         tilNote = findViewById(R.id.tilNote);
         tilNote.setHint("Note");
         txtDate = findViewById(R.id.txtDate);
+        txtDate.setFocusable(false);
         txtDoctor = findViewById(R.id.txtDoctor);
         txtDone = findViewById(R.id.txtDone);
         tilTreatment = findViewById(R.id.tilTreatment);
@@ -1124,7 +1131,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                 }
 
                 break;
-           /* case R.id.txtDate:
+           case R.id.txtDate:
                 Calendar calendar = Calendar.getInstance();
                 int year = calendar.get(Calendar.YEAR);
                 int month = calendar.get(Calendar.MONTH);
@@ -1145,7 +1152,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 }, year, month, day);
                 dpd.show();
-                break;*/
+                break;
 
             case R.id.txtMedical:
                 Intent intentType = new Intent(context, RelationActivity.class);

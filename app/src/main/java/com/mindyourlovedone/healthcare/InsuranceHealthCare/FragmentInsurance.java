@@ -283,7 +283,7 @@ public class FragmentInsurance extends Fragment implements View.OnClickListener 
                         + "/InsuranceInformation.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, getActivity(), "Insurance Information");
+                preferences.emailAttachement(f, getActivity(), "Insurance Companies");
                 dialog.dismiss();
 
             }

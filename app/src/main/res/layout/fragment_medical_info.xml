@@ -493,7 +493,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                     android:background="@color/colorSkyBlue"
                     android:fontFamily="@font/lato"
                     android:gravity="center"
-                    android:text="Pre-existing Medical Conditions"
+                    android:text="Medical Conditions"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/dimension22dp"
                     android:visibility="gone" />
@@ -537,7 +537,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:layout_toLeftOf="@+id/txtAddCondition"
                             android:layout_toRightOf="@+id/imgPre"
                             android:fontFamily="@font/lato"
-                            android:text="Pre-existing Medical Conditions"
+                            android:text="Medical Conditions"
                             android:textColor="@color/colorBlackDark"
                             android:textSize="@dimen/dimension18dp" />
 
@@ -3410,7 +3410,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                 android:layout_toLeftOf="@+id/tbOrgan"
                                 android:fontFamily="@font/lato"
                                 android:padding="@dimen/dimension10dp"
-                                android:text="Are You a Organ Donor?"
+                                android:text="Are you an organ donor?"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/dimension18dp" />
 
@@ -3545,7 +3545,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                             android:fontFamily="@font/lato"
                             android:gravity="center_vertical|left"
                             android:padding="@dimen/dimension8dp"
-                            android:text="If yes, see Driver's License or Health Care Proxy."
+                            android:text="If yes, see driver’s license or health care proxy."
                             android:textSize="@dimen/dimension16dp" />
 
                     </LinearLayout>

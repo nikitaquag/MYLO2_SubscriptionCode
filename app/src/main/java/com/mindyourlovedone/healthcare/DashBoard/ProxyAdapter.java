@@ -120,7 +120,7 @@ public class ProxyAdapter extends RecyclerSwipeAdapter<ProxyAdapter.ViewHolder> 
         holder.txtOfficePhone.setText(proxyList.get(position).getWorkPhone());
         holder.txtPhone.setText(proxyList.get(position).getMobile());
         if (proxyList.get(position).getIsPrimary() == 0) {
-            holder.txtType.setText("Primary - Health Care Proxy Agent");
+            holder.txtType.setText("Primary Health Care Proxy Agent");
         } else if (proxyList.get(position).getIsPrimary() == 1) {
             holder.txtType.setText("Successor - Health Care Proxy Agent");
         }

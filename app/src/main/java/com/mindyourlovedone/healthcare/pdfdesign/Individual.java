@@ -1791,8 +1791,8 @@ public class Individual {
     public Individual(String emergency, ArrayList<Emergency> emergencyList, ArrayList<ContactData> phonelist) {
         try {
             // Header.addEmptyLine(1);
-            Header.addChank("Emergency Contacts & Health Care Proxy Agent");
-            messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
+            Header.addChank("Emergency Contacts & Health Care Proxy Agents");
+            messageEmergency.add("Emergency Contacts & Health Care Proxy Agents");
             Header.addEmptyLine(1);
 
 //        Header.widths[0] = 0.15f;
@@ -1858,18 +1858,18 @@ public class Individual {
 
                 String priority = "";
                 if (e.getIsPrimary() == 0) {
-                    priority = "Primary - Emergency Contact";
+                    priority = "Primary Emergency Contact";
 
                 } else if (e.getIsPrimary() == 1) {
-                    priority = "Primary - Health Care Proxy Agent";
+                    priority = "Primary Health Care Proxy Agent";
                 } else if (e.getIsPrimary() == 2) {
-                    priority = "Secondary - Emergency Contact";
+                    priority = "Secondary Emergency Contact";
                 } else if (e.getIsPrimary() == 3) {
 
-                    priority = "Secondary - Health Care Proxy Agent";
+                    priority = "Secondary Health Care Proxy Agent";
                 }else if (e.getIsPrimary() == 4) {
 
-                    priority = "Primary – Emergency Contact and Health Care Proxy Agent";
+                    priority = "Primary Emergency Contact and Health Care Proxy Agent";
                 }
 
 
@@ -4302,8 +4302,8 @@ public class Individual {
         try {
             // Header.addEmptyLine(1);
             if (i==0) {
-                Header.addChank("Emergency Contacts & Health Care Proxy Agent");
-                messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
+                Header.addChank("Emergency Contacts & Health Care Proxy Agents");
+                messageEmergency.add("Emergency Contacts & Health Care Proxy Agents");
                 Header.addEmptyLine(1);
             }
 
@@ -4370,15 +4370,15 @@ public class Individual {
 
             String priority = "";
             if (e.getIsPrimary() == 0) {
-                priority = "Primary - Emergency Contact";
+                priority = "Primary Emergency Contact";
             } else if (e.getIsPrimary() == 1) {
-                priority = "Primary - Health Care Proxy Agent";
+                priority = "Primary Health Care Proxy Agent";
             } else if (e.getIsPrimary() == 2) {
-                priority = "Secondary - Emergency Contact";
+                priority = "Secondary Emergency Contact";
             } else if (e.getIsPrimary() == 3) {
-                priority = "Secondary - Health Care Proxy Agent";
+                priority = "Secondary Health Care Proxy Agent";
             }else if (e.getIsPrimary() == 4) {
-                priority = "Primary – Emergency Contact and Health Care Proxy Agent ";
+                priority = "Primary Emergency Contact and Health Care Proxy Agent ";
             }
 
 

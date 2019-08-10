@@ -30,10 +30,6 @@ import com.mindyourlovedone.healthcare.model.Vaccine;
 import java.util.ArrayList;
 
 
-/**
- * Created by shradha on 26/12/2018.
- */
-
 public class IndividualNew {
     public static Font BlackFont = new Font(Font.FontFamily.TIMES_ROMAN, 12,
             Font.NORMAL);
@@ -66,6 +62,7 @@ public class IndividualNew {
     String idNumber = "";
     String Bdate = "";
     String notes = "";
+    static int alone;
 
     public static void IndividualNewFont() {
         try {
@@ -316,6 +313,7 @@ public class IndividualNew {
             }
             // cell2 = new PdfPCell(new Phrase("Children:" + children));
             if (children.equalsIgnoreCase("YES")) {
+                alone++;
                 cell1 = new PdfPCell();
                 HeaderNew.cellDesign(cell1, table1, "Children:", children);
                 table1.addCell(cell1);
@@ -330,6 +328,7 @@ public class IndividualNew {
             if (connection.getFriend() != null) {
                 friend = connection.getFriend();
                 if (friend.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Friend:", friend);
                     table1.addCell(cell1);
@@ -346,6 +345,7 @@ public class IndividualNew {
                 grandParents = connection.getGrand();
 
                 if (grandParents.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Grandparent(s):", grandParents);
                     table1.addCell(cell1);
@@ -360,6 +360,7 @@ public class IndividualNew {
                 parents = connection.getParents();
 
                 if (parents.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Parent(s):", parents);
                     table1.addCell(cell1);
@@ -374,6 +375,7 @@ public class IndividualNew {
                 spouse = connection.getSpouse();
 
                 if (spouse.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Spouse:", spouse);
                     table1.addCell(cell1);
@@ -387,6 +389,7 @@ public class IndividualNew {
                 sibling = connection.getSibling();
 
                 if (sibling.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Sibling:", sibling);
                     table1.addCell(cell1);
@@ -399,24 +402,26 @@ public class IndividualNew {
                 significant = connection.getSign_other();
 
                 if (significant.equalsIgnoreCase("YES")) {
+                    alone++;
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "Significant Other:", significant);
                     table1.addCell(cell1);
 
                     messageInfo2.add("Significant Other :");
                     messageInfo2.add(significant);
+                    String other = "";
+
+                    if (connection.getOther_person() != null) {
+                        other = connection.getOther_person();
+                    }
+                    alone++;
+                        cell1 = new PdfPCell();
+                        HeaderNew.cellDesign(cell1, table1, "Other:", other);
+                        table1.addCell(cell1);
+
                 }
             }
-            String other = "";
 
-            if (connection.getOther_person() != null) {
-                other = connection.getOther_person();
-            }
-            if (other.equalsIgnoreCase("YES")) {
-                cell1 = new PdfPCell();
-                HeaderNew.cellDesign(cell1, table1, "Other:", other);
-                table1.addCell(cell1);
-            }
             String people = "";
             if (connection.getPeople() != null) {
                 people = connection.getPeople();
@@ -497,7 +502,7 @@ public class IndividualNew {
 
             if (connection.getLanguage() != null) {
                 language = connection.getLanguage();
-                if (language.equalsIgnoreCase("Other")) ;
+                if (language.equalsIgnoreCase("Other"))
                 {
                     language = language + " - " + connection.getOtherLang();
                 }
@@ -576,8 +581,9 @@ public class IndividualNew {
             }
 
 
-
-            if (phonelist.size() % 2 != 0) {
+           alone=alone+phonelist.size();
+            System.out.println(alone);
+            if (alone % 2 != 0) {
                 if (Petlist.size()!=0)
                 {
                     cell1 = new PdfPCell();
@@ -592,6 +598,7 @@ public class IndividualNew {
 
                     messageInfo2.add("Pet(s) :");
                     messageInfo2.add(Pets);
+
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "", "Empty");
                     table1.addCell(cell1);
@@ -608,6 +615,7 @@ public class IndividualNew {
 
                     messageInfo2.add("Pet(s) :");
                     messageInfo2.add(Pets);
+
                     cell1 = new PdfPCell();
                     HeaderNew.cellDesign(cell1, table1, "", "Empty");
                     table1.addCell(cell1);
@@ -1622,8 +1630,8 @@ public class IndividualNew {
     public IndividualNew(String emergency, ArrayList<Emergency> emergencyList, ArrayList<ContactData> phonelist) {
         try {
             // HeaderNew.addEmptyLine(1);
-            HeaderNew.addChank("Emergency Contacts & Health Care Proxy Agent");
-            messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
+            HeaderNew.addChank("Emergency Contacts & Health Care Proxy Agents");
+            messageEmergency.add("Emergency Contacts & Health Care Proxy Agents");
             HeaderNew.addEmptyLine(1);
 
 //        HeaderNew.widths[0] = 0.15f;
@@ -1689,18 +1697,18 @@ public class IndividualNew {
 
                 String priority = "";
                 if (e.getIsPrimary() == 0) {
-                    priority = "Primary - Emergency Contact";
+                    priority = "Primary Emergency Contact";
 
                 } else if (e.getIsPrimary() == 1) {
-                    priority = "Primary - Health Care Proxy Agent";
+                    priority = "Primary Health Care Proxy Agent";
                 } else if (e.getIsPrimary() == 2) {
-                    priority = "Secondary - Emergency Contact";
+                    priority = "Secondary Emergency Contact";
                 } else if (e.getIsPrimary() == 3) {
 
-                    priority = "Secondary - Health Care Proxy Agent";
+                    priority = "Secondary Health Care Proxy Agent";
                 } else if (e.getIsPrimary() == 4) {
 
-                    priority = "Primary – Emergency Contact and Health Care Proxy Agent";
+                    priority = "Primary Emergency Contact and Health Care Proxy Agent";
                 }
 
 
@@ -3922,7 +3930,7 @@ public class IndividualNew {
                 pf.add(pps);
 
                 pps = new Phrase();
-                 underline = new Chunk("Pre-existing Medical Conditions", BlackFont);
+                 underline = new Chunk("Medical Conditions", BlackFont);
                 pps.add(underline);
 
                 pf.add(pps);
@@ -3975,7 +3983,7 @@ public class IndividualNew {
             table.addCell(cell);
 
             cellIN = new PdfPCell();
-            HeaderNew.cellDesignbroadline(cellIN, table, "Pre-existing Medical Conditions Note", medInfo.getNote());
+            HeaderNew.cellDesignbroadline(cellIN, table, "Medical Conditions Note", medInfo.getNote());
            // cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
             cellIN.setPaddingTop(10);
             table.addCell(cellIN);
@@ -4066,16 +4074,16 @@ public class IndividualNew {
                     tableIN.addCell(cellIN);
 
                     cellIN = new PdfPCell();
-                    HeaderNew.cellDesign(cellIN, tableIN, "Location", implant.getLocation());
+                    HeaderNew.cellDesign(cellIN, tableIN, "Hospital and Doctor", implant.getLocation());
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
                     tableIN.addCell(cellIN);
 
                     cellIN = new PdfPCell();
                     if (i == implantsList.size() - 1) {
-                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Details", implant.getDetails());
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Details and Serial Number", implant.getDetails());
                     } else {
-                        HeaderNew.cellDesign(cellIN, tableIN, "Details", implant.getDetails());
+                        HeaderNew.cellDesign(cellIN, tableIN, "Details and Serial Number", implant.getDetails());
                     }
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
@@ -4198,9 +4206,9 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     if (i == historList.size() - 1 && !implant.getName().equalsIgnoreCase("other")) {
-                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Doctor", implant.getDate());
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Doctor", implant.getDoctor());
                     } else {
-                        HeaderNew.cellDesign(cellIN, tableIN, "Doctor", implant.getDate());
+                        HeaderNew.cellDesign(cellIN, tableIN, "Doctor", implant.getDoctor());
                     }
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
@@ -4303,9 +4311,9 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     if (i == hospitalList.size() - 1) {
-                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Hospital " + k + "", history);
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Hospital Preference" + k + "", history);
                     } else {
-                        HeaderNew.cellDesign(cellIN, tableIN, "Hospital " + k + "", history);
+                        HeaderNew.cellDesign(cellIN, tableIN, "Hospital Preference" + k + "", history);
                     }
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
@@ -4730,9 +4738,9 @@ public class IndividualNew {
 
                     cellIN = new PdfPCell();
                     if (i == vaccineList.size() - 1 && !history.getName().equalsIgnoreCase("other")) {
-                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Vaccine " + k + "", history.getName());
+                        HeaderNew.cellDesignNoline(cellIN, tableIN, "Immunization/Vaccine " + k + "", history.getName());
                     } else {
-                        HeaderNew.cellDesign(cellIN, tableIN, "Vaccine " + k + "", history.getName());
+                        HeaderNew.cellDesign(cellIN, tableIN, "Immunization/Vaccine " + k + "", history.getName());
                     }
                     cellIN.setBackgroundColor(WebColors.getRGBColor("#FBFBFB"));
                     cellIN.setPaddingTop(14);
@@ -5702,8 +5710,8 @@ public class IndividualNew {
         try {
             // HeaderNew.addEmptyLine(1);
             if (i == 0) {
-                HeaderNew.addNewChank("Emergency Contacts & Health Care Proxy Agent", ppys);
-                messageEmergency.add("Emergency Contacts & Health Care Proxy Agent");
+                HeaderNew.addNewChank("Emergency Contacts & Health Care Proxy Agents", ppys);
+                messageEmergency.add("Emergency Contacts & Health Care Proxy Agents");
                 HeaderNew.addEmptyLine(1);
             }
 
@@ -5766,15 +5774,15 @@ public class IndividualNew {
 
             String priority = "";
             if (e.getIsPrimary() == 0) {
-                priority = "Primary - Emergency Contact";
+                priority = "Primary Emergency Contact";
             } else if (e.getIsPrimary() == 1) {
-                priority = "Primary - Health Care Proxy Agent";
+                priority = "Primary Health Care Proxy Agent";
             } else if (e.getIsPrimary() == 2) {
-                priority = "Secondary - Emergency Contact";
+                priority = "Secondary Emergency Contact";
             } else if (e.getIsPrimary() == 3) {
-                priority = "Secondary - Health Care Proxy Agent";
+                priority = "Secondary Health Care Proxy Agent";
             } else if (e.getIsPrimary() == 4) {
-                priority = "Primary – Emergency Contact and Health Care Proxy Agent ";
+                priority = "Primary Emergency Contact and Health Care Proxy Agent ";
             }
 
 

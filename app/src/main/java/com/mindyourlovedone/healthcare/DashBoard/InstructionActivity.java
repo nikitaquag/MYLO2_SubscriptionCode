@@ -500,7 +500,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 rel73.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Insurance Information");
+                txtHeader.setText("Insurance Companies");
                 break;
 
             case "AdvanceInstruction":
@@ -1700,7 +1700,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 imgDot.setVisibility(View.GONE);
                 imgPicture.setImageResource(R.drawable.v_user);
 
-                txt61.setText(Html.fromHtml("This section allows users to store Insurance Information, cards and forms.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
+                txt61.setText(Html.fromHtml("This section allows users to store Insurance Companies, cards and forms.  The following formats can be uploaded: PDF, Excel, Word, Text, JPG."));
                 txt62.setText(Html.fromHtml("Users can view input, print and email a report of the entire section by clicking the green circle located on the bottom of the screen."));
                 txt63.setText(Html.fromHtml("User instructions are available within each sub-section by clicking the Question Mark on the top right corner of the screen.  To email the instructions click the Share icon on the top right corner of the screen. To exit click the back Arrow on the top left corner of the screen. To return to the Dashboard, click the Home icon on the top left corner of the screen."));
                 //   txt64.setText(Html.fromHtml("To <b>view</b> the card <b>click</b> on the <b>card</b>, So you can <b>view</b> card and see by <b>zooming</b> it. To <b>share card</b> to your loved ones click the <b>share</b> icon on the top right side of the screen."));
@@ -1738,7 +1738,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Insurance Information ");
+                txtHeader.setText("Insurance Companies ");
 
                 break;
 
@@ -2020,7 +2020,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 } else if (From.equals("LivingInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Activity of daily living", UI);
                 } else if (From.equals("InsuranceInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Information", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Companies", UI);
                 } else if (From.equals("CardInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Cards", UI);
                 } else if (From.equals("FormInstruction")) {
@@ -2057,7 +2057,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Personal & Medical Profile & Emergency Contacts   ", UI);
                 }
                 else if (From.equals("InsuranceSection")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Information ", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Insurance Companies ", UI);
                 }
                 else if (From.equals("EventSection")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Notes & Appointments Checklist", UI);

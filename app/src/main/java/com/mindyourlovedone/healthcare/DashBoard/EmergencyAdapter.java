@@ -171,7 +171,7 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
         }*/
 
         //nikita
-        String[] priorityType = {"Primary - Emergency Contact", "Primary - Health Care Proxy Agent", "Secondary - Emergency Contact", "Secondary - Health Care Proxy Agent", "Primary – Emergency Contact and Health Care Proxy Agent"};
+        String[] priorityType = {"Primary Emergency Contact", "Primary Health Care Proxy Agent", "Secondary Emergency Contact", "Secondary Health Care Proxy Agent", "Primary Emergency Contact and Health Care Proxy Agent"};
         if (emergencyList.get(position).getIsPrimary() == 4) {
             viewHolder.txtState.setVisibility(View.GONE);
         } else {
@@ -195,23 +195,23 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
        //viewHolder.txtPhone.setText(emergencyList.get(position).getMobile());
 
         if (emergencyList.get(position).getIsPrimary() == 0) {
-            String priority = "Primary - Emergency Contact";
+            String priority = "Primary Emergency Contact";
             viewHolder.txtType.setText(priority);
         } else if (emergencyList.get(position).getIsPrimary() == 1) {
 
-            String priority = "Primary - Health Care Proxy Agent";
+            String priority = "Primary Health Care Proxy Agent";
             viewHolder.txtType.setText(priority);
         } else if (emergencyList.get(position).getIsPrimary() == 2) {
 
-            String priority = "Secondary - Emergency Contact";
+            String priority = "Secondary Emergency Contact";
             viewHolder.txtType.setText(priority);
         } else if (emergencyList.get(position).getIsPrimary() == 3) {
 
-            String  priority = "Secondary - Health Care Proxy Agent";
+            String  priority = "Secondary Health Care Proxy Agent";
             viewHolder.txtType.setText(priority);
         } else if (emergencyList.get(position).getIsPrimary() == 4) {
 
-            String  priority = "Primary – Emergency Contact and Health Care Proxy Agent";
+            String  priority = "Primary Emergency Contact and Health Care Proxy Agent";
             viewHolder.txtType.setText(priority);
         } else {
             String priority = "";
@@ -410,13 +410,13 @@ public class EmergencyAdapter extends RecyclerSwipeAdapter<EmergencyAdapter.View
 //        } else {
 //            holder.txtState.setVisibility(View.VISIBLE);
 //            if (emergencyList.get(position).getIsPrimary() == 0) {
-//                holder.txtState.setText("Primary - Health Care Proxy Agent");
+//                holder.txtState.setText("Primary Health Care Proxy Agent");
 //            } else if (emergencyList.get(position).getIsPrimary() == 1) {
-//                holder.txtState.setText("Primary - Emergency Contact");
+//                holder.txtState.setText("Primary Emergency Contact");
 //            } else if (emergencyList.get(position).getIsPrimary() == 2) {
-//                holder.txtState.setText("Secondary - Health Care Proxy Agent");
+//                holder.txtState.setText("Secondary Health Care Proxy Agent");
 //            } else if (emergencyList.get(position).getIsPrimary() == 3) {
-//                holder.txtState.setText("Secondary - Emergency Contact");
+//                holder.txtState.setText("Secondary Emergency Contact");
 //            } else if (emergencyList.get(position).getIsPrimary() == 0) {
 //                holder.txtState.setText("");
 //            }

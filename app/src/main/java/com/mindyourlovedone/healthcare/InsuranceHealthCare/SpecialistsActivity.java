@@ -166,7 +166,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 isEmergency = true;
                 isInsurance = false;
                 profile = new int[]{R.drawable.pp, R.drawable.emergency_two, R.drawable.emergency_three, R.drawable.emergency_four};
-                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agent", "Primary Physician"};
+                specialist = new String[]{"Personal Profile", "Medical Profile", "Emergency Contacts & Health Care Proxy Agents", "Primary Physician"};
 
                /* profile=new int[]{R.drawable.contacts,R.drawable.medicalinfos,R.drawable.emer_contacts,R.drawable.physician,R.drawable.proxys};
                 specialist= new String[] { "PERSONAL PROFILE", "MEDICAL PROFILE", "EMERGENCY CONTACTS AND \nHEALTH CARE PROXY AGENT", "PRIMARY PHYSICIAN", "HEALTH CARE PROXY AGENT" };
@@ -175,11 +175,11 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 floatAdd.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
                 txtUser.setVisibility(View.GONE);
-                txtTitle.setText("Insurance Information");
+                txtTitle.setText("Insurance");
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSub));
                 header.setBackgroundResource(R.color.colorFive);
                 profile = new int[]{R.drawable.insu_three, R.drawable.insu_two, R.drawable.insu_one};
-                specialist = new String[]{"Insurance Information", "Insurance Cards", "Insurance Forms"};
+                specialist = new String[]{"Insurance Companies", "Insurance Cards", "Insurance Forms"};
                 isEmergency = false;
                 isInsurance = true;
             } else if (from.equals("Event")) {

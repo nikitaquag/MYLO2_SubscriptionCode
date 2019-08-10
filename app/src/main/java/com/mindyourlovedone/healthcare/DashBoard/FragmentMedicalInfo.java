@@ -756,11 +756,11 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 Implant a = ImplantsLists.get(i);
                 String allergy = "";
                 if (a.getName().equals("Other")) {
-                    allergy = "Medical Implants : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
+                    allergy = "Medical Implant : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
                 } else if (a.getName().equals("Joint Replacements (specify)")) {
-                    allergy = "Medical Implants : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
+                    allergy = "Medical Implant : ]" + a.getName() + " - " + a.getOther() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
                 } else {
-                    allergy = "Medical Implants : ]" + a.getName() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
+                    allergy = "Medical Implant : ]" + a.getName() + "]" + "Date : ]" + a.getDate() + "]" + "Location : ]" + a.getLocation() + "]" + "Details : ]" + a.getDetails() + "]" + "Note : ]" + a.getNotes();
                 }
                 allergyList.add(allergy);
             }
@@ -881,8 +881,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("IsHistory", false);
             allergyIntent.putExtra("IsImplant", false);
             allergyIntent.putExtra("ADD", "HospitalUpdate");
-            allergyIntent.putExtra("Title", "Update Hospital");
-            allergyIntent.putExtra("Name", "Add Hospital");
+            allergyIntent.putExtra("Title", "Update Hospital Preference");
+            allergyIntent.putExtra("Name", "Hospital Preference");
             allergyIntent.putExtra("HospitalObject", value);
             allergyIntent.putExtra("ID", HospitalList.get(position));
             startActivityForResult(allergyIntent, REQUEST_HOSPITAL);
@@ -936,8 +936,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("IsHistory", false);
             allergyIntent.putExtra("IsImplant", true);
             allergyIntent.putExtra("ADD", "VaccineUpdate");
-            allergyIntent.putExtra("Title", "Update Immunizations/Vaccines ");
-            allergyIntent.putExtra("Name", "Update Immunizations/Vaccines ");
+            allergyIntent.putExtra("Title", "Update Immunization/Vaccine");
+            allergyIntent.putExtra("Name", "Immunization/Vaccine");
             allergyIntent.putExtra("VaccineObject", a);
             allergyIntent.putExtra("ID", a.getId() + "");
             startActivityForResult(allergyIntent, REQUEST_VACCINE);
@@ -989,7 +989,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
             allergyIntent.putExtra("IsImplant", false);
             allergyIntent.putExtra("ADD", "AllergyUpdate");
             allergyIntent.putExtra("Title", "Update Allergy and Medication Reaction");
-            allergyIntent.putExtra("Name", "Add Allergy (e.g. Drug, Food, Insect, Latex, Mold, Pet, Pollen)");
+            allergyIntent.putExtra("Name", "Allergy (Drug, Food, Environmental)");
             allergyIntent.putExtra("AllergyObject", a);
             allergyIntent.putExtra("ID", a.getId() + "");
             startActivityForResult(allergyIntent, REQUEST_ALLERGY);
@@ -1647,7 +1647,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 allergyIntent.putExtra("IsImplant", false);
                 allergyIntent.putExtra("ADD", "Allergy");
                 allergyIntent.putExtra("Title", "Add Allergy and Medication Reaction");
-                allergyIntent.putExtra("Name", "Add Allergy (e.g. Drug, Food, Insect, Latex, Mold, Pet, Pollen) ");
+                allergyIntent.putExtra("Name", "Allergy (Drug, Food, Environmental) ");
                 startActivityForResult(allergyIntent, REQUEST_ALLERGY);
                 break;
 
@@ -1657,8 +1657,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 vaccineIntent.putExtra("IsHistory", false);
                 vaccineIntent.putExtra("IsImplant", true);
                 vaccineIntent.putExtra("ADD", "Vaccine");
-                vaccineIntent.putExtra("Title", "Add Immunizations/Vaccines ");
-                vaccineIntent.putExtra("Name", "Add Immunizations/Vaccines ");
+                vaccineIntent.putExtra("Title", "Add Immunization/Vaccine");
+                vaccineIntent.putExtra("Name", "Immunization/Vaccine");
                 startActivityForResult(vaccineIntent, REQUEST_VACCINE);
                 break;
 
@@ -1669,7 +1669,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 implantsIntent.putExtra("IsImplant", false);
                 implantsIntent.putExtra("IsImplant2", true);
                 implantsIntent.putExtra("ADD", "Implants");
-                implantsIntent.putExtra("Title", "Add Medical Implants");
+                implantsIntent.putExtra("Title", "Add Medical Implant");
                 implantsIntent.putExtra("Name", "Add Medical Implant");
                 startActivityForResult(implantsIntent, REQUEST_IMPLANTS);
                 break;
@@ -1680,7 +1680,7 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 implantsIntents.putExtra("IsImplant", false);
                 implantsIntents.putExtra("ADD", "Condition");
                 implantsIntents.putExtra("Title", "Add Medical Condition");
-                implantsIntents.putExtra("Name", "Add Pre-existing Medical Condition");
+                implantsIntents.putExtra("Name", "Medical Condition");
                 startActivityForResult(implantsIntents, REQUEST_CONDITION);
                 break;
             case R.id.txtAddHospital:
@@ -1689,8 +1689,8 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
                 hospIntent.putExtra("IsHistory", false);
                 hospIntent.putExtra("IsImplant", false);
                 hospIntent.putExtra("ADD", "Hospital");
-                hospIntent.putExtra("Title", "Add Hospital");
-                hospIntent.putExtra("Name", "Add Hospital Preference(s)");
+                hospIntent.putExtra("Title", "Add Hospital Preference");
+                hospIntent.putExtra("Name", "Hospital Preference");
                 startActivityForResult(hospIntent, REQUEST_HOSPITAL);
                 break;
             case R.id.txtAddHistory:

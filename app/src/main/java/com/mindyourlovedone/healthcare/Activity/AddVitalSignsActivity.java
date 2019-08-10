@@ -137,6 +137,11 @@ public class AddVitalSignsActivity extends AppCompatActivity implements View.OnC
                 vitalSigns = (VitalSigns) intent1.getExtras().getSerializable("VitalEdit");
 
                 isUpdate = intent1.getExtras().getBoolean("IsUpdate");
+                if (isUpdate == false) {
+                    txtTitle.setText("Add Vital Sign");
+                }else{
+                    txtTitle.setText("Update Vital Sign");
+                }
 colid=vi.getId();
                 if (vi.getLocation() != null) {
                     txtLocation.setText(vi.getLocation());

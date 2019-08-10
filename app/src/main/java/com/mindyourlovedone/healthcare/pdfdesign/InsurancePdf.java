@@ -33,8 +33,8 @@ public class InsurancePdf {
             table1.setWidthPercentage(100);
 
          //   Header.addEmptyLine(1);
-            Header.addChank("Insurance Information");
-            messageInsurance.add("Insurance Information");
+            Header.addChank("Insurance Companies");
+            messageInsurance.add("Insurance Companies");
             Header.addEmptyLine(1);
 
 
@@ -484,8 +484,8 @@ public class InsurancePdf {
 
             if (i==0) {
                 //   Header.addEmptyLine(1);
-                Header.addChank("Insurance Information");
-                messageInsurance.add("Insurance Information");
+                Header.addChank("Insurance Companies");
+                messageInsurance.add("Insurance Companies");
                 Header.addEmptyLine(1);
             }
 

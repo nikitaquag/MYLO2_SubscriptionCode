@@ -45,7 +45,7 @@ public class InsuranceInfoActivity extends AppCompatActivity implements View.OnC
             String fragment = i.getExtras().getString("FRAGMENT");
             switch (fragment) {
                 case "Insurance Info":
-                    txtTitle.setText("Insurance Information");
+                    txtTitle.setText("Insurance Companies");
                     callFragment("INFO", fragmentInsurance);
                     break;
                 case "INSURANCE CARD":

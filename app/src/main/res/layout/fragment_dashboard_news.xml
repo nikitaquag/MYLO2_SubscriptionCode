@@ -320,7 +320,7 @@
                             android:layout_below="@+id/flInsurance"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
-                            android:text="Insurance\nInformation"
+                            android:text="Insurance"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
                              />

@@ -38,7 +38,7 @@
             android:layout_centerInParent="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimension20dp"
-            android:text="Vital Signs"
+            android:text="Add Vital Sign"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
