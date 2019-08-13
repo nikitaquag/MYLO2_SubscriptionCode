@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.mindyourlovedone.healthcare.HomeActivity.BaseActivity;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.model.Emergency;
+import com.mindyourlovedone.healthcare.model.Specialist;
 
 public class RelationActivity extends AppCompatActivity implements View.OnClickListener {
     ListView listRelation;
@@ -37,7 +38,8 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
     public static final int REQUEST_EYES = 23;
     public static final int REQUEST_BLOOD = 1;
     public static final int REQUEST_LANGUAGE = 24;
-
+    private static final int RESULT_SPECIALTY_NETWORK = 17;
+    private static final int RESULT_HOSPITAL_NETWORK = 18;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,13 +78,19 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
             } else if (category.equalsIgnoreCase("Specialty")) {
                 titleheaders.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
                 txtTitles.setText("Specialty");
-                String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist/Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
+                String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice","Hospitalist", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Incl. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist/Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
                 listRelation.setAdapter(rd);
             }else if (category.equalsIgnoreCase("Physician")) {
                 titleheaders.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
                 txtTitles.setText("Specialty");
-                String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Inc. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist/Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
+                String[] healthSpeciality = {"Acupuncturist", "Allergist (Immunologist)", "Anesthesiologist", "Audiologist", "Cardiologist", "Cardiothoracic Surgeon", "Chiropractor", "Colorectal Surgeon", "Cosmetic Surgeon", "Critical Care Medicine", "Dentist", "Dermatologist", "Dietitian/Nutritionist", "Diabetes & Metabolism", "Ear, Nose & Throat Doctor (ENT, Otolaryngologist)", "Emergency Medicine", "Endocrinologist (incl. Diabetes Specialists)", "Endodontics", "Endovascular Medicine", "Family Medicine", "Gastroenterologist", "Geriatrician", "Gynecologist", "Hearing Specialist", "Hematologist (Blood Specialist)", "Hospice","Hospitalist", "Infectious Disease Specialist", "Infertility Specialist", "Internal Medicine", "Midwife", "Naturopathic Doctor", "Nephrologist (Kidney Specialist)", "Neurologist (Incl. Headache Specialist)", "Neurosurgeon", "OB-GYN (Obstetrician-Gynecologist)", "Occupational Therapist", "Oncologist", "Ophthalmologist", "Optometrist", "Oral Surgeon", "Orthodontist", "Orthopedic Surgeon (Orthopedist)", "Osteopath", "Otolaryngologist", "Pain Management Specialist", "Palliative Care Specialist", "Pediatric Dentist", "Pediatrician", "Periodontist", "Physician Assistant", "Physiatrist (Physical Medicine)", "Physical Therapist", "Plastic & Reconstructive Surgeon", "Podiatrist (Foot and Ankle Specialist)", "Primary Care Doctor (PCP)", "Prosthodontist", "Psychiatrist", "Psychologist", "Psychotherapist", "Pulmonologist (Lung Doctor)", "Radiologist", "Rheumatologist", "Sleep Medicine Specialist", "Speech Therapist", "Sports Medicine Specialist", "Surgeon - General", "Therapist/Counselor", "Thoracic & Cardiac Surgery", "Urgent Care Specialist", "Urological Surgeon", "Urologist", "Vascular Surgeon", "Other"};
+                RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
+                listRelation.setAdapter(rd);
+            }else if (category.equalsIgnoreCase("PhysicianNetwork")) {
+                titleheaders.setBackgroundColor(getResources().getColor(R.color.colorEmerMainGreen));
+                txtTitles.setText("Network Status");
+                String[] healthSpeciality = {"In-Network", "Out of Network"};
                 RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
                 listRelation.setAdapter(rd);
             } else if (category.equalsIgnoreCase("Category")) {
@@ -91,7 +99,14 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 String[] HospitalType = {"Home Health Care Agency", "Home Health Care Aide","Hospital", "Rehabilitation Center", "TeleMed", "Urgent Care", "Other"};
                 RelationsAdapter rd = new RelationsAdapter(context, HospitalType, selected);
                 listRelation.setAdapter(rd);
-            } else if (category.equalsIgnoreCase("Insurance")) {
+            }else if (category.equalsIgnoreCase("HospitalNetwork")) {
+                titleheaders.setBackgroundColor(getResources().getColor(R.color.colorSpecialityYellow));
+                txtTitles.setText("Network Status");
+                String[] healthSpeciality = {"In-Network", "Out of Network"};
+                RelationsAdapter rd = new RelationsAdapter(context, healthSpeciality, selected);
+                listRelation.setAdapter(rd);
+            }
+            else if (category.equalsIgnoreCase("Insurance")) {
                 titleheaders.setBackgroundColor(getResources().getColor(R.color.colorInsuaranceSkyBlue));
                 txtTitles.setText("Type of Insurance");
                 String[] insuaranceType = {"Apartment", "Auto", "Dental", "Disability", "Home", "Life (Whole Life or Term)", "Long Term Care", "Medicaid", "Medical", "Medicare", "Medicare Supplemental (Medigap)", "Supplemental","Tricare", "Umbrella", "Vision", "Other"};
@@ -181,7 +196,17 @@ public class RelationActivity extends AppCompatActivity implements View.OnClickL
                 }else if (category.equalsIgnoreCase("Physician")) {
                     i.putExtra("Physician", txtRel.getText().toString());
                     setResult(RESULT_SPECIALTY, i);
-                } else if (category.equalsIgnoreCase("Category")) {
+                } else if (category.equalsIgnoreCase("SpecialtyNetwork")) {
+                    i.putExtra("SpecialtyNetwork", txtRel.getText().toString());
+                    setResult(RESULT_SPECIALTY_NETWORK, i);
+                }else if (category.equalsIgnoreCase("PhysicianNetwork")) {
+                    i.putExtra("PhysicianNetwork", txtRel.getText().toString());
+                    setResult(RESULT_SPECIALTY_NETWORK, i);
+                }else if (category.equalsIgnoreCase("HospitalNetwork")) {
+                    i.putExtra("HospitalNetwork", txtRel.getText().toString());
+                    setResult(RESULT_HOSPITAL_NETWORK, i);
+                }
+                else if (category.equalsIgnoreCase("Category")) {
                     i.putExtra("Category", txtRel.getText().toString());
                     setResult(RESULT_CATEGORY, i);
                 } else if (category.equalsIgnoreCase("finance")) {

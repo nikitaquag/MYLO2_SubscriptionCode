@@ -177,7 +177,7 @@ public class PrescriptionActivity extends AppCompatActivity implements View.OnCl
                 copyFile("ic_launcher.png");
                 Header.addImage(TARGET_BASE_PATH + "ic_launcher.png");
                 Header.addEmptyLine(1);
-                Header.addusereNameChank("Prescription Tracker");//preferences.getString(PrefConstants.CONNECTED_NAME));
+                Header.addusereNameChank("Prescriptions");//preferences.getString(PrefConstants.CONNECTED_NAME));
                 Header.addEmptyLine(1);
 
                 Header.addChank("MindYour-LovedOnes.com");//preferences.getString(PrefConstants.CONNECTED_NAME));

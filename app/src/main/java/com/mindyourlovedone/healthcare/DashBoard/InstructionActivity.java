@@ -793,7 +793,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 //shradha
                 txt61.setText(Html.fromHtml("<b>Function.</b> Allows Users to create a master checklist of routine appointments (specialists and tests) and the dates of completion.  The Summary page contains name of appointment and the last completion date. "));
                 txt62.setText(Html.fromHtml("<b>Add an Appointment.</b> Click the Plus icon on the bottom right corner of the screen.\n" +
-                        "Click the first line “Type Specialist or Test”.  Choose a Specialist or Test. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information. The minimum amount of information you need to complete this section is the category and frequency.\n"));
+                        "Click the first line “Type of Specialist or Test”.  Choose a Specialist or Test. For each dropdown menu we have included an “Other” as the last option on the menu – if you click “Other” a text box will open and you can add your information. The minimum amount of information you need to complete this section is the category and frequency.\n"));
                 txt63.setText(Html.fromHtml("<b>Add a Completion Date.</b> Add the Completed Date(s) by clicking the green Down Arrow on the right of the appointment then click ADD NEW and enter the date.  The information will automatically be saved. Click the Up Arrow to close the cell."));
                 txt64.setText(Html.fromHtml("<b>Edit an Appointment</b> Edit the Appointment by clicking the green Down Arrow on the right of the appointment. You will see the Edit icon - click and edit the appointment. Once completed click the SAVE icon at the top right corner of the screen."));
                 txt65.setText(Html.fromHtml("<b>Delete an Appointment.</b> To delete the entry swipe left (right to left). You will see the Delete icon (Trash can) - click it. You will be asked if you are sure you want to delete the record. "));
@@ -831,7 +831,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Appointment Checklist");
+                txtHeader.setText("Routine Appointments");
                 break;
             case "EventNotesInstruction":
                 titleHeader.setBackgroundColor(getResources().getColor(R.color.colorEventPink));
@@ -1833,7 +1833,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 img622.setVisibility(View.GONE);
 
                 txtTitle.setText("User Instructions");
-                txtHeader.setText("Prescription Tracker ");
+                txtHeader.setText("Prescriptions");
 
                 break;
 
@@ -2014,7 +2014,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 } else if (From.equals("EventNotesInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Event Notes", UI);
                 } else if (From.equals("CheckListInstruction")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Appointment Checklist", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Routine Appointments", UI);
                 } else if (From.equals("VitalInstruction")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Vital Signs", UI);
                 } else if (From.equals("LivingInstruction")) {
@@ -2062,7 +2062,7 @@ public class InstructionActivity extends AppCompatActivity implements View.OnCli
                 else if (From.equals("EventSection")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Notes & Appointments Checklist", UI);
                 }else if (From.equals("PrescriptionSection")) {
-                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescription Tracker", UI);
+                    ui.emailAttachement(InstructionActivity.this, "Instructions for Prescriptions", UI);
                 }
                 else if (From.equals("DirectiveSection")) {
                     ui.emailAttachement(InstructionActivity.this, "Instructions for Advance Directives & Documents", UI);

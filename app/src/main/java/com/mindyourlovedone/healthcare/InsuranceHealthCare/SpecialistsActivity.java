@@ -191,7 +191,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 txtTitle.setText("Notes, Appt. Checklist, ADLs, Vital Signs");
                 header.setBackgroundResource(R.color.colorEventPink);
                 profile = new int[]{R.drawable.eve, R.drawable.eve_one, R.drawable.eve_three, R.drawable.eve_four};
-                specialist = new String[]{"Event Notes", "Appointment Checklist", "Activities of Daily Living", "Vital Signs"};
+                specialist = new String[]{"Event Notes", "Routine Appointments", "Activities of Daily Living", "Vital Signs"};
                 isEmergency = false;
                 isInsurance = false;
             } else if (from.equals("Prescription")) {
@@ -201,7 +201,7 @@ public class SpecialistsActivity extends AppCompatActivity implements View.OnCli
                 txtName.setBackgroundColor(getResources().getColor(R.color.colorPrescriptionGray));
                 txtUser.setVisibility(View.GONE);
                 //  imgRight.setVisibility(View.VISIBLE);
-                txtTitle.setText("Prescription Tracker");
+                txtTitle.setText("Prescriptions");
                 header.setBackgroundResource(R.color.colorPrescriptionSub);
                 profile = new int[]{R.drawable.pres_one, R.drawable.pres_two};
                 specialist = new String[]{"Prescription Information", "Prescription List Upload"};
@@ -1196,9 +1196,9 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
             Header.document.close();*/
 
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"EVENT AND APPOINTMENT CHECKLIST", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"NOTES, ROUTINE APPTS., ADLs, VITAL SIGNS", calendarWite, profileWite);
 
-            HeaderNew.addusereNameChank("EVENT AND APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addusereNameChank("NOTES, ROUTINE APPTS., ADLs, VITAL SIGNS");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
 
             pp1=preferences.addFile("eve.png", context);
@@ -1253,9 +1253,9 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
 
             Header.document.close();*/
             new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTION TRACKER", calendarWite, profileWite);
+                    "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"PRESCRIPTIONS", calendarWite, profileWite);
 
-            HeaderNew.addusereNameChank("PRESCRIPTION TRACKER");//preferences.getString(PrefConstants.CONNECTED_NAME));
+            HeaderNew.addusereNameChank("PRESCRIPTIONS");//preferences.getString(PrefConstants.CONNECTED_NAME));
             HeaderNew.addEmptyLine(1);
 
             pp1=preferences.addFile("pres_one.png", context);
@@ -1335,7 +1335,7 @@ preferences.putInt(PrefConstants.ID,personalInfoList.getId());
                     File f = new File(Environment.getExternalStorageDirectory()
                             + "/mylopdf/"
                             + "/PrescriptionTracker.pdf");
-                    emailAttachement(f, "Prescription Tracker");
+                    emailAttachement(f, "Prescriptions");
                 }
                 dialog.dismiss();
             }

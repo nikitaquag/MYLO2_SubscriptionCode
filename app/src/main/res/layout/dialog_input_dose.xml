@@ -69,7 +69,7 @@
                 android:layout_height="@dimen/dimension40dp"
                 android:layout_below="@+id/etMedicine"
                 android:layout_margin="@dimen/dimension15dp"
-                android:text="RX#"
+                android:text="RX# Number"
                 android:textSize="@dimen/dimension20dp"
 
                 />

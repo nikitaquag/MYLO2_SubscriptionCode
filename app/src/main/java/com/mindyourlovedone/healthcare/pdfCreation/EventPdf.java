@@ -31,8 +31,8 @@ public class EventPdf {
     public EventPdf(ArrayList<Appoint> appointList) {
         try {
            // Header.addEmptyLine(1);
-            Header.addChank("Appointment Checklist");
-            messageAppoint.add("Appointment Checklist");
+            Header.addChank("Routine Appointments");
+            messageAppoint.add("Routine Appointments");
             Header.addEmptyLine(1);
 
             PdfPTable table1;

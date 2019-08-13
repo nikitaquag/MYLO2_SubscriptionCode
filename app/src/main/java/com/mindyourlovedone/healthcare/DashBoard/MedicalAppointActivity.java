@@ -479,9 +479,9 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
         profile=preferences.addFile("profpdf.png", context); profileWite=preferences.addFile("profpdf_wite.png", context);
 
         new HeaderNew().createPdfHeaders(file.getAbsolutePath(),
-                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"APPOINTMENT CHECKLIST", calendarWite, profileWite);
+                "" + preferences.getString(PrefConstants.CONNECTED_NAME),preferences.getString(PrefConstants.CONNECTED_PATH) + preferences.getString(PrefConstants.CONNECTED_PHOTO),pdflogo,calendar,profile,"ROUTINE APPOINTMENTS", calendarWite, profileWite);
 
-        HeaderNew.addusereNameChank("APPOINTMENT CHECKLIST");//preferences.getString(PrefConstants.CONNECTED_NAME));
+        HeaderNew.addusereNameChank("ROUTINE APPOINTMENTS");//preferences.getString(PrefConstants.CONNECTED_NAME));
         HeaderNew.addEmptyLine(1);
         Image pp = null;
         pp=preferences.addFile("eve_one.png", context);
@@ -534,7 +534,7 @@ public class MedicalAppointActivity extends AppCompatActivity implements View.On
                         + "/Appointment.pdf";
 
                 File f = new File(path);
-                preferences.emailAttachement(f, context, "Appointment Checklist");
+                preferences.emailAttachement(f, context, "Routine Appointments");
 
                 dialog.dismiss();
             }

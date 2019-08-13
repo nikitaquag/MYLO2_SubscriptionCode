@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/dimension10dp"
-                android:text="Add Appointment"
+                android:text="Add Routine Appointment"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
                 android:textSize="@dimen/dimension21dp" />
@@ -128,7 +128,7 @@
                             android:id="@+id/txtRelation"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Type Specialist or Test"
+                            android:hint="Type of Specialist or Test"
                             android:imeOptions="actionNext"
                             android:maxLength="300"
                             android:maxLines="1"
@@ -354,7 +354,7 @@
                     android:id="@+id/txtNote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Note"
+                    android:hint="Notes (Discussion Points)"
                     
                     android:maxLines="1"
                     android:paddingLeft="@dimen/dimension5dp"

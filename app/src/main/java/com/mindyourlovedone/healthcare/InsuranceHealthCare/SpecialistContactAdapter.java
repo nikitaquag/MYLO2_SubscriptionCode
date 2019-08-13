@@ -186,7 +186,7 @@ public class SpecialistContactAdapter extends BaseAdapter {
                         fragment = "Event Notes";
                         break;
 
-                    case "Appointment Checklist":
+                    case "Routine Appointments":
                         fragment = "Appointment Tracker";
                         break;
 

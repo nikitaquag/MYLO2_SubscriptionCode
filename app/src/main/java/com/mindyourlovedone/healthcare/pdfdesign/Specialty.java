@@ -238,13 +238,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Health Record Link :");
+                messageDoctor.add("Electronic Health Record (add web address, username and password) :");
                 messageDoctor.add(locator);
 
                 String note = "";
@@ -482,13 +482,13 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link ):" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password) ):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageHospital.add("Electronic Health Record Link  :");
+                messageHospital.add("Electronic Health Record (add web address, username and password)  :");
                 messageHospital.add(locator);
 
                 String note = "";
@@ -632,13 +632,13 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePharmacy.add("Electronic Health Record Link :");
+                messagePharmacy.add("Electronic Health Record (add web address, username and password) :");
                 messagePharmacy.add(locator);
 
                 String note = "";
@@ -1315,13 +1315,13 @@ public class Specialty {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageDoctor.add("Electronic Health Record Link :");
+                messageDoctor.add("Electronic Health Record (add web address, username and password) :");
                 messageDoctor.add(locator);
 
                 String note = "";
@@ -1603,13 +1603,13 @@ public class Specialty {
                 if (h.getLocator() != null) {
                     locator = h.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messageHospital.add("Electronic Health Record Link :");
+                messageHospital.add("Electronic Health Record (add web address, username and password) :");
                 messageHospital.add(locator);
 
                 String note = "";
@@ -1799,13 +1799,13 @@ public class Specialty {
                 if (p.getLocator() != null) {
                     locator = p.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePharmacy.add("Electronic Health Record Link :");
+                messagePharmacy.add("Electronic Health Record (add web address, username and password) :");
                 messagePharmacy.add(locator);
 
                 String note = "";

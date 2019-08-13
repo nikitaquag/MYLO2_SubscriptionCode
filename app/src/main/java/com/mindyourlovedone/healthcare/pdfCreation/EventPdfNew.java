@@ -51,8 +51,8 @@ public class EventPdfNew {
     public EventPdfNew(ArrayList<Appoint> appointList, Image pp) {
         EventNewFont();
         try {
-            HeaderNew.addNewChank("Appointment Checklist", pp);
-            messageAppoint.add("Appointment Checklist");
+            HeaderNew.addNewChank("Routine Appointments", pp);
+            messageAppoint.add("Routine Appointments");
             HeaderNew.addEmptyLine(1);
 
 
@@ -140,9 +140,9 @@ public class EventPdfNew {
 
                 // cell = new PdfPCell(new Phrase("Note : " + note));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table1, "Note:", note);
+                HeaderNew.cellDesign(cell, table1, "Notes (Discussion Points):", note);
                 table.addCell(cell);
-                messageAppoint.add("Note :");
+                messageAppoint.add("Notes (Discussion Points):");
                 messageAppoint.add(note);
 
                 ArrayList<DateClass> datelist = DateQuery.fetchAllDosageRecord(appointList.get(i).getUserid(), appointList.get(i).getUnique());

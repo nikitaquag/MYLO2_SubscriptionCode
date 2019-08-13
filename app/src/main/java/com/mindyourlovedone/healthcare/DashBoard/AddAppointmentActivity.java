@@ -346,7 +346,7 @@ public class AddAppointmentActivity extends AppCompatActivity implements View.On
                     spinnerType.setSelection(index + 1);
                 }*/
             } else if (i.getExtras().get("FROM").equals("Add")) {
-                txtAdd.setText("Add Appointment");
+                txtAdd.setText("Add Routine Appointment");
                 isUpdate = false;
             }
         }

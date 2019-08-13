@@ -216,7 +216,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colordivideGray"
                     android:fontFamily="@font/lato"
-                    android:hint="RX#"
+                    android:hint="RX# Number"
                     android:imeOptions="actionNext"
                     
                     android:paddingTop="@dimen/dimension2dp"
@@ -449,7 +449,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/colordivideGray"
                     android:fontFamily="@font/lato"
-                    android:hint="RX#"
+                    android:hint="RX# Number"
                     android:maxLines="1"
                     
                     android:paddingTop="@dimen/dimension2dp"

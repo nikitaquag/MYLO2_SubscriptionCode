@@ -2087,13 +2087,13 @@ public class IndividualNew {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-                cell = new PdfPCell(new Phrase("Electronic Health Record Link :" + locator));
+                cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password) :" + locator));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePhysician.add("Electronic Health Record Link  :");
+                messagePhysician.add("Electronic Health Record (add web address, username and password)  :");
                 messagePhysician.add(locator);
 
                 String note = "";
@@ -6076,11 +6076,11 @@ public class IndividualNew {
             if (s.getLocator() != null) {
                 locator = s.getLocator();
             }
-            // cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+            // cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
             cell = new PdfPCell();
-            HeaderNew.cellDesign(cell, table1, "Electronic Health Record Link:", locator);
+            HeaderNew.cellDesign(cell, table1, "Electronic Health Record (add web address, username and password):", locator);
             table.addCell(cell);
-            messagePhysician.add("Electronic Health Record Link :");
+            messagePhysician.add("Electronic Health Record (add web address, username and password) :");
             messagePhysician.add(locator);
 
             String note = "";

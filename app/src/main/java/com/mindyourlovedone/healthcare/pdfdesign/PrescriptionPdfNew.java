@@ -114,9 +114,9 @@ public class PrescriptionPdfNew {
                 }
                 // cell = new PdfPCell(new Phrase("RX#:" + rx));
                 cell = new PdfPCell();
-                HeaderNew.cellDesign(cell, table, "RX#:", rx);
+                HeaderNew.cellDesign(cell, table, "RX# Number:", rx);
                 table.addCell(cell);
-                messagePrescription.add("RX# :");
+                messagePrescription.add("RX# Number:");
                 messagePrescription.add(rx);
 
                 String treatment = "";

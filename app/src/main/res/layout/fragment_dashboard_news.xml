@@ -407,7 +407,8 @@
                             android:layout_below="@+id/flEvent"
                             android:gravity="center_horizontal"
                             android:padding="@dimen/dimension5dp"
-                            android:text="Notes &amp; Appointment Checklist"
+                            android:text="Notes, Routine Appts., ADLs, Vital Signs
+"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
                              />
@@ -486,7 +487,7 @@
                             android:layout_centerHorizontal="true"
                             android:gravity="center"
                             android:padding="@dimen/dimension5dp"
-                            android:text="Prescription\nTracker"
+                            android:text="Prescriptions"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/dimension17dp"
                              />

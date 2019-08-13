@@ -45,7 +45,7 @@
             android:layout_toRightOf="@+id/imgBack"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="PRESCRIPTION TRACKER"
+            android:text="PRESCRIPTIONS"
             android:textAllCaps="true"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
@@ -151,7 +151,7 @@
             android:layout_below="@+id/imgPicture"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/dimension10dp"
-            android:text="Create a Prescription Tracker"
+            android:text="Create a Prescriptions"
             android:textColor="@color/colorBlackDark"
             android:textSize="@dimen/dimension24dp"
             android:textStyle="bold" />
@@ -216,7 +216,7 @@
                 android:layout_below="@+id/imgPicture2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/dimension10dp"
-                android:text="Create a Prescription Tracker"
+                android:text="Create a Prescriptions"
                 android:textColor="@color/colorBlackDark"
                 android:textSize="@dimen/dimension24dp"
                 android:textStyle="bold" />

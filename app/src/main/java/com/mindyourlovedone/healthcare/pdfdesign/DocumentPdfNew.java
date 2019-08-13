@@ -479,12 +479,12 @@ public class DocumentPdfNew {
                 if (s.getLocator() != null) {
                     locator = s.getLocator();
                 }
-               // cell = new PdfPCell(new Phrase("Electronic Health Record Link:" + locator));
+               // cell = new PdfPCell(new Phrase("Electronic Health Record (add web address, username and password):" + locator));
                     cell = new PdfPCell();
-                    HeaderNew.cellDesign(cell, table, "Electronic Health Record Link:", locator);
+                    HeaderNew.cellDesign(cell, table, "Electronic Health Record (add web address, username and password):", locator);
                     table.addCell(cell);
 
-                messageRecord.add("Electronic Health Record Link :");
+                messageRecord.add("Electronic Health Record (add web address, username and password) :");
                 messageRecord.add(locator);
 
                     String note = "";

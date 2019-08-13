@@ -84,13 +84,13 @@ public class PrescriptionPdf {
                 if (prescriptionList.get(i).getRX() != null) {
                     rx = prescriptionList.get(i).getRX();
                 }
-                cell = new PdfPCell(new Phrase("RX#:" + rx));
+                cell = new PdfPCell(new Phrase("RX# Number:" + rx));
                 cell.setBorder(Rectangle.BOTTOM);
                 cell.setUseBorderPadding(true);
                 cell.setBorderWidthBottom(5);
                 cell.setBorderColorBottom(BaseColor.WHITE);
                 table.addCell(cell);
-                messagePrescription.add("RX# :");
+                messagePrescription.add("RX# Numbe :");
                 messagePrescription.add(rx);
 
                 String doctor = "";

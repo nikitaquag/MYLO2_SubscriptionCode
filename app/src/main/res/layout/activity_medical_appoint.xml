@@ -92,7 +92,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:textStyle="bold"
-            android:text="Appointment Checklist"
+            android:text="Routine Appointments"
             android:textColor="#FFFFFF"
             android:textSize="@dimen/dimension20dp" />
 
@@ -441,7 +441,7 @@ Monitor year over year changes."
         android:textStyle="bold|italic"
         android:fontFamily="@font/lato"
         android:textColor="@color/colorLightGrays"
-        android:text="Add a new Appointment!"
+        android:text="Add new Routine Appointment!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

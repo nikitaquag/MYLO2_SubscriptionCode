@@ -249,7 +249,7 @@ LinearLayout casts_container;
             if (isView == true)//Shradha
             {
                 disablePrescription();//Shradha
-                txtTitle.setText("PRESCRIPTION TRACKER");//Shradha
+                txtTitle.setText("PRESCRIPTIONS");//Shradha
                 txtSave.setVisibility(View.GONE);//Shradha
                 id = p.getUnique();//Shradha
                 uniqID = p.getUnique();//Shradha

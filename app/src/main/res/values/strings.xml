@@ -7,6 +7,7 @@
     <string name="msgstay">Stay Connected<html></html></string>
     <string name="numOfYear">Number of Years &amp; When\nStopped (if applicable)</string>
 
+    <string name="locator">Electronic Health Record (add web address,\nusername and password)</string>
 
     <string name="TradeMark"> \n  Association, used under license.</string>
     <string name="SendingFax">Sending via FAX should ONLY be\n used for HIPAA purpose and in\n urgent circumstances.</string>

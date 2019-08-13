@@ -1,6 +1,7 @@
 package com.mindyourlovedone.healthcare.Connections;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.ContentValues;
@@ -33,6 +34,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -45,6 +47,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.mindyourlovedone.healthcare.DashBoard.AddFormActivity;
+import com.mindyourlovedone.healthcare.DashBoard.DateClass;
 import com.mindyourlovedone.healthcare.HomeActivity.R;
 import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.database.AideQuery;
@@ -86,7 +89,10 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static com.mindyourlovedone.healthcare.database.InsuranceQuery.getLastInsurance;
@@ -100,6 +106,8 @@ import static com.mindyourlovedone.healthcare.database.PharmacyQuery.getLastPhar
 public class FragmentNewContact extends Fragment implements View.OnClickListener {
     private static final int REQUEST_CARD = 50;
     private static final int RESULT_INSURANCE = 16;
+    private static final int RESULT_SPECIALTY_NETWORK = 17;
+    private static final int RESULT_HOSPITAL_NETWORK = 18;
     private static int RESULT_CAMERA_IMAGE = 1;
     private static int RESULT_SELECT_PHOTO = 2;
     private static int RESULT_CAMERA_IMAGE_CARD = 3;
@@ -4666,6 +4674,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtDoctorWebsite = rootview.findViewById(R.id.txtDoctorWebsite);
         txtDoctorAddress = rootview.findViewById(R.id.txtDoctorAddress);
         txtDoctorLastSeen = rootview.findViewById(R.id.txtDoctorLastSeen);
+        txtDoctorLastSeen.setFocusable(false);
         txtDoctorLocator = rootview.findViewById(R.id.txtDoctorLocator);
         txtOtherInsurance = rootview.findViewById(R.id.txtOtherInsurance);
 
@@ -4689,7 +4698,12 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtAideWebsite = rootview.findViewById(R.id.txtAideWebsite);
         txtAideNote = rootview.findViewById(R.id.txtAideNote);
         txtAideAddress = rootview.findViewById(R.id.txtAideAddress);
-
+        txtDoctorLastSeen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCalendar(txtDoctorLastSeen);
+            }
+        });
         txtAideFax.addTextChangedListener(new TextWatcher() {
             int prevL = 0;
 
@@ -4733,11 +4747,18 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtHospitalAddress = rootview.findViewById(R.id.txtHospitalAddress);
         txtHospitalWebsite = rootview.findViewById(R.id.txtHospitalWebsite);
         txtHospitalLocation = rootview.findViewById(R.id.txtHospitalLocation);
+        txtHospitalLocation.setFocusable(false);
         txtHospitalPracticeName = rootview.findViewById(R.id.txtHospitalPracticeName);
         txtHospitalLastSeen = rootview.findViewById(R.id.txtHospitalLastSeen);
+        txtHospitalLastSeen.setFocusable(false);
         txtHospitalLocator = rootview.findViewById(R.id.txtHospitalLocator);
         txtHospitalNote = rootview.findViewById(R.id.txtHospitalNote);
-
+        txtHospitalLastSeen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showCalendar(txtHospitalLastSeen);
+            }
+        });
         txtHospitalOfficePhone.addTextChangedListener(new TextWatcher() {
             int prevL = 0;
 
@@ -4965,6 +4986,7 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         txtPracticeName = rootview.findViewById(R.id.txtPracticeName);
         txtFax = rootview.findViewById(R.id.txtFax);
         txtNetwork = rootview.findViewById(R.id.txtNetwork);
+        txtNetwork.setFocusable(false);
         txtAffiliation = rootview.findViewById(R.id.txtAffiliation);
         txtDoctorNote = rootview.findViewById(R.id.txtDoctorNote);
 
@@ -5370,6 +5392,32 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 startActivityForResult(i, RESULT_SPECIALTY);
             }
         });
+        txtNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                if (source.equalsIgnoreCase("PhysicianData")||source.equalsIgnoreCase("Physician"))
+                {
+                    i.putExtra("Category", "PhysicianNetwork");
+                }
+                else
+                {
+                    i.putExtra("Category", "SpecialtyNetwork");
+                }
+
+                i.putExtra("Selected",txtNetwork.getText().toString());
+                startActivityForResult(i, RESULT_SPECIALTY_NETWORK);
+            }
+        });
+        txtHospitalLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), RelationActivity.class);
+                i.putExtra("Category", "HospitalNetwork");
+                i.putExtra("Selected",txtHospitalLocation.getText().toString());
+                startActivityForResult(i, RESULT_HOSPITAL_NETWORK);
+            }
+        });
         txtHCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -5379,7 +5427,6 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 startActivityForResult(i, RESULT_CATEGORY);
             }
         });
-
         txtFCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -5523,6 +5570,29 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
         });
 
        // setListPh(listPrPhone);
+    }
+
+    private void showCalendar(final TextView txtDate) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog dpd = new DatePickerDialog(context, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                Calendar newDate = Calendar.getInstance();
+                newDate.set(year, month, dayOfMonth);
+                long selectedMilli = newDate.getTimeInMillis();
+
+                Date datePickerDate = new Date(selectedMilli);
+                String reportDate=new SimpleDateFormat("d-MMM-yyyy").format(datePickerDate);
+
+                DateClass d=new DateClass();
+                d.setDate(reportDate);
+                txtDate.setText(reportDate);
+            }
+        }, year, month, day);
+        dpd.show();
     }
 
     public void setRelationData() {
@@ -6605,7 +6675,22 @@ public class FragmentNewContact extends Fragment implements View.OnClickListener
                 tilOtherCategoryDoctor.setVisibility(View.GONE);
                 txtOtherCategoryDoctor.setText("");
             }
-        } else if (requestCode == RESULT_CATEGORY && data != null) {
+        }  else if (requestCode == RESULT_SPECIALTY_NETWORK && data != null) {
+            if (source.equalsIgnoreCase("PhysicianData")||source.equalsIgnoreCase("Physician"))
+            {
+                network = data.getStringExtra("PhysicianNetwork");
+            }
+            else
+            {
+                network = data.getStringExtra("SpecialtyNetwork");
+            }
+
+            txtNetwork.setText(network);
+
+        } else if (requestCode == RESULT_HOSPITAL_NETWORK && data != null) {
+            location = data.getStringExtra("HospitalNetwork");
+            txtHospitalLocation.setText(location);
+        }else if (requestCode == RESULT_CATEGORY && data != null) {
             speciality = data.getStringExtra("Category");
             txtHCategory.setText(speciality);
             if (speciality.equals("Other")) {
