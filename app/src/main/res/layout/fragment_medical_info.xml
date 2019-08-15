@@ -3760,7 +3760,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                     android:layout_weight="1"
                                     android:background="@drawable/never_selector"
                                     android:button="@null"
-                                    android:checked="true"
+
                                     android:textSize="@dimen/dimension18dp" />
                             </RadioGroup>
                         </RelativeLayout>
@@ -4009,7 +4009,6 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                     android:layout_weight="1"
                                     android:background="@drawable/never_selector"
                                     android:button="@null"
-                                    android:checked="true"
 
                                     android:textSize="@dimen/dimension18dp" />
                             </RadioGroup>
@@ -4265,7 +4264,7 @@ app:hintTextAppearance="@style/TextInputLayoutHintText"
                                     android:layout_weight="1"
                                     android:background="@drawable/never_selector"
                                     android:button="@null"
-                                    android:checked="true"
+
 
                                     android:textSize="@dimen/dimension18dp" />
                             </RadioGroup>

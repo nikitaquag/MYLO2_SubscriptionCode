@@ -60,6 +60,7 @@ import com.mindyourlovedone.healthcare.customview.MySpinner;
 import com.mindyourlovedone.healthcare.customview.NonScrollListView;
 import com.mindyourlovedone.healthcare.database.ContactDataQuery;
 import com.mindyourlovedone.healthcare.database.DBHelper;
+import com.mindyourlovedone.healthcare.database.FormQuery;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PetQuery;
 import com.mindyourlovedone.healthcare.model.ContactData;
@@ -93,6 +94,7 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 
 /*shradha changes*/
@@ -109,10 +111,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     public static final int REQUEST_EYES = 23;
     public static final int REQUEST_LANGUAGE= 24;
    public ArrayList<ContactData> phonelist=new ArrayList<>();
+    public ArrayList<ContactData> Originalphonelist=new ArrayList<>();
     final CharSequence[] dialog_items = {"View", "Email", "User Instructions"};
     Context context = this;
     Bitmap ProfileMap = null, CardMap = null;
     ContentValues values;
+    boolean backflap;
     Uri imageUriProfile = null, imageUriCard = null;
     // byte[] photoCard=null;
     ImageView imgRight, imgInfo, imgR;
@@ -246,6 +250,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
          MyConnectionsQuery md = new MyConnectionsQuery(context, dbHelper1);
          con = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
         phonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
+        Originalphonelist=ContactDataQuery.fetchContactRecord(preferences.getInt(PrefConstants.CONNECTED_USERID),-1,"Personal Profile");
         // }
         MyConnectionsQuery m = new MyConnectionsQuery(context, dbHelper);
         connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
@@ -1024,6 +1029,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             mImageViewType.get(pos).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    backflap=true;
                     int poss = Integer.parseInt(mImageViewType.get(pos).getTag().toString());
                     if (poss == 0) {
                         ContactData c = new ContactData();
@@ -1143,6 +1149,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtvGender.setVisibility(View.GONE);
             vgender.setVisibility(View.GONE);
             rgGender.setVisibility(View.GONE);*/
+            txtBdate.setText(connection.getDob());
         }
         if (connection != null) {
             txtName.setText(connection.getName());
@@ -1152,7 +1159,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtPhone.setText(connection.getMobile());
             txtOtherRelation.setText(connection.getOtherRelation());
             txtHomePhone.setText(connection.getPhone());
-            txtWorkPhone.setText(connection.getWorkPhone());
+            txtWorkPhone.setText(connection.getWorkPhone());txtBdate.setText(connection.getDob());
             //txtGender.setText(connection.getGender());
             if (connection.getGender() != null) {
                 if (connection.getGender().equalsIgnoreCase("Male")) {
@@ -1353,7 +1360,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
             txtReligion.setText(connection.getReligion());
             txtIdNumber.setText(connection.getIdnumber());
             int indexd = 0;
-
+            txtBdate.setText(connection.getDob());
             /*if (!connection.getEyes().equals("")) {
                 for (int i = 0; i < EyesList.length; i++) {
                     if (connection.getEyes().equalsIgnoreCase(EyesList[i])) {
@@ -1942,7 +1949,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.txtSave:
-                for (int i = 0; i < phonelist.size(); i++) {
+               /* for (int i = 0; i < phonelist.size(); i++) {
                     ContactData c = phonelist.get(i);
                     for (int k = 0; k < mTextViewListValue.size(); k++) {
                         if (Integer.parseInt(mTextViewListValue.get(k).getTag().toString()) == c.getId()) {
@@ -1958,7 +1965,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         phonelist.remove(phonelist.get(i));
                     }
                     // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
-                }
+                }*/
 
                /* Bitmap bitmap = ((BitmapDrawable) imgProfile.getDrawable()).getBitmap();
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -2059,8 +2066,64 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                 break;
 
             case R.id.imgBack:
-                hideSoftKeyboard();
-                finish();
+               /* for (int i = 0; i < phonelist.size(); i++) {
+                    ContactData c = phonelist.get(i);
+                    for (int k = 0; k < mTextViewListValue.size(); k++) {
+                        if (Integer.parseInt(mTextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                            phonelist.get(i).setValue(mTextViewListValue.get(k).getText().toString());
+                        }
+                    }
+                }
+
+                for (int i=0;i<phonelist.size();i++)
+                {
+                    if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
+                    {
+                        phonelist.remove(phonelist.get(i));
+                    }
+                    // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+                }*/
+               if (validateConnection()) {
+                //   String contactchange1 = Originalphonelist.containsAll(phonelist) ? "Yes" : "No";
+                   String contactchange2 = phonelist.containsAll(Originalphonelist) ? "Yes" : "No";
+                   if (connection.getName().equals(name) && connection.getAddress().equals(address) && connection.getEmail().equals(email) && connection.getRelationType().equals(relation) &&
+                           connection.getPhoto().equals(imagepath) && connection.getOtherRelation().equals(otherRelation) && connection.getHeight().equals(height) && connection.getWeight().equals(weight) &&
+                           connection.getEyes().equals(eyes) && connection.getProfession().equals(profession) && connection.getEmployed().equals(employed) && connection.getLanguage().equals(language) &&
+                           connection.getMarital_status().equals(marital_status) && connection.getReligion().equals(religion) && connection.getVeteran().equals(veteran) && connection.getIdnumber().equals(idnumber) &&
+                           connection.getPet().equals(pet) && connection.getManager_phone().equals(manager_phone) && connection.getPhotoCard().equals(cardpath) && connection.getEnglish().equals(english) &&
+                           connection.getChildren().equals(child) && connection.getFriend().equals(friend) && connection.getGrand().equals(grandParent) && connection.getParents().equals(parent) &&
+                           connection.getSpouse().equals(spouse) && connection.getOther_person().equals(liveOther) && connection.getLive().equals(live) && connection.getSign_other().equals(other) && connection.getOtherLang().equals(OtherLang) &&
+                           connection.getDob().equals(bdate) && connection.getGender().equals(gender) && connection.getSibling().equals(sibling) && connection.getHas_card().equals(has_card) && connection.getPeople().equals(people)
+                            && backflap==false){//&& contactchange2.equals("No")) {//&& contactchange1.equals("Yes")
+                       hideSoftKeyboard();
+                       finish();
+                   } else {
+                       AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                       alert.setTitle("Save");
+                       alert.setMessage("Do you want to save information?");
+                       alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               txtSave.performClick();
+                               dialog.dismiss();
+                              // setValues();
+                               backflap=false;
+                               hideSoftKeyboard();
+                                finish();
+                           }
+                       });
+
+                       alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               dialog.dismiss();
+                               hideSoftKeyboard();
+                               finish();
+                           }
+                       });
+                       alert.show();
+                   }
+               }
                 break;
 
             case R.id.txtGender:
@@ -2557,6 +2620,23 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
     }
 
     private boolean validateConnection() {
+        for (int i = 0; i < phonelist.size(); i++) {
+            ContactData c = phonelist.get(i);
+            for (int k = 0; k < mTextViewListValue.size(); k++) {
+                if (Integer.parseInt(mTextViewListValue.get(k).getTag().toString()) == c.getId()) {
+                    phonelist.get(i).setValue(mTextViewListValue.get(k).getText().toString());
+                }
+            }
+        }
+
+        for (int i=0;i<phonelist.size();i++)
+        {
+            if (phonelist.get(i).getContactType()=="" && phonelist.get(i).getValue()=="")
+            {
+                phonelist.remove(phonelist.get(i));
+            }
+            // Log.d("TERE",phonelist.get(i).getContactType()+"-"+phonelist.get(i).getValue());
+        }
 
         for (int i=0;i<phonelist.size();i++)
         {
@@ -2794,6 +2874,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                         Boolean flags = MyConnectionsQuery.updateMyConnectionsData(connection.getId(), name, email, address, phone, homePhone, workPhone, relation, imagepath, "", 1, 2, otherRelation, height, weight, eyes, profession, employed, language, marital_status, religion, veteran, idnumber, pet, manager_phone, cardpath, english, child, friend, grandParent, parent, spouse, other, liveOther, live, OtherLang, bdate, gender, sibling, has_card, people);
                         if (flags == true) {
                             Toast.makeText(context, "You have edited profile information successfully", Toast.LENGTH_SHORT).show();
+                            connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                             ContactDataQuery c = new ContactDataQuery(context, dbHelper);
                             boolean flagf = ContactDataQuery.deleteRecord("Personal Profile", -1);
                             if (flagf == true) {
@@ -2803,6 +2884,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                                         Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Personal Profile");
                                         if (flagc == true) {
                                             // Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                            backflap=false;
                                         }
                                     }
                                 }
@@ -2836,6 +2918,7 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                     if (flags == true) {
                         preferences.putString(PrefConstants.CONNECTED_PHOTO,imagepath);
                         Toast.makeText(context, "You have edited profile data Successfully", Toast.LENGTH_SHORT).show();
+                        connection = MyConnectionsQuery.fetchEmailRecord(preferences.getInt(PrefConstants.CONNECTED_USERID));
                         preferences.putString(PrefConstants.CONNECTED_NAME, name);
                         preferences.putString(PrefConstants.CONNECTED_RELATION, relation);
                         String mail = email;
@@ -2857,6 +2940,8 @@ txtRelation.setOnClickListener(new View.OnClickListener() {
                                     Boolean flagc = ContactDataQuery.insertContactsData(-1, preferences.getInt(PrefConstants.CONNECTED_USERID), connection.getEmail(), phonelist.get(i).getValue(), phonelist.get(i).getContactType(), "Personal Profile");
                                     if (flagc == true) {
                                         //     Toast.makeText(context, "record inserted", Toast.LENGTH_SHORT).show();
+                                        backflap=false;
+
                                     }
                                 }
                             }

@@ -69,7 +69,7 @@ public class ChecklistActivity extends AppCompatActivity {
 */
         Links l4 = new Links();
         l4.setName("Medical History Form");
-        l4.setUrl("medical_history_form.pdf");
+        l4.setUrl("medical_history_form_new.pdf");
         l4.setImage(R.drawable.pdf);
 
        /* Links l5 = new Links();

@@ -757,7 +757,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CALL_PERMISSION: {
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 &&grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                     //  checkForRegistration();
 

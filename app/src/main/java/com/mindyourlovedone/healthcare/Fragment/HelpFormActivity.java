@@ -68,7 +68,7 @@ public class HelpFormActivity extends AppCompatActivity {
 */
         Links l4 = new Links();
         l4.setName("Medical History Form");
-        l4.setUrl("medical_history_form.pdf");
+        l4.setUrl("medical_history_form_new.pdf");
         l4.setImage(R.drawable.pdf);
 
         /*Links l5 = new Links();
@@ -110,7 +110,9 @@ public class HelpFormActivity extends AppCompatActivity {
 
         Links l12 = new Links();
         l12.setName("Mind Your Loved Ones App Wallet Cards");
-        l12.setUrl("http://mindyour-lovedones.com/MYLO/uploads/MYLO_App_Wallet_Card.pdf");
+       // l12.setUrl("http://mindyour-lovedones.com/MYLO/uploads/MYLO_App_Wallet_Card.pdf");
+        l12.setUrl("wallet_card_new.pdf");
+
         l12.setImage(R.drawable.pdf);
 
        /* Links l9=new Links();
@@ -185,17 +187,11 @@ public class HelpFormActivity extends AppCompatActivity {
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position==7)
+                CopyReadAssetss(UrlList.get(position).getUrl());
+                /*if (position==7)
                 {
 
-                  /*  Intent intentf = new Intent();
-                    intentf.setAction(Intent.ACTION_VIEW);
-                    intentf.addCategory(Intent.CATEGORY_BROWSABLE);
-                    intentf.setData(Uri.parse(UrlList.get(position).getUrl()));
-                    startActivity(intentf);*/
-/*
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(UrlList.get(position).getUrl()));
-                    startActivity(browserIntent);*/
+
                     String formatD = "https://drive.google.com/viewerng/viewer?embedded=true&url=%s";
                     String fullPathD = String.format(Locale.ENGLISH, formatD, UrlList.get(position).getUrl());
                     Intent browserIntentD = new Intent(Intent.ACTION_VIEW, Uri.parse(fullPathD));
@@ -203,15 +199,8 @@ public class HelpFormActivity extends AppCompatActivity {
                 }
                 else {
                     CopyReadAssetss(UrlList.get(position).getUrl());
-                }
-                     /*  if (Datalist.get(position).equals(UrlList.get(position).getName()))
-                       {*/
-                          /* Intent intent = new Intent();
-                           intent.setAction(Intent.ACTION_VIEW);
-                           intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                           intent.setData(Uri.parse(UrlList.get(position).getUrl()));
-                           startActivity(intent);*/
-                //    }
+                }*/
+
             }
         });
 

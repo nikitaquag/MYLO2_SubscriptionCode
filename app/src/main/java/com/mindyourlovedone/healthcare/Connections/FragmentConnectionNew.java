@@ -735,7 +735,8 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
                */
                 break;
             case R.id.fab:
-                showContactDialog();
+                //showContactDialog();
+                showFloatDialog();
                 break;
         }
     }
@@ -815,10 +816,15 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View dialogview = lf.inflate(R.layout.activity_transparent, null);
         final RelativeLayout rlView = dialogview.findViewById(R.id.rlView);
+        final RelativeLayout rlFloatfax = dialogview.findViewById(R.id.rlFloatfax);
+        rlFloatfax.setVisibility(View.VISIBLE);
         final FloatingActionButton floatCancel = dialogview.findViewById(R.id.floatCancel);
         final FloatingActionButton floatContact = dialogview.findViewById(R.id.floatContact);
         final FloatingActionButton floatNew = dialogview.findViewById(R.id.floatNew);
-
+        final FloatingActionButton floatfax = dialogview.findViewById(R.id.floatfax);
+        floatfax.setImageResource(R.drawable.dropbox);
+TextView txtFax=dialogview.findViewById(R.id.txtfax);
+txtFax.setText("Add From Dropbox");
         dialog.setContentView(dialogview);
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
         lp.copyFrom(dialog.getWindow().getAttributes());
@@ -862,8 +868,20 @@ rlSelf.setOnLongClickListener(new View.OnLongClickListener() {
 
 
         });
+        floatfax.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in=new Intent(getActivity(), DropboxLoginActivity.class);
+                in.putExtra("FROM","Backup");
+                in.putExtra("ToDo","Individual");
+                in.putExtra("ToDoWhat","Import");
+                getActivity().startActivity(in);
+                dialog.dismiss();
+            }
 
 
+        });
+/* */
     }
 
     @SuppressLint("ResourceAsColor")

@@ -405,7 +405,7 @@ public class GrabConnectionActivity extends AppCompatActivity implements View.On
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case PERMISSIONS_REQUEST_READ_CONTACTS: {
-                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 &&grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                 } else {
                     accessPermission();

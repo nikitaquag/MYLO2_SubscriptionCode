@@ -85,11 +85,13 @@ public class FragmentMedicalInfo extends Fragment implements View.OnClickListene
     EditText etFt, etInch, etWeight, etAdditional, etPet;
     ToggleButton tbGlass, tbLense, tbFalse, tbImplants, tbHearingAid, tbMouth, tbColor, tbSpeech, tbFeed, tbToilet, tbMedicate;
     RadioButton rbYes, rbNo, rbDrugCurrent, rbDrugPast, rbDrugNever, rbDrinkCurrent, rbDrinkPast, rbDrinkNever, rbTobacoCurrent, rbTobacoPast, rbTobacoNever;
-    String glass = "NO", lense = "NO", falses = "NO", implants = "NO", aid = "NO", donor = "NO", mouth = "NO", blind = "NO", speech = "NO", feed = "NO", toilet = "NO", medicate = "NO";
+    String glass = "", lense = "", falses = "", implants = "", aid = "", donor = "", mouth = "", blind = "", speech = "", feed = "", toilet = "", medicate = "";
+    //String glass = "NO", lense = "NO", falses = "NO", implants = "NO", aid = "NO", donor = "NO", mouth = "NO", blind = "NO", speech = "NO", feed = "NO", toilet = "NO", medicate = "NO";
+
     TextView txtTobacoType, txtTobacoAmt, txtTobacoYear, txtDrugType, txtDrugAmt, txtDrugYear, txtDrinkAmt, txtDrinkYear;
-    String tobaco = "Never", t_type = "", t_amt = "", t_year = "";
-    String drug = "Never", drug_type = "", drug_amt = "", drug_year = "";
-    String drink = "Never", drink_amt = "", drink_year = "";
+    String tobaco = "", t_type = "", t_amt = "", t_year = "";
+    String drug = "", drug_type = "", drug_amt = "", drug_year = "";
+    String drink = "", drink_amt = "", drink_year = "";
     String ft, inch, weight, color, lang1, lang2, blood, pet;
     RadioGroup rgDonor, rgDrug, rgDrink, rgTobaco;
     TextView txtName;

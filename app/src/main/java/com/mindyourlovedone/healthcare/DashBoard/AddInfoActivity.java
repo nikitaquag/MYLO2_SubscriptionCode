@@ -508,7 +508,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtInfo.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            CopyReadAssetss("medical_history_form.pdf");
+                            CopyReadAssetss("medical_history_form_new.pdf");
                         }
                     });
                     break;
@@ -524,7 +524,7 @@ public class AddInfoActivity extends AppCompatActivity implements View.OnClickLi
                     txtInfo.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            CopyReadAssetss("medical_history_form.pdf");
+                            CopyReadAssetss("medical_history_form_new.pdf");
                         }
                     });
                     break;
