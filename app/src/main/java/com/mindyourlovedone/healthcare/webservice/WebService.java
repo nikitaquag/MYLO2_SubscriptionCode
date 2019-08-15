@@ -1,6 +1,7 @@
 package com.mindyourlovedone.healthcare.webservice;
 
 import android.content.Context;
+import android.net.Uri;
 import android.util.Base64;
 import android.util.Log;
 
@@ -12,12 +13,15 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -204,37 +208,80 @@ public class WebService {
                                 String state, String mail, String password, String deviceUdid,
                                 String deviceType) {
 
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(CREATE_PROFILE_URL);
+//        HttpClient httpclient = new DefaultHttpClient();
+//        HttpPost httppost = new HttpPost(CREATE_PROFILE_URL);
+
+        // new changes - nikita
+        HttpURLConnection conn=null;
         String result = "";
         InputStream is = null;
         try {
+            URL url = new URL(CREATE_PROFILE_URL);
 
+            conn = (HttpURLConnection)url.openConnection();
             Log.e("URL parameter", "First Name :" + firstName + "\nlastName : "
                     + lastName + " \nState : " + state + " \nemail :" + mail
                     + "\npassword :" + password + " \nDeviceId :" + deviceUdid
                     + " \ndeviceType :" + deviceType);
 
-            httppost.setHeader("firstName", firstName);
-            httppost.setHeader("lastName", lastName);
-            httppost.setHeader("state", state);
-            httppost.setHeader("email", mail.trim());
-            httppost.setHeader("password", password);
-            httppost.setHeader("deviceUdid", deviceUdid);
-            httppost.setHeader("deviceType", deviceType);
-            HttpResponse response = httpclient.execute(httppost);
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
-            HttpEntity responseEntity = response.getEntity();
+            Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("firstName", firstName)
+                    .appendQueryParameter("lastName", lastName)
+                    .appendQueryParameter("state", state)
+            .appendQueryParameter("email", mail.trim())
+            .appendQueryParameter("password", password)
+            .appendQueryParameter("deviceUdid", deviceUdid)
+                    .appendQueryParameter("deviceType", deviceType);
+            String query = builder.build().getEncodedQuery();
 
-            if (responseEntity != null) {
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(query);
+            writer.flush();
+            writer.close();
+            os.close();
 
-                is = responseEntity.getContent();
+            conn.connect();
+
+            // get stream
+            if (conn.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                is = conn.getInputStream();
+            } else {
+                is = conn.getErrorStream();
             }
+
+
+//            httppost.setHeader("firstName", firstName);
+//            httppost.setHeader("lastName", lastName);
+//            httppost.setHeader("state", state);
+//            httppost.setHeader("email", mail.trim());
+//            httppost.setHeader("password", password);
+//            httppost.setHeader("deviceUdid", deviceUdid);
+//            httppost.setHeader("deviceType", deviceType);
+//            HttpResponse response = httpclient.execute(httppost);
+//
+//            HttpEntity responseEntity = response.getEntity();
+//
+//            if (responseEntity != null) {
+//
+//                is = responseEntity.getContent();
+//            }
 
         } catch (ClientProtocolException e) {
             return "exception";
         } catch (IOException e) {
             return "exception";
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
 
         result = decodeResponse(is);
@@ -244,33 +291,70 @@ public class WebService {
     }
 
     public String getProfile(String name, String email) {
+        // new changes - nikita
 
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(LOGIN_PROFILE_URL);
+        HttpURLConnection conn=null;
+//        HttpClient httpclient = new DefaultHttpClient();
+//        HttpPost httppost = new HttpPost(LOGIN_PROFILE_URL);
         String result = "";
         InputStream is = null;
         try {
+            URL url = new URL(LOGIN_PROFILE_URL);
 
+            conn = (HttpURLConnection)url.openConnection();
             Log.e("Encode String", name);
             Log.e("Encode String", email);
 
-            httppost.setHeader("firstName", name);
-            httppost.setHeader("email", email);
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
-            HttpResponse response = httpclient.execute(httppost);
+            Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("firstName", name)
+                    .appendQueryParameter("email", email);
+            String query = builder.build().getEncodedQuery();
 
-            HttpEntity responseEntity = response.getEntity();
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(query);
+            writer.flush();
+            writer.close();
+            os.close();
 
-            if (responseEntity != null) {
+            conn.connect();
 
-                is = responseEntity.getContent();
+            // get stream
+            if (conn.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                is = conn.getInputStream();
+            } else {
+                is = conn.getErrorStream();
             }
+
+//            httppost.setHeader("firstName", name);
+//            httppost.setHeader("email", email);
+//
+//            HttpResponse response = httpclient.execute(httppost);
+//
+//            HttpEntity responseEntity = response.getEntity();
+//
+//            if (responseEntity != null) {
+//
+//                is = responseEntity.getContent();
+//            }
 
         } catch (ClientProtocolException e) {
             return "exception";
         } catch (IOException e) {
             return "exception";
+        }finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
+
 
         result = decodeResponse(is);
 
@@ -313,39 +397,81 @@ public class WebService {
  */
     public String editProfile(String id, String firstName, String lastName,
                               String state, String email, String password) {
+        // new changes - nikita
 
-        HttpClient httpclient = new DefaultHttpClient();
-        HttpPost httppost = new HttpPost(EDIT_PROFILE_URL);
+        HttpURLConnection conn=null;
+//        HttpClient httpclient = new DefaultHttpClient();
+//        HttpPost httppost = new HttpPost(EDIT_PROFILE_URL);
         String result = "";
         InputStream is = null;
         try {
+            URL url = new URL(EDIT_PROFILE_URL);
 
+            conn = (HttpURLConnection)url.openConnection();
             Log.e("URL parameter", "id :" + id + "First Name :" + firstName
                     + "\nlastName : " + lastName + " \nState : " + state
                     + " \nemail :" + email + "\npassword :" + password);
 
-            httppost.setHeader("userId", id);
-            httppost.setHeader("firstName", firstName);
-            httppost.setHeader("lastName", lastName);
-            httppost.setHeader("state", state);
-            httppost.setHeader("email", email.trim());
-            //    if (!password.equals("")) {
-            httppost.setHeader("password", password);
-            //   }
-            HttpResponse response = httpclient.execute(httppost);
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
 
-            HttpEntity responseEntity = response.getEntity();
+            Uri.Builder builder = new Uri.Builder()
+                    .appendQueryParameter("userId", id)
+                    .appendQueryParameter("firstName", firstName)
+                    .appendQueryParameter("lastName", lastName)
+                    .appendQueryParameter("state", state)
+                    .appendQueryParameter("email", email.trim())
+                    .appendQueryParameter("password", password);
+            String query = builder.build().getEncodedQuery();
 
-            if (responseEntity != null) {
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(os, "UTF-8"));
+            writer.write(query);
+            writer.flush();
+            writer.close();
+            os.close();
 
-                is = responseEntity.getContent();
+            conn.connect();
+
+            // get stream
+            if (conn.getResponseCode() < HttpURLConnection.HTTP_BAD_REQUEST) {
+                is = conn.getInputStream();
+            } else {
+                is = conn.getErrorStream();
             }
+
+
+//            httppost.setHeader("userId", id);
+//            httppost.setHeader("firstName", firstName);
+//            httppost.setHeader("lastName", lastName);
+//            httppost.setHeader("state", state);
+//            httppost.setHeader("email", email.trim());
+//            //    if (!password.equals("")) {
+//            httppost.setHeader("password", password);
+//            //   }
+//            HttpResponse response = httpclient.execute(httppost);
+//
+//            HttpEntity responseEntity = response.getEntity();
+//
+//            if (responseEntity != null) {
+//
+//                is = responseEntity.getContent();
+//            }
 
         } catch (ClientProtocolException e) {
             return "exception";
         } catch (IOException e) {
             return "exception";
+        }finally {
+            if (conn != null) {
+                conn.disconnect();
+            }
         }
+
 
         result = decodeResponse(is);
 
