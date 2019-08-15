@@ -229,24 +229,33 @@ public class WebService {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
+            conn.setRequestProperty( "Content-Type", "application/json");
+            conn.setRequestProperty( "charset", "utf-8");
+            conn.setRequestProperty("firstName", firstName);
+            conn.setRequestProperty("lastName", lastName);
+            conn.setRequestProperty("state", state);
+            conn.setRequestProperty("email", mail.trim());
+            conn.setRequestProperty("password", password);
+            conn.setRequestProperty("deviceUdid", deviceUdid);
+            conn.setRequestProperty("deviceType", deviceType);
 
-            Uri.Builder builder = new Uri.Builder()
-                    .appendQueryParameter("firstName", firstName)
-                    .appendQueryParameter("lastName", lastName)
-                    .appendQueryParameter("state", state)
-            .appendQueryParameter("email", mail.trim())
-            .appendQueryParameter("password", password)
-            .appendQueryParameter("deviceUdid", deviceUdid)
-                    .appendQueryParameter("deviceType", deviceType);
-            String query = builder.build().getEncodedQuery();
-
-            OutputStream os = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
-            writer.write(query);
-            writer.flush();
-            writer.close();
-            os.close();
+//            Uri.Builder builder = new Uri.Builder()
+//                    .appendQueryParameter("firstName", firstName)
+//                    .appendQueryParameter("lastName", lastName)
+//                    .appendQueryParameter("state", state)
+//            .appendQueryParameter("email", mail.trim())
+//            .appendQueryParameter("password", password)
+//            .appendQueryParameter("deviceUdid", deviceUdid)
+//                    .appendQueryParameter("deviceType", deviceType);
+//            String query = builder.build().getEncodedQuery();
+//
+//            OutputStream os = conn.getOutputStream();
+//            BufferedWriter writer = new BufferedWriter(
+//                    new OutputStreamWriter(os, "UTF-8"));
+//            writer.write(query);
+//            writer.flush();
+//            writer.close();
+//            os.close();
 
             conn.connect();
 
@@ -305,24 +314,28 @@ public class WebService {
             Log.e("Encode String", name);
             Log.e("Encode String", email);
 
+            conn.setRequestProperty( "Content-Type", "application/json");
+            conn.setRequestProperty( "charset", "utf-8");
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
+            conn.setRequestProperty("firstName", name);
+            conn.setRequestProperty("email", email);
 
-            Uri.Builder builder = new Uri.Builder()
-                    .appendQueryParameter("firstName", name)
-                    .appendQueryParameter("email", email);
-            String query = builder.build().getEncodedQuery();
-
-            OutputStream os = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
-            writer.write(query);
-            writer.flush();
-            writer.close();
-            os.close();
+//            Uri.Builder builder = new Uri.Builder()
+//                    .appendQueryParameter("firstName", name)
+//                    .appendQueryParameter("email", email);
+//            String query = builder.build().getEncodedQuery();
+//
+//            OutputStream os = conn.getOutputStream();
+//            BufferedWriter writer = new BufferedWriter(
+//                    new OutputStreamWriter(os, "UTF-8"));
+//            writer.write(query);
+//            writer.flush();
+//            writer.close();
+//            os.close();
 
             conn.connect();
 
@@ -417,23 +430,31 @@ public class WebService {
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
+            conn.setRequestProperty( "Content-Type", "application/json");
+            conn.setRequestProperty( "charset", "utf-8");
+            conn.setRequestProperty("userId", id);
+            conn.setRequestProperty("firstName", firstName);
+            conn.setRequestProperty("lastName", lastName);
+            conn.setRequestProperty("state", state);
+            conn.setRequestProperty("email", email.trim());
+            conn.setRequestProperty("password", password);
 
-            Uri.Builder builder = new Uri.Builder()
-                    .appendQueryParameter("userId", id)
-                    .appendQueryParameter("firstName", firstName)
-                    .appendQueryParameter("lastName", lastName)
-                    .appendQueryParameter("state", state)
-                    .appendQueryParameter("email", email.trim())
-                    .appendQueryParameter("password", password);
-            String query = builder.build().getEncodedQuery();
-
-            OutputStream os = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
-            writer.write(query);
-            writer.flush();
-            writer.close();
-            os.close();
+//            Uri.Builder builder = new Uri.Builder()
+//                    .appendQueryParameter("userId", id)
+//                    .appendQueryParameter("firstName", firstName)
+//                    .appendQueryParameter("lastName", lastName)
+//                    .appendQueryParameter("state", state)
+//                    .appendQueryParameter("email", email.trim())
+//                    .appendQueryParameter("password", password);
+//            String query = builder.build().getEncodedQuery();
+//
+//            OutputStream os = conn.getOutputStream();
+//            BufferedWriter writer = new BufferedWriter(
+//                    new OutputStreamWriter(os, "UTF-8"));
+//            writer.write(query);
+//            writer.flush();
+//            writer.close();
+//            os.close();
 
             conn.connect();
 
