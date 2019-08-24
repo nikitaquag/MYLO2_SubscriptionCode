@@ -136,33 +136,39 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                 }
 */
                 llSubscribe.setVisibility(View.GONE);
-                if (preferences == null) {
-                    preferences = new Preferences(SplashNewActivity.this);
-                }
-                if (preferences.getREGISTERED()) {
-                    llBottom.setVisibility(View.VISIBLE);
-                    llSplash.setVisibility(View.GONE);
-                } else {
-                    llSplash.setVisibility(View.VISIBLE);
-                    llBottom.setVisibility(View.GONE);
-                }
+                txtNew.setVisibility(View.GONE);
+//                if (preferences == null) {
+//                    preferences = new Preferences(SplashNewActivity.this);
+//                }
+//                if (preferences.getREGISTERED()) {
+//                    llBottom.setVisibility(View.VISIBLE);
+//                    llSplash.setVisibility(View.GONE);
+//                } else {
+//                    llSplash.setVisibility(View.VISIBLE);
+//                    llBottom.setVisibility(View.GONE);
+//                }
             } else {
-                // if (infiniteGasPurchase.getPurchaseTime()!=null)
-                // Log.d(TAG,  ""+infiniteGasPurchase.getPurchaseTime());
-                //  Toast.makeText(getApplicationContext(),"Please Subscribe for Continue",Toast.LENGTH_SHORT).show();
-                llSubscribe.setVisibility(View.VISIBLE);
-                llBottom.setVisibility(View.GONE);
-                llSplash.setVisibility(View.GONE);
-                if (preferences == null) {
-                    preferences = new Preferences(SplashNewActivity.this);
-                }
-                if (preferences.getSubscribed()) {
-                    txtSubscribe.setText("Renew Your Subscription");
-                } else {
-                    txtSubscribe.setText("Subscribe To Continue");
-                }
+                //Nikita - commenting subscription code in splash screen
+//                // if (infiniteGasPurchase.getPurchaseTime()!=null)
+//                // Log.d(TAG,  ""+infiniteGasPurchase.getPurchaseTime());
+//                //  Toast.makeText(getApplicationContext(),"Please Subscribe for Continue",Toast.LENGTH_SHORT).show();
+//                llSubscribe.setVisibility(View.VISIBLE);
+//                llBottom.setVisibility(View.GONE);
+//                llSplash.setVisibility(View.GONE);
+//                if (preferences == null) {
+//                    preferences = new Preferences(SplashNewActivity.this);
+//                }
+//                if (preferences.getSubscribed()) {
+//                    txtSubscribe.setText("Renew Your Subscription");
+//                } else {
+//                    txtSubscribe.setText("Subscribe To Continue");
+//                }
+//
+//                onInfiniteGasButtonClicked();
 
-                onInfiniteGasButtonClicked();
+
+                llSplash.setVisibility(View.VISIBLE);
+                llBottom.setVisibility(View.GONE);
             }
 
             updateUi();
@@ -171,70 +177,71 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         }
     };
 
-    // Callback for when a purchase is finished
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
-        public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
-            Log.d(TAG, "Purchase finished: " + result + ", purchase: " + purchase);
-
-            // if we were disposed of in the meantime, quit.
-            if (mHelper == null) return;
-
-            if (result.isFailure()) {
-                //vars added comment
-                if (!result.getMessage().contains("canceled")) {
-                    complain(result.getMessage());
-                }
-                setWaitScreen(false);
-
-                //Shradha
-                //Varsa remove comment
-             /*   llSubscribe.setVisibility(View.GONE);
-                if (preferences == null) {
-                    preferences = new Preferences(SplashNewActivity.this);
-                }
-                preferences.setSubscribed(true);
-                if (preferences.getREGISTERED()) {
-                    llBottom.setVisibility(View.VISIBLE);
-                    llSplash.setVisibility(View.GONE);
-                } else {
-                    llSplash.setVisibility(View.VISIBLE);
-                    llBottom.setVisibility(View.GONE);
-                }
-*/
-                return;
-            }
-            if (!verifyDeveloperPayload(purchase)) {
-                complain("Error purchasing. Authenticity verification failed.");
-                setWaitScreen(false);
-                return;
-            }
-
-            Log.d(TAG, "Purchase successful.");
-            if (purchase.getSku().equals(SKU_INFINITE_GAS)) {
-                // bought the infinite gas subscription
-                Log.d(TAG, "Mylo app subscription purchased.");
-                alert("Thank you for subscribing to Mylo app!");
-                mSubscribedToInfiniteGas = true;
-                //  mTank = TANK_MAX;
-                updateUi();
-                llSubscribe.setVisibility(View.GONE);
-                if (preferences == null) {
-                    preferences = new Preferences(SplashNewActivity.this);
-                }
-                preferences.setSubscribed(true);
-                if (preferences.getREGISTERED()) {
-                    llBottom.setVisibility(View.VISIBLE);
-                    llSplash.setVisibility(View.GONE);
-                } else {
-                    llSplash.setVisibility(View.VISIBLE);
-                    llBottom.setVisibility(View.GONE);
-                }
-                // updateUi();*g*
-                setWaitScreen(false);
-                //    Toast.makeText(getApplicationContext(),"Thanx and Welcome",Toast.LENGTH_SHORT).show();
-            }
-        }
-    };
+    //Nikita - commenting subscription code in splash screen
+//    // Callback for when a purchase is finished
+//    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener = new IabHelper.OnIabPurchaseFinishedListener() {
+//        public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
+//            Log.d(TAG, "Purchase finished: " + result + ", purchase: " + purchase);
+//
+//            // if we were disposed of in the meantime, quit.
+//            if (mHelper == null) return;
+//
+//            if (result.isFailure()) {
+//                //vars added comment
+//                if (!result.getMessage().contains("canceled")) {
+//                    complain(result.getMessage());
+//                }
+//                setWaitScreen(false);
+//
+//                //Shradha
+//                //Varsa remove comment
+//             /*   llSubscribe.setVisibility(View.GONE);
+//                if (preferences == null) {
+//                    preferences = new Preferences(SplashNewActivity.this);
+//                }
+//                preferences.setSubscribed(true);
+//                if (preferences.getREGISTERED()) {
+//                    llBottom.setVisibility(View.VISIBLE);
+//                    llSplash.setVisibility(View.GONE);
+//                } else {
+//                    llSplash.setVisibility(View.VISIBLE);
+//                    llBottom.setVisibility(View.GONE);
+//                }
+//*/
+//                return;
+//            }
+//            if (!verifyDeveloperPayload(purchase)) {
+//                complain("Error purchasing. Authenticity verification failed.");
+//                setWaitScreen(false);
+//                return;
+//            }
+//
+//            Log.d(TAG, "Purchase successful.");
+//            if (purchase.getSku().equals(SKU_INFINITE_GAS)) {
+//                // bought the infinite gas subscription
+//                Log.d(TAG, "Mylo app subscription purchased.");
+//                alert("Thank you for subscribing to Mylo app!");
+//                mSubscribedToInfiniteGas = true;
+//                //  mTank = TANK_MAX;
+//                updateUi();
+//                llSubscribe.setVisibility(View.GONE);
+//                if (preferences == null) {
+//                    preferences = new Preferences(SplashNewActivity.this);
+//                }
+//                preferences.setSubscribed(true);
+//                if (preferences.getREGISTERED()) {
+//                    llBottom.setVisibility(View.VISIBLE);
+//                    llSplash.setVisibility(View.GONE);
+//                } else {
+//                    llSplash.setVisibility(View.VISIBLE);
+//                    llBottom.setVisibility(View.GONE);
+//                }
+//                // updateUi();*g*
+//                setWaitScreen(false);
+//                //    Toast.makeText(getApplicationContext(),"Thanx and Welcome",Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//    };
     private int[] layouts;
     //    ProgressDialog pd;
     private MyViewPagerAdapter myViewPagerAdapter;
@@ -259,11 +266,13 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         ImageLoader.getInstance().init(config);
         imageLoader = ImageLoader.getInstance();
     }
+
     public boolean isTablet(Context context) {
         boolean xlarge = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4);
         boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
         return (xlarge || large);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -279,13 +288,12 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         setContentView(R.layout.activity_splash_no_courtesy);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
-        ImageView imageView=findViewById(R.id.imgSplash);
+        ImageView imageView = findViewById(R.id.imgSplash);
         initImageLoader();
-        if (isTablet(context))
-        {
+        if (isTablet(context)) {
             String imageUri = "drawable://" + R.drawable.sp_tabnew;
             imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
-        }else {
+        } else {
             String imageUri = "drawable://" + R.drawable.sp_new;
             imageLoader.displayImage(String.valueOf(imageUri), imageView, displayImageOptions);
         }
@@ -348,14 +356,27 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
     private void loadata() {//nikita
         // hashKey();
         //  accessPermission();
+
         variableInitialization();
         initUI();
         initListener();
+
         //  initViewPager();
         // initBanner();
+//        init();
 
-        init();
-    // inApp();//commented for 30 free days***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************'
+        if (preferences == null) {
+            preferences = new Preferences(SplashNewActivity.this);
+        }
+
+        if (preferences.getREGISTERED()) {
+            llBottom.setVisibility(View.VISIBLE);
+            llSplash.setVisibility(View.GONE);
+        } else {
+            inApp();
+        }
+
+//        inApp();//commented for 30 free days***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************'
 
 
         // code below for 30 days -starts here-nikita
@@ -514,6 +535,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
          bannerSlider.setBanners(banners);
      }
  */
+
     private void inApp() {
         String base64EncodedPublicKey = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq3i1ShkUzBAWxerhJne2R7KYwWVXyERXLxz7Co0kW9wS45C55XnM/kFHNZ0hI62Oz8HWbTO+RisBMQ5If21sHu5DgXLHa+LNYj+2ZPQWlh46jo/jhMgo+V9YJ7EeOLedH70fFRlhy9OT2ZmOWscxN5YJDp22RXvilale2WcoKVOriS+I9fNbeREDcKM4CsB0isJyDEVIagaRaa0Za8MleOVeYUdma5q3ENZDJ8g9W2Dy0h6fioCZ9OIgBCY63qr0jVxHUwD8Jebp91czKWRSRi433suBmSkoE6qkhwtDEdckeG+cx6xErHcoPSrwhaLlvqCC1KngYduRZy5j1jCAywIDAQAB"; //"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAt/vQGFXEB+fQ7s5JbO/teKHjmvkZgqSeLSXmicYu4jDC5mBqfZ1/wBES/lhPGEfJAmjmSSQ1Z35XIcoTL74KVASTrUComknH4XiGaiXCjeCe9cFwYCXlWT+B3Y+dkRajRTi9G/iIgUZP6NTyblmKd5KcUn64CQIqgIZ8pD/4GsIR5abUFTEH9XXQEKzFjcdaBKB4uK1m2JLZ+w+FTFeNydzqSYdRL5lY4IHr8RHZwA3BReNMpzPt1Zp7URSkAGjXvbpOkURupUP+hB4VBYQYPfHfx3K4m32XKWl8zP0qwHS2kIIAjAEekzN+l+bDAU9fXdkDKuHIeXA0HLC6i9jRkQIDAQAB";
 
@@ -613,19 +635,19 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
 //        txtSubscribe.setOnClickListener(this);
 //        rlBottom.setOnClickListener(this);
 
-        llSubscribe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onInfiniteGasButtonClicked();
-            }
-        });
-
-        llBottom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onInfiniteGasButtonClicked();
-            }
-        });
+//        llSubscribe.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onInfiniteGasButtonClicked();
+//            }
+//        });
+//
+//        llBottom.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onInfiniteGasButtonClicked();
+//            }
+//        });
     }
 
     private void initUI() {
@@ -694,12 +716,12 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         /*    case R.id.txtSubscribes:
                 onInfiniteGasButtonClicked();
                 break;*/
-            case R.id.rlBottom:
-                onInfiniteGasButtonClicked();
-                break;
-            case R.id.llSubscribe:
-                onInfiniteGasButtonClicked();
-                break;
+//            case R.id.rlBottom:
+//                onInfiniteGasButtonClicked();
+//                break;
+//            case R.id.llSubscribe:
+//                onInfiniteGasButtonClicked();
+//                break;
 
             case R.id.txtNew:
                 Intent intent = new Intent(context, SignUpActivity.class);
@@ -757,7 +779,7 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CALL_PERMISSION: {
-                if (grantResults.length > 0 &&grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
                     //  checkForRegistration();
 
@@ -775,33 +797,33 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
-    public void onInfiniteGasButtonClicked() {
-        if (mHelper!=null) {
-            if (!mHelper.subscriptionsSupported()) {
-                complain("Subscriptions not supported on your device yet. Sorry!");
-                return;
-            }
-        }
-        /* TODO: for security, generate your payload here for verification. See the comments on
-         *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
-         *        an empty string, but on a production app you should carefully generate this. */
-        String payload = "";
-
-        setWaitScreen(true);
-        Log.d(TAG, "Launching purchase flow for Mylo subscription.");
-
-        if (mHelper != null) {
-            try {
-                mHelper.launchPurchaseFlow(this,
-                        SKU_INFINITE_GAS, IabHelper.ITEM_TYPE_SUBS,
-                        RC_REQUEST, mPurchaseFinishedListener, payload);
-            }
-            catch(IllegalStateException ex){
-                Toast.makeText(this, "Please retry in a few seconds.", Toast.LENGTH_SHORT).show();
-                mHelper.flagEndAsync();
-            }
-        }
-    }
+//    public void onInfiniteGasButtonClicked() {
+//        if (mHelper!=null) {
+//            if (!mHelper.subscriptionsSupported()) {
+//                complain("Subscriptions not supported on your device yet. Sorry!");
+//                return;
+//            }
+//        }
+//        /* TODO: for security, generate your payload here for verification. See the comments on
+//         *        verifyDeveloperPayload() for more info. Since this is a SAMPLE, we just use
+//         *        an empty string, but on a production app you should carefully generate this. */
+//        String payload = "";
+//
+//        setWaitScreen(true);
+//        Log.d(TAG, "Launching purchase flow for Mylo subscription.");
+//
+//        if (mHelper != null) {
+//            try {
+//                mHelper.launchPurchaseFlow(this,
+//                        SKU_INFINITE_GAS, IabHelper.ITEM_TYPE_SUBS,
+//                        RC_REQUEST, mPurchaseFinishedListener, payload);
+//            }
+//            catch(IllegalStateException ex){
+//                Toast.makeText(this, "Please retry in a few seconds.", Toast.LENGTH_SHORT).show();
+//                mHelper.flagEndAsync();
+//            }
+//        }
+//    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -835,11 +857,10 @@ public class SplashNewActivity extends AppCompatActivity implements View.OnClick
         // very important:
         Log.d(TAG, "Destroying helper.");
         if (mHelper != null) {
-             try {
+            try {
                 mHelper.dispose();
                 mHelper = null;
-            }catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
