@@ -23,6 +23,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PersonalInfoQuery;
@@ -37,6 +41,7 @@ import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.NetworkUtils;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+import com.mindyourlovedone.healthcare.utility.WorkerPost;
 import com.mindyourlovedone.healthcare.webservice.WebService;
 
 import org.apache.commons.io.FileUtils;
@@ -503,6 +508,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
     void complain(String message) {
         Log.e(TAG, "Error: " + message);
         alert(message);
+        onInfiniteGasButtonClicked();// re-prompt payment portal
     }
 
     void alert(String message) {
@@ -548,19 +554,25 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
                 alert("Thank you for subscribing to Mylo app!");
                 mSubscribedToInfiniteGas = true;
 
-                if (!NetworkUtils.getConnectivityStatusString(ImpAgreementActivity.this).equals("Not connected to Internet")) {
                     String startdate = toDateStr(purchase.getPurchaseTime());
                     String enddate = toDateEnd(purchase.getPurchaseTime() + DateUtils.YEAR_IN_MILLIS);
+
                     Toast.makeText(ImpAgreementActivity.this, "SUB_DATA\nTID : " + purchase.getToken() + "\nSdate : " + startdate + "\nEdate : " + enddate + "\nUID : " + userid, Toast.LENGTH_LONG).show();
-                    ImpAgreementActivity.PostSubAsynk asynkTask = new ImpAgreementActivity.PostSubAsynk(userid + "", purchase.getToken(), startdate, enddate);
-                    asynkTask.execute();
-                } else {
-                    DialogManager.showAlert("Network Error, Check your internet connection", ImpAgreementActivity.this);
-                }
+
+                    SubscrptionData sub = new SubscrptionData();
+                    sub.setSource("Android");
+                    sub.setEndDate(enddate);
+                    sub.setStartDate(startdate);
+                    sub.setTransactionID(purchase.getToken());
+                    sub.setUserId(userid);
+                    sub.setEmail(email);
+
+                    initBGProcess(sub);
+
 
             } else {
                 complain("Kindly subscribe.");
-                onInfiniteGasButtonClicked();// re-prompt payment portal
+
             }
         }
     };
@@ -577,101 +589,31 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
         return formatter.format(date);
     }
 
+    private void initBGProcess(SubscrptionData sub) {
 
-    class PostSubAsynk extends AsyncTask<Void, Void, String> {
-        String userid, transactionId, startDate, endDate;
-        ProgressDialog pd;
+        SubscriptionQuery ss = new SubscriptionQuery(context, dbHelper);
+        Boolean ssflag = SubscriptionQuery.insertSubscriptionData(sub.getUserId(), sub);
 
+        if (ssflag) {
+            Data inputData = new Data.Builder()
+                    .putInt("userId", sub.getUserId())
+                    .build();
 
-        public PostSubAsynk(String userid, String transactionId, String startDate, String endDate) {
-            this.userid = userid;
-            this.transactionId = transactionId;
-            this.startDate = startDate;
-            this.endDate = endDate;
+            OneTimeWorkRequest mywork =
+                    new OneTimeWorkRequest.Builder(WorkerPost.class)
+                            .setInputData(inputData).build();// Use this when you want to add initial delay or schedule initial work to `OneTimeWorkRequest` e.g. setInitialDelay(2, TimeUnit.HOURS)
+            String id = mywork.getId().toString();
+            System.out.println("NIKITA WORK ID: " + id);
+            WorkManager.getInstance().enqueue(mywork);
         }
 
-        @Override
-        protected void onPreExecute() {
-            pd = ProgressDialog.show(context, "", "Please Wait..");
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            WebService webService = new WebService();
-            String result = webService.postSubscriptionData(userid, transactionId, startDate, endDate);
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if (pd != null) {
-                if (pd.isShowing()) {
-                    pd.dismiss();
-                }
-            }
-
-            if (!result.equals("")) {
-                if (result.equals("Exception")) {
-                    // ErrorDialog.errorDialog(context);
-                    DialogManager.showAlert("Error", context);
-                } else {
-                    Log.e("CreateUserAsynk", result);
-                    parseSubscriptionResponse(result);
-                }
-            }
-            super.onPostExecute(result);
-        }
-
-        private void parseSubscriptionResponse(String result) {
-
-            Log.e("Response", result);
-            JSONObject job = null;
-            String errorCode = "";
-            try {
-                job = new JSONObject(result);
-                JSONObject jobB = job.optJSONObject("response");
-                errorCode = jobB.optString("errorCode");
-                String message = "";
-
-                SubscrptionData sub = new SubscrptionData();
-                sub.setSource("Android");
-                sub.setEndDate(endDate);
-                sub.setStartDate(startDate);
-                sub.setTransactionID(transactionId);
-                sub.setUserId(Integer.parseInt(userid));
-                sub.setEmail(email);
-
-                if (errorCode.equals("0")) {
-                    message = jobB.optString("respMsg");
-                    Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
-// Update upload flag in subcription table as 1
-                    sub.setUpload(1);
-                } else if (errorCode.equals("1")) {
-                    message = jobB.optString("errorMsg");
-                    Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
-                    sub.setUpload(0);
-                } else {
-                    sub.setUpload(0);
-                    Toast.makeText(context, "Unexpected error from server.", Toast.LENGTH_LONG).show();
-                }
-
-
-                navigateToApp(sub);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Toast.makeText(context, "Exception detected : " + (e.getCause()), Toast.LENGTH_LONG).show();
-            }
-
-        }
-
+        navigateToAPP();
     }
 
-    private void navigateToApp(SubscrptionData sub) {
+
+    private void navigateToAPP() {
         //Nikita#Sub
         //After Success
-        SubscriptionQuery ss = new SubscriptionQuery(context, dbHelper);
-        Boolean ssflag = SubscriptionQuery.insertSubscriptionData(userid, sub);
 
         Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userid, name, email, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
 
@@ -743,7 +685,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
 
                 if (!result.isSuccess()) {
                     // Oh noes, there was a problem.
-                    complain("Problem setting up in-app billing: " + result);
+                    alert("Problem setting up in-app billing: " + result);
                     return;
                 }
 
@@ -802,17 +744,24 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
             if (mSubscribedToInfiniteGas == true) {
 
                 Log.d(TAG, "" + purchase.getPurchaseTime());
-                if (!NetworkUtils.getConnectivityStatusString(ImpAgreementActivity.this).equals("Not connected to Internet")) {
-                    String startdate = toDateStr(purchase.getPurchaseTime());
-                    String enddate = toDateEnd(purchase.getPurchaseTime() + DateUtils.YEAR_IN_MILLIS);
-                    ImpAgreementActivity.PostSubAsynk asynkTask = new ImpAgreementActivity.PostSubAsynk(preferences.getInt(PrefConstants.USER_ID) + "", purchase.getToken(), startdate, enddate);
-                    asynkTask.execute();
-                } else {
-                    DialogManager.showAlert("Network Error, Check your internet connection", ImpAgreementActivity.this);
-                }
+
+                String startdate = toDateStr(purchase.getPurchaseTime());
+                String enddate = toDateEnd(purchase.getPurchaseTime() + DateUtils.YEAR_IN_MILLIS);
+
+                Toast.makeText(ImpAgreementActivity.this, "SUB_DATA\nTID : " + purchase.getToken() + "\nSdate : " + startdate + "\nEdate : " + enddate + "\nUID : " + userid, Toast.LENGTH_LONG).show();
+
+                SubscrptionData sub = new SubscrptionData();
+                sub.setSource("Android");
+                sub.setEndDate(enddate);
+                sub.setStartDate(startdate);
+                sub.setTransactionID(purchase.getToken());
+                sub.setUserId(userid);
+                sub.setEmail(email);
+
+                initBGProcess(sub);
 
             } else {
-                onInfiniteGasButtonClicked();// re-prompt payment portal
+                complain("Kindly subscribe");
             }
 
             Log.d(TAG, "Initial inventory query finished; enabling main UI.");
@@ -823,7 +772,7 @@ public class ImpAgreementActivity extends AppCompatActivity implements View.OnCl
     public void onInfiniteGasButtonClicked() {
         if (mHelper != null) {
             if (!mHelper.subscriptionsSupported()) {
-                complain("Subscriptions not supported on your device yet. Sorry!");
+                alert("Subscriptions not supported on your device yet. Sorry!");
                 return;
             }
         }

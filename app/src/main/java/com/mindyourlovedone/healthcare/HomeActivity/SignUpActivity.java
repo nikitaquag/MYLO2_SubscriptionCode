@@ -664,7 +664,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                 sub.setTransactionID(transId);
                                 sub.setUserId(Integer.parseInt(user_id));
                                 sub.setEmail(email);
-                                sub.setUserId(1);
+
+                                preferences.putInt(PrefConstants.UPLOAD_FLAG, 1);
+
                                 navigateToAPPSUB(userid, sub); // Entry to App
                             } else {
                                 // User has invalid subscription data on server

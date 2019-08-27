@@ -27,6 +27,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.work.Data;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
+
 import com.mindyourlovedone.healthcare.database.DBHelper;
 import com.mindyourlovedone.healthcare.database.MyConnectionsQuery;
 import com.mindyourlovedone.healthcare.database.PersonalInfoQuery;
@@ -41,6 +45,7 @@ import com.mindyourlovedone.healthcare.utility.DialogManager;
 import com.mindyourlovedone.healthcare.utility.NetworkUtils;
 import com.mindyourlovedone.healthcare.utility.PrefConstants;
 import com.mindyourlovedone.healthcare.utility.Preferences;
+import com.mindyourlovedone.healthcare.utility.WorkerPost;
 import com.mindyourlovedone.healthcare.webservice.WebService;
 
 import org.apache.commons.io.FileUtils;
@@ -82,8 +87,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_login);
         window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
 
-        initComponent();
+
         initUI();
+        initComponent();
         initListener();
     }
 
@@ -152,6 +158,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 hideSoftKeyboard();
             }
         });
+
+        if(getIntent().hasExtra("from")){
+            txtName.setText(getIntent().getExtras().getString("name"));
+            txtUserName.setText(getIntent().getExtras().getString("email"));
+        }
     }
 
 
@@ -241,12 +252,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private void navigateToAPP(SubscrptionData sub) {
+    private void navigateToAPP() {
         int userId = Integer.parseInt(userid);
         Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
         //After Success
-        SubscriptionQuery ss = new SubscriptionQuery(context, dbHelper);
-        Boolean ssflag = SubscriptionQuery.insertSubscriptionData(userId, sub);
 
         Boolean flag = MyConnectionsQuery.insertMyConnectionsData(userId, name, username, "", "", "", "", "Self", "", "", 1, 2, "", "", has_card);
 
@@ -315,14 +324,19 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             // User has valid subscription data on server
                             // Entry to App
                             SubscrptionData sub = new SubscrptionData();
-                            sub.setSource("Android");
+                            sub.setSource(source);
                             sub.setEndDate(endDate);
                             sub.setStartDate(startDate);
                             sub.setTransactionID(transId);
                             sub.setUserId(Integer.parseInt(userid));
                             sub.setEmail(username);
-                            sub.setUserId(1);
-                            navigateToAPP(sub);
+
+                            preferences.putInt(PrefConstants.UPLOAD_FLAG, 1);
+
+                            SubscriptionQuery ss = new SubscriptionQuery(context, dbHelper);
+                            Boolean ssflag = SubscriptionQuery.insertSubscriptionData(sub.getUserId(), sub);
+
+                            navigateToAPP();
                         } else {
                             // User has invalid subscription data on server
                             iserror = true;
@@ -337,7 +351,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
 
                 //navigating to login - if user is existing without subscription
-                Toast.makeText(context, ""+message, Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
                 if (iserror) {
                     inApp();//calling subscription method here
                 }
@@ -527,6 +541,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     void complain(String message) {
         Log.e(TAG, "Error: " + message);
         alert(message);
+        onInfiniteGasButtonClicked();// re-prompt payment portal
     }
 
     void alert(String message) {
@@ -575,16 +590,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (!NetworkUtils.getConnectivityStatusString(LoginActivity.this).equals("Not connected to Internet")) {
                     String startdate = toDateStr(purchase.getPurchaseTime());
                     String enddate = toDateEnd(purchase.getPurchaseTime() + DateUtils.YEAR_IN_MILLIS);
+
                     Toast.makeText(LoginActivity.this, "SUB_DATA\nTID : " + purchase.getToken() + "\nSdate : " + startdate + "\nEdate : " + enddate + "\nUID : " + userid, Toast.LENGTH_LONG).show();
-                    LoginActivity.PostSubAsynk asynkTask = new LoginActivity.PostSubAsynk(userid, purchase.getToken(), startdate, enddate);
-                    asynkTask.execute();
+
+                    SubscrptionData sub = new SubscrptionData();
+                    sub.setSource("Android");
+                    sub.setEndDate(enddate);
+                    sub.setStartDate(startdate);
+                    sub.setTransactionID(purchase.getToken());
+                    sub.setUserId(Integer.parseInt(userid));
+                    sub.setEmail(username);
+
+                    initBGProcess(sub);
                 } else {
                     DialogManager.showAlert("Network Error, Check your internet connection", LoginActivity.this);
                 }
 
             } else {
                 complain("Kindly subscribe.");
-                onInfiniteGasButtonClicked();// re-prompt payment portal
             }
         }
     };
@@ -601,95 +624,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         return formatter.format(date);
     }
 
+    private void initBGProcess(SubscrptionData sub) {
 
-    class PostSubAsynk extends AsyncTask<Void, Void, String> {
-        String useid, transactionId, startDate, endDate;
-        ProgressDialog pd;
+        SubscriptionQuery ss = new SubscriptionQuery(context, dbHelper);
+        Boolean ssflag = SubscriptionQuery.insertSubscriptionData(sub.getUserId(), sub);
 
+        if (ssflag) {
+            preferences.putInt(PrefConstants.UPLOAD_FLAG, 0);
 
-        public PostSubAsynk(String userid, String transactionId, String startDate, String endDate) {
-            this.useid = userid;
-            this.transactionId = transactionId;
-            this.startDate = startDate;
-            this.endDate = endDate;
+            Data inputData = new Data.Builder()
+                    .putInt("userId", sub.getUserId())
+                    .build();
+
+            OneTimeWorkRequest mywork =
+                    new OneTimeWorkRequest.Builder(WorkerPost.class)
+                            .setInputData(inputData).build();// Use this when you want to add initial delay or schedule initial work to `OneTimeWorkRequest` e.g. setInitialDelay(2, TimeUnit.HOURS)
+            String id = mywork.getId().toString();
+            System.out.println("NIKITA WORK ID: " + id);
+            WorkManager.getInstance().enqueue(mywork);
         }
 
-        @Override
-        protected void onPreExecute() {
-            pd = ProgressDialog.show(context, "", "Please Wait..");
-            super.onPreExecute();
-        }
-
-        @Override
-        protected String doInBackground(Void... params) {
-            WebService webService = new WebService();
-            String result = webService.postSubscriptionData(useid, transactionId, startDate, endDate);
-            return result;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            if (pd != null) {
-                if (pd.isShowing()) {
-                    pd.dismiss();
-                }
-            }
-
-            if (!result.equals("")) {
-                if (result.equals("Exception")) {
-                    // ErrorDialog.errorDialog(context);
-                    DialogManager.showAlert("Error", context);
-                } else {
-                    Log.e("CreateUserAsynk", result);
-                    parseSubscriptionResponse(result);
-                }
-            }
-            super.onPostExecute(result);
-        }
-
-        private void parseSubscriptionResponse(String result) {
-
-            Log.e("Response", result);
-            JSONObject job = null;
-            String errorCode = "";
-            Toast.makeText(context, "op: " + result, Toast.LENGTH_LONG).show();
-            try {
-                job = new JSONObject(result);
-                JSONObject jobB = job.optJSONObject("response");
-                errorCode = jobB.optString("errorCode");
-                String message = "";
-
-                SubscrptionData sub = new SubscrptionData();
-                sub.setSource("Android");
-                sub.setEndDate(endDate);
-                sub.setStartDate(startDate);
-                sub.setTransactionID(transactionId);
-                sub.setUserId(Integer.parseInt(useid));
-                sub.setEmail(username);
-
-                if (errorCode.equals("0")) {
-                    message = jobB.optString("respMsg");
-                    Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
-// Update upload flag in subcription table as 1
-                    sub.setUpload(1);
-                } else if (errorCode.equals("1")) {
-                    message = jobB.optString("errorMsg");
-                    Toast.makeText(context, "" + message, Toast.LENGTH_LONG).show();
-                    sub.setUpload(0);
-                } else {
-                    sub.setUpload(0);
-                    Toast.makeText(context, "Unexpected error from server.", Toast.LENGTH_LONG).show();
-                }
-
-
-                navigateToAPP(sub);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Toast.makeText(context, "Exception detected : " + (e.getCause()), Toast.LENGTH_LONG).show();
-            }
-
-        }
-
+        navigateToAPP();
     }
 
 
@@ -721,7 +676,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 if (!result.isSuccess()) {
                     // Oh noes, there was a problem.
-                    complain("Problem setting up in-app billing: " + result);
+                    alert("Problem setting up in-app billing: " + result);
                     return;
                 }
 
@@ -784,15 +739,24 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 if (!NetworkUtils.getConnectivityStatusString(LoginActivity.this).equals("Not connected to Internet")) {
                     String startdate = toDateStr(purchase.getPurchaseTime());
                     String enddate = toDateEnd(purchase.getPurchaseTime() + DateUtils.YEAR_IN_MILLIS);
+
                     Toast.makeText(LoginActivity.this, "SUB_DATA\nTID : " + purchase.getToken() + "\nSdate : " + startdate + "\nEdate : " + enddate + "\nUID : " + userid, Toast.LENGTH_LONG).show();
-                    LoginActivity.PostSubAsynk asynkTask = new LoginActivity.PostSubAsynk(userid + "", purchase.getToken(), startdate, enddate);
-                    asynkTask.execute();
+
+                    SubscrptionData sub = new SubscrptionData();
+                    sub.setSource("Android");
+                    sub.setEndDate(enddate);
+                    sub.setStartDate(startdate);
+                    sub.setTransactionID(purchase.getToken());
+                    sub.setUserId(Integer.parseInt(userid));
+                    sub.setEmail(username);
+
+                    initBGProcess(sub);
                 } else {
                     DialogManager.showAlert("Network Error, Check your internet connection", LoginActivity.this);
                 }
 
             } else {
-                onInfiniteGasButtonClicked();// re-prompt payment portal
+                complain("Kindly Subscribe");
             }
 
             Log.d(TAG, "Initial inventory query finished; enabling main UI.");
@@ -803,7 +767,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onInfiniteGasButtonClicked() {
         if (mHelper != null) {
             if (!mHelper.subscriptionsSupported()) {
-                complain("Subscriptions not supported on your device yet. Sorry!");
+                alert("Subscriptions not supported on your device yet. Sorry!");
                 return;
             }
         }

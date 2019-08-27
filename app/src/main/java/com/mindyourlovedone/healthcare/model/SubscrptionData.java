@@ -2,13 +2,13 @@ package com.mindyourlovedone.healthcare.model;
 
 //Nikita#Sub
 public class SubscrptionData {
-     int UserId;
-     String Source = "Source";
-     String TransactionID = "TransactionID";
-     String StartDate= "StartDate";
-     String EndDate= "EndDate";
-     String Status= "Status";
-     String Email = "Email";
+    int UserId;
+    String Source;
+    String TransactionID;
+    String StartDate;
+    String EndDate;
+    String Status;
+    String Email;
 
     public int getUserId() {
         return UserId;
@@ -74,5 +74,5 @@ public class SubscrptionData {
         Upload = upload;
     }
 
-    int Upload=0;
+    int Upload = 0;
 }
