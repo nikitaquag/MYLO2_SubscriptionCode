@@ -11,6 +11,7 @@ import com.mindyourlovedone.healthcare.model.SubscrptionData;
 import java.util.ArrayList;
 
 /**
+ *
  * Created by Nikita on 10/6/2017. Nikita#Sub - new commit
  */
 
